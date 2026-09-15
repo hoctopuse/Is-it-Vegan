@@ -9,8 +9,11 @@ Règles de décision :
 
 - `VEGAN` : ingrédient végétal, minéral ou de synthèse sans origine animale
   raisonnablement attendue ;
-- `NON_VEGAN` : ingrédient explicitement issu d'un animal, de lait, d'œuf,
-  d'insecte ou d'un produit de la ruche ;
+- `NON_VEGAN` : ingrédient clairement non végétarien (chair, gélatine,
+  carmin de cochenille, gomme-laque issue d'insectes) ;
+- `VEGETARIAN` : ingrédient animal sans chair ni partie du corps de l'animal
+  (lait, œuf, miel), donc non vegan ; ce verdict concerne uniquement la liste
+  d'ingrédients et ne constitue jamais une certification ;
 - `UNCERTAIN` : l'origine varie selon le procédé ou le fournisseur, ou le
   libellé ne permet pas de conclure.
 

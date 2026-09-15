@@ -12,6 +12,12 @@
     "use": "Reference for the vegan definition and obvious animal-derived ingredient families."
   },
   {
+    "id": "vegetarian-society",
+    "title": "Vegetarian Society — Trademark Criteria",
+    "url": "https://vegsoc.org/trademarks/trademark-criteria/",
+    "use": "Reference for vegetarian ingredient boundaries; certification also has production requirements that a label cannot establish."
+  },
+  {
     "id": "open-food-facts-docs",
     "title": "Open Food Facts API documentation",
     "url": "https://openfoodfacts.github.io/openfoodfacts-server/api/",

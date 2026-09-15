@@ -7,7 +7,18 @@ import java.text.Normalizer
 data class AnalysisResult(
     val matched: List<Ingredient>,
     val unknown: List<String>
-)
+) {
+    val verdict: AnalysisVerdict
+        get() = when {
+            matched.any { it.status == VeganStatus.NON_VEGAN } -> AnalysisVerdict.NON_VEGETARIAN
+            matched.any { it.status == VeganStatus.UNCERTAIN } -> AnalysisVerdict.UNCERTAIN
+            unknown.isNotEmpty() || matched.isEmpty() -> AnalysisVerdict.INCONCLUSIVE
+            matched.any { it.status == VeganStatus.VEGETARIAN } -> AnalysisVerdict.VEGETARIAN
+            else -> AnalysisVerdict.VEGAN
+        }
+}
+
+enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
 
 object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()

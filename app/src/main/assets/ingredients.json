@@ -493,9 +493,9 @@
       "cow milk",
       "koemelk"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Issu d’animaux.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Lait animal : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "lactose",
@@ -504,9 +504,9 @@
     "aliases": [
       "lactose"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Sucre issu du lait.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Sucre du lait : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "whey",
@@ -520,9 +520,9 @@
       "wei",
       "weipoeder"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Issu du lait.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Issu du lait : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "casein",
@@ -537,9 +537,9 @@
       "caseinates",
       "caseinaten"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Protéine du lait.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Protéine du lait : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "butter",
@@ -550,9 +550,9 @@
       "butter",
       "roomboter"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Matière grasse issue du lait.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Matière grasse laitière : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "cream",
@@ -567,9 +567,9 @@
       "room",
       "milk cream"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Issue du lait.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Issue du lait : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "cheese",
@@ -580,9 +580,9 @@
       "cheese",
       "kaas"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Produit laitier.",
-    "source": "vegan-society"
+    "status": "UNCERTAIN",
+    "reason": "Le fromage est non vegan ; sa présure peut être animale, donc son caractère végétarien dépend du fabricant.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "egg",
@@ -602,9 +602,9 @@
       "albumine d oeuf",
       "albumine d’œuf"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Issu d’œufs.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Œuf : végétarien mais non vegan (sans préjuger des conditions d'élevage).",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "honey",
@@ -615,9 +615,9 @@
       "honey",
       "honing"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Produit par les abeilles.",
-    "source": "vegan-society"
+    "status": "VEGETARIAN",
+    "reason": "Produit par les abeilles : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "beeswax",
@@ -629,9 +629,9 @@
       "beeswax",
       "bijenwas"
     ],
-    "status": "NON_VEGAN",
-    "reason": "Produite par les abeilles.",
-    "source": "vegan-society"
+    "status": "UNCERTAIN",
+    "reason": "Non vegan ; la compatibilité avec le régime végétarien dépend des critères retenus et n'est pas établie ici.",
+    "source": "vegan-society, vegetarian-society"
   },
   {
     "id": "meat",

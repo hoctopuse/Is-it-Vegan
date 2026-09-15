@@ -2,6 +2,7 @@ package com.example.isitvegan
 
 enum class VeganStatus {
     VEGAN,
+    VEGETARIAN,
     NON_VEGAN,
     UNCERTAIN
 }

@@ -11,7 +11,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "knowledge" / "ingredients.json"
 OUTPUT = ROOT / "app" / "src" / "main" / "assets" / "ingredients.json"
-VALID_STATUSES = {"VEGAN", "NON_VEGAN", "UNCERTAIN"}
+VALID_STATUSES = {"VEGAN", "VEGETARIAN", "NON_VEGAN", "UNCERTAIN"}
 
 
 def fail(message: str) -> None:

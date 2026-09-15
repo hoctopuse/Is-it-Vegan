@@ -81,20 +81,26 @@ fun IsItVeganScreen() {
                         "\n\nNon reconnus : " + analysis.unknown.joinToString(", ")
                     result = when {
                         ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
-                        matches.any { it.status == VeganStatus.NON_VEGAN } -> {
+                        analysis.verdict == AnalysisVerdict.NON_VEGETARIAN -> {
                             val found = matches.filter { it.status == VeganStatus.NON_VEGAN }
-                            "❌ NON VEGAN\n\n" + found.joinToString("\n\n") {
+                            "❌ NON VÉGÉTARIEN / NON VEGAN\n\n" + found.joinToString("\n\n") {
                                 "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
                             } + unknownMessage
                         }
-                        matches.any { it.status == VeganStatus.UNCERTAIN } -> {
+                        analysis.verdict == AnalysisVerdict.UNCERTAIN -> {
                             val found = matches.filter { it.status == VeganStatus.UNCERTAIN }
                             "⚠️ INCERTAIN\n\n" + found.joinToString("\n\n") {
                                 "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
                             } + unknownMessage
                         }
-                        analysis.unknown.isNotEmpty() -> {
+                        analysis.verdict == AnalysisVerdict.INCONCLUSIVE -> {
                             "⚠️ INCONCLUS\n\nLa base ne reconnaît pas toute la liste." + unknownMessage
+                        }
+                        analysis.verdict == AnalysisVerdict.VEGETARIAN -> {
+                            val found = matches.filter { it.status == VeganStatus.VEGETARIAN }
+                            "🥛 VÉGÉTARIEN — NON VEGAN\n\n" + found.joinToString("\n\n") {
+                                "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
+                            } + "\n\nVerdict basé sur la liste d'ingrédients, pas une certification du produit."
                         }
                         else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus " +
                             "comme végétaux ou minéraux dans la base hors ligne."
