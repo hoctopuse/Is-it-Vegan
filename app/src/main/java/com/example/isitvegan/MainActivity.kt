@@ -75,47 +75,31 @@ fun IsItVeganScreen() {
             Button(
                 onClick = {
 
-                    val matches = VeganAnalyzer.analyze(ingredients)
-
+                    val analysis = VeganAnalyzer.analyze(ingredients)
+                    val matches = analysis.matched
+                    val unknownMessage = if (analysis.unknown.isEmpty()) "" else
+                        "\n\nNon reconnus : " + analysis.unknown.joinToString(", ")
                     result = when {
-
                         ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
-
-                        matches.any {
-                            it.status == VeganStatus.NON_VEGAN
-                        } -> {
-
-                            val found = matches.filter {
-                                it.status == VeganStatus.NON_VEGAN
-                            }
-
-                            "❌ NON VEGAN\n\n" +
-                                    found.joinToString("\n\n") {
-                                        "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                                    }
+                        matches.any { it.status == VeganStatus.NON_VEGAN } -> {
+                            val found = matches.filter { it.status == VeganStatus.NON_VEGAN }
+                            "❌ NON VEGAN\n\n" + found.joinToString("\n\n") {
+                                "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
+                            } + unknownMessage
                         }
-
-                        matches.any {
-                            it.status == VeganStatus.UNCERTAIN
-                        } -> {
-
-                            val found = matches.filter {
-                                it.status == VeganStatus.UNCERTAIN
-                            }
-
-                            "⚠️ INCERTAIN\n\n" +
-                                    found.joinToString("\n\n") {
-                                        "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                                    }
+                        matches.any { it.status == VeganStatus.UNCERTAIN } -> {
+                            val found = matches.filter { it.status == VeganStatus.UNCERTAIN }
+                            "⚠️ INCERTAIN\n\n" + found.joinToString("\n\n") {
+                                "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
+                            } + unknownMessage
                         }
-
-                        else -> {
-                            "⚠️ INCONCLUS\n\n" +
-                                    "Aucun ingrédient animal repéré dans la base actuelle, " +
-                                    "mais les ingrédients non reconnus n'ont pas été vérifiés. " +
-                                    "Ne considère pas ce résultat comme une certification vegan."
+                        analysis.unknown.isNotEmpty() -> {
+                            "⚠️ INCONCLUS\n\nLa base ne reconnaît pas toute la liste." + unknownMessage
                         }
+                        else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus " +
+                            "comme végétaux ou minéraux dans la base hors ligne."
                     }
+
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

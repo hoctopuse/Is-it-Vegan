@@ -133,5 +133,324 @@
     "status": "NON_VEGAN",
     "reason": "Produite par les abeilles.",
     "source": ""
+  },
+  {
+    "id": "sucre",
+    "name": "Sucre",
+    "aliases": [
+      "sucre",
+      "sugar",
+      "suiker"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "eau",
+    "name": "Eau",
+    "aliases": [
+      "eau",
+      "water"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "sel",
+    "name": "Sel",
+    "aliases": [
+      "sel",
+      "salt",
+      "zout"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "farine_ble",
+    "name": "Farine de blé",
+    "aliases": [
+      "farine",
+      "farine de blé",
+      "farine de ble",
+      "wheat flour",
+      "tarwebloem",
+      "bloem"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "huile_colza",
+    "name": "Huile de colza",
+    "aliases": [
+      "huile de colza",
+      "huile de rapeseed",
+      "rapeseed oil",
+      "koolzaadolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "huile_tournesol",
+    "name": "Huile de tournesol",
+    "aliases": [
+      "huile de tournesol",
+      "sunflower oil",
+      "zonnebloemolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "huile_olive",
+    "name": "Huile d’olive",
+    "aliases": [
+      "huile d olive",
+      "huile d’olive",
+      "olive oil",
+      "olijfolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "huile_vegetale",
+    "name": "Huile végétale",
+    "aliases": [
+      "huile végétale",
+      "huile vegetale",
+      "vegetable oil",
+      "plantaardige olie"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "amidon_mais",
+    "name": "Amidon de maïs",
+    "aliases": [
+      "amidon de maïs",
+      "amidon de mais",
+      "corn starch",
+      "maïszetmeel"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "mais",
+    "name": "Maïs",
+    "aliases": [
+      "maïs",
+      "mais",
+      "corn",
+      "maïsmeel"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "riz",
+    "name": "Riz",
+    "aliases": [
+      "riz",
+      "rice",
+      "rijst",
+      "farine de riz",
+      "rice flour",
+      "rijstmeel"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "avoine",
+    "name": "Avoine",
+    "aliases": [
+      "avoine",
+      "oats",
+      "haver",
+      "flocons d avoine"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "soja",
+    "name": "Soja",
+    "aliases": [
+      "soja",
+      "soy",
+      "soya",
+      "sojabonen"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "tofu",
+    "name": "Tofu",
+    "aliases": [
+      "tofu"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "cacao",
+    "name": "Cacao",
+    "aliases": [
+      "cacao",
+      "cocoa",
+      "cacaopoeder",
+      "poudre de cacao"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "levure",
+    "name": "Levure",
+    "aliases": [
+      "levure",
+      "yeast",
+      "gist",
+      "levure boulangère"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "pomme_terre",
+    "name": "Pomme de terre",
+    "aliases": [
+      "pomme de terre",
+      "pommes de terre",
+      "potato",
+      "aardappel"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "pois_chiche",
+    "name": "Pois chiche",
+    "aliases": [
+      "pois chiche",
+      "pois chiches",
+      "chickpeas",
+      "kikkererwten"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "lentille",
+    "name": "Lentille",
+    "aliases": [
+      "lentilles",
+      "lentille",
+      "lentils",
+      "linzen"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "lait_coco",
+    "name": "Lait de coco",
+    "aliases": [
+      "lait de coco",
+      "coconut milk",
+      "kokosmelk"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "lait_soja",
+    "name": "Lait de soja",
+    "aliases": [
+      "lait de soja",
+      "boisson au soja",
+      "soy milk",
+      "sojamelk"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "vinaigre",
+    "name": "Vinaigre",
+    "aliases": [
+      "vinaigre",
+      "vinegar",
+      "azijn"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "citron",
+    "name": "Citron",
+    "aliases": [
+      "citron",
+      "lemon",
+      "citroensap",
+      "jus de citron"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale ou minérale.",
+    "source": ""
+  },
+  {
+    "id": "lait",
+    "name": "Lait animal",
+    "aliases": [
+      "lait",
+      "milk",
+      "melk",
+      "lait de vache"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Issu d animaux.",
+    "source": ""
+  },
+  {
+    "id": "arome_naturel",
+    "name": "Arôme naturel",
+    "aliases": [
+      "arôme naturel",
+      "arome naturel",
+      "natural flavouring",
+      "natuurlijk aroma"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La liste ne précise pas nécessairement l origine de tous les composants.",
+    "source": ""
   }
 ]
