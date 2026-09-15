@@ -39,5 +39,99 @@
     "status": "UNCERTAIN",
     "reason": "Peut être fabriqué à partir de graisses végétales ou animales.",
     "source": "À documenter"
+  },
+  {
+    "id": "gelatine",
+    "name": "Gélatine",
+    "aliases": [
+      "gélatine",
+      "gelatine",
+      "gelatin",
+      "gelatine bovine",
+      "gelatine porcine"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Protéine issue de tissus animaux.",
+    "source": ""
+  },
+  {
+    "id": "miel",
+    "name": "Miel",
+    "aliases": [
+      "miel",
+      "honey",
+      "honing"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Produit par les abeilles.",
+    "source": ""
+  },
+  {
+    "id": "oeuf",
+    "name": "Œuf",
+    "aliases": [
+      "œuf",
+      "oeuf",
+      "oeufs",
+      "œufs",
+      "egg",
+      "eggs",
+      "ei",
+      "eieren",
+      "albumine d oeuf",
+      "blanc d oeuf"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Ingrédient issu des œufs.",
+    "source": ""
+  },
+  {
+    "id": "lactoserum",
+    "name": "Lactosérum",
+    "aliases": [
+      "lactosérum",
+      "lactoserum",
+      "petit lait",
+      "whey",
+      "wei"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Issu du lait.",
+    "source": ""
+  },
+  {
+    "id": "lactose",
+    "name": "Lactose",
+    "aliases": [
+      "lactose"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Sucre issu du lait.",
+    "source": ""
+  },
+  {
+    "id": "caseine",
+    "name": "Caséine",
+    "aliases": [
+      "caséine",
+      "caseine",
+      "casein",
+      "caseïne"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Protéine du lait.",
+    "source": ""
+  },
+  {
+    "id": "cire_abeille",
+    "name": "Cire d’abeille",
+    "aliases": [
+      "cire d abeille",
+      "beeswax",
+      "bijenwas"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Produite par les abeilles.",
+    "source": ""
   }
 ]

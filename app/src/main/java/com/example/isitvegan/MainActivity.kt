@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -32,9 +34,7 @@ fun IsItVeganScreen() {
         mutableStateOf("")
     }
 
-    var result by remember {
-        mutableStateOf("⚪ En attente d'analyse")
-    }
+    var result by remember { mutableStateOf("⚪ En attente d'analyse") }
 
     Scaffold(
         modifier = Modifier.fillMaxSize()
@@ -44,7 +44,8 @@ fun IsItVeganScreen() {
             modifier = Modifier
                 .padding(innerPadding)
                 .padding(24.dp)
-                .fillMaxSize(),
+                .fillMaxSize()
+                .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(20.dp)
         ) {
 
@@ -78,6 +79,8 @@ fun IsItVeganScreen() {
 
                     result = when {
 
+                        ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
+
                         matches.any {
                             it.status == VeganStatus.NON_VEGAN
                         } -> {
@@ -106,13 +109,11 @@ fun IsItVeganScreen() {
                                     }
                         }
 
-                        matches.isEmpty() -> {
-                            "❓ AUCUN INGRÉDIENT CONNU\n\n" +
-                                    "Impossible de conclure avec la base actuelle."
-                        }
-
                         else -> {
-                            "✅ VEGAN"
+                            "⚠️ INCONCLUS\n\n" +
+                                    "Aucun ingrédient animal repéré dans la base actuelle, " +
+                                    "mais les ingrédients non reconnus n'ont pas été vérifiés. " +
+                                    "Ne considère pas ce résultat comme une certification vegan."
                         }
                     }
                 },
