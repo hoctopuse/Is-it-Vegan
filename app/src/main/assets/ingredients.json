@@ -1,0 +1,43 @@
+[
+  {
+    "id": "e120",
+    "name": "Carmin",
+    "eNumber": "E120",
+    "aliases": [
+      "carmin",
+      "cochenille",
+      "acide carminique",
+      "carmine",
+      "cochineal"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Colorant d'origine animale obtenu à partir de cochenilles.",
+    "source": "À documenter"
+  },
+  {
+    "id": "e904",
+    "name": "Gomme-laque",
+    "eNumber": "E904",
+    "aliases": [
+      "gomme-laque",
+      "shellac",
+      "schellak"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Résine produite par l'insecte Kerria lacca.",
+    "source": "À documenter"
+  },
+  {
+    "id": "e471",
+    "name": "Mono- et diglycérides d'acides gras",
+    "eNumber": "E471",
+    "aliases": [
+      "mono- et diglycérides d'acides gras",
+      "mono and diglycerides",
+      "mono- en diglyceriden"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Peut être fabriqué à partir de graisses végétales ou animales.",
+    "source": "À documenter"
+  }
+]
