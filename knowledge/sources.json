@@ -1,0 +1,26 @@
+[
+  {
+    "id": "eu-additives",
+    "title": "European Commission — Food Additives Database",
+    "url": "https://food.ec.europa.eu/food-safety/food-improvement-agents/additives/database_en",
+    "use": "Official EU E-number and additive-name reference; it does not by itself establish vegan suitability."
+  },
+  {
+    "id": "vegan-society",
+    "title": "The Vegan Society",
+    "url": "https://www.vegansociety.com/",
+    "use": "Reference for the vegan definition and obvious animal-derived ingredient families."
+  },
+  {
+    "id": "open-food-facts-docs",
+    "title": "Open Food Facts API documentation",
+    "url": "https://openfoodfacts.github.io/openfoodfacts-server/api/",
+    "use": "Vocabulary and future product-label test cases only. No Open Food Facts dataset is imported in this repository."
+  },
+  {
+    "id": "webadditifs-lead",
+    "title": "WebAdditifs — Additifs végétalien ou non",
+    "url": "https://www.les-additifs-alimentaires.com/liste-tous-vegetalien.php",
+    "use": "Research lead only. Its content is not copied or redistributed; every proposed status needs independent review."
+  }
+]

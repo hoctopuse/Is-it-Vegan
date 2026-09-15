@@ -9,7 +9,8 @@ class VeganAnalyzerTest {
         ingredient("farine", "farine de blé", VeganStatus.VEGAN),
         ingredient("lait", "lait", VeganStatus.NON_VEGAN),
         ingredient("coco", "lait de coco", VeganStatus.VEGAN),
-        ingredient("e471", "E471", VeganStatus.UNCERTAIN, "E471")
+        ingredient("e471", "E471", VeganStatus.UNCERTAIN, "E471"),
+        ingredient("e627", "guanylate de sodium", VeganStatus.UNCERTAIN, "E627")
     )
 
     @Test fun allIngredientsMustBeCovered() {
@@ -25,6 +26,13 @@ class VeganAnalyzerTest {
         assertEquals(emptyList<String>(), result.unknown)
         assertEquals(VeganStatus.NON_VEGAN,
             VeganAnalyzer.analyze("lait", database).matched.single().status)
+    }
+
+    @Test fun eNumbersMayContainASpace() {
+        val result = VeganAnalyzer.analyze("sucre, E 627", database)
+        assertEquals(listOf("sucre", "e627"), result.matched.map { it.id })
+        assertEquals(VeganStatus.UNCERTAIN, result.matched.last().status)
+        assertEquals(emptyList<String>(), result.unknown)
     }
 
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =

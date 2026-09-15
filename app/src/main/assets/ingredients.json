@@ -1,177 +1,50 @@
 [
   {
-    "id": "e120",
-    "name": "Carmin",
-    "eNumber": "E120",
-    "aliases": [
-      "carmin",
-      "cochenille",
-      "acide carminique",
-      "carmine",
-      "cochineal"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Colorant d'origine animale obtenu à partir de cochenilles.",
-    "source": "À documenter"
-  },
-  {
-    "id": "e904",
-    "name": "Gomme-laque",
-    "eNumber": "E904",
-    "aliases": [
-      "gomme-laque",
-      "shellac",
-      "schellak"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Résine produite par l'insecte Kerria lacca.",
-    "source": "À documenter"
-  },
-  {
-    "id": "e471",
-    "name": "Mono- et diglycérides d'acides gras",
-    "eNumber": "E471",
-    "aliases": [
-      "mono- et diglycérides d'acides gras",
-      "mono and diglycerides",
-      "mono- en diglyceriden"
-    ],
-    "status": "UNCERTAIN",
-    "reason": "Peut être fabriqué à partir de graisses végétales ou animales.",
-    "source": "À documenter"
-  },
-  {
-    "id": "gelatine",
-    "name": "Gélatine",
-    "aliases": [
-      "gélatine",
-      "gelatine",
-      "gelatin",
-      "gelatine bovine",
-      "gelatine porcine"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Protéine issue de tissus animaux.",
-    "source": ""
-  },
-  {
-    "id": "miel",
-    "name": "Miel",
-    "aliases": [
-      "miel",
-      "honey",
-      "honing"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Produit par les abeilles.",
-    "source": ""
-  },
-  {
-    "id": "oeuf",
-    "name": "Œuf",
-    "aliases": [
-      "œuf",
-      "oeuf",
-      "oeufs",
-      "œufs",
-      "egg",
-      "eggs",
-      "ei",
-      "eieren",
-      "albumine d oeuf",
-      "blanc d oeuf"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Ingrédient issu des œufs.",
-    "source": ""
-  },
-  {
-    "id": "lactoserum",
-    "name": "Lactosérum",
-    "aliases": [
-      "lactosérum",
-      "lactoserum",
-      "petit lait",
-      "whey",
-      "wei"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Issu du lait.",
-    "source": ""
-  },
-  {
-    "id": "lactose",
-    "name": "Lactose",
-    "aliases": [
-      "lactose"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Sucre issu du lait.",
-    "source": ""
-  },
-  {
-    "id": "caseine",
-    "name": "Caséine",
-    "aliases": [
-      "caséine",
-      "caseine",
-      "casein",
-      "caseïne"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Protéine du lait.",
-    "source": ""
-  },
-  {
-    "id": "cire_abeille",
-    "name": "Cire d’abeille",
-    "aliases": [
-      "cire d abeille",
-      "beeswax",
-      "bijenwas"
-    ],
-    "status": "NON_VEGAN",
-    "reason": "Produite par les abeilles.",
-    "source": ""
-  },
-  {
-    "id": "sucre",
-    "name": "Sucre",
-    "aliases": [
-      "sucre",
-      "sugar",
-      "suiker"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "eau",
+    "id": "water",
     "name": "Eau",
+    "eNumber": "",
     "aliases": [
       "eau",
-      "water"
+      "water",
+      "wateren"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Eau, sans ingrédient d’origine animale.",
+    "source": "vegan-society"
   },
   {
-    "id": "sel",
+    "id": "salt",
     "name": "Sel",
+    "eNumber": "",
     "aliases": [
       "sel",
       "salt",
       "zout"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Minéral, sans ingrédient d’origine animale.",
+    "source": "vegan-society"
   },
   {
-    "id": "farine_ble",
+    "id": "sugar",
+    "name": "Sucre",
+    "eNumber": "",
+    "aliases": [
+      "sucre",
+      "sugar",
+      "suiker",
+      "sucre de canne",
+      "cane sugar",
+      "rietsuiker"
+    ],
+    "status": "VEGAN",
+    "reason": "Sucre d’origine végétale ; l’étiquette ne signale pas d’ingrédient animal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "wheat_flour",
     "name": "Farine de blé",
+    "eNumber": "",
     "aliases": [
       "farine",
       "farine de blé",
@@ -181,89 +54,13 @@
       "bloem"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "huile_colza",
-    "name": "Huile de colza",
-    "aliases": [
-      "huile de colza",
-      "huile de rapeseed",
-      "rapeseed oil",
-      "koolzaadolie"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "huile_tournesol",
-    "name": "Huile de tournesol",
-    "aliases": [
-      "huile de tournesol",
-      "sunflower oil",
-      "zonnebloemolie"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "huile_olive",
-    "name": "Huile d’olive",
-    "aliases": [
-      "huile d olive",
-      "huile d’olive",
-      "olive oil",
-      "olijfolie"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "huile_vegetale",
-    "name": "Huile végétale",
-    "aliases": [
-      "huile végétale",
-      "huile vegetale",
-      "vegetable oil",
-      "plantaardige olie"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "amidon_mais",
-    "name": "Amidon de maïs",
-    "aliases": [
-      "amidon de maïs",
-      "amidon de mais",
-      "corn starch",
-      "maïszetmeel"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "mais",
-    "name": "Maïs",
-    "aliases": [
-      "maïs",
-      "mais",
-      "corn",
-      "maïsmeel"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "riz",
+    "id": "rice",
     "name": "Riz",
+    "eNumber": "",
     "aliases": [
       "riz",
       "rice",
@@ -273,125 +70,342 @@
       "rijstmeel"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "avoine",
+    "id": "oats",
     "name": "Avoine",
+    "eNumber": "",
     "aliases": [
       "avoine",
+      "flocons d avoine",
+      "flocons d’avoine",
       "oats",
+      "oat flakes",
       "haver",
-      "flocons d avoine"
+      "havervlokken"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "soja",
-    "name": "Soja",
+    "id": "corn",
+    "name": "Maïs",
+    "eNumber": "",
     "aliases": [
-      "soja",
-      "soy",
-      "soya",
-      "sojabonen"
+      "maïs",
+      "mais",
+      "corn",
+      "maize",
+      "maïsmeel",
+      "corn flour",
+      "farine de maïs",
+      "farine de mais"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "tofu",
-    "name": "Tofu",
-    "aliases": [
-      "tofu"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "cacao",
-    "name": "Cacao",
-    "aliases": [
-      "cacao",
-      "cocoa",
-      "cacaopoeder",
-      "poudre de cacao"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "levure",
-    "name": "Levure",
-    "aliases": [
-      "levure",
-      "yeast",
-      "gist",
-      "levure boulangère"
-    ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
-  },
-  {
-    "id": "pomme_terre",
+    "id": "potato",
     "name": "Pomme de terre",
+    "eNumber": "",
     "aliases": [
       "pomme de terre",
       "pommes de terre",
       "potato",
-      "aardappel"
+      "potatoes",
+      "aardappel",
+      "aardappelen"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Tubercule d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "pois_chiche",
-    "name": "Pois chiche",
+    "id": "starch",
+    "name": "Amidon",
+    "eNumber": "",
+    "aliases": [
+      "amidon",
+      "starch",
+      "zetmeel",
+      "amidon de maïs",
+      "amidon de mais",
+      "corn starch",
+      "maïszetmeel",
+      "amidon de pomme de terre",
+      "potato starch",
+      "aardappelzetmeel"
+    ],
+    "status": "VEGAN",
+    "reason": "Amidon végétal lorsque la plante est précisée ; ce terme courant désigne un ingrédient végétal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "rapeseed_oil",
+    "name": "Huile de colza",
+    "eNumber": "",
+    "aliases": [
+      "huile de colza",
+      "rapeseed oil",
+      "koolzaadolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Huile végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "sunflower_oil",
+    "name": "Huile de tournesol",
+    "eNumber": "",
+    "aliases": [
+      "huile de tournesol",
+      "sunflower oil",
+      "zonnebloemolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Huile végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "olive_oil",
+    "name": "Huile d’olive",
+    "eNumber": "",
+    "aliases": [
+      "huile d olive",
+      "huile d’olive",
+      "olive oil",
+      "olijfolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Huile végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "coconut_oil",
+    "name": "Huile de coco",
+    "eNumber": "",
+    "aliases": [
+      "huile de coco",
+      "coconut oil",
+      "kokosolie"
+    ],
+    "status": "VEGAN",
+    "reason": "Huile végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "vegetable_oil",
+    "name": "Huile végétale",
+    "eNumber": "",
+    "aliases": [
+      "huile végétale",
+      "huile vegetale",
+      "vegetable oil",
+      "plantaardige olie"
+    ],
+    "status": "VEGAN",
+    "reason": "L’étiquette décrit explicitement une huile végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "soy",
+    "name": "Soja",
+    "eNumber": "",
+    "aliases": [
+      "soja",
+      "soy",
+      "soya",
+      "sojabonen",
+      "sojameel"
+    ],
+    "status": "VEGAN",
+    "reason": "Légumineuse d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "tofu",
+    "name": "Tofu",
+    "eNumber": "",
+    "aliases": [
+      "tofu"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit de soja d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "chickpeas",
+    "name": "Pois chiches",
+    "eNumber": "",
     "aliases": [
       "pois chiche",
       "pois chiches",
+      "chickpea",
       "chickpeas",
+      "kikkererwt",
       "kikkererwten"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Légumineuse d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "lentille",
-    "name": "Lentille",
+    "id": "lentils",
+    "name": "Lentilles",
+    "eNumber": "",
     "aliases": [
-      "lentilles",
       "lentille",
+      "lentilles",
+      "lentil",
       "lentils",
+      "linze",
       "linzen"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Légumineuse d’origine végétale.",
+    "source": "vegan-society"
   },
   {
-    "id": "lait_coco",
+    "id": "beans",
+    "name": "Haricots",
+    "eNumber": "",
+    "aliases": [
+      "haricot",
+      "haricots",
+      "bean",
+      "beans",
+      "boon",
+      "bonen"
+    ],
+    "status": "VEGAN",
+    "reason": "Légumineuse d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "peas",
+    "name": "Pois",
+    "eNumber": "",
+    "aliases": [
+      "pois",
+      "petits pois",
+      "pea",
+      "peas",
+      "erwt",
+      "erwten"
+    ],
+    "status": "VEGAN",
+    "reason": "Légumineuse d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "cocoa",
+    "name": "Cacao",
+    "eNumber": "",
+    "aliases": [
+      "cacao",
+      "poudre de cacao",
+      "cocoa",
+      "cocoa powder",
+      "cacaopoeder"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "coffee",
+    "name": "Café",
+    "eNumber": "",
+    "aliases": [
+      "café",
+      "cafe",
+      "coffee",
+      "koffie"
+    ],
+    "status": "VEGAN",
+    "reason": "Ingrédient d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "yeast",
+    "name": "Levure",
+    "eNumber": "",
+    "aliases": [
+      "levure",
+      "levure boulangère",
+      "levure boulangere",
+      "yeast",
+      "gist",
+      "bakers yeast"
+    ],
+    "status": "VEGAN",
+    "reason": "Micro-organisme ; sans ingrédient animal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "baking_powder",
+    "name": "Poudre à lever",
+    "eNumber": "",
+    "aliases": [
+      "poudre à lever",
+      "poudre a lever",
+      "baking powder",
+      "bakpoeder"
+    ],
+    "status": "VEGAN",
+    "reason": "Mélange levant minéral habituellement dépourvu d’ingrédient animal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "vinegar",
+    "name": "Vinaigre",
+    "eNumber": "",
+    "aliases": [
+      "vinaigre",
+      "vinegar",
+      "azijn"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit de fermentation sans ingrédient animal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "lemon",
+    "name": "Citron",
+    "eNumber": "",
+    "aliases": [
+      "citron",
+      "lemon",
+      "citroen",
+      "jus de citron",
+      "lemon juice",
+      "citroensap"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "coconut_milk",
     "name": "Lait de coco",
+    "eNumber": "",
     "aliases": [
       "lait de coco",
       "coconut milk",
       "kokosmelk"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Le mot lait est ici qualifié par coco, une plante.",
+    "source": "vegan-society"
   },
   {
-    "id": "lait_soja",
-    "name": "Lait de soja",
+    "id": "soy_milk",
+    "name": "Boisson au soja",
+    "eNumber": "",
     "aliases": [
       "lait de soja",
       "boisson au soja",
@@ -399,58 +413,584 @@
       "sojamelk"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Le mot lait est ici qualifié par soja, une plante.",
+    "source": "vegan-society"
   },
   {
-    "id": "vinaigre",
-    "name": "Vinaigre",
+    "id": "almond_milk",
+    "name": "Boisson à l’amande",
+    "eNumber": "",
     "aliases": [
-      "vinaigre",
-      "vinegar",
-      "azijn"
+      "lait d amande",
+      "lait d’amande",
+      "boisson à l amande",
+      "boisson à l’amande",
+      "almond milk",
+      "amandelmelk"
     ],
     "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "reason": "Le mot lait est ici qualifié par amande, une plante.",
+    "source": "vegan-society"
   },
   {
-    "id": "citron",
-    "name": "Citron",
+    "id": "e120",
+    "name": "Carmin",
+    "eNumber": "E120",
     "aliases": [
-      "citron",
-      "lemon",
-      "citroensap",
-      "jus de citron"
+      "carmin",
+      "cochenille",
+      "acide carminique",
+      "carmine",
+      "cochineal",
+      "karmijn"
     ],
-    "status": "VEGAN",
-    "reason": "Ingrédient d’origine végétale ou minérale.",
-    "source": ""
+    "status": "NON_VEGAN",
+    "reason": "Colorant obtenu à partir de cochenilles.",
+    "source": "eu-additives, vegan-society"
   },
   {
-    "id": "lait",
+    "id": "e904",
+    "name": "Gomme-laque",
+    "eNumber": "E904",
+    "aliases": [
+      "gomme laque",
+      "gomme-laque",
+      "shellac",
+      "schellak",
+      "resine de shellac",
+      "résine de shellac"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Résine produite par l’insecte Kerria lacca.",
+    "source": "eu-additives, vegan-society"
+  },
+  {
+    "id": "gelatin",
+    "name": "Gélatine",
+    "eNumber": "",
+    "aliases": [
+      "gélatine",
+      "gelatine",
+      "gelatin",
+      "gelatine bovine",
+      "gelatine porcine",
+      "gelatine de poisson",
+      "visgelatine"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Protéine issue de tissus animaux.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "milk",
     "name": "Lait animal",
+    "eNumber": "",
     "aliases": [
       "lait",
       "milk",
       "melk",
-      "lait de vache"
+      "lait de vache",
+      "cow milk",
+      "koemelk"
     ],
     "status": "NON_VEGAN",
-    "reason": "Issu d animaux.",
-    "source": ""
+    "reason": "Issu d’animaux.",
+    "source": "vegan-society"
   },
   {
-    "id": "arome_naturel",
+    "id": "lactose",
+    "name": "Lactose",
+    "eNumber": "",
+    "aliases": [
+      "lactose"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Sucre issu du lait.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "whey",
+    "name": "Lactosérum",
+    "eNumber": "",
+    "aliases": [
+      "lactosérum",
+      "lactoserum",
+      "petit lait",
+      "whey",
+      "wei",
+      "weipoeder"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Issu du lait.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "casein",
+    "name": "Caséine",
+    "eNumber": "",
+    "aliases": [
+      "caséine",
+      "caseine",
+      "casein",
+      "caseïne",
+      "caséinates",
+      "caseinates",
+      "caseinaten"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Protéine du lait.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "butter",
+    "name": "Beurre laitier",
+    "eNumber": "",
+    "aliases": [
+      "beurre",
+      "butter",
+      "roomboter"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Matière grasse issue du lait.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "cream",
+    "name": "Crème laitière",
+    "eNumber": "",
+    "aliases": [
+      "crème fraîche",
+      "creme fraiche",
+      "crème de lait",
+      "creme de lait",
+      "cream",
+      "room",
+      "milk cream"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Issue du lait.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "cheese",
+    "name": "Fromage",
+    "eNumber": "",
+    "aliases": [
+      "fromage",
+      "cheese",
+      "kaas"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Produit laitier.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "egg",
+    "name": "Œuf",
+    "eNumber": "",
+    "aliases": [
+      "œuf",
+      "oeuf",
+      "œufs",
+      "oeufs",
+      "egg",
+      "eggs",
+      "ei",
+      "eieren",
+      "blanc d oeuf",
+      "blanc d’œuf",
+      "albumine d oeuf",
+      "albumine d’œuf"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Issu d’œufs.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "honey",
+    "name": "Miel",
+    "eNumber": "",
+    "aliases": [
+      "miel",
+      "honey",
+      "honing"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Produit par les abeilles.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "beeswax",
+    "name": "Cire d’abeille",
+    "eNumber": "",
+    "aliases": [
+      "cire d abeille",
+      "cire d’abeille",
+      "beeswax",
+      "bijenwas"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Produite par les abeilles.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "meat",
+    "name": "Viande",
+    "eNumber": "",
+    "aliases": [
+      "viande",
+      "meat",
+      "vlees",
+      "bœuf",
+      "boeuf",
+      "beef",
+      "porc",
+      "pork",
+      "poulet",
+      "chicken",
+      "veau",
+      "veal",
+      "agneau",
+      "lamb"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair d’animaux.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "fish",
+    "name": "Poisson",
+    "eNumber": "",
+    "aliases": [
+      "poisson",
+      "fish",
+      "vis",
+      "anchois",
+      "anchovy",
+      "ansjovis"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Animal aquatique.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "e471",
+    "name": "Mono- et diglycérides d’acides gras",
+    "eNumber": "E471",
+    "aliases": [
+      "mono et diglycérides d acides gras",
+      "mono- et diglycérides d acides gras",
+      "mono and diglycerides",
+      "mono en diglyceriden",
+      "monostéarine",
+      "monostearine"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Les acides gras peuvent être végétaux ou animaux selon le fabricant.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "e472",
+    "name": "Esters de mono- et diglycérides",
+    "eNumber": "",
+    "aliases": [
+      "e472",
+      "esters de mono et diglycérides d acides gras",
+      "mono and diglycerides esters",
+      "esters van mono en diglyceriden"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Dérivés d’acides gras dont l’origine peut varier selon le fabricant.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "e322",
+    "name": "Lécithines",
+    "eNumber": "E322",
+    "aliases": [
+      "lécithine",
+      "lecithine",
+      "lecithin",
+      "lecithinen"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Souvent végétale, mais peut provenir notamment de l’œuf.",
+    "source": "eu-additives, vegan-society"
+  },
+  {
+    "id": "e422",
+    "name": "Glycérol",
+    "eNumber": "E422",
+    "aliases": [
+      "glycérol",
+      "glycerol",
+      "glycerine",
+      "glycerin",
+      "glycerol"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Peut être produit à partir de matières végétales ou animales.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "e570",
+    "name": "Acides gras",
+    "eNumber": "E570",
+    "aliases": [
+      "acides gras",
+      "fatty acids",
+      "vetzuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Peuvent provenir de matières végétales ou animales.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "e627",
+    "name": "Guanylate disodique",
+    "eNumber": "E627",
+    "aliases": [
+      "guanylate de sodium",
+      "guanylate disodique",
+      "disodium guanylate",
+      "natriumguanylaat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "e631",
+    "name": "Inosinate disodique",
+    "eNumber": "E631",
+    "aliases": [
+      "inosinate disodique",
+      "disodium inosinate",
+      "natriuminosinaat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "e635",
+    "name": "Ribonucléotides disodiques",
+    "eNumber": "E635",
+    "aliases": [
+      "ribonucléotides disodiques",
+      "ribonucleotides disodiques",
+      "disodium ribonucleotides",
+      "natriumribonucleotiden"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
+    "source": "eu-additives, webadditifs-lead"
+  },
+  {
+    "id": "natural_flavouring",
     "name": "Arôme naturel",
+    "eNumber": "",
     "aliases": [
       "arôme naturel",
       "arome naturel",
+      "arômes naturels",
+      "aromes naturels",
       "natural flavouring",
+      "natural flavoring",
       "natuurlijk aroma"
     ],
     "status": "UNCERTAIN",
-    "reason": "La liste ne précise pas nécessairement l origine de tous les composants.",
-    "source": ""
+    "reason": "Le libellé ne précise pas l’origine de tous les composants.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "vitamin_d",
+    "name": "Vitamine D",
+    "eNumber": "",
+    "aliases": [
+      "vitamine d",
+      "vitamin d",
+      "vitamine d3",
+      "vitamin d3",
+      "cholecalciferol"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La vitamine D peut avoir différentes origines ; l’étiquette ne suffit pas toujours.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "e300",
+    "name": "Acide ascorbique",
+    "eNumber": "E300",
+    "aliases": [
+      "acide ascorbique",
+      "ascorbic acid",
+      "ascorbinezuur"
+    ],
+    "status": "VEGAN",
+    "reason": "Additif de synthèse ou issu de végétaux, sans origine animale attendue.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e330",
+    "name": "Acide citrique",
+    "eNumber": "E330",
+    "aliases": [
+      "acide citrique",
+      "citric acid",
+      "citroenzuur"
+    ],
+    "status": "VEGAN",
+    "reason": "Additif issu de fermentation ou de synthèse, sans origine animale attendue.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e406",
+    "name": "Agar-agar",
+    "eNumber": "E406",
+    "aliases": [
+      "agar agar",
+      "agar-agar",
+      "agar"
+    ],
+    "status": "VEGAN",
+    "reason": "Gélifiant issu d’algues.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e410",
+    "name": "Gomme de caroube",
+    "eNumber": "E410",
+    "aliases": [
+      "gomme de caroube",
+      "locust bean gum",
+      "johannesbroodpitmeel"
+    ],
+    "status": "VEGAN",
+    "reason": "Épaississant issu de caroube.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e412",
+    "name": "Gomme guar",
+    "eNumber": "E412",
+    "aliases": [
+      "gomme guar",
+      "guar gum",
+      "guargom"
+    ],
+    "status": "VEGAN",
+    "reason": "Épaississant issu de guar.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e415",
+    "name": "Gomme xanthane",
+    "eNumber": "E415",
+    "aliases": [
+      "gomme xanthane",
+      "xanthan gum",
+      "xanthaangom"
+    ],
+    "status": "VEGAN",
+    "reason": "Épaississant issu de fermentation microbienne.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e440",
+    "name": "Pectines",
+    "eNumber": "E440",
+    "aliases": [
+      "pectine",
+      "pectines",
+      "pectin",
+      "pectine"
+    ],
+    "status": "VEGAN",
+    "reason": "Gélifiant issu de végétaux.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e500",
+    "name": "Carbonates de sodium",
+    "eNumber": "E500",
+    "aliases": [
+      "bicarbonate de sodium",
+      "sodium bicarbonate",
+      "natriumbicarbonaat",
+      "carbonates de sodium"
+    ],
+    "status": "VEGAN",
+    "reason": "Substance minérale, sans origine animale.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e524",
+    "name": "Hydroxyde de sodium",
+    "eNumber": "E524",
+    "aliases": [
+      "hydroxyde de sodium",
+      "sodium hydroxide",
+      "natriumhydroxide"
+    ],
+    "status": "VEGAN",
+    "reason": "Substance minérale, sans origine animale.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e551",
+    "name": "Dioxyde de silicium",
+    "eNumber": "E551",
+    "aliases": [
+      "dioxyde de silicium",
+      "silicon dioxide",
+      "siliciumdioxide"
+    ],
+    "status": "VEGAN",
+    "reason": "Substance minérale, sans origine animale.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e621",
+    "name": "Glutamate monosodique",
+    "eNumber": "E621",
+    "aliases": [
+      "glutamate monosodique",
+      "monosodium glutamate",
+      "msg",
+      "ve tsin",
+      "natriumglutamaat"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit industriel généralement obtenu par fermentation, sans origine animale attendue.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e950",
+    "name": "Acésulfame K",
+    "eNumber": "E950",
+    "aliases": [
+      "acésulfame k",
+      "acesulfame k",
+      "acesulfaam k"
+    ],
+    "status": "VEGAN",
+    "reason": "Édulcorant de synthèse, sans origine animale attendue.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e960",
+    "name": "Glycosides de stéviol",
+    "eNumber": "E960",
+    "aliases": [
+      "glycosides de stéviol",
+      "glycosides de steviol",
+      "steviol glycosides",
+      "steviolglycosiden",
+      "stevia"
+    ],
+    "status": "VEGAN",
+    "reason": "Édulcorant issu de stévia.",
+    "source": "eu-additives"
   }
 ]
