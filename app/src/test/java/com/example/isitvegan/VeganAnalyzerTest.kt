@@ -136,6 +136,57 @@ class VeganAnalyzerTest {
         assertEquals(emptyList<String>(), result.unknown)
     }
 
+    @Test fun emptyOrNonIngredientTextCannotBeDeclaredVegan() {
+        listOf("", "   \n", "Ingrédients:", "Peut contenir du lait", "25 %").forEach { text ->
+            val result = VeganAnalyzer.analyze(text, database)
+            assertEquals(text, AnalysisVerdict.INCONCLUSIVE, result.verdict)
+            assertEquals(text, emptyList<Ingredient>(), result.matched)
+        }
+    }
+
+    @Test fun uncertainIngredientAloneHasNoValidatedRemainder() {
+        val result = VeganAnalyzer.analyze("E471", database)
+        assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdictWithoutUncertain)
+    }
+
+    @Test fun animalIngredientAtTheEndOverridesEarlierUnknownAndUncertainIngredients() {
+        val entries = database + ingredient("gelatine", "gélatine", VeganStatus.NON_VEGAN)
+        val result = VeganAnalyzer.analyze("mystère, E471, lait, gélatine", entries)
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdictWithoutUncertain)
+        assertEquals(listOf("e471", "lait", "gelatine"), result.matched.map { it.id })
+        assertEquals(listOf("mystère"), result.unknown)
+        assertEquals(false, result.stoppedAtNonVegetarian)
+    }
+
+    @Test fun containsIsCompositionWhileMayContainIsCrossContact() {
+        val composition = VeganAnalyzer.analyze("sucre (contient : lait)", database)
+        val traces = VeganAnalyzer.analyze("sucre. Peut contenir du lait", database)
+        assertEquals(AnalysisVerdict.VEGETARIAN, composition.verdict)
+        assertEquals(listOf("sucre", "lait"), composition.matched.map { it.id })
+        assertEquals(emptyList<String>(), composition.unknown)
+        assertEquals(AnalysisVerdict.VEGAN, traces.verdict)
+        assertEquals(listOf("sucre"), traces.matched.map { it.id })
+        assertEquals(emptyList<String>(), traces.unknown)
+    }
+
+    @Test fun repeatedIngredientsAreReportedOnceInOrderOfAppearance() {
+        val result = VeganAnalyzer.analyze("lait, sucre (lait), sucre", database)
+        assertEquals(listOf("lait", "sucre"), result.matched.map { it.id })
+        assertEquals(emptyList<String>(), result.unknown)
+        assertEquals(AnalysisVerdict.VEGETARIAN, result.verdict)
+    }
+
+    @Test fun aliasesDoNotMatchInsideOtherWordsOrAdditiveNumbers() {
+        listOf("laitue", "E4710").forEach { text ->
+            val result = VeganAnalyzer.analyze(text, database)
+            assertEquals(text, emptyList<Ingredient>(), result.matched)
+            assertEquals(text, listOf(text), result.unknown)
+            assertEquals(text, AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        }
+    }
+
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
         Ingredient(id, alias, listOf(alias), number, status, "Test")
 }

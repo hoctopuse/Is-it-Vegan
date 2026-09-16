@@ -16,6 +16,38 @@ class RealLabelsInstrumentedTest {
         VeganAnalyzer.loadDatabase(InstrumentationRegistry.getInstrumentation().targetContext)
     }
 
+    @Test fun crossContactDoesNotChangeAnOtherwiseFullyKnownRecipe() {
+        val recipe = "eau, sucre"
+        val baseline = VeganAnalyzer.analyze(recipe)
+        assertEquals(AnalysisVerdict.VEGAN, baseline.verdict)
+        assertTrue(baseline.unknown.isEmpty())
+
+        listOf(
+            ". Peut contenir du lait et de la gélatine",
+            "\n**Traces :** lait, gélatine",
+            ". Fabriqué dans un atelier utilisant du lait et de la gélatine"
+        ).forEach { note ->
+            val result = VeganAnalyzer.analyze(recipe + note)
+            assertEquals(note, baseline, result)
+        }
+    }
+
+    @Test fun actualAnimalIngredientIsNotHiddenByATrailingTraceNote() {
+        val result = VeganAnalyzer.analyze(
+            "eau, sucre, gélatine. Peut contenir du lait"
+        )
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertTrue(result.matched.any { it.status == VeganStatus.NON_VEGAN })
+        assertFalse(result.matched.any { it.status == VeganStatus.VEGETARIAN })
+    }
+
+    @Test fun addingAnUnknownIngredientPreventsAVeganVerdict() {
+        val result = VeganAnalyzer.analyze("eau, sucre, ingrédient mystère")
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertEquals(listOf("ingrédient mystère"), result.unknown)
+        assertTrue(result.matched.isNotEmpty())
+    }
+
     @Test fun plantBasedPreparedDishIsNotDeclaredVeganWithoutFullCoverage() {
         val label = """morceaux végétaliens (36%) [eau, protéine de SOJA, amidon de BLÉ, gluten de BLÉ, vinaigre]; huile de colza; pois chiche; eau; oignon; herbes préparé (1,5%) (épices (contient: MOUTARDE)); sirop de glucose; extrait de levure; arôme naturel; poudre de tomate; amidon; fibre végétale; protéine de pomme de terre; sel; plantes aromatiques (contient: MOUTARDE); vinaigre; MOUTARDE; sucre; jus de citron; mélasse; tamarin; gingembre; extrait d’ail; extrait de paprika; amidon modifié; acidifiants (acide acétique, acide lactique, acide citrique); conservateur (E202); stabilisants (gomme guar, gomme xanthane)"""
         val result = VeganAnalyzer.analyze(label)
