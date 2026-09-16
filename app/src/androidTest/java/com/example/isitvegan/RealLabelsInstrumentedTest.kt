@@ -20,6 +20,7 @@ class RealLabelsInstrumentedTest {
         val label = """morceaux végétaliens (36%) [eau, protéine de SOJA, amidon de BLÉ, gluten de BLÉ, vinaigre]; huile de colza; pois chiche; eau; oignon; herbes préparé (1,5%) (épices (contient: MOUTARDE)); sirop de glucose; extrait de levure; arôme naturel; poudre de tomate; amidon; fibre végétale; protéine de pomme de terre; sel; plantes aromatiques (contient: MOUTARDE); vinaigre; MOUTARDE; sucre; jus de citron; mélasse; tamarin; gingembre; extrait d’ail; extrait de paprika; amidon modifié; acidifiants (acide acétique, acide lactique, acide citrique); conservateur (E202); stabilisants (gomme guar, gomme xanthane)"""
         val result = VeganAnalyzer.analyze(label)
         assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdictWithoutUncertain)
         assertTrue(result.matched.any { it.id == "natural_flavouring" })
         assertTrue(result.matched.any { it.id == "soy" })
         assertTrue(result.unknown.isNotEmpty())
@@ -30,7 +31,8 @@ class RealLabelsInstrumentedTest {
         val result = VeganAnalyzer.analyze(label)
         assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
         assertTrue(result.matched.any { it.id == "meat" })
-        assertTrue(result.matched.any { it.id == "egg" })
+        assertFalse(result.matched.any { it.id == "egg" })
+        assertTrue(result.stoppedAtNonVegetarian)
     }
 
     @Test fun tofuLabelDoesNotTreatTracesAsRecipeIngredients() {

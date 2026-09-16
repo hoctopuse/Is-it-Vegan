@@ -6,15 +6,34 @@ import java.text.Normalizer
 
 data class AnalysisResult(
     val matched: List<Ingredient>,
-    val unknown: List<String>
+    val unknown: List<String>,
+    val stoppedAtNonVegetarian: Boolean = false
 ) {
+    val uncertainIngredients: List<Ingredient>
+        get() = matched.filter { it.status == VeganStatus.UNCERTAIN }
+
+    val vegetarianIngredients: List<Ingredient>
+        get() = matched.filter { it.status == VeganStatus.VEGETARIAN }
+
+    /** Verdict for the known composition after setting uncertain ingredients aside. */
+    val verdictWithoutUncertain: AnalysisVerdict
+        get() {
+            val certainMatches = matched.filter { it.status != VeganStatus.UNCERTAIN }
+            return when {
+                certainMatches.any { it.status == VeganStatus.NON_VEGAN } ->
+                    AnalysisVerdict.NON_VEGETARIAN
+                unknown.isNotEmpty() || certainMatches.isEmpty() -> AnalysisVerdict.INCONCLUSIVE
+                certainMatches.any { it.status == VeganStatus.VEGETARIAN } ->
+                    AnalysisVerdict.VEGETARIAN
+                else -> AnalysisVerdict.VEGAN
+            }
+        }
+
     val verdict: AnalysisVerdict
         get() = when {
             matched.any { it.status == VeganStatus.NON_VEGAN } -> AnalysisVerdict.NON_VEGETARIAN
-            matched.any { it.status == VeganStatus.UNCERTAIN } -> AnalysisVerdict.UNCERTAIN
-            unknown.isNotEmpty() || matched.isEmpty() -> AnalysisVerdict.INCONCLUSIVE
-            matched.any { it.status == VeganStatus.VEGETARIAN } -> AnalysisVerdict.VEGETARIAN
-            else -> AnalysisVerdict.VEGAN
+            uncertainIngredients.isNotEmpty() -> AnalysisVerdict.UNCERTAIN
+            else -> verdictWithoutUncertain
         }
 }
 
@@ -22,6 +41,11 @@ enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCON
 
 object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()
+
+    private val crossContactMarker = Regex(
+        "(?i)\\b(?:peut\\s+contenir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
+            "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
+    )
 
     fun loadDatabase(context: Context) {
         val json = context.assets.open("ingredients.json")
@@ -53,9 +77,10 @@ object VeganAnalyzer {
     internal fun analyze(text: String, database: List<Ingredient>): AnalysisResult {
         // Allergy and cross-contact notes are not ingredients of the recipe.
         val ingredientText = text.lines()
-            .filterNot { line ->
+            .mapNotNull { line ->
                 val heading = normalize(line.trim().trim('*').substringBefore(':'))
-                heading == "traces" || heading == "allergenes"
+                if (heading == "traces" || heading == "allergenes") null
+                else line.substringBeforeCrossContactNote()
             }
             .joinToString("\n")
             .replace(Regex("(?i)\\s*\\*\\s*Agriculture biologique\\.?\\s*$"), "")
@@ -68,7 +93,8 @@ object VeganAnalyzer {
             .filter { it.isNotBlank() }
         val found = linkedMapOf<String, Ingredient>()
         val unknown = mutableListOf<String>()
-        for (chunk in chunks) {
+        var stoppedAtNonVegetarian = false
+        for ((index, chunk) in chunks.withIndex()) {
             val normalized = normalize(chunk)
             val matches = database.filter { ingredient ->
                 ingredient.aliases.any { normalize(it) == normalized } ||
@@ -76,8 +102,15 @@ object VeganAnalyzer {
             }
             if (matches.isEmpty()) unknown.add(chunk)
             else matches.forEach { found[it.id] = it }
+
+            // A single non-vegetarian ingredient is enough to settle the verdict.
+            // Uncertain and vegetarian ingredients must not stop the remaining analysis.
+            if (matches.any { it.status == VeganStatus.NON_VEGAN }) {
+                stoppedAtNonVegetarian = index < chunks.lastIndex
+                break
+            }
         }
-        return AnalysisResult(found.values.toList(), unknown)
+        return AnalysisResult(found.values.toList(), unknown, stoppedAtNonVegetarian)
     }
 
     private fun normalize(value: String): String {
@@ -86,5 +119,10 @@ object VeganAnalyzer {
             .replace("œ", "oe").replace("æ", "ae")
             .replace(Regex("[^a-z0-9]+"), " ").trim()
             .replace(Regex("^e\\s+(?=\\d)"), "e")
+    }
+
+    private fun String.substringBeforeCrossContactNote(): String {
+        val marker = crossContactMarker.find(this) ?: return this
+        return substring(0, marker.range.first)
     }
 }

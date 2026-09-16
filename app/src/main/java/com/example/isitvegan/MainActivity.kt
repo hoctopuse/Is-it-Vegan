@@ -83,22 +83,42 @@ fun IsItVeganScreen() {
                         ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
                         analysis.verdict == AnalysisVerdict.NON_VEGETARIAN -> {
                             val found = matches.filter { it.status == VeganStatus.NON_VEGAN }
-                            "❌ NON VÉGÉTARIEN / NON VEGAN\n\n" + found.joinToString("\n\n") {
+                            "❌ NON VÉGÉTARIEN\n\nIngrédient détecté :\n" + found.joinToString("\n\n") {
                                 "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                            } + unknownMessage
+                            } + if (analysis.stoppedAtNonVegetarian) {
+                                "\n\nAnalyse arrêtée : cet ingrédient suffit pour conclure."
+                            } else ""
                         }
                         analysis.verdict == AnalysisVerdict.UNCERTAIN -> {
-                            val found = matches.filter { it.status == VeganStatus.UNCERTAIN }
-                            "⚠️ INCERTAIN\n\n" + found.joinToString("\n\n") {
+                            val uncertain = analysis.uncertainIngredients
+                            val uncertainMessage = "⚠️ INCERTAIN\n\nÀ vérifier :\n" +
+                                uncertain.joinToString("\n\n") {
                                 "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                            } + unknownMessage
+                            }
+                            val remainderMessage = when (analysis.verdictWithoutUncertain) {
+                                AnalysisVerdict.VEGAN ->
+                                    "\n\nEn excluant ${if (uncertain.size == 1) "cet ingrédient" else "ces ingrédients"} :\n🌱 VEGAN"
+                                AnalysisVerdict.VEGETARIAN -> {
+                                    val vegetarian = analysis.vegetarianIngredients.joinToString("\n") {
+                                        "• ${it.eNumber ?: it.name} — ${it.name}"
+                                    }
+                                    "\n\nEn excluant ${if (uncertain.size == 1) "cet ingrédient" else "ces ingrédients"} :" +
+                                        "\n🥕 VÉGÉTARIEN\n\nIngrédient${if (analysis.vegetarianIngredients.size > 1) "s" else ""} " +
+                                        "végétarien${if (analysis.vegetarianIngredients.size > 1) "s" else ""} détecté${if (analysis.vegetarianIngredients.size > 1) "s" else ""} :\n" +
+                                        vegetarian
+                                }
+                                else ->
+                                    "\n\nEn excluant ${if (uncertain.size == 1) "cet ingrédient" else "ces ingrédients"} :" +
+                                        "\n⚠️ INCONCLUS — certains ingrédients ne sont pas reconnus."
+                            }
+                            uncertainMessage + remainderMessage + unknownMessage
                         }
                         analysis.verdict == AnalysisVerdict.INCONCLUSIVE -> {
                             "⚠️ INCONCLUS\n\nLa base ne reconnaît pas toute la liste." + unknownMessage
                         }
                         analysis.verdict == AnalysisVerdict.VEGETARIAN -> {
                             val found = matches.filter { it.status == VeganStatus.VEGETARIAN }
-                            "🥛 VÉGÉTARIEN — NON VEGAN\n\n" + found.joinToString("\n\n") {
+                            "🥕 VÉGÉTARIEN\n\nIngrédient détecté :\n" + found.joinToString("\n\n") {
                                 "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
                             } + "\n\nVerdict basé sur la liste d'ingrédients, pas une certification du produit."
                         }

@@ -49,6 +49,26 @@ class VeganAnalyzerTest {
         }
     }
 
+    @Test fun uncertainVerdictExplainsTheRemainder() {
+        val veganRemainder = VeganAnalyzer.analyze("sucre, E471, farine de blé", database)
+        assertEquals(AnalysisVerdict.UNCERTAIN, veganRemainder.verdict)
+        assertEquals(AnalysisVerdict.VEGAN, veganRemainder.verdictWithoutUncertain)
+        assertEquals(listOf("e471"), veganRemainder.uncertainIngredients.map { it.id })
+        assertEquals(emptyList<String>(), veganRemainder.vegetarianIngredients.map { it.id })
+
+        val vegetarianRemainder = VeganAnalyzer.analyze("farine de blé, lait, E471, sucre", database)
+        assertEquals(AnalysisVerdict.UNCERTAIN, vegetarianRemainder.verdict)
+        assertEquals(AnalysisVerdict.VEGETARIAN, vegetarianRemainder.verdictWithoutUncertain)
+        assertEquals(listOf("e471"), vegetarianRemainder.uncertainIngredients.map { it.id })
+        assertEquals(listOf("lait"), vegetarianRemainder.vegetarianIngredients.map { it.id })
+    }
+
+    @Test fun unknownIngredientsPreventValidationOfTheRemainder() {
+        val result = VeganAnalyzer.analyze("sucre, E471, mystère", database)
+        assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdictWithoutUncertain)
+    }
+
     @Test fun tracesAndAllergenNotesAreNotIngredients() {
         val sample = """Eau, graines de soja*, présure (nigari), chlorure de calcium. *Agriculture biologique.
             **Allergènes :** soja
@@ -62,6 +82,18 @@ class VeganAnalyzerTest {
         assertEquals(listOf("présure", "nigari", "chlorure de calcium."), result.unknown)
     }
 
+    @Test fun inlineCrossContactNotesDoNotAffectTheVerdict() {
+        val entries = database + ingredient("gelatine", "gélatine", VeganStatus.NON_VEGAN)
+        val result = VeganAnalyzer.analyze(
+            "sucre, E471, farine de blé. Peut contenir des traces de gélatine et de lait",
+            entries
+        )
+        assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
+        assertEquals(AnalysisVerdict.VEGAN, result.verdictWithoutUncertain)
+        assertEquals(listOf("e471"), result.uncertainIngredients.map { it.id })
+        assertEquals(false, result.stoppedAtNonVegetarian)
+    }
+
     @Test fun animalIngredientDominatesUnknownsAndAmbiguity() {
         val entries = database + ingredient("porc", "viande de porc", VeganStatus.NON_VEGAN) +
             ingredient("jaune", "jaune d’œuf", VeganStatus.VEGETARIAN)
@@ -70,7 +102,9 @@ class VeganAnalyzerTest {
             entries
         )
         assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
-        assertEquals(listOf("porc", "jaune", "e471"), result.matched.map { it.id })
+        assertEquals(listOf("porc"), result.matched.map { it.id })
+        assertEquals(true, result.stoppedAtNonVegetarian)
+        assertEquals(emptyList<String>(), result.unknown)
     }
 
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
