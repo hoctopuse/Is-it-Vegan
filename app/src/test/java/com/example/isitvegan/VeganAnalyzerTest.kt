@@ -54,6 +54,16 @@ class VeganAnalyzerTest {
         assertEquals(emptyList<String>(), result.unknown)
     }
 
+    @Test fun longestKnownPhraseWinsInsideTheFullPipeline() {
+        val result = VeganAnalyzer.analyze(
+            "lait de coco, lait",
+            database
+        )
+        assertEquals(listOf("coco", "lait"), result.matched.map { it.id })
+        assertEquals(AnalysisVerdict.VEGETARIAN, result.verdict)
+        assertEquals(emptyList<String>(), result.unknown)
+    }
+
     @Test fun verdictsRespectUnknownAndAmbiguousIngredients() {
         val samples = listOf(
             "sucre, farine de blé" to AnalysisVerdict.VEGAN,

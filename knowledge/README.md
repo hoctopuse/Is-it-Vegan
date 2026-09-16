@@ -41,3 +41,18 @@ Les sources de travail sont décrites dans `sources.json`. Les données
 Open Food Facts et le contenu de WebAdditifs ne sont pas importés : leurs
 licences et leurs conditions d'utilisation doivent être respectées avant toute
 réutilisation massive.
+
+## Pipeline d'analyse hors ligne
+
+Depuis la version 0.5.4, l'analyse est divisée en modules testables :
+
+1. `LabelPreprocessor` retire les mentions hors composition et appelle
+   `QuantityCleaner`, qui supprime les quantités sans altérer `E471`, `B12`,
+   `D2` ou `oméga-3` ;
+2. `IngredientTokenizer` découpe la liste en conservant la profondeur des
+   parenthèses et crochets ;
+3. `IngredientMatcher` privilégie les alias les plus longs afin que, par
+   exemple, `lait de coco` masque correctement l'alias plus court `lait` ;
+4. `UnknownCollector` conserve le résidu réellement non reconnu ;
+5. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
+   un ingrédient non végétarien.

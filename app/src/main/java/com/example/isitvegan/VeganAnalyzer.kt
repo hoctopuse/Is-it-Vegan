@@ -2,7 +2,6 @@ package com.example.isitvegan
 
 import android.content.Context
 import org.json.JSONArray
-import java.text.Normalizer
 
 data class AnalysisResult(
     val matched: List<Ingredient>,
@@ -17,44 +16,16 @@ data class AnalysisResult(
 
     /** Verdict for the known composition after setting uncertain ingredients aside. */
     val verdictWithoutUncertain: AnalysisVerdict
-        get() {
-            val certainMatches = matched.filter { it.status != VeganStatus.UNCERTAIN }
-            return when {
-                certainMatches.any { it.status == VeganStatus.NON_VEGAN } ->
-                    AnalysisVerdict.NON_VEGETARIAN
-                unknown.isNotEmpty() || certainMatches.isEmpty() -> AnalysisVerdict.INCONCLUSIVE
-                certainMatches.any { it.status == VeganStatus.VEGETARIAN } ->
-                    AnalysisVerdict.VEGETARIAN
-                else -> AnalysisVerdict.VEGAN
-            }
-        }
+        get() = VerdictEngine.evaluate(matched, unknown, excludeUncertain = true)
 
     val verdict: AnalysisVerdict
-        get() = when {
-            matched.any { it.status == VeganStatus.NON_VEGAN } -> AnalysisVerdict.NON_VEGETARIAN
-            uncertainIngredients.isNotEmpty() -> AnalysisVerdict.UNCERTAIN
-            else -> verdictWithoutUncertain
-        }
+        get() = VerdictEngine.evaluate(matched, unknown)
 }
 
 enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
 
 object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()
-
-    private val crossContactMarker = Regex(
-        "(?i)\\b(?:peut\\s+contenir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
-            "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
-    )
-
-    private val percentageSectionHeading = Regex(
-        "(?i)(?:^|[.;]\\s*)[\\p{L}][\\p{L}'’ -]{0,40}\\s*" +
-            "\\(\\s*\\d+(?:[.,]\\d+)?\\s*%\\s*\\)\\s*:\\s*"
-    )
-
-    private val percentage = Regex("\\d+(?:[.,]\\d+)?\\s*%")
-
-    private val ingredientSeparator = Regex("(?<!\\d),(?!\\d)|[;()\\[\\]\\n]+")
 
     fun loadDatabase(context: Context) {
         val json = context.assets.open("ingredients.json")
@@ -84,60 +55,23 @@ object VeganAnalyzer {
 
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
     internal fun analyze(text: String, database: List<Ingredient>): AnalysisResult {
-        // Allergy and cross-contact notes are not ingredients of the recipe.
-        val ingredientText = text.lines()
-            .mapNotNull { line ->
-                val heading = normalize(line.trim().trim('*').substringBefore(':'))
-                if (heading == "traces" || heading == "allergenes") null
-                else line.substringBeforeCrossContactNote()
-            }
-            .joinToString("\n")
-            .replace(Regex("(?i)\\s*\\*\\s*Agriculture biologique\\.?\\s*$"), "")
-            // "Farce (63%):" and "Pâte (37%):" describe groups, not ingredients.
-            .replace(percentageSectionHeading, ";")
-        val chunks = ingredientText
-            // Remove percentages before splitting: the comma in "23,8%" is decimal.
-            .replace(percentage, "")
-            .replace(Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*"), "")
-            // A comma between digits is decimal, not an ingredient separator.
-            .split(ingredientSeparator)
-            .map { it.trim()
-                .replace(Regex("^\\d+(?:[.,]\\d+)?\\s*%\\s*"), "")
-                .replace(Regex("\\s+\\d+(?:[.,]\\d+)?\\s*%$"), "")
-                .trimEnd('*', ' ') }
-            .filter { it.isNotBlank() }
+        val tokens = IngredientTokenizer.tokenize(LabelPreprocessor.preprocess(text))
+        val matcher = IngredientMatcher(database)
         val found = linkedMapOf<String, Ingredient>()
         val unknown = mutableListOf<String>()
         var stoppedAtNonVegetarian = false
-        for ((index, chunk) in chunks.withIndex()) {
-            val normalized = normalize(chunk)
-            val matches = database.filter { ingredient ->
-                ingredient.aliases.any { normalize(it) == normalized } ||
-                    ingredient.eNumber?.let { normalize(it) == normalized } == true
-            }
-            if (matches.isEmpty()) unknown.add(chunk)
-            else matches.forEach { found[it.id] = it }
+        for ((index, token) in tokens.withIndex()) {
+            val match = matcher.match(token)
+            match.ingredients.forEach { found[it.id] = it }
+            UnknownCollector.collect(match)?.let(unknown::add)
 
             // A single non-vegetarian ingredient is enough to settle the verdict.
             // Uncertain and vegetarian ingredients must not stop the remaining analysis.
-            if (matches.any { it.status == VeganStatus.NON_VEGAN }) {
-                stoppedAtNonVegetarian = index < chunks.lastIndex
+            if (VerdictEngine.isDecisiveNonVegetarian(match.ingredients)) {
+                stoppedAtNonVegetarian = index < tokens.lastIndex
                 break
             }
         }
         return AnalysisResult(found.values.toList(), unknown, stoppedAtNonVegetarian)
-    }
-
-    private fun normalize(value: String): String {
-        val decomposed = Normalizer.normalize(value.lowercase().replace("œ", "oe"), Normalizer.Form.NFD)
-        return decomposed.replace(Regex("\\p{M}+"), "")
-            .replace("œ", "oe").replace("æ", "ae")
-            .replace(Regex("[^a-z0-9]+"), " ").trim()
-            .replace(Regex("^e\\s+(?=\\d)"), "e")
-    }
-
-    private fun String.substringBeforeCrossContactNote(): String {
-        val marker = crossContactMarker.find(this) ?: return this
-        return substring(0, marker.range.first)
     }
 }

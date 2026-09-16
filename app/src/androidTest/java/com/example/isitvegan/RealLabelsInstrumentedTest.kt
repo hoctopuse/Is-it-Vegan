@@ -54,4 +54,17 @@ class RealLabelsInstrumentedTest {
         assertTrue(result.stoppedAtNonVegetarian)
         assertEquals(emptyList<String>(), result.unknown)
     }
+
+    @Test fun cashewDrinkRemovesQuantitiesAndCrossContactNotes() {
+        val label = """Eau, sucre, 2,9% CAJOU partiellement dégraissé, 1,7% poudre de cacao¹, 0,5% protéine de pois, fructose, huile de coco, sel, arôme, carbonate de calcium, correcteur d'acidité (phosphates de potassium, citrates de sodium), stabilisant (cellulose, gomme cellulosique, gomme gellane). Peut contenir du soja, des amandes, des noisettes et des noix.¹Rainforest Alliance Certified. Find out more at ra.org"""
+        val result = VeganAnalyzer.analyze(label)
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertTrue(result.matched.any { it.id == "cocoa" })
+        assertTrue(result.matched.any { it.id == "peas" })
+        assertTrue(result.unknown.any { it.contains("CAJOU", ignoreCase = true) })
+        assertFalse(result.unknown.any { it.contains("protéine", ignoreCase = true) })
+        assertFalse(result.unknown.any { it.contains(Regex("\\d")) })
+        assertFalse(result.unknown.any { it.contains("amandes", ignoreCase = true) })
+        assertFalse(result.unknown.any { it.contains("Rainforest", ignoreCase = true) })
+    }
 }
