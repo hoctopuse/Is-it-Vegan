@@ -52,6 +52,10 @@ object VeganAnalyzer {
             "\\(\\s*\\d+(?:[.,]\\d+)?\\s*%\\s*\\)\\s*:\\s*"
     )
 
+    private val percentage = Regex("\\d+(?:[.,]\\d+)?\\s*%")
+
+    private val ingredientSeparator = Regex("(?<!\\d),(?!\\d)|[;()\\[\\]\\n]+")
+
     fun loadDatabase(context: Context) {
         val json = context.assets.open("ingredients.json")
             .bufferedReader().use { it.readText() }
@@ -91,8 +95,12 @@ object VeganAnalyzer {
             .replace(Regex("(?i)\\s*\\*\\s*Agriculture biologique\\.?\\s*$"), "")
             // "Farce (63%):" and "Pâte (37%):" describe groups, not ingredients.
             .replace(percentageSectionHeading, ";")
-        val chunks = ingredientText.replace(Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*"), "")
-            .split(Regex("[,;()\\[\\]\\n]+"))
+        val chunks = ingredientText
+            // Remove percentages before splitting: the comma in "23,8%" is decimal.
+            .replace(percentage, "")
+            .replace(Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*"), "")
+            // A comma between digits is decimal, not an ingredient separator.
+            .split(ingredientSeparator)
             .map { it.trim()
                 .replace(Regex("^\\d+(?:[.,]\\d+)?\\s*%\\s*"), "")
                 .replace(Regex("\\s+\\d+(?:[.,]\\d+)?\\s*%$"), "")

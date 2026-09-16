@@ -37,12 +37,21 @@ class VeganAnalyzerTest {
 
     @Test fun percentageSectionHeadingsAreNotIngredients() {
         val result = VeganAnalyzer.analyze(
-            "Farce (63%): sucre. Pâte (37%): farine de blé",
+            "Farce (63%): sucre 23,8%. Pâte (37%): farine de blé 28,5%",
             database
         )
         assertEquals(listOf("sucre", "farine"), result.matched.map { it.id })
         assertEquals(emptyList<String>(), result.unknown)
         assertEquals(AnalysisVerdict.VEGAN, result.verdict)
+    }
+
+    @Test fun decimalPercentagesAreNotIngredientSeparators() {
+        val result = VeganAnalyzer.analyze(
+            "sucre 23,8%, farine de blé 28.5%; lait 35 %",
+            database
+        )
+        assertEquals(listOf("sucre", "farine", "lait"), result.matched.map { it.id })
+        assertEquals(emptyList<String>(), result.unknown)
     }
 
     @Test fun verdictsRespectUnknownAndAmbiguousIngredients() {
