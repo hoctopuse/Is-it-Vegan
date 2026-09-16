@@ -49,6 +49,30 @@ class VeganAnalyzerTest {
         }
     }
 
+    @Test fun tracesAndAllergenNotesAreNotIngredients() {
+        val sample = """Eau, graines de soja*, présure (nigari), chlorure de calcium. *Agriculture biologique.
+            **Allergènes :** soja
+            **Traces :** lait, gélatine""".trimIndent()
+        val entries = database + ingredient("eau", "eau", VeganStatus.VEGAN) +
+            ingredient("soja", "graines de soja", VeganStatus.VEGAN) +
+            ingredient("gelatine", "gélatine", VeganStatus.NON_VEGAN)
+        val result = VeganAnalyzer.analyze(sample, entries)
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertEquals(listOf("eau", "soja"), result.matched.map { it.id })
+        assertEquals(listOf("présure", "nigari", "chlorure de calcium."), result.unknown)
+    }
+
+    @Test fun animalIngredientDominatesUnknownsAndAmbiguity() {
+        val entries = database + ingredient("porc", "viande de porc", VeganStatus.NON_VEGAN) +
+            ingredient("jaune", "jaune d’œuf", VeganStatus.VEGETARIAN)
+        val result = VeganAnalyzer.analyze(
+            "viande de porc (64%) (origine: Belgique); jaune d’OEUF; E471; ingrédient inconnu",
+            entries
+        )
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertEquals(listOf("porc", "jaune", "e471"), result.matched.map { it.id })
+    }
+
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
         Ingredient(id, alias, listOf(alias), number, status, "Test")
 }

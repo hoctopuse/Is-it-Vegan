@@ -51,11 +51,20 @@ object VeganAnalyzer {
 
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
     internal fun analyze(text: String, database: List<Ingredient>): AnalysisResult {
-        val chunks = text.replace(Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*"), "")
+        // Allergy and cross-contact notes are not ingredients of the recipe.
+        val ingredientText = text.lines()
+            .filterNot { line ->
+                val heading = normalize(line.trim().trim('*').substringBefore(':'))
+                heading == "traces" || heading == "allergenes"
+            }
+            .joinToString("\n")
+            .replace(Regex("(?i)\\s*\\*\\s*Agriculture biologique\\.?\\s*$"), "")
+        val chunks = ingredientText.replace(Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*"), "")
             .split(Regex("[,;()\\[\\]\\n]+"))
             .map { it.trim()
                 .replace(Regex("^\\d+(?:[.,]\\d+)?\\s*%\\s*"), "")
-                .replace(Regex("\\s+\\d+(?:[.,]\\d+)?\\s*%$"), "") }
+                .replace(Regex("\\s+\\d+(?:[.,]\\d+)?\\s*%$"), "")
+                .trimEnd('*', ' ') }
             .filter { it.isNotBlank() }
         val found = linkedMapOf<String, Ingredient>()
         val unknown = mutableListOf<String>()

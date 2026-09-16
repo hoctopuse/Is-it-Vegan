@@ -220,7 +220,9 @@
       "soy",
       "soya",
       "sojabonen",
-      "sojameel"
+      "sojameel",
+      "graines de soja",
+      "protéine de soja"
     ],
     "status": "VEGAN",
     "reason": "Légumineuse d’origine végétale.",
@@ -600,7 +602,8 @@
       "blanc d oeuf",
       "blanc d’œuf",
       "albumine d oeuf",
-      "albumine d’œuf"
+      "albumine d’œuf",
+      "jaune d’œuf"
     ],
     "status": "VEGETARIAN",
     "reason": "Œuf : végétarien mais non vegan (sans préjuger des conditions d'élevage).",
@@ -645,6 +648,7 @@
       "boeuf",
       "beef",
       "porc",
+      "viande de porc",
       "pork",
       "poulet",
       "chicken",
