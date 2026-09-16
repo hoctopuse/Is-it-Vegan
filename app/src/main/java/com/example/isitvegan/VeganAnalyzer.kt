@@ -47,6 +47,11 @@ object VeganAnalyzer {
             "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
     )
 
+    private val percentageSectionHeading = Regex(
+        "(?i)(?:^|[.;]\\s*)[\\p{L}][\\p{L}'’ -]{0,40}\\s*" +
+            "\\(\\s*\\d+(?:[.,]\\d+)?\\s*%\\s*\\)\\s*:\\s*"
+    )
+
     fun loadDatabase(context: Context) {
         val json = context.assets.open("ingredients.json")
             .bufferedReader().use { it.readText() }
@@ -84,6 +89,8 @@ object VeganAnalyzer {
             }
             .joinToString("\n")
             .replace(Regex("(?i)\\s*\\*\\s*Agriculture biologique\\.?\\s*$"), "")
+            // "Farce (63%):" and "Pâte (37%):" describe groups, not ingredients.
+            .replace(percentageSectionHeading, ";")
         val chunks = ingredientText.replace(Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*"), "")
             .split(Regex("[,;()\\[\\]\\n]+"))
             .map { it.trim()

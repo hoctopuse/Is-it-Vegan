@@ -18,6 +18,12 @@
     "use": "Reference for vegetarian ingredient boundaries; certification also has production requirements that a label cannot establish."
   },
   {
+    "id": "grana-padano-ingredients",
+    "title": "Consorzio Tutela Grana Padano — Ingredients",
+    "url": "https://www.granapadano.it/en-en/the-art-of-craftsmanship/the-iconic-product/ingredients/",
+    "use": "Official source stating that Grana Padano PDO uses rennet extracted from the calf's stomach."
+  },
+  {
     "id": "open-food-facts-docs",
     "title": "Open Food Facts API documentation",
     "url": "https://openfoodfacts.github.io/openfoodfacts-server/api/",

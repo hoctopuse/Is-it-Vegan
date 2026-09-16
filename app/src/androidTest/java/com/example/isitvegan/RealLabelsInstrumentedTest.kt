@@ -45,4 +45,13 @@ class RealLabelsInstrumentedTest {
         assertTrue(result.unknown.any { it.contains("nigari") })
         assertFalse(result.unknown.any { it.contains("lupin") })
     }
+
+    @Test fun stuffedPastaWithNestedPercentagesDetectsAnimalRennet() {
+        val label = """Farce (63%): ricotta de lait de buflonne 23,8% (lactoserum, sel), ricotta 23,5% (lactoserum, sel), sautéed épinards 22,5% (épinards 70%, beurre (lait), eau, formage Grana Padano AOP (lait, oeufs), sel, amidon de mais, ail), beurre (lait), chapelure (farine de blé dur, sel, levure), lactose, Grana Padano AOP (lait, oeufs), sel. Pate (37%): farine de blé, oeufs 28,5%, semoule de blé dur."""
+        val result = VeganAnalyzer.analyze(label)
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertTrue(result.matched.any { it.id == "grana_padano" })
+        assertTrue(result.stoppedAtNonVegetarian)
+        assertEquals(emptyList<String>(), result.unknown)
+    }
 }

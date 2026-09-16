@@ -10,7 +10,7 @@ Règles de décision :
 - `VEGAN` : ingrédient végétal, minéral ou de synthèse sans origine animale
   raisonnablement attendue ;
 - `NON_VEGAN` : ingrédient clairement non végétarien (chair, gélatine,
-  carmin de cochenille, gomme-laque issue d'insectes) ;
+  présure animale, carmin de cochenille, gomme-laque issue d'insectes) ;
 - `VEGETARIAN` : ingrédient animal sans chair ni partie du corps de l'animal
   (lait, œuf, miel), donc non vegan ; ce verdict concerne uniquement la liste
   d'ingrédients et ne constitue jamais une certification ;

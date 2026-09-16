@@ -304,6 +304,24 @@
     "source": "vegan-society"
   },
   {
+    "id": "spinach",
+    "name": "Épinards",
+    "eNumber": "",
+    "aliases": [
+      "épinard",
+      "epinard",
+      "épinards",
+      "epinards",
+      "épinards sautés",
+      "epinards sautes",
+      "sautéed épinards",
+      "sauteed epinards"
+    ],
+    "status": "VEGAN",
+    "reason": "Légume-feuille d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
     "id": "cocoa",
     "name": "Cacao",
     "eNumber": "",
@@ -484,6 +502,23 @@
     "source": "vegan-society"
   },
   {
+    "id": "grana_padano",
+    "name": "Grana Padano AOP",
+    "eNumber": "",
+    "aliases": [
+      "grana padano",
+      "grana padano aop",
+      "grana padano dop",
+      "fromage grana padano",
+      "fromage grana padano aop",
+      "formage grana padano",
+      "formage grana padano aop"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Le cahier des charges du Grana Padano impose une présure extraite de l’estomac du veau.",
+    "source": "grana-padano-ingredients"
+  },
+  {
     "id": "milk",
     "name": "Lait animal",
     "eNumber": "",
@@ -571,6 +606,19 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Issue du lait : végétarien mais non vegan.",
+    "source": "vegan-society, vegetarian-society"
+  },
+  {
+    "id": "ricotta",
+    "name": "Ricotta",
+    "eNumber": "",
+    "aliases": [
+      "ricotta",
+      "ricotta de lait de bufflonne",
+      "ricotta de lait de buflonne"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Fromage non vegan ; l’étiquette ne permet pas toujours d’établir l’origine de tous les agents de coagulation.",
     "source": "vegan-society, vegetarian-society"
   },
   {
