@@ -18,6 +18,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.isitvegan.ui.theme.IsItVeganTheme
 import kotlinx.coroutines.delay
+import kotlin.time.Duration.Companion.milliseconds
 
 private const val WAITING_RESULT = "⚪ En attente d'analyse"
 
@@ -50,7 +51,7 @@ fun IsItVeganScreen() {
     LaunchedEffect(diagnostics) {
         if (diagnostics != null) {
             // Wait for the result card to be measured before scrolling to it.
-            delay(150)
+            delay(150.milliseconds)
             scrollState.animateScrollTo(scrollState.maxValue)
         }
     }
