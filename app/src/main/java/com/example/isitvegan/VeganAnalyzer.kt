@@ -22,6 +22,20 @@ data class AnalysisResult(
         get() = VerdictEngine.evaluate(matched, unknown)
 }
 
+data class TokenDiagnostic(
+    val text: String,
+    val depth: Int,
+    val matchedIngredientIds: List<String>,
+    val unknown: String?
+)
+
+data class AnalysisDiagnostics(
+    val input: String,
+    val preprocessedInput: String,
+    val tokens: List<TokenDiagnostic>,
+    val result: AnalysisResult
+)
+
 enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
 
 object VeganAnalyzer {
@@ -53,17 +67,38 @@ object VeganAnalyzer {
 
     fun analyze(text: String): AnalysisResult = analyze(text, ingredients)
 
+    fun analyzeWithDiagnostics(text: String): AnalysisDiagnostics =
+        analyzeWithDiagnostics(text, ingredients)
+
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
     internal fun analyze(text: String, database: List<Ingredient>): AnalysisResult {
-        val tokens = IngredientTokenizer.tokenize(LabelPreprocessor.preprocess(text))
+        return runAnalysis(text, database).result
+    }
+
+    internal fun analyzeWithDiagnostics(
+        text: String,
+        database: List<Ingredient>
+    ): AnalysisDiagnostics = runAnalysis(text, database)
+
+    private fun runAnalysis(text: String, database: List<Ingredient>): AnalysisDiagnostics {
+        val preprocessed = LabelPreprocessor.preprocess(text)
+        val tokens = IngredientTokenizer.tokenize(preprocessed)
         val matcher = IngredientMatcher(database)
         val found = linkedMapOf<String, Ingredient>()
         val unknown = mutableListOf<String>()
+        val tokenDiagnostics = mutableListOf<TokenDiagnostic>()
         var stoppedAtNonVegetarian = false
         for ((index, token) in tokens.withIndex()) {
             val match = matcher.match(token)
             match.ingredients.forEach { found[it.id] = it }
-            UnknownCollector.collect(match)?.let(unknown::add)
+            val tokenUnknown = UnknownCollector.collect(match)
+            tokenUnknown?.let(unknown::add)
+            tokenDiagnostics += TokenDiagnostic(
+                text = token.text,
+                depth = token.depth,
+                matchedIngredientIds = match.ingredients.map { it.id },
+                unknown = tokenUnknown
+            )
 
             // A single non-vegetarian ingredient is enough to settle the verdict.
             // Uncertain and vegetarian ingredients must not stop the remaining analysis.
@@ -72,6 +107,11 @@ object VeganAnalyzer {
                 break
             }
         }
-        return AnalysisResult(found.values.toList(), unknown, stoppedAtNonVegetarian)
+        return AnalysisDiagnostics(
+            input = text,
+            preprocessedInput = preprocessed,
+            tokens = tokenDiagnostics,
+            result = AnalysisResult(found.values.toList(), unknown, stoppedAtNonVegetarian)
+        )
     }
 }

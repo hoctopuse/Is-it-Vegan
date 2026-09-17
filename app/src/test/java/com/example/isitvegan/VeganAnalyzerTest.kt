@@ -187,6 +187,30 @@ class VeganAnalyzerTest {
         }
     }
 
+    @Test fun diagnosticsExposePreprocessingAndEveryProcessedToken() {
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+            "Ingrédients: sucre 25 %, E 471, mystère. Peut contenir du lait",
+            database
+        )
+        assertEquals("sucre , E471, mystère. ", diagnostics.preprocessedInput)
+        assertEquals(listOf("sucre", "E471", "mystère."), diagnostics.tokens.map { it.text })
+        assertEquals(listOf("sucre"), diagnostics.tokens[0].matchedIngredientIds)
+        assertEquals(listOf("e471"), diagnostics.tokens[1].matchedIngredientIds)
+        assertEquals("mystère.", diagnostics.tokens[2].unknown)
+        assertEquals(AnalysisVerdict.UNCERTAIN, diagnostics.result.verdict)
+    }
+
+    @Test fun diagnosticReportContainsInputStepsAndBothVerdicts() {
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics("sucre, E471", database)
+        val report = DiagnosticReport.build(diagnostics, "0.5.5")
+        assertEquals(true, report.contains("Version : 0.5.5"))
+        assertEquals(true, report.contains("ENTRÉE\nsucre, E471"))
+        assertEquals(true, report.contains("correspondances=sucre"))
+        assertEquals(true, report.contains("correspondances=e471"))
+        assertEquals(true, report.contains("Verdict : UNCERTAIN"))
+        assertEquals(true, report.contains("Verdict sans les incertains : VEGAN"))
+    }
+
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
         Ingredient(id, alias, listOf(alias), number, status, "Test")
 }
