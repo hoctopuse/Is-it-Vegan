@@ -231,14 +231,33 @@ class VeganAnalyzerTest {
 
     @Test
     fun flaxFlourMustNeverMatchWheatFlour() {
-        val result = VeganAnalyzer.analyze("farine de lin")
-
-        assertFalse(
-            "La farine de lin ne peut pas correspondre à la farine de blé",
-            result.matched.any { it.id == "wheat_flour" }
+        val syntheticDatabase = listOf(
+            Ingredient(
+                id = "wheat_flour",
+                name = "farine de blé",
+                aliases = listOf("farine de blé", "farine de ble"),
+                status = VeganStatus.VEGAN,
+                reason = "Synthetic test ingredient"
+            ),
+            Ingredient(
+                id = "flax",
+                name = "lin",
+                aliases = listOf("lin", "farine de lin"),
+                status = VeganStatus.VEGAN,
+                reason = "Synthetic test ingredient"
+            )
         )
-        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
-        assertTrue(result.unknown.any { it.contains("farine de lin", ignoreCase = true) })
+
+        val result = VeganAnalyzer.analyze("farine de lin", syntheticDatabase)
+
+        assertEquals(listOf("flax"), result.matched.map { it.id })
+        assertFalse(result.matched.any { it.id == "wheat_flour" })
+        assertTrue(result.unknown.isEmpty())
+        assertEquals(AnalysisVerdict.VEGAN, result.verdict)
+
+        val wheatResult = VeganAnalyzer.analyze("farine de blé", syntheticDatabase)
+        assertEquals(listOf("wheat_flour"), wheatResult.matched.map { it.id })
+        assertTrue(wheatResult.unknown.isEmpty())
     }
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
         Ingredient(id, alias, listOf(alias), number, status, "Test")

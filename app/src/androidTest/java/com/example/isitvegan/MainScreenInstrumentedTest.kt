@@ -6,6 +6,7 @@ import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextInput
+import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Rule
 import org.junit.Test
 
@@ -14,7 +15,11 @@ class MainScreenInstrumentedTest {
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test fun pageCanScrollToItsFooter() {
-        composeRule.onNodeWithText("Version 0.5.7")
+        val versionName = InstrumentationRegistry.getInstrumentation()
+            .targetContext.packageManager
+            .getPackageInfo(InstrumentationRegistry.getInstrumentation().targetContext.packageName, 0)
+            .versionName
+        composeRule.onNodeWithText("Version $versionName")
             .performScrollTo()
             .assertIsDisplayed()
     }

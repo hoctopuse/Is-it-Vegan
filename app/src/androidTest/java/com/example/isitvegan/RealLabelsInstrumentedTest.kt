@@ -300,7 +300,7 @@ class RealLabelsInstrumentedTest {
     }
 
     @Test
-    fun nestleCaramelWaferIsVegetarianWithoutUncertainAndKeepsNutTraceSeparate() {
+    fun nestleCaramelWaferIsUncertainAndInconclusiveWithoutUncertainKeepsNutTraceSeparate() {
         val result = VeganAnalyzer.analyze(
             """
         Gaufrette croustillante enrobée de chocolat au lait (50,7 %) aromatisé au
