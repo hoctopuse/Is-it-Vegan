@@ -211,6 +211,31 @@ class VeganAnalyzerTest {
         assertEquals(true, report.contains("Verdict sans les incertains : VEGAN"))
     }
 
+    @Test
+    fun semicolonsInsideWarningDoNotLeakIngredients() {
+        val result = VeganAnalyzer.analyze(
+            "sucre. Peut contenir du lait; gélatine; œufs",
+            database
+        )
+
+        assertEquals(AnalysisVerdict.VEGAN, result.verdict)
+        assertEquals(listOf("sugar"), result.matched.map { it.id })
+        assertTrue(result.unknown.isEmpty())
+        assertEquals(
+            listOf("Peut contenir du lait; gélatine; œufs"),
+            result.crossContactWarnings
+        )
+    }
+
+    @Test
+    fun flaxFlourMustNeverMatchWheatFlour() {
+        val result = VeganAnalyzer.analyze("farine de lin")
+
+        assertFalse(
+            "La farine de lin ne peut pas correspondre à la farine de blé",
+            result.matched.any { it.id == "wheat_flour" }
+        )
+    }
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
         Ingredient(id, alias, listOf(alias), number, status, "Test")
 }
