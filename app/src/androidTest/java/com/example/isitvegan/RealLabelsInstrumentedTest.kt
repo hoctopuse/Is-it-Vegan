@@ -28,7 +28,8 @@ class RealLabelsInstrumentedTest {
             ". Fabriqué dans un atelier utilisant du lait et de la gélatine"
         ).forEach { note ->
             val result = VeganAnalyzer.analyze(recipe + note)
-            assertEquals(note, baseline, result)
+            assertEquals(note, baseline, result.copy(crossContactWarnings = emptyList()))
+            assertEquals(1, result.crossContactWarnings.size)
         }
     }
 

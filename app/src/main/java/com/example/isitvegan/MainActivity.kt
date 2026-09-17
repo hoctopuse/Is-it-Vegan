@@ -156,7 +156,7 @@ fun IsItVeganScreen() {
                         }
                         else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus " +
                             "comme végétaux ou minéraux dans la base hors ligne."
-                    }
+                    } + CrossContactNotice.format(analysis.crossContactWarnings)
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

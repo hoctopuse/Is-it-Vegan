@@ -14,7 +14,7 @@ class MainScreenInstrumentedTest {
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test fun pageCanScrollToItsFooter() {
-        composeRule.onNodeWithText("Version 0.5.5")
+        composeRule.onNodeWithText("Version 0.5.6")
             .performScrollTo()
             .assertIsDisplayed()
     }
@@ -23,6 +23,17 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("Ingrédients").performTextInput("eau, sucre")
         composeRule.onNodeWithText("ANALYSER").performClick()
         composeRule.waitForIdle()
+        composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
+    }
+
+    @Test fun crossContactWarningIsDisplayedAtTheEndOfTheResult() {
+        composeRule.onNodeWithText("Ingrédients")
+            .performTextInput("sucre. Peut contenir du lait.")
+        composeRule.onNodeWithText("ANALYSER").performClick()
+        composeRule.waitForIdle()
+        composeRule.onNodeWithText("⚠️ TRACES SIGNALÉES", substring = true)
+            .performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithText("• Peut contenir du lait.", substring = true).assertIsDisplayed()
         composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
     }
 }

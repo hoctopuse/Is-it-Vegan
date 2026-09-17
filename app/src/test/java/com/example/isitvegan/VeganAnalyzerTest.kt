@@ -192,7 +192,7 @@ class VeganAnalyzerTest {
             "Ingrédients: sucre 25 %, E 471, mystère. Peut contenir du lait",
             database
         )
-        assertEquals("sucre , E471, mystère. ", diagnostics.preprocessedInput)
+        assertEquals("sucre 25 %, E 471, mystère. ", diagnostics.preprocessedInput)
         assertEquals(listOf("sucre", "E471", "mystère."), diagnostics.tokens.map { it.text })
         assertEquals(listOf("sucre"), diagnostics.tokens[0].matchedIngredientIds)
         assertEquals(listOf("e471"), diagnostics.tokens[1].matchedIngredientIds)

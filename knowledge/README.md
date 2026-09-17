@@ -46,9 +46,10 @@ réutilisation massive.
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables :
 
-1. `LabelPreprocessor` retire les mentions hors composition et appelle
-   `QuantityCleaner`, qui supprime les quantités sans altérer `E471`, `B12`,
-   `D2` ou `oméga-3` ;
+1. Depuis la version 0.5.6 (code 12), `LabelPreprocessor` renvoie un
+   `PreprocessedLabel` : `compositionText`, `crossContactWarnings` et
+   `excludedNotes`. Seule la composition passe ensuite dans `QuantityCleaner`,
+   qui supprime les quantités sans altérer `E471`, `B12`, `D2` ou `oméga-3` ;
 2. `IngredientTokenizer` découpe la liste en conservant la profondeur des
    parenthèses et crochets ;
 3. `IngredientMatcher` privilégie les alias les plus longs afin que, par
@@ -56,3 +57,26 @@ Depuis la version 0.5.4, l'analyse est divisée en modules testables :
 4. `UnknownCollector` conserve le résidu réellement non reconnu ;
 5. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
    un ingrédient non végétarien.
+
+Les avertissements du fabricant (`Peut contenir`, `Traces :`, `Traces
+éventuelles de`, `Fabriqué dans un atelier`) sont conservés dans leur ordre
+d'apparition, sans doublons identiques après nettoyage d'affichage. Ils ne
+passent jamais dans le tokenizer, le matcher, les inconnus ou le moteur de
+verdict et ne déclenchent pas l'arrêt anticipé. `contient : lait` reste une
+information de composition. Une entrée contenant seulement une trace donne
+`INCONCLUSIVE`.
+
+`AnalysisResult` conserve les avertissements et les notes exclues. L'interface
+ajoute une section « TRACES SIGNALÉES » à la fin du résultat, quel que soit le
+verdict, uniquement si des avertissements existent. Elle reproduit le texte du
+fabricant et précise qu'il n'intervient pas dans le verdict.
+
+Les notes reconnues (certification Rainforest Alliance et son pied de page,
+`*Agriculture biologique`, `^concentré`, déclarations `Allergènes :`) sont
+conservées dans `excludedNotes` pour le diagnostic uniquement. Aucun moteur
+d'allergies ni classement des allergènes n'est effectué ; aucun conseil médical
+ni garantie d'absence d'allergènes n'est fourni.
+
+Le rapport de diagnostic distingue « COMPOSITION APRÈS PRÉTRAITEMENT » (avant
+nettoyage des quantités), « TRACES / CONTAMINATION CROISÉE » et « NOTES EXCLUES »,
+puis affiche les tokens effectivement analysés. Le fonctionnement reste hors ligne.

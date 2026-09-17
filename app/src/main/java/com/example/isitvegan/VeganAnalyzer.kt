@@ -6,7 +6,9 @@ import org.json.JSONArray
 data class AnalysisResult(
     val matched: List<Ingredient>,
     val unknown: List<String>,
-    val stoppedAtNonVegetarian: Boolean = false
+    val stoppedAtNonVegetarian: Boolean = false,
+    val crossContactWarnings: List<String> = emptyList(),
+    val excludedNotes: List<String> = emptyList()
 ) {
     val uncertainIngredients: List<Ingredient>
         get() = matched.filter { it.status == VeganStatus.UNCERTAIN }
@@ -34,7 +36,10 @@ data class AnalysisDiagnostics(
     val preprocessedInput: String,
     val tokens: List<TokenDiagnostic>,
     val result: AnalysisResult
-)
+) {
+    val crossContactWarnings: List<String> get() = result.crossContactWarnings
+    val excludedNotes: List<String> get() = result.excludedNotes
+}
 
 enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
 
@@ -82,7 +87,7 @@ object VeganAnalyzer {
 
     private fun runAnalysis(text: String, database: List<Ingredient>): AnalysisDiagnostics {
         val preprocessed = LabelPreprocessor.preprocess(text)
-        val tokens = IngredientTokenizer.tokenize(preprocessed)
+        val tokens = IngredientTokenizer.tokenize(QuantityCleaner.clean(preprocessed.compositionText))
         val matcher = IngredientMatcher(database)
         val found = linkedMapOf<String, Ingredient>()
         val unknown = mutableListOf<String>()
@@ -109,9 +114,12 @@ object VeganAnalyzer {
         }
         return AnalysisDiagnostics(
             input = text,
-            preprocessedInput = preprocessed,
+            preprocessedInput = preprocessed.compositionText,
             tokens = tokenDiagnostics,
-            result = AnalysisResult(found.values.toList(), unknown, stoppedAtNonVegetarian)
+            result = AnalysisResult(
+                found.values.toList(), unknown, stoppedAtNonVegetarian,
+                preprocessed.crossContactWarnings, preprocessed.excludedNotes
+            )
         )
     }
 }

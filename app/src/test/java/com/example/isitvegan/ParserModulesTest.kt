@@ -20,10 +20,11 @@ class ParserModulesTest {
     }
 
     @Test fun preprocessorRemovesTracesFootnotesAndFunctionalHeadings() {
-        val cleaned = LabelPreprocessor.preprocess(
+        val preprocessed = LabelPreprocessor.preprocess(
             """Ingrédients: cacao¹ 2,9%, stabilisant (pectines), E 471. """ +
                 "Peut contenir du lait. ¹Rainforest Alliance Certified. Find out more."
         )
+        val cleaned = QuantityCleaner.clean(preprocessed.compositionText)
         assertFalse(cleaned.contains("2,9"))
         assertFalse(cleaned.contains("stabilisant", ignoreCase = true))
         assertFalse(cleaned.contains("Peut contenir", ignoreCase = true))
