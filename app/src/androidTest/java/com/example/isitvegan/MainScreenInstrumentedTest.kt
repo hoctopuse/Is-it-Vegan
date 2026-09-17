@@ -14,7 +14,7 @@ class MainScreenInstrumentedTest {
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test fun pageCanScrollToItsFooter() {
-        composeRule.onNodeWithText("Version 0.5.6")
+        composeRule.onNodeWithText("Version 0.5.7")
             .performScrollTo()
             .assertIsDisplayed()
     }

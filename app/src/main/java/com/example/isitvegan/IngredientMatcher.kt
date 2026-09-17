@@ -11,7 +11,8 @@ internal class IngredientMatcher(database: List<Ingredient>) {
     private data class AliasEntry(
         val ingredient: Ingredient,
         val value: String,
-        val pattern: Regex
+        val pattern: Regex,
+        val hasLongerLinkedAlias: Boolean
     )
 
     private data class Candidate(
@@ -20,6 +21,10 @@ internal class IngredientMatcher(database: List<Ingredient>) {
         val endExclusive: Int,
         val aliasLength: Int
     )
+
+    private val normalizedAliases = database.flatMap { ingredient ->
+        ingredient.aliases + listOfNotNull(ingredient.eNumber)
+    }.map(TextNormalizer::normalize).filter(String::isNotBlank).distinct()
 
     private val aliases: List<AliasEntry> = database.flatMap { ingredient ->
         (ingredient.aliases + listOfNotNull(ingredient.eNumber))
@@ -32,7 +37,12 @@ internal class IngredientMatcher(database: List<Ingredient>) {
                     value = normalizedAlias,
                     pattern = Regex(
                         "(?<![a-z0-9])${Regex.escape(normalizedAlias)}(?![a-z0-9])"
-                    )
+                    ),
+                    hasLongerLinkedAlias = normalizedAliases.any {
+                        it.length > normalizedAlias.length &&
+                            it.startsWith("$normalizedAlias ") &&
+                            linkedSuffix.matches(it.removePrefix("$normalizedAlias "))
+                    }
                 )
             }
     }.sortedByDescending { it.value.length }
@@ -42,6 +52,8 @@ internal class IngredientMatcher(database: List<Ingredient>) {
         val candidates = buildList {
             aliases.forEach { alias ->
                 alias.pattern.findAll(normalized).forEach { occurrence ->
+                    val suffix = normalized.substring(occurrence.range.last + 1).trimStart()
+                    if (alias.hasLongerLinkedAlias && linkedSuffix.matches(suffix)) return@forEach
                     add(Candidate(
                         ingredient = alias.ingredient,
                         start = occurrence.range.first,
@@ -74,5 +86,9 @@ internal class IngredientMatcher(database: List<Ingredient>) {
             .trim()
 
         return IngredientMatch(token, ingredients.values.toList(), residual)
+    }
+
+    private companion object {
+        val linkedSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
     }
 }

@@ -75,7 +75,8 @@ class RealLabelsInstrumentedTest {
         val result = VeganAnalyzer.analyze(label)
         assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
         assertTrue(result.matched.any { it.id == "soy" })
-        assertTrue(result.unknown.any { it.contains("nigari") })
+        assertTrue(result.matched.any { it.id == "nigari" })
+        assertFalse(result.unknown.any { it.contains("nigari", ignoreCase = true) })
         assertFalse(result.unknown.any { it.contains("lupin") })
     }
 
@@ -111,12 +112,9 @@ class RealLabelsInstrumentedTest {
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(label)
         val result = diagnostics.result
 
+        // La base enrichie couvre désormais toute cette composition explicite.
         assertEquals(AnalysisVerdict.VEGAN, result.verdict)
-
-        assertTrue(
-            "Ingrédients encore non reconnus : ${result.unknown}",
-            result.unknown.isEmpty()
-        )
+        assertTrue("Ingrédients encore non reconnus : ${result.unknown}", result.unknown.isEmpty())
 
         assertTrue(result.crossContactWarnings.isEmpty())
 
@@ -125,6 +123,11 @@ class RealLabelsInstrumentedTest {
         assertTrue(result.matched.any { it.id == "sunflower_oil" })
         assertTrue(result.matched.any { it.id == "wheat_flour" })
         assertTrue(result.matched.any { it.id == "corn" })
+        assertTrue(result.matched.any { it.id == "nigari" })
+        assertTrue(result.matched.any { it.id == "flax" })
+        assertTrue(result.matched.any { it.id == "chicory" })
+        assertTrue(result.matched.any { it.id == "turmeric" })
+        assertTrue(result.matched.any { it.id == "paprika" })
 
         // Les titres de sections et les mots de préparation
         // ne sont pas des ingrédients inconnus.
@@ -190,12 +193,16 @@ class RealLabelsInstrumentedTest {
         assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
         assertTrue(result.matched.any { it.id == "natural_flavouring" })
 
-        // Tout le reste de la composition doit être reconnu comme vegan.
-        assertEquals(AnalysisVerdict.VEGAN, result.verdictWithoutUncertain)
-        assertTrue(
-            "Ingrédients encore non reconnus : ${result.unknown}",
-            result.unknown.isEmpty()
-        )
+        // Les données absentes restent inconnues : la hiérarchie ne doit pas les
+        // transformer artificiellement en ingrédients vegans.
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdictWithoutUncertain)
+        listOf("méthylcellulose", "hydroxyde de potassium")
+            .forEach { absent ->
+                assertTrue("Absent attendu de la base : $absent (${result.unknown})",
+                    result.unknown.any { it.contains(absent, ignoreCase = true) })
+            }
+        assertTrue(result.matched.any { it.id == "paprika" })
+        assertFalse(result.unknown.any { it.contains("paprika", ignoreCase = true) })
 
         // Les modificateurs de préparation ne doivent pas devenir des inconnus.
         assertFalse(result.unknown.any {
@@ -259,5 +266,79 @@ class RealLabelsInstrumentedTest {
         assertFalse(result.unknown.any { it.contains(Regex("\\d")) })
         assertFalse(result.unknown.any { it.contains("amandes", ignoreCase = true) })
         assertFalse(result.unknown.any { it.contains("Rainforest", ignoreCase = true) })
+    }
+    @Test
+    fun hariboHappyPeachesIsNonVeganAndItsTraceWarningDoesNotAffectVerdict() {
+        val result = VeganAnalyzer.analyze(
+            """
+        Confiserie gélifiée au goût pêche. Ingrédients : sucre, sirop de glucose,
+        eau, gélatine, jus de pêche à base de concentré de jus de pêche (2 %),
+        acidifiants : acide citrique, acide malique, concentrés de fruits et de
+        plantes : carotte, hibiscus ; correcteur d'acidité : malate acide de sodium ;
+        arôme. Peut contenir des traces de blé, lait.
+        """.trimIndent()
+        )
+
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertTrue(result.matched.any { it.id == "gelatin" })
+        assertTrue(result.stoppedAtNonVegetarian)
+
+        assertEquals(
+            listOf("Peut contenir des traces de blé, lait."),
+            result.crossContactWarnings
+        )
+
+        // Le blé et le lait appartiennent uniquement à l'avertissement de traces.
+        assertFalse(result.matched.any { it.id == "milk" })
+        assertFalse(
+            result.matched.any {
+                it.id == "wheat" || it.id == "wheat_flour"
+            }
+        )
+        assertFalse(result.unknown.any { it.contains("lait", ignoreCase = true) })
+        assertFalse(result.unknown.any { it.contains("blé", ignoreCase = true) })
+    }
+
+    @Test
+    fun nestleCaramelWaferIsVegetarianWithoutUncertainAndKeepsNutTraceSeparate() {
+        val result = VeganAnalyzer.analyze(
+            """
+        Gaufrette croustillante enrobée de chocolat au lait (50,7 %) aromatisé au
+        caramel et d'un enrobage blanc (11,9 %) avec un fourrage (20,3 %) au caramel
+        salé aromatisé. Le chocolat au lait contient des matières grasses végétales
+        en plus du beurre de cacao. Ingrédients : sucre, matières grasses végétales
+        (palme, karité), LAIT écrémé en poudre, farine de BLÉ, beurre de cacao, pâte
+        de cacao, PETIT-LAIT filtré en poudre, sirop de glucose, matière grasse de
+        LAIT anhydre, caramel en poudre (1,0 %) (LAIT écrémé en poudre, sucre,
+        PETIT-LAIT en poudre, BEURRE, arôme naturel), cacao maigre, émulsifiant
+        (lécithines), arômes naturels, sel, poudre à lever (carbonates de sodium),
+        colorant (extrait de paprika). Peut contenir : ARACHIDES et FRUITS À COQUE (CH : NOISETTES).
+        """.trimIndent()
+        )
+
+        // Lécithines et arômes naturels restent prudents : verdict global incertain.
+        assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
+        // Le préambule descriptif et certains composants restent inconnus avec
+        // la couverture actuelle : ils empêchent de valider le reste.
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdictWithoutUncertain)
+        assertTrue("Des inconnus réels sont attendus : ${result.unknown}", result.unknown.isNotEmpty())
+
+        assertTrue(result.matched.any { it.id == "milk" })
+        assertTrue(result.matched.any { it.id == "whey" })
+        assertTrue(result.matched.any { it.id == "butter" })
+        assertTrue(
+            result.matched.any {
+                it.id == "e322" || it.id == "natural_flavouring"
+            }
+        )
+
+        assertEquals(
+            listOf("Peut contenir : ARACHIDES et FRUITS À COQUE (CH : NOISETTES)."),
+            result.crossContactWarnings
+        )
+
+        // Les allergènes de traces ne doivent jamais être envoyés dans l'analyse.
+        assertFalse(result.unknown.any { it.contains("arachide", ignoreCase = true) })
+        assertFalse(result.unknown.any { it.contains("noisette", ignoreCase = true) })
     }
 }

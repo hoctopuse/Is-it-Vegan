@@ -42,16 +42,107 @@
     "source": "vegan-society"
   },
   {
+    "id": "wheat",
+    "name": "Blé",
+    "eNumber": "",
+    "aliases": [
+      "blé",
+      "ble",
+      "wheat",
+      "tarwe"
+    ],
+    "status": "VEGAN",
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "flax",
+    "name": "Lin",
+    "eNumber": "",
+    "aliases": [
+      "lin",
+      "graines de lin",
+      "graine de lin",
+      "farine de lin",
+      "flax",
+      "flaxseed",
+      "flax seed",
+      "flax meal",
+      "lijnzaad",
+      "lijnzaadmeel"
+    ],
+    "status": "VEGAN",
+    "reason": "Graine oléagineuse d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "chicory",
+    "name": "Chicorée",
+    "eNumber": "",
+    "aliases": [
+      "chicorée",
+      "chicoree",
+      "fibre de chicorée",
+      "fibre de chicoree",
+      "fibres de chicorée",
+      "fibres de chicoree",
+      "chicory",
+      "chicory fibre",
+      "chicory fiber",
+      "cichorei",
+      "cichoreivezel"
+    ],
+    "status": "VEGAN",
+    "reason": "Plante et fibres végétales issues de chicorée.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "turmeric",
+    "name": "Curcuma",
+    "eNumber": "",
+    "aliases": [
+      "curcuma",
+      "turmeric",
+      "kurkuma"
+    ],
+    "status": "VEGAN",
+    "reason": "Épice issue d’un rhizome végétal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "paprika",
+    "name": "Paprika",
+    "eNumber": "",
+    "aliases": [
+      "paprika",
+      "extrait de paprika",
+      "paprika extract",
+      "paprika-extract"
+    ],
+    "status": "VEGAN",
+    "reason": "Épice obtenue à partir de poivrons séchés.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "nigari",
+    "name": "Nigari",
+    "eNumber": "",
+    "aliases": [
+      "nigari"
+    ],
+    "status": "VEGAN",
+    "reason": "Coagulant minéral utilisé notamment pour le tofu, sans origine animale attendue.",
+    "source": "vegan-society"
+  },
+  {
     "id": "wheat_flour",
     "name": "Farine de blé",
     "eNumber": "",
     "aliases": [
-      "farine",
       "farine de blé",
       "farine de ble",
       "wheat flour",
-      "tarwebloem",
-      "bloem"
+      "tarwebloem"
     ],
     "status": "VEGAN",
     "reason": "Céréale d’origine végétale.",

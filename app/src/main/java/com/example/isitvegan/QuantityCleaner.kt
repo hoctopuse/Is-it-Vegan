@@ -22,6 +22,7 @@ internal object QuantityCleaner {
         .replace(omegaWithSpace) { it.value.trimEnd() + "-" }
         .replace(quantityWithUnit, "")
         .replace(standaloneNumber, "")
+        .replace(Regex("\\(\\s*\\)(?=\\s*:)") , "")
         .replace(footnoteMarker, "")
         .replace(Regex("[ \\t]{2,}"), " ")
 }

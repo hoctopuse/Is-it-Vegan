@@ -26,7 +26,11 @@ data class AnalysisResult(
 
 data class TokenDiagnostic(
     val text: String,
+    val order: Int,
     val depth: Int,
+    val parentOrder: Int?,
+    val kind: NodeKind,
+    val matcherText: String?,
     val matchedIngredientIds: List<String>,
     val unknown: String?
 )
@@ -93,14 +97,39 @@ object VeganAnalyzer {
         val unknown = mutableListOf<String>()
         val tokenDiagnostics = mutableListOf<TokenDiagnostic>()
         var stoppedAtNonVegetarian = false
+        val tokensWithChildren = tokens.mapNotNull { it.parentOrder }.toSet()
+        val tokenByOrder = tokens.associateBy { it.order }
         for ((index, token) in tokens.withIndex()) {
-            val match = matcher.match(token)
+            if (token.kind == NodeKind.SECTION_HEADING) {
+                tokenDiagnostics += TokenDiagnostic(
+                    text = token.text,
+                    order = token.order,
+                    depth = token.depth,
+                    parentOrder = token.parentOrder,
+                    kind = token.kind,
+                    matcherText = null,
+                    matchedIngredientIds = emptyList(),
+                    unknown = null
+                )
+                continue
+            }
+            val matcherText = contextualMatcherText(token, tokenByOrder)
+            val match = matcher.match(token.copy(text = matcherText))
             match.ingredients.forEach { found[it.id] = it }
-            val tokenUnknown = UnknownCollector.collect(match)
+            val mayOmitCompositeLabel = match.ingredients.isNotEmpty() ||
+                isReviewedStructuralComposite(token.text)
+            val tokenUnknown = UnknownCollector.collect(match).takeUnless {
+                token.kind == NodeKind.COMPOSITE_INGREDIENT &&
+                    token.order in tokensWithChildren && mayOmitCompositeLabel
+            }
             tokenUnknown?.let(unknown::add)
             tokenDiagnostics += TokenDiagnostic(
                 text = token.text,
+                order = token.order,
                 depth = token.depth,
+                parentOrder = token.parentOrder,
+                kind = token.kind,
+                matcherText = matcherText,
                 matchedIngredientIds = match.ingredients.map { it.id },
                 unknown = tokenUnknown
             )
@@ -121,5 +150,27 @@ object VeganAnalyzer {
                 preprocessed.crossContactWarnings, preprocessed.excludedNotes
             )
         )
+    }
+
+    private fun contextualMatcherText(
+        token: IngredientToken,
+        tokenByOrder: Map<Int, IngredientToken>
+    ): String {
+        val parent = token.parentOrder?.let(tokenByOrder::get) ?: return token.text
+        val normalizedParent = TextNormalizer.normalize(parent.text)
+        val normalizedChild = TextNormalizer.normalize(token.text)
+        val isVegetableOilGroup = normalizedParent.matches(
+            Regex("^huiles? vegetales? en proportion variable$")
+        )
+        val isSimpleChild = normalizedChild.matches(Regex("[a-z]+"))
+        return if (isVegetableOilGroup && isSimpleChild) "huile de ${token.text}" else token.text
+    }
+
+    private fun isReviewedStructuralComposite(text: String): Boolean {
+        val normalized = TextNormalizer.normalize(text)
+        return normalized == "chapelure" ||
+            normalized.startsWith("chapelure ") ||
+            normalized == "epices" ||
+            normalized.matches(Regex("^huiles? vegetales? en proportion variable$"))
     }
 }

@@ -11,15 +11,11 @@ internal object LabelPreprocessor {
         "(?i)\\b(?:peut\\s+contenir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
             "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
     )
-    private val percentageSectionHeading = Regex(
-        "(?i)(?:^|[.;]\\s*)[\\p{L}][\\p{L}'’ -]{0,40}\\s*" +
-            "\\(\\s*\\d+(?:[.,]\\d+)?\\s*%\\s*\\)\\s*:\\s*"
-    )
     private val functionalClassHeading = Regex(
         "(?i)\\b(?:stabilisants?|correcteurs?\\s+d['’]acidit[ée]|" +
             "r[ée]gulateurs?\\s+d['’]acidit[ée]|antioxydants?|acidifiants?|" +
             "conservateurs?|[ée]mulsifiants?|[ée]paississants?|g[ée]lifiants?)" +
-            "\\s*(?=[(\\[])"
+            "\\s*(?:(?=[(\\[])|:\\s*)"
     )
     private val ingredientHeading = Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*")
     private val containsHeading = Regex("(?i)\\bcontient\\s*:\\s*")
@@ -34,8 +30,6 @@ internal object LabelPreprocessor {
             .lines()
             .map { line -> extractNotices(line, warnings, notes) }
             .joinToString("\n")
-            // Section labels describe groups, not ingredients.
-            .replace(percentageSectionHeading, ";")
             .replace(functionalClassHeading, "")
             .replace(ingredientHeading, "")
             .replace(containsHeading, "")
@@ -73,7 +67,8 @@ internal object LabelPreprocessor {
             var nesting = 0
             while (end < line.length) {
                 val character = line[end]
-                if (nesting == 0 && character in ".;)]") break
+                val isBoundary = if (isTrace) character == '.' else character in ".;)]"
+                if (nesting == 0 && isBoundary) break
                 if (character in "([") nesting++
                 if (character in ")]") nesting = (nesting - 1).coerceAtLeast(0)
                 end++
@@ -93,6 +88,7 @@ internal object LabelPreprocessor {
             if (nextTrace != null) end = minOf(end, nextTrace.range.first)
             val value = line.substring(marker.range.first, end)
                 .replace("**", "").trim().trimStart('*', '¹', '²', '³').trim()
+                .trimEnd(';').trim()
             if (isTrace) warnings.add(value) else notes.add(value)
             cursor = end
         }

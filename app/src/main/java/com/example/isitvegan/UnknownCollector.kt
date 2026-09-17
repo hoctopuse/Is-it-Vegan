@@ -9,6 +9,7 @@ internal object UnknownCollector {
         "non hydrogene",
         "non hydrogenee",
         "proteine de",
+        "proteines de",
         "poudre de",
         "extrait de",
         "flocons de",
@@ -17,7 +18,12 @@ internal object UnknownCollector {
         "feves de",
         "feve de",
         "decortiquees",
-        "decortiquee"
+        "decortiquee",
+        "rehydrate", "rehydratees", "rehydrates", "rehydratee",
+        "concentre", "concentree", "concentres", "concentrees",
+        "depellicule", "depelliculee", "depellicules", "depelliculees",
+        "fume", "fumee", "fumes", "fumees",
+        "au bois de hetre"
     ).sortedByDescending { it.length }
 
     private val glueWords = setOf("de", "d", "du", "des", "a", "au", "aux", "et", "en")

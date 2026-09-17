@@ -1,6 +1,8 @@
 package com.example.isitvegan
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class VeganAnalyzerTest {
@@ -108,7 +110,7 @@ class VeganAnalyzerTest {
         val result = VeganAnalyzer.analyze(sample, entries)
         assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
         assertEquals(listOf("eau", "soja"), result.matched.map { it.id })
-        assertEquals(listOf("présure", "nigari", "chlorure de calcium."), result.unknown)
+        assertEquals(listOf("présure", "nigari", "chlorure de calcium"), result.unknown)
     }
 
     @Test fun inlineCrossContactNotesDoNotAffectTheVerdict() {
@@ -193,10 +195,10 @@ class VeganAnalyzerTest {
             database
         )
         assertEquals("sucre 25 %, E 471, mystère. ", diagnostics.preprocessedInput)
-        assertEquals(listOf("sucre", "E471", "mystère."), diagnostics.tokens.map { it.text })
+        assertEquals(listOf("sucre", "E471", "mystère"), diagnostics.tokens.map { it.text })
         assertEquals(listOf("sucre"), diagnostics.tokens[0].matchedIngredientIds)
         assertEquals(listOf("e471"), diagnostics.tokens[1].matchedIngredientIds)
-        assertEquals("mystère.", diagnostics.tokens[2].unknown)
+        assertEquals("mystère", diagnostics.tokens[2].unknown)
         assertEquals(AnalysisVerdict.UNCERTAIN, diagnostics.result.verdict)
     }
 
@@ -219,7 +221,7 @@ class VeganAnalyzerTest {
         )
 
         assertEquals(AnalysisVerdict.VEGAN, result.verdict)
-        assertEquals(listOf("sugar"), result.matched.map { it.id })
+        assertEquals(listOf("sucre"), result.matched.map { it.id })
         assertTrue(result.unknown.isEmpty())
         assertEquals(
             listOf("Peut contenir du lait; gélatine; œufs"),
@@ -235,6 +237,8 @@ class VeganAnalyzerTest {
             "La farine de lin ne peut pas correspondre à la farine de blé",
             result.matched.any { it.id == "wheat_flour" }
         )
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertTrue(result.unknown.any { it.contains("farine de lin", ignoreCase = true) })
     }
     private fun ingredient(id: String, alias: String, status: VeganStatus, number: String? = null) =
         Ingredient(id, alias, listOf(alias), number, status, "Test")

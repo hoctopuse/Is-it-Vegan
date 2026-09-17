@@ -44,19 +44,47 @@ réutilisation massive.
 
 ## Pipeline d'analyse hors ligne
 
-Depuis la version 0.5.4, l'analyse est divisée en modules testables :
+Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
+0.5.7 (code 13) reconstruit en plus la hiérarchie :
 
 1. Depuis la version 0.5.6 (code 12), `LabelPreprocessor` renvoie un
    `PreprocessedLabel` : `compositionText`, `crossContactWarnings` et
    `excludedNotes`. Seule la composition passe ensuite dans `QuantityCleaner`,
    qui supprime les quantités sans altérer `E471`, `B12`, `D2` ou `oméga-3` ;
-2. `IngredientTokenizer` découpe la liste en conservant la profondeur des
-   parenthèses et crochets ;
+2. `IngredientTokenizer` découpe la liste, sépare aussi les éléments au point
+   de niveau racine (sans couper les décimales), et produit des nœuds reliés à
+   leur parent. Chaque nœud est un ingrédient, un ingrédient composite ou un
+   titre de section ; les parenthèses et crochets imbriqués restent associés à
+   leur véritable parent ;
 3. `IngredientMatcher` privilégie les alias les plus longs afin que, par
-   exemple, `lait de coco` masque correctement l'alias plus court `lait` ;
+   exemple, `lait de coco` masque correctement l'alias plus court `lait`. Un
+   alias court qui est aussi le préfixe d'alias plus précis est refusé lorsqu'il
+   est suivi de `de`, `d'`, `du`, `des`, `à` ou `au` et qu'aucun alias complet
+   ne couvre l'expression. Ainsi `farine de lin` ne correspond pas à
+   `wheat_flour`, tandis que `farine de blé` et `lait` seul restent valides ;
 4. `UnknownCollector` conserve le résidu réellement non reconnu ;
 5. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
    un ingrédient non végétarien.
+
+Les titres tels que `Farce (63 %) :`, `Cœur au tofu fumé 62,6 % :` ou
+`Enrobage 37,4 % :` organisent leurs enfants. Ils figurent dans le diagnostic,
+mais ne passent ni dans le matcher ni dans les inconnus et n'influencent pas le
+verdict. Un ingrédient composite conserve les correspondances présentes dans
+son propre nom, puis analyse ses enfants. Son libellé structurel résiduel peut
+être omis des inconnus lorsque sa sous-composition est explicite ; le même
+libellé sans sous-composition reste inconnu.
+
+La transmission de contexte est volontairement étroite : le groupe
+`huiles végétales en proportion variable` permet seulement d'essayer
+`huile de colza`, `huile de tournesol`, etc. pour ses enfants simples, avec les
+alias déjà présents. Le texte enrichi est visible dans le diagnostic et aucune
+combinaison générale de mots n'est inventée.
+
+Une erreur de parsing crée un faux token, perd une relation ou choisit un alias
+incorrect. Un ingrédient absent de `ingredients.json` reste au contraire un
+inconnu légitime, même si la structure qui le contient est parfaitement
+reconstruite. La couverture de la base et la qualité du parseur sont donc
+testées séparément.
 
 Les avertissements du fabricant (`Peut contenir`, `Traces :`, `Traces
 éventuelles de`, `Fabriqué dans un atelier`) sont conservés dans leur ordre
@@ -79,4 +107,6 @@ ni garantie d'absence d'allergènes n'est fourni.
 
 Le rapport de diagnostic distingue « COMPOSITION APRÈS PRÉTRAITEMENT » (avant
 nettoyage des quantités), « TRACES / CONTAMINATION CROISÉE » et « NOTES EXCLUES »,
-puis affiche les tokens effectivement analysés. Le fonctionnement reste hors ligne.
+puis affiche pour chaque nœud son type, sa profondeur, son parent, son texte
+original, le texte éventuellement enrichi pour le matcher, ses correspondances
+et son résidu inconnu. Le fonctionnement reste hors ligne.
