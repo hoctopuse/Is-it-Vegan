@@ -208,7 +208,7 @@ class VeganAnalyzerTest {
         assertEquals(true, report.contains("Version : 0.5.5"))
         assertEquals(true, report.contains("ENTRÉE\nsucre, E471"))
         assertEquals(true, report.contains("LANGUE / BLOC SÉLECTIONNÉ"))
-        assertEquals(true, report.contains("Langue : inconnue"))
+        assertEquals(true, report.contains("Langue sélectionnée : inconnue"))
         assertEquals(true, report.contains("Fallback texte complet : oui"))
         assertEquals(true, report.contains("correspondances=sucre"))
         assertEquals(true, report.contains("correspondances=e471"))

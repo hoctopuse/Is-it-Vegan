@@ -41,10 +41,10 @@ internal object LabelLanguageSegmenter {
         MarkerPattern(LabelLanguage.DUTCH, markerRegex("\\[NL\\]")),
         MarkerPattern(LabelLanguage.ENGLISH, markerRegex("\\[EN\\]")),
         MarkerPattern(LabelLanguage.GERMAN, markerRegex("\\[DE\\]")),
-        MarkerPattern(LabelLanguage.FRENCH, codeRegex("(?:FR(?:\\s*(?:[-/]\\s*|\\s+)(?:BE|LU|LUX)){0,2}|BE-FR|\\[FR]|\\(FR\\)|F)")),
-        MarkerPattern(LabelLanguage.DUTCH, codeRegex("(?:NL(?:\\s*(?:[-/]\\s*|\\s+)BE)?|BE-NL|\\[NL]|\\(NL\\))")),
-        MarkerPattern(LabelLanguage.ENGLISH, codeRegex("(?:EN(?:\\s*[-/]\\s*GB)?|GB-EN|\\[EN]|\\(EN\\)|GB)")),
-        MarkerPattern(LabelLanguage.GERMAN, codeRegex("(?:DE|\\[DE]|\\(DE\\))"))
+        MarkerPattern(LabelLanguage.FRENCH, codeRegex(languageCodePattern("FR", listOf("BE", "LU", "LUX"), listOf("F")))),
+        MarkerPattern(LabelLanguage.DUTCH, codeRegex(languageCodePattern("NL", listOf("BE", "LU", "LUX")))),
+        MarkerPattern(LabelLanguage.ENGLISH, codeRegex(languageCodePattern("EN", listOf("GB"), listOf("GB")))),
+        MarkerPattern(LabelLanguage.GERMAN, codeRegex(languageCodePattern("DE", emptyList())))
     )
 
     fun segment(text: String): LanguageSegmentation {
@@ -90,6 +90,22 @@ internal object LabelLanguageSegmenter {
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
     private fun languageNameRegex(name: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$name(?:\\s*:\\s*|(?=\\s*(?:$|\\r?\\n|(?:Ingrédients?|Ingrediënten?|Ingredients?|Zutaten?)\\s*:)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
+    private fun languageCodePattern(
+        languageCode: String,
+        marketCodes: List<String>,
+        aliases: List<String> = emptyList()
+    ): String {
+        val languageWithMarkets = if (marketCodes.isEmpty()) {
+            languageCode
+        } else {
+            val market = marketCodes.joinToString("|")
+            "$languageCode(?:\\s*(?:[-/]\\s*|\\s+)(?:$market)){0,${marketCodes.size}}"
+        }
+        val reversedCodes = marketCodes.map { "$it-$languageCode" }
+        return (listOf(languageWithMarkets) + reversedCodes +
+            listOf("\\[$languageCode]", "\\($languageCode\\)") + aliases)
+            .joinToString(prefix = "(?:", postfix = ")", separator = "|")
+    }
     private fun codeRegex(code: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$code(?:\\s*(?::|[—–-])\\s*|(?=\\s*(?:$|\\r?\\n|(?:Ingrédients?|Ingrediënten?|Ingredients?|Zutaten?)\\s*:)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 }

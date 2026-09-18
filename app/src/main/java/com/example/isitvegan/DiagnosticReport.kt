@@ -11,10 +11,10 @@ internal object DiagnosticReport {
             appendLine(diagnostics.input.ifBlank { "(vide)" })
             appendLine()
             appendLine("LANGUE / BLOC SÉLECTIONNÉ")
-            appendLine("Langue : ${diagnostics.labelSections.language.displayName}")
+            appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
             appendLine("Blocs détectés : " + diagnostics.languageSegmentation.blocks
                 .map { it.language.displayName }.distinct().joinToString(", "))
-            appendLine("Marqueur détecté : ${diagnostics.languageSegmentation.detectedMarker ?: "aucun"}")
+            appendLine("Marqueur sélectionné : ${diagnostics.languageSegmentation.detectedMarker ?: "aucun"}")
             appendLine(
                 "Autres blocs ignorés : " + diagnostics.languageSegmentation.ignoredLanguages
                     .joinToString(", ") { it.displayName }
