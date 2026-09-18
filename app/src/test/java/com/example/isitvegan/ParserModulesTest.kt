@@ -75,10 +75,11 @@ class ParserModulesTest {
         assertNull(UnknownCollector.collect(peaProtein))
     }
 
-    @Test fun unknownCollectorKeepsOnlyMeaningfulResidualWords() {
+    @Test fun unknownCollectorKeepsTheWholeExpressionForAPartialMatch() {
         val database = listOf(ingredient("milk", "lait", VeganStatus.VEGETARIAN))
         val match = IngredientMatcher(database).match(IngredientToken("mystère au lait", 0, 0))
-        assertEquals("mystere", UnknownCollector.collect(match))
+        assertEquals("mystère au lait", UnknownCollector.collect(match))
+        assertEquals(MatchKind.PARTIAL_CONTEXTUAL, UnknownCollector.assess(match).matchKind)
     }
 
     @Test fun verdictEngineKeepsTheExistingPrecedence() {

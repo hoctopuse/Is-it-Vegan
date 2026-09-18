@@ -30,8 +30,10 @@ data class TokenDiagnostic(
     val depth: Int,
     val parentOrder: Int?,
     val kind: NodeKind,
+    val compositionAfterQuantity: Boolean,
     val matcherText: String?,
     val matchedIngredientIds: List<String>,
+    val matchKind: MatchKind,
     val unknown: String?
 )
 
@@ -111,8 +113,10 @@ object VeganAnalyzer {
                     depth = token.depth,
                     parentOrder = token.parentOrder,
                     kind = token.kind,
+                    compositionAfterQuantity = token.compositionAfterQuantity,
                     matcherText = null,
                     matchedIngredientIds = emptyList(),
+                    matchKind = MatchKind.NONE,
                     unknown = null
                 )
                 continue
@@ -120,14 +124,14 @@ object VeganAnalyzer {
             val matcherText = contextualMatcherText(token, tokenByOrder)
             val match = matcher.match(token.copy(text = matcherText))
             match.ingredients.forEach { found[it.id] = it }
-            val mayOmitCompositeLabel = match.ingredients.isNotEmpty() ||
-                isReviewedStructuralComposite(token.text) ||
-                isDescriptiveCompositeContainer(token)
-            val tokenUnknown = UnknownCollector.collect(match).takeUnless {
-                token.kind == NodeKind.COMPOSITE_INGREDIENT &&
-                    ((token.order in tokensWithChildren && mayOmitCompositeLabel) ||
-                        isDescriptiveCompositeContainer(token))
-            }
+            val assessment = UnknownCollector.assess(match)
+            val isAnalyzedComposite = token.kind == NodeKind.COMPOSITE_INGREDIENT &&
+                token.order in tokensWithChildren &&
+                (token.compositionAfterQuantity ||
+                    match.ingredients.isNotEmpty() ||
+                    isReviewedStructuralComposite(token.text) ||
+                    isStructuralCompositeLabel(token.text))
+            val tokenUnknown = assessment.unknown.takeUnless { isAnalyzedComposite }
             tokenUnknown?.let(unknown::add)
             tokenDiagnostics += TokenDiagnostic(
                 text = token.text,
@@ -135,8 +139,10 @@ object VeganAnalyzer {
                 depth = token.depth,
                 parentOrder = token.parentOrder,
                 kind = token.kind,
+                compositionAfterQuantity = token.compositionAfterQuantity,
                 matcherText = matcherText,
                 matchedIngredientIds = match.ingredients.map { it.id },
+                matchKind = assessment.matchKind,
                 unknown = tokenUnknown
             )
 
@@ -198,11 +204,8 @@ object VeganAnalyzer {
             normalized.matches(Regex("^huiles? vegetales? en proportion variable$"))
     }
 
-    private fun isDescriptiveCompositeContainer(token: IngredientToken): Boolean {
-        if (token.kind != NodeKind.COMPOSITE_INGREDIENT) {
-            return false
-        }
-        val normalized = TextNormalizer.normalize(token.text)
+    private fun isStructuralCompositeLabel(text: String): Boolean {
+        val normalized = TextNormalizer.normalize(text)
         return normalized.startsWith("morceaux ") || normalized.startsWith("preparation ")
     }
 }

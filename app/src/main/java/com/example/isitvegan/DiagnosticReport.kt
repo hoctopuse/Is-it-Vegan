@@ -44,12 +44,22 @@ internal object DiagnosticReport {
                 appendLine("(aucun élément à analyser)")
             } else {
                 diagnostics.tokens.forEachIndexed { index, token ->
-                    val matches = token.matchedIngredientIds.ifEmpty { listOf("aucune") }
                     append("${index + 1}. ${token.kind} | profondeur=${token.depth} | ${token.text}")
                     token.parentOrder?.let { append(" | parent=${it + 1}") }
                     token.matcherText?.takeIf { it != token.text }
                         ?.let { append(" | texte matcher=$it") }
-                    append(" | correspondances=${matches.joinToString(",")}")
+                    when (token.matchKind) {
+                        MatchKind.NONE -> append(" | correspondances=aucune")
+                        MatchKind.EXACT -> append(" | correspondances=${token.matchedIngredientIds.joinToString(",")}")
+                        MatchKind.PARTIAL_CONTEXTUAL -> append(
+                            " | correspondance contextuelle=${token.matchedIngredientIds.joinToString(",")}"
+                        )
+                    }
+                    if (token.kind == NodeKind.COMPOSITE_INGREDIENT && token.unknown == null &&
+                        token.matchKind != MatchKind.EXACT
+                    ) {
+                        append(" | conteneur analysé | inconnus propres=aucun")
+                    }
                     token.unknown?.let { append(" | inconnu=$it") }
                     appendLine()
                 }

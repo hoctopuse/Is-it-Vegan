@@ -45,8 +45,11 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.7 (code 13) reconstruit en plus la hiérarchie. La version 0.5.8.1
-(code 16) accepte aussi les marqueurs de bloc suivis d'un tiret long ou court.
+0.5.7 (code 13) reconstruit en plus la hiérarchie. La version 0.5.8.2
+(code 17) distingue les correspondances exactes des correspondances
+contextuelles partielles et conserve l'expression complète dans les inconnus.
+La version 0.5.8.1 (code 16) accepte aussi les marqueurs de bloc suivis d'un
+tiret long ou court.
 Depuis la version 0.5.8
 (code 15), le pipeline commence par `LabelLanguageSegmenter` :
 
@@ -75,7 +78,9 @@ Depuis la version 0.5.8
    est suivi de `de`, `d'`, `du`, `des`, `à` ou `au` et qu'aucun alias complet
    ne couvre l'expression. Ainsi `farine de lin` ne correspond pas à
    `wheat_flour`, tandis que `farine de blé` et `lait` seul restent valides ;
-6. `UnknownCollector` conserve le résidu réellement non reconnu ;
+6. `UnknownCollector` conserve l'expression complète lorsqu'un alias n'en
+   couvre qu'une partie. Les conteneurs composés explicitement structurés
+   gardent leurs enfants sans créer un inconnu parent redondant ;
 7. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
    un ingrédient non végétarien.
 

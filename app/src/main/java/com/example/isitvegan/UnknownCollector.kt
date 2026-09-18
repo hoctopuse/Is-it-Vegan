@@ -1,5 +1,12 @@
 package com.example.isitvegan
 
+enum class MatchKind { NONE, EXACT, PARTIAL_CONTEXTUAL }
+
+internal data class UnknownAssessment(
+    val matchKind: MatchKind,
+    val unknown: String?
+)
+
 /** Keeps meaningful unmatched text and ignores a small, reviewed vocabulary of presentation words. */
 internal object UnknownCollector {
     private val ignorablePhrases = listOf(
@@ -28,11 +35,12 @@ internal object UnknownCollector {
 
     private val glueWords = setOf("de", "d", "du", "des", "a", "au", "aux", "et", "en")
 
-    fun collect(match: IngredientMatch): String? {
+    fun assess(match: IngredientMatch): UnknownAssessment {
         if (match.ingredients.isEmpty()) {
-            return match.token.text.trim().takeIf {
+            val unknown = match.token.text.trim().takeIf {
                 TextNormalizer.normalize(it).isNotBlank()
             }
+            return UnknownAssessment(MatchKind.NONE, unknown)
         }
 
         var residual = match.residualNormalized
@@ -44,6 +52,14 @@ internal object UnknownCollector {
         }
         val meaningfulWords = residual.split(Regex("\\s+"))
             .filter { it.isNotBlank() && it !in glueWords }
-        return meaningfulWords.joinToString(" ").takeIf { it.isNotBlank() }
+        if (meaningfulWords.isEmpty()) {
+            return UnknownAssessment(MatchKind.EXACT, null)
+        }
+
+        // A match inside a longer expression is useful context, but it does not
+        // resolve the rest of that expression. Keep its original wording intact.
+        return UnknownAssessment(MatchKind.PARTIAL_CONTEXTUAL, match.token.text.trim())
     }
+
+    fun collect(match: IngredientMatch): String? = assess(match).unknown
 }

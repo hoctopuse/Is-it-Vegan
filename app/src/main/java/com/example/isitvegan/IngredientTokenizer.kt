@@ -7,7 +7,9 @@ internal data class IngredientToken(
     val depth: Int,
     val order: Int,
     val parentOrder: Int? = null,
-    val kind: NodeKind = NodeKind.INGREDIENT
+    val kind: NodeKind = NodeKind.INGREDIENT,
+    /** A quantity-only parenthesis directly introduced this composition. */
+    val compositionAfterQuantity: Boolean = false
 )
 
 internal data class IngredientNode(
@@ -32,6 +34,7 @@ internal object IngredientTokenizer {
         val groupParents = mutableListOf<Int?>()
         var activeSection: Int? = null
         var pendingLineParent: MutableNode? = null
+        var pendingQuantityParentOrder: Int? = null
         var order = 0
 
         fun addNode(raw: String): MutableNode? {
@@ -76,17 +79,29 @@ internal object IngredientTokenizer {
                     !(index > 0 && index + 1 < text.length && text[index - 1].isDigit() && text[index + 1].isDigit()) &&
                     (index == text.lastIndex || text.getOrNull(index + 1)?.isWhitespace() == true) -> flush()
                 character == '(' || character == '[' -> {
-                    val parent = flush() ?: pendingLineParent ?:
+                    val pendingParent = pendingLineParent
+                    val parent = flush() ?: pendingParent ?:
                         groupParents.lastOrNull()?.let(nodesByOrder::get)
+                    parent?.takeIf { it.token.order == pendingQuantityParentOrder }?.let { node ->
+                        node.token = node.token.copy(compositionAfterQuantity = true)
+                    }
                     pendingLineParent = null
+                    pendingQuantityParentOrder = null
                     if (parent != null && parent.token.kind == NodeKind.INGREDIENT) {
                         parent.token = parent.token.copy(kind = NodeKind.COMPOSITE_INGREDIENT)
                     }
                     groupParents += parent?.token?.order
                 }
                 character == ')' || character == ']' -> {
-                    flush()
-                    if (groupParents.isNotEmpty()) groupParents.removeAt(groupParents.lastIndex)
+                    val child = flush()
+                    val closedParentOrder = groupParents.removeLastOrNull()
+                    if (child == null && closedParentOrder != null) {
+                        pendingLineParent = nodesByOrder[closedParentOrder]
+                        pendingQuantityParentOrder = closedParentOrder
+                    } else {
+                        pendingLineParent = null
+                        pendingQuantityParentOrder = null
+                    }
                 }
                 else -> {
                     buffer.append(character)
