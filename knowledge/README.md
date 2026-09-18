@@ -45,7 +45,9 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.7 (code 13) reconstruit en plus la hiérarchie. Depuis la version 0.5.8
+0.5.7 (code 13) reconstruit en plus la hiérarchie. La version 0.5.8.1
+(code 16) accepte aussi les marqueurs de bloc suivis d'un tiret long ou court.
+Depuis la version 0.5.8
 (code 15), le pipeline commence par `LabelLanguageSegmenter` :
 
 1. `LabelLanguageSegmenter` découpe les blocs explicitement marqués FR, NL, EN

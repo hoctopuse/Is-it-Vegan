@@ -121,10 +121,12 @@ object VeganAnalyzer {
             val match = matcher.match(token.copy(text = matcherText))
             match.ingredients.forEach { found[it.id] = it }
             val mayOmitCompositeLabel = match.ingredients.isNotEmpty() ||
-                isReviewedStructuralComposite(token.text)
+                isReviewedStructuralComposite(token.text) ||
+                isDescriptiveCompositeContainer(token)
             val tokenUnknown = UnknownCollector.collect(match).takeUnless {
                 token.kind == NodeKind.COMPOSITE_INGREDIENT &&
-                    token.order in tokensWithChildren && mayOmitCompositeLabel
+                    ((token.order in tokensWithChildren && mayOmitCompositeLabel) ||
+                        isDescriptiveCompositeContainer(token))
             }
             tokenUnknown?.let(unknown::add)
             tokenDiagnostics += TokenDiagnostic(
@@ -194,5 +196,13 @@ object VeganAnalyzer {
             normalized.startsWith("chapelure ") ||
             normalized == "epices" ||
             normalized.matches(Regex("^huiles? vegetales? en proportion variable$"))
+    }
+
+    private fun isDescriptiveCompositeContainer(token: IngredientToken): Boolean {
+        if (token.kind != NodeKind.COMPOSITE_INGREDIENT) {
+            return false
+        }
+        val normalized = TextNormalizer.normalize(token.text)
+        return normalized.startsWith("morceaux ") || normalized.startsWith("preparation ")
     }
 }

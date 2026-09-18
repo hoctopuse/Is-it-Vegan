@@ -223,6 +223,10 @@
       "amidon",
       "starch",
       "zetmeel",
+      "amidon de blé",
+      "amidon de ble",
+      "wheat starch",
+      "tarwezetmeel",
       "amidon de maïs",
       "amidon de mais",
       "corn starch",
@@ -482,6 +486,81 @@
     ],
     "status": "VEGAN",
     "reason": "Produit de fermentation sans ingrédient animal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "gluten",
+    "name": "Gluten de blé",
+    "eNumber": "",
+    "aliases": [
+      "gluten",
+      "gluten de blé",
+      "gluten de ble",
+      "wheat gluten",
+      "tarwegluten"
+    ],
+    "status": "VEGAN",
+    "reason": "Protéine naturellement présente dans le blé.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "onion",
+    "name": "Oignon",
+    "eNumber": "",
+    "aliases": [
+      "oignon",
+      "oignons",
+      "onion",
+      "onions",
+      "ui",
+      "uien"
+    ],
+    "status": "VEGAN",
+    "reason": "Légume d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "mustard",
+    "name": "Moutarde",
+    "eNumber": "",
+    "aliases": [
+      "moutarde",
+      "mustard",
+      "mosterd"
+    ],
+    "status": "VEGAN",
+    "reason": "Graine ou condiment d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "glucose_syrup",
+    "name": "Sirop de glucose",
+    "eNumber": "",
+    "aliases": [
+      "sirop de glucose",
+      "glucose syrup",
+      "glucosestroop"
+    ],
+    "status": "VEGAN",
+    "reason": "Sirop sucrant d’origine végétale couramment utilisé en alimentation.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "spices",
+    "name": "Épices",
+    "eNumber": "",
+    "aliases": [
+      "épice",
+      "épices",
+      "epice",
+      "epices",
+      "spice",
+      "spices",
+      "specerij",
+      "specerijen"
+    ],
+    "status": "VEGAN",
+    "reason": "Mélange réglementaire d’épices d’origine végétale.",
     "source": "vegan-society"
   },
   {

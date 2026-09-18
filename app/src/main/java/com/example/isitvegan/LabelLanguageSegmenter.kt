@@ -63,7 +63,7 @@ internal object LabelLanguageSegmenter {
     private fun findMarkers(text: String): List<Marker> = markerPatterns.flatMap { definition ->
         definition.pattern.findAll(text).map { match ->
             Marker(definition.language, match.range, if (definition.keepMarkerInBlock) match.range.first else match.range.last + 1,
-                match.value.trim().trimEnd(':').trim())
+                match.value.trim().trimEnd(':', '—', '–', '-', ' ').trim())
         }.toList()
     }.sortedBy { it.range.first }.fold(mutableListOf()) { markers, candidate ->
         val previous = markers.lastOrNull()
@@ -90,6 +90,6 @@ internal object LabelLanguageSegmenter {
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
     private fun languageNameRegex(name: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$name(?:\\s*:\\s*|(?=\\s*(?:$|\\r?\\n|(?:Ingrédients?|Ingrediënten?|Ingredients?|Zutaten?)\\s*:)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
-    private fun codeRegex(code: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$code(?:\\s*:\\s*|(?=\\s*(?:$|\\r?\\n|(?:Ingrédients?|Ingrediënten?|Ingredients?|Zutaten?)\\s*:)))",
+    private fun codeRegex(code: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$code(?:\\s*(?::|[—–-])\\s*|(?=\\s*(?:$|\\r?\\n|(?:Ingrédients?|Ingrediënten?|Ingredients?|Zutaten?)\\s*:)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 }
