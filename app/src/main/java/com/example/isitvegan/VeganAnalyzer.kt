@@ -37,6 +37,8 @@ data class TokenDiagnostic(
 
 data class AnalysisDiagnostics(
     val input: String,
+    val languageSegmentation: LanguageSegmentation,
+    val labelSections: LabelSections,
     val preprocessedInput: String,
     val tokens: List<TokenDiagnostic>,
     val result: AnalysisResult
@@ -90,7 +92,9 @@ object VeganAnalyzer {
     ): AnalysisDiagnostics = runAnalysis(text, database)
 
     private fun runAnalysis(text: String, database: List<Ingredient>): AnalysisDiagnostics {
-        val preprocessed = LabelPreprocessor.preprocess(text)
+        val languageSegmentation = LabelLanguageSegmenter.segment(text)
+        val sections = selectSections(languageSegmentation)
+        val preprocessed = LabelPreprocessor.preprocess(sections.analysisText)
         val tokens = IngredientTokenizer.tokenize(QuantityCleaner.clean(preprocessed.compositionText))
         val matcher = IngredientMatcher(database)
         val found = linkedMapOf<String, Ingredient>()
@@ -143,13 +147,31 @@ object VeganAnalyzer {
         }
         return AnalysisDiagnostics(
             input = text,
+            languageSegmentation = languageSegmentation,
+            labelSections = sections,
             preprocessedInput = preprocessed.compositionText,
             tokens = tokenDiagnostics,
             result = AnalysisResult(
                 found.values.toList(), unknown, stoppedAtNonVegetarian,
-                preprocessed.crossContactWarnings, preprocessed.excludedNotes
+                (preprocessed.crossContactWarnings + listOfNotNull(sections.tracesText)).distinct(),
+                preprocessed.excludedNotes
             )
         )
+    }
+
+    private fun selectSections(segmentation: LanguageSegmentation): LabelSections {
+        val candidates = segmentation.blocks.map { LabelSectionExtractor.extract(it) }
+        val priority = listOf(
+            LabelLanguage.FRENCH,
+            LabelLanguage.DUTCH,
+            LabelLanguage.ENGLISH,
+            LabelLanguage.GERMAN
+        )
+        return priority.firstNotNullOfOrNull { language ->
+            candidates.firstOrNull { it.language == language && !it.ingredientsText.isNullOrBlank() }
+        } ?: candidates.firstOrNull { it.hasIngredientHeading }
+            ?: candidates.maxByOrNull { it.ingredientsText?.length ?: 0 }
+            ?: LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, segmentation.originalText)
     }
 
     private fun contextualMatcherText(

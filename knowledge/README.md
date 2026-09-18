@@ -45,25 +45,36 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.7 (code 13) reconstruit en plus la hiérarchie :
+0.5.7 (code 13) reconstruit en plus la hiérarchie. Depuis la version 0.5.8
+(code 15), le pipeline commence par `LabelLanguageSegmenter` :
 
-1. Depuis la version 0.5.6 (code 12), `LabelPreprocessor` renvoie un
+1. `LabelLanguageSegmenter` découpe les blocs explicitement marqués FR, NL, EN
+   ou DE, conserve leurs marqueurs de marché et sélectionne le bloc français
+   exploitable en priorité. Sa détection est volontairement prudente : sans
+   marqueur fiable, il conserve le texte complet comme bloc `UNKNOWN`. Il ne
+   traduit pas, ne reconnaît aucun ingrédient et ne participe pas au verdict ;
+2. `LabelSectionExtractor` isole à profondeur zéro la liste d'ingrédients, les
+   mentions de présence réelle (`contient`, `bevat`, `contains`, `enthält`),
+   les traces éventuelles et les sections d'étiquette non alimentaires. Les
+   traces restent hors du verdict et une mention imbriquée dans un ingrédient
+   composé ne découpe jamais sa composition ;
+3. Depuis la version 0.5.6 (code 12), `LabelPreprocessor` renvoie un
    `PreprocessedLabel` : `compositionText`, `crossContactWarnings` et
    `excludedNotes`. Seule la composition passe ensuite dans `QuantityCleaner`,
    qui supprime les quantités sans altérer `E471`, `B12`, `D2` ou `oméga-3` ;
-2. `IngredientTokenizer` découpe la liste, sépare aussi les éléments au point
+4. `IngredientTokenizer` découpe la liste, sépare aussi les éléments au point
    de niveau racine (sans couper les décimales), et produit des nœuds reliés à
    leur parent. Chaque nœud est un ingrédient, un ingrédient composite ou un
    titre de section ; les parenthèses et crochets imbriqués restent associés à
    leur véritable parent ;
-3. `IngredientMatcher` privilégie les alias les plus longs afin que, par
+5. `IngredientMatcher` privilégie les alias les plus longs afin que, par
    exemple, `lait de coco` masque correctement l'alias plus court `lait`. Un
    alias court qui est aussi le préfixe d'alias plus précis est refusé lorsqu'il
    est suivi de `de`, `d'`, `du`, `des`, `à` ou `au` et qu'aucun alias complet
    ne couvre l'expression. Ainsi `farine de lin` ne correspond pas à
    `wheat_flour`, tandis que `farine de blé` et `lait` seul restent valides ;
-4. `UnknownCollector` conserve le résidu réellement non reconnu ;
-5. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
+6. `UnknownCollector` conserve le résidu réellement non reconnu ;
+7. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
    un ingrédient non végétarien.
 
 Les titres tels que `Farce (63 %) :`, `Cœur au tofu fumé 62,6 % :` ou

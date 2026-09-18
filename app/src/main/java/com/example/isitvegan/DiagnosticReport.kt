@@ -10,6 +10,26 @@ internal object DiagnosticReport {
             appendLine("ENTRÉE")
             appendLine(diagnostics.input.ifBlank { "(vide)" })
             appendLine()
+            appendLine("LANGUE / BLOC SÉLECTIONNÉ")
+            appendLine("Langue : ${diagnostics.labelSections.language.displayName}")
+            appendLine("Blocs détectés : " + diagnostics.languageSegmentation.blocks
+                .map { it.language.displayName }.distinct().joinToString(", "))
+            appendLine("Marqueur détecté : ${diagnostics.languageSegmentation.detectedMarker ?: "aucun"}")
+            appendLine(
+                "Autres blocs ignorés : " + diagnostics.languageSegmentation.ignoredLanguages
+                    .joinToString(", ") { it.displayName }
+                    .ifBlank { "aucun" }
+            )
+            appendLine(
+                "Fallback texte complet : " +
+                    if (diagnostics.languageSegmentation.usedFallback) "oui" else "non"
+            )
+            appendLine()
+            appendLine("SECTIONS DÉTECTÉES")
+            appendLine("Section ingrédients : ${if (diagnostics.labelSections.hasIngredientHeading) "détectée" else "non détectée"}")
+            appendLine("Section présence réelle : ${if (diagnostics.labelSections.declaredContainsText != null) "détectée" else "non détectée"}")
+            appendLine("Section traces : ${if (diagnostics.labelSections.tracesText != null) "détectée" else "non détectée"}")
+            appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })
             appendLine()
