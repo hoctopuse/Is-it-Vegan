@@ -56,7 +56,8 @@ class CrossContactTest {
 
     @Test fun warningAloneHasNoComposition() {
         val result = VeganAnalyzer.analyze("Peut contenir du lait.", database)
-        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertEquals(AnalysisAvailability.NO_INGREDIENT_LIST, result.availability)
+        assertEquals(null, result.verdict)
         assertTrue(result.matched.isEmpty())
         assertTrue(result.unknown.isEmpty())
         assertEquals(listOf("Peut contenir du lait."), result.crossContactWarnings)

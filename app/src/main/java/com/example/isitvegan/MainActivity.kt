@@ -44,6 +44,7 @@ fun IsItVeganScreen() {
 
     var result by remember { mutableStateOf(WAITING_RESULT) }
     var diagnostics by remember { mutableStateOf<AnalysisDiagnostics?>(null) }
+    var inputMode by remember { mutableStateOf(InputMode.MANUAL_INGREDIENT_LIST) }
     val focusManager = LocalFocusManager.current
     val context = LocalContext.current
     val scrollState = rememberScrollState()
@@ -81,6 +82,27 @@ fun IsItVeganScreen() {
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
 
+            Text("Mode d’entrée", style = MaterialTheme.typography.titleMedium)
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                listOf(
+                    InputMode.MANUAL_INGREDIENT_LIST to "Liste",
+                    InputMode.FULL_LABEL to "Étiquette",
+                    InputMode.OCR_LABEL to "OCR"
+                ).forEach { (mode, label) ->
+                    FilterChip(
+                        selected = inputMode == mode,
+                        onClick = {
+                            inputMode = mode
+                            diagnostics = null
+                        },
+                        label = { Text(label) }
+                    )
+                }
+            }
+
             OutlinedTextField(
                 value = ingredients,
                 onValueChange = {
@@ -105,7 +127,10 @@ fun IsItVeganScreen() {
                 onClick = {
                     focusManager.clearFocus()
 
-                    val currentDiagnostics = VeganAnalyzer.analyzeWithDiagnostics(ingredients)
+                    val currentDiagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+                        ingredients,
+                        inputMode
+                    )
                     diagnostics = currentDiagnostics
                     val analysis = currentDiagnostics.result
                     val matches = analysis.matched
@@ -113,6 +138,22 @@ fun IsItVeganScreen() {
                         "\n\nNon reconnus : " + analysis.unknown.joinToString(", ")
                     val detailedResult = when {
                         ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
+                        analysis.availability == AnalysisAvailability.NO_INGREDIENT_LIST -> {
+                            val presence = analysis.declaredPresenceIngredientIds
+                            if (presence.isEmpty()) {
+                                "ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE\n\n" +
+                                    "Aucune conclusion vegan n’est produite."
+                            } else {
+                                val compatibility = when (analysis.veganAssessment) {
+                                    VeganAssessment.VEGAN -> "VEGAN"
+                                    VeganAssessment.NOT_VEGAN -> "NON VEGAN"
+                                    VeganAssessment.UNCERTAIN -> "INCERTAINE"
+                                }
+                                "ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE\n\n" +
+                                    "Compatibilité vegan selon les ingrédients déclarés : $compatibility\n" +
+                                    "Présence réelle déclarée : ${presence.joinToString(", ")}"
+                            }
+                        }
                         analysis.verdict == AnalysisVerdict.NON_VEGETARIAN -> {
                             val found = matches.filter { it.status == VeganStatus.NON_VEGAN }
                             "❌ NON VÉGÉTARIEN\n\nIngrédient détecté :\n" + found.joinToString("\n\n") {
@@ -157,13 +198,19 @@ fun IsItVeganScreen() {
                         else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus " +
                             "comme végétaux ou minéraux dans la base hors ligne."
                     }
-                    val veganCompatibility = when (analysis.veganAssessment) {
-                        VeganAssessment.VEGAN -> "Compatibilité vegan : VEGAN"
-                        VeganAssessment.NOT_VEGAN -> "Compatibilité vegan : NON VEGAN"
-                        VeganAssessment.UNCERTAIN -> "Compatibilité vegan : INCERTAINE"
+                    result = if (analysis.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                        detailedResult + CrossContactNotice.format(analysis.crossContactWarnings)
+                    } else {
+                        val veganCompatibility = when (analysis.veganAssessment) {
+                            VeganAssessment.VEGAN -> "VEGAN"
+                            VeganAssessment.NOT_VEGAN -> "NON VEGAN"
+                            VeganAssessment.UNCERTAIN -> "INCERTAINE"
+                        }
+                        "Compatibilité vegan selon les ingrédients déclarés : $veganCompatibility" +
+                            "\n\nClassification détaillée :\n" + detailedResult +
+                            "\n\nAnalyse fondée sur les informations déclarées sur l’étiquette." +
+                            CrossContactNotice.format(analysis.crossContactWarnings)
                     }
-                    result = veganCompatibility + "\n\nClassification détaillée :\n" + detailedResult +
-                        CrossContactNotice.format(analysis.crossContactWarnings)
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

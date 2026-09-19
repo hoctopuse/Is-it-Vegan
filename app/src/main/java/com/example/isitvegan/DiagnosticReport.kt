@@ -6,6 +6,13 @@ internal object DiagnosticReport {
         return buildString {
             appendLine("Is It Vegan? — rapport de diagnostic")
             appendLine("Version : $versionName")
+            appendLine("Mode d’entrée : ${diagnostics.inputMode.displayName}")
+            appendLine("Disponibilité : ${diagnostics.result.availability.displayName}")
+            appendLine(
+                "Fallback manuel : ${if (diagnostics.usedManualFallback) "oui" else "non"}"
+            )
+            appendLine("Portée : compatibilité vegan selon les ingrédients déclarés")
+            diagnostics.availabilityReason?.let { appendLine("Raison : $it") }
             appendLine()
             appendLine("ENTRÉE")
             appendLine(diagnostics.input.ifBlank { "(vide)" })
@@ -32,6 +39,7 @@ internal object DiagnosticReport {
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })
+            appendLine("Présence réelle déclarée : ${diagnostics.declaredPresenceText ?: "(aucune)"}")
             appendLine()
             appendLine("TRACES / CONTAMINATION CROISÉE")
             appendLine(diagnostics.crossContactWarnings.joinToString("\n").ifBlank { "(aucune)" })
@@ -50,6 +58,14 @@ internal object DiagnosticReport {
                     }
                     token.parentOrder?.let { append(" | parent=${it + 1}") }
                     token.functionalClass?.let { append(" | classe fonctionnelle=$it") }
+                    if (token.isNano) append(" | nano=oui")
+                    if (token.variableProportions) append(" | proportions variables=oui")
+                    if (token.hasAlternatives) append(" | alternatives et/ou=oui")
+                    if (token.sourceClaim != SourceClaim.UNSPECIFIED) {
+                        append(" | origine déclarée=${token.sourceClaim}")
+                        token.sourceClaimText?.let { append(" ($it)") }
+                    }
+                    if (token.isDeclaredPresence) append(" | preuve de présence réelle=oui")
                     if (token.nodeKind == IngredientNodeKind.COMPOSITE) {
                         append(" | enfants=${token.childCount}")
                     }
@@ -73,20 +89,38 @@ internal object DiagnosticReport {
                             }
                         }
                         token.unknown?.let { append(" | inconnu=$it") }
+                        if (token.baseStatuses.isNotEmpty()) {
+                            append(" | classification de base=${token.baseStatuses.joinToString(",")}")
+                            append(" | classification effective=${token.effectiveStatuses.joinToString(",")}")
+                        }
+                        token.originResolution?.let { append(" | résolution par origine=$it") }
                     }
                     appendLine()
                 }
             }
             appendLine()
             appendLine("RÉSULTAT")
-            appendLine("Compatibilité vegan : ${result.veganAssessment.displayName}")
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST &&
+                result.matched.isEmpty()
+            ) {
+                appendLine("Compatibilité vegan selon les ingrédients déclarés : non évaluée")
+                appendLine("Classification détaillée : non calculée")
+            } else {
+                appendLine(
+                    "Compatibilité vegan selon les ingrédients déclarés : " +
+                        result.veganAssessment.displayName
+                )
+                appendLine("Classification détaillée : ${result.verdict}")
+                appendLine("Verdict sans les incertains : ${result.verdictWithoutUncertain}")
+            }
             appendLine(
                 "Bloqueurs détectés : " + result.veganBlockers
                     .joinToString(", ") { it.id }.ifBlank { "aucun" }
             )
-            appendLine("Classification détaillée : ${result.verdict}")
-            appendLine("Verdict : ${result.verdict}")
-            appendLine("Verdict sans les incertains : ${result.verdictWithoutUncertain}")
+            appendLine(
+                "Preuves de présence réelle : " + result.declaredPresenceIngredientIds
+                    .joinToString(", ").ifBlank { "aucune" }
+            )
             appendLine("Analyse arrêtée tôt : ${if (result.stoppedAtNonVegetarian) "oui" else "non"}")
             appendLine("Reconnus : ${result.matched.joinToString(", ") { "${it.id} (${it.status})" }.ifBlank { "aucun" }}")
             appendLine("Inconnus : ${result.unknown.joinToString(", ").ifBlank { "aucun" }}")
@@ -98,5 +132,18 @@ internal object DiagnosticReport {
             VeganAssessment.VEGAN -> "VEGAN"
             VeganAssessment.NOT_VEGAN -> "NON VEGAN"
             VeganAssessment.UNCERTAIN -> "INCERTAINE"
+        }
+
+    private val InputMode.displayName: String
+        get() = when (this) {
+            InputMode.MANUAL_INGREDIENT_LIST -> "liste manuelle"
+            InputMode.FULL_LABEL -> "étiquette complète"
+            InputMode.OCR_LABEL -> "étiquette OCR"
+        }
+
+    private val AnalysisAvailability.displayName: String
+        get() = when (this) {
+            AnalysisAvailability.INGREDIENT_LIST_ANALYZED -> "liste d’ingrédients analysée"
+            AnalysisAvailability.NO_INGREDIENT_LIST -> "aucune liste d’ingrédients"
         }
 }

@@ -14,7 +14,7 @@ class MainScreenInstrumentedTest {
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     @Test fun pageCanScrollToItsFooter() {
-        composeRule.onNodeWithText("Version 0.5.9")
+        composeRule.onNodeWithText("Version 0.5.9.1")
             .performScrollTo()
             .assertIsDisplayed()
     }
@@ -35,5 +35,18 @@ class MainScreenInstrumentedTest {
             .performScrollTo().assertIsDisplayed()
         composeRule.onNodeWithText("• Peut contenir du lait.", substring = true).assertIsDisplayed()
         composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
+    }
+
+    @Test fun fullLabelModeDoesNotAnalyzeAProductNameAsIngredients() {
+        composeRule.onNodeWithText("Étiquette").performClick()
+        composeRule.onNodeWithText("Ingrédients").performTextInput("Pommes")
+        composeRule.onNodeWithText("ANALYSER").performClick()
+        composeRule.waitForIdle()
+
+        composeRule.onNodeWithText("AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE", substring = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Aucune conclusion vegan n’est produite.", substring = true)
+            .assertIsDisplayed()
     }
 }

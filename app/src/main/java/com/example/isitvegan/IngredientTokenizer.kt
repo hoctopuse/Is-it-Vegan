@@ -13,6 +13,11 @@ internal data class IngredientToken(
     val compositionAfterQuantity: Boolean = false,
     val quantityPercent: BigDecimal? = null,
     val functionalClass: String? = null,
+    val isNano: Boolean = false,
+    val variableProportions: Boolean = false,
+    val hasAlternatives: Boolean = false,
+    val sourceClaim: SourceClaim = SourceClaim.UNSPECIFIED,
+    val sourceClaimText: String? = null,
     val childCount: Int = 0
 )
 
@@ -44,6 +49,11 @@ internal object IngredientTokenizer {
                         node.quantityPercent != null,
                     quantityPercent = node.quantityPercent,
                     functionalClass = node.functionalClass,
+                    isNano = node.isNano,
+                    variableProportions = node.variableProportions,
+                    hasAlternatives = node.hasAlternatives,
+                    sourceClaim = node.sourceClaim,
+                    sourceClaimText = node.sourceClaimText,
                     childCount = node.children.size
                 )
             )

@@ -16,6 +16,18 @@ class RealLabelsInstrumentedTest {
         VeganAnalyzer.loadDatabase(InstrumentationRegistry.getInstrumentation().targetContext)
     }
 
+    @Test fun explicitE471OriginResolvesOnlyItsExistingUncertainty() {
+        val unspecified = VeganAnalyzer.analyze("émulsifiant : E471")
+        val vegetal = VeganAnalyzer.analyze("émulsifiant : E471 d’origine végétale")
+        val animal = VeganAnalyzer.analyze("émulsifiant : E471 d’origine animale")
+
+        assertEquals(VeganStatus.UNCERTAIN, unspecified.matched.single { it.id == "e471" }.status)
+        assertEquals(VeganStatus.VEGAN, vegetal.matched.single { it.id == "e471" }.status)
+        assertEquals(VeganAssessment.VEGAN, vegetal.veganAssessment)
+        assertEquals(VeganStatus.NON_VEGAN, animal.matched.single { it.id == "e471" }.status)
+        assertEquals(VeganAssessment.NOT_VEGAN, animal.veganAssessment)
+    }
+
     @Test fun apricotBriocheSeparatesVeganCompatibilityFromDetailedClassification() {
         val label = """INGRÉDIENTS : farine de BLÉ (28%), confiture d'abricot 22% (sucre, purée d'abricot 41%, sirop de glucose-fructose, gélifiant : pectine, correcteur d'acidité : acide citrique), sucre, ŒUFS (12,5%), huile de palme non hydrogénée, flocons moulus (2,5%) d'ORGE et d'AVOINE ; purée de carotte, sirop de glucose-fructose, arôme, agents levants (carbonate d'ammonium, diphosphate disodique, carbonate acide de sodium), LAIT écrémé en poudre, émulsifiants (mono- et diglycérides d'acides gras), amidon de BLÉ, blanc d'ŒUF en poudre, sel, correcteur d'acidité (acide citrique).
 

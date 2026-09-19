@@ -142,7 +142,8 @@ class VeganAnalyzerTest {
     @Test fun emptyOrNonIngredientTextCannotBeDeclaredVegan() {
         listOf("", "   \n", "Ingrédients:", "Peut contenir du lait", "25 %").forEach { text ->
             val result = VeganAnalyzer.analyze(text, database)
-            assertEquals(text, AnalysisVerdict.INCONCLUSIVE, result.verdict)
+            assertEquals(text, AnalysisAvailability.NO_INGREDIENT_LIST, result.availability)
+            assertEquals(text, null, result.verdict)
             assertEquals(text, emptyList<Ingredient>(), result.matched)
         }
     }
@@ -213,7 +214,7 @@ class VeganAnalyzerTest {
         assertEquals(true, report.contains("Fallback texte complet : oui"))
         assertEquals(true, report.contains("correspondances=sucre"))
         assertEquals(true, report.contains("correspondances=e471"))
-        assertEquals(true, report.contains("Verdict : UNCERTAIN"))
+        assertEquals(true, report.contains("Classification détaillée : UNCERTAIN"))
         assertEquals(true, report.contains("Verdict sans les incertains : VEGAN"))
     }
 

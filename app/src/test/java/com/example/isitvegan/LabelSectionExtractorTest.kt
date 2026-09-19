@@ -71,7 +71,9 @@ class LabelSectionExtractorTest {
             "Ingrédients : morceaux végétaliens (eau, soja), herbes préparées (épices (contient : moutarde), huile), sel."
         )
 
-        assertEquals(AnalysisVerdict.NON_VEGETARIAN, contains.verdict)
+        assertEquals(AnalysisAvailability.NO_INGREDIENT_LIST, contains.availability)
+        assertEquals(VeganAssessment.NOT_VEGAN, contains.veganAssessment)
+        assertNull(contains.verdict)
         assertNull(nested.declaredContainsText)
         assertTrue(nested.ingredientsText!!.contains("contient : moutarde"))
     }

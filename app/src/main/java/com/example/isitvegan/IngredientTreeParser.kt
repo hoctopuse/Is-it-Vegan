@@ -9,6 +9,11 @@ data class IngredientNode(
     val normalizedText: String,
     val quantityPercent: BigDecimal? = null,
     val functionalClass: String? = null,
+    val isNano: Boolean = false,
+    val variableProportions: Boolean = false,
+    val hasAlternatives: Boolean = false,
+    val sourceClaim: SourceClaim = SourceClaim.UNSPECIFIED,
+    val sourceClaimText: String? = null,
     val kind: IngredientNodeKind,
     val children: List<IngredientNode> = emptyList(),
     val isSectionHeading: Boolean = false
@@ -16,6 +21,14 @@ data class IngredientNode(
 
 /** Builds an ingredient tree without consulting the ingredient knowledge base. */
 internal object IngredientTreeParser {
+    private data class StructuralMetadata(
+        val text: String,
+        val isNano: Boolean,
+        val variableProportions: Boolean,
+        val hasAlternatives: Boolean,
+        val sourceClaim: SourceClaim,
+        val sourceClaimText: String?
+    )
     private data class Group(
         val start: Int,
         val endInclusive: Int,
@@ -29,7 +42,8 @@ internal object IngredientTreeParser {
     )
     private val quantityOnlyPattern = Regex("^\\s*[0-9]+(?:[.,][0-9]+)?\\s*%\\s*$")
     private val containsPrefix = Regex(
-        "(?i)^\\s*(?:contient|bevat|contains|enthält)\\s*:\\s*"
+        "(?i)^\\s*(?:contient|bevat|contains|enthält)(?:\\s*:\\s*|" +
+            "\\s+(?:de\\s+l['’]|de|du|des)\\s+)"
     )
     private val qualificationPrefix = Regex(
         "(?i)^\\s*(?:non\\s+hydrog[ée]n[ée]e?|origine|origin|provenance)\\b"
@@ -38,6 +52,11 @@ internal object IngredientTreeParser {
     private val eNumberWithSpace = Regex("(?i)\\bE\\s+(?=\\d)")
     private val insNumberWithSpace = Regex("(?i)\\bINS\\s+(?=\\d)")
     private val vitaminWithSpace = Regex("(?i)\\b[BDK]\\s+(?=\\d)")
+    private val nanoQualifier = Regex("(?i)\\(\\s*nano\\s*\\)")
+    private val variableProportionQualifier = Regex(
+        "(?i)\\ben\\s+proportions?\\s+variables?\\b"
+    )
+    private val alternativeSeparator = Regex("(?i)\\s+et\\s*/\\s*ou\\s+")
 
     fun parse(text: String): List<IngredientNode> = parseList(text)
 
@@ -71,13 +90,15 @@ internal object IngredientTreeParser {
     }
 
     private fun parseSegment(rawSegment: String): List<IngredientNode> {
-        val segment = rawSegment.trim().trim('*', ' ').trimEnd('.').trim()
+        val raw = rawSegment.trim().trim('*', ' ').trimEnd('.').trim()
+        val metadata = extractStructuralMetadata(raw)
+        val segment = metadata.text
         if (TextNormalizer.normalize(segment).isBlank()) return emptyList()
 
         val withoutContains = segment.replace(containsPrefix, "").trim()
         if (withoutContains != segment) return parseList(withoutContains)
 
-        parseFunctionalClass(segment)?.let { return it }
+        parseFunctionalClass(segment, metadata)?.let { return it }
 
         val colon = topLevelColon(segment)
         if (colon >= 0) {
@@ -87,7 +108,7 @@ internal object IngredientTreeParser {
                 val (name, quantity) = extractNameAndQuantity(heading)
                 val children = parseList(content)
                 if (name.isNotBlank() && children.isNotEmpty()) {
-                    return listOf(node(name, quantity, IngredientNodeKind.COMPOSITE, children, true))
+                    return listOf(node(name, quantity, IngredientNodeKind.COMPOSITE, children, true, metadata = metadata))
                 }
             }
         }
@@ -96,7 +117,7 @@ internal object IngredientTreeParser {
         if (groups.isEmpty()) {
             val (name, quantity) = extractNameAndQuantity(segment)
             return name.takeIf(String::isNotBlank)
-                ?.let { listOf(node(it, quantity, IngredientNodeKind.LEAF)) }
+                ?.let { listOf(node(it, quantity, IngredientNodeKind.LEAF, metadata = metadata)) }
                 ?: emptyList()
         }
 
@@ -108,7 +129,7 @@ internal object IngredientTreeParser {
         if (compositionGroups.isEmpty()) {
             val (name, quantity) = extractNameAndQuantity(segment)
             return name.takeIf(String::isNotBlank)
-                ?.let { listOf(node(it, quantity, IngredientNodeKind.LEAF)) }
+                ?.let { listOf(node(it, quantity, IngredientNodeKind.LEAF, metadata = metadata)) }
                 ?: emptyList()
         }
 
@@ -121,8 +142,8 @@ internal object IngredientTreeParser {
         val (name, quantity) = extractNameAndQuantity(label)
         val children = compositionGroups.flatMap { parseList(it.content) }
         if (name.isBlank()) return children
-        if (children.isEmpty()) return listOf(node(name, quantity, IngredientNodeKind.LEAF))
-        return listOf(node(name, quantity, IngredientNodeKind.COMPOSITE, children))
+        if (children.isEmpty()) return listOf(node(name, quantity, IngredientNodeKind.LEAF, metadata = metadata))
+        return listOf(node(name, quantity, IngredientNodeKind.COMPOSITE, children, metadata = metadata))
     }
 
     private fun node(
@@ -131,7 +152,8 @@ internal object IngredientTreeParser {
         kind: IngredientNodeKind,
         children: List<IngredientNode> = emptyList(),
         isSectionHeading: Boolean = false,
-        functionalClass: String? = null
+        functionalClass: String? = null,
+        metadata: StructuralMetadata? = null
     ): IngredientNode {
         val cleaned = normalizeIdentifiers(text.trim().replace(Regex("\\s+"), " "))
         return IngredientNode(
@@ -139,6 +161,11 @@ internal object IngredientTreeParser {
             normalizedText = TextNormalizer.normalize(cleaned),
             quantityPercent = quantity,
             functionalClass = functionalClass,
+            isNano = metadata?.isNano == true,
+            variableProportions = metadata?.variableProportions == true,
+            hasAlternatives = metadata?.hasAlternatives == true,
+            sourceClaim = metadata?.sourceClaim ?: SourceClaim.UNSPECIFIED,
+            sourceClaimText = metadata?.sourceClaimText,
             kind = kind,
             children = children,
             isSectionHeading = isSectionHeading
@@ -171,28 +198,29 @@ internal object IngredientTreeParser {
     }
 
     private fun splitAtCurrentDepth(text: String): List<String> {
+        val source = replaceTopLevelAlternatives(text)
         val parts = mutableListOf<String>()
         var start = 0
         var depth = 0
-        text.forEachIndexed { index, character ->
+        source.forEachIndexed { index, character ->
             when (character) {
                 '(', '[' -> depth++
                 ')', ']' -> depth = (depth - 1).coerceAtLeast(0)
                 ',', ';', '\n' -> if (depth == 0 &&
-                    !(character == ',' && index > 0 && index < text.lastIndex &&
-                        text[index - 1].isDigit() && text[index + 1].isDigit()) &&
-                    !(character == '\n' && nextNonWhitespace(text, index + 1) in listOf('(', '['))
+                    !(character == ',' && index > 0 && index < source.lastIndex &&
+                        source[index - 1].isDigit() && source[index + 1].isDigit()) &&
+                    !(character == '\n' && nextNonWhitespace(source, index + 1) in listOf('(', '['))
                 ) {
-                    parts += text.substring(start, index)
+                    parts += source.substring(start, index)
                     start = index + 1
                 }
-                '.' -> if (depth == 0 && isSentenceBoundary(text, index)) {
-                    parts += text.substring(start, index)
+                '.' -> if (depth == 0 && isSentenceBoundary(source, index)) {
+                    parts += source.substring(start, index)
                     start = index + 1
                 }
             }
         }
-        parts += text.substring(start)
+        parts += source.substring(start)
         return parts.map(String::trim).filter(String::isNotBlank)
     }
 
@@ -232,7 +260,8 @@ internal object IngredientTreeParser {
     }
 
     private fun sectionParts(text: String): Pair<String, String>? {
-        if (parseFunctionalClass(text) != null || containsPrefix.containsMatchIn(text)) return null
+        val metadata = extractStructuralMetadata(text)
+        if (parseFunctionalClass(metadata.text, metadata) != null || containsPrefix.containsMatchIn(text)) return null
         val colon = topLevelColon(text)
         if (colon < 0) return null
         val heading = text.substring(0, colon).trim()
@@ -248,13 +277,16 @@ internal object IngredientTreeParser {
         return null
     }
 
-    private fun parseFunctionalClass(segment: String): List<IngredientNode>? {
+    private fun parseFunctionalClass(
+        segment: String,
+        metadata: StructuralMetadata
+    ): List<IngredientNode>? {
         val colon = topLevelColon(segment)
         if (colon >= 0) {
             val className = segment.substring(0, colon).trim()
             val designation = segment.substring(colon + 1).trim()
             if (FunctionalClassLexicon.contains(className) && designation.isNotBlank()) {
-                return additiveNodes(className, designation)
+                return additiveNodes(className, designation, metadata)
             }
         }
 
@@ -263,10 +295,14 @@ internal object IngredientTreeParser {
             ?: return null
         val className = segment.substring(0, group.start).trim()
         if (!FunctionalClassLexicon.contains(className) || group.content.isBlank()) return null
-        return additiveNodes(className, group.content)
+        return additiveNodes(className, group.content, metadata)
     }
 
-    private fun additiveNodes(className: String, designationText: String): List<IngredientNode> {
+    private fun additiveNodes(
+        className: String,
+        designationText: String,
+        metadata: StructuralMetadata
+    ): List<IngredientNode> {
         val designations = splitAtCurrentDepth(designationText)
         val children = designations.map { designation ->
             val cleaned = normalizeIdentifiers(designation.trim())
@@ -274,6 +310,11 @@ internal object IngredientTreeParser {
                 rawText = cleaned,
                 normalizedText = TextNormalizer.normalize(cleaned),
                 functionalClass = className,
+                isNano = metadata.isNano,
+                variableProportions = metadata.variableProportions,
+                hasAlternatives = metadata.hasAlternatives,
+                sourceClaim = metadata.sourceClaim,
+                sourceClaimText = metadata.sourceClaimText,
                 kind = IngredientNodeKind.ADDITIVE
             )
         }
@@ -284,9 +325,54 @@ internal object IngredientTreeParser {
                 quantity = null,
                 kind = IngredientNodeKind.COMPOSITE,
                 children = children,
-                functionalClass = className
+                functionalClass = className,
+                metadata = metadata
             )
         )
+    }
+
+    private fun extractStructuralMetadata(value: String): StructuralMetadata {
+        val origin = SourceClaimLexicon.extract(value)
+        val isNano = nanoQualifier.containsMatchIn(origin.text)
+        val variable = variableProportionQualifier.containsMatchIn(origin.text)
+        val alternatives = alternativeSeparator.containsMatchIn(origin.text)
+        val cleaned = origin.text
+            .replace(nanoQualifier, " ")
+            .replace(variableProportionQualifier, " ")
+            .replace(Regex("\\s+"), " ")
+            .trim()
+        return StructuralMetadata(
+            text = cleaned,
+            isNano = isNano,
+            variableProportions = variable,
+            hasAlternatives = alternatives,
+            sourceClaim = origin.claim,
+            sourceClaimText = origin.detectedPhrase
+        )
+    }
+
+    private fun replaceTopLevelAlternatives(value: String): String {
+        val result = StringBuilder(value)
+        var depth = 0
+        var cursor = 0
+        while (cursor < value.length) {
+            when (value[cursor]) {
+                '(', '[' -> depth++
+                ')', ']' -> depth = (depth - 1).coerceAtLeast(0)
+            }
+            if (depth == 0) {
+                val match = alternativeSeparator.find(value, cursor)
+                    ?.takeIf { it.range.first == cursor }
+                if (match != null) {
+                    result.setCharAt(match.range.first, ',')
+                    for (index in match.range.first + 1..match.range.last) result.setCharAt(index, ' ')
+                    cursor = match.range.last + 1
+                    continue
+                }
+            }
+            cursor++
+        }
+        return result.toString()
     }
 
     private fun normalizeIdentifiers(text: String): String = text

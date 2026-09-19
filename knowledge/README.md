@@ -45,7 +45,9 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.9 (code 19) fait de `IngredientTreeParser` la source de vérité de la
+0.5.9.1 (code 20) distingue une liste manuelle d'une étiquette complète ou
+issue d'un OCR, et représente explicitement l'absence de liste d'ingrédients.
+La version 0.5.9 (code 19) fait de `IngredientTreeParser` la source de vérité de la
 structure et conserve les pourcentages comme métadonnées. La version 0.5.8.3
 (code 18) applique la même reconnaissance des marchés BE, LU et LUX aux
 marqueurs français et néerlandais. La version 0.5.8.2
@@ -140,3 +142,52 @@ nettoyage des quantités), « TRACES / CONTAMINATION CROISÉE » et « NOTES EXC
 puis affiche pour chaque nœud son type, sa profondeur, son parent, son texte
 original, le texte éventuellement enrichi pour le matcher, ses correspondances
 et son résidu inconnu. Le fonctionnement reste hors ligne.
+
+## Cadre d'étiquetage utilisé en 0.5.9.1
+
+Les règles structurelles s'appuient sur le
+[règlement (UE) nº 1169/2011 consolidé au 1er avril 2025](https://eur-lex.europa.eu/eli/reg/2011/1169/2025-04-01/eng),
+principalement ses articles 18 à 21 et ses annexes II et VII. Ce règlement
+organise l'information alimentaire ; il ne définit pas le véganisme. Le moteur
+utilise donc ces règles pour localiser et structurer le texte déclaré, puis
+applique séparément sa base de connaissances vegan.
+
+Trois modes d'entrée sont disponibles :
+
+- `MANUAL_INGREDIENT_LIST` accepte une liste saisie sans titre et autorise le
+  fallback historique sur le texte complet ;
+- `FULL_LABEL` exige un titre d'ingrédients reconnu avant de construire
+  l'arbre ;
+- `OCR_LABEL` applique la même prudence à un texte provenant d'un OCR.
+
+Une étiquette complète ou OCR sans section reconnue produit
+`NO_INGREDIENT_LIST`. Cet état ne valide ni n'invalide le caractère vegan et
+ne cherche pas à décider si l'absence de liste bénéficie légalement d'une
+exemption de l'article 19. Une mention autonome `Contient :` reste analysée
+comme présence déclarée ; `Peut contenir :` reste une trace hors verdict.
+
+Le parseur conserve `(nano)`, les proportions variables et les alternatives
+`et/ou` comme métadonnées. Il n'invente ni quantité ni ordre relatif. Un
+ingrédient composé déclaré à moins de 2 % sans sous-composition reste une
+feuille ordinaire et n'est jamais supposé résolu.
+
+Les déclarations d'origine sont reconnues par un lexique multilingue séparé.
+Elles ne changent un statut que pour les identifiants inscrits dans un registre
+interne limité ; en 0.5.9.1, seul `e471` est autorisé. Une origine végétale le
+résout comme vegan, une origine animale comme non vegan, tandis qu'une origine
+absente ou microbienne conserve son statut de base incertain. Le diagnostic
+affiche le statut de base, le statut effectif et la raison de la résolution.
+
+L'évaluation porte sur la « compatibilité vegan selon les ingrédients
+déclarés ». L'article 20 et l'annexe VII permettent dans certains cas
+l'omission de constituants, auxiliaires, additifs de transfert, supports ou
+détails d'ingrédients composés. Cette limite est signalée sans rendre chaque
+résultat automatiquement incertain.
+
+Le projet ne possède pas de moteur réglementaire complet des allergènes de
+l'annexe II. Il ne tente donc pas d'interpréter ses exceptions, notamment
+l'exception relative à l'acide béhénique d'une pureté minimale de 85 % utilisé
+dans certains émulsifiants E470a, E471 et E477. Cette disposition ne crée
+aucune règle vegan. Avant la 0.6, restent notamment à traiter la validation
+juridique des exemptions, les exceptions détaillées de l'annexe II et une
+gestion OCR plus riche ; elles resteront séparées du classement vegan.

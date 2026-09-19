@@ -39,17 +39,26 @@ internal object LabelSectionExtractor {
         val ingredientsText = when {
             ingredient != null -> contentUntil(text, ingredient, markers) {
                 it.kind == SectionKind.TRACES || it.kind == SectionKind.IGNORED ||
-                    it.kind == SectionKind.INGREDIENTS
+                    it.kind == SectionKind.INGREDIENTS || it.kind == SectionKind.CONTAINS
             }
             contains != null -> null
-            else -> text.substring(0, markers.firstOrNull { it.kind == SectionKind.IGNORED }?.range?.first ?: text.length)
+            else -> text.substring(
+                0,
+                markers.firstOrNull {
+                    it.kind == SectionKind.TRACES || it.kind == SectionKind.IGNORED
+                }?.range?.first ?: text.length
+            )
         }?.trimStart()?.takeIf { it.isNotBlank() }
         val declaredContains = contains?.let { contentUntil(text, it, markers) { next -> next.kind == SectionKind.TRACES || next.kind == SectionKind.IGNORED || next.kind == SectionKind.INGREDIENTS }.trim().takeIf(String::isNotBlank) }
-        val traces = if (ingredient != null || contains != null) {
-            markers.filter { it.kind == SectionKind.TRACES }.map { marker ->
-                text.substring(marker.range.first, markers.firstOrNull { it.range.first > marker.range.first && (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS) }?.range?.first ?: text.length).trim()
-            }.filter(String::isNotBlank).joinToString("\n").takeIf(String::isNotBlank)
-        } else null
+        val traces = markers.filter { it.kind == SectionKind.TRACES }.map { marker ->
+            text.substring(
+                marker.range.first,
+                markers.firstOrNull {
+                    it.range.first > marker.range.first &&
+                        (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
+                }?.range?.first ?: text.length
+            ).trim()
+        }.filter(String::isNotBlank).joinToString("\n").takeIf(String::isNotBlank)
         val ignored = markers.filter { it.kind == SectionKind.IGNORED }.map { marker ->
             text.substring(marker.range.first, markers.firstOrNull { it.range.first > marker.range.first && it.kind == SectionKind.INGREDIENTS }?.range?.first ?: text.length).trim()
         }.filter(String::isNotBlank)

@@ -7,6 +7,8 @@ import java.math.BigDecimal
 data class AnalysisResult(
     val matched: List<Ingredient>,
     val unknown: List<String>,
+    val availability: AnalysisAvailability = AnalysisAvailability.INGREDIENT_LIST_ANALYZED,
+    val declaredPresenceIngredientIds: List<String> = emptyList(),
     val stoppedAtNonVegetarian: Boolean = false,
     val crossContactWarnings: List<String> = emptyList(),
     val excludedNotes: List<String> = emptyList()
@@ -26,11 +28,13 @@ data class AnalysisResult(
         get() = matched.filter { it.status == VeganStatus.VEGETARIAN }
 
     /** Verdict for the known composition after setting uncertain ingredients aside. */
-    val verdictWithoutUncertain: AnalysisVerdict
-        get() = VerdictEngine.evaluate(matched, unknown, excludeUncertain = true)
+    val verdictWithoutUncertain: AnalysisVerdict?
+        get() = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) null
+        else VerdictEngine.evaluate(matched, unknown, excludeUncertain = true)
 
-    val verdict: AnalysisVerdict
-        get() = VerdictEngine.evaluate(matched, unknown)
+    val verdict: AnalysisVerdict?
+        get() = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) null
+        else VerdictEngine.evaluate(matched, unknown)
 }
 
 data class TokenDiagnostic(
@@ -43,6 +47,15 @@ data class TokenDiagnostic(
     val compositionAfterQuantity: Boolean,
     val quantityPercent: BigDecimal?,
     val functionalClass: String?,
+    val isNano: Boolean,
+    val variableProportions: Boolean,
+    val hasAlternatives: Boolean,
+    val sourceClaim: SourceClaim,
+    val sourceClaimText: String?,
+    val baseStatuses: List<VeganStatus>,
+    val effectiveStatuses: List<VeganStatus>,
+    val originResolution: String?,
+    val isDeclaredPresence: Boolean,
     val childCount: Int,
     val matcherText: String?,
     val matchedIngredientIds: List<String>,
@@ -53,9 +66,13 @@ data class TokenDiagnostic(
 
 data class AnalysisDiagnostics(
     val input: String,
+    val inputMode: InputMode,
+    val availabilityReason: String?,
+    val usedManualFallback: Boolean,
     val languageSegmentation: LanguageSegmentation,
     val labelSections: LabelSections,
     val preprocessedInput: String,
+    val declaredPresenceText: String?,
     val ingredientTree: List<IngredientNode>,
     val tokens: List<TokenDiagnostic>,
     val result: AnalysisResult
@@ -66,6 +83,8 @@ data class AnalysisDiagnostics(
 
 enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
 enum class VeganAssessment { VEGAN, NOT_VEGAN, UNCERTAIN }
+enum class InputMode { MANUAL_INGREDIENT_LIST, FULL_LABEL, OCR_LABEL }
+enum class AnalysisAvailability { INGREDIENT_LIST_ANALYZED, NO_INGREDIENT_LIST }
 
 object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()
@@ -94,33 +113,84 @@ object VeganAnalyzer {
         }
     }
 
-    fun analyze(text: String): AnalysisResult = analyze(text, ingredients)
+    fun analyze(
+        text: String,
+        inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST
+    ): AnalysisResult = analyze(text, ingredients, inputMode)
 
-    fun analyzeWithDiagnostics(text: String): AnalysisDiagnostics =
-        analyzeWithDiagnostics(text, ingredients)
+    fun analyzeWithDiagnostics(
+        text: String,
+        inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST
+    ): AnalysisDiagnostics = analyzeWithDiagnostics(text, ingredients, inputMode)
 
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
-    internal fun analyze(text: String, database: List<Ingredient>): AnalysisResult {
-        return runAnalysis(text, database).result
+    internal fun analyze(
+        text: String,
+        database: List<Ingredient>,
+        inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST
+    ): AnalysisResult {
+        return runAnalysis(text, database, inputMode).result
     }
 
     internal fun analyzeWithDiagnostics(
         text: String,
-        database: List<Ingredient>
-    ): AnalysisDiagnostics = runAnalysis(text, database)
+        database: List<Ingredient>,
+        inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST
+    ): AnalysisDiagnostics = runAnalysis(text, database, inputMode)
 
-    private fun runAnalysis(text: String, database: List<Ingredient>): AnalysisDiagnostics {
+    private fun runAnalysis(
+        text: String,
+        database: List<Ingredient>,
+        inputMode: InputMode
+    ): AnalysisDiagnostics {
         val languageSegmentation = LabelLanguageSegmenter.segment(text)
         val sections = selectSections(languageSegmentation)
-        val preprocessed = LabelPreprocessor.preprocess(sections.analysisText)
+        val explicitList = sections.hasIngredientHeading && !sections.ingredientsText.isNullOrBlank()
+        val manualList = inputMode == InputMode.MANUAL_INGREDIENT_LIST &&
+            !sections.ingredientsText.isNullOrBlank()
+        val canParseIngredientText = explicitList || manualList
+        val requestedManualFallback = manualList && !sections.hasIngredientHeading
+        val ingredientInput = when {
+            !canParseIngredientText -> ""
+            requestedManualFallback -> sections.rawText
+            else -> sections.ingredientsText.orEmpty()
+        }
+        val preprocessed = LabelPreprocessor.preprocess(ingredientInput)
+        val presencePreprocessed = LabelPreprocessor.preprocess(sections.declaredContainsText.orEmpty())
         val ingredientTree = IngredientTreeParser.parse(preprocessed.compositionText)
-        val tokens = IngredientTokenizer.flatten(ingredientTree)
+        val availability = if (canParseIngredientText && ingredientTree.isNotEmpty()) {
+            AnalysisAvailability.INGREDIENT_LIST_ANALYZED
+        } else {
+            AnalysisAvailability.NO_INGREDIENT_LIST
+        }
+        val usedManualFallback = requestedManualFallback &&
+            availability == AnalysisAvailability.INGREDIENT_LIST_ANALYZED
+        val availabilityReason = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+            if (inputMode == InputMode.MANUAL_INGREDIENT_LIST) {
+                "Aucune liste manuelle exploitable n’a été fournie."
+            } else {
+                "Aucune section d’ingrédients reconnue dans l’étiquette."
+            }
+        } else null
+        val ingredientTokens = IngredientTokenizer.flatten(ingredientTree)
+        val presenceTokens = IngredientTokenizer.flatten(
+            IngredientTreeParser.parse(presencePreprocessed.compositionText)
+        ).map { token ->
+            token.copy(
+                order = token.order + ingredientTokens.size,
+                parentOrder = token.parentOrder?.plus(ingredientTokens.size)
+            )
+        }
+        val tokens = ingredientTokens + presenceTokens
+        val presenceOrders = presenceTokens.mapTo(hashSetOf()) { it.order }
         val matcher = IngredientMatcher(database)
         val found = linkedMapOf<String, Ingredient>()
+        val declaredPresence = linkedSetOf<String>()
         val unknown = linkedMapOf<String, String>()
         val tokenDiagnostics = mutableListOf<TokenDiagnostic>()
         val tokenByOrder = tokens.associateBy { it.order }
         for (token in tokens) {
+            val isDeclaredPresence = token.order in presenceOrders
             if (token.kind == NodeKind.SECTION_HEADING ||
                 token.kind == NodeKind.COMPOSITE_INGREDIENT
             ) {
@@ -134,6 +204,15 @@ object VeganAnalyzer {
                     compositionAfterQuantity = token.compositionAfterQuantity,
                     quantityPercent = token.quantityPercent,
                     functionalClass = token.functionalClass,
+                    isNano = token.isNano,
+                    variableProportions = token.variableProportions,
+                    hasAlternatives = token.hasAlternatives,
+                    sourceClaim = token.sourceClaim,
+                    sourceClaimText = token.sourceClaimText,
+                    baseStatuses = emptyList(),
+                    effectiveStatuses = emptyList(),
+                    originResolution = null,
+                    isDeclaredPresence = isDeclaredPresence,
                     childCount = token.childCount,
                     matcherText = null,
                     matchedIngredientIds = emptyList(),
@@ -145,7 +224,22 @@ object VeganAnalyzer {
             }
             val matcherText = contextualMatcherText(token, tokenByOrder)
             val match = matcher.match(token.copy(text = matcherText))
-            match.ingredients.forEach { found[it.id] = it }
+            val resolutions = match.ingredients.map {
+                it to SourceClaimResolver.resolve(it, token.sourceClaim)
+            }
+            val effectiveIngredients = resolutions.map { (ingredient, resolution) ->
+                ingredient.copy(
+                    status = resolution.effectiveStatus,
+                    reason = resolution.explanation ?: ingredient.reason
+                )
+            }
+            effectiveIngredients.forEach { ingredient ->
+                val previous = found[ingredient.id]
+                if (previous == null || statusPriority(ingredient.status) > statusPriority(previous.status)) {
+                    found[ingredient.id] = ingredient
+                }
+                if (isDeclaredPresence) declaredPresence += ingredient.id
+            }
             val assessment = UnknownCollector.assess(match)
             val tokenUnknown = assessment.unknown
             tokenUnknown?.let { unknown.putIfAbsent(TextNormalizer.normalize(it), it) }
@@ -163,6 +257,16 @@ object VeganAnalyzer {
                 compositionAfterQuantity = token.compositionAfterQuantity,
                 quantityPercent = token.quantityPercent,
                 functionalClass = token.functionalClass,
+                isNano = token.isNano,
+                variableProportions = token.variableProportions,
+                hasAlternatives = token.hasAlternatives,
+                sourceClaim = token.sourceClaim,
+                sourceClaimText = token.sourceClaimText,
+                baseStatuses = resolutions.map { it.second.baseStatus },
+                effectiveStatuses = resolutions.map { it.second.effectiveStatus },
+                originResolution = resolutions.mapNotNull { it.second.explanation }
+                    .distinct().joinToString().takeIf(String::isNotBlank),
+                isDeclaredPresence = isDeclaredPresence,
                 childCount = token.childCount,
                 matcherText = matcherText,
                 matchedIngredientIds = match.ingredients.map { it.id },
@@ -173,17 +277,35 @@ object VeganAnalyzer {
         }
         return AnalysisDiagnostics(
             input = text,
+            inputMode = inputMode,
+            availabilityReason = availabilityReason,
+            usedManualFallback = usedManualFallback,
             languageSegmentation = languageSegmentation,
             labelSections = sections,
             preprocessedInput = preprocessed.compositionText,
+            declaredPresenceText = presencePreprocessed.compositionText.takeIf(String::isNotBlank),
             ingredientTree = ingredientTree,
             tokens = tokenDiagnostics,
             result = AnalysisResult(
-                found.values.toList(), unknown.values.toList(), false,
-                (preprocessed.crossContactWarnings + listOfNotNull(sections.tracesText)).distinct(),
-                preprocessed.excludedNotes
+                matched = found.values.toList(),
+                unknown = unknown.values.toList(),
+                availability = availability,
+                declaredPresenceIngredientIds = declaredPresence.toList(),
+                stoppedAtNonVegetarian = false,
+                crossContactWarnings = (
+                    preprocessed.crossContactWarnings + presencePreprocessed.crossContactWarnings +
+                        if (usedManualFallback) emptyList() else listOfNotNull(sections.tracesText)
+                    ).distinct(),
+                excludedNotes = (preprocessed.excludedNotes + presencePreprocessed.excludedNotes).distinct()
             )
         )
+    }
+
+    private fun statusPriority(status: VeganStatus): Int = when (status) {
+        VeganStatus.VEGAN -> 0
+        VeganStatus.UNCERTAIN -> 1
+        VeganStatus.VEGETARIAN -> 2
+        VeganStatus.NON_VEGAN -> 3
     }
 
     private fun selectSections(segmentation: LanguageSegmentation): LabelSections {
@@ -210,7 +332,7 @@ object VeganAnalyzer {
         val normalizedParent = TextNormalizer.normalize(parent.text)
         val normalizedChild = TextNormalizer.normalize(token.text)
         val isVegetableOilGroup = normalizedParent.matches(
-            Regex("^huiles? vegetales? en proportion variable$")
+            Regex("^huiles? vegetales?$")
         )
         val isSimpleChild = normalizedChild.matches(Regex("[a-z]+"))
         return if (isVegetableOilGroup && isSimpleChild) "huile de ${token.text}" else token.text
