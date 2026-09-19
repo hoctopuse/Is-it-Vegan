@@ -25,8 +25,8 @@ Priorité du verdict présenté :
 
 `NON_VEGETARIAN` > `UNCERTAIN` > `INCONCLUSIVE` > `VEGETARIAN` > `VEGAN`.
 
-- l'analyse s'arrête au premier ingrédient `NON_VEGAN`, qui suffit à établir
-  le verdict `NON_VEGETARIAN` ;
+- l'analyse parcourt toute la composition afin de conserver tous les bloqueurs
+  et toutes les incertitudes dans le diagnostic ;
 - les ingrédients `UNCERTAIN` sont conservés et l'analyse continue ;
 - lorsqu'un verdict est `UNCERTAIN`, l'application indique également le
   verdict du reste de la composition après exclusion des ingrédients
@@ -45,7 +45,8 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.7 (code 13) reconstruit en plus la hiérarchie. La version 0.5.8.3
+0.5.9 (code 19) fait de `IngredientTreeParser` la source de vérité de la
+structure et conserve les pourcentages comme métadonnées. La version 0.5.8.3
 (code 18) applique la même reconnaissance des marchés BE, LU et LUX aux
 marqueurs français et néerlandais. La version 0.5.8.2
 (code 17) distingue les correspondances exactes des correspondances
@@ -55,44 +56,53 @@ tiret long ou court.
 Depuis la version 0.5.8
 (code 15), le pipeline commence par `LabelLanguageSegmenter` :
 
-1. `LabelLanguageSegmenter` découpe les blocs explicitement marqués FR, NL, EN
-   ou DE, conserve leurs marqueurs de marché et sélectionne le bloc français
+1. `LabelLanguageSegmenter` découpe les blocs explicitement marqués FR, NL, EN,
+   DE ou ES, conserve leurs marqueurs de marché et sélectionne le bloc français
    exploitable en priorité. Sa détection est volontairement prudente : sans
    marqueur fiable, il conserve le texte complet comme bloc `UNKNOWN`. Il ne
    traduit pas, ne reconnaît aucun ingrédient et ne participe pas au verdict ;
-2. `LabelSectionExtractor` isole à profondeur zéro la liste d'ingrédients, les
+2. `LabelSectionExtractor` isole à profondeur zéro la liste d'ingrédients, y
+   compris les titres courts complétés comme `Ingrédients de la sauce :`, les
    mentions de présence réelle (`contient`, `bevat`, `contains`, `enthält`),
    les traces éventuelles et les sections d'étiquette non alimentaires. Les
    traces restent hors du verdict et une mention imbriquée dans un ingrédient
    composé ne découpe jamais sa composition ;
 3. Depuis la version 0.5.6 (code 12), `LabelPreprocessor` renvoie un
    `PreprocessedLabel` : `compositionText`, `crossContactWarnings` et
-   `excludedNotes`. Seule la composition passe ensuite dans `QuantityCleaner`,
-   qui supprime les quantités sans altérer `E471`, `B12`, `D2` ou `oméga-3` ;
-4. `IngredientTokenizer` découpe la liste, sépare aussi les éléments au point
-   de niveau racine (sans couper les décimales), et produit des nœuds reliés à
-   leur parent. Chaque nœud est un ingrédient, un ingrédient composite ou un
-   titre de section ; les parenthèses et crochets imbriqués restent associés à
-   leur véritable parent ;
+   `excludedNotes`. Les classes fonctionnelles et les quantités restent dans
+   la composition afin que le parseur puisse les structurer ;
+4. `IngredientTreeParser` construit les nœuds `LEAF`, `COMPOSITE` et
+   `ADDITIVE`. Les virgules et points-virgules ne séparent qu'à la profondeur
+   courante, les pourcentages deviennent des `BigDecimal`, et une parenthèse
+   qualificative telle que `(non hydrogénée)` reste attachée à sa feuille. Les
+   classes fonctionnelles au singulier ou au pluriel restent du contexte et
+   leurs désignations sont les seuls nœuds envoyés au matcher.
+   `IngredientTokenizer` n'est plus qu'un adaptateur d'aplatissement pour les
+   contrats internes historiques ;
 5. `IngredientMatcher` privilégie les alias les plus longs afin que, par
    exemple, `lait de coco` masque correctement l'alias plus court `lait`. Un
    alias court qui est aussi le préfixe d'alias plus précis est refusé lorsqu'il
    est suivi de `de`, `d'`, `du`, `des`, `à` ou `au` et qu'aucun alias complet
    ne couvre l'expression. Ainsi `farine de lin` ne correspond pas à
-   `wheat_flour`, tandis que `farine de blé` et `lait` seul restent valides ;
+   `wheat_flour`, tandis que `farine de blé` et `lait` seul restent valides. Il
+   distingue une correspondance exacte, une expression couverte par des
+   qualificatifs contrôlés, une correspondance contextuelle partielle et un
+   conflit bloqué. Ce dernier protège notamment `beurre de cacao` du beurre
+   laitier ;
 6. `UnknownCollector` conserve l'expression complète lorsqu'un alias n'en
-   couvre qu'une partie. Les conteneurs composés explicitement structurés
-   gardent leurs enfants sans créer un inconnu parent redondant ;
-7. `VerdictEngine` applique la priorité des verdicts et l'arrêt anticipé sur
-   un ingrédient non végétarien.
+   couvre qu'une partie. Seules les feuilles et désignations d'additifs lui
+   sont transmises : un conteneur composé est jugé exclusivement par ses
+   enfants et ne crée jamais d'inconnu parent redondant ;
+7. `VerdictEngine` conserve la classification détaillée historique et calcule
+   séparément la compatibilité vegan. Un ingrédient végétarien ou non vegan
+   connu donne ainsi `NOT_VEGAN`, même si un autre ingrédient reste incertain.
 
 Les titres tels que `Farce (63 %) :`, `Cœur au tofu fumé 62,6 % :` ou
 `Enrobage 37,4 % :` organisent leurs enfants. Ils figurent dans le diagnostic,
 mais ne passent ni dans le matcher ni dans les inconnus et n'influencent pas le
-verdict. Un ingrédient composite conserve les correspondances présentes dans
-son propre nom, puis analyse ses enfants. Son libellé structurel résiduel peut
-être omis des inconnus lorsque sa sous-composition est explicite ; le même
-libellé sans sous-composition reste inconnu.
+verdict. Le nom d'un ingrédient composite n'est envoyé ni au matcher ni au
+collecteur d'inconnus : seules ses feuilles participent au verdict. Un libellé
+sans sous-composition reste au contraire une feuille ordinaire.
 
 La transmission de contexte est volontairement étroite : le groupe
 `huiles végétales en proportion variable` permet seulement d'essayer

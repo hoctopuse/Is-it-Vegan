@@ -11,14 +11,7 @@ internal object LabelPreprocessor {
         "(?i)\\b(?:peut\\s+contenir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
             "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
     )
-    private val functionalClassHeading = Regex(
-        "(?i)\\b(?:stabilisants?|correcteurs?\\s+d['’]acidit[ée]|" +
-            "r[ée]gulateurs?\\s+d['’]acidit[ée]|antioxydants?|acidifiants?|" +
-            "conservateurs?|[ée]mulsifiants?|[ée]paississants?|g[ée]lifiants?)" +
-            "\\s*(?:(?=[(\\[])|:\\s*)"
-    )
     private val ingredientHeading = Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*")
-    private val containsHeading = Regex("(?i)\\bcontient\\s*:\\s*")
     private val simpleOcrCorrections = listOf(
         Regex("(?i)\\bformage(?=\\s+grana\\b)") to "fromage"
     )
@@ -30,9 +23,7 @@ internal object LabelPreprocessor {
             .lines()
             .map { line -> extractNotices(line, warnings, notes) }
             .joinToString("\n")
-            .replace(functionalClassHeading, "")
             .replace(ingredientHeading, "")
-            .replace(containsHeading, "")
 
         simpleOcrCorrections.forEach { (pattern, replacement) ->
             cleaned = cleaned.replace(pattern, replacement)

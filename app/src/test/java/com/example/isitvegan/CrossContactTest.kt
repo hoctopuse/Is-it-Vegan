@@ -43,7 +43,7 @@ class CrossContactTest {
     @Test fun containsRemainsComposition() {
         val result = VeganAnalyzer.analyze("sucre (contient : lait)", database)
         assertEquals(AnalysisVerdict.VEGETARIAN, result.verdict)
-        assertEquals(listOf("sugar", "milk"), result.matched.map { it.id })
+        assertEquals(listOf("milk"), result.matched.map { it.id })
         assertTrue(result.crossContactWarnings.isEmpty())
     }
 

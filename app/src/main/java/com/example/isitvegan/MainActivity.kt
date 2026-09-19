@@ -111,7 +111,7 @@ fun IsItVeganScreen() {
                     val matches = analysis.matched
                     val unknownMessage = if (analysis.unknown.isEmpty()) "" else
                         "\n\nNon reconnus : " + analysis.unknown.joinToString(", ")
-                    result = when {
+                    val detailedResult = when {
                         ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
                         analysis.verdict == AnalysisVerdict.NON_VEGETARIAN -> {
                             val found = matches.filter { it.status == VeganStatus.NON_VEGAN }
@@ -156,7 +156,14 @@ fun IsItVeganScreen() {
                         }
                         else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus " +
                             "comme végétaux ou minéraux dans la base hors ligne."
-                    } + CrossContactNotice.format(analysis.crossContactWarnings)
+                    }
+                    val veganCompatibility = when (analysis.veganAssessment) {
+                        VeganAssessment.VEGAN -> "Compatibilité vegan : VEGAN"
+                        VeganAssessment.NOT_VEGAN -> "Compatibilité vegan : NON VEGAN"
+                        VeganAssessment.UNCERTAIN -> "Compatibilité vegan : INCERTAINE"
+                    }
+                    result = veganCompatibility + "\n\nClassification détaillée :\n" + detailedResult +
+                        CrossContactNotice.format(analysis.crossContactWarnings)
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

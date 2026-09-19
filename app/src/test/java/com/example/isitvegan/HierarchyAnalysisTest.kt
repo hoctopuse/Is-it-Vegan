@@ -81,7 +81,7 @@ class HierarchyAnalysisTest {
             diagnostics.tokens.drop(1).map { it.matcherText }
         )
         val report = DiagnosticReport.build(diagnostics, "0.5.7")
-        assertTrue(report.contains("COMPOSITE_INGREDIENT | profondeur=0"))
+        assertTrue(report.contains("COMPOSITE | profondeur=0"))
         assertTrue(report.contains("parent=1"))
         assertTrue(report.contains("texte matcher=huile de colza"))
     }
@@ -113,18 +113,18 @@ class HierarchyAnalysisTest {
         assertEquals(listOf("grana_padano"), VeganAnalyzer.analyze("Grana Padano AOP", database).matched.map { it.id })
     }
 
-    @Test fun knownAnimalWordsInCompositeParentStillDetermineVerdict() {
+    @Test fun compositeParentWordsDoNotDetermineVerdict() {
         val result = VeganAnalyzer.analyze("sauce au fromage (eau, huile de colza)", database)
-        assertEquals(AnalysisVerdict.VEGETARIAN, result.verdict)
-        assertTrue(result.matched.any { it.id == "cheese" })
+        assertEquals(AnalysisVerdict.VEGAN, result.verdict)
+        assertFalse(result.matched.any { it.id == "cheese" })
         assertTrue(result.unknown.isEmpty())
     }
 
-    @Test fun unknownCompositeParentIsNeverMadeVeganByKnownChildren() {
+    @Test fun unknownCompositeParentDelegatesToKnownChildren() {
         val result = VeganAnalyzer.analyze("farine de lin (eau)", database)
         assertFalse(result.matched.any { it.id == "wheat_flour" })
-        assertEquals(listOf("farine de lin"), result.unknown)
-        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertTrue(result.unknown.isEmpty())
+        assertEquals(AnalysisVerdict.VEGAN, result.verdict)
     }
 
     @Test fun hierarchyNeverConsumesATrailingTrace() {

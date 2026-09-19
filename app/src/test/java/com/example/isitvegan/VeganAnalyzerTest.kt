@@ -24,7 +24,7 @@ class VeganAnalyzerTest {
 
     @Test fun nestedIngredientsAndOrigins() {
         val result = VeganAnalyzer.analyze("sucre (lait de coco; E 471)", database)
-        assertEquals(listOf("sucre", "coco", "e471"), result.matched.map { it.id })
+        assertEquals(listOf("coco", "e471"), result.matched.map { it.id })
         assertEquals(emptyList<String>(), result.unknown)
         assertEquals(VeganStatus.VEGETARIAN,
             VeganAnalyzer.analyze("lait", database).matched.single().status)
@@ -110,7 +110,7 @@ class VeganAnalyzerTest {
         val result = VeganAnalyzer.analyze(sample, entries)
         assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
         assertEquals(listOf("eau", "soja"), result.matched.map { it.id })
-        assertEquals(listOf("présure", "nigari", "chlorure de calcium"), result.unknown)
+        assertEquals(listOf("nigari", "chlorure de calcium"), result.unknown)
     }
 
     @Test fun inlineCrossContactNotesDoNotAffectTheVerdict() {
@@ -133,9 +133,10 @@ class VeganAnalyzerTest {
             entries
         )
         assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
-        assertEquals(listOf("porc"), result.matched.map { it.id })
-        assertEquals(true, result.stoppedAtNonVegetarian)
-        assertEquals(emptyList<String>(), result.unknown)
+        assertEquals(listOf("porc", "jaune", "e471"), result.matched.map { it.id })
+        assertEquals(VeganAssessment.NOT_VEGAN, result.veganAssessment)
+        assertEquals(false, result.stoppedAtNonVegetarian)
+        assertEquals(listOf("ingrédient inconnu"), result.unknown)
     }
 
     @Test fun emptyOrNonIngredientTextCannotBeDeclaredVegan() {
@@ -166,7 +167,7 @@ class VeganAnalyzerTest {
         val composition = VeganAnalyzer.analyze("sucre (contient : lait)", database)
         val traces = VeganAnalyzer.analyze("sucre. Peut contenir du lait", database)
         assertEquals(AnalysisVerdict.VEGETARIAN, composition.verdict)
-        assertEquals(listOf("sucre", "lait"), composition.matched.map { it.id })
+        assertEquals(listOf("lait"), composition.matched.map { it.id })
         assertEquals(emptyList<String>(), composition.unknown)
         assertEquals(AnalysisVerdict.VEGAN, traces.verdict)
         assertEquals(listOf("sucre"), traces.matched.map { it.id })

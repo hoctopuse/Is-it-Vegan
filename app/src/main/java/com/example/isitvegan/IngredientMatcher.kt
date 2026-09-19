@@ -1,13 +1,17 @@
 package com.example.isitvegan
 
+enum class MatchResolution { NONE, EXACT, COVERED, PARTIAL_CONTEXTUAL, BLOCKED_CONFLICT }
+
 internal data class IngredientMatch(
     val token: IngredientToken,
     val ingredients: List<Ingredient>,
-    val residualNormalized: String
+    val residualNormalized: String,
+    val resolution: MatchResolution,
+    val blockedIngredientIds: List<String> = emptyList()
 )
 
 /** Matches the longest aliases first so a precise phrase masks shorter overlapping aliases. */
-internal class IngredientMatcher(database: List<Ingredient>) {
+internal class IngredientMatcher(private val database: List<Ingredient>) {
     private data class AliasEntry(
         val ingredient: Ingredient,
         val value: String,
@@ -49,6 +53,7 @@ internal class IngredientMatcher(database: List<Ingredient>) {
 
     fun match(token: IngredientToken): IngredientMatch {
         val normalized = TextNormalizer.normalize(token.text)
+        coveredGlucoseFructose(token, normalized)?.let { return it }
         val candidates = buildList {
             aliases.forEach { alias ->
                 alias.pattern.findAll(normalized).forEach { occurrence ->
@@ -67,9 +72,17 @@ internal class IngredientMatcher(database: List<Ingredient>) {
                 .thenBy { it.start }
         )
 
+        val blocked = candidates.filter { candidate ->
+            candidate.ingredient.id in protectedAnimalIds && candidates.any { source ->
+                source.ingredient.status == VeganStatus.VEGAN &&
+                    source.start >= candidate.endExclusive &&
+                    normalized.substring(candidate.endExclusive, source.start).trim() in sourceConnectors
+            }
+        }
+        val eligible = candidates.filterNot { it in blocked }
         val covered = BooleanArray(normalized.length)
         val selected = mutableListOf<Candidate>()
-        candidates.forEach { candidate ->
+        eligible.forEach { candidate ->
             if ((candidate.start until candidate.endExclusive).none { covered[it] }) {
                 (candidate.start until candidate.endExclusive).forEach { covered[it] = true }
                 selected += candidate
@@ -85,10 +98,87 @@ internal class IngredientMatcher(database: List<Ingredient>) {
             .replace(Regex("\\s+"), " ")
             .trim()
 
-        return IngredientMatch(token, ingredients.values.toList(), residual)
+        val resolution = when {
+            ingredients.isEmpty() && blocked.isEmpty() -> MatchResolution.NONE
+            residual.isBlank() -> MatchResolution.EXACT
+            isCovered(normalized, residual, ordered) -> MatchResolution.COVERED
+            blocked.isNotEmpty() -> MatchResolution.BLOCKED_CONFLICT
+            else -> MatchResolution.PARTIAL_CONTEXTUAL
+        }
+        return IngredientMatch(
+            token,
+            ingredients.values.toList(),
+            residual,
+            resolution,
+            blocked.map { it.ingredient.id }.distinct()
+        )
+    }
+
+    private fun coveredGlucoseFructose(
+        token: IngredientToken,
+        normalized: String
+    ): IngredientMatch? {
+        if (normalized !in glucoseFructoseForms) return null
+        val ingredient = database.firstOrNull { it.id == "glucose_syrup" } ?: return null
+        return IngredientMatch(token, listOf(ingredient), "", MatchResolution.COVERED)
+    }
+
+    private fun isCovered(
+        normalized: String,
+        residual: String,
+        selected: List<Candidate>
+    ): Boolean {
+        if (selected.isEmpty()) return false
+        var remaining = residual
+        reviewedPhrases.forEach { phrase ->
+            remaining = remaining.replace(
+                Regex("(?<![a-z0-9])${Regex.escape(phrase)}(?![a-z0-9])"),
+                " "
+            )
+        }
+        remaining = remaining.replace(
+            Regex("\\b(?:origine|origin|provenance)\\s+[a-z]+\\b"),
+            " "
+        )
+        if (remaining.split(Regex("\\s+")).filter(String::isNotBlank).all { it in glueWords }) {
+            return true
+        }
+        if (selected.any { it.ingredient.id == "natural_flavouring" } &&
+            residual.matches(Regex("^(?:de|d) [a-z]+$"))
+        ) return true
+
+        if (selected.size == 1) {
+            val source = selected.single()
+            val prefix = normalized.substring(0, source.start).trim()
+            val suffix = normalized.substring(source.endExclusive).trim()
+            if (derivedSourcePrefix.matches(prefix) &&
+                (suffix.isBlank() || derivedSourceSuffix.matches(suffix))
+            ) return true
+        }
+        return false
     }
 
     private companion object {
         val linkedSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
+        val protectedAnimalIds = setOf("butter", "milk", "cream")
+        val sourceConnectors = setOf("de", "d", "van", "of")
+        val glueWords = setOf("de", "d", "du", "des", "a", "au", "aux", "et", "en")
+        val reviewedPhrases = listOf(
+            "preparation a base de", "partiellement degraisse", "partiellement degraissee",
+            "non hydrogene", "non hydrogenee", "proteine de", "proteines de", "poudre de",
+            "extrait de", "flocons de", "flocon de", "base de", "feves de", "feve de",
+            "ecreme", "ecremee", "entier", "entiere", "demi ecreme", "demi ecremee",
+            "en poudre", "decortiquees", "decortiquee", "rehydrate", "rehydratees",
+            "rehydrates", "rehydratee", "concentre", "concentree", "concentres",
+            "concentrees", "depellicule", "depelliculee", "depellicules", "depelliculees",
+            "fume", "fumee", "fumes", "fumees", "au bois de hetre"
+        ).sortedByDescending(String::length)
+        val derivedSourcePrefix = Regex("^(?:puree|pate|graines?|huile|graisse) (?:de|d)$")
+        val derivedSourceSuffix = Regex("^(?:moulu|moulue|moulus|moulues)$")
+        val glucoseFructoseForms = setOf(
+            "sirop de glucose fructose",
+            "glucose fructose syrup",
+            "glucose fructosestroop"
+        )
     }
 }

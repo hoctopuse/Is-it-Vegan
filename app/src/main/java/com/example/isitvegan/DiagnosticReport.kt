@@ -44,28 +44,47 @@ internal object DiagnosticReport {
                 appendLine("(aucun élément à analyser)")
             } else {
                 diagnostics.tokens.forEachIndexed { index, token ->
-                    append("${index + 1}. ${token.kind} | profondeur=${token.depth} | ${token.text}")
+                    append("${index + 1}. ${token.nodeKind} | profondeur=${token.depth} | ${token.text}")
+                    token.quantityPercent?.let {
+                        append(" | quantité=${it.stripTrailingZeros().toPlainString().replace('.', ',')} %")
+                    }
                     token.parentOrder?.let { append(" | parent=${it + 1}") }
+                    token.functionalClass?.let { append(" | classe fonctionnelle=$it") }
+                    if (token.nodeKind == IngredientNodeKind.COMPOSITE) {
+                        append(" | enfants=${token.childCount}")
+                    }
                     token.matcherText?.takeIf { it != token.text }
                         ?.let { append(" | texte matcher=$it") }
-                    when (token.matchKind) {
-                        MatchKind.NONE -> append(" | correspondances=aucune")
-                        MatchKind.EXACT -> append(" | correspondances=${token.matchedIngredientIds.joinToString(",")}")
-                        MatchKind.PARTIAL_CONTEXTUAL -> append(
-                            " | correspondance contextuelle=${token.matchedIngredientIds.joinToString(",")}"
-                        )
-                    }
-                    if (token.kind == NodeKind.COMPOSITE_INGREDIENT && token.unknown == null &&
-                        token.matchKind != MatchKind.EXACT
-                    ) {
+                    if (token.nodeKind == IngredientNodeKind.COMPOSITE) {
                         append(" | conteneur analysé | inconnus propres=aucun")
+                    } else {
+                        when (token.matchKind) {
+                            MatchKind.NONE -> append(" | correspondances=aucune")
+                            MatchKind.EXACT -> append(" | correspondances=${token.matchedIngredientIds.joinToString(",")}")
+                            MatchKind.COVERED -> append(
+                                " | correspondance couverte=${token.matchedIngredientIds.joinToString(",")}"
+                            )
+                            MatchKind.PARTIAL_CONTEXTUAL -> append(
+                                " | correspondance contextuelle=${token.matchedIngredientIds.joinToString(",")}"
+                            )
+                            MatchKind.BLOCKED_CONFLICT -> {
+                                append(" | correspondance contextuelle=${token.matchedIngredientIds.joinToString(",")}")
+                                append(" | conflits bloqués=${token.blockedIngredientIds.joinToString(",")}")
+                            }
+                        }
+                        token.unknown?.let { append(" | inconnu=$it") }
                     }
-                    token.unknown?.let { append(" | inconnu=$it") }
                     appendLine()
                 }
             }
             appendLine()
             appendLine("RÉSULTAT")
+            appendLine("Compatibilité vegan : ${result.veganAssessment.displayName}")
+            appendLine(
+                "Bloqueurs détectés : " + result.veganBlockers
+                    .joinToString(", ") { it.id }.ifBlank { "aucun" }
+            )
+            appendLine("Classification détaillée : ${result.verdict}")
             appendLine("Verdict : ${result.verdict}")
             appendLine("Verdict sans les incertains : ${result.verdictWithoutUncertain}")
             appendLine("Analyse arrêtée tôt : ${if (result.stoppedAtNonVegetarian) "oui" else "non"}")
@@ -73,4 +92,11 @@ internal object DiagnosticReport {
             appendLine("Inconnus : ${result.unknown.joinToString(", ").ifBlank { "aucun" }}")
         }.trimEnd()
     }
+
+    private val VeganAssessment.displayName: String
+        get() = when (this) {
+            VeganAssessment.VEGAN -> "VEGAN"
+            VeganAssessment.NOT_VEGAN -> "NON VEGAN"
+            VeganAssessment.UNCERTAIN -> "INCERTAINE"
+        }
 }

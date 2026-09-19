@@ -19,14 +19,14 @@ class ParserModulesTest {
         assertTrue(cleaned.contains("oméga-3"))
     }
 
-    @Test fun preprocessorRemovesTracesFootnotesAndFunctionalHeadings() {
+    @Test fun preprocessorPreservesFunctionalHeadingsForTheTreeParser() {
         val preprocessed = LabelPreprocessor.preprocess(
             """Ingrédients: cacao¹ 2,9%, stabilisant (pectines), E 471. """ +
                 "Peut contenir du lait. ¹Rainforest Alliance Certified. Find out more."
         )
         val cleaned = QuantityCleaner.clean(preprocessed.compositionText)
         assertFalse(cleaned.contains("2,9"))
-        assertFalse(cleaned.contains("stabilisant", ignoreCase = true))
+        assertTrue(cleaned.contains("stabilisant", ignoreCase = true))
         assertFalse(cleaned.contains("Peut contenir", ignoreCase = true))
         assertFalse(cleaned.contains("Rainforest", ignoreCase = true))
         assertTrue(cleaned.contains("cacao"))

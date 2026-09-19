@@ -16,6 +16,39 @@ class RealLabelsInstrumentedTest {
         VeganAnalyzer.loadDatabase(InstrumentationRegistry.getInstrumentation().targetContext)
     }
 
+    @Test fun apricotBriocheSeparatesVeganCompatibilityFromDetailedClassification() {
+        val label = """INGRÉDIENTS : farine de BLÉ (28%), confiture d'abricot 22% (sucre, purée d'abricot 41%, sirop de glucose-fructose, gélifiant : pectine, correcteur d'acidité : acide citrique), sucre, ŒUFS (12,5%), huile de palme non hydrogénée, flocons moulus (2,5%) d'ORGE et d'AVOINE ; purée de carotte, sirop de glucose-fructose, arôme, agents levants (carbonate d'ammonium, diphosphate disodique, carbonate acide de sodium), LAIT écrémé en poudre, émulsifiants (mono- et diglycérides d'acides gras), amidon de BLÉ, blanc d'ŒUF en poudre, sel, correcteur d'acidité (acide citrique).
+
+Peut contenir : SOJA, AMANDES, NOISETTES, MOUTARDE."""
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(label)
+
+        assertEquals(VeganAssessment.NOT_VEGAN, diagnostics.result.veganAssessment)
+        assertTrue(diagnostics.result.matched.any { it.id == "milk" })
+        assertTrue(diagnostics.result.matched.any { it.id == "egg" })
+        assertFalse(diagnostics.result.unknown.any { it.contains("LAIT écrémé", true) })
+        assertFalse(diagnostics.result.unknown.any { it.contains("blanc d'ŒUF", true) })
+        assertTrue(diagnostics.tokens.any { it.functionalClass?.contains("agents levants", true) == true })
+        assertFalse(diagnostics.result.matched.any { it.id == "soy" })
+    }
+
+    @Test fun chocolateBiscuitsKeepCocoaButterSeparateFromDairyButter() {
+        val label = """Ingrédients : Pépites de chocolat 29,2% [sucre, pâte de cacao, sirop de glucose, beurre de cacao, émulsifiant : lécithines (soja)], farine de blé 27,5%, sucre, graisse de palme, morceaux de chocolat au lait 11,2% [sucre, lait entier en poudre, beurre de cacao, pâte de cacao, sirop de glucose, lait écrémé en poudre, émulsifiant : lécithines (soja), arôme naturel de vanille], sirop de glucose-fructose, beurre, huile de tournesol, oeufs, lait écrémé en poudre, poudres à lever : diphosphates et carbonates de sodium, amidon de blé, colorant : caramel ordinaire, arôme naturel.
+
+Peut contenir des traces de fruits à coque."""
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(label)
+
+        assertTrue(diagnostics.tokens.filter { it.text.equals("beurre de cacao", true) }
+            .all { "butter" !in it.matchedIngredientIds })
+        assertTrue(diagnostics.tokens.single { it.text.equals("beurre", true) }
+            .matchedIngredientIds.contains("butter"))
+        assertTrue(diagnostics.tokens.first { it.text.equals("arôme naturel de vanille", true) }
+            .matchKind == MatchResolution.COVERED)
+        assertTrue(diagnostics.tokens.first { it.text.equals("sirop de glucose-fructose", true) }
+            .matchKind == MatchResolution.COVERED)
+        assertEquals(VeganAssessment.NOT_VEGAN, diagnostics.result.veganAssessment)
+        assertEquals(listOf("Peut contenir des traces de fruits à coque."), diagnostics.crossContactWarnings)
+    }
+
     @Test fun crossContactDoesNotChangeAnOtherwiseFullyKnownRecipe() {
         val recipe = "eau, sucre"
         val baseline = VeganAnalyzer.analyze(recipe)
@@ -37,7 +70,11 @@ class RealLabelsInstrumentedTest {
         val result = VeganAnalyzer.analyze(
             "eau, sucre, gélatine. Peut contenir du lait"
         )
-        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertEquals(
+            "Correspondances=${result.matched.map { it.id }}, inconnus=${result.unknown}",
+            AnalysisVerdict.NON_VEGETARIAN,
+            result.verdict
+        )
         assertTrue(result.matched.any { it.status == VeganStatus.NON_VEGAN })
         assertFalse(result.matched.any { it.status == VeganStatus.VEGETARIAN })
     }
@@ -64,8 +101,8 @@ class RealLabelsInstrumentedTest {
         val result = VeganAnalyzer.analyze(label)
         assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
         assertTrue(result.matched.any { it.id == "meat" })
-        assertFalse(result.matched.any { it.id == "egg" })
-        assertTrue(result.stoppedAtNonVegetarian)
+        assertTrue(result.matched.any { it.id == "egg" })
+        assertFalse(result.stoppedAtNonVegetarian)
     }
 
     @Test fun tofuLabelDoesNotTreatTracesAsRecipeIngredients() {
@@ -83,10 +120,14 @@ class RealLabelsInstrumentedTest {
     @Test fun stuffedPastaWithNestedPercentagesDetectsAnimalRennet() {
         val label = """Farce (63%): ricotta de lait de buflonne 23,8% (lactoserum, sel), ricotta 23,5% (lactoserum, sel), sautéed épinards 22,5% (épinards 70%, beurre (lait), eau, formage Grana Padano AOP (lait, oeufs), sel, amidon de mais, ail), beurre (lait), chapelure (farine de blé dur, sel, levure), lactose, Grana Padano AOP (lait, oeufs), sel. Pate (37%): farine de blé, oeufs 28,5%, semoule de blé dur."""
         val result = VeganAnalyzer.analyze(label)
-        assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+        assertEquals(
+            "Correspondances=${result.matched.map { it.id }}, inconnus=${result.unknown}",
+            AnalysisVerdict.NON_VEGETARIAN,
+            result.verdict
+        )
         assertTrue(result.matched.any { it.id == "grana_padano" })
-        assertTrue(result.stoppedAtNonVegetarian)
-        assertEquals(emptyList<String>(), result.unknown)
+        assertFalse(result.stoppedAtNonVegetarian)
+        assertEquals(listOf("ail", "farine de blé dur", "semoule de blé dur"), result.unknown)
     }
     @Test
     fun smokedTofuProductPreservesSectionsAndNestedCompositions() {
@@ -113,12 +154,21 @@ class RealLabelsInstrumentedTest {
         val result = diagnostics.result
 
         // La base enrichie couvre désormais toute cette composition explicite.
-        assertEquals(AnalysisVerdict.VEGAN, result.verdict)
+        assertEquals(
+            "Correspondances=${result.matched.map { it.id }}, inconnus=${result.unknown}",
+            AnalysisVerdict.VEGAN,
+            result.verdict
+        )
         assertTrue("Ingrédients encore non reconnus : ${result.unknown}", result.unknown.isEmpty())
 
         assertTrue(result.crossContactWarnings.isEmpty())
 
-        assertTrue(result.matched.any { it.id == "tofu" })
+        // Le libellé composite « tofu fumé » est structurel en 0.5.9 ;
+        // son verdict vient de ses enfants déclarés.
+        assertTrue(diagnostics.tokens.any {
+            it.text.contains("Tofu fumé", ignoreCase = true) &&
+                it.nodeKind == IngredientNodeKind.COMPOSITE
+        })
         assertTrue(result.matched.any { it.id == "soy" })
         assertTrue(result.matched.any { it.id == "sunflower_oil" })
         assertTrue(result.matched.any { it.id == "wheat_flour" })
@@ -281,7 +331,7 @@ class RealLabelsInstrumentedTest {
 
         assertEquals(AnalysisVerdict.NON_VEGETARIAN, result.verdict)
         assertTrue(result.matched.any { it.id == "gelatin" })
-        assertTrue(result.stoppedAtNonVegetarian)
+        assertFalse(result.stoppedAtNonVegetarian)
 
         assertEquals(
             listOf("Peut contenir des traces de blé, lait."),

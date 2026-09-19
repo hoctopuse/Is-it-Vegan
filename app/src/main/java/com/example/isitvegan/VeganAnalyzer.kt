@@ -2,6 +2,7 @@ package com.example.isitvegan
 
 import android.content.Context
 import org.json.JSONArray
+import java.math.BigDecimal
 
 data class AnalysisResult(
     val matched: List<Ingredient>,
@@ -10,6 +11,14 @@ data class AnalysisResult(
     val crossContactWarnings: List<String> = emptyList(),
     val excludedNotes: List<String> = emptyList()
 ) {
+    val veganAssessment: VeganAssessment
+        get() = VerdictEngine.assessVeganCompatibility(matched, unknown)
+
+    val veganBlockers: List<Ingredient>
+        get() = matched.filter {
+            it.status == VeganStatus.VEGETARIAN || it.status == VeganStatus.NON_VEGAN
+        }
+
     val uncertainIngredients: List<Ingredient>
         get() = matched.filter { it.status == VeganStatus.UNCERTAIN }
 
@@ -30,9 +39,14 @@ data class TokenDiagnostic(
     val depth: Int,
     val parentOrder: Int?,
     val kind: NodeKind,
+    val nodeKind: IngredientNodeKind,
     val compositionAfterQuantity: Boolean,
+    val quantityPercent: BigDecimal?,
+    val functionalClass: String?,
+    val childCount: Int,
     val matcherText: String?,
     val matchedIngredientIds: List<String>,
+    val blockedIngredientIds: List<String>,
     val matchKind: MatchKind,
     val unknown: String?
 )
@@ -42,6 +56,7 @@ data class AnalysisDiagnostics(
     val languageSegmentation: LanguageSegmentation,
     val labelSections: LabelSections,
     val preprocessedInput: String,
+    val ingredientTree: List<IngredientNode>,
     val tokens: List<TokenDiagnostic>,
     val result: AnalysisResult
 ) {
@@ -50,6 +65,7 @@ data class AnalysisDiagnostics(
 }
 
 enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
+enum class VeganAssessment { VEGAN, NOT_VEGAN, UNCERTAIN }
 
 object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()
@@ -97,25 +113,31 @@ object VeganAnalyzer {
         val languageSegmentation = LabelLanguageSegmenter.segment(text)
         val sections = selectSections(languageSegmentation)
         val preprocessed = LabelPreprocessor.preprocess(sections.analysisText)
-        val tokens = IngredientTokenizer.tokenize(QuantityCleaner.clean(preprocessed.compositionText))
+        val ingredientTree = IngredientTreeParser.parse(preprocessed.compositionText)
+        val tokens = IngredientTokenizer.flatten(ingredientTree)
         val matcher = IngredientMatcher(database)
         val found = linkedMapOf<String, Ingredient>()
-        val unknown = mutableListOf<String>()
+        val unknown = linkedMapOf<String, String>()
         val tokenDiagnostics = mutableListOf<TokenDiagnostic>()
-        var stoppedAtNonVegetarian = false
-        val tokensWithChildren = tokens.mapNotNull { it.parentOrder }.toSet()
         val tokenByOrder = tokens.associateBy { it.order }
-        for ((index, token) in tokens.withIndex()) {
-            if (token.kind == NodeKind.SECTION_HEADING) {
+        for (token in tokens) {
+            if (token.kind == NodeKind.SECTION_HEADING ||
+                token.kind == NodeKind.COMPOSITE_INGREDIENT
+            ) {
                 tokenDiagnostics += TokenDiagnostic(
                     text = token.text,
                     order = token.order,
                     depth = token.depth,
                     parentOrder = token.parentOrder,
                     kind = token.kind,
+                    nodeKind = IngredientNodeKind.COMPOSITE,
                     compositionAfterQuantity = token.compositionAfterQuantity,
+                    quantityPercent = token.quantityPercent,
+                    functionalClass = token.functionalClass,
+                    childCount = token.childCount,
                     matcherText = null,
                     matchedIngredientIds = emptyList(),
+                    blockedIngredientIds = emptyList(),
                     matchKind = MatchKind.NONE,
                     unknown = null
                 )
@@ -125,42 +147,39 @@ object VeganAnalyzer {
             val match = matcher.match(token.copy(text = matcherText))
             match.ingredients.forEach { found[it.id] = it }
             val assessment = UnknownCollector.assess(match)
-            val isAnalyzedComposite = token.kind == NodeKind.COMPOSITE_INGREDIENT &&
-                token.order in tokensWithChildren &&
-                (token.compositionAfterQuantity ||
-                    match.ingredients.isNotEmpty() ||
-                    isReviewedStructuralComposite(token.text) ||
-                    isStructuralCompositeLabel(token.text))
-            val tokenUnknown = assessment.unknown.takeUnless { isAnalyzedComposite }
-            tokenUnknown?.let(unknown::add)
+            val tokenUnknown = assessment.unknown
+            tokenUnknown?.let { unknown.putIfAbsent(TextNormalizer.normalize(it), it) }
             tokenDiagnostics += TokenDiagnostic(
                 text = token.text,
                 order = token.order,
                 depth = token.depth,
                 parentOrder = token.parentOrder,
                 kind = token.kind,
+                nodeKind = if (token.kind == NodeKind.ADDITIVE) {
+                    IngredientNodeKind.ADDITIVE
+                } else {
+                    IngredientNodeKind.LEAF
+                },
                 compositionAfterQuantity = token.compositionAfterQuantity,
+                quantityPercent = token.quantityPercent,
+                functionalClass = token.functionalClass,
+                childCount = token.childCount,
                 matcherText = matcherText,
                 matchedIngredientIds = match.ingredients.map { it.id },
+                blockedIngredientIds = match.blockedIngredientIds,
                 matchKind = assessment.matchKind,
                 unknown = tokenUnknown
             )
-
-            // A single non-vegetarian ingredient is enough to settle the verdict.
-            // Uncertain and vegetarian ingredients must not stop the remaining analysis.
-            if (VerdictEngine.isDecisiveNonVegetarian(match.ingredients)) {
-                stoppedAtNonVegetarian = index < tokens.lastIndex
-                break
-            }
         }
         return AnalysisDiagnostics(
             input = text,
             languageSegmentation = languageSegmentation,
             labelSections = sections,
             preprocessedInput = preprocessed.compositionText,
+            ingredientTree = ingredientTree,
             tokens = tokenDiagnostics,
             result = AnalysisResult(
-                found.values.toList(), unknown, stoppedAtNonVegetarian,
+                found.values.toList(), unknown.values.toList(), false,
                 (preprocessed.crossContactWarnings + listOfNotNull(sections.tracesText)).distinct(),
                 preprocessed.excludedNotes
             )
@@ -173,7 +192,8 @@ object VeganAnalyzer {
             LabelLanguage.FRENCH,
             LabelLanguage.DUTCH,
             LabelLanguage.ENGLISH,
-            LabelLanguage.GERMAN
+            LabelLanguage.GERMAN,
+            LabelLanguage.SPANISH
         )
         return priority.firstNotNullOfOrNull { language ->
             candidates.firstOrNull { it.language == language && !it.ingredientsText.isNullOrBlank() }
@@ -196,16 +216,4 @@ object VeganAnalyzer {
         return if (isVegetableOilGroup && isSimpleChild) "huile de ${token.text}" else token.text
     }
 
-    private fun isReviewedStructuralComposite(text: String): Boolean {
-        val normalized = TextNormalizer.normalize(text)
-        return normalized == "chapelure" ||
-            normalized.startsWith("chapelure ") ||
-            normalized == "epices" ||
-            normalized.matches(Regex("^huiles? vegetales? en proportion variable$"))
-    }
-
-    private fun isStructuralCompositeLabel(text: String): Boolean {
-        val normalized = TextNormalizer.normalize(text)
-        return normalized.startsWith("morceaux ") || normalized.startsWith("preparation ")
-    }
 }
