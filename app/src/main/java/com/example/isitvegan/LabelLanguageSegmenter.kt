@@ -20,7 +20,9 @@ data class LanguageSegmentation(
     val selectedLanguage: LabelLanguage,
     val detectedMarker: String?,
     val ignoredLanguages: List<LabelLanguage>,
-    val usedFallback: Boolean
+    val usedFallback: Boolean,
+    val selectionReason: String = "",
+    val rejectedUntitledLanguages: List<LabelLanguage> = emptyList()
 )
 
 internal object LabelLanguageSegmenter {
@@ -29,9 +31,6 @@ internal object LabelLanguageSegmenter {
 
     private val markerPatterns = buildList {
         add(MarkerPattern(LabelLanguage.FRENCH, markerRegex("Ingredients\\s+FR\\s*:")))
-        LabelLexicon.ingredientHeadings.forEach { heading ->
-            add(MarkerPattern(heading.language, markerRegex(heading.pattern), true))
-        }
         addAll(
             listOf(
                 MarkerPattern(LabelLanguage.FRENCH, languageNameRegex("Français")),
@@ -61,17 +60,34 @@ internal object LabelLanguageSegmenter {
             LanguageBlock(marker.language, marketTags(marker.marker), text.substring(marker.contentStart, end).trim(), marker.contentStart, end, marker.marker)
         }.filter { it.rawText.isNotBlank() }
         if (blocks.isEmpty()) return fallback(text)
-        val selected = preferredBlock(blocks)
+        val titledBlocks = blocks.filter { LabelLexicon.findIngredientHeadings(it.rawText).isNotEmpty() }
+        val selected = preferredBlock(titledBlocks.ifEmpty { blocks })
         return LanguageSegmentation(text, blocks, selected.rawText, selected.language, selected.detectedMarker,
-            blocks.map { it.language }.filter { it != selected.language }.distinct(), false)
+            blocks.map { it.language }.filter { it != selected.language }.distinct(), false,
+            selectionReason = if (titledBlocks.isNotEmpty()) {
+                "Bloc avec un titre d’ingrédients, puis préférence linguistique."
+            } else {
+                "Aucun bloc avec titre d’ingrédients ; bloc conservé pour un éventuel mode manuel."
+            },
+            rejectedUntitledLanguages = if (titledBlocks.isNotEmpty()) {
+                blocks.filterNot { it in titledBlocks }.map { it.language }.distinct()
+            } else emptyList()
+        )
     }
 
-    private fun findMarkers(text: String): List<Marker> = markerPatterns.flatMap { definition ->
+    private fun findMarkers(text: String): List<Marker> = (markerPatterns.flatMap { definition ->
         definition.pattern.findAll(text).map { match ->
             Marker(definition.language, match.range, if (definition.keepMarkerInBlock) match.range.first else match.range.last + 1,
                 match.value.trim().trimEnd(':', '—', '–', '-', ' ').trim())
         }.toList()
-    }.sortedBy { it.range.first }.fold(mutableListOf()) { markers, candidate ->
+    } + LabelLexicon.findIngredientHeadings(text).map { heading ->
+        Marker(
+            heading.language,
+            heading.range,
+            heading.range.first,
+            heading.originalText
+        )
+    }).sortedBy { it.range.first }.fold(mutableListOf()) { markers, candidate ->
         val previous = markers.lastOrNull()
         val overlaps = previous?.range?.contains(candidate.range.first) == true
         val repeatedTitle = previous != null && previous.language == candidate.language &&
@@ -87,7 +103,10 @@ internal object LabelLanguageSegmenter {
 
     private fun fallback(text: String): LanguageSegmentation {
         val block = LanguageBlock(LabelLanguage.UNKNOWN, emptySet(), text, 0, text.length, null)
-        return LanguageSegmentation(text, listOf(block), text, LabelLanguage.UNKNOWN, null, emptyList(), true)
+        return LanguageSegmentation(
+            text, listOf(block), text, LabelLanguage.UNKNOWN, null, emptyList(), true,
+            selectionReason = "Aucun marqueur de langue ; texte complet conservé pour extraction bornée."
+        )
     }
 
     private fun marketTags(marker: String): Set<String> = Regex("\\b(?:BE|LU|LUX|GB)\\b", RegexOption.IGNORE_CASE)

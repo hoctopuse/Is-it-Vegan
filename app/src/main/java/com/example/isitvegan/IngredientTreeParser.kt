@@ -9,9 +9,13 @@ data class IngredientNode(
     val normalizedText: String,
     val quantityPercent: BigDecimal? = null,
     val functionalClass: String? = null,
+    val functionalClassCanonical: FunctionalClass? = null,
     val isNano: Boolean = false,
+    val nanoText: String? = null,
     val variableProportions: Boolean = false,
+    val variableProportionsText: String? = null,
     val hasAlternatives: Boolean = false,
+    val alternativesText: String? = null,
     val sourceClaim: SourceClaim = SourceClaim.UNSPECIFIED,
     val sourceClaimText: String? = null,
     val kind: IngredientNodeKind,
@@ -24,8 +28,11 @@ internal object IngredientTreeParser {
     private data class StructuralMetadata(
         val text: String,
         val isNano: Boolean,
+        val nanoText: String?,
         val variableProportions: Boolean,
+        val variableProportionsText: String?,
         val hasAlternatives: Boolean,
+        val alternativesText: String?,
         val sourceClaim: SourceClaim,
         val sourceClaimText: String?
     )
@@ -42,8 +49,8 @@ internal object IngredientTreeParser {
     )
     private val quantityOnlyPattern = Regex("^\\s*[0-9]+(?:[.,][0-9]+)?\\s*%\\s*$")
     private val containsPrefix = Regex(
-        "(?i)^\\s*(?:contient|bevat|contains|enthält)(?:\\s*:\\s*|" +
-            "\\s+(?:de\\s+l['’]|de|du|des)\\s+)"
+        "(?i)^\\s*(?:contient|bevat|contains|enthält|contiene)(?:\\s*:\\s*|\\s+" +
+            "(?:(?:de\\s+l['’]|de|du|des)\\s+)?)"
     )
     private val qualificationPrefix = Regex(
         "(?i)^\\s*(?:non\\s+hydrog[ée]n[ée]e?|origine|origin|provenance)\\b"
@@ -52,11 +59,14 @@ internal object IngredientTreeParser {
     private val eNumberWithSpace = Regex("(?i)\\bE\\s+(?=\\d)")
     private val insNumberWithSpace = Regex("(?i)\\bINS\\s+(?=\\d)")
     private val vitaminWithSpace = Regex("(?i)\\b[BDK]\\s+(?=\\d)")
-    private val nanoQualifier = Regex("(?i)\\(\\s*nano\\s*\\)")
+    private val nanoQualifier = Regex("(?i)(?:\\[\\s*nano\\s*]|\\(\\s*nano\\s*\\))")
     private val variableProportionQualifier = Regex(
-        "(?i)\\ben\\s+proportions?\\s+variables?\\b"
+        "(?i)\\b(?:en\\s+proportions?\\s+variables?|in\\s+(?:varying|variable)\\s+proportions|" +
+            "in\\s+wisselende\\s+verhoudingen|in\\s+veränderlichen\\s+Gewichtsanteilen|" +
+            "en\\s+proporci(?:ón|ones)\\s+variables?)\\b"
     )
-    private val alternativeSeparator = Regex("(?i)\\s+et\\s*/\\s*ou\\s+")
+    private val alternativeSeparator = Regex("(?i)\\s+(?:et\\s*/\\s*ou|and\\s*/\\s*or|en\\s*/\\s*of|und\\s*/\\s*oder|y\\s*/\\s*o)\\s+")
+    private val additiveContinuation = Regex("(?i)^\\s*(?:E|INS)\\s*\\d[0-9a-z().-]*\\s*$")
 
     fun parse(text: String): List<IngredientNode> = parseList(text)
 
@@ -65,6 +75,12 @@ internal object IngredientTreeParser {
         val result = mutableListOf<IngredientNode>()
         var index = 0
         while (index < segments.size) {
+            val functionalGroup = functionalClassWithContinuations(segments, index)
+            if (functionalGroup != null) {
+                result += functionalGroup.first
+                index += functionalGroup.second
+                continue
+            }
             val section = sectionParts(segments[index])
             if (section == null) {
                 result += parseSegment(segments[index])
@@ -87,6 +103,27 @@ internal object IngredientTreeParser {
             index = next
         }
         return result
+    }
+
+    private fun functionalClassWithContinuations(
+        segments: List<String>,
+        index: Int
+    ): Pair<List<IngredientNode>, Int>? {
+        val metadata = extractStructuralMetadata(segments[index])
+        val colon = topLevelColon(metadata.text)
+        if (colon < 0) return null
+        val functionalClass = FunctionalClassLexicon.match(metadata.text.substring(0, colon).trim())
+            ?: return null
+        val firstDesignation = metadata.text.substring(colon + 1).trim()
+        if (firstDesignation.isBlank()) return null
+        val designations = mutableListOf(firstDesignation)
+        var next = index + 1
+        while (next < segments.size && additiveContinuation.matches(segments[next])) {
+            designations += segments[next]
+            next++
+        }
+        if (designations.size == 1) return null
+        return additiveNodes(functionalClass, designations.joinToString(", "), metadata) to (next - index)
     }
 
     private fun parseSegment(rawSegment: String): List<IngredientNode> {
@@ -153,6 +190,7 @@ internal object IngredientTreeParser {
         children: List<IngredientNode> = emptyList(),
         isSectionHeading: Boolean = false,
         functionalClass: String? = null,
+        functionalClassCanonical: FunctionalClass? = null,
         metadata: StructuralMetadata? = null
     ): IngredientNode {
         val cleaned = normalizeIdentifiers(text.trim().replace(Regex("\\s+"), " "))
@@ -161,9 +199,13 @@ internal object IngredientTreeParser {
             normalizedText = TextNormalizer.normalize(cleaned),
             quantityPercent = quantity,
             functionalClass = functionalClass,
+            functionalClassCanonical = functionalClassCanonical,
             isNano = metadata?.isNano == true,
+            nanoText = metadata?.nanoText,
             variableProportions = metadata?.variableProportions == true,
+            variableProportionsText = metadata?.variableProportionsText,
             hasAlternatives = metadata?.hasAlternatives == true,
+            alternativesText = metadata?.alternativesText,
             sourceClaim = metadata?.sourceClaim ?: SourceClaim.UNSPECIFIED,
             sourceClaimText = metadata?.sourceClaimText,
             kind = kind,
@@ -285,21 +327,40 @@ internal object IngredientTreeParser {
         if (colon >= 0) {
             val className = segment.substring(0, colon).trim()
             val designation = segment.substring(colon + 1).trim()
-            if (FunctionalClassLexicon.contains(className) && designation.isNotBlank()) {
-                return additiveNodes(className, designation, metadata)
+            val functionalClass = FunctionalClassLexicon.match(className)
+            if (functionalClass != null && designation.isNotBlank()) {
+                return additiveNodes(functionalClass, designation, metadata)
             }
         }
 
         val groups = topLevelGroups(segment)
         val group = groups.singleOrNull()?.takeIf { it.endInclusive == segment.lastIndex }
-            ?: return null
-        val className = segment.substring(0, group.start).trim()
-        if (!FunctionalClassLexicon.contains(className) || group.content.isBlank()) return null
-        return additiveNodes(className, group.content, metadata)
+        if (group != null) {
+            val className = segment.substring(0, group.start).trim()
+            val functionalClass = FunctionalClassLexicon.match(className)
+            if (functionalClass != null && group.content.isNotBlank()) {
+                return additiveNodes(functionalClass, group.content, metadata)
+            }
+        }
+
+        val prefix = FunctionalClassLexicon.matchPrefix(segment) ?: return null
+        if (prefix.designation.isNotBlank()) return additiveNodes(prefix, prefix.designation, metadata)
+        if (prefix.canonical == FunctionalClass.MODIFIED_STARCH) {
+            val (name, quantity) = extractNameAndQuantity(segment)
+            return listOf(
+                node(
+                    name, quantity, IngredientNodeKind.LEAF,
+                    functionalClass = prefix.originalText,
+                    functionalClassCanonical = prefix.canonical,
+                    metadata = metadata
+                )
+            )
+        }
+        return emptyList()
     }
 
     private fun additiveNodes(
-        className: String,
+        functionalClass: FunctionalClassMatch,
         designationText: String,
         metadata: StructuralMetadata
     ): List<IngredientNode> {
@@ -309,10 +370,14 @@ internal object IngredientTreeParser {
             IngredientNode(
                 rawText = cleaned,
                 normalizedText = TextNormalizer.normalize(cleaned),
-                functionalClass = className,
+                functionalClass = functionalClass.originalText,
+                functionalClassCanonical = functionalClass.canonical,
                 isNano = metadata.isNano,
+                nanoText = metadata.nanoText,
                 variableProportions = metadata.variableProportions,
+                variableProportionsText = metadata.variableProportionsText,
                 hasAlternatives = metadata.hasAlternatives,
+                alternativesText = metadata.alternativesText,
                 sourceClaim = metadata.sourceClaim,
                 sourceClaimText = metadata.sourceClaimText,
                 kind = IngredientNodeKind.ADDITIVE
@@ -321,11 +386,12 @@ internal object IngredientTreeParser {
         if (children.size == 1) return children
         return listOf(
             node(
-                text = className,
+                text = functionalClass.originalText,
                 quantity = null,
                 kind = IngredientNodeKind.COMPOSITE,
                 children = children,
-                functionalClass = className,
+                functionalClass = functionalClass.originalText,
+                functionalClassCanonical = functionalClass.canonical,
                 metadata = metadata
             )
         )
@@ -333,9 +399,9 @@ internal object IngredientTreeParser {
 
     private fun extractStructuralMetadata(value: String): StructuralMetadata {
         val origin = SourceClaimLexicon.extract(value)
-        val isNano = nanoQualifier.containsMatchIn(origin.text)
-        val variable = variableProportionQualifier.containsMatchIn(origin.text)
-        val alternatives = alternativeSeparator.containsMatchIn(origin.text)
+        val nano = nanoQualifier.find(origin.text)
+        val variable = variableProportionQualifier.find(origin.text)
+        val alternatives = alternativeSeparator.find(origin.text)
         val cleaned = origin.text
             .replace(nanoQualifier, " ")
             .replace(variableProportionQualifier, " ")
@@ -343,9 +409,12 @@ internal object IngredientTreeParser {
             .trim()
         return StructuralMetadata(
             text = cleaned,
-            isNano = isNano,
-            variableProportions = variable,
-            hasAlternatives = alternatives,
+            isNano = nano != null,
+            nanoText = nano?.value,
+            variableProportions = variable != null,
+            variableProportionsText = variable?.value,
+            hasAlternatives = alternatives != null,
+            alternativesText = alternatives?.value?.trim(),
             sourceClaim = origin.claim,
             sourceClaimText = origin.detectedPhrase
         )

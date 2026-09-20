@@ -31,10 +31,22 @@ internal object DiagnosticReport {
                 "Fallback texte complet : " +
                     if (diagnostics.languageSegmentation.usedFallback) "oui" else "non"
             )
+            appendLine("Raison de sélection : ${diagnostics.languageSegmentation.selectionReason}")
+            appendLine(
+                "Blocs sans titre rejetés : " +
+                    diagnostics.languageSegmentation.rejectedUntitledLanguages
+                        .joinToString(", ") { it.displayName }.ifBlank { "aucun" }
+            )
             appendLine()
             appendLine("SECTIONS DÉTECTÉES")
             appendLine("Section ingrédients : ${if (diagnostics.labelSections.hasIngredientHeading) "détectée" else "non détectée"}")
+            appendLine("Titre détecté : ${diagnostics.labelSections.ingredientHeadingText ?: "aucun"}")
+            appendLine(
+                "Séparateur du titre : " +
+                    (diagnostics.labelSections.ingredientHeadingSeparator?.displayName ?: "aucun")
+            )
             appendLine("Section présence réelle : ${if (diagnostics.labelSections.declaredContainsText != null) "détectée" else "non détectée"}")
+            appendLine("Syntaxe de présence réelle : ${diagnostics.labelSections.declaredContainsSyntax ?: "aucune"}")
             appendLine("Section traces : ${if (diagnostics.labelSections.tracesText != null) "détectée" else "non détectée"}")
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
@@ -57,10 +69,15 @@ internal object DiagnosticReport {
                         append(" | quantité=${it.stripTrailingZeros().toPlainString().replace('.', ',')} %")
                     }
                     token.parentOrder?.let { append(" | parent=${it + 1}") }
-                    token.functionalClass?.let { append(" | classe fonctionnelle=$it") }
-                    if (token.isNano) append(" | nano=oui")
-                    if (token.variableProportions) append(" | proportions variables=oui")
-                    if (token.hasAlternatives) append(" | alternatives et/ou=oui")
+                    token.functionalClass?.let { append(" | classe fonctionnelle originale=$it") }
+                    token.functionalClassCanonical?.let { append(" | classe fonctionnelle canonique=$it") }
+                    if (token.isNano) append(" | nano=oui (${token.nanoText})")
+                    if (token.variableProportions) {
+                        append(" | proportions variables=oui (${token.variableProportionsText})")
+                    }
+                    if (token.hasAlternatives) {
+                        append(" | alternatives et/ou=oui (${token.alternativesText})")
+                    }
                     if (token.sourceClaim != SourceClaim.UNSPECIFIED) {
                         append(" | origine déclarée=${token.sourceClaim}")
                         token.sourceClaimText?.let { append(" ($it)") }
@@ -145,5 +162,12 @@ internal object DiagnosticReport {
         get() = when (this) {
             AnalysisAvailability.INGREDIENT_LIST_ANALYZED -> "liste d’ingrédients analysée"
             AnalysisAvailability.NO_INGREDIENT_LIST -> "aucune liste d’ingrédients"
+        }
+
+    private val HeadingSeparator.displayName: String
+        get() = when (this) {
+            HeadingSeparator.COLON -> "deux-points"
+            HeadingSeparator.DASH -> "tiret"
+            HeadingSeparator.LINE_BREAK -> "retour à la ligne"
         }
 }

@@ -9,6 +9,10 @@ internal data class PreprocessedLabel(
 internal object LabelPreprocessor {
     private val crossContactMarker = Regex(
         "(?i)\\b(?:peut\\s+contenir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
+            "may\\s+contain(?:\\s+traces?\\s+of)?|" +
+            "kan(?:\\s+sporen\\s+van)?(?=\\s+[^.\\r\\n]{1,80}\\s+bevatten\\b)|" +
+            "kann(?:\\s+spuren\\s+von)?(?=\\s+[^.\\r\\n]{1,80}\\s+enthalten\\b)|" +
+            "puede\\s+contener(?:\\s+trazas\\s+de)?|" +
             "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
     )
     private val ingredientHeading = Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*")

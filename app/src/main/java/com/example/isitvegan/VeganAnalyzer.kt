@@ -47,9 +47,13 @@ data class TokenDiagnostic(
     val compositionAfterQuantity: Boolean,
     val quantityPercent: BigDecimal?,
     val functionalClass: String?,
+    val functionalClassCanonical: FunctionalClass?,
     val isNano: Boolean,
+    val nanoText: String?,
     val variableProportions: Boolean,
+    val variableProportionsText: String?,
     val hasAlternatives: Boolean,
+    val alternativesText: String?,
     val sourceClaim: SourceClaim,
     val sourceClaimText: String?,
     val baseStatuses: List<VeganStatus>,
@@ -144,7 +148,7 @@ object VeganAnalyzer {
         inputMode: InputMode
     ): AnalysisDiagnostics {
         val languageSegmentation = LabelLanguageSegmenter.segment(text)
-        val sections = selectSections(languageSegmentation)
+        val sections = selectSections(languageSegmentation, inputMode)
         val explicitList = sections.hasIngredientHeading && !sections.ingredientsText.isNullOrBlank()
         val manualList = inputMode == InputMode.MANUAL_INGREDIENT_LIST &&
             !sections.ingredientsText.isNullOrBlank()
@@ -204,9 +208,13 @@ object VeganAnalyzer {
                     compositionAfterQuantity = token.compositionAfterQuantity,
                     quantityPercent = token.quantityPercent,
                     functionalClass = token.functionalClass,
+                    functionalClassCanonical = token.functionalClassCanonical,
                     isNano = token.isNano,
+                    nanoText = token.nanoText,
                     variableProportions = token.variableProportions,
+                    variableProportionsText = token.variableProportionsText,
                     hasAlternatives = token.hasAlternatives,
+                    alternativesText = token.alternativesText,
                     sourceClaim = token.sourceClaim,
                     sourceClaimText = token.sourceClaimText,
                     baseStatuses = emptyList(),
@@ -257,9 +265,13 @@ object VeganAnalyzer {
                 compositionAfterQuantity = token.compositionAfterQuantity,
                 quantityPercent = token.quantityPercent,
                 functionalClass = token.functionalClass,
+                functionalClassCanonical = token.functionalClassCanonical,
                 isNano = token.isNano,
+                nanoText = token.nanoText,
                 variableProportions = token.variableProportions,
+                variableProportionsText = token.variableProportionsText,
                 hasAlternatives = token.hasAlternatives,
+                alternativesText = token.alternativesText,
                 sourceClaim = token.sourceClaim,
                 sourceClaimText = token.sourceClaimText,
                 baseStatuses = resolutions.map { it.second.baseStatus },
@@ -308,7 +320,10 @@ object VeganAnalyzer {
         VeganStatus.NON_VEGAN -> 3
     }
 
-    private fun selectSections(segmentation: LanguageSegmentation): LabelSections {
+    private fun selectSections(
+        segmentation: LanguageSegmentation,
+        inputMode: InputMode
+    ): LabelSections {
         val candidates = segmentation.blocks.map { LabelSectionExtractor.extract(it) }
         val priority = listOf(
             LabelLanguage.FRENCH,
@@ -317,10 +332,23 @@ object VeganAnalyzer {
             LabelLanguage.GERMAN,
             LabelLanguage.SPANISH
         )
-        return priority.firstNotNullOfOrNull { language ->
-            candidates.firstOrNull { it.language == language && !it.ingredientsText.isNullOrBlank() }
-        } ?: candidates.firstOrNull { it.hasIngredientHeading }
-            ?: candidates.maxByOrNull { it.ingredientsText?.length ?: 0 }
+        val titled = candidates.filter { it.hasIngredientHeading }
+        val titledSelection = priority.firstNotNullOfOrNull { language ->
+            titled.firstOrNull { it.language == language }
+        }
+        if (titledSelection != null) return titledSelection
+        val segmentedSelection = candidates.firstOrNull {
+            it.language == segmentation.selectedLanguage && it.rawText == segmentation.selectedText
+        }
+        if (inputMode == InputMode.MANUAL_INGREDIENT_LIST) {
+            val manualSelection = priority.firstNotNullOfOrNull { language ->
+                candidates.firstOrNull {
+                    it.language == language && !it.ingredientsText.isNullOrBlank()
+                }
+            } ?: candidates.maxByOrNull { it.ingredientsText?.length ?: 0 }
+            if (manualSelection != null) return manualSelection
+        }
+        return segmentedSelection
             ?: LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, segmentation.originalText)
     }
 

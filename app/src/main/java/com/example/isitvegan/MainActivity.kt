@@ -44,7 +44,7 @@ fun IsItVeganScreen() {
 
     var result by remember { mutableStateOf(WAITING_RESULT) }
     var diagnostics by remember { mutableStateOf<AnalysisDiagnostics?>(null) }
-    var inputMode by remember { mutableStateOf(InputMode.MANUAL_INGREDIENT_LIST) }
+    var inputMode by remember { mutableStateOf(InputMode.FULL_LABEL) }
     val focusManager = LocalFocusManager.current
     val context = LocalContext.current
     val scrollState = rememberScrollState()
@@ -77,7 +77,7 @@ fun IsItVeganScreen() {
             )
 
             Text(
-                text = "Colle la liste des ingrédients pour vérifier sa composition hors ligne.",
+                text = "Colle une étiquette ou une liste d’ingrédients pour vérifier sa composition hors ligne.",
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
@@ -88,8 +88,8 @@ fun IsItVeganScreen() {
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 listOf(
-                    InputMode.MANUAL_INGREDIENT_LIST to "Liste",
                     InputMode.FULL_LABEL to "Étiquette",
+                    InputMode.MANUAL_INGREDIENT_LIST to "Liste seule",
                     InputMode.OCR_LABEL to "OCR"
                 ).forEach { (mode, label) ->
                     FilterChip(
@@ -97,6 +97,7 @@ fun IsItVeganScreen() {
                         onClick = {
                             inputMode = mode
                             diagnostics = null
+                            result = WAITING_RESULT
                         },
                         label = { Text(label) }
                     )
@@ -113,10 +114,22 @@ fun IsItVeganScreen() {
                     .fillMaxWidth()
                     .heightIn(min = 150.dp),
                 label = {
-                    Text("Ingrédients")
+                    Text(
+                        when (inputMode) {
+                            InputMode.FULL_LABEL -> "Texte de l’étiquette"
+                            InputMode.MANUAL_INGREDIENT_LIST -> "Liste d’ingrédients"
+                            InputMode.OCR_LABEL -> "Texte OCR"
+                        }
+                    )
                 },
                 placeholder = {
-                    Text("Sucre, farine de blé, huile de colza, E471...")
+                    Text(
+                        when (inputMode) {
+                            InputMode.FULL_LABEL -> "Collez le texte complet de l’étiquette"
+                            InputMode.MANUAL_INGREDIENT_LIST -> "Collez uniquement la liste des ingrédients"
+                            InputMode.OCR_LABEL -> "Collez le texte extrait de la photo"
+                        }
+                    )
                 },
                 supportingText = {
                     Text("La liste reste sur cet appareil.")

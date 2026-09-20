@@ -45,8 +45,11 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.9.1 (code 20) distingue une liste manuelle d'une étiquette complète ou
-issue d'un OCR, et représente explicitement l'absence de liste d'ingrédients.
+0.5.10 (code 21) complète la grammaire réglementaire multilingue : titres et
+mentions de présence sans deux-points, nanomatériaux entre crochets, 24 classes
+fonctionnelles et proportions variables dans les cinq langues prises en charge.
+La version 0.5.9.1 (code 20) distingue une liste manuelle d'une étiquette complète
+ou issue d'un OCR, et représente explicitement l'absence de liste d'ingrédients.
 La version 0.5.9 (code 19) fait de `IngredientTreeParser` la source de vérité de la
 structure et conserve les pourcentages comme métadonnées. La version 0.5.8.3
 (code 18) applique la même reconnaissance des marchés BE, LU et LUX aux
@@ -59,13 +62,15 @@ Depuis la version 0.5.8
 (code 15), le pipeline commence par `LabelLanguageSegmenter` :
 
 1. `LabelLanguageSegmenter` découpe les blocs explicitement marqués FR, NL, EN,
-   DE ou ES, conserve leurs marqueurs de marché et sélectionne le bloc français
-   exploitable en priorité. Sa détection est volontairement prudente : sans
+   DE ou ES, conserve leurs marqueurs de marché et sélectionne d'abord les blocs
+   possédant un vrai titre d'ingrédients, puis applique la préférence FR, NL, EN,
+   DE, ES. Sa détection est volontairement prudente : sans
    marqueur fiable, il conserve le texte complet comme bloc `UNKNOWN`. Il ne
    traduit pas, ne reconnaît aucun ingrédient et ne participe pas au verdict ;
 2. `LabelSectionExtractor` isole à profondeur zéro la liste d'ingrédients, y
-   compris les titres courts complétés comme `Ingrédients de la sauce :`, les
-   mentions de présence réelle (`contient`, `bevat`, `contains`, `enthält`),
+   compris les titres courts complétés comme `Ingrédients de la sauce :` ou
+   bornés par un retour à la ligne, les mentions de présence réelle (`contient`,
+   `bevat`, `contains`, `enthält`, `contiene`) avec ou sans deux-points,
    les traces éventuelles et les sections d'étiquette non alimentaires. Les
    traces restent hors du verdict et une mention imbriquée dans un ingrédient
    composé ne découpe jamais sa composition ;
@@ -77,8 +82,10 @@ Depuis la version 0.5.8
    `ADDITIVE`. Les virgules et points-virgules ne séparent qu'à la profondeur
    courante, les pourcentages deviennent des `BigDecimal`, et une parenthèse
    qualificative telle que `(non hydrogénée)` reste attachée à sa feuille. Les
-   classes fonctionnelles au singulier ou au pluriel restent du contexte et
-   leurs désignations sont les seuls nœuds envoyés au matcher.
+   24 classes fonctionnelles de l'annexe VII, partie C, au singulier ou au
+   pluriel et dans les cinq langues restent du contexte. Leur identité canonique
+   est conservée et seules leurs désignations sont envoyées au matcher. L'amidon
+   modifié reste une désignation complète analysable même sans numéro E.
    `IngredientTokenizer` n'est plus qu'un adaptateur d'aplatissement pour les
    contrats internes historiques ;
 5. `IngredientMatcher` privilégie les alias les plus longs afin que, par
@@ -143,7 +150,7 @@ puis affiche pour chaque nœud son type, sa profondeur, son parent, son texte
 original, le texte éventuellement enrichi pour le matcher, ses correspondances
 et son résidu inconnu. Le fonctionnement reste hors ligne.
 
-## Cadre d'étiquetage utilisé en 0.5.9.1
+## Cadre d'étiquetage utilisé en 0.5.10
 
 Les règles structurelles s'appuient sur le
 [règlement (UE) nº 1169/2011 consolidé au 1er avril 2025](https://eur-lex.europa.eu/eli/reg/2011/1169/2025-04-01/eng),
@@ -160,20 +167,31 @@ Trois modes d'entrée sont disponibles :
   l'arbre ;
 - `OCR_LABEL` applique la même prudence à un texte provenant d'un OCR.
 
+L'interface sélectionne désormais `FULL_LABEL` (« Étiquette ») par défaut afin
+qu'un texte d'emballage complet ne soit pas traité accidentellement comme une
+liste seule. Le libellé et l'aide du champ suivent le mode choisi.
+
 Une étiquette complète ou OCR sans section reconnue produit
 `NO_INGREDIENT_LIST`. Cet état ne valide ni n'invalide le caractère vegan et
 ne cherche pas à décider si l'absence de liste bénéficie légalement d'une
-exemption de l'article 19. Une mention autonome `Contient :` reste analysée
-comme présence déclarée ; `Peut contenir :` reste une trace hors verdict.
+exemption de l'article 19. Une mention autonome `Contient :` ou `Contient lait`
+reste analysée comme présence déclarée ; seuls les ingrédients reconnus par le
+matcher constituent une preuve connue. Les formulations multilingues de type
+`Peut contenir` restent des traces hors verdict et sont détectées avant les
+marqueurs génériques de présence.
 
-Le parseur conserve `(nano)`, les proportions variables et les alternatives
-`et/ou` comme métadonnées. Il n'invente ni quantité ni ordre relatif. Un
+Le parseur reconnaît la forme réglementaire `[nano]`, ainsi que la tolérance
+`(nano)`, avant d'interpréter les crochets comme une composition. Il conserve
+la syntaxe rencontrée dans le diagnostic sans lui attribuer de statut vegan.
+Les proportions variables en français, néerlandais, anglais, allemand et
+espagnol, ainsi que les alternatives explicites `et/ou`, `en/of`, `and/or`,
+`und/oder` et `y/o`, sont des métadonnées. Il n'invente ni quantité ni ordre relatif. Un
 ingrédient composé déclaré à moins de 2 % sans sous-composition reste une
 feuille ordinaire et n'est jamais supposé résolu.
 
 Les déclarations d'origine sont reconnues par un lexique multilingue séparé.
 Elles ne changent un statut que pour les identifiants inscrits dans un registre
-interne limité ; en 0.5.9.1, seul `e471` est autorisé. Une origine végétale le
+interne limité ; en 0.5.10, seul `e471` est autorisé. Une origine végétale le
 résout comme vegan, une origine animale comme non vegan, tandis qu'une origine
 absente ou microbienne conserve son statut de base incertain. Le diagnostic
 affiche le statut de base, le statut effectif et la raison de la résolution.
@@ -184,10 +202,16 @@ l'omission de constituants, auxiliaires, additifs de transfert, supports ou
 détails d'ingrédients composés. Cette limite est signalée sans rendre chaque
 résultat automatiquement incertain.
 
+La structure réglementaire, la correspondance avec la base et l'évaluation
+vegan restent trois étapes séparées. L'application n'est pas un validateur de
+conformité juridique : elle ne valide ni l'ordre pondéral, ni les pourcentages
+QUID, ni les exemptions, ni la typographie des allergènes.
+
 Le projet ne possède pas de moteur réglementaire complet des allergènes de
 l'annexe II. Il ne tente donc pas d'interpréter ses exceptions, notamment
 l'exception relative à l'acide béhénique d'une pureté minimale de 85 % utilisé
 dans certains émulsifiants E470a, E471 et E477. Cette disposition ne crée
-aucune règle vegan. Avant la 0.6, restent notamment à traiter la validation
-juridique des exemptions, les exceptions détaillées de l'annexe II et une
-gestion OCR plus riche ; elles resteront séparées du classement vegan.
+aucune règle vegan. Restent hors périmètre la validation juridique complète,
+une base exhaustive d'allergènes, l'interprétation de leur mise en évidence,
+un vrai moteur OCR ou une lecture d'image ; ces fonctions resteront séparées
+du classement vegan.
