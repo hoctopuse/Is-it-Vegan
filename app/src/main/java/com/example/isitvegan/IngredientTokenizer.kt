@@ -29,8 +29,6 @@ internal data class IngredientToken(
 internal object IngredientTokenizer {
     fun tokenize(text: String): List<IngredientToken> = flatten(IngredientTreeParser.parse(text))
 
-    fun tokenizeTree(text: String): List<IngredientNode> = IngredientTreeParser.parse(text)
-
     fun flatten(nodes: List<IngredientNode>): List<IngredientToken> = buildList {
         var order = 0
 

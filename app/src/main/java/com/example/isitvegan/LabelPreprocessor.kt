@@ -23,21 +23,55 @@ internal object LabelPreprocessor {
     fun preprocess(text: String): PreprocessedLabel {
         val warnings = linkedSetOf<String>()
         val notes = linkedSetOf<String>()
+        var continuingNote = false
         var cleaned = text.replace('\u00A0', ' ')
             .lines()
-            .map { line -> extractNotices(line, warnings, notes) }
+            .map { line ->
+                if (line.isBlank()) {
+                    continuingNote = false
+                    line
+                } else if (continuingNote &&
+                    !noteMarker.containsMatchIn(line) &&
+                    !crossContactMarker.containsMatchIn(line)
+                ) {
+                    val previous = notes.last()
+                    notes.remove(previous)
+                    notes.add("$previous ${line.trim()}")
+                    ""
+                } else {
+                    val noteCount = notes.size
+                    extractNotices(line, warnings, notes).also {
+                        continuingNote = notes.size > noteCount
+                    }
+                }
+            }
             .joinToString("\n")
             .replace(ingredientHeading, "")
 
         simpleOcrCorrections.forEach { (pattern, replacement) ->
             cleaned = cleaned.replace(pattern, replacement)
         }
+        val referencedMarkers = noteMarker.findAll(text).mapNotNull { match ->
+            Regex("^(?:\\*{1,3}|[¹²³]|\\^)").find(match.value.trimStart())?.value
+        }.toSet()
+        if (referencedMarkers.isNotEmpty()) {
+            cleaned = cleaned.replace(attachedReference) { match ->
+                if (match.value in referencedMarkers ||
+                    (match.value.all { it == '*' } && referencedMarkers.any { marker -> marker.all { it == '*' } })
+                ) "" else match.value
+            }
+        }
         return PreprocessedLabel(cleaned, warnings.toList(), notes.toList())
     }
 
     private val noteMarker = Regex(
-        "(?i)\\bAllerg[èe]nes\\s*:|[¹²³*]*Rainforest\\s+Alliance\\s+Certified|" +
-            "(?:\\*\\s*|^\\s*)Agriculture biologique|\\^\\s*concentr[ée]"
+        "(?i)(?:(?:\\*{1,3}|[¹²³])?\\s*(?:" +
+            "Allerg[èe]nes\\s*:|Rainforest\\s+Alliance\\s+Certified|" +
+            "Certifi[ée]\\s+Rainforest\\s+Alliance|Agriculture\\s+biologique|" +
+            "Issu\\s+de\\s+poules\\s+[ée]lev[ée]es\\s+au\\s+sol)|\\^\\s*concentr[ée])"
+    )
+    private val attachedReference = Regex(
+        "(?<=\\p{L})(\\*{1,3}|[¹²³]|\\^)(?=\\s*(?:[,;.)\\]]|$))"
     )
 
     private fun extractNotices(

@@ -112,7 +112,7 @@ internal object LabelLanguageSegmenter {
     private fun marketTags(marker: String): Set<String> = Regex("\\b(?:BE|LU|LUX|GB)\\b", RegexOption.IGNORE_CASE)
         .findAll(marker).map { it.value.uppercase() }.toCollection(linkedSetOf())
 
-    private fun markerRegex(marker: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*(?:$marker)",
+    private fun markerRegex(marker: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$marker",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
     private fun languageNameRegex(name: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$name(?:\\s*:\\s*|(?=\\s*(?:$|\\r?\\n|(?:${LabelLexicon.ingredientWordPattern})\\b)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))

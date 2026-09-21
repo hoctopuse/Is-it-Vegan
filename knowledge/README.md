@@ -45,7 +45,20 @@ réutilisation massive.
 ## Pipeline d'analyse hors ligne
 
 Depuis la version 0.5.4, l'analyse est divisée en modules testables. La version
-0.5.10 (code 21) complète la grammaire réglementaire multilingue : titres et
+0.5.10.1 (code 22) corrige l’analyse des étiquettes réelles : les notes de bas
+de page référencées sont isolées, les traces s’arrêtent aux informations de
+conservation, et une classe fonctionnelle couvre toutes ses désignations
+séparées par des virgules jusqu’au point-virgule. Le matcher utilise désormais
+le nom canonique en plus des alias et du numéro E. Il reconnaît ainsi
+`lécithines (soja)` avec `e322` toujours incertain et la source `soy` vegan,
+sans en déduire que toutes les lécithines sont vegan. Les constructions
+protégées telles que `beurre de cacao` sont entièrement couvertes lorsque la
+source vegan est connue, tout en conservant le conflit animal bloqué dans le
+diagnostic. Ces corrections distinguent les résidus structurels des
+désignations réellement absentes de la base ; elles n’enrichissent pas les
+données.
+
+La version 0.5.10 (code 21) complète la grammaire réglementaire multilingue : titres et
 mentions de présence sans deux-points, nanomatériaux entre crochets, 24 classes
 fonctionnelles et proportions variables dans les cinq langues prises en charge.
 La version 0.5.9.1 (code 20) distingue une liste manuelle d'une étiquette complète
@@ -88,7 +101,8 @@ Depuis la version 0.5.8
    modifié reste une désignation complète analysable même sans numéro E.
    `IngredientTokenizer` n'est plus qu'un adaptateur d'aplatissement pour les
    contrats internes historiques ;
-5. `IngredientMatcher` privilégie les alias les plus longs afin que, par
+5. `IngredientMatcher` privilégie les surfaces les plus longues parmi le nom
+   canonique, les alias et le numéro E afin que, par
    exemple, `lait de coco` masque correctement l'alias plus court `lait`. Un
    alias court qui est aussi le préfixe d'alias plus précis est refusé lorsqu'il
    est suivi de `de`, `d'`, `du`, `des`, `à` ou `au` et qu'aucun alias complet
@@ -139,7 +153,8 @@ verdict, uniquement si des avertissements existent. Elle reproduit le texte du
 fabricant et précise qu'il n'intervient pas dans le verdict.
 
 Les notes reconnues (certification Rainforest Alliance et son pied de page,
-`*Agriculture biologique`, `^concentré`, déclarations `Allergènes :`) sont
+`*Agriculture biologique`, `^concentré`, déclarations `Allergènes :` et notes
+référencées par `*`, `**`, `***`, `¹`, `²`, `³` ou `^`) sont
 conservées dans `excludedNotes` pour le diagnostic uniquement. Aucun moteur
 d'allergies ni classement des allergènes n'est effectué ; aucun conseil médical
 ni garantie d'absence d'allergènes n'est fourni.
@@ -150,7 +165,18 @@ puis affiche pour chaque nœud son type, sa profondeur, son parent, son texte
 original, le texte éventuellement enrichi pour le matcher, ses correspondances
 et son résidu inconnu. Le fonctionnement reste hors ligne.
 
-## Cadre d'étiquetage utilisé en 0.5.10
+Les frontières de sections couvrent aussi les formulations de date, de lot, de
+quantité nette et de conservation dans les cinq langues prises en charge. Une
+énumération de traces reste entière, tandis que les instructions suivantes
+sont visibles comme sections ignorées et ne rejoignent jamais la composition.
+
+Les avertissements Android Studio de la 0.5.10 ont également été nettoyés : la
+propriété `analysisText`, l’adaptateur `tokenizeTree` et la fonction
+`headingFor`, tous sans consommateur, ont été supprimés après recherche de leurs
+usages. Les groupes regex signalés ont été simplifiés sans changer les groupes
+capturants utilisés par l’extraction.
+
+## Cadre d'étiquetage utilisé en 0.5.10.1
 
 Les règles structurelles s'appuient sur le
 [règlement (UE) nº 1169/2011 consolidé au 1er avril 2025](https://eur-lex.europa.eu/eli/reg/2011/1169/2025-04-01/eng),

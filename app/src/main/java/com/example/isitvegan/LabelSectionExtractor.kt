@@ -11,9 +11,7 @@ data class LabelSections(
     val ingredientHeadingText: String? = null,
     val ingredientHeadingSeparator: HeadingSeparator? = null,
     val declaredContainsSyntax: String? = null
-) {
-    val analysisText: String get() = ingredientsText ?: declaredContainsText.orEmpty()
-}
+)
 
 internal object LabelSectionExtractor {
     private enum class SectionKind { INGREDIENTS, CONTAINS, TRACES, IGNORED }
@@ -28,11 +26,19 @@ internal object LabelSectionExtractor {
     private val ignoredHeadings = listOf(
         "valeurs?\\s+nutritionnelles?", "nutrition(?:al)?\\s+(?:values?|declaration)",
         "nährwert(?:angaben)?", "préparation", "preparation", "bereiding", "preparación",
-        "mode\\s+d['’]emploi", "conservation", "conseils?\\s+de\\s+conservation",
-        "bewaring", "conservación", "storage", "zubereitung", "quantité\\s+nette",
-        "net\\s+weight", "[àÀ]\\s+consommer\\s+de\\s+préférence\\s+avant",
-        "best\\s+before", "mindestens\\s+haltbar", "fabricant", "distributeur",
-        "manufacturer", "hersteller", "fabriqué\\s+en", "lot", "origine", "origin"
+        "mode\\s+d['’]emploi", "zubereitung", "fabricant", "distributeur",
+        "manufacturer", "hersteller", "fabriqué\\s+en", "origine", "origin"
+    )
+    private val boundaryHeadings = listOf(
+        "non\\s+ouvert", "conservation", "conseils?\\s+de\\s+conservation",
+        "bewaring(?:sadvies)?", "conservación", "consejos?\\s+de\\s+conservación", "storage(?:\\s+instructions?)?",
+        "aufbewahrung(?:shinweise)?", "quantité\\s+nette", "netto(?:hoeveelheid|gewicht)",
+        "net\\s+(?:quantity|weight)", "nettogewicht", "cantidad\\s+neta", "nettomasse",
+        "[àÀ]\\s+consommer\\s+de\\s+préférence\\s+avant(?:\\s+(?:le|fin))?",
+        "best\\s+before(?:\\s+end)?", "ten\\s+minste\\s+houdbaar\\s+tot", "mindestens\\s+haltbar(?:\\s+bis)?",
+        "consumir\\s+preferentemente\\s+antes(?:\\s+del\\s+fin)?", "[àÀ]\\s+conserver", "après\\s+ouverture",
+        "na\\s+opening", "after\\s+opening", "nach\\s+dem\\s+[Öö]ffnen", "una\\s+vez\\s+abierto",
+        "lot"
     )
 
     fun extract(block: LanguageBlock): LabelSections = extract(block.language, block.rawText)
@@ -75,7 +81,8 @@ internal object LabelSectionExtractor {
             text.substring(
                 marker.range.first,
                 markers.firstOrNull {
-                    it.range.first > marker.range.first && it.kind == SectionKind.INGREDIENTS
+                    it.range.first > marker.range.first &&
+                        (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
                 }?.range?.first ?: text.length
             ).trim()
         }.filter(String::isNotBlank)
@@ -107,26 +114,38 @@ internal object LabelSectionExtractor {
             )
         }
         val traceMarkers = LabelLexicon.tracePrefixes.flatMap { prefix ->
-            Regex("(?i)(?<![\\p{L}\\d])(?:$prefix)(?:\\s*:\\s*|(?=\\s))")
+            Regex("(?i)(?<![\\p{L}\\d])$prefix(?:\\s*:\\s*|(?=\\s))")
                 .findAll(text)
                 .map {
                     SectionMarker(SectionKind.TRACES, it.range, it.range.last + 1, it.value.trim())
                 }.toList()
         }
         val containsMarkers = LabelLexicon.declaredPresenceWords.flatMap { word ->
-            Regex("(?i)(?<![\\p{L}\\d])(?:$word)(?:\\s*:\\s*|(?=\\s))")
+            Regex("(?i)(?<![\\p{L}\\d])$word(?:\\s*:\\s*|(?=\\s))")
                 .findAll(text)
                 .map {
                     SectionMarker(SectionKind.CONTAINS, it.range, it.range.last + 1, it.value.trim())
                 }.toList()
         }
-        val ignoredMarkers = ignoredHeadings.flatMap { heading ->
-            Regex("(?i)(?<![\\p{L}\\d])(?:$heading)\\s*:")
+        val colonDelimitedIgnoredMarkers = ignoredHeadings.flatMap { heading ->
+            Regex("(?i)(?<![\\p{L}\\d])$heading\\s*:")
                 .findAll(text)
                 .map { SectionMarker(SectionKind.IGNORED, it.range, it.range.last + 1) }
                 .toList()
         }
-        return (ingredientMarkers + traceMarkers + containsMarkers + ignoredMarkers)
+        val boundaryIgnoredMarkers = boundaryHeadings.flatMap { heading ->
+            Regex(
+                "(?im)(?:^[\\t ]*|(?<=[.!?])[\\t ]+)($heading)(?:[\\t ]*:[\\t ]*|(?=[\\t ,]|$))"
+            )
+                .findAll(text)
+                .map { match ->
+                    val headingRange = match.groups[1]!!.range
+                    SectionMarker(SectionKind.IGNORED, headingRange, match.range.last + 1)
+                }
+                .toList()
+        }
+        return (ingredientMarkers + traceMarkers + containsMarkers +
+            colonDelimitedIgnoredMarkers + boundaryIgnoredMarkers)
             .filter { depthAt(text, it.range.first) == 0 }
             .sortedWith(compareBy<SectionMarker> { it.range.first }.thenBy { markerPriority(it.kind) })
             .fold(mutableListOf()) { result, marker ->

@@ -80,6 +80,4 @@ internal object LabelLexicon {
         separator = separator
     )
 
-    fun headingFor(language: LabelLanguage): IngredientHeading? =
-        ingredientHeadings.firstOrNull { it.language == language }
 }

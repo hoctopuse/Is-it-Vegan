@@ -27,11 +27,11 @@ internal class IngredientMatcher(private val database: List<Ingredient>) {
     )
 
     private val normalizedAliases = database.flatMap { ingredient ->
-        ingredient.aliases + listOfNotNull(ingredient.eNumber)
+        listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber)
     }.map(TextNormalizer::normalize).filter(String::isNotBlank).distinct()
 
     private val aliases: List<AliasEntry> = database.flatMap { ingredient ->
-        (ingredient.aliases + listOfNotNull(ingredient.eNumber))
+        (listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber))
             .map { TextNormalizer.normalize(it) }
             .filter { it.isNotBlank() }
             .distinct()
@@ -72,11 +72,9 @@ internal class IngredientMatcher(private val database: List<Ingredient>) {
                 .thenBy { it.start }
         )
 
-        val blocked = candidates.filter { candidate ->
-            candidate.ingredient.id in protectedAnimalIds && candidates.any { source ->
-                source.ingredient.status == VeganStatus.VEGAN &&
-                    source.start >= candidate.endExclusive &&
-                    normalized.substring(candidate.endExclusive, source.start).trim() in sourceConnectors
+        val blocked = candidates.filter { animal ->
+            animal.ingredient.id in protectedAnimalIds && candidates.any { source ->
+                source.ingredient.status == VeganStatus.VEGAN && protectedPair(normalized, animal, source)
             }
         }
         val eligible = candidates.filterNot { it in blocked }
@@ -92,14 +90,23 @@ internal class IngredientMatcher(private val database: List<Ingredient>) {
         val ordered = selected.sortedBy { it.start }
         val ingredients = linkedMapOf<String, Ingredient>()
         ordered.forEach { ingredients[it.ingredient.id] = it.ingredient }
-        val residual = normalized.mapIndexed { index, character ->
+        var residual = normalized.mapIndexed { index, character ->
             if (covered[index]) ' ' else character
         }.joinToString("")
             .replace(Regex("\\s+"), " ")
             .trim()
 
+        val protectedExpressionCovered = blocked.isNotEmpty() && blocked.all { animal ->
+            ordered.any { source ->
+                source.ingredient.status == VeganStatus.VEGAN &&
+                    protectedPair(normalized, animal, source) &&
+                    hasNoSemanticRemainder(normalized, animal, source)
+            }
+        }
+        if (protectedExpressionCovered) residual = ""
         val resolution = when {
             ingredients.isEmpty() && blocked.isEmpty() -> MatchResolution.NONE
+            protectedExpressionCovered -> MatchResolution.COVERED
             residual.isBlank() -> MatchResolution.EXACT
             isCovered(normalized, residual, ordered) -> MatchResolution.COVERED
             blocked.isNotEmpty() -> MatchResolution.BLOCKED_CONFLICT
@@ -112,6 +119,31 @@ internal class IngredientMatcher(private val database: List<Ingredient>) {
             resolution,
             blocked.map { it.ingredient.id }.distinct()
         )
+    }
+
+    private fun protectedPair(normalized: String, animal: Candidate, source: Candidate): Boolean {
+        if (source.endExclusive <= animal.start) {
+            return normalized.substring(source.endExclusive, animal.start).isBlank()
+        }
+        if (source.start >= animal.endExclusive) {
+            return normalized.substring(animal.endExclusive, source.start).trim() in sourceConnectors
+        }
+        return false
+    }
+
+    private fun hasNoSemanticRemainder(
+        normalized: String,
+        animal: Candidate,
+        source: Candidate
+    ): Boolean {
+        val explained = BooleanArray(normalized.length)
+        (animal.start until animal.endExclusive).forEach { explained[it] = true }
+        (source.start until source.endExclusive).forEach { explained[it] = true }
+        val connectorStart = minOf(animal.endExclusive, source.endExclusive)
+        val connectorEnd = maxOf(animal.start, source.start)
+        (connectorStart until connectorEnd).forEach { explained[it] = true }
+        return normalized.filterIndexed { index, _ -> !explained[index] }
+            .all { it.isWhitespace() || it in punctuation }
     }
 
     private fun coveredGlucoseFructose(
@@ -162,6 +194,7 @@ internal class IngredientMatcher(private val database: List<Ingredient>) {
         val linkedSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
         val protectedAnimalIds = setOf("butter", "milk", "cream")
         val sourceConnectors = setOf("de", "d", "van", "of")
+        val punctuation = setOf('(', ')', '[', ']', ',', ';', ':', '.', '-')
         val glueWords = setOf("de", "d", "du", "des", "a", "au", "aux", "et", "en")
         val reviewedPhrases = listOf(
             "preparation a base de", "partiellement degraisse", "partiellement degraissee",

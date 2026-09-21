@@ -84,7 +84,7 @@ class IngredientTreeParserTest {
 
     @Test fun additiveKeepsFunctionalClassOutsideMatcherText() {
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
-            "eau, huile de colza, émulsifiant : E471, sel",
+            "eau, huile de colza, émulsifiant : E471 ; sel",
             database
         )
         val additive = diagnostics.ingredientTree.single { it.kind == IngredientNodeKind.ADDITIVE }

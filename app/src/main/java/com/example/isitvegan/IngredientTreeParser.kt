@@ -42,6 +42,8 @@ internal object IngredientTreeParser {
         val opener: Char,
         val content: String
     )
+    private enum class Separator { COMMA, SEMICOLON, LINE_BREAK, SENTENCE_END, END }
+    private data class Segment(val text: String, val separator: Separator)
 
     private val quantityPattern = Regex(
         "(?<![\\p{L}\\d])([0-9]+(?:[.,][0-9]+)?)\\s*%",
@@ -66,12 +68,10 @@ internal object IngredientTreeParser {
             "en\\s+proporci(?:ón|ones)\\s+variables?)\\b"
     )
     private val alternativeSeparator = Regex("(?i)\\s+(?:et\\s*/\\s*ou|and\\s*/\\s*or|en\\s*/\\s*of|und\\s*/\\s*oder|y\\s*/\\s*o)\\s+")
-    private val additiveContinuation = Regex("(?i)^\\s*(?:E|INS)\\s*\\d[0-9a-z().-]*\\s*$")
-
     fun parse(text: String): List<IngredientNode> = parseList(text)
 
     private fun parseList(text: String): List<IngredientNode> {
-        val segments = splitAtCurrentDepth(text)
+        val segments = splitAtCurrentDepthWithSeparators(text)
         val result = mutableListOf<IngredientNode>()
         var index = 0
         while (index < segments.size) {
@@ -81,9 +81,9 @@ internal object IngredientTreeParser {
                 index += functionalGroup.second
                 continue
             }
-            val section = sectionParts(segments[index])
+            val section = sectionParts(segments[index].text)
             if (section == null) {
-                result += parseSegment(segments[index])
+                result += parseSegment(segments[index].text)
                 index++
                 continue
             }
@@ -91,8 +91,8 @@ internal object IngredientTreeParser {
             val content = mutableListOf<String>()
             section.second.takeIf(String::isNotBlank)?.let(content::add)
             var next = index + 1
-            while (next < segments.size && sectionParts(segments[next]) == null) {
-                content += segments[next]
+            while (next < segments.size && sectionParts(segments[next].text) == null) {
+                content += segments[next].text
                 next++
             }
             val children = parseList(content.joinToString(", "))
@@ -106,10 +106,10 @@ internal object IngredientTreeParser {
     }
 
     private fun functionalClassWithContinuations(
-        segments: List<String>,
+        segments: List<Segment>,
         index: Int
     ): Pair<List<IngredientNode>, Int>? {
-        val metadata = extractStructuralMetadata(segments[index])
+        val metadata = extractStructuralMetadata(segments[index].text)
         val colon = topLevelColon(metadata.text)
         if (colon < 0) return null
         val functionalClass = FunctionalClassLexicon.match(metadata.text.substring(0, colon).trim())
@@ -118,12 +118,24 @@ internal object IngredientTreeParser {
         if (firstDesignation.isBlank()) return null
         val designations = mutableListOf(firstDesignation)
         var next = index + 1
-        while (next < segments.size && additiveContinuation.matches(segments[next])) {
-            designations += segments[next]
+        while (next < segments.size &&
+            segments[next - 1].separator == Separator.COMMA &&
+            !startsFunctionalClass(segments[next].text)
+        ) {
+            designations += segments[next].text
             next++
         }
         if (designations.size == 1) return null
         return additiveNodes(functionalClass, designations.joinToString(", "), metadata) to (next - index)
+    }
+
+    private fun startsFunctionalClass(text: String): Boolean {
+        val metadata = extractStructuralMetadata(text)
+        val colon = topLevelColon(metadata.text)
+        if (colon >= 0 && FunctionalClassLexicon.match(metadata.text.substring(0, colon).trim()) != null) {
+            return true
+        }
+        return FunctionalClassLexicon.matchPrefix(metadata.text)?.designation?.isNotBlank() == true
     }
 
     private fun parseSegment(rawSegment: String): List<IngredientNode> {
@@ -239,9 +251,12 @@ internal object IngredientTreeParser {
         return contentWords.size == 1
     }
 
-    private fun splitAtCurrentDepth(text: String): List<String> {
+    private fun splitAtCurrentDepth(text: String): List<String> =
+        splitAtCurrentDepthWithSeparators(text).map { it.text }
+
+    private fun splitAtCurrentDepthWithSeparators(text: String): List<Segment> {
         val source = replaceTopLevelAlternatives(text)
-        val parts = mutableListOf<String>()
+        val parts = mutableListOf<Segment>()
         var start = 0
         var depth = 0
         source.forEachIndexed { index, character ->
@@ -253,17 +268,22 @@ internal object IngredientTreeParser {
                         source[index - 1].isDigit() && source[index + 1].isDigit()) &&
                     !(character == '\n' && nextNonWhitespace(source, index + 1) in listOf('(', '['))
                 ) {
-                    parts += source.substring(start, index)
+                    val separator = when (character) {
+                        ',' -> Separator.COMMA
+                        ';' -> Separator.SEMICOLON
+                        else -> Separator.LINE_BREAK
+                    }
+                    parts += Segment(source.substring(start, index), separator)
                     start = index + 1
                 }
                 '.' -> if (depth == 0 && isSentenceBoundary(source, index)) {
-                    parts += source.substring(start, index)
+                    parts += Segment(source.substring(start, index), Separator.SENTENCE_END)
                     start = index + 1
                 }
             }
         }
-        parts += source.substring(start)
-        return parts.map(String::trim).filter(String::isNotBlank)
+        parts += Segment(source.substring(start), Separator.END)
+        return parts.map { it.copy(text = it.text.trim()) }.filter { it.text.isNotBlank() }
     }
 
     private fun isSentenceBoundary(text: String, index: Int): Boolean {

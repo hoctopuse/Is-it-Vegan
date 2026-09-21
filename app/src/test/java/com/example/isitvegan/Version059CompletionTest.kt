@@ -131,9 +131,9 @@ Gedroogde en gearomatiseerde groentebouillon. Ingrediënten van de gedehydrateer
                 assertFalse(text, match.ingredients.any { it.id in setOf("butter", "milk", "cream") })
             }
         val cocoaButter = matcher.match(IngredientToken("beurre de cacao", 0, 0))
-        assertEquals(MatchResolution.BLOCKED_CONFLICT, cocoaButter.resolution)
+        assertEquals(MatchResolution.COVERED, cocoaButter.resolution)
         assertEquals(listOf("cocoa"), cocoaButter.ingredients.map { it.id })
-        assertEquals("beurre de cacao", UnknownCollector.collect(cocoaButter))
+        assertEquals(null, UnknownCollector.collect(cocoaButter))
         assertTrue(
             matcher.match(IngredientToken("beurre au cacao", 0, 0))
                 .ingredients.any { it.id == "butter" }

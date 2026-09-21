@@ -1214,5 +1214,88 @@
     "status": "VEGAN",
     "reason": "Édulcorant issu de stévia.",
     "source": "eu-additives"
+  },
+  {
+    "id": "cocoa_mass",
+    "name": "Pâte de cacao",
+    "eNumber": "",
+    "aliases": [
+      "pâte de cacao",
+      "masse de cacao",
+      "cocoa mass",
+      "cocoa liquor",
+      "chocolate liquor",
+      "cacaomassa",
+      "Kakaomasse",
+      "pasta de cacao"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit végétal obtenu par broyage des fèves de cacao.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "cocoa_butter",
+    "name": "Beurre de cacao",
+    "eNumber": "",
+    "aliases": [
+      "beurre de cacao",
+      "cocoa butter",
+      "cacaoboter",
+      "Kakaobutter",
+      "manteca de cacao"
+    ],
+    "status": "VEGAN",
+    "reason": "Matière grasse végétale extraite des fèves de cacao ; malgré le mot « beurre », ce n’est pas un produit laitier.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "palm_oil",
+    "name": "Huile de palme",
+    "eNumber": "",
+    "aliases": [
+      "huile de palme",
+      "graisse de palme",
+      "palm oil",
+      "palm fat",
+      "palmolie",
+      "palmvet",
+      "Palmöl",
+      "Palmfett",
+      "aceite de palma",
+      "grasa de palma"
+    ],
+    "status": "VEGAN",
+    "reason": "Huile ou graisse végétale issue du fruit du palmier à huile.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "e450",
+    "name": "Diphosphates",
+    "eNumber": "E450",
+    "aliases": [
+      "diphosphate",
+      "diphosphates",
+      "diphosfaten",
+      "Diphosphate",
+      "difosfatos"
+    ],
+    "status": "VEGAN",
+    "reason": "Additifs minéraux ou de synthèse dérivés de l’acide phosphorique, sans origine animale attendue.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e150a",
+    "name": "Caramel ordinaire",
+    "eNumber": "E150a",
+    "aliases": [
+      "caramel ordinaire",
+      "plain caramel",
+      "gewone karamel",
+      "einfaches Zuckerkulör",
+      "caramelo natural"
+    ],
+    "status": "VEGAN",
+    "reason": "Colorant obtenu par chauffage contrôlé de glucides, sans ingrédient animal attendu.",
+    "source": "eu-additives"
   }
 ]
