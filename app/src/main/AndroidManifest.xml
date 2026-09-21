@@ -11,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.IsItVegan">
+        <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="ocr"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
         VeganAnalyzer.loadDatabase(this)
         setContent {
             IsItVeganTheme {
-                IsItVeganScreen()
+                OcrFirstScreen()
             }
         }
     }
