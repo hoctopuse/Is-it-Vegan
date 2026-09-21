@@ -84,7 +84,7 @@ fun OcrFirstScreen() {
                 Button({
                     val uri = sourceUri ?: return@Button
                     extracting = true; ocrMessage = "Extraction du texte en cours…"
-                    processor.process(uri, { raw -> extracting = false; session = session.withOcrText(raw); ocrMessage = if (raw.isBlank()) "Aucun texte détecté. Saisissez-le manuellement ci-dessous." else "Texte extrait. Vérifiez-le avant l’analyse." }, { message -> extracting = false; ocrMessage = message })
+                    processor.process(uri, { ocr -> extracting = false; session = session.withOcrResult(ocr); ocrMessage = when { ocr.rawText.isBlank() -> "Aucun texte détecté. Saisissez-le manuellement ci-dessous."; ocr.usedRawFallback -> "OCR réussi, mais le post-traitement a échoué. Le texte brut reste disponible et éditable."; else -> "Texte reconstruit. Vérifiez-le avant l’analyse." } }, { message -> extracting = false; ocrMessage = message })
                 }, enabled = sourceUri != null && !extracting, modifier = Modifier.fillMaxWidth()) { Text(if (extracting) "EXTRACTION…" else "EXTRAIRE LE TEXTE") }
                 if (session.rawOcrText != null) {
                     Text("Texte brut OCR (lecture seule)", style = MaterialTheme.typography.titleMedium)

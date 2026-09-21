@@ -1,12 +1,19 @@
 package com.example.isitvegan
 
 /** In-memory state for one OCR work session. The URI is deliberately not part of this model. */
-data class OcrSession(
+internal data class OcrSession(
     val rawOcrText: String? = null,
     val editableText: String = "",
-    val analyses: List<AnalysisSnapshot> = emptyList()
+    val analyses: List<AnalysisSnapshot> = emptyList(),
+    val ocrDiagnostics: OcrDiagnostics? = null
 ) {
     fun withOcrText(text: String): OcrSession = copy(rawOcrText = text, editableText = text)
+
+    fun withOcrResult(result: OcrProcessingResult): OcrSession = copy(
+        rawOcrText = result.rawText,
+        editableText = result.editableText,
+        ocrDiagnostics = result.diagnostics
+    )
 
     fun withEditableText(text: String): OcrSession = copy(editableText = text)
 
@@ -27,6 +34,15 @@ internal object OcrExportReport {
         appendLine("Version : $versionName")
         appendLine("Les données de cette session sont conservées en mémoire uniquement.")
         appendLine()
+        session.ocrDiagnostics?.let { diagnostic ->
+            appendLine("DIAGNOSTIC OCR")
+            appendLine("Orientation : ${diagnostic.orientationDegrees?.let { "$it°" } ?: "indéterminée"}")
+            appendLine("Blocs : ${diagnostic.blockCount}")
+            appendLine("Lignes : ${diagnostic.lineCount}")
+            appendLine("Zones détectées : ${diagnostic.detectedZones.ifEmpty { listOf("UNKNOWN") }.joinToString()}")
+            appendLine("Avertissements : ${diagnostic.warnings.ifEmpty { listOf("aucun") }.joinToString(" ; ")}")
+            appendLine()
+        }
         appendLine("TEXTE BRUT OCR (sortie originale ML Kit)")
         appendLine(session.rawOcrText?.ifBlank { "(aucun texte OCR)" } ?: "(aucun texte OCR)")
         appendLine()

@@ -26,7 +26,7 @@ class OcrFixturesInstrumentedTest {
                 val latch = CountDownLatch(1)
                 var recognized = ""
                 var error: String? = null
-                processor.process(Uri.fromFile(file), { text -> recognized = text; latch.countDown() }, { message -> error = message; latch.countDown() })
+                processor.process(Uri.fromFile(file), { result -> recognized = result.rawText; latch.countDown() }, { message -> error = message; latch.countDown() })
                 assertTrue("OCR did not finish for $name", latch.await(20, TimeUnit.SECONDS))
                 assertFalse("OCR failed for $name: $error", error != null)
                 assertFalse("No raw OCR text for $name", recognized.isBlank())

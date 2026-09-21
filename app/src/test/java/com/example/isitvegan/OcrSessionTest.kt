@@ -1,6 +1,7 @@
 package com.example.isitvegan
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNotSame
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -12,6 +13,35 @@ class OcrSessionTest {
         assertEquals(original, edited.rawOcrText)
         assertEquals("INGRÉDIENTS\neau, sucre", edited.editableText)
         assertNotSame(edited.rawOcrText, edited.editableText)
+    }
+
+    @Test fun reconstructedTextAndRawMlKitTextStayDistinct() {
+        val result = OcrProcessingResult(
+            rawText = "NL water\nFR eau",
+            editableText = "FR eau\n\nNL water",
+            diagnostics = OcrDiagnostics(90, 2, 2, listOf("FR", "NL"), emptyList())
+        )
+        val session = OcrSession().withOcrResult(result)
+
+        assertEquals("NL water\nFR eau", session.rawOcrText)
+        assertEquals("FR eau\n\nNL water", session.editableText)
+        assertEquals(90, session.ocrDiagnostics?.orientationDegrees)
+    }
+
+    @Test fun exportIncludesOcrDiagnosticWithoutImageData() {
+        val session = OcrSession().withOcrResult(
+            OcrProcessingResult(
+                "brut", "éditable",
+                OcrDiagnostics(90, 8, 34, listOf("FR", "NL", "UNKNOWN"), listOf("ordre visuel incertain"))
+            )
+        )
+        val export = OcrExportReport.build(session, "0.6.1")
+
+        assertTrue(export.contains("Orientation : 90°"))
+        assertTrue(export.contains("Blocs : 8"))
+        assertTrue(export.contains("Lignes : 34"))
+        assertTrue(export.contains("Zones détectées : FR, NL, UNKNOWN"))
+        assertFalse(export.contains("data:image"))
     }
 
     @Test fun analysesKeepExactSubmittedSnapshots() {

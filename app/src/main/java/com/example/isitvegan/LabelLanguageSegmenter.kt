@@ -1,7 +1,9 @@
 package com.example.isitvegan
 
 enum class LabelLanguage(val displayName: String) {
-    FRENCH("FR"), DUTCH("NL"), ENGLISH("EN"), GERMAN("DE"), SPANISH("ES"), UNKNOWN("inconnue")
+    FRENCH("FR"), DUTCH("NL"), ENGLISH("EN"), GERMAN("DE"), ITALIAN("IT"),
+    SPANISH("ES"), PORTUGUESE("PT"), SWEDISH("SE/SV"), DANISH("DK/DA"),
+    NORWEGIAN("NO"), FINNISH("FI"), UNKNOWN("inconnue")
 }
 
 data class LanguageBlock(
@@ -43,11 +45,17 @@ internal object LabelLanguageSegmenter {
                 MarkerPattern(LabelLanguage.ENGLISH, markerRegex("\\[EN\\]")),
                 MarkerPattern(LabelLanguage.GERMAN, markerRegex("\\[DE\\]")),
                 MarkerPattern(LabelLanguage.SPANISH, markerRegex("\\[ES\\]")),
-                MarkerPattern(LabelLanguage.FRENCH, codeRegex(languageCodePattern("FR", listOf("BE", "LU", "LUX"), listOf("F")))),
+                MarkerPattern(LabelLanguage.FRENCH, codeRegex(languageCodePattern("FR", listOf("BE", "CH", "LU", "LUX"), listOf("F")))),
                 MarkerPattern(LabelLanguage.DUTCH, codeRegex(languageCodePattern("NL", listOf("BE", "LU", "LUX")))),
                 MarkerPattern(LabelLanguage.ENGLISH, codeRegex(languageCodePattern("EN", listOf("GB"), listOf("GB")))),
                 MarkerPattern(LabelLanguage.GERMAN, codeRegex(languageCodePattern("DE", emptyList()))),
-                MarkerPattern(LabelLanguage.SPANISH, codeRegex(languageCodePattern("ES", emptyList())))
+                MarkerPattern(LabelLanguage.ITALIAN, codeRegex(languageCodePattern("IT", emptyList()))),
+                MarkerPattern(LabelLanguage.SPANISH, codeRegex(languageCodePattern("ES", emptyList()))),
+                MarkerPattern(LabelLanguage.PORTUGUESE, codeRegex(languageCodePattern("PT", emptyList()))),
+                MarkerPattern(LabelLanguage.SWEDISH, codeRegex("(?:SE|SV)(?:\\s*(?:[-/]\\s*|\\s+)(?:DK|DA|NO)){0,3}")),
+                MarkerPattern(LabelLanguage.DANISH, codeRegex("(?:DK|DA)")),
+                MarkerPattern(LabelLanguage.NORWEGIAN, codeRegex("NO")),
+                MarkerPattern(LabelLanguage.FINNISH, codeRegex("FI"))
             )
         )
     }
@@ -98,7 +106,9 @@ internal object LabelLanguageSegmenter {
 
     private fun preferredBlock(blocks: List<LanguageBlock>): LanguageBlock = listOf(
         LabelLanguage.FRENCH, LabelLanguage.DUTCH, LabelLanguage.ENGLISH,
-        LabelLanguage.GERMAN, LabelLanguage.SPANISH
+        LabelLanguage.GERMAN, LabelLanguage.ITALIAN, LabelLanguage.SPANISH,
+        LabelLanguage.PORTUGUESE, LabelLanguage.SWEDISH, LabelLanguage.DANISH,
+        LabelLanguage.NORWEGIAN, LabelLanguage.FINNISH
     ).firstNotNullOfOrNull { language -> blocks.firstOrNull { it.language == language } } ?: blocks.first()
 
     private fun fallback(text: String): LanguageSegmentation {
@@ -109,7 +119,7 @@ internal object LabelLanguageSegmenter {
         )
     }
 
-    private fun marketTags(marker: String): Set<String> = Regex("\\b(?:BE|LU|LUX|GB)\\b", RegexOption.IGNORE_CASE)
+    private fun marketTags(marker: String): Set<String> = Regex("\\b(?:BE|CH|LU|LUX|GB|DK|DA|NO)\\b", RegexOption.IGNORE_CASE)
         .findAll(marker).map { it.value.uppercase() }.toCollection(linkedSetOf())
 
     private fun markerRegex(marker: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$marker",
