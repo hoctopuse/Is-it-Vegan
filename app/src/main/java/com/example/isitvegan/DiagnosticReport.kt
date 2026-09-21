@@ -78,10 +78,9 @@ internal object DiagnosticReport {
                     if (token.hasAlternatives) {
                         append(" | alternatives et/ou=oui (${token.alternativesText})")
                     }
-                    if (token.sourceClaim != SourceClaim.UNSPECIFIED) {
-                        append(" | origine déclarée=${token.sourceClaim}")
-                        token.sourceClaimText?.let { append(" ($it)") }
-                    }
+                    token.originRuleId?.let { append(" | règle d’origine=$it") }
+                    token.originOutcomeId?.let { append(" | résultat d’origine=$it") }
+                    token.originQualifierText?.let { append(" ($it)") }
                     if (token.isDeclaredPresence) append(" | preuve de présence réelle=oui")
                     if (token.nodeKind == IngredientNodeKind.COMPOSITE) {
                         append(" | enfants=${token.childCount}")
@@ -116,6 +115,9 @@ internal object DiagnosticReport {
                 }
             }
             appendLine()
+            appendLine("CHARGEMENT DES RÈGLES D’ORIGINE")
+            appendLine(diagnostics.originRuleErrors.joinToString("\n").ifBlank { "valide" })
+            appendLine()
             appendLine("RÉSULTAT")
             if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST &&
                 result.matched.isEmpty()
@@ -136,6 +138,10 @@ internal object DiagnosticReport {
             )
             appendLine(
                 "Preuves de présence réelle : " + result.declaredPresenceIngredientIds
+                    .joinToString(", ").ifBlank { "aucune" }
+            )
+            appendLine(
+                "Origines explicitement non vegan : " + result.originNonVeganIngredientIds
                     .joinToString(", ").ifBlank { "aucune" }
             )
             appendLine("Analyse arrêtée tôt : ${if (result.stoppedAtNonVegetarian) "oui" else "non"}")

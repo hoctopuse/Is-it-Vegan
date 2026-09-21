@@ -1,5 +1,6 @@
 package com.example.isitvegan
 
+import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
@@ -7,11 +8,16 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class HierarchyAnalysisTest {
+    private val originRules = OriginQualifierRuleSet.load(
+        File("src/main/assets/origin_qualifier_rules.json").readText()
+    ).also { assertTrue(it.errors.joinToString(), it.isValid) }.rules
+
     private val database = listOf(
         ingredient("wheat_flour", "farine", "farine de blé"),
         ingredient("water", "eau"),
         ingredient("rapeseed_oil", "huile de colza"),
         ingredient("sunflower_oil", "huile de tournesol"),
+        ingredient("vegetable_oil", "huile végétale", "huiles végétales"),
         ingredient("yeast", "levure"),
         ingredient("salt", "sel"),
         ingredient("soy", "soja", "graines de soja", "protéine de soja"),
@@ -70,20 +76,20 @@ class HierarchyAnalysisTest {
         assertTrue(diagnostics.result.unknown.isEmpty())
     }
 
-    @Test fun vegetableOilGroupEnrichesOnlyItsSimpleChildren() {
+    @Test fun protectedVegetableOilDesignationDoesNotAnalyzeItsParenthesis() {
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
-            "huiles végétales en proportion variable (colza, tournesol)", database
+            "huiles végétales en proportion variable (colza, tournesol)",
+            database,
+            rules = originRules
         )
-        assertEquals(listOf("rapeseed_oil", "sunflower_oil"), diagnostics.result.matched.map { it.id })
+        assertEquals(listOf("vegetable_oil"), diagnostics.result.matched.map { it.id })
         assertTrue(diagnostics.result.unknown.isEmpty())
-        assertEquals(
-            listOf("huile de colza", "huile de tournesol"),
-            diagnostics.tokens.drop(1).map { it.matcherText }
-        )
+        assertEquals(IngredientNodeKind.LEAF, diagnostics.ingredientTree.single().kind)
+        assertEquals("huile végétale", diagnostics.tokens.single().matcherText)
         val report = DiagnosticReport.build(diagnostics, "0.5.7")
-        assertTrue(report.contains("COMPOSITE | profondeur=0"))
-        assertTrue(report.contains("parent=1"))
-        assertTrue(report.contains("texte matcher=huile de colza"))
+        assertTrue(report.contains("LEAF | profondeur=0"))
+        assertTrue(report.contains("texte matcher=huile végétale"))
+        assertFalse(report.contains("parent=1"))
     }
 
     @Test fun preparationModifiersDisappearOnlyAfterARealMatch() {

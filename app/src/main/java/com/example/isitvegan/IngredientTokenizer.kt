@@ -20,8 +20,7 @@ internal data class IngredientToken(
     val variableProportionsText: String? = null,
     val hasAlternatives: Boolean = false,
     val alternativesText: String? = null,
-    val sourceClaim: SourceClaim = SourceClaim.UNSPECIFIED,
-    val sourceClaimText: String? = null,
+    val originQualification: OriginQualification? = null,
     val childCount: Int = 0
 )
 
@@ -58,8 +57,7 @@ internal object IngredientTokenizer {
                     variableProportionsText = node.variableProportionsText,
                     hasAlternatives = node.hasAlternatives,
                     alternativesText = node.alternativesText,
-                    sourceClaim = node.sourceClaim,
-                    sourceClaimText = node.sourceClaimText,
+                    originQualification = node.originQualification,
                     childCount = node.children.size
                 )
             )

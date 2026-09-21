@@ -241,3 +241,47 @@ aucune règle vegan. Restent hors périmètre la validation juridique complète,
 une base exhaustive d'allergènes, l'interprétation de leur mise en évidence,
 un vrai moteur OCR ou une lecture d'image ; ces fonctions resteront séparées
 du classement vegan.
+
+## Qualifications d'origine en 0.5.11
+
+Les règles conditionnelles d'origine sont documentées séparément dans
+`origin_qualifier_rules.json`, puis copiées sans changement éditorial vers
+`app/src/main/assets/origin_qualifier_rules.json` par :
+
+```text
+python tools/build_origin_rules.py
+```
+
+`python tools/build_origin_rules.py --check` valide le schéma, les états
+d'activation, les références de sources et les résultats contradictoires, puis
+vérifie que l'asset Android est à jour. Seules les règles `lecithin-e322` et
+`mono-diglycerides-e471` sont actives. Les autres familles restent marquées
+`REVIEW_BEFORE_ENGINE_USE` et ne modifient aucun résultat. Les avis scientifiques
+de l'EFSA décrivent les sources possibles et l'identité des additifs ; ils ne
+constituent pas une certification vegan. Food-Info sert de source secondaire
+pour repérer les variations de fabrication.
+
+Une qualification ne s'applique que lorsqu'elle est directement rattachée à
+la désignation concernée. `lécithines (soja)` résout E322 comme vegan et
+`lécithines (œuf)` comme non vegan mais végétarien. E471 reste incertain sans
+qualification ; une origine végétale directement rattachée le résout comme
+vegan. Une origine animale vague prouve seulement qu'il n'est pas vegan et
+laisse la sous-classification végétarienne incertaine. Une mention explicite de
+porc, poisson ou bœuf permet le classement non végétarien. Une origine éloignée,
+ambiguë ou contradictoire ne résout rien.
+
+Chaque règle active déclare ses `ingredientIds`, numéros E, alias contrôlés,
+qualificatifs, formes de rattachement, résultats vegan et végétarien, niveau de
+preuve, sources et limites. Le moteur Kotlin valide ce schéma puis applique les
+mêmes opérations à toutes les règles ; il ne connaît aucun numéro E, alias ou
+résultat particulier. Une table invalide ou contradictoire est rejetée en bloc
+et le diagnostic expose les erreurs de chargement.
+
+Les parenthèses ne sont pas une preuve générale d'origine et ne déclenchent
+aucune analyse allergénique. La section `protectedExpressions` configure la
+désignation vegan `huile végétale` / `huiles végétales`, son statut attendu et
+la politique `IGNORE_CONTENT_FOR_VERDICT`. Lorsque l'étiquette ajoute une liste
+descriptive telle que `(palme, tournesol)`, le texte complet reste visible dans
+le diagnostic, mais le contenu de la parenthèse ne devient ni enfant, ni inconnu,
+ni preuve d'origine pour E471 ou pour un autre ingrédient. Retirer cette entrée
+du JSON rétablit le parsing compositionnel normal sans changement Kotlin.

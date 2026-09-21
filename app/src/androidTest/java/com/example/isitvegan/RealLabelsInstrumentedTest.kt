@@ -24,8 +24,10 @@ class RealLabelsInstrumentedTest {
         assertEquals(VeganStatus.UNCERTAIN, unspecified.matched.single { it.id == "e471" }.status)
         assertEquals(VeganStatus.VEGAN, vegetal.matched.single { it.id == "e471" }.status)
         assertEquals(VeganAssessment.VEGAN, vegetal.veganAssessment)
-        assertEquals(VeganStatus.NON_VEGAN, animal.matched.single { it.id == "e471" }.status)
+        assertEquals(VeganStatus.UNCERTAIN, animal.matched.single { it.id == "e471" }.status)
+        assertEquals(listOf("e471"), animal.originNonVeganIngredientIds)
         assertEquals(VeganAssessment.NOT_VEGAN, animal.veganAssessment)
+        assertEquals(AnalysisVerdict.UNCERTAIN, animal.verdict)
     }
 
     @Test fun apricotBriocheSeparatesVeganCompatibilityFromDetailedClassification() {
@@ -139,7 +141,8 @@ Peut contenir des traces de fruits à coque."""
         )
         assertTrue(result.matched.any { it.id == "grana_padano" })
         assertFalse(result.stoppedAtNonVegetarian)
-        assertEquals(listOf("ail", "farine de blé dur", "semoule de blé dur"), result.unknown)
+        assertEquals(listOf("farine de blé dur", "semoule de blé dur"), result.unknown)
+        assertTrue(result.matched.any { it.id == "garlic" })
     }
     @Test
     fun smokedTofuProductPreservesSectionsAndNestedCompositions() {
@@ -249,7 +252,8 @@ Peut contenir des traces de fruits à coque."""
         Peut contenir: SÉSAME, MOUTARDE, CELERI et OEUF.
     """.trimIndent()
 
-        val result = VeganAnalyzer.analyze(label)
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(label)
+        val result = diagnostics.result
 
         // L'arôme naturel reste volontairement incertain.
         assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
@@ -273,9 +277,13 @@ Peut contenir des traces de fruits à coque."""
                     it.contains("concentre", ignoreCase = true)
         })
 
-        // Le groupe « huiles végétales » doit transmettre son contexte à ses enfants.
-        assertTrue(result.matched.any { it.id == "rapeseed_oil" })
-        assertTrue(result.matched.any { it.id == "sunflower_oil" })
+        // La désignation vegan protégée est reconnue sans analyser sa parenthèse.
+        assertTrue(result.matched.any { it.id == "vegetable_oil" })
+        assertTrue(diagnostics.tokens.any {
+            it.text.startsWith("huiles végétales", ignoreCase = true) &&
+                it.nodeKind == IngredientNodeKind.LEAF &&
+                it.matcherText == "huile végétale"
+        })
 
         // L'œuf est uniquement présent dans l'avertissement de contamination croisée.
         assertFalse(result.matched.any { it.id == "egg" })
@@ -306,15 +314,16 @@ Peut contenir des traces de fruits à coque."""
     }
 
     @Test
-    fun vegetableOilChildrenInheritTheOilContextFromTheirParent() {
+    fun vegetableOilParenthesisIsProtectedFromIndependentMatching() {
         val result = VeganAnalyzer.analyze(
             "huiles végétales en proportion variable (colza, tournesol)"
         )
 
         assertEquals(AnalysisVerdict.VEGAN, result.verdict)
         assertTrue(result.unknown.isEmpty())
-        assertTrue(result.matched.any { it.id == "rapeseed_oil" })
-        assertTrue(result.matched.any { it.id == "sunflower_oil" })
+        assertTrue(result.matched.any { it.id == "vegetable_oil" })
+        assertFalse(result.matched.any { it.id == "rapeseed_oil" })
+        assertFalse(result.matched.any { it.id == "sunflower_oil" })
     }
 
     @Test fun cashewDrinkRemovesQuantitiesAndCrossContactNotes() {

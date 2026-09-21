@@ -1,5 +1,6 @@
 package com.example.isitvegan
 
+import java.io.File
 import java.math.BigDecimal
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -8,6 +9,10 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class Version0591Test {
+    private val rules = OriginQualifierRuleSet.load(
+        File("src/main/assets/origin_qualifier_rules.json").readText()
+    ).also { assertTrue(it.errors.joinToString(), it.isValid) }.rules
+
     private val database = listOf(
         ingredient("water", "eau"), ingredient("sugar", "sucre"),
         ingredient("salt", "sel"), ingredient("milk", "lait", VeganStatus.VEGETARIAN),
@@ -17,6 +22,14 @@ class Version0591Test {
         ingredient("silicon_dioxide", "dioxyde de silicium"),
         ingredient("sunflower_oil", "huile de tournesol"),
         ingredient("rapeseed_oil", "huile de colza"),
+        Ingredient(
+            "vegetable_oil",
+            "huile végétale",
+            listOf("huile végétale", "huiles végétales"),
+            null,
+            VeganStatus.VEGAN,
+            "Test"
+        ),
         ingredient("spices", "épices"),
         ingredient("e471", "E471", VeganStatus.UNCERTAIN)
     )
@@ -96,15 +109,16 @@ class Version0591Test {
     @Test fun variableProportionsAndAlternativesRemainStructural() {
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
             "huiles végétales (tournesol et/ou colza) en proportions variables, sel",
-            database
+            database,
+            rules = rules
         )
         val oils = diagnostics.ingredientTree.first()
-        assertEquals(IngredientNodeKind.COMPOSITE, oils.kind)
-        assertEquals(listOf("tournesol", "colza"), oils.children.map { it.rawText })
+        assertEquals(IngredientNodeKind.LEAF, oils.kind)
+        assertEquals("huiles végétales (tournesol et/ou colza)", oils.rawText)
+        assertTrue(oils.children.isEmpty())
         assertTrue(oils.variableProportions)
         assertTrue(oils.hasAlternatives)
-        assertTrue(diagnostics.result.matched.any { it.id == "sunflower_oil" })
-        assertTrue(diagnostics.result.matched.any { it.id == "rapeseed_oil" })
+        assertEquals(setOf("vegetable_oil", "salt"), diagnostics.result.matched.map { it.id }.toSet())
         assertFalse(diagnostics.result.unknown.any {
             it.contains("et/ou", true) || it.contains("proportion", true)
         })
@@ -121,49 +135,53 @@ class Version0591Test {
     }
 
     @Test fun e471OriginClaimsUseOnlyTheExplicitResolutionRegistry() {
-        val unspecified = VeganAnalyzer.analyzeWithDiagnostics("émulsifiant : E471", database)
+        val unspecified = VeganAnalyzer.analyzeWithDiagnostics(
+            "émulsifiant : E471", database, rules = rules
+        )
         assertEquals(VeganStatus.UNCERTAIN, unspecified.result.matched.single().status)
 
         val vegetal = VeganAnalyzer.analyzeWithDiagnostics(
             "émulsifiant : E471 d’origine végétale",
-            database
+            database,
+            rules = rules
         )
-        assertEquals(SourceClaim.VEGETAL, vegetal.tokens.single().sourceClaim)
+        assertEquals("plant", vegetal.tokens.single().originOutcomeId)
         assertEquals(VeganStatus.VEGAN, vegetal.result.matched.single().status)
         assertEquals(VeganAssessment.VEGAN, vegetal.result.veganAssessment)
         assertEquals(listOf(VeganStatus.UNCERTAIN), vegetal.tokens.single().baseStatuses)
 
         val animal = VeganAnalyzer.analyzeWithDiagnostics(
             "émulsifiant : E471 d’origine animale",
-            database
+            database,
+            rules = rules
         )
-        assertEquals(SourceClaim.ANIMAL, animal.tokens.single().sourceClaim)
-        assertEquals(VeganStatus.NON_VEGAN, animal.result.matched.single().status)
+        assertEquals("animal-unspecified", animal.tokens.single().originOutcomeId)
+        assertEquals(VeganStatus.UNCERTAIN, animal.result.matched.single().status)
+        assertEquals(listOf("e471"), animal.result.originNonVeganIngredientIds)
         assertEquals(VeganAssessment.NOT_VEGAN, animal.result.veganAssessment)
+        assertEquals(AnalysisVerdict.UNCERTAIN, animal.result.verdict)
 
-        val arbitrary = VeganAnalyzer.analyzeWithDiagnostics("E471 végétal", database)
-        assertEquals(SourceClaim.UNSPECIFIED, arbitrary.tokens.single().sourceClaim)
+        val arbitrary = VeganAnalyzer.analyzeWithDiagnostics("E471 végétal", database, rules = rules)
+        assertEquals(null, arbitrary.tokens.single().originRuleId)
         assertEquals(VeganStatus.UNCERTAIN, arbitrary.result.matched.single().status)
     }
 
-    @Test fun sourceClaimLexiconCoversSupportedLabelLanguages() {
+    @Test fun jsonRulesCoverSupportedLabelLanguages() {
         mapOf(
-            "E471 d’origine végétale" to SourceClaim.VEGETAL,
-            "E471 d'origine animale" to SourceClaim.ANIMAL,
-            "E471 origine microbienne" to SourceClaim.MICROBIAL,
-            "E471 van plantaardige oorsprong" to SourceClaim.VEGETAL,
-            "E471 van dierlijke oorsprong" to SourceClaim.ANIMAL,
-            "E471 plant-based" to SourceClaim.VEGETAL,
-            "E471 of vegetable origin" to SourceClaim.VEGETAL,
-            "E471 animal origin" to SourceClaim.ANIMAL,
-            "E471 microbial origin" to SourceClaim.MICROBIAL,
-            "E471 pflanzlichen Ursprungs" to SourceClaim.VEGETAL,
-            "E471 tierischen Ursprungs" to SourceClaim.ANIMAL,
-            "E471 de origen vegetal" to SourceClaim.VEGETAL,
-            "E471 de origen animal" to SourceClaim.ANIMAL
+            "E471 d’origine végétale" to "plant",
+            "E471 d'origine animale" to "animal-unspecified",
+            "E471 van plantaardige oorsprong" to "plant",
+            "E471 van dierlijke oorsprong" to "animal-unspecified",
+            "E471 plant-based" to "plant",
+            "E471 of vegetable origin" to "plant",
+            "E471 animal origin" to "animal-unspecified",
+            "E471 pflanzlichen Ursprungs" to "plant",
+            "E471 tierischen Ursprungs" to "animal-unspecified",
+            "E471 de origen vegetal" to "plant",
+            "E471 de origen animal" to "animal-unspecified"
         ).forEach { (text, expected) ->
-            val extraction = SourceClaimLexicon.extract(text)
-            assertEquals(text, expected, extraction.claim)
+            val extraction = rules.extractAttached(text)
+            assertEquals(text, expected, extraction.qualification?.outcomeId)
             assertEquals(text, "E471", extraction.text)
         }
     }
@@ -235,16 +253,17 @@ class Version0591Test {
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
             "Ingrédients : dioxyde de silicium (nano), E471 d’origine végétale",
             database,
-            InputMode.OCR_LABEL
+            InputMode.OCR_LABEL,
+            rules
         )
         val report = DiagnosticReport.build(diagnostics, "0.5.9.1")
         assertTrue(report.contains("Mode d’entrée : étiquette OCR"))
         assertTrue(report.contains("Disponibilité : liste d’ingrédients analysée"))
         assertTrue(report.contains("compatibilité vegan selon les ingrédients déclarés"))
         assertTrue(report.contains("nano=oui"))
-        assertTrue(report.contains("origine déclarée=VEGETAL"))
+        assertTrue(report.contains("règle d’origine=mono-diglycerides-e471"))
         assertTrue(report.contains("classification de base=UNCERTAIN"))
-        assertTrue(report.contains("résolution par origine=origine végétale déclarée"))
+        assertTrue(report.contains("résolution par origine=origine végétale directement rattachée"))
         assertNull(diagnostics.availabilityReason)
     }
 

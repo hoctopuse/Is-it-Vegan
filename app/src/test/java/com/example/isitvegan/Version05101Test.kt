@@ -1,16 +1,22 @@
 package com.example.isitvegan
 
+import java.io.File
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class Version05101Test {
+    private val originRules = OriginQualifierRuleSet.load(
+        File("src/main/assets/origin_qualifier_rules.json").readText()
+    ).also { assertTrue(it.errors.joinToString(), it.isValid) }.rules
+
     private val database = listOf(
         ingredient("sugar", "Sucre"),
         ingredient("wheat", "Blé", aliases = arrayOf("farine de blé", "amidon de blé")),
         ingredient("cocoa", "Cacao", extraAliases = arrayOf("pâte de cacao", "cocoa")),
         ingredient("sunflower", "Tournesol", aliases = arrayOf("huile de tournesol")),
+        ingredient("vegetable_oil", "Huile végétale", aliases = arrayOf("huiles végétales")),
         ingredient("glucose_syrup", "Sirop de glucose"),
         ingredient("milk", "Lait", VeganStatus.VEGETARIAN,
             "lait en poudre entier", "lait en poudre écrémé", "milk"),
@@ -137,12 +143,13 @@ Après ouverture, à consommer sous 7 jours."""
         assertEquals(MatchResolution.EXACT, canonicalMatch.resolution)
 
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
-            "émulsifiant : lécithines (soja)", database
+            "émulsifiant : lécithines (soja)", database, rules = originRules
         )
         val additive = diagnostics.tokens.single()
         assertEquals(FunctionalClass.EMULSIFIER, additive.functionalClassCanonical)
-        assertEquals(setOf("e322", "soy"), additive.matchedIngredientIds.toSet())
-        assertEquals(listOf(VeganStatus.UNCERTAIN, VeganStatus.VEGAN), additive.baseStatuses)
+        assertEquals(listOf("e322"), additive.matchedIngredientIds)
+        assertEquals(listOf(VeganStatus.UNCERTAIN), additive.baseStatuses)
+        assertEquals(listOf(VeganStatus.VEGAN), additive.effectiveStatuses)
         assertTrue(diagnostics.result.unknown.isEmpty())
     }
 
@@ -167,15 +174,17 @@ Après ouverture, à consommer sous 7 jours."""
     }
 
     @Test fun completeRealBiscuitLabelKeepsOnlyRegulatoryComposition() {
-        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(REAL_LABEL, database, InputMode.FULL_LABEL)
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+            REAL_LABEL, database, InputMode.FULL_LABEL, originRules
+        )
 
         assertEquals(AnalysisAvailability.INGREDIENT_LIST_ANALYZED, diagnostics.result.availability)
         assertEquals(LabelLanguage.FRENCH, diagnostics.labelSections.language)
         assertEquals(VeganAssessment.NOT_VEGAN, diagnostics.result.veganAssessment)
         assertEquals(setOf("milk", "egg"), diagnostics.result.veganBlockers.map { it.id }.toSet())
         assertEquals(AnalysisVerdict.UNCERTAIN, diagnostics.result.verdict)
-        assertTrue(diagnostics.result.matched.any { it.id == "e322" && it.status == VeganStatus.UNCERTAIN })
-        assertTrue(diagnostics.result.matched.any { it.id == "soy" })
+        assertTrue(diagnostics.result.matched.any { it.id == "e322" && it.status == VeganStatus.VEGAN })
+        assertFalse(diagnostics.result.matched.any { it.id == "soy" })
         assertTrue(diagnostics.result.matched.any { it.id == "e500" })
         assertEquals(2, diagnostics.excludedNotes.size)
         assertEquals(1, diagnostics.crossContactWarnings.size)
