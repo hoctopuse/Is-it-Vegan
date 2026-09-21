@@ -233,7 +233,13 @@
       "maïszetmeel",
       "amidon de pomme de terre",
       "potato starch",
-      "aardappelzetmeel"
+      "aardappelzetmeel",
+      "fécule de pomme de terre",
+      "fecule de pomme de terre",
+      "fécule de maïs",
+      "fecule de mais",
+      "maïzena",
+      "maizena"
     ],
     "status": "VEGAN",
     "reason": "Amidon végétal lorsque la plante est précisée ; ce terme courant désigne un ingrédient végétal.",
@@ -539,7 +545,13 @@
     "aliases": [
       "sirop de glucose",
       "glucose syrup",
-      "glucosestroop"
+      "glucosestroop",
+      "sirop de glucose-fructose",
+      "sirop de glucose fructose",
+      "glucose-fructose syrup",
+      "glucose fructose syrup",
+      "glucose-fructosesiroop",
+      "glucosefructosesiroop"
     ],
     "status": "VEGAN",
     "reason": "Sirop sucrant d’origine végétale couramment utilisé en alimentation.",
@@ -1216,86 +1228,354 @@
     "source": "eu-additives"
   },
   {
-    "id": "cocoa_mass",
-    "name": "Pâte de cacao",
+    "id": "aubergine",
+    "name": "Aubergine",
     "eNumber": "",
     "aliases": [
-      "pâte de cacao",
-      "masse de cacao",
-      "cocoa mass",
-      "cocoa liquor",
-      "chocolate liquor",
-      "cacaomassa",
-      "Kakaomasse",
-      "pasta de cacao"
+      "aubergine",
+      "aubergines",
+      "eggplant",
+      "eggplants"
     ],
     "status": "VEGAN",
-    "reason": "Produit végétal obtenu par broyage des fèves de cacao.",
+    "reason": "Fruit-légume d’origine végétale, sans ingrédient animal dans sa désignation simple.",
     "source": "vegan-society"
   },
   {
-    "id": "cocoa_butter",
-    "name": "Beurre de cacao",
+    "id": "tomato",
+    "name": "Tomate",
     "eNumber": "",
     "aliases": [
-      "beurre de cacao",
-      "cocoa butter",
-      "cacaoboter",
-      "Kakaobutter",
-      "manteca de cacao"
+      "tomate",
+      "tomates",
+      "tomato",
+      "tomatoes",
+      "tomaat",
+      "tomaten",
+      "concentré de tomates",
+      "concentre de tomates",
+      "concentré de tomate",
+      "concentre de tomate",
+      "tomato paste",
+      "tomato concentrate",
+      "tomatenconcentraat",
+      "tomatenpuree",
+      "pulpe de tomates",
+      "pulpe de tomate",
+      "tomato pulp",
+      "tomatenpulp",
+      "purée de tomates",
+      "puree de tomates",
+      "tomato purée",
+      "tomato puree",
+      "jus de tomates",
+      "jus de tomate",
+      "tomato juice",
+      "tomatensap"
     ],
     "status": "VEGAN",
-    "reason": "Matière grasse végétale extraite des fèves de cacao ; malgré le mot « beurre », ce n’est pas un produit laitier.",
+    "reason": "Tomate et préparations simples nommées à base de tomate, d’origine végétale.",
     "source": "vegan-society"
   },
   {
-    "id": "palm_oil",
-    "name": "Huile de palme",
+    "id": "carrot",
+    "name": "Carotte",
     "eNumber": "",
     "aliases": [
-      "huile de palme",
-      "graisse de palme",
-      "palm oil",
-      "palm fat",
-      "palmolie",
-      "palmvet",
-      "Palmöl",
-      "Palmfett",
-      "aceite de palma",
-      "grasa de palma"
+      "carotte",
+      "carottes",
+      "carrot",
+      "carrots",
+      "wortel",
+      "wortelen",
+      "purée de carotte",
+      "puree de carotte",
+      "carrot purée",
+      "carrot puree",
+      "wortelpuree"
     ],
     "status": "VEGAN",
-    "reason": "Huile ou graisse végétale issue du fruit du palmier à huile.",
+    "reason": "Légume et purée simple de carotte, d’origine végétale.",
     "source": "vegan-society"
   },
   {
-    "id": "e450",
-    "name": "Diphosphates",
-    "eNumber": "E450",
+    "id": "garlic",
+    "name": "Ail",
+    "eNumber": "",
     "aliases": [
-      "diphosphate",
-      "diphosphates",
-      "diphosfaten",
-      "Diphosphate",
-      "difosfatos"
+      "ail",
+      "garlic",
+      "knoflook"
     ],
     "status": "VEGAN",
-    "reason": "Additifs minéraux ou de synthèse dérivés de l’acide phosphorique, sans origine animale attendue.",
-    "source": "eu-additives"
+    "reason": "Bulbe végétal utilisé comme aliment ou assaisonnement.",
+    "source": "vegan-society"
   },
   {
-    "id": "e150a",
-    "name": "Caramel ordinaire",
-    "eNumber": "E150a",
+    "id": "nutmeg",
+    "name": "Noix de muscade",
+    "eNumber": "",
     "aliases": [
-      "caramel ordinaire",
-      "plain caramel",
-      "gewone karamel",
-      "einfaches Zuckerkulör",
-      "caramelo natural"
+      "noix de muscade",
+      "muscade",
+      "nutmeg",
+      "nootmuskaat"
     ],
     "status": "VEGAN",
-    "reason": "Colorant obtenu par chauffage contrôlé de glucides, sans ingrédient animal attendu.",
-    "source": "eu-additives"
+    "reason": "Épice d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "parsley",
+    "name": "Persil",
+    "eNumber": "",
+    "aliases": [
+      "persil",
+      "parsley",
+      "peterselie"
+    ],
+    "status": "VEGAN",
+    "reason": "Herbe aromatique d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "white_pepper",
+    "name": "Poivre blanc",
+    "eNumber": "",
+    "aliases": [
+      "poivre blanc",
+      "white pepper",
+      "witte peper"
+    ],
+    "status": "VEGAN",
+    "reason": "Épice d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "coriander",
+    "name": "Coriandre",
+    "eNumber": "",
+    "aliases": [
+      "coriandre",
+      "coriander",
+      "koriander"
+    ],
+    "status": "VEGAN",
+    "reason": "Herbe ou graine d’épice d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "celery",
+    "name": "Céleri",
+    "eNumber": "",
+    "aliases": [
+      "céleri",
+      "celeri",
+      "celery",
+      "selderij",
+      "graines de céleri",
+      "graines de celeri",
+      "celery seeds",
+      "selderijzaad",
+      "céleri moulu",
+      "celeri moulu",
+      "ground celery"
+    ],
+    "status": "VEGAN",
+    "reason": "Légume et graines de céleri d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "zucchini",
+    "name": "Courgette",
+    "eNumber": "",
+    "aliases": [
+      "courgette",
+      "courgettes",
+      "zucchini",
+      "zucchinis"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit-légume d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "bell_pepper",
+    "name": "Poivron",
+    "eNumber": "",
+    "aliases": [
+      "poivron",
+      "poivrons",
+      "bell pepper",
+      "bell peppers",
+      "sweet pepper",
+      "sweet peppers",
+      "paprika pepper"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit-légume d’origine végétale. L’alias ambigu « paprika » seul est volontairement exclu pour ne pas détourner l’entrée de l’épice paprika.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "leek",
+    "name": "Poireau",
+    "eNumber": "",
+    "aliases": [
+      "poireau",
+      "poireaux",
+      "leek",
+      "leeks",
+      "prei"
+    ],
+    "status": "VEGAN",
+    "reason": "Légume d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "mushroom",
+    "name": "Champignon",
+    "eNumber": "",
+    "aliases": [
+      "champignon",
+      "champignons",
+      "mushroom",
+      "mushrooms",
+      "paddenstoel",
+      "paddenstoelen"
+    ],
+    "status": "VEGAN",
+    "reason": "Champignons comestibles, d’origine fongique et sans ingrédient animal dans leur désignation simple.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "pumpkin",
+    "name": "Courge",
+    "eNumber": "",
+    "aliases": [
+      "courge",
+      "courges",
+      "pumpkin",
+      "pumpkins",
+      "squash",
+      "pompoen",
+      "pompoenen"
+    ],
+    "status": "VEGAN",
+    "reason": "Légume-fruit d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "apricot",
+    "name": "Abricot",
+    "eNumber": "",
+    "aliases": [
+      "abricot",
+      "abricots",
+      "apricot",
+      "apricots",
+      "abrikoos",
+      "abrikozen",
+      "purée d’abricot",
+      "purée d abricot",
+      "puree d’abricot",
+      "apricot purée",
+      "apricot puree",
+      "abrikozenpuree"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit et purée simple d’abricot, d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "apple",
+    "name": "Pomme",
+    "eNumber": "",
+    "aliases": [
+      "pomme",
+      "pommes",
+      "apple",
+      "apples",
+      "appel",
+      "appels",
+      "compote de pommes",
+      "apple purée",
+      "apple puree",
+      "appelmoes"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit et compote simple de pomme, d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "pear",
+    "name": "Poire",
+    "eNumber": "",
+    "aliases": [
+      "poire",
+      "poires",
+      "pear",
+      "pears",
+      "peer",
+      "peren",
+      "purée de poire",
+      "pear purée",
+      "pear puree"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit et purée simple de poire, d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "banana",
+    "name": "Banane",
+    "eNumber": "",
+    "aliases": [
+      "banane",
+      "bananes",
+      "banana",
+      "bananas",
+      "banaan",
+      "bananen",
+      "purée de banane",
+      "banana purée",
+      "banana puree"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit et purée simple de banane, d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "peach",
+    "name": "Pêche",
+    "eNumber": "",
+    "aliases": [
+      "pêche",
+      "peche",
+      "pêches",
+      "peches",
+      "peach",
+      "peaches",
+      "perzik",
+      "perziken"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "strawberry",
+    "name": "Fraise",
+    "eNumber": "",
+    "aliases": [
+      "fraise",
+      "fraises",
+      "strawberry",
+      "strawberries",
+      "aardbei",
+      "aardbeien"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit d’origine végétale.",
+    "source": "vegan-society"
   }
 ]
