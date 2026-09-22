@@ -31,4 +31,15 @@ class OcrTextCleanerTest {
         assertEquals("MATIÈRES-GRASSES", OcrTextCleaner.clean("MATIÈRES-\nGRASSES"))
         assertEquals("INGRÉ\nDIENTS", OcrTextCleaner.clean("INGRÉ\nDIENTS"))
     }
+
+    @Test fun commonFrenchIngredientHeadingOcrErrorIsCorrectedOnlyAsHeading() {
+        assertEquals(
+            "ingrédients : sucre, lait",
+            OcrTextCleaner.clean("ingrédlents: sucre, lait")
+        )
+        assertEquals(
+            "texte ingrédlents sans séparateur",
+            OcrTextCleaner.clean("texte ingrédlents sans séparateur")
+        )
+    }
 }

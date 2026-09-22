@@ -1,5 +1,6 @@
 package com.example.isitvegan
 
+import android.os.ParcelFileDescriptor
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
@@ -8,12 +9,30 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextInput
 import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.rules.RuleChain
+import org.junit.rules.TestRule
+import org.junit.rules.TestWatcher
+import org.junit.runner.Description
 import org.junit.Rule
 import org.junit.Test
 
 class MainScreenInstrumentedTest {
-    @get:Rule
+    private val wakeDeviceRule = object : TestWatcher() {
+        override fun starting(description: Description) {
+            val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
+            listOf("input keyevent 224", "wm dismiss-keyguard", "input keyevent 82")
+                .forEach { command ->
+                    ParcelFileDescriptor.AutoCloseInputStream(
+                        automation.executeShellCommand(command)
+                    ).use { it.readBytes() }
+                }
+        }
+    }
+
     val composeRule = createAndroidComposeRule<MainActivity>()
+
+    @get:Rule
+    val rules: TestRule = RuleChain.outerRule(wakeDeviceRule).around(composeRule)
 
     @Test fun pageCanScrollToItsFooter() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
@@ -67,7 +86,10 @@ class MainScreenInstrumentedTest {
             .assertIsDisplayed()
 
         composeRule.onNodeWithText("OCR").performClick()
-        composeRule.onNodeWithText("Collez le texte extrait de la photo")
+        composeRule.onNodeWithText("Texte éditable à analyser")
+            .performScrollTo()
+            .performClick()
+        composeRule.onNodeWithText("Corrigez ou saisissez le texte de l’étiquette")
             .assertIsDisplayed()
     }
 

@@ -6,7 +6,6 @@ internal data class OcrBounds(
     val right: Int,
     val bottom: Int
 ) {
-    val width: Int get() = (right - left).coerceAtLeast(0)
     val height: Int get() = (bottom - top).coerceAtLeast(0)
 
     fun verticallyOverlaps(other: OcrBounds): Boolean =

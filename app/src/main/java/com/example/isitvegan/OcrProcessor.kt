@@ -26,8 +26,18 @@ internal class OcrProcessor(context: Context) {
                 val result = try {
                     val document = recognized.toOcrDocument(prepared.orientationDegrees)
                     val reconstruction = OcrTextReconstructor.reconstruct(document)
-                    val segmentation = LabelLanguageSegmenter.segment(reconstruction.text)
-                    val editable = OcrTextCleaner.clean(reconstruction.text)
+                    // ML Kit already returns its best reading order in Text.text. Re-sorting every
+                    // block from bounding boxes can scramble curved, rotated or multi-column labels
+                    // even though recognition itself succeeded. Keep the native order as the source
+                    // of the editable/analyzed text; retain geometric reconstruction for diagnostics.
+                    val editable = OcrTextCleaner.clean(recognized.text)
+                    val reconstructed = OcrTextCleaner.clean(reconstruction.text)
+                    val nativeOrderWarning = if (reconstructed != editable) {
+                        listOf("ordre natif ML Kit conservé ; reconstruction géométrique ignorée")
+                    } else {
+                        emptyList()
+                    }
+                    val segmentation = LabelLanguageSegmenter.segment(editable)
                     OcrProcessingResult(
                         rawText = recognized.text,
                         editableText = editable,
@@ -38,7 +48,7 @@ internal class OcrProcessor(context: Context) {
                             detectedZones = segmentation.blocks.map {
                                 if (it.language == LabelLanguage.UNKNOWN) "UNKNOWN" else it.language.displayName
                             }.distinct(),
-                            warnings = (prepared.warnings + reconstruction.warnings).distinct()
+                            warnings = (prepared.warnings + nativeOrderWarning).distinct()
                         )
                     )
                 } catch (_: RuntimeException) {

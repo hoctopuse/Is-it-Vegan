@@ -11,8 +11,10 @@ import java.util.concurrent.TimeUnit
 
 class OcrFixturesInstrumentedTest {
     @Test fun bundledLatinRecognizerReadsControlledFixtureEssentials() {
-        val context = InstrumentationRegistry.getInstrumentation().targetContext
-        val processor = OcrProcessor(context)
+        val instrumentation = InstrumentationRegistry.getInstrumentation()
+        val targetContext = instrumentation.targetContext
+        val testContext = instrumentation.context
+        val processor = OcrProcessor(targetContext)
         try {
             listOf(
                 "simple" to listOf("water", "sugar"),
@@ -20,9 +22,9 @@ class OcrFixturesInstrumentedTest {
                 "nested" to listOf("sauce", "huile"),
                 "may_contain" to listOf("CONTENIR")
             ).forEach { (name, expected) ->
-                val file = File(context.cacheDir, "$name.png")
-                context.assets.open("ocr/$name.png").use { input -> file.outputStream().use(input::copyTo) }
-                val expectedText = context.assets.open("ocr/$name.txt").bufferedReader().use { it.readText() }
+                val file = File(targetContext.cacheDir, "$name.png")
+                testContext.assets.open("ocr/$name.png").use { input -> file.outputStream().use(input::copyTo) }
+                val expectedText = testContext.assets.open("ocr/$name.txt").bufferedReader().use { it.readText() }
                 val latch = CountDownLatch(1)
                 var recognized = ""
                 var error: String? = null

@@ -124,7 +124,7 @@ internal object LabelLanguageSegmenter {
 
     private fun markerRegex(marker: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$marker",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
-    private fun languageNameRegex(name: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$name(?:\\s*:\\s*|(?=\\s*(?:$|\\r?\\n|(?:${LabelLexicon.ingredientWordPattern})\\b)))",
+    private fun languageNameRegex(name: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$name(?:\\s*:\\s*|(?=\\s*(?:$|\\r?\\n|${LabelLexicon.ingredientWordPattern}\\b)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
     private fun languageCodePattern(
         languageCode: String,
@@ -142,6 +142,6 @@ internal object LabelLanguageSegmenter {
             listOf("\\[$languageCode]", "\\($languageCode\\)") + aliases)
             .joinToString(prefix = "(?:", postfix = ")", separator = "|")
     }
-    private fun codeRegex(code: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$code(?:\\s*(?::|[—–-])\\s*|(?=\\s*(?:$|\\r?\\n|(?:${LabelLexicon.ingredientWordPattern})\\b)))",
+    private fun codeRegex(code: String) = Regex("(?:^|(?<=[\\n.;|]))[\\t ]*$code(?:\\s*(?::|[—–-])\\s*|(?=\\s*(?:$|\\r?\\n|${LabelLexicon.ingredientWordPattern}\\b)))",
         setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE))
 }

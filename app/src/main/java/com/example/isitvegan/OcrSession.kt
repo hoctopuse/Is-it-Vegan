@@ -36,7 +36,10 @@ internal object OcrExportReport {
         appendLine()
         session.ocrDiagnostics?.let { diagnostic ->
             appendLine("DIAGNOSTIC OCR")
-            appendLine("Orientation : ${diagnostic.orientationDegrees?.let { "$it°" } ?: "indéterminée"}")
+            appendLine(
+                "Rotation EXIF transmise à ML Kit : " +
+                    (diagnostic.orientationDegrees?.let { "$it°" } ?: "indéterminée")
+            )
             appendLine("Blocs : ${diagnostic.blockCount}")
             appendLine("Lignes : ${diagnostic.lineCount}")
             appendLine("Zones détectées : ${diagnostic.detectedZones.ifEmpty { listOf("UNKNOWN") }.joinToString()}")

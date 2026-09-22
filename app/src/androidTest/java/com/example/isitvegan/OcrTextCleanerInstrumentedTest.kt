@@ -10,4 +10,11 @@ class OcrTextCleanerInstrumentedTest {
         assertEquals("MATIÈRES-GRASSES", OcrTextCleaner.clean("MATIÈRES-\nGRASSES"))
         assertEquals("INGRÉ\nDIENTS", OcrTextCleaner.clean("INGRÉ\nDIENTS"))
     }
+
+    @Test fun frenchIngredientHeadingOcrErrorUsesAndroidRegexEngine() {
+        assertEquals(
+            "ingrédients : sucre, lait",
+            OcrTextCleaner.clean("ingrédlents: sucre, lait")
+        )
+    }
 }

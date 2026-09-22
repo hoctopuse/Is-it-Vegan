@@ -35,9 +35,9 @@ class OcrSessionTest {
                 OcrDiagnostics(90, 8, 34, listOf("FR", "NL", "UNKNOWN"), listOf("ordre visuel incertain"))
             )
         )
-        val export = OcrExportReport.build(session, "0.6.1")
+        val export = OcrExportReport.build(session, "0.6.2")
 
-        assertTrue(export.contains("Orientation : 90°"))
+        assertTrue(export.contains("Rotation EXIF transmise à ML Kit : 90°"))
         assertTrue(export.contains("Blocs : 8"))
         assertTrue(export.contains("Lignes : 34"))
         assertTrue(export.contains("Zones détectées : FR, NL, UNKNOWN"))
