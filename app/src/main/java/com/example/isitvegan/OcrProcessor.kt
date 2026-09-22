@@ -21,17 +21,49 @@ internal class OcrProcessor(context: Context) {
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
     fun process(uri: Uri, onSuccess: (OcrProcessingResult) -> Unit, onFailure: (String) -> Unit, preferredLanguage: UiLanguage = UiLanguage.FR) {
+        process(uri, null, onSuccess, onFailure, preferredLanguage)
+    }
+
+    fun process(
+        uri: Uri,
+        cropRect: OcrCropRect?,
+        onSuccess: (OcrProcessingResult) -> Unit,
+        onFailure: (String) -> Unit,
+        preferredLanguage: UiLanguage = UiLanguage.FR
+    ) {
         scope.launch {
             val prepared = try {
-                imageFactory.create(uri)
+                if (cropRect == null) imageFactory.create(uri) else prepareCrop(uri, cropRect)
             } catch (_: IOException) {
                 deliverFailure(onFailure, "Cette image est inaccessible ou n’est pas prise en charge.")
                 return@launch
             } catch (_: RuntimeException) {
                 deliverFailure(onFailure, "Impossible de lire cette image.")
                 return@launch
+            } catch (_: OutOfMemoryError) {
+                deliverFailure(onFailure, "Image trop grande pour cet appareil. Essayez un recadrage plus serré.")
+                return@launch
             }
             processPrepared(prepared, onSuccess, onFailure, preferredLanguage)
+        }
+    }
+
+    private fun prepareCrop(uri: Uri, cropRect: OcrCropRect): PreparedOcrImage {
+        val source = imageFactory.decodeForCrop(uri)
+        var crop: Bitmap? = null
+        try {
+            crop = OcrBitmapCropper.crop(source, cropRect)
+            if (crop !== source) source.recycle()
+            return PreparedOcrImage(
+                image = InputImage.fromBitmap(crop, 0),
+                orientationDegrees = 0,
+                bitmapToRecycle = crop,
+                warnings = listOf("zone recadrée appliquée après orientation EXIF")
+            )
+        } catch (error: Throwable) {
+            crop?.takeUnless(Bitmap::isRecycled)?.recycle()
+            if (crop !== source && !source.isRecycled) source.recycle()
+            throw error
         }
     }
 
@@ -125,7 +157,9 @@ internal class OcrProcessor(context: Context) {
             .addOnFailureListener {
                 scope.launch { deliverFailure(onFailure, "L’extraction OCR a échoué. Vous pouvez saisir le texte manuellement.") }
             }
-            .addOnCompleteListener { scope.launch { prepared.bitmapToRecycle?.recycle() } }
+            .addOnCompleteListener {
+                prepared.bitmapToRecycle?.takeUnless(Bitmap::isRecycled)?.recycle()
+            }
     }
 
     private fun languagePreference(language: UiLanguage): List<String> = when (language) {

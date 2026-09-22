@@ -98,8 +98,13 @@ object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()
     private var originRules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty()
     private var originRuleErrors: List<String> = emptyList()
+    @Volatile private var databaseLoaded = false
 
+    fun isDatabaseLoaded(): Boolean = databaseLoaded
+
+    @Synchronized
     fun loadDatabase(context: Context) {
+        if (databaseLoaded) return
         val json = context.assets.open("ingredients.json")
             .bufferedReader().use { it.readText() }
         val jsonArray = JSONArray(json)
@@ -126,6 +131,7 @@ object VeganAnalyzer {
         val loadedRules = OriginQualifierRuleSet.load(originJson)
         originRules = loadedRules.rules
         originRuleErrors = loadedRules.errors
+        databaseLoaded = true
     }
 
     fun analyze(

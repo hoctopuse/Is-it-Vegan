@@ -66,11 +66,15 @@ internal class OcrImageInputFactory(context: Context) {
         boundsStream.use { BitmapFactory.decodeStream(it, null, bounds) }
         if (bounds.outWidth <= 0 || bounds.outHeight <= 0) throw IOException("Dimensions d’image invalides")
 
-        var sampleSize = 1
-        while (maxOf(bounds.outWidth, bounds.outHeight) / (sampleSize * 2) >= maxDimension) {
-            sampleSize *= 2
+        val sampleSize = OcrImageSizing.sampleSize(bounds.outWidth, bounds.outHeight, maxDimension)
+        val options = BitmapFactory.Options().apply {
+            inSampleSize = sampleSize
+            inPreferredConfig = if (maxDimension == PREVIEW_MAX_DIMENSION) {
+                Bitmap.Config.RGB_565
+            } else {
+                Bitmap.Config.ARGB_8888
+            }
         }
-        val options = BitmapFactory.Options().apply { inSampleSize = sampleSize }
         val decoded = appContext.contentResolver.openInputStream(uri)?.use {
             BitmapFactory.decodeStream(it, null, options)
         } ?: throw IOException("Image illisible")
@@ -131,8 +135,10 @@ internal class OcrImageInputFactory(context: Context) {
     }
 
     private companion object {
-        const val PREVIEW_MAX_DIMENSION = 1280
-        const val OCR_MAX_DIMENSION = 2560
+        // A 720p-class phone does not benefit from retaining a 1280 px preview.
+        // OCR keeps more detail, while 2048 px bounds the transient bitmap near 16 MiB.
+        const val PREVIEW_MAX_DIMENSION = 1024
+        const val OCR_MAX_DIMENSION = 2048
 
         val mirroredOrientations = setOf(
             ExifInterface.ORIENTATION_FLIP_HORIZONTAL,

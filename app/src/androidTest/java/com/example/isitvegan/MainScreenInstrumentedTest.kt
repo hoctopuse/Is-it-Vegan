@@ -1,13 +1,16 @@
 package com.example.isitvegan
 
 import android.os.ParcelFileDescriptor
+import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.test.waitUntilAtLeastOneExists
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.rules.RuleChain
 import org.junit.rules.TestRule
@@ -16,6 +19,7 @@ import org.junit.runner.Description
 import org.junit.Rule
 import org.junit.Test
 
+@OptIn(ExperimentalTestApi::class)
 class MainScreenInstrumentedTest {
     private val wakeDeviceRule = object : TestWatcher() {
         override fun starting(description: Description) {
@@ -49,7 +53,7 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("Texte de l’étiquette")
             .performTextInput("INGRÉDIENTS\neau, sucre")
         composeRule.onNodeWithText("ANALYSER").performClick()
-        composeRule.waitForIdle()
+        composeRule.waitUntilAtLeastOneExists(hasText("✅ VEGAN", substring = true), 10_000)
         composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
     }
 
@@ -57,7 +61,7 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("Texte de l’étiquette")
             .performTextInput("INGRÉDIENTS\nsucre. Peut contenir du lait.")
         composeRule.onNodeWithText("ANALYSER").performClick()
-        composeRule.waitForIdle()
+        composeRule.waitUntilAtLeastOneExists(hasText("⚠️ TRACES SIGNALÉES", substring = true), 10_000)
         composeRule.onNodeWithText("⚠️ TRACES SIGNALÉES", substring = true)
             .performScrollTo().assertIsDisplayed()
         composeRule.onNodeWithText("• Peut contenir du lait.", substring = true).assertIsDisplayed()
@@ -68,7 +72,10 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("Étiquette").assertIsSelected()
         composeRule.onNodeWithText("Texte de l’étiquette").performTextInput("Pommes")
         composeRule.onNodeWithText("ANALYSER").performClick()
-        composeRule.waitForIdle()
+        composeRule.waitUntilAtLeastOneExists(
+            hasText("AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE", substring = true),
+            10_000
+        )
 
         composeRule.onNodeWithText("AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE", substring = true)
             .performScrollTo()
@@ -100,7 +107,7 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("Texte de l’étiquette")
             .performTextInput("INGRÉDIENTS\neau, sucre, sel")
         composeRule.onNodeWithText("ANALYSER").performClick()
-        composeRule.waitForIdle()
+        composeRule.waitUntilAtLeastOneExists(hasText("✅ VEGAN", substring = true), 10_000)
         composeRule.onNodeWithText("✅ VEGAN", substring = true)
             .performScrollTo()
             .assertIsDisplayed()
@@ -110,7 +117,7 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("Texte de l’étiquette")
             .performTextInput("INGRÉDIENTS\neau, sucre")
         composeRule.onNodeWithText("ANALYSER").performClick()
-        composeRule.waitForIdle()
+        composeRule.waitUntilAtLeastOneExists(hasText("✅ VEGAN", substring = true), 10_000)
         composeRule.onNodeWithText("Liste seule").performClick()
         composeRule.onNodeWithText("⚪ En attente d'analyse").assertIsDisplayed()
     }

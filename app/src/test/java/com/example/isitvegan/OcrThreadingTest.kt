@@ -11,4 +11,11 @@ class OcrThreadingTest {
 
         assertNotEquals(callingThread, workerThread)
     }
+
+    @Test fun cpuIntensivePostProcessingRunsAwayFromTheCallingThread() = runBlocking {
+        val callingThread = Thread.currentThread().name
+        val workerThread = OcrThreading.cpu { Thread.currentThread().name }
+
+        assertNotEquals(callingThread, workerThread)
+    }
 }

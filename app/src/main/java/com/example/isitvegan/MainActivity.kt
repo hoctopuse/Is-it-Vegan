@@ -18,6 +18,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import com.example.isitvegan.ui.theme.IsItVeganTheme
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import kotlin.time.Duration.Companion.milliseconds
 
 private const val WAITING_RESULT = "⚪ En attente d'analyse"
@@ -26,10 +28,17 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        VeganAnalyzer.loadDatabase(this)
         setContent {
+            var databaseReady by remember { mutableStateOf(VeganAnalyzer.isDatabaseLoaded()) }
+            LaunchedEffect(Unit) {
+                if (!databaseReady) {
+                    databaseReady = withContext(Dispatchers.IO) {
+                        runCatching { VeganAnalyzer.loadDatabase(applicationContext) }.isSuccess
+                    }
+                }
+            }
             IsItVeganTheme {
-                OcrFirstScreen()
+                OcrFirstScreen(analysisEnabled = databaseReady)
             }
         }
     }
