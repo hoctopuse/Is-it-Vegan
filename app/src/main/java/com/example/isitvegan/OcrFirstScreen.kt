@@ -9,6 +9,7 @@ import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.text.selection.SelectionContainer
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.layout.*
@@ -26,6 +27,10 @@ import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun OcrFirstScreen() {
+    val context = LocalContext.current
+    var uiLanguage by remember { mutableStateOf(UiLanguagePreferences.read(context)) }
+    val localized = remember(uiLanguage) { localizedContext(context, uiLanguage) }
+    fun ui(id: Int) = localized.resources.getString(id)
     var ingredients by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("⚪ En attente d'analyse") }
     var diagnostics by remember { mutableStateOf<AnalysisDiagnostics?>(null) }
@@ -40,7 +45,6 @@ fun OcrFirstScreen() {
     var extracting by remember { mutableStateOf(false) }
     var loadingPreview by remember { mutableStateOf(false) }
     var preparingCrop by remember { mutableStateOf(false) }
-    val context = LocalContext.current
     val focusManager = LocalFocusManager.current
     val scrollState = rememberScrollState()
     val coroutineScope = rememberCoroutineScope()
@@ -81,7 +85,7 @@ fun OcrFirstScreen() {
 
     fun analyse(text: String) {
         focusManager.clearFocus()
-        val current = VeganAnalyzer.analyzeWithDiagnostics(text, inputMode)
+        val current = VeganAnalyzer.analyzeWithDiagnostics(text, inputMode, uiLanguage)
         val display = OcrFirstScreenResult.render(text, current)
         diagnostics = current; result = display
         session = session.addAnalysis(AnalysisSnapshot(text, DiagnosticReport.build(current, appVersionName(context)), display, System.currentTimeMillis()))
@@ -90,17 +94,17 @@ fun OcrFirstScreen() {
     Scaffold(Modifier.fillMaxSize()) { padding ->
         Column(Modifier.padding(padding).fillMaxSize().verticalScroll(scrollState).imePadding().padding(horizontal = 20.dp, vertical = 16.dp), verticalArrangement = Arrangement.spacedBy(16.dp)) {
             Text("🌱 Is It Vegan?", style = MaterialTheme.typography.headlineLarge)
-            Text("Colle une étiquette ou une liste d’ingrédients pour vérifier sa composition hors ligne.", style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Text("Mode d’entrée", style = MaterialTheme.typography.titleMedium)
+            Text(ui(R.string.tagline), style = MaterialTheme.typography.bodyLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
+            Text(ui(R.string.input_mode), style = MaterialTheme.typography.titleMedium)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                listOf(InputMode.FULL_LABEL to "Étiquette", InputMode.MANUAL_INGREDIENT_LIST to "Liste seule", InputMode.OCR_LABEL to "OCR").forEach { (mode, label) ->
+                listOf(InputMode.FULL_LABEL to ui(R.string.mode_label), InputMode.MANUAL_INGREDIENT_LIST to ui(R.string.mode_list), InputMode.OCR_LABEL to ui(R.string.mode_ocr)).forEach { (mode, label) ->
                     FilterChip(selected = inputMode == mode, onClick = { inputMode = mode; diagnostics = null; result = "⚪ En attente d'analyse" }, label = { Text(label) })
                 }
             }
             if (inputMode == InputMode.OCR_LABEL) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Button({ picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text("CHOISIR UNE PHOTO") }
-                    OutlinedButton({ sourceUri = null; preview = null; cropBitmap = null; cropPreview = null; session = OcrSession(); diagnostics = null; ocrMessage = "Saisie manuelle activée." }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text("SAISIE MANUELLE") }
+                    Button({ picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text(ui(R.string.choose_photo)) }
+                    OutlinedButton({ sourceUri = null; preview = null; cropBitmap = null; cropPreview = null; session = OcrSession(); diagnostics = null; ocrMessage = "Saisie manuelle activée." }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text(ui(R.string.manual_entry)) }
                 }
                 preview?.let { original ->
                     val displayed = cropPreview ?: original
@@ -110,14 +114,14 @@ fun OcrFirstScreen() {
                         Modifier.fillMaxWidth().heightIn(max = 260.dp),
                         contentScale = ContentScale.Fit
                     )
-                    Button({ cropDialogVisible = true }, Modifier.fillMaxWidth(), enabled = !extracting && !preparingCrop) { Text("RECADRER POUR L’OCR") }
+                    Button({ cropDialogVisible = true }, Modifier.fillMaxWidth(), enabled = !extracting && !preparingCrop) { Text(ui(R.string.crop_for_ocr)) }
                     if (cropBitmap != null) {
-                        Text("OCR sur la zone recadrée", color = MaterialTheme.colorScheme.primary)
+                        Text(ui(R.string.ocr_cropped_image), color = MaterialTheme.colorScheme.primary)
                         OutlinedButton({ cropBitmap = null; cropPreview = null; session = OcrSession(); diagnostics = null; result = "⚪ En attente d'analyse"; ocrMessage = "Cadre réinitialisé. L’image entière sera utilisée." }, Modifier.fillMaxWidth(), enabled = !extracting && !preparingCrop) {
-                            Text("RÉINITIALISER LE CADRE")
+                            Text(ui(R.string.reset_crop))
                         }
                     } else {
-                        Text("OCR sur l’image entière", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                        Text(ui(R.string.ocr_full_image), color = MaterialTheme.colorScheme.onSurfaceVariant)
                     }
                 }
                 Text(ocrMessage, color = MaterialTheme.colorScheme.onSurfaceVariant)
@@ -126,24 +130,71 @@ fun OcrFirstScreen() {
                     extracting = true; ocrMessage = "Extraction du texte en cours…"
                     val onSuccess: (OcrProcessingResult) -> Unit = { ocr -> extracting = false; session = session.withOcrResult(ocr); ocrMessage = when { ocr.rawText.isBlank() -> "Aucun texte détecté. Saisissez-le manuellement ci-dessous."; ocr.usedRawFallback -> "OCR réussi, mais le post-traitement a échoué. Le texte brut reste disponible et éditable."; else -> "Texte reconstruit. Vérifiez-le avant l’analyse." } }
                     val onFailure: (String) -> Unit = { message -> extracting = false; ocrMessage = message }
-                    cropBitmap?.let { processor.process(it, onSuccess, onFailure) } ?: processor.process(uri, onSuccess, onFailure)
+                    cropBitmap?.let { processor.process(it, onSuccess, onFailure, uiLanguage) } ?: processor.process(uri, onSuccess, onFailure, uiLanguage)
                 }, enabled = sourceUri != null && !extracting && !loadingPreview && !preparingCrop, modifier = Modifier.fillMaxWidth()) { Text(if (extracting) "EXTRACTION…" else "EXTRAIRE LE TEXTE") }
                 if (session.rawOcrText != null) {
-                    Text("Texte brut OCR (lecture seule)", style = MaterialTheme.typography.titleMedium)
+                    Text(ui(R.string.raw_ocr), style = MaterialTheme.typography.titleMedium)
                     SelectionContainer { Text(session.rawOcrText!!.ifBlank { "(aucun texte détecté)" }) }
-                    Text("Le texte brut est conservé tel que fourni par ML Kit.", style = MaterialTheme.typography.bodySmall)
+                    Text(ui(R.string.ocr_raw_kept), style = MaterialTheme.typography.bodySmall)
                 }
-                OutlinedTextField(session.editableText, { session = session.withEditableText(it); diagnostics = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp), label = { Text("Texte éditable à analyser") }, placeholder = { Text("Corrigez ou saisissez le texte de l’étiquette") }, supportingText = { Text("L’OCR peut contenir des erreurs : vérifiez le texte avant l’analyse.") })
+                if (session.textOptions.size > 1) {
+                    Text(ui(R.string.ocr_block_choice), style = MaterialTheme.typography.titleMedium)
+                    Row(
+                        Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp)
+                    ) {
+                        session.textOptions.forEach { option ->
+                            FilterChip(
+                                selected = !session.fullTextSelected && session.selectedOptionLanguage == option.language,
+                                onClick = {
+                                    session = session.selectLanguage(option.language)
+                                    diagnostics = null
+                                    result = ui(R.string.waiting)
+                                },
+                                label = { Text(option.language.displayName) }
+                            )
+                        }
+                        FilterChip(
+                            selected = session.fullTextSelected,
+                            onClick = {
+                                session = session.selectFullText()
+                                diagnostics = null
+                                result = ui(R.string.waiting)
+                            },
+                            label = { Text(ui(R.string.full_ocr_text)) }
+                        )
+                    }
+                }
+                OutlinedTextField(session.editableText, { session = session.withEditableText(it); diagnostics = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp), label = { Text(ui(R.string.editable_ocr)) }, placeholder = { Text(ui(R.string.paste_ocr)) }, supportingText = { Text(ui(R.string.check_text)) })
             } else {
-                OutlinedTextField(ingredients, { ingredients = it; diagnostics = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp), label = { Text(if (inputMode == InputMode.FULL_LABEL) "Texte de l’étiquette" else "Liste d’ingrédients") }, placeholder = { Text(if (inputMode == InputMode.FULL_LABEL) "Collez le texte complet de l’étiquette" else "Collez uniquement la liste des ingrédients") }, supportingText = { Text("La liste reste sur cet appareil.") })
+                OutlinedTextField(ingredients, { ingredients = it; diagnostics = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp), label = { Text(if (inputMode == InputMode.FULL_LABEL) ui(R.string.full_label_text) else ui(R.string.ingredient_list)) }, placeholder = { Text(if (inputMode == InputMode.FULL_LABEL) ui(R.string.paste_full_label) else ui(R.string.paste_ingredients)) }, supportingText = { Text(ui(R.string.local_only)) })
             }
-            Button({ analyse(if (inputMode == InputMode.OCR_LABEL) session.editableText else ingredients) }, Modifier.fillMaxWidth()) { Text("ANALYSER") }
+            Button({ analyse(if (inputMode == InputMode.OCR_LABEL) session.editableText else ingredients) }, Modifier.fillMaxWidth()) { Text(ui(R.string.analyze)) }
             if (inputMode == InputMode.OCR_LABEL && session.analyses.any { it.submittedText != session.editableText }) Text("Le résultat affiché correspond à une version précédente du texte éditable.", color = MaterialTheme.colorScheme.tertiary)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                OutlinedButton({ ingredients = ""; session = OcrSession(); sourceUri = null; preview = null; cropBitmap = null; cropPreview = null; result = "⚪ En attente d'analyse"; diagnostics = null }, Modifier.weight(1f)) { Text("EFFACER") }
-                OutlinedButton({ shareOcrExport(context, OcrExportReport.build(session, appVersionName(context)), appVersionName(context)) }, enabled = session.analyses.isNotEmpty() || session.rawOcrText != null, modifier = Modifier.weight(1f)) { Text("EXPORTER") }
+                OutlinedButton({ ingredients = ""; session = OcrSession(); sourceUri = null; preview = null; cropBitmap = null; cropPreview = null; result = "⚪ En attente d'analyse"; diagnostics = null }, Modifier.weight(1f)) { Text(ui(R.string.clear)) }
+                OutlinedButton({ shareOcrExport(context, OcrExportReport.build(session, appVersionName(context)), appVersionName(context)) }, enabled = session.analyses.isNotEmpty() || session.rawOcrText != null, modifier = Modifier.weight(1f)) { Text(ui(R.string.export)) }
             }
-            Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) { Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { Text("Résultat", style = MaterialTheme.typography.titleLarge); HorizontalDivider(); SelectionContainer { Text(result, style = MaterialTheme.typography.bodyLarge) } } }
+            Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) { Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { Text(ui(R.string.result), style = MaterialTheme.typography.titleLarge); HorizontalDivider(); SelectionContainer { Text(result, style = MaterialTheme.typography.bodyLarge) } } }
+            Text(ui(R.string.language), style = MaterialTheme.typography.titleMedium)
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                UiLanguage.entries.forEach { language ->
+                    val label = when (language) {
+                        UiLanguage.FR -> ui(R.string.language_french)
+                        UiLanguage.EN -> ui(R.string.language_english)
+                        UiLanguage.NL -> ui(R.string.language_dutch)
+                    }
+                    FilterChip(
+                        selected = uiLanguage == language,
+                        onClick = {
+                            uiLanguage = language
+                            UiLanguagePreferences.write(context, language)
+                            diagnostics = null
+                        },
+                        label = { Text(label) }
+                    )
+                }
+            }
             Text("Version ${appVersionName(context)}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(bottom = 24.dp))
         }
     }
@@ -215,7 +266,7 @@ private object OcrFirstScreenResult {
         val detail = when {
             text.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
             a.availability == AnalysisAvailability.NO_INGREDIENT_LIST -> "ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE\n\nAucune conclusion vegan n’est produite."
-            a.verdict == AnalysisVerdict.NON_VEGETARIAN -> "❌ NON VÉGÉTARIEN\n\nIngrédient détecté :\n" + a.matched.filter { it.status == VeganStatus.NON_VEGAN }.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" }
+            a.verdict == AnalysisVerdict.NON_VEGETARIAN -> "❌ NON VEGAN\n\nIngrédient détecté :\n" + a.matched.filter { it.status == VeganStatus.NON_VEGAN }.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" }
             a.verdict == AnalysisVerdict.UNCERTAIN -> "⚠️ INCERTAIN\n\nÀ vérifier :\n" + a.uncertainIngredients.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" } + unknown
             a.verdict == AnalysisVerdict.INCONCLUSIVE -> "⚠️ INCONCLUS\n\nLa base ne reconnaît pas toute la liste." + unknown
             a.verdict == AnalysisVerdict.VEGETARIAN -> "🥕 VÉGÉTARIEN\n\nIngrédient détecté :\n" + a.vegetarianIngredients.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" }

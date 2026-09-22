@@ -21,6 +21,15 @@ internal object DiagnosticReport {
             appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
             appendLine("Blocs détectés : " + diagnostics.languageSegmentation.blocks
                 .map { it.language.displayName }.distinct().joinToString(", "))
+            diagnostics.languageSegmentation.blocks.forEachIndexed { index, block ->
+                appendLine(
+                    "Bloc ${index + 1} : marqueur=${block.detectedMarker ?: "aucun"}, " +
+                        "langue finale=${block.language.displayName}, " +
+                        "longueur utile=${block.usefulLength}, " +
+                        "tronqué=${if (block.manifestlyTruncated) "oui" else "non"}"
+                )
+                block.languageCorrectionReason?.let { appendLine("Correction : $it") }
+            }
             appendLine("Marqueur sélectionné : ${diagnostics.languageSegmentation.detectedMarker ?: "aucun"}")
             appendLine(
                 "Autres blocs ignorés : " + diagnostics.languageSegmentation.ignoredLanguages

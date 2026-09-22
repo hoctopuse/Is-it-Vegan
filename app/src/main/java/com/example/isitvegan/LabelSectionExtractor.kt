@@ -27,7 +27,9 @@ internal object LabelSectionExtractor {
         "valeurs?\\s+nutritionnelles?", "nutrition(?:al)?\\s+(?:values?|declaration)",
         "nährwert(?:angaben)?", "préparation", "preparation", "bereiding", "preparación",
         "mode\\s+d['’]emploi", "zubereitung", "fabricant", "distributeur",
-        "manufacturer", "hersteller", "fabriqué\\s+en", "origine", "origin"
+        "manufacturer", "hersteller", "fabriqué\\s+en", "origine", "origin",
+        "importateur", "importer", "imported\\s+by", "certification", "certified",
+        "open\\s+here", "ouvrir\\s+ici"
     )
     private val boundaryHeadings = listOf(
         "non\\s+ouvert", "conservation", "conseils?\\s+de\\s+conservation",
@@ -38,10 +40,12 @@ internal object LabelSectionExtractor {
         "best\\s+before(?:\\s+end)?", "ten\\s+minste\\s+houdbaar\\s+tot", "mindestens\\s+haltbar(?:\\s+bis)?",
         "consumir\\s+preferentemente\\s+antes(?:\\s+del\\s+fin)?", "[àÀ]\\s+conserver", "après\\s+ouverture",
         "na\\s+opening", "after\\s+opening", "nach\\s+dem\\s+[Öö]ffnen", "una\\s+vez\\s+abierto",
-        "lot"
+        "lot", "importateur", "importer", "imported\\s+by", "certification", "certified",
+        "open\\s+here", "ouvrir\\s+ici"
     )
 
-    fun extract(block: LanguageBlock): LabelSections = extract(block.language, block.rawText)
+    fun extract(block: LanguageBlock): LabelSections =
+        extract(block.language, block.rawText).copy(language = block.language)
 
     fun extract(language: LabelLanguage, text: String): LabelSections {
         val markers = findMarkers(text)

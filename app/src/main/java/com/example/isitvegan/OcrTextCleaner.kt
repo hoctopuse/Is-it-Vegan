@@ -24,6 +24,9 @@ internal object OcrTextCleaner {
         val spaceBeforePunctuation = Regex("""\s+([,.])""")
         val spaceBeforeClosingParenthesis = Regex("""\s+\)""")
         val commaWithoutSpace = Regex(""",([\p{L}*])""")
+        val spacesAroundColon = Regex("""[\t ]*:[\t ]*""")
+        val spaceAfterOpeningParenthesis = Regex("""\([\t ]+""")
+        val repeatedSeparators = Regex("""([,:;])\1+""")
 
         return text
             .replace("\r\n", "\n")
@@ -38,9 +41,20 @@ internal object OcrTextCleaner {
                     .replace(spaceBeforePunctuation, "$1")
                     .replace(spaceBeforeClosingParenthesis, ")")
                     .replace(commaWithoutSpace, ", $1")
+                    .replace(spacesAroundColon, ": ")
+                    .replace(spaceAfterOpeningParenthesis, "(")
+                    .replace(repeatedSeparators, "$1")
                     .replace(heading, "$1 : $2")
                     .replace(mayContain, "$1 : $2")
                     .trimEnd()
             }
+    }
+
+    fun cleanSelectedBlock(text: String): String {
+        val cleaned = clean(text)
+        val parasite = Regex(
+            "(?im)(?:^|\\n)[\\t ]*(?:open\\s+here|ouvrir\\s+ici|importateur|imported\\s+by|importer|certification|certified)\\b"
+        ).find(cleaned)
+        return cleaned.substring(0, parasite?.range?.first ?: cleaned.length).trim()
     }
 }

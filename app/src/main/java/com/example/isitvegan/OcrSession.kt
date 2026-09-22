@@ -5,17 +5,42 @@ internal data class OcrSession(
     val rawOcrText: String? = null,
     val editableText: String = "",
     val analyses: List<AnalysisSnapshot> = emptyList(),
-    val ocrDiagnostics: OcrDiagnostics? = null
+    val ocrDiagnostics: OcrDiagnostics? = null,
+    val fullOcrText: String = "",
+    val textOptions: List<OcrTextOption> = emptyList(),
+    val selectedOptionLanguage: LabelLanguage? = null,
+    val fullTextSelected: Boolean = false
 ) {
     fun withOcrText(text: String): OcrSession = copy(rawOcrText = text, editableText = text)
 
     fun withOcrResult(result: OcrProcessingResult): OcrSession = copy(
         rawOcrText = result.rawText,
         editableText = result.editableText,
-        ocrDiagnostics = result.diagnostics
+        ocrDiagnostics = result.diagnostics,
+        fullOcrText = result.fullText,
+        textOptions = result.textOptions,
+        selectedOptionLanguage = result.selectedOptionLanguage,
+        fullTextSelected = result.selectedOptionLanguage == null
     )
 
     fun withEditableText(text: String): OcrSession = copy(editableText = text)
+
+    fun selectLanguage(language: LabelLanguage): OcrSession {
+        val option = textOptions.firstOrNull { it.language == language } ?: return this
+        return copy(
+            editableText = option.text,
+            analyses = emptyList(),
+            selectedOptionLanguage = language,
+            fullTextSelected = false
+        )
+    }
+
+    fun selectFullText(): OcrSession = copy(
+        editableText = fullOcrText,
+        analyses = emptyList(),
+        selectedOptionLanguage = null,
+        fullTextSelected = true
+    )
 
     fun addAnalysis(snapshot: AnalysisSnapshot): OcrSession =
         copy(analyses = analyses + snapshot)
@@ -43,6 +68,10 @@ internal object OcrExportReport {
             appendLine("Blocs : ${diagnostic.blockCount}")
             appendLine("Lignes : ${diagnostic.lineCount}")
             appendLine("Zones détectées : ${diagnostic.detectedZones.ifEmpty { listOf("UNKNOWN") }.joinToString()}")
+            diagnostic.detectedBlockDetails.forEach { appendLine("Bloc : $it") }
+            appendLine("Langue sélectionnée : ${diagnostic.selectedLanguage ?: "UNKNOWN"}")
+            appendLine("Ordre de préférence : ${diagnostic.languagePreference.ifEmpty { listOf("FR", "EN", "NL") }.joinToString(" → ")}")
+            diagnostic.selectionReason?.takeIf { it.isNotBlank() }?.let { appendLine("Raison du choix : $it") }
             appendLine("Avertissements : ${diagnostic.warnings.ifEmpty { listOf("aucun") }.joinToString(" ; ")}")
             appendLine()
         }

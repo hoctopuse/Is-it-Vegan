@@ -12,7 +12,13 @@ data class LanguageBlock(
     val rawText: String,
     val startIndex: Int,
     val endIndex: Int,
-    val detectedMarker: String?
+    val detectedMarker: String?,
+    val headingLanguage: LabelLanguage? = null,
+    val languageCorrectionReason: String? = null,
+    val hasIngredientHeading: Boolean = false,
+    val hasHeadingSeparator: Boolean = false,
+    val usefulLength: Int = 0,
+    val manifestlyTruncated: Boolean = false
 )
 
 data class LanguageSegmentation(
@@ -60,25 +66,27 @@ internal object LabelLanguageSegmenter {
         )
     }
 
-    fun segment(text: String): LanguageSegmentation {
+    fun segment(text: String, preferredUiLanguage: UiLanguage? = null): LanguageSegmentation {
         val markers = findMarkers(text)
         if (markers.isEmpty()) return fallback(text)
         val blocks = markers.mapIndexed { index, marker ->
             val end = markers.getOrNull(index + 1)?.range?.first ?: text.length
             LanguageBlock(marker.language, marketTags(marker.marker), text.substring(marker.contentStart, end).trim(), marker.contentStart, end, marker.marker)
+                .let(OcrBlockLanguageClassifier::classify)
         }.filter { it.rawText.isNotBlank() }
         if (blocks.isEmpty()) return fallback(text)
-        val titledBlocks = blocks.filter { LabelLexicon.findIngredientHeadings(it.rawText).isNotEmpty() }
-        val selected = preferredBlock(titledBlocks.ifEmpty { blocks })
+        val titledBlocks = blocks.filter { it.hasIngredientHeading }
+        val selected = preferredBlock(titledBlocks.ifEmpty { blocks }, preferredUiLanguage)
+        val correctionReason = selected.languageCorrectionReason?.let { " $it" }.orEmpty()
         return LanguageSegmentation(text, blocks, selected.rawText, selected.language, selected.detectedMarker,
             blocks.map { it.language }.filter { it != selected.language }.distinct(), false,
             selectionReason = if (titledBlocks.isNotEmpty()) {
-                "Bloc avec un titre d’ingrédients, puis préférence linguistique."
+                "Qualité du bloc évaluée avant la préférence linguistique.$correctionReason"
             } else {
                 "Aucun bloc avec titre d’ingrédients ; bloc conservé pour un éventuel mode manuel."
             },
             rejectedUntitledLanguages = if (titledBlocks.isNotEmpty()) {
-                blocks.filterNot { it in titledBlocks }.map { it.language }.distinct()
+                blocks.filterNot { it.hasIngredientHeading }.map { it.language }.distinct()
             } else emptyList()
         )
     }
@@ -104,15 +112,37 @@ internal object LabelLanguageSegmenter {
         markers
     }
 
-    private fun preferredBlock(blocks: List<LanguageBlock>): LanguageBlock = listOf(
-        LabelLanguage.FRENCH, LabelLanguage.DUTCH, LabelLanguage.ENGLISH,
+    private fun preferredBlock(blocks: List<LanguageBlock>, uiLanguage: UiLanguage?): LanguageBlock {
+        val order = when (uiLanguage) {
+            UiLanguage.NL -> listOf(LabelLanguage.DUTCH, LabelLanguage.ENGLISH, LabelLanguage.FRENCH)
+            UiLanguage.EN -> listOf(LabelLanguage.ENGLISH, LabelLanguage.FRENCH, LabelLanguage.DUTCH)
+            UiLanguage.FR -> listOf(LabelLanguage.FRENCH, LabelLanguage.ENGLISH, LabelLanguage.DUTCH)
+            null -> listOf(LabelLanguage.FRENCH, LabelLanguage.DUTCH, LabelLanguage.ENGLISH)
+        } + listOf(
         LabelLanguage.GERMAN, LabelLanguage.ITALIAN, LabelLanguage.SPANISH,
         LabelLanguage.PORTUGUESE, LabelLanguage.SWEDISH, LabelLanguage.DANISH,
         LabelLanguage.NORWEGIAN, LabelLanguage.FINNISH
-    ).firstNotNullOfOrNull { language -> blocks.firstOrNull { it.language == language } } ?: blocks.first()
+        )
+        val ranked = blocks.withIndex().sortedWith(
+            compareByDescending<IndexedValue<LanguageBlock>> { blockQuality(it.value) }
+                .thenBy { index -> order.indexOf(index.value.language).let { if (it < 0) Int.MAX_VALUE else it } }
+                .thenByDescending { it.value.usefulLength }
+                .thenBy { it.index }
+        )
+        return ranked.firstOrNull()?.value ?: blocks.first()
+    }
+
+    private fun blockQuality(block: LanguageBlock): Int = when {
+        block.hasIngredientHeading && block.hasHeadingSeparator && !block.manifestlyTruncated -> 4
+        block.hasIngredientHeading && !block.manifestlyTruncated -> 3
+        block.hasIngredientHeading -> 2
+        !block.manifestlyTruncated -> 1
+        else -> 0
+    }
 
     private fun fallback(text: String): LanguageSegmentation {
-        val block = LanguageBlock(LabelLanguage.UNKNOWN, emptySet(), text, 0, text.length, null)
+        val block = LanguageBlock(LabelLanguage.UNKNOWN, emptySet(), text, 0, text.length, null,
+            usefulLength = text.count { it.isLetterOrDigit() })
         return LanguageSegmentation(
             text, listOf(block), text, LabelLanguage.UNKNOWN, null, emptyList(), true,
             selectionReason = "Aucun marqueur de langue ; texte complet conservé pour extraction bornée."

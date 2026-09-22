@@ -20,7 +20,7 @@ internal class OcrProcessor(context: Context) {
     private val imageFactory = OcrImageInputFactory(context)
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
 
-    fun process(uri: Uri, onSuccess: (OcrProcessingResult) -> Unit, onFailure: (String) -> Unit) {
+    fun process(uri: Uri, onSuccess: (OcrProcessingResult) -> Unit, onFailure: (String) -> Unit, preferredLanguage: UiLanguage = UiLanguage.FR) {
         scope.launch {
             val prepared = try {
                 imageFactory.create(uri)
@@ -31,17 +31,18 @@ internal class OcrProcessor(context: Context) {
                 deliverFailure(onFailure, "Impossible de lire cette image.")
                 return@launch
             }
-            processPrepared(prepared, onSuccess, onFailure)
+            processPrepared(prepared, onSuccess, onFailure, preferredLanguage)
         }
     }
 
     /** Runs the same ML Kit pipeline on an in-memory, already oriented crop. */
-    fun process(bitmap: Bitmap, onSuccess: (OcrProcessingResult) -> Unit, onFailure: (String) -> Unit) {
+    fun process(bitmap: Bitmap, onSuccess: (OcrProcessingResult) -> Unit, onFailure: (String) -> Unit, preferredLanguage: UiLanguage = UiLanguage.FR) {
         scope.launch {
             processPrepared(
                 PreparedOcrImage(InputImage.fromBitmap(bitmap, 0), orientationDegrees = 0),
                 onSuccess,
-                onFailure
+                onFailure,
+                preferredLanguage
             )
         }
     }
@@ -49,7 +50,8 @@ internal class OcrProcessor(context: Context) {
     private fun processPrepared(
         prepared: PreparedOcrImage,
         onSuccess: (OcrProcessingResult) -> Unit,
-        onFailure: (String) -> Unit
+        onFailure: (String) -> Unit,
+        preferredLanguage: UiLanguage
     ) {
         val task = try {
             recognizer.process(prepared.image)
@@ -68,17 +70,18 @@ internal class OcrProcessor(context: Context) {
                         // block from bounding boxes can scramble curved, rotated or multi-column labels
                         // even though recognition itself succeeded. Keep the native order as the source
                         // of the editable/analyzed text; retain geometric reconstruction for diagnostics.
-                        val editable = OcrTextCleaner.clean(recognized.text)
+                        val fullEditable = OcrTextCleaner.clean(recognized.text)
                         val reconstructed = OcrTextCleaner.clean(reconstruction.text)
-                        val nativeOrderWarning = if (reconstructed != editable) {
+                        val nativeOrderWarning = if (reconstructed != fullEditable) {
                             listOf("ordre natif ML Kit conservé ; reconstruction géométrique ignorée")
                         } else {
                             emptyList()
                         }
-                        val segmentation = LabelLanguageSegmenter.segment(editable)
+                        val segmentation = LabelLanguageSegmenter.segment(fullEditable, preferredLanguage)
+                        val textSelection = OcrTextSelection.from(segmentation, fullEditable)
                         OcrProcessingResult(
                             rawText = recognized.text,
-                            editableText = editable,
+                            editableText = textSelection.editableText,
                             diagnostics = OcrDiagnostics(
                                 orientationDegrees = prepared.orientationDegrees,
                                 blockCount = document.blocks.size,
@@ -86,8 +89,20 @@ internal class OcrProcessor(context: Context) {
                                 detectedZones = segmentation.blocks.map {
                                     if (it.language == LabelLanguage.UNKNOWN) "UNKNOWN" else it.language.displayName
                                 }.distinct(),
-                                warnings = (prepared.warnings + nativeOrderWarning).distinct()
-                            )
+                                warnings = (prepared.warnings + nativeOrderWarning).distinct(),
+                                selectedLanguage = segmentation.selectedLanguage.displayName,
+                                languagePreference = languagePreference(preferredLanguage),
+                                selectionReason = segmentation.selectionReason,
+                                detectedBlockDetails = segmentation.blocks.map { block ->
+                                    buildString {
+                                        append("${block.detectedMarker ?: "sans marqueur"} → ${block.language.displayName}")
+                                        block.languageCorrectionReason?.let { append(" ($it)") }
+                                    }
+                                }
+                            ),
+                            fullText = fullEditable,
+                            textOptions = textSelection.options,
+                            selectedOptionLanguage = textSelection.selectedLanguage
                         )
                     } catch (_: RuntimeException) {
                         OcrProcessingResult(
@@ -111,6 +126,12 @@ internal class OcrProcessor(context: Context) {
                 scope.launch { deliverFailure(onFailure, "L’extraction OCR a échoué. Vous pouvez saisir le texte manuellement.") }
             }
             .addOnCompleteListener { scope.launch { prepared.bitmapToRecycle?.recycle() } }
+    }
+
+    private fun languagePreference(language: UiLanguage): List<String> = when (language) {
+        UiLanguage.FR -> listOf("FR", "EN", "NL")
+        UiLanguage.EN -> listOf("EN", "FR", "NL")
+        UiLanguage.NL -> listOf("NL", "EN", "FR")
     }
 
     private suspend fun deliverFailure(onFailure: (String) -> Unit, message: String) {

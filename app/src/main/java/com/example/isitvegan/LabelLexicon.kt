@@ -13,9 +13,9 @@ internal object LabelLexicon {
             "(?:\\s+(?:$connectorsPattern)\\s+[^:\\r\\n,;.()\\[\\]]{1,64})?"
         val titlePattern: String = "(?:$wordPattern)$extendedTitle"
         val boundedPattern: String =
-            "(?:^|(?<=\\n))[\\t ]*($titlePattern)[\\t ]*(?:(:)|([—–-])|(?=(\\r?\\n)))"
+            "(?:^|(?<=\\n))[\\t ]*($titlePattern)[\\t ]*(?:(:)|([\\u2014\\u2013—–-])|(?=(\\r?\\n)))"
         val delimitedPattern: String =
-            "(?<![\\p{L}\\d])($titlePattern)[\\t ]*(?:(:)|([—–-]))"
+            "(?<![\\p{L}\\d])($titlePattern)[\\t ]*(?:(:)|([\\u2014\\u2013—–-]))"
     }
 
     data class HeadingMatch(
@@ -27,8 +27,8 @@ internal object LabelLexicon {
     )
 
     val ingredientHeadings = listOf(
-        IngredientHeading(LabelLanguage.FRENCH, "ingrédients?", "du|de\\s+la|de\\s+l['’]|des|de"),
-        IngredientHeading(LabelLanguage.DUTCH, "ingrediënten?", "van\\s+de|van\\s+het|van"),
+        IngredientHeading(LabelLanguage.FRENCH, "(?:ingr\u00E9dients?|ingrédients?|ingr\\u00C3\\u2030dients?)", "du|de\\s+la|de\\s+l['’]|des|de"),
+        IngredientHeading(LabelLanguage.DUTCH, "(?:ingredi\u00EBnten?|ingrediënten?|ingredienten?|ingredi\\u00C3\\u2039nten?)", "van\\s+de|van\\s+het|van"),
         IngredientHeading(LabelLanguage.ENGLISH, "ingredients?", "of\\s+the|of"),
         IngredientHeading(LabelLanguage.GERMAN, "zutaten?", "der|des|für"),
         IngredientHeading(LabelLanguage.SPANISH, "ingredientes?", "del|de\\s+la|de\\s+los|de\\s+las|de")
@@ -41,12 +41,14 @@ internal object LabelLexicon {
         "traces?\\s+éventuelles?\\s+de",
         "traces?\\s*:",
         "may\\s+contain(?:\\s+traces?\\s+of)?",
+        "kan\\s+bevatten",
         "kan(?:\\s+sporen\\s+van)?(?=\\s+[^.\\r\\n]{1,80}\\s+bevatten\\b)",
+        "kann\\s+enthalten",
         "kann(?:\\s+spuren\\s+von)?(?=\\s+[^.\\r\\n]{1,80}\\s+enthalten\\b)",
         "puede\\s+contener(?:\\s+trazas\\s+de)?"
     )
 
-    val declaredPresenceWords = listOf("contient", "contains", "bevat", "enthält", "contiene")
+    val declaredPresenceWords = listOf("contient", "contains", "bevat", "enth(?:\\u00E4lt|Ã¤lt|Ält)", "contiene")
 
     fun findIngredientHeadings(text: String): List<HeadingMatch> = ingredientHeadings.flatMap { heading ->
         val options = setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE)

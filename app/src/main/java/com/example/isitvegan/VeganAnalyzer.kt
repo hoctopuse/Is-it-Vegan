@@ -135,8 +135,9 @@ object VeganAnalyzer {
 
     fun analyzeWithDiagnostics(
         text: String,
-        inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST
-    ): AnalysisDiagnostics = runAnalysis(text, ingredients, inputMode, originRules, originRuleErrors)
+        inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST,
+        preferredLanguage: UiLanguage = UiLanguage.FR
+    ): AnalysisDiagnostics = runAnalysis(text, ingredients, inputMode, originRules, originRuleErrors, preferredLanguage)
 
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
     internal fun analyze(
@@ -154,18 +155,20 @@ object VeganAnalyzer {
         database: List<Ingredient>,
         inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST,
         rules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty(),
-        ruleErrors: List<String> = emptyList()
-    ): AnalysisDiagnostics = runAnalysis(text, database, inputMode, rules, ruleErrors)
+        ruleErrors: List<String> = emptyList(),
+        preferredLanguage: UiLanguage = UiLanguage.FR
+    ): AnalysisDiagnostics = runAnalysis(text, database, inputMode, rules, ruleErrors, preferredLanguage)
 
     private fun runAnalysis(
         text: String,
         database: List<Ingredient>,
         inputMode: InputMode,
         rules: OriginQualifierRuleSet,
-        ruleErrors: List<String>
+        ruleErrors: List<String>,
+        preferredLanguage: UiLanguage = UiLanguage.FR
     ): AnalysisDiagnostics {
-        val languageSegmentation = LabelLanguageSegmenter.segment(text)
-        val sections = selectSections(languageSegmentation, inputMode)
+        val languageSegmentation = LabelLanguageSegmenter.segment(text, preferredLanguage)
+        val sections = selectSections(languageSegmentation, inputMode, preferredLanguage)
         val explicitList = sections.hasIngredientHeading && !sections.ingredientsText.isNullOrBlank()
         val manualList = inputMode == InputMode.MANUAL_INGREDIENT_LIST &&
             !sections.ingredientsText.isNullOrBlank()
@@ -347,32 +350,31 @@ object VeganAnalyzer {
 
     private fun selectSections(
         segmentation: LanguageSegmentation,
-        inputMode: InputMode
+        inputMode: InputMode,
+        preferredLanguage: UiLanguage = UiLanguage.FR
     ): LabelSections {
         val candidates = segmentation.blocks.map { LabelSectionExtractor.extract(it) }
-        val priority = listOf(
-            LabelLanguage.FRENCH,
-            LabelLanguage.DUTCH,
-            LabelLanguage.ENGLISH,
-            LabelLanguage.GERMAN,
-            LabelLanguage.SPANISH
-        )
-        val titled = candidates.filter { it.hasIngredientHeading }
-        val titledSelection = priority.firstNotNullOfOrNull { language ->
-            titled.firstOrNull { it.language == language }
-        }
-        if (titledSelection != null) return titledSelection
         val segmentedSelection = candidates.firstOrNull {
             it.language == segmentation.selectedLanguage && it.rawText == segmentation.selectedText
         }
-        if (inputMode == InputMode.MANUAL_INGREDIENT_LIST) {
-            val manualSelection = priority.firstNotNullOfOrNull { language ->
-                candidates.firstOrNull {
-                    it.language == language && !it.ingredientsText.isNullOrBlank()
-                }
-            } ?: candidates.maxByOrNull { it.ingredientsText?.length ?: 0 }
-            if (manualSelection != null) return manualSelection
+        if (inputMode != InputMode.MANUAL_INGREDIENT_LIST) {
+            return segmentedSelection
+                ?: LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, segmentation.originalText)
         }
+        val priority = (when (preferredLanguage) {
+            UiLanguage.FR -> listOf(LabelLanguage.FRENCH, LabelLanguage.ENGLISH, LabelLanguage.DUTCH)
+            UiLanguage.EN -> listOf(LabelLanguage.ENGLISH, LabelLanguage.FRENCH, LabelLanguage.DUTCH)
+            UiLanguage.NL -> listOf(LabelLanguage.DUTCH, LabelLanguage.ENGLISH, LabelLanguage.FRENCH)
+        } + listOf(
+            LabelLanguage.GERMAN,
+            LabelLanguage.SPANISH
+        ))
+        val manualSelection = priority.firstNotNullOfOrNull { language ->
+            candidates.firstOrNull {
+                it.language == language && !it.ingredientsText.isNullOrBlank()
+            }
+        } ?: candidates.maxByOrNull { it.ingredientsText?.length ?: 0 }
+        if (manualSelection != null) return manualSelection
         return segmentedSelection
             ?: LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, segmentation.originalText)
     }

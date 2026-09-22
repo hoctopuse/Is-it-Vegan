@@ -19,7 +19,9 @@ import org.junit.Test
 class MainScreenInstrumentedTest {
     private val wakeDeviceRule = object : TestWatcher() {
         override fun starting(description: Description) {
-            val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
+            val instrumentation = InstrumentationRegistry.getInstrumentation()
+            UiLanguagePreferences.write(instrumentation.targetContext, UiLanguage.FR)
+            val automation = instrumentation.uiAutomation
             listOf("svc power stayon true", "input keyevent 224", "wm dismiss-keyguard", "input keyevent 82")
                 .forEach { command ->
                     ParcelFileDescriptor.AutoCloseInputStream(

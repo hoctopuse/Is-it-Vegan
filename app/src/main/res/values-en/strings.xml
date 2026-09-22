@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Is it Vegan</string>
+    <string name="tagline">Paste a label or ingredient list to check its composition offline.</string>
+    <string name="input_mode">Input mode</string><string name="mode_label">Label</string><string name="mode_list">List only</string><string name="mode_ocr">OCR</string>
+    <string name="choose_photo">CHOOSE A PHOTO</string><string name="manual_entry">MANUAL ENTRY</string><string name="crop_for_ocr">CROP FOR OCR</string><string name="use_crop">USE THIS CROP</string><string name="reset_crop">RESET CROP</string>
+    <string name="ocr_full_image">OCR on full image</string><string name="ocr_cropped_image">OCR on cropped area</string><string name="extract_text">EXTRACT TEXT</string><string name="extracting">EXTRACTING…</string><string name="analyze">ANALYZE</string><string name="clear">CLEAR</string><string name="export">EXPORT</string><string name="result">Result</string><string name="language">Language</string>
+    <string name="raw_ocr">Raw OCR text (read-only)</string><string name="editable_ocr">Editable text to analyze</string><string name="full_label_text">Label text</string><string name="ingredient_list">Ingredient list</string><string name="ocr_text">OCR text</string>
+    <string name="paste_full_label">Paste the full label text</string><string name="paste_ingredients">Paste only the ingredient list</string><string name="paste_ocr">Correct or enter the label text</string><string name="check_text">OCR may contain errors: check the text before analysis.</string><string name="local_only">The list stays on this device.</string><string name="waiting">⚪ Waiting for analysis</string><string name="no_photo">No photo selected.</string><string name="photo_selected">Photo selected. Press EXTRACT TEXT.</string><string name="manual_enabled">Manual entry enabled.</string><string name="crop_reset_message">Crop reset. The full image will be used.</string><string name="ocr_raw_kept">Raw text is kept exactly as provided by ML Kit.</string>
+    <string name="language_french">Français</string><string name="language_english">English</string><string name="language_dutch">Nederlands</string>
+    <string name="ocr_block_choice">OCR block to analyze</string><string name="full_ocr_text">Full text</string>
+</resources>
