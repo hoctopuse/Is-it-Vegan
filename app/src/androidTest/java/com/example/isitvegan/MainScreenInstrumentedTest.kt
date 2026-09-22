@@ -20,12 +20,13 @@ class MainScreenInstrumentedTest {
     private val wakeDeviceRule = object : TestWatcher() {
         override fun starting(description: Description) {
             val automation = InstrumentationRegistry.getInstrumentation().uiAutomation
-            listOf("input keyevent 224", "wm dismiss-keyguard", "input keyevent 82")
+            listOf("svc power stayon true", "input keyevent 224", "wm dismiss-keyguard", "input keyevent 82")
                 .forEach { command ->
                     ParcelFileDescriptor.AutoCloseInputStream(
                         automation.executeShellCommand(command)
                     ).use { it.readBytes() }
                 }
+            Thread.sleep(250)
         }
     }
 

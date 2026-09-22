@@ -2,7 +2,7 @@ package com.example.isitvegan
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.BitmapFactory
+import android.graphics.Bitmap
 import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
@@ -20,9 +20,8 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.unit.dp
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
@@ -34,25 +33,49 @@ fun OcrFirstScreen() {
     var session by remember { mutableStateOf(OcrSession()) }
     var sourceUri by remember { mutableStateOf<Uri?>(null) }
     var preview by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
+    var cropBitmap by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
+    var cropPreview by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
+    var cropDialogVisible by remember { mutableStateOf(false) }
     var ocrMessage by remember { mutableStateOf("Aucune photo sélectionnée.") }
     var extracting by remember { mutableStateOf(false) }
+    var loadingPreview by remember { mutableStateOf(false) }
+    var preparingCrop by remember { mutableStateOf(false) }
     val context = LocalContext.current
     val focusManager = LocalFocusManager.current
     val scrollState = rememberScrollState()
+    val coroutineScope = rememberCoroutineScope()
     val processor = remember(context) { OcrProcessor(context) }
+    val imageFactory = remember(context) { OcrImageInputFactory(context) }
     DisposableEffect(processor) { onDispose { processor.close() } }
+    DisposableEffect(preview) {
+        val ownedBitmap = preview
+        onDispose { ownedBitmap?.takeUnless(Bitmap::isRecycled)?.recycle() }
+    }
+    DisposableEffect(cropBitmap) {
+        val ownedBitmap = cropBitmap
+        onDispose { ownedBitmap?.takeUnless(Bitmap::isRecycled)?.recycle() }
+    }
+    DisposableEffect(cropPreview) {
+        val ownedBitmap = cropPreview
+        onDispose { ownedBitmap?.takeUnless(Bitmap::isRecycled)?.recycle() }
+    }
     val picker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
         if (uri == null) { ocrMessage = "Sélection annulée."; return@rememberLauncherForActivityResult }
-        sourceUri = uri; inputMode = InputMode.OCR_LABEL; session = OcrSession(); diagnostics = null; result = "⚪ En attente d'analyse"; preview = null
-        ocrMessage = "Photo sélectionnée. Appuyez sur EXTRAIRE LE TEXTE."
+        sourceUri = uri; inputMode = InputMode.OCR_LABEL; session = OcrSession(); diagnostics = null; result = "⚪ En attente d'analyse"; preview = null; cropBitmap = null; cropPreview = null; loadingPreview = true
+        ocrMessage = "Préparation de l’aperçu…"
     }
 
     LaunchedEffect(sourceUri) {
         val uri = sourceUri ?: return@LaunchedEffect
-        preview = withContext(Dispatchers.IO) {
-            try { context.contentResolver.openInputStream(uri)?.use { BitmapFactory.decodeStream(it) } } catch (_: Exception) { null }
+        preview = OcrThreading.io {
+            try { imageFactory.decodeForPreview(uri) } catch (_: Exception) { null }
         }
-        if (preview == null) ocrMessage = "Aperçu indisponible. Vous pouvez saisir le texte manuellement."
+        loadingPreview = false
+        ocrMessage = if (preview == null) {
+            "Aperçu indisponible. Vous pouvez saisir le texte manuellement."
+        } else {
+            "Photo sélectionnée. Appuyez sur EXTRAIRE LE TEXTE."
+        }
     }
     LaunchedEffect(diagnostics, session.analyses.size) { if (diagnostics != null) { delay(150.milliseconds); scrollState.animateScrollTo(scrollState.maxValue) } }
 
@@ -76,16 +99,35 @@ fun OcrFirstScreen() {
             }
             if (inputMode == InputMode.OCR_LABEL) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Button({ picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f)) { Text("CHOISIR UNE PHOTO") }
-                    OutlinedButton({ sourceUri = null; preview = null; ocrMessage = "Saisie manuelle activée." }, Modifier.weight(1f)) { Text("SAISIE MANUELLE") }
+                    Button({ picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text("CHOISIR UNE PHOTO") }
+                    OutlinedButton({ sourceUri = null; preview = null; cropBitmap = null; cropPreview = null; session = OcrSession(); diagnostics = null; ocrMessage = "Saisie manuelle activée." }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text("SAISIE MANUELLE") }
                 }
-                preview?.let { Image(it.asImageBitmap(), "Aperçu de la photo sélectionnée", Modifier.fillMaxWidth().heightIn(max = 260.dp), contentScale = ContentScale.Fit) }
+                preview?.let { original ->
+                    val displayed = cropPreview ?: original
+                    Image(
+                        displayed.asImageBitmap(),
+                        if (cropBitmap == null) "Aperçu de la photo sélectionnée" else "Aperçu de la zone recadrée",
+                        Modifier.fillMaxWidth().heightIn(max = 260.dp),
+                        contentScale = ContentScale.Fit
+                    )
+                    Button({ cropDialogVisible = true }, Modifier.fillMaxWidth(), enabled = !extracting && !preparingCrop) { Text("RECADRER POUR L’OCR") }
+                    if (cropBitmap != null) {
+                        Text("OCR sur la zone recadrée", color = MaterialTheme.colorScheme.primary)
+                        OutlinedButton({ cropBitmap = null; cropPreview = null; session = OcrSession(); diagnostics = null; result = "⚪ En attente d'analyse"; ocrMessage = "Cadre réinitialisé. L’image entière sera utilisée." }, Modifier.fillMaxWidth(), enabled = !extracting && !preparingCrop) {
+                            Text("RÉINITIALISER LE CADRE")
+                        }
+                    } else {
+                        Text("OCR sur l’image entière", color = MaterialTheme.colorScheme.onSurfaceVariant)
+                    }
+                }
                 Text(ocrMessage, color = MaterialTheme.colorScheme.onSurfaceVariant)
                 Button({
                     val uri = sourceUri ?: return@Button
                     extracting = true; ocrMessage = "Extraction du texte en cours…"
-                    processor.process(uri, { ocr -> extracting = false; session = session.withOcrResult(ocr); ocrMessage = when { ocr.rawText.isBlank() -> "Aucun texte détecté. Saisissez-le manuellement ci-dessous."; ocr.usedRawFallback -> "OCR réussi, mais le post-traitement a échoué. Le texte brut reste disponible et éditable."; else -> "Texte reconstruit. Vérifiez-le avant l’analyse." } }, { message -> extracting = false; ocrMessage = message })
-                }, enabled = sourceUri != null && !extracting, modifier = Modifier.fillMaxWidth()) { Text(if (extracting) "EXTRACTION…" else "EXTRAIRE LE TEXTE") }
+                    val onSuccess: (OcrProcessingResult) -> Unit = { ocr -> extracting = false; session = session.withOcrResult(ocr); ocrMessage = when { ocr.rawText.isBlank() -> "Aucun texte détecté. Saisissez-le manuellement ci-dessous."; ocr.usedRawFallback -> "OCR réussi, mais le post-traitement a échoué. Le texte brut reste disponible et éditable."; else -> "Texte reconstruit. Vérifiez-le avant l’analyse." } }
+                    val onFailure: (String) -> Unit = { message -> extracting = false; ocrMessage = message }
+                    cropBitmap?.let { processor.process(it, onSuccess, onFailure) } ?: processor.process(uri, onSuccess, onFailure)
+                }, enabled = sourceUri != null && !extracting && !loadingPreview && !preparingCrop, modifier = Modifier.fillMaxWidth()) { Text(if (extracting) "EXTRACTION…" else "EXTRAIRE LE TEXTE") }
                 if (session.rawOcrText != null) {
                     Text("Texte brut OCR (lecture seule)", style = MaterialTheme.typography.titleMedium)
                     SelectionContainer { Text(session.rawOcrText!!.ifBlank { "(aucun texte détecté)" }) }
@@ -98,13 +140,72 @@ fun OcrFirstScreen() {
             Button({ analyse(if (inputMode == InputMode.OCR_LABEL) session.editableText else ingredients) }, Modifier.fillMaxWidth()) { Text("ANALYSER") }
             if (inputMode == InputMode.OCR_LABEL && session.analyses.any { it.submittedText != session.editableText }) Text("Le résultat affiché correspond à une version précédente du texte éditable.", color = MaterialTheme.colorScheme.tertiary)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-                OutlinedButton({ ingredients = ""; session = OcrSession(); sourceUri = null; preview = null; result = "⚪ En attente d'analyse"; diagnostics = null }, Modifier.weight(1f)) { Text("EFFACER") }
+                OutlinedButton({ ingredients = ""; session = OcrSession(); sourceUri = null; preview = null; cropBitmap = null; cropPreview = null; result = "⚪ En attente d'analyse"; diagnostics = null }, Modifier.weight(1f)) { Text("EFFACER") }
                 OutlinedButton({ shareOcrExport(context, OcrExportReport.build(session, appVersionName(context)), appVersionName(context)) }, enabled = session.analyses.isNotEmpty() || session.rawOcrText != null, modifier = Modifier.weight(1f)) { Text("EXPORTER") }
             }
             Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) { Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { Text("Résultat", style = MaterialTheme.typography.titleLarge); HorizontalDivider(); SelectionContainer { Text(result, style = MaterialTheme.typography.bodyLarge) } } }
             Text("Version ${appVersionName(context)}", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.onSurfaceVariant, modifier = Modifier.padding(bottom = 24.dp))
         }
     }
+    if (cropDialogVisible) {
+        preview?.let { original ->
+            OcrCropDialog(
+                bitmap = original,
+                onCancel = { cropDialogVisible = false },
+                onConfirm = { rect ->
+                    cropDialogVisible = false
+                    val uri = sourceUri ?: return@OcrCropDialog
+                    preparingCrop = true
+                    ocrMessage = "Préparation de la zone recadrée…"
+                    coroutineScope.launch {
+                        val preparedBitmaps = try {
+                            val ocrSource = OcrThreading.io { imageFactory.decodeForCrop(uri) }
+                            var ocrCrop: Bitmap? = null
+                            var completed = false
+                            try {
+                                ocrCrop = OcrThreading.cpu { cropBitmap(ocrSource, rect) }
+                                val smallCrop = OcrThreading.cpu {
+                                    cropBitmap(original, rect).let { croppedPreview ->
+                                        if (croppedPreview === original) {
+                                            original.copy(original.config ?: Bitmap.Config.ARGB_8888, false)
+                                        } else {
+                                            croppedPreview
+                                        }
+                                    }
+                                }
+                                (ocrCrop to smallCrop).also { completed = true }
+                            } finally {
+                                if (!completed && ocrCrop != null && !ocrCrop.isRecycled) ocrCrop.recycle()
+                                if (ocrCrop !== ocrSource && !ocrSource.isRecycled) ocrSource.recycle()
+                            }
+                        } catch (_: Exception) {
+                            null
+                        }
+                        preparingCrop = false
+                        if (preparedBitmaps == null) {
+                            ocrMessage = "Impossible de préparer ce recadrage. L’image entière reste disponible."
+                        } else {
+                            cropBitmap = preparedBitmaps.first
+                            cropPreview = preparedBitmaps.second
+                            session = OcrSession()
+                            diagnostics = null
+                            result = "⚪ En attente d'analyse"
+                            ocrMessage = "Cadre validé. Appuyez sur EXTRAIRE LE TEXTE."
+                        }
+                    }
+                }
+            )
+        }
+    }
+}
+
+private fun cropBitmap(bitmap: Bitmap, rect: OcrCropRect): Bitmap {
+    val safe = OcrCropGeometry.clamp(rect)
+    val left = (safe.left * bitmap.width).toInt().coerceIn(0, bitmap.width - 1)
+    val top = (safe.top * bitmap.height).toInt().coerceIn(0, bitmap.height - 1)
+    val right = (safe.right * bitmap.width).toInt().coerceIn(left + 1, bitmap.width)
+    val bottom = (safe.bottom * bitmap.height).toInt().coerceIn(top + 1, bitmap.height)
+    return Bitmap.createBitmap(bitmap, left, top, right - left, bottom - top)
 }
 
 private object OcrFirstScreenResult {

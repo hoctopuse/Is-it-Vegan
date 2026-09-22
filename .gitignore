@@ -14,5 +14,4 @@ captures/
 *.log
 .DS_Store
 Thumbs.db
-local.properties
 /AGENTS.md
