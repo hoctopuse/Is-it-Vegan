@@ -1,0 +1,39 @@
+site_name: Is It Vegan? — Documentation technique
+site_description: Architecture et fonctionnement de Is It Vegan? 0.6.4.1
+docs_dir: docs
+site_dir: site
+theme:
+  name: material
+  language: fr
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+nav:
+  - Présentation: index.md
+  - Architecture générale: architecture.md
+  - Pipeline OCR: ocr.md
+  - Segmentation des langues: langues.md
+  - Extraction des sections: sections.md
+  - Parsing des ingrédients: parsing.md
+  - Matching des ingrédients: matching.md
+  - Base de connaissances: base-connaissances.md
+  - Moteur de verdict: verdict.md
+  - Tests: tests.md
+  - Diagnostic: diagnostic.md
+  - Vie privée et hors ligne: vie-privee.md
+  - Guide développeur: guide-developpeur.md
+
