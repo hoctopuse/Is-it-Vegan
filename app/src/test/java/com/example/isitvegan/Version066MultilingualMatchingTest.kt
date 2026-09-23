@@ -20,6 +20,7 @@ class Version066MultilingualMatchingTest {
         vegan("sunflower_oil", "huile de tournesol"), vegan("rapeseed_oil", "huile de colza"),
         vegan("olive_oil", "huile d'olive"), vegan("sugar", "sucre"), vegan("salt", "sel"),
         vegan("vinegar", "vinaigre"), vegan("glucose_syrup", "sirop de glucose"),
+        vegan("wheat_syrup", "sirop de blé"),
         vegan("cocoa", "cacao"), vegan("blackberry", "mûre"), vegan("blueberry", "myrtille"),
         vegan("natural_flavouring", "arôme naturel"), vegan("e440", "pectines", "E440"),
         Ingredient(
@@ -104,7 +105,8 @@ class Version066MultilingualMatchingTest {
             "Zutaten: Lecithine (Sonnenblumen).",
             "Ingredienti: lecitine (soia).",
             "Ingredientes: lecitinas (soja).",
-            "Ingrédients: lécithines (soja)."
+            "Ingrédients: lécithines (soja).",
+            "Ingrediënten: soja lecithinen."
         ).forEach { label ->
             val diagnostics = analyze(label)
             val lecithin = diagnostics.tokens.firstOrNull { "e322" in it.matchedIngredientIds }

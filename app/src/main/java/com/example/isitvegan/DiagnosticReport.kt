@@ -80,6 +80,8 @@ internal object DiagnosticReport {
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })
+            val ocrCorrections = diagnostics.ocrCorrections.joinToString(" ; ").ifBlank { "(aucune)" }
+            appendLine("Corrections OCR appliquées : $ocrCorrections")
             appendLine("Présence réelle déclarée : ${diagnostics.declaredPresenceText ?: "(aucune)"}")
             appendLine()
             appendLine("TRACES / CONTAMINATION CROISÉE")

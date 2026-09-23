@@ -11,6 +11,13 @@
   ],
   "sources": [
     {
+      "id": "eu-additives",
+      "title": "European Commission — Food Additives Database",
+      "publisher": "European Commission",
+      "url": "https://food.ec.europa.eu/food-safety/food-improvement-agents/additives/database_en",
+      "role": "Official E-number identity reference for the targeted E270 rule."
+    },
+    {
       "id": "food-info-animal-origin-overview",
       "title": "Which E-numbers and additives are from animal origin?",
       "publisher": "Food-Info.net, Stichting Food-Info",
@@ -265,6 +272,31 @@
       ],
       "unresolvedStatus": "UNCERTAIN",
       "activation": "REVIEW_BEFORE_ENGINE_USE"
+    },
+    {
+      "id": "lactic-acid-e270",
+      "target": {
+        "ingredientIds": ["e270"],
+        "eNumbers": ["E270"],
+        "aliases": ["acide lactique", "lactic acid", "melkzuur", "Milchsäure"]
+      },
+      "originMode": "variable",
+      "evidenceLevel": "explicit attached dairy qualifier",
+      "sourceIds": ["eu-additives", "vegan-society"],
+      "qualifierOutcomes": [
+        {
+          "id": "dairy",
+          "origin": "dairy",
+          "qualifiers": ["lait", "milk", "melk", "Milch"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "VEGETARIAN",
+          "reason": "origine laitière explicitement rattachée à E270"
+        }
+      ],
+      "unresolvedStatus": "VEGAN",
+      "activation": "ACTIVE",
+      "caveat": "E270 seul reste vegan par défaut ; seule une origine laitière syntaxiquement attachée modifie son statut."
     }
   ],
   "protectedExpressions": [

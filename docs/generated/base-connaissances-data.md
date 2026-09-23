@@ -118,42 +118,94 @@
 | strawberry | Fraise | VEGAN | — | — | vegan-society |
 | blackberry | Mûre | VEGAN | — | — | vegan-society |
 | blueberry | Myrtille | VEGAN | — | — | vegan-society |
+| wheat_syrup | Sirop de blé | VEGAN | — | — | vegan-society |
+| coconut | Coco | VEGAN | — | — | vegan-society |
+| coconut_fat | Graisse de coco | VEGAN | — | — | vegan-society |
+| e306 | Extrait riche en tocophérols | VEGAN | E306 | — | ec-e306-additive-detail, eur-lex-231-2012, ec-additives-re-evaluation |
+| black_olive | Olive noire | VEGAN | — | — | vegan-society |
+| peanut | Cacahuète | VEGAN | — | — | vegan-society |
+| cashew | Noix de cajou | VEGAN | — | — | vegan-society |
+| raisin | Raisin sec | VEGAN | — | — | vegan-society |
+| sultana | Raisin sultanine | VEGAN | — | — | vegan-society |
+| cranberry | Canneberge | VEGAN | — | — | vegan-society |
+| sour_cherry | Griotte | VEGAN | — | — | vegan-society |
+| date | Datte | VEGAN | — | — | vegan-society |
+| pineapple | Ananas | VEGAN | — | — | vegan-society |
+| papaya | Papaye | VEGAN | — | — | vegan-society |
+| pumpkin_seed | Graine de courge | VEGAN | — | — | vegan-society |
+| pecan | Noix de pécan | VEGAN | — | — | vegan-society |
+| hazelnut | Noisette | VEGAN | — | — | vegan-society |
+| macadamia | Noix de macadamia | VEGAN | — | — | vegan-society |
+| brazil_nut | Noix du Brésil | VEGAN | — | — | vegan-society |
+| cottonseed_oil | Huile de graine de coton | VEGAN | — | — | vegan-society |
+| e202 | Sorbate de potassium | VEGAN | E202 | — | eu-additives |
+| e220 | Dioxyde de soufre | VEGAN | E220 | — | eu-additives |
+| e262 | Acétates de sodium | VEGAN | E262 | — | eu-additives |
+| e270 | Acide lactique | VEGAN | E270 | lactic-acid-e270 | eu-additives |
 
 ### Alias multilingues
 
 | Concept | FR | NL | DE | EN | IT | ES | PL |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | almond | amande, amandes | amandel, amandelen | Mandel, Mandeln | almond, almonds | mandorla, mandorle | almendra, almendras | — |
-| barley | orge | gerst | Gerste | barley | orzo | cebada | — |
+| banana | chips de banane | — | — | — | — | — | — |
+| barley | orge, flocons d’orge complets | gerst | Gerste | barley | orzo | cebada | — |
+| bell_pepper | poivron, piment doux, poivron jaune, poivron vert, powron | zoete paprika, gele paprika, groene paprika | gelbe Paprika, grüne Paprika | — | — | — | — |
+| black_olive | olives noires, olive noire, olives nores | zwarte olijf, zwarte olijven | schwarze Olive, schwarze Oliven | black olive, black olives | — | — | — |
 | blackberry | mûre, mûres | braam, bramen, gevriesdroogde bramen | Brombeere, Brombeeren | blackberry, blackberries, freeze-dried blackberries | mora, more | mora, moras | — |
 | blueberry | myrtille, myrtilles | bosbes, bosbessen, gevriesdroogde bosbessen | Heidelbeere, Heidelbeeren | blueberry, blueberries, freeze-dried blueberries | mirtillo, mirtilli | arándano, arándanos | — |
+| brazil_nut | noix du Brésil | paranoten | — | — | — | — | — |
+| cashew | noix de cajou, noix de cajou grillées | cashewnoten | — | — | — | — | — |
 | cereals | — | granen | — | — | — | — | — |
 | cocoa | — | cacaopoeder, cacaomassa | Kakaopulver, Kakaomasse, Kakaopulvert | — | — | — | — |
+| coconut | coco, noix de coco, chips de coco grillées | kokosnoot | Kokosnuss | coconut | — | — | — |
+| coconut_fat | graisse de coco, matière grasse de coco | kokosvet, kokosnootvet | Kokosfett, Kokosnussfett | coconut fat | grasso di cocco | grasa de coco | — |
 | corn | — | maïsmeel | — | — | mais | maíz | — |
+| cottonseed_oil | huile de graine de coton, huile de coton | katoenzaadolie | Baumwollsaatöl | — | — | — | — |
+| cranberry | canneberges, canneberges séchées et sucrées | cranberry's | — | — | — | — | — |
+| date | dattes, morceaux de dattes secs | dadels | — | — | — | — | — |
 | e170 | carbonate de calcium | calciumcarbonaat | Calciumcarbonat | calcium carbonate | carbonato di calcio | carbonato de calcio | — |
-| e322 | — | lecithinen | Lecithine, Lecithinen | — | lecitine | lecitinas | — |
+| e202 | sorbate de potassium | kaliumsorbaat | Kaliumsorbat | — | — | — | — |
+| e220 | dioxyde de soufre, anhydride sulfureux | zwaveldioxide | Schwefeldioxid | — | — | — | — |
+| e262 | acétates de sodium | natriumacetaten | Natriumacetate | — | — | — | — |
+| e270 | acide lactique | melkzuur | Milchsäure | — | — | — | — |
+| e306 | extrait riche en tocophérols, extrait riche en tocoferols, tocophérols | extract rijk aan tocoferolen, tocoferolen | tocopherolreicher Extrakt, Extrakt reich an Tocopherolen | tocopherol-rich extract, extract rich in tocopherols | estratto ricco di tocoferoli, estratto ad alto contenuto di tocoferoli | extracto rico en tocoferoles | — |
+| e322 | — | lecithinen, lecithinen (soja), lecithinen (zonnebloem) | Lecithine, Lecithinen | — | lecitine | lecitinas | — |
+| e330 | — | — | Citronensäure | — | — | — | — |
 | e332 | citrates de potassium | kaliumcitraten | Kaliumcitrate | potassium citrates | citrati di potassio | citratos de potasio | — |
 | e418 | gomme gellane | gellangom | Gellan | gellan gum | gomma gellana | goma gellan | — |
 | e440 | — | pectine | Pektine | — | pectine | pectinas | — |
+| e500 | — | — | Natriumcarbonate | — | — | — | — |
 | e503 | carbonates d’ammonium | ammoniumcarbonaten | Ammoniumcarbonate | ammonium carbonates | carbonati di ammonio | carbonatos de amonio | — |
-| glucose_syrup | — | glucosestroop, tarwesiroop | Glukosesirup | — | — | — | — |
+| glucose_syrup | — | glucosestroop | Glukosesirup | — | — | — | — |
+| hazelnut | noisettes | hazelnoten | — | — | — | — | — |
 | inulin | inuline | inuline | Inulin | inulin | inulina | inulina | — |
-| malt | malt, extrait de malt | mout, gerstermout, gerstermoutextract | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
-| natural_flavouring | — | natuurlijk aardbeienaroma | — | — | — | — | — |
-| oats | — | haver, havervlokken, volkoren havervlokken | Hafer, Haferflocken | — | avena | avena | — |
+| macadamia | noix de macadamia | macadamianoten | — | — | — | — | — |
+| malt | malt, extrait de malt, flocons de céréales maltés | mout, gerstermout, gerstermoutextract | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
+| natural_flavouring | — | natuurlijk aardbeienaroma | natürliches Aroma | — | — | — | — |
+| oats | flocons d’avoine complets | haver, havervlokken, volkoren havervlokken | Hafer, Haferflocken | — | avena | avena | — |
 | olive_oil | — | olijfolie | Olivenöl | — | — | — | — |
 | palm_kernel | palmiste, huile de palmiste, graisse de palmiste | palmpit, palmpitolie, palmpitvet | Palmkern, Palmkernöl, Palmkernfett | palm kernel, palm kernel oil, palm kernel fat | palmisto, olio di palmisto | palmiste, aceite de palmiste | — |
 | palm_oil | huile de palme, graisse de palme | palmolie, palmvet | Palmöl, Palmfett, Ölpalme | palm oil, palm fat | olio di palma | aceite de palma | — |
+| papaya | papaye, papaye confite | papaja | — | — | — | — | — |
+| peanut | cacahuètes, arachides | pinda's | — | — | — | — | — |
+| pecan | noix de pécan | pecannoten | — | — | — | — | — |
+| pineapple | ananas, ananas confits | ananas | — | — | — | — | — |
+| pumpkin_seed | graines de courge | pompoenpitten | — | — | — | — | — |
+| raisin | raisins secs | rozijnen | — | — | — | — | — |
 | rapeseed_oil | — | koolzaadolie | Rapsöl | — | olio di colza | aceite de colza | — |
 | rice | — | rijstmeel | — | — | riso | arroz | — |
 | rye | seigle | rogge, volkoren roggevlokken | Roggen | rye | segale | centeno | — |
 | salt | — | zout | Salz, Speisesalz | — | sale | sal | — |
+| sour_cherry | griottes, griottes séchées et sucrées | zure kersen | — | — | — | — | — |
 | starch | — | tarwezetmeel | Weizenstärke | — | — | — | — |
 | sugar | — | suiker | Zucker | — | zucchero | azúcar | — |
+| sultana | raisins sultanines | sultanarozijnen | — | — | — | — | — |
 | sunflower_oil | — | zonnebloemolie, zonnebloemole, zonnebloem olie | Sonnenblumenöl | — | olio di girasole | aceite de girasol | — |
 | vinegar | — | azijn | Essig | — | — | — | — |
 | wheat | — | tarwe, volkoren tarwe | Weizen, Vollkornweizen | — | frumento | trigo | — |
 | wheat_flour | — | tarwebloem, tarwemeel | Weizenmehl, Weizenmell | — | farina, farina di frumento | harina, harina de trigo | — |
+| wheat_syrup | sirop de blé, sirop de blé liquide et déshydraté | tarwesiroop, tarwesiroop vloeibaar, tarwesiroop gedehydrateerd | Weizensirup | wheat syrup | sciroppo di frumento | jarabe de trigo | — |
 
 ### Concepts reconnus mais absents
 
@@ -171,9 +223,24 @@ Le lexique reconnaît le terme, mais l’application ne lui attribue aucun statu
 | NL | haerioken | havervlokken | oats | Expression complète dans le bloc linguistique sélectionné | Actif |
 | NL | volkoren haerioken | volkoren havervlokken | oats | Expression complète dans le bloc linguistique sélectionné | Actif |
 | NL | gevriesdroogde bosteen | gevriesdroogde bosbessen | blueberry | Expression complète dans le bloc linguistique sélectionné | Actif |
+| NL | tarwesioop | tarwesiroop | wheat_syrup | Expression complète dans le bloc linguistique sélectionné | Actif |
+| NL | soja lecithinen | lecithinen (soja) | e322 (origine soja) | Expression complète dans le bloc linguistique sélectionné | Actif |
 | DE | Olpalme | Ölpalme | palm_oil | Expression complète dans le bloc linguistique sélectionné | Actif |
+| DE | Werzersiup | Weizensirup | wheat_syrup | Expression complète dans le bloc linguistique sélectionné | Actif |
+| DE | gebe Papria | gelbe Paprika | bell_pepper | Expression complète dans le bloc linguistique sélectionné | Actif |
+| DE | grine Paprka | grüne Paprika | bell_pepper | Expression complète dans le bloc linguistique sélectionné | Actif |
+| DE | Sáurerequlator | Säureregulator | Classe fonctionnelle | Expression complète dans le bloc linguistique sélectionné | Actif |
+| DE | Citronensåure | Citronensäure | e330 | Expression complète dans le bloc linguistique sélectionné | Actif |
+| EN | wheat synup | wheat syrup | wheat_syrup | Expression complète dans le bloc linguistique sélectionné | Actif |
+| IT | scranDe di frumento | sciroppo di frumento | wheat_syrup | Expression complète dans le bloc linguistique sélectionné | Actif |
+| IT | estratto ad ato contenuto di tocoferoli | estratto ad alto contenuto di tocoferoli | e306 | Expression complète dans le bloc linguistique sélectionné | Actif |
 | FR | qlucose | glucose | glucose_syrup | Expression complète dans le bloc linguistique sélectionné | Actif |
 | FR | écithines | lécithines | e322 | Expression complète dans le bloc linguistique sélectionné | Actif |
+| FR | siop de blé | sirop de blé | wheat_syrup | Expression complète dans le bloc linguistique sélectionné | Actif |
+| FR | extait riche en tocophérols | extrait riche en tocophérols | e306 | Expression complète dans le bloc linguistique sélectionné | Actif |
+| FR | extrait iche en tocophérols | extrait riche en tocophérols | e306 | Expression complète dans le bloc linguistique sélectionné | Actif |
+| FR | olives nores | olives noires | black_olive | Variante OCR complète dans le bloc linguistique sélectionné | Actif |
+| FR | powron | poivron | bell_pepper | Variante OCR complète dans le bloc linguistique sélectionné | Actif |
 | NL | zonnebloemole | zonnebloemolie | sunflower_oil | Variante OCR complète dans le bloc linguistique sélectionné | Actif |
 | NL | zonnebloem olie | zonnebloemolie | sunflower_oil | Variante OCR complète dans le bloc linguistique sélectionné | Actif |
 | DE | Weizenmell | Weizenmehl | wheat_flour | Variante OCR complète dans le bloc linguistique sélectionné | Actif |

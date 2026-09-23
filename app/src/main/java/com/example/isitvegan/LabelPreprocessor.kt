@@ -3,7 +3,8 @@ package com.example.isitvegan
 internal data class PreprocessedLabel(
     val compositionText: String,
     val crossContactWarnings: List<String>,
-    val excludedNotes: List<String>
+    val excludedNotes: List<String>,
+    val ocrCorrections: List<String> = emptyList()
 )
 
 internal object LabelPreprocessor {
@@ -42,6 +43,8 @@ internal object LabelPreprocessor {
         Regex("(?i)\\blecthines\\b") to "lécithines",
         Regex("(?i)(?<!\\p{L})écithines\\b") to "lécithines",
         Regex("(?i)\\bqlucose\\b") to "glucose",
+        Regex("(?i)\\bSáurerequlator\\b") to "Säureregulator",
+        Regex("(?i)\\bCitronensåure\\b") to "Citronensäure",
         Regex("(?i)\\bpoudrel\\b") to "poudre",
         Regex("(?i)\\bextait\\b") to "extrait",
         Regex("(?i)\\blquide\\b") to "liquide",
@@ -54,6 +57,7 @@ internal object LabelPreprocessor {
     fun preprocess(text: String): PreprocessedLabel {
         val warnings = linkedSetOf<String>()
         val notes = linkedSetOf<String>()
+        val corrections = linkedSetOf<String>()
         var continuingNote = false
         var cleaned = text.replace('\u00A0', ' ')
             .lines()
@@ -80,6 +84,11 @@ internal object LabelPreprocessor {
             .replace(ingredientHeading, "")
 
         simpleOcrCorrections.forEach { (pattern, replacement) ->
+            if ('$' !in replacement) {
+                pattern.findAll(cleaned).forEach { match ->
+                    corrections += "${match.value} → $replacement"
+                }
+            }
             cleaned = cleaned.replace(pattern, replacement)
         }
         val referencedMarkers = noteMarker.findAll(text).mapNotNull { match ->
@@ -92,7 +101,7 @@ internal object LabelPreprocessor {
                 ) "" else match.value
             }
         }
-        return PreprocessedLabel(cleaned, warnings.toList(), notes.toList())
+        return PreprocessedLabel(cleaned, warnings.toList(), notes.toList(), corrections.toList())
     }
 
     private val noteMarker = Regex(

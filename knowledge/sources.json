@@ -6,6 +6,24 @@
     "use": "Official EU E-number and additive-name reference; it does not by itself establish vegan suitability."
   },
   {
+    "id": "ec-e306-additive-detail",
+    "title": "European Commission — Food Additive E306 detail",
+    "url": "https://ec.europa.eu/food/food-feed-portal/screen/food-additives/search/details/POL-FAD-IMPORT-3081",
+    "use": "Official EU record for the identity and designation of antioxidant E306; it does not establish a vegan origin for a particular formulation."
+  },
+  {
+    "id": "eur-lex-231-2012",
+    "title": "Commission Regulation (EU) No 231/2012 — specifications for food additives",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:02012R0231-20260818",
+    "use": "Official EU specifications reference for authorised food additives; it does not certify the source of a commercial ingredient."
+  },
+  {
+    "id": "ec-additives-re-evaluation",
+    "title": "European Commission — Re-evaluation of food additives",
+    "url": "https://food.ec.europa.eu/food-safety/food-improvement-agents/additives/re-evaluation_en",
+    "use": "Official EU overview of the additive re-evaluation programme; it does not establish vegan suitability."
+  },
+  {
     "id": "vegan-society",
     "title": "The Vegan Society",
     "url": "https://www.vegansociety.com/",

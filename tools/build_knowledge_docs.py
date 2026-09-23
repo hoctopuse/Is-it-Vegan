@@ -25,6 +25,19 @@ OCR_CONCEPTS = {
     "Olpalme": "palm_oil",
     "écithines": "e322",
     "qlucose": "glucose_syrup",
+    "tarwesioop": "wheat_syrup",
+    "soja lecithinen": "e322 (origine soja)",
+    "Werzersiup": "wheat_syrup",
+    "gebe Papria": "bell_pepper",
+    "grine Paprka": "bell_pepper",
+    "Sáurerequlator": "Classe fonctionnelle",
+    "Citronensåure": "e330",
+    "wheat synup": "wheat_syrup",
+    "scranDe di frumento": "wheat_syrup",
+    "estratto ad ato contenuto di tocoferoli": "e306",
+    "siop de blé": "wheat_syrup",
+    "extait riche en tocophérols": "e306",
+    "extrait iche en tocophérols": "e306",
 }
 
 
