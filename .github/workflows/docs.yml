@@ -30,6 +30,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
+          cache-dependency-path: requirements-docs.txt
       - name: Installer MkDocs Material
         run: python -m pip install -r requirements-docs.txt
       - name: Construire la documentation
@@ -51,4 +52,3 @@ jobs:
       - name: Publier sur GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
