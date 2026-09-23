@@ -54,6 +54,7 @@ internal object LabelLexicon {
         "kan(?:\\s+\\p{L}+){1,5}\\s+bevatten",
         "kann(?:\\s+spuren(?:\\s+von)?)?\\s+enthalten",
         "kann(?:\\s+\\p{L}+){1,7}\\s+enthalten",
+        "pu[òo]\\s+contenere(?:\\s+(?:eventuali\\s+)?tracce\\s+di)?",
         "puede\\s+contener(?:\\s+trazas\\s+de)?"
     )
 

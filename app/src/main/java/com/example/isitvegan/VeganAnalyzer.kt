@@ -65,6 +65,11 @@ data class TokenDiagnostic(
     val isDeclaredPresence: Boolean,
     val childCount: Int,
     val matcherText: String?,
+    val correctedText: String?,
+    val multilingualAlias: String?,
+    val canonicalConceptId: String?,
+    val canonicalConceptAvailable: Boolean?,
+    val matchingLanguage: LabelLanguage?,
     val matchedIngredientIds: List<String>,
     val blockedIngredientIds: List<String>,
     val matchKind: MatchKind,
@@ -98,6 +103,7 @@ object VeganAnalyzer {
     private var ingredients: List<Ingredient> = emptyList()
     private var originRules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty()
     private var originRuleErrors: List<String> = emptyList()
+    private var multilingualLexicon: MultilingualIngredientLexicon = MultilingualIngredientLexicon.empty()
     @Volatile private var databaseLoaded = false
 
     fun isDatabaseLoaded(): Boolean = databaseLoaded
@@ -131,13 +137,17 @@ object VeganAnalyzer {
         val loadedRules = OriginQualifierRuleSet.load(originJson)
         originRules = loadedRules.rules
         originRuleErrors = loadedRules.errors
+        multilingualLexicon = MultilingualIngredientLexicon.load(
+            context.assets.open("ingredient_aliases_multilingual.json")
+                .bufferedReader().use { it.readText() }
+        )
         databaseLoaded = true
     }
 
     fun analyze(
         text: String,
         inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST
-    ): AnalysisResult = runAnalysis(text, ingredients, inputMode, originRules, originRuleErrors).result
+    ): AnalysisResult = runAnalysis(text, ingredients, inputMode, originRules, originRuleErrors, multilingualLexicon = multilingualLexicon).result
 
     fun analyzeWithDiagnostics(
         text: String,
@@ -145,7 +155,7 @@ object VeganAnalyzer {
         preferredLanguage: UiLanguage = UiLanguage.FR,
         selectedBlockId: String? = null
     ): AnalysisDiagnostics = runAnalysis(
-        text, ingredients, inputMode, originRules, originRuleErrors, preferredLanguage, selectedBlockId
+        text, ingredients, inputMode, originRules, originRuleErrors, preferredLanguage, selectedBlockId, multilingualLexicon
     )
 
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
@@ -154,9 +164,10 @@ object VeganAnalyzer {
         database: List<Ingredient>,
         inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST,
         rules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty(),
-        ruleErrors: List<String> = emptyList()
+        ruleErrors: List<String> = emptyList(),
+        multilingualLexicon: MultilingualIngredientLexicon = MultilingualIngredientLexicon.empty()
     ): AnalysisResult {
-        return runAnalysis(text, database, inputMode, rules, ruleErrors).result
+        return runAnalysis(text, database, inputMode, rules, ruleErrors, multilingualLexicon = multilingualLexicon).result
     }
 
     internal fun analyzeWithDiagnostics(
@@ -166,9 +177,10 @@ object VeganAnalyzer {
         rules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty(),
         ruleErrors: List<String> = emptyList(),
         preferredLanguage: UiLanguage = UiLanguage.FR,
-        selectedBlockId: String? = null
+        selectedBlockId: String? = null,
+        multilingualLexicon: MultilingualIngredientLexicon = MultilingualIngredientLexicon.empty()
     ): AnalysisDiagnostics = runAnalysis(
-        text, database, inputMode, rules, ruleErrors, preferredLanguage, selectedBlockId
+        text, database, inputMode, rules, ruleErrors, preferredLanguage, selectedBlockId, multilingualLexicon
     )
 
     private fun runAnalysis(
@@ -178,7 +190,8 @@ object VeganAnalyzer {
         rules: OriginQualifierRuleSet,
         ruleErrors: List<String>,
         preferredLanguage: UiLanguage = UiLanguage.FR,
-        selectedBlockId: String? = null
+        selectedBlockId: String? = null,
+        multilingualLexicon: MultilingualIngredientLexicon = MultilingualIngredientLexicon.empty()
     ): AnalysisDiagnostics {
         val detectedSegmentation = LabelLanguageSegmenter.segment(text, preferredLanguage)
         val languageSegmentation = detectedSegmentation.withSelectedBlockId(selectedBlockId)
@@ -258,6 +271,11 @@ object VeganAnalyzer {
                     isDeclaredPresence = isDeclaredPresence,
                     childCount = token.childCount,
                     matcherText = null,
+                    correctedText = null,
+                    multilingualAlias = null,
+                    canonicalConceptId = null,
+                    canonicalConceptAvailable = null,
+                    matchingLanguage = null,
                     matchedIngredientIds = emptyList(),
                     blockedIngredientIds = emptyList(),
                     matchKind = MatchKind.NONE,
@@ -265,12 +283,31 @@ object VeganAnalyzer {
                 )
                 continue
             }
-            val protectedExpression = rules.protectedExpression(token.text)
-            val matcherText = OcrIngredientNormalizer.forMatching(protectedExpression?.matcherAlias ?: token.text)
-            val rawMatch = matcher.match(token.copy(text = matcherText))
+            // Preserve protected structural expressions before applying a language alias. Their
+            // parenthesis is metadata, not a multilingual ingredient designation.
+            val originalProtectedExpression = rules.protectedExpression(token.text)
+            val lexical = multilingualLexicon.resolve(
+                originalProtectedExpression?.matcherAlias ?: token.text,
+                sections.language,
+                database
+            )
+            val canonicalIngredient = lexical.canonicalId?.let { id -> database.firstOrNull { it.id == id } }
+            val canonicalText = canonicalIngredient?.let { ingredient ->
+                val suffix = lexical.correctedText.indexOf('(').takeIf { it >= 0 }
+                    ?.let { lexical.correctedText.substring(it) }.orEmpty()
+                ingredient.name + suffix
+            } ?: lexical.correctedText
+            val matcherText = OcrIngredientNormalizer.forMatching(canonicalText)
+            val normalizedOrigin = rules.extractAttached(matcherText)
+            val matchingToken = token.copy(
+                text = matcherText,
+                originQualification = normalizedOrigin.qualification ?: token.originQualification
+            )
+            val protectedExpression = originalProtectedExpression ?: rules.protectedExpression(matcherText)
+            val rawMatch = matcher.match(matchingToken.copy(text = protectedExpression?.matcherAlias ?: matcherText))
             val match = validateProtectedExpression(rawMatch, protectedExpression)
             val resolutions = match.ingredients.map {
-                it to rules.resolve(it, token.originQualification)
+                it to rules.resolve(it, matchingToken.originQualification)
             }
             val effectiveIngredients = resolutions.map { (ingredient, resolution) ->
                 ingredient.copy(
@@ -311,9 +348,9 @@ object VeganAnalyzer {
                 variableProportionsText = token.variableProportionsText,
                 hasAlternatives = token.hasAlternatives,
                 alternativesText = token.alternativesText,
-                originRuleId = token.originQualification?.ruleId,
-                originOutcomeId = token.originQualification?.outcomeId,
-                originQualifierText = token.originQualification?.detectedPhrase,
+                originRuleId = matchingToken.originQualification?.ruleId,
+                originOutcomeId = matchingToken.originQualification?.outcomeId,
+                originQualifierText = matchingToken.originQualification?.detectedPhrase,
                 baseStatuses = resolutions.map { it.second.baseStatus },
                 effectiveStatuses = resolutions.map { it.second.effectiveStatus },
                 originResolution = resolutions.mapNotNull { it.second.explanation }
@@ -321,6 +358,11 @@ object VeganAnalyzer {
                 isDeclaredPresence = isDeclaredPresence,
                 childCount = token.childCount,
                 matcherText = matcherText,
+                correctedText = lexical.correctedText.takeIf { it != token.text },
+                multilingualAlias = lexical.alias,
+                canonicalConceptId = lexical.canonicalId,
+                canonicalConceptAvailable = lexical.canonicalAvailable,
+                matchingLanguage = lexical.language.takeIf { lexical.alias != null },
                 matchedIngredientIds = match.ingredients.map { it.id },
                 blockedIngredientIds = match.blockedIngredientIds,
                 matchKind = assessment.matchKind,

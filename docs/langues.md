@@ -70,4 +70,10 @@ Si la segmentation utilise le fallback, le texte complet nettoyé est présenté
 Le moteur `VeganAnalyzer` segmente de nouveau son entrée. En mode étiquette ou OCR, il utilise le bloc retenu par le segmentateur. En mode liste manuelle, il cherche d’abord une section exploitable selon la préférence linguistique, puis prend la plus longue si nécessaire.
 ## Stabilisation 0.6.5.1
 
+## Lexique multilingue 0.6.6
+
+`ingredient_aliases_multilingual.json` associe un alias revu, dans une langue précise, à un `canonicalId` proposé. Il ne contient ni statut vegan, ni raison, ni règle d’origine. Après la sélection du bloc, le matching applique une correction OCR limitée à la langue, puis un alias complet avant les sous-termes.
+
+Une entrée sans `canonicalId` présent dans la base canonique reste inconnue : le diagnostic conserve l’alias et le concept proposé, puis indique que ce concept est absent et non classifiable. Le lexique ne peut jamais attribuer à lui seul une classification vegan. Son schéma, ses langues, ses doublons et ses conflits sont validés au chargement. Les corrections sont affichées dans le diagnostic sans changer le texte brut ML Kit.
+
 Les titres OCR limités `Ztaten`, `Ingediënten` et `ingredienti` sont reconnus uniquement lorsqu'un séparateur et une liste suffisamment structurée les suivent. Les identifiants de blocs dérivent du texte source normalisé, et non des offsets d'une segmentation ultérieure.

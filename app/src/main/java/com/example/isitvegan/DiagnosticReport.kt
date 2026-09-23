@@ -116,6 +116,20 @@ internal object DiagnosticReport {
                     }
                     token.matcherText?.takeIf { it != token.text }
                         ?.let { append(" | texte matcher=$it") }
+                    token.correctedText?.let { append(" | texte corrigé=$it") }
+                    token.multilingualAlias?.let { append(" | alias multilingue=$it") }
+                    token.canonicalConceptId?.let { append(" | concept canonique=$it") }
+                    token.canonicalConceptAvailable?.let { available ->
+                        append(
+                            " | disponibilité du concept=" + if (available) {
+                                "présente dans ingredients.json"
+                            } else {
+                                "absente de ingredients.json"
+                            }
+                        )
+                        if (!available) append(" | classification=non classifiable")
+                    }
+                    token.matchingLanguage?.let { append(" | langue matching=${it.displayName}") }
                     if (token.nodeKind == IngredientNodeKind.COMPOSITE) {
                         append(" | conteneur analysé | inconnus propres=aucun")
                     } else {

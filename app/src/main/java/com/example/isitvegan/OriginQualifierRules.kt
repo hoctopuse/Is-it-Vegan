@@ -375,7 +375,7 @@ private fun Map<*, *>.objects(
 }
 
 /** Small strict JSON reader used on Android and in local JVM tests without another runtime dependency. */
-private class MiniJson(private val source: String) {
+internal class MiniJson(private val source: String) {
     private var index = 0
 
     private fun read(): Any? {

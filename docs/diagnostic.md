@@ -31,6 +31,10 @@ Un conteneur composite affiche « conteneur analysé » et aucun inconnu propre.
 
 ## Diagnostic OCR
 
+## Matching multilingue 0.6.6
+
+Pour chaque alias linguistique retenu, le diagnostic d’analyse affiche le texte OCR, la correction éventuelle, l’alias, le concept canonique, sa disponibilité dans `ingredients.json` et la langue de matching. Un concept proposé mais absent est affiché comme non classifiable et reste inconnu. L’identifiant canonique ne porte aucun statut : la classification continue de provenir exclusivement de `ingredients.json`.
+
 `OcrDiagnostics` et `OcrExportReport` exposent :
 
 - rotation EXIF transmise à ML Kit ;

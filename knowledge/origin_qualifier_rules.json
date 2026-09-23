@@ -88,7 +88,7 @@
       "target": {
         "ingredientIds": ["e322"],
         "eNumbers": ["E322"],
-        "aliases": ["lécithine", "lécithines", "lecithine", "lecithins", "lecithinen"]
+        "aliases": ["lécithine", "lécithines", "lecithine", "lecithins", "lecithinen", "lecitine", "lecitinas", "lecitinen"]
       },
       "originMode": "variable",
       "evidenceLevel": "direct-item-source-description",
@@ -97,7 +97,7 @@
         {
           "id": "plant-soy",
           "origin": "plant-soy",
-          "qualifiers": ["soja", "soy", "soya", "soybean", "sojaboon"],
+          "qualifiers": ["soja", "soia", "soy", "soya", "soybean", "sojaboon"],
           "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
           "veganStatus": "VEGAN",
           "vegetarianStatus": "VEGETARIAN_OR_VEGAN",
@@ -106,7 +106,7 @@
         {
           "id": "plant-sunflower",
           "origin": "plant-sunflower",
-          "qualifiers": ["tournesol", "sunflower", "zonnebloem", "sonnenblume", "sonnenblumen"],
+          "qualifiers": ["tournesol", "sunflower", "zonnebloem", "sonnenblume", "sonnenblumen", "girasol", "girasole"],
           "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
           "veganStatus": "VEGAN",
           "vegetarianStatus": "VEGETARIAN_OR_VEGAN",

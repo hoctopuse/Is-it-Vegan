@@ -145,6 +145,7 @@ internal object LabelSectionExtractor {
         val enclosed = listOf(
             Regex("(?is)^kann(?:\\s+spuren(?:\\s+von)?)?\\s+(.+?)\\s+enthalten[.!?]?$"),
             Regex("(?is)^kan(?:\\s+sporen(?:\\s+van)?)?\\s+(.+?)\\s+bevatten[.!?]?$"),
+            Regex("(?is)^pu[òo]\\s+contenere(?:\\s+(?:eventuali\\s+)?tracce\\s+di)?\\s*:?\\s*(.+?)[.!?]?$"),
             Regex("(?is)^puede\\s+contener(?:\\s+trazas\\s+de)?\\s*:?\\s*(.+?)[.!?]?$"),
             Regex("(?is)^may\\s+contain(?:\\s+traces?\\s+of)?\\s*:?\\s*(.+?)[.!?]?$"),
             Regex("(?is)^p(?:eu|e)t\\s+(?:cont(?:e|é)nir|conterir|conteir|conteuir)" +
