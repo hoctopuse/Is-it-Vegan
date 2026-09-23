@@ -28,7 +28,7 @@ Le parseur accepte aussi `contient`, `bevat`, `contains`, `enthält` et `contien
 
 Le premier pourcentage d’un nœud devient un `BigDecimal` dans `quantityPercent` et disparaît de son nom analysable. `62,6 %` devient ainsi `BigDecimal("62.6")`. Les pourcentages imbriqués restent attachés au bon nœud.
 
-Les espaces internes aux identifiants sont normalisés : `E 471`, `INS 330` et `B 12` deviennent respectivement `E471`, `INS330` et `B12`. La syntaxe originale utile reste visible dans les métadonnées et le diagnostic.
+Les espaces internes aux identifiants sont normalisés : `E 471`, `INS 330` et `B 12` deviennent respectivement `E471`, `INS330` et `B12`. Une série OCR-confirmée telle que `E202-E262-E270` devient trois additifs distincts ; `EZ621` n’est corrigé que dans une telle série. La syntaxe originale utile reste visible dans les métadonnées et le diagnostic.
 
 ## Classes fonctionnelles et additifs
 
@@ -93,4 +93,3 @@ flowchart TD
 - Une parenthèse à mot unique est considérée comme composition, sauf protection explicite ; cette heuristique ne comprend pas le sens libre de toute étiquette.
 - Le parseur n’effectue ni validation réglementaire de l’ordre pondéral, ni contrôle des pourcentages QUID.
 - Il ne complète pas une sous-composition omise par le fabricant.
-

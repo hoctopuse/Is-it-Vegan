@@ -1,5 +1,5 @@
 site_name: Is It Vegan? — Documentation technique
-site_description: Architecture et fonctionnement de Is It Vegan? 0.6.4.1
+site_description: Architecture et fonctionnement de Is It Vegan? 0.6.5
 docs_dir: docs
 site_dir: site
 theme:
@@ -36,4 +36,3 @@ nav:
   - Diagnostic: diagnostic.md
   - Vie privée et hors ligne: vie-privee.md
   - Guide développeur: guide-developpeur.md
-

@@ -10,7 +10,8 @@ data class LabelSections(
     val hasIngredientHeading: Boolean,
     val ingredientHeadingText: String? = null,
     val ingredientHeadingSeparator: HeadingSeparator? = null,
-    val declaredContainsSyntax: String? = null
+    val declaredContainsSyntax: String? = null,
+    val selectedBlockId: String? = null
 )
 
 internal object LabelSectionExtractor {
@@ -28,24 +29,29 @@ internal object LabelSectionExtractor {
         "nährwert(?:angaben)?", "préparation", "preparation", "bereiding", "preparación",
         "mode\\s+d['’]emploi", "zubereitung", "fabricant", "distributeur",
         "manufacturer", "hersteller", "fabriqué\\s+en", "origine", "origin",
-        "importateur", "importer", "imported\\s+by", "certification", "certified",
+        "importateur", "importer", "imported\\s+by", "certification", "certified", "certifi[ée]", "zertifiziert", "gecertificeerd",
         "open\\s+here", "ouvrir\\s+ici"
     )
     private val boundaryHeadings = listOf(
         "non\\s+ouvert", "conservation", "conseils?\\s+de\\s+conservation",
-        "bewaring(?:sadvies)?", "conservación", "consejos?\\s+de\\s+conservación", "storage(?:\\s+instructions?)?",
+        "bewaring(?:sadvies)?", "te\\s+bewaren", "na\\s+openen", "ongeopend", "conservación", "consejos?\\s+de\\s+conservación", "storage(?:\\s+instructions?)?", "store\\s+in",
         "aufbewahrung(?:shinweise)?", "quantité\\s+nette", "netto(?:hoeveelheid|gewicht)",
         "net\\s+(?:quantity|weight)", "nettogewicht", "cantidad\\s+neta", "nettomasse",
         "[àÀ]\\s+consommer\\s+de\\s+préférence\\s+avant(?:\\s+(?:le|fin))?",
         "best\\s+before(?:\\s+end)?", "ten\\s+minste\\s+houdbaar\\s+tot", "mindestens\\s+haltbar(?:\\s+bis)?",
-        "consumir\\s+preferentemente\\s+antes(?:\\s+del\\s+fin)?", "[àÀ]\\s+conserver", "après\\s+ouverture",
+        "consumir\\s+preferentemente\\s+antes(?:\\s+del\\s+fin)?", "[AaÀà]\\s+conserver", "après\\s+ouverture",
         "na\\s+opening", "after\\s+opening", "nach\\s+dem\\s+[Öö]ffnen", "una\\s+vez\\s+abierto",
-        "lot", "importateur", "importer", "imported\\s+by", "certification", "certified",
+        "vor\\s+wärme\\s+schützen", "zu\\s+verbrauchen\\s+bis", "después\\s+de\\s+abrir",
+        "rainforest\\s+alliance", "ra\\.org", "mehr\\s+unter", "informations?\\s+nutritionnelles?", "voedingswaarden",
+        "lot", "importateur", "importer", "imported\\s+by", "certification", "certified", "certifi[ée]", "zertifiziert", "gecertificeerd",
         "open\\s+here", "ouvrir\\s+ici"
     )
 
     fun extract(block: LanguageBlock): LabelSections =
-        extract(block.language, block.rawText).copy(language = block.language)
+        extract(block.language, block.rawText).copy(language = block.language, selectedBlockId = block.id)
+
+    internal fun hasEndOrMarketingMarker(text: String): Boolean =
+        (boundaryHeadings + ignoredHeadings).any { Regex("(?i)$it").containsMatchIn(text) }
 
     fun extract(language: LabelLanguage, text: String): LabelSections {
         val markers = findMarkers(text)
@@ -73,13 +79,11 @@ internal object LabelSectionExtractor {
                 .takeIf(String::isNotBlank)
         }
         val traces = markers.filter { it.kind == SectionKind.TRACES }.map { marker ->
-            text.substring(
-                marker.range.first,
-                markers.firstOrNull {
+            val nextSection = markers.firstOrNull {
                     it.range.first > marker.range.first &&
                         (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
                 }?.range?.first ?: text.length
-            ).trim()
+            text.substring(marker.range.first, traceEnd(text, marker.contentStart, nextSection)).trim()
         }.filter(String::isNotBlank).joinToString("\n").takeIf(String::isNotBlank)
         val ignored = markers.filter { it.kind == SectionKind.IGNORED }.map { marker ->
             text.substring(
@@ -118,7 +122,7 @@ internal object LabelSectionExtractor {
             )
         }
         val traceMarkers = LabelLexicon.tracePrefixes.flatMap { prefix ->
-            Regex("(?i)(?<![\\p{L}\\d])$prefix(?:\\s*:\\s*|(?=\\s))")
+            Regex("(?i)(?<![\\p{L}\\d])$prefix(?:\\s*:\\s*|(?=\\s|[.,;)\\]]|$))")
                 .findAll(text)
                 .map {
                     SectionMarker(SectionKind.TRACES, it.range, it.range.last + 1, it.value.trim())
@@ -174,6 +178,19 @@ internal object LabelSectionExtractor {
         val end = markers.firstOrNull { it.range.first > marker.range.first && stop(it) }
             ?.range?.first ?: text.length
         return text.substring(marker.contentStart, end)
+    }
+
+    /** A trace list may span lines, but a completed allergen sentence is its strongest boundary. */
+    private fun traceEnd(text: String, contentStart: Int, maximumEnd: Int): Int {
+        var depth = 0
+        for (index in contentStart until maximumEnd) {
+            when (text[index]) {
+                '(', '[' -> depth++
+                ')', ']' -> depth = (depth - 1).coerceAtLeast(0)
+                '.', '!', '?' -> if (depth == 0) return index + 1
+            }
+        }
+        return maximumEnd
     }
 
     private fun depthAt(text: String, position: Int): Int {

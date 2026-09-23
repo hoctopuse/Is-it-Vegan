@@ -34,7 +34,9 @@ Les préfixes couvrent notamment :
 - `kann enthalten` et la forme allemande avec « Spuren von … enthalten » ;
 - `puede contener [trazas de]`.
 
-Une trace s’étend jusqu’à une section ignorée ou au prochain titre d’ingrédients. `LabelPreprocessor` possède en plus une détection de « fabriqué dans un atelier ». Les avertissements sont dédupliqués en conservant leur ordre.
+Les formes OCR bornées `Pet conterir`, `Peut conterir`, `Peut conteir` et `Peut conteuir` sont reconnues en français. Les formes NL et DE admettent quelques mots entre `kan`/`kann` et `bevatten`/`enthalten`, ce qui conserve les listes de traces déformées sans analyser leurs allergènes.
+
+Une trace s’étend sur plusieurs lignes si nécessaire. Une phrase d’allergènes terminée par `.`, `!` ou `?` est sa borne prioritaire ; sinon elle s’arrête à une section ignorée ou au prochain titre d’ingrédients. `LabelPreprocessor` possède en plus une détection de « fabriqué dans un atelier ». Les avertissements sont dédupliqués en conservant leur ordre.
 
 Ils ne sont jamais envoyés à `IngredientTreeParser`, `IngredientMatcher`, `UnknownCollector` ou `VerdictEngine`. Une étiquette composée uniquement d’une trace produit donc `NO_INGREDIENT_LIST`, aucun ingrédient reconnu et aucun verdict détaillé.
 
@@ -44,11 +46,11 @@ Les bornes couvrent des familles visibles dans le code :
 
 - valeurs ou déclaration nutritionnelles ;
 - préparation et mode d’emploi ;
-- conservation et après ouverture ;
+- conservation, après ouverture et dates de durabilité (`A conserver`, `Bewaring`, `Aufbewahrung`, `Nach dem Öffnen`, `Best before`) ;
 - dates de durabilité ;
 - lot et quantité nette ;
 - fabricant, distributeur, origine et importateur ;
-- certification ;
+- certification et marketing (`Rainforest Alliance`, `ra.org`, `Mehr unter`, `certifié`, `zertifiziert`, `gecertificeerd`) ;
 - « open here » / « ouvrir ici ».
 
 Les expressions existent dans plusieurs langues, surtout FR, EN, NL, DE et ES. Certaines nécessitent un deux-points ; les bornes de conservation/date peuvent aussi commencer une ligne ou suivre une fin de phrase.
@@ -62,11 +64,10 @@ Les expressions existent dans plusieurs langues, surtout FR, EN, NL, DE et ES. C
 - extrait certaines notes : allergènes, Rainforest Alliance, agriculture biologique, œufs de poules élevées au sol et `^concentré` ;
 - rattache les lignes qui prolongent une note ;
 - retire les appels de note attachés lorsqu’un pied de page correspondant existe ;
-- applique une seule correction OCR lexicale historique et bornée : `formage grana` vers `fromage grana`.
+- applique des corrections OCR bornées de composition telles que `powron`, `olves nores`, `huie đove`, `doutble oncentré`, `ognon` et `toumesol`. Elles ne s’appliquent jamais au texte OCR brut.
 
-Les classes fonctionnelles et les pourcentages restent dans `compositionText` pour que le parseur conserve leur structure. `QuantityCleaner` existe et est testé comme utilitaire, mais le chemin de production de `VeganAnalyzer` ne l’appelle pas en 0.6.4.1.
+Les classes fonctionnelles et les pourcentages restent dans `compositionText` pour que le parseur conserve leur structure. `QuantityCleaner` existe et est testé comme utilitaire, mais le chemin de production de `VeganAnalyzer` ne l’appelle pas en 0.6.5.
 
 ## Limites
 
 La détection repose sur des expressions régulières et des profondeurs équilibrées. Une ponctuation OCR très dégradée ou une parenthèse non fermée peut déplacer une frontière. Les notes et sections ignorées sont une liste fermée ; un slogan inconnu peut donc rester dans le texte et devenir un inconnu plutôt que d’être supprimé arbitrairement.
-

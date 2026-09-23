@@ -19,6 +19,7 @@ Les suites principales sont regroupées ci-dessous.
 | Session OCR | `OcrSessionTest`, `OcrMultilingualSelectionTest` | séparation brut/éditable, sélection de bloc, texte complet, invalidation et export |
 | Langues | `LabelLanguageSegmenterTest`, `LabelLanguageHotfixTest`, `LabelLanguageSegmentationHotfixTest`, `OcrLanguageZonesTest`, `Version064LanguageTest` | marqueurs, marchés, priorité UI, titres sur une ligne, ambiguïtés et fallback |
 | Sections | `LabelSectionExtractorTest`, `CrossContactTest` | ingrédients, présence réelle, traces, nutrition, conservation et notes |
+| Régression 0.6.5 | `Version065OcrPipelineTest` | titres OCR, score bloc complet, identité partagée, traces FR/DE/NL, conservation, séries E et pont allemand |
 | Parsing | `IngredientTreeParserTest`, `HierarchyAnalysisTest`, `ParserModulesTest` | parenthèses, crochets, niveaux, pourcentages, classes fonctionnelles et additifs |
 | Matching/verdict | `VeganAnalyzerTest`, `UnknownCollectionHotfixTest`, suites `Version05…Test` | alias longs, expressions protégées, inconnus, règles d’origine et priorité du verdict |
 
@@ -95,4 +96,3 @@ Ces commandes détectent notamment un asset périmé, un statut inconnu, un alia
 - Changement de géométrie : test JVM avec coordonnées simulées ; test Compose seulement pour le parcours UI.
 - Changement de parser/matcher/verdict : tests JVM ciblés, puis suite unitaire complète.
 - Changement de ML Kit, manifeste ou ressources Android : `assembleDebugAndroidTest` et tests connectés lorsque l’appareil est disponible.
-

@@ -57,6 +57,7 @@ internal object IngredientTreeParser {
     )
     private val protectedDesignation = Regex("(?i)\\b(?:AOP|IGP|DOP|PDO)\\b")
     private val eNumberWithSpace = Regex("(?i)\\bE\\s+(?=\\d)")
+    private val groupedENumbers = Regex("(?i)\\b(?:E|EZ)\\s*\\d{3}(?:\\s*-\\s*(?:E|EZ)?\\s*\\d{3})+\\b")
     private val insNumberWithSpace = Regex("(?i)\\bINS\\s+(?=\\d)")
     private val vitaminWithSpace = Regex("(?i)\\b[BDK]\\s+(?=\\d)")
     private val nanoQualifier = Regex("(?i)(?:\\[\\s*nano\\s*]|\\(\\s*nano\\s*\\))")
@@ -69,7 +70,13 @@ internal object IngredientTreeParser {
     fun parse(
         text: String,
         originRules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty()
-    ): List<IngredientNode> = parseList(text, originRules)
+    ): List<IngredientNode> = parseList(expandGroupedENumbers(text), originRules)
+
+    /** Splits an OCR-confirmed additive series without touching ordinary hyphenated words. */
+    private fun expandGroupedENumbers(text: String): String = groupedENumbers.replace(text) { match ->
+        Regex("(?i)(?:E|EZ)?\\s*(\\d{3})").findAll(match.value)
+            .joinToString(", ") { "E${it.groupValues[1]}" }
+    }
 
     private fun parseList(text: String, originRules: OriginQualifierRuleSet): List<IngredientNode> {
         val segments = splitAtCurrentDepthWithSeparators(text)

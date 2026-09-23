@@ -58,14 +58,16 @@ internal data class OcrDiagnostics(
     val selectedLanguage: String? = null,
     val languagePreference: List<String> = emptyList(),
     val selectionReason: String? = null,
-    val detectedBlockDetails: List<String> = emptyList()
+    val detectedBlockDetails: List<String> = emptyList(),
+    val selectedBlockId: String? = null
 )
 
 internal data class OcrTextOption(
     val language: LabelLanguage,
     val text: String,
     val marker: String?,
-    val languageCorrectionReason: String? = null
+    val languageCorrectionReason: String? = null,
+    val blockId: String
 )
 
 internal data class OcrProcessingResult(
@@ -75,5 +77,6 @@ internal data class OcrProcessingResult(
     val usedRawFallback: Boolean = false,
     val fullText: String = editableText,
     val textOptions: List<OcrTextOption> = emptyList(),
-    val selectedOptionLanguage: LabelLanguage? = null
+    val selectedOptionLanguage: LabelLanguage? = null,
+    val selectedOptionBlockId: String? = null
 )

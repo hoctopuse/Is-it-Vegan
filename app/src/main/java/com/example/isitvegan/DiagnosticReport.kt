@@ -19,20 +19,29 @@ internal object DiagnosticReport {
             appendLine()
             appendLine("LANGUE / BLOC SÉLECTIONNÉ")
             appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
+            appendLine("Identifiant du bloc sélectionné : ${diagnostics.labelSections.selectedBlockId ?: "texte complet"}")
             appendLine("Blocs détectés : " + diagnostics.languageSegmentation.blocks
                 .map { it.language.displayName }.distinct().joinToString(", "))
             diagnostics.languageSegmentation.blocks.forEachIndexed { index, block ->
                 appendLine(
-                    "Bloc ${index + 1} : marqueur=${block.detectedMarker ?: "aucun"}, " +
-                        "langue finale=${block.language.displayName}, " +
+                    "Bloc ${index + 1} (${block.id}) ${if (block.id == diagnostics.languageSegmentation.selectedBlockId) "retenu" else "non retenu"} : marqueur=${block.detectedMarker ?: "aucun"}, " +
+                        "langue originale=${block.headingLanguage?.displayName ?: block.language.displayName}, " +
+                        "langue normalisée=${block.language.displayName}, score=${block.selectionScore}, " +
                         "longueur utile=${block.usefulLength}, " +
                         "tronqué=${if (block.manifestlyTruncated) "oui" else "non"}"
                 )
+                val criteria = block.selectionSignals.joinToString("; ").ifBlank { "aucun" }
+                appendLine("  Critères : $criteria")
                 block.languageCorrectionReason?.let { appendLine("Correction : $it") }
             }
             appendLine("Marqueur sélectionné : ${diagnostics.languageSegmentation.detectedMarker ?: "aucun"}")
             appendLine(
                 "Autres blocs ignorés : " + diagnostics.languageSegmentation.ignoredLanguages
+                    .joinToString(", ") { it.displayName }
+                    .ifBlank { "aucun" }
+            )
+            appendLine(
+                "Blocs multilingues non sélectionnés : " + diagnostics.languageSegmentation.ignoredLanguages
                     .joinToString(", ") { it.displayName }
                     .ifBlank { "aucun" }
             )
@@ -57,6 +66,7 @@ internal object DiagnosticReport {
             appendLine("Section présence réelle : ${if (diagnostics.labelSections.declaredContainsText != null) "détectée" else "non détectée"}")
             appendLine("Syntaxe de présence réelle : ${diagnostics.labelSections.declaredContainsSyntax ?: "aucune"}")
             appendLine("Section traces : ${if (diagnostics.labelSections.tracesText != null) "détectée" else "non détectée"}")
+            diagnostics.labelSections.tracesText?.let { appendLine("Frontière traces : $it") }
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })

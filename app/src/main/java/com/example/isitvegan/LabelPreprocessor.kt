@@ -8,16 +8,37 @@ internal data class PreprocessedLabel(
 
 internal object LabelPreprocessor {
     private val crossContactMarker = Regex(
-        "(?i)\\b(?:peut\\s+contenir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
+        "(?i)\\b(?:p(?:eu|e)t\\s+cont(?:e|é)nir|p(?:eu|e)t\\s+conterir|p(?:eu|e)t\\s+conteir|p(?:eu|e)t\\s+conteuir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
             "may\\s+contain(?:\\s+traces?\\s+of)?|" +
-            "kan(?:\\s+sporen\\s+van)?(?=\\s+[^.\\r\\n]{1,80}\\s+bevatten\\b)|" +
-            "kann(?:\\s+spuren\\s+von)?(?=\\s+[^.\\r\\n]{1,80}\\s+enthalten\\b)|" +
+            "kan(?:\\s+\\p{L}+){0,5}\\s+bevatten|" +
+            "kann(?:\\s+\\p{L}+){0,7}\\s+enthalten|" +
             "puede\\s+contener(?:\\s+trazas\\s+de)?|" +
             "fabriqu[ée]\\s+dans\\s+un\\s+atelier)"
     )
-    private val ingredientHeading = Regex("(?i)^\\s*ingr[ée]dients?\\s*:\\s*")
+    private val ingredientHeading = Regex("(?i)^\\s*(?:ingr[ée]dients?|sngredients?|ingr[ée]cients?|ingredi[ëè]nten?|ingredienten?|zutaten|ingredientes?)\\s*:\\s*")
     private val simpleOcrCorrections = listOf(
-        Regex("(?i)\\bformage(?=\\s+grana\\b)") to "fromage"
+        Regex("(?i)\\bformage(?=\\s+grana\\b)") to "fromage",
+        Regex("(?i)\\bpowron\\b") to "poivron",
+        Regex("(?i)\\bolves\\s+nores\\b") to "olives noires",
+        Regex("(?i)\\bhuie\\s+[đd]ove\\b") to "huile d’olive",
+        Regex("(?i)\\bdoutble\\s+oncentré\\b") to "double concentré",
+        Regex("(?i)\\bognon\\b") to "oignon",
+        Regex("(?i)\\btoumesol\\b") to "tournesol",
+        Regex("(?i)\\bblé\\s+entie\\b") to "blé entier",
+        Regex("(?i)\\bflocons\\s+d['’]?avoine\\b") to "flocons d’avoine",
+        Regex("(?i)\\bflocons\\s+de\\s+seigle\\s+entie\\b") to "flocons de seigle entier",
+        Regex("(?i)\\bmüre\\b") to "mûre",
+        Regex("(?i)\\bmytile\\b") to "myrtille",
+        Regex("(?i)\\byophilisée\\b") to "lyophilisée",
+        Regex("(?i)\\baröớme\\b") to "arôme",
+        Regex("(?i)\\bfrase\\b") to "fraise",
+        Regex("(?i)\\bemuisifiant\\b") to "émulsifiant",
+        Regex("(?i)\\blecthines\\b") to "lécithines",
+        Regex("(?i)\\bextait\\b") to "extrait",
+        Regex("(?i)\\blquide\\b") to "liquide",
+        Regex("(?i)\\bdéshydrate\\b") to "déshydraté",
+        Regex("(?i)\\bgelfiant\\b") to "gélifiant",
+        Regex("(?i)\\barôme\\s+naturel\\s+de\\s+fraise\\s+sel\\b") to "arôme naturel de fraise, sel"
     )
 
     fun preprocess(text: String): PreprocessedLabel {
@@ -67,7 +88,7 @@ internal object LabelPreprocessor {
     private val noteMarker = Regex(
         "(?i)(?:(?:\\*{1,3}|[¹²³])?\\s*(?:" +
             "Allerg[èe]nes\\s*:|Rainforest\\s+Alliance\\s+Certified|" +
-            "Certifi[ée]\\s+Rainforest\\s+Alliance|Agriculture\\s+biologique|" +
+            "Certifi[ée]\\s+Rainforest\\s+Alliance|zertifiziert|gecertificeerd|Mehr\\s+unter|Agriculture\\s+biologique|" +
             "Issu\\s+de\\s+poules\\s+[ée]lev[ée]es\\s+au\\s+sol)|\\^\\s*concentr[ée])"
     )
     private val attachedReference = Regex(

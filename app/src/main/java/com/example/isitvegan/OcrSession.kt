@@ -9,6 +9,7 @@ internal data class OcrSession(
     val fullOcrText: String = "",
     val textOptions: List<OcrTextOption> = emptyList(),
     val selectedOptionLanguage: LabelLanguage? = null,
+    val selectedOptionBlockId: String? = null,
     val fullTextSelected: Boolean = false
 ) {
     fun withOcrText(text: String): OcrSession = copy(rawOcrText = text, editableText = text)
@@ -20,6 +21,7 @@ internal data class OcrSession(
         fullOcrText = result.fullText,
         textOptions = result.textOptions,
         selectedOptionLanguage = result.selectedOptionLanguage,
+        selectedOptionBlockId = result.selectedOptionBlockId,
         fullTextSelected = result.selectedOptionLanguage == null
     )
 
@@ -31,6 +33,7 @@ internal data class OcrSession(
             editableText = option.text,
             analyses = emptyList(),
             selectedOptionLanguage = language,
+            selectedOptionBlockId = option.blockId,
             fullTextSelected = false
         )
     }
@@ -39,6 +42,7 @@ internal data class OcrSession(
         editableText = fullOcrText,
         analyses = emptyList(),
         selectedOptionLanguage = null,
+        selectedOptionBlockId = null,
         fullTextSelected = true
     )
 
@@ -70,6 +74,7 @@ internal object OcrExportReport {
             appendLine("Zones détectées : ${diagnostic.detectedZones.ifEmpty { listOf("UNKNOWN") }.joinToString()}")
             diagnostic.detectedBlockDetails.forEach { appendLine("Bloc : $it") }
             appendLine("Langue sélectionnée : ${diagnostic.selectedLanguage ?: "UNKNOWN"}")
+            appendLine("Identifiant du bloc sélectionné : ${diagnostic.selectedBlockId ?: "texte complet"}")
             appendLine("Ordre de préférence : ${diagnostic.languagePreference.ifEmpty { listOf("FR", "EN", "NL") }.joinToString(" → ")}")
             diagnostic.selectionReason?.takeIf { it.isNotBlank() }?.let { appendLine("Raison du choix : $it") }
             appendLine("Avertissements : ${diagnostic.warnings.ifEmpty { listOf("aucun") }.joinToString(" ; ")}")

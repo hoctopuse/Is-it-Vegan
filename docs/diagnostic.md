@@ -10,8 +10,8 @@ Le projet produit deux rapports texte complémentaires : un rapport d’analyse 
 |---|---|
 | En-tête | version, mode d’entrée, disponibilité, fallback manuel et portée |
 | Entrée | texte exact soumis à `VeganAnalyzer` |
-| Langue/bloc | langue sélectionnée, marqueurs, longueur, troncature, corrections et fallback |
-| Sections | titre, séparateur, présence réelle et traces détectées |
+| Langue/bloc | identifiant, langues originale/normalisée, score, critères, longueur, troncature, corrections et fallback |
+| Sections | titre, séparateur, présence réelle, traces et frontière détectée |
 | Composition | texte après `LabelPreprocessor` et présence réelle séparée |
 | Traces/notes | avertissements de contamination et notes exclues |
 | Étapes | un enregistrement par nœud/token |
@@ -36,14 +36,14 @@ Un conteneur composite affiche « conteneur analysé » et aucun inconnu propre.
 - rotation EXIF transmise à ML Kit ;
 - nombre de blocs et de lignes ;
 - zones détectées ;
-- marqueur brut et langue finale de chaque bloc ;
+- identifiant, marqueur brut, langues originale et normalisée, score et critères de chaque bloc ;
 - langue sélectionnée et ordre de préférence ;
 - raison du choix ;
 - avertissements d’orientation, d’ordre ou de fallback.
 
 L’orientation affichée vaut 0 degré pour un bitmap de recadrage déjà orienté. Pour une image entière, elle correspond à la rotation donnée à `InputImage`. Une valeur indéterminée signifie que l’EXIF n’a pas fourni de rotation exploitable.
 
-L’avertissement sur l’ordre natif signifie que la reconstruction issue des rectangles différait de `Text.text`. Le pipeline a alors gardé le texte natif de ML Kit, conformément au comportement de la version 0.6.4.1.
+L’avertissement sur l’ordre natif signifie que la reconstruction issue des rectangles différait de `Text.text`. Le pipeline a alors gardé le texte natif de ML Kit, conformément au comportement de la version 0.6.5.
 
 ## Texte brut, éditable et instantanés
 
@@ -68,4 +68,3 @@ Pour un résultat surprenant, suivre cet ordre :
 7. appliquer la table de priorité du verdict.
 
 Ce parcours localise généralement l’erreur dans une seule frontière : OCR, segmentation, extraction, parsing, base ou agrégation.
-

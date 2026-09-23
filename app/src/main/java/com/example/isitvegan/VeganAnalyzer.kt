@@ -258,7 +258,7 @@ object VeganAnalyzer {
                 continue
             }
             val protectedExpression = rules.protectedExpression(token.text)
-            val matcherText = protectedExpression?.matcherAlias ?: token.text
+            val matcherText = OcrIngredientNormalizer.forMatching(protectedExpression?.matcherAlias ?: token.text)
             val rawMatch = matcher.match(token.copy(text = matcherText))
             val match = validateProtectedExpression(rawMatch, protectedExpression)
             val resolutions = match.ingredients.map {
@@ -360,9 +360,7 @@ object VeganAnalyzer {
         preferredLanguage: UiLanguage = UiLanguage.FR
     ): LabelSections {
         val candidates = segmentation.blocks.map { LabelSectionExtractor.extract(it) }
-        val segmentedSelection = candidates.firstOrNull {
-            it.language == segmentation.selectedLanguage && it.rawText == segmentation.selectedText
-        }
+        val segmentedSelection = candidates.firstOrNull { it.selectedBlockId == segmentation.selectedBlockId }
         if (inputMode != InputMode.MANUAL_INGREDIENT_LIST) {
             return segmentedSelection
                 ?: LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, segmentation.originalText)

@@ -88,7 +88,7 @@
       "target": {
         "ingredientIds": ["e322"],
         "eNumbers": ["E322"],
-        "aliases": ["lécithine", "lécithines", "lecithine", "lecithins"]
+        "aliases": ["lécithine", "lécithines", "lecithine", "lecithins", "lecithinen"]
       },
       "originMode": "variable",
       "evidenceLevel": "direct-item-source-description",
@@ -102,6 +102,15 @@
           "veganStatus": "VEGAN",
           "vegetarianStatus": "VEGETARIAN_OR_VEGAN",
           "reason": "origine soja directement rattachée"
+        },
+        {
+          "id": "plant-sunflower",
+          "origin": "plant-sunflower",
+          "qualifiers": ["tournesol", "sunflower", "zonnebloem", "sonnenblume", "sonnenblumen"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN",
+          "reason": "origine tournesol directement rattachée"
         },
         {
           "id": "egg",

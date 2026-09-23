@@ -18,7 +18,11 @@ data class LanguageBlock(
     val hasIngredientHeading: Boolean = false,
     val hasHeadingSeparator: Boolean = false,
     val usefulLength: Int = 0,
-    val manifestlyTruncated: Boolean = false
+    val manifestlyTruncated: Boolean = false,
+    /** Stable identity shared by OCR selection, diagnostics and analysis. */
+    val id: String = "block-$startIndex-$endIndex",
+    val selectionScore: Int = 0,
+    val selectionSignals: List<String> = emptyList()
 )
 
 data class LanguageSegmentation(
@@ -30,7 +34,8 @@ data class LanguageSegmentation(
     val ignoredLanguages: List<LabelLanguage>,
     val usedFallback: Boolean,
     val selectionReason: String = "",
-    val rejectedUntitledLanguages: List<LabelLanguage> = emptyList()
+    val rejectedUntitledLanguages: List<LabelLanguage> = emptyList(),
+    val selectedBlockId: String? = null
 )
 
 internal object LabelLanguageSegmenter {
@@ -73,7 +78,7 @@ internal object LabelLanguageSegmenter {
             val end = markers.getOrNull(index + 1)?.range?.first ?: text.length
             LanguageBlock(marker.language, marketTags(marker.marker), text.substring(marker.contentStart, end).trim(), marker.contentStart, end, marker.marker)
                 .let(OcrBlockLanguageClassifier::classify)
-        }.filter { it.rawText.isNotBlank() }
+        }.filter { it.rawText.isNotBlank() }.map(::scoreBlock)
         if (blocks.isEmpty()) return fallback(text)
         val titledBlocks = blocks.filter { it.hasIngredientHeading }
         val selected = preferredBlock(titledBlocks.ifEmpty { blocks }, preferredUiLanguage)
@@ -87,7 +92,8 @@ internal object LabelLanguageSegmenter {
             },
             rejectedUntitledLanguages = if (titledBlocks.isNotEmpty()) {
                 blocks.filterNot { it.hasIngredientHeading }.map { it.language }.distinct()
-            } else emptyList()
+            } else emptyList(),
+            selectedBlockId = selected.id
         )
     }
 
@@ -124,7 +130,7 @@ internal object LabelLanguageSegmenter {
         LabelLanguage.NORWEGIAN, LabelLanguage.FINNISH
         )
         val ranked = blocks.withIndex().sortedWith(
-            compareByDescending<IndexedValue<LanguageBlock>> { blockQuality(it.value) }
+            compareByDescending<IndexedValue<LanguageBlock>> { it.value.selectionScore }
                 .thenBy { index -> order.indexOf(index.value.language).let { if (it < 0) Int.MAX_VALUE else it } }
                 .thenByDescending { it.value.usefulLength }
                 .thenBy { it.index }
@@ -132,12 +138,40 @@ internal object LabelLanguageSegmenter {
         return ranked.firstOrNull()?.value ?: blocks.first()
     }
 
-    private fun blockQuality(block: LanguageBlock): Int = when {
-        block.hasIngredientHeading && block.hasHeadingSeparator && !block.manifestlyTruncated -> 4
-        block.hasIngredientHeading && !block.manifestlyTruncated -> 3
-        block.hasIngredientHeading -> 2
-        !block.manifestlyTruncated -> 1
-        else -> 0
+    private fun scoreBlock(block: LanguageBlock): LanguageBlock {
+        val text = block.rawText
+        val signals = mutableListOf<String>()
+        var score = 0
+        if (block.hasIngredientHeading) { score += 40; signals += "titre d’ingrédients" }
+        if (block.hasHeadingSeparator) { score += 8; signals += "séparateur de titre" }
+        if (block.headingLanguage != null && block.headingLanguage == block.language) {
+            signals += "langue explicitement identifiée"
+        }
+        // Without an ingredient heading, retain the explicit UI-language preference rather
+        // than letting a longer arbitrary paragraph displace the user's language.
+        val lengthScore = if (block.hasIngredientHeading) {
+            (block.usefulLength / 80).coerceAtMost(15)
+        } else 0
+        score += lengthScore
+        signals += "longueur utile=${block.usefulLength}"
+        if (block.hasIngredientHeading && block.usefulLength < 100) {
+            score -= 20
+            signals += "fragment court"
+        }
+        val itemCount = text.count { it == ',' || it == ';' }.coerceAtMost(12)
+        if (block.hasIngredientHeading) {
+            score += itemCount * 2
+            if (itemCount >= 2) signals += "liste structurée=$itemCount"
+        }
+        if (text.trimEnd().lastOrNull() in setOf('.', ')', ']')) { score += 3; signals += "fin de liste cohérente" }
+        if (LabelLexicon.tracePrefixes.any { Regex("(?i)$it").containsMatchIn(text) }) {
+            score += 2; signals += "section traces"
+        }
+        if (LabelSectionExtractor.hasEndOrMarketingMarker(text)) {
+            score -= 12; signals += "conservation ou marketing"
+        }
+        if (block.manifestlyTruncated) { score -= 50; signals += "bloc tronqué" }
+        return block.copy(selectionScore = score, selectionSignals = signals)
     }
 
     private fun fallback(text: String): LanguageSegmentation {
@@ -145,7 +179,8 @@ internal object LabelLanguageSegmenter {
             usefulLength = text.count { it.isLetterOrDigit() })
         return LanguageSegmentation(
             text, listOf(block), text, LabelLanguage.UNKNOWN, null, emptyList(), true,
-            selectionReason = "Aucun marqueur de langue ; texte complet conservé pour extraction bornée."
+            selectionReason = "Aucun marqueur de langue ; texte complet conservé pour extraction bornée.",
+            selectedBlockId = block.id
         )
     }
 

@@ -27,6 +27,8 @@ flowchart LR
 
 Cette forme sert aux comparaisons. Le texte original reste dans le token et le diagnostic.
 
+Avant le matching, `OcrIngredientNormalizer` applique une table exacte et bornée de corrections réellement observées et de ponts allemands (`Weizenmehl`, `Rapsöl`, `Glukosesirup`, etc.). Elle ne remplace jamais le texte brut, ne traduit pas une expression partielle et laisse toute valeur non listée inconnue.
+
 ## Index des alias
 
 Pour chaque entrée, le matcher indexe :
@@ -57,7 +59,7 @@ La protection interne de `butter`, `milk` et `cream` évite les conflits lorsque
 
 ## Qualifications d’origine
 
-`OriginQualifierRuleSet` est chargé depuis `origin_qualifier_rules.json`. Seules les règles marquées `ACTIVE` sont utilisables. En 0.6.4.1, le fichier active les familles E322/lécithines et E471/mono-diglycérides, ainsi qu’une expression protégée pour les huiles végétales.
+`OriginQualifierRuleSet` est chargé depuis `origin_qualifier_rules.json`. Seules les règles marquées `ACTIVE` sont utilisables. En 0.6.5, le fichier active les familles E322/lécithines et E471/mono-diglycérides, ainsi qu’une expression protégée pour les huiles végétales.
 
 Une qualification ne s’applique que si :
 
@@ -65,7 +67,7 @@ Une qualification ne s’applique que si :
 - elle est attachée par une parenthèse finale ou un suffixe direct autorisé ;
 - le statut de base correspond au statut non résolu attendu par la règle.
 
-`lécithines (soja)` peut ainsi devenir vegan et `lécithines (œuf)` végétarien. `E471 d’origine végétale` peut devenir vegan. Une mention distante « huiles végétales » ne résout jamais E471.
+`lécithines (soja)` ou `lecithinen (Sonnenblumen)` peuvent ainsi devenir vegan et `lécithines (œuf)` végétarien. `E471 d’origine végétale` peut devenir vegan. Une mention distante « huiles végétales » ne résout jamais E471.
 
 Le chargeur valide la version de schéma, les enums, identifiants dupliqués et résultats contradictoires. Toute erreur rejette l’ensemble actif et apparaît dans le diagnostic.
 
@@ -85,4 +87,3 @@ La distinction est stricte :
 - `VerdictEngine` agrège les statuts et inconnus.
 
 Ajouter un alias dans le parseur ou deviner un statut depuis la syntaxe violerait cette frontière.
-

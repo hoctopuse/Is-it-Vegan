@@ -3,7 +3,8 @@ package com.example.isitvegan
 internal data class OcrTextSelectionResult(
     val editableText: String,
     val options: List<OcrTextOption>,
-    val selectedLanguage: LabelLanguage?
+    val selectedLanguage: LabelLanguage?,
+    val selectedBlockId: String?
 )
 
 /** Pure selection step shared by OCR processing and JVM regression tests. */
@@ -24,19 +25,21 @@ internal object OcrTextSelection {
                     language = block.language,
                     text = OcrTextCleaner.cleanSelectedBlock(block.rawText),
                     marker = block.detectedMarker,
-                    languageCorrectionReason = block.languageCorrectionReason
+                    languageCorrectionReason = block.languageCorrectionReason,
+                    blockId = block.id
                 )
             }
         val editable = if (segmentation.usedFallback) {
             fullText
         } else {
-            options.firstOrNull { it.language == segmentation.selectedLanguage }?.text
+            options.firstOrNull { it.blockId == segmentation.selectedBlockId }?.text
                 ?: OcrTextCleaner.cleanSelectedBlock(segmentation.selectedText)
         }
         return OcrTextSelectionResult(
             editableText = editable,
             options = options,
-            selectedLanguage = segmentation.selectedLanguage.takeUnless { segmentation.usedFallback }
+            selectedLanguage = segmentation.selectedLanguage.takeUnless { segmentation.usedFallback },
+            selectedBlockId = segmentation.selectedBlockId.takeUnless { segmentation.usedFallback }
         )
     }
 }

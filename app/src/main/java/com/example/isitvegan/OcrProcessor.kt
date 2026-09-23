@@ -125,16 +125,18 @@ internal class OcrProcessor(context: Context) {
                                 selectedLanguage = segmentation.selectedLanguage.displayName,
                                 languagePreference = languagePreference(preferredLanguage),
                                 selectionReason = segmentation.selectionReason,
+                                selectedBlockId = textSelection.selectedBlockId,
                                 detectedBlockDetails = segmentation.blocks.map { block ->
                                     buildString {
-                                        append("${block.detectedMarker ?: "sans marqueur"} → ${block.language.displayName}")
+                                        append("${block.id}: ${block.detectedMarker ?: "sans marqueur"} → ${block.language.displayName}; score=${block.selectionScore}")
                                         block.languageCorrectionReason?.let { append(" ($it)") }
                                     }
                                 }
                             ),
                             fullText = fullEditable,
                             textOptions = textSelection.options,
-                            selectedOptionLanguage = textSelection.selectedLanguage
+                            selectedOptionLanguage = textSelection.selectedLanguage,
+                            selectedOptionBlockId = textSelection.selectedBlockId
                         )
                     } catch (_: RuntimeException) {
                         OcrProcessingResult(

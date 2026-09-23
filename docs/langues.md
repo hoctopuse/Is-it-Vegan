@@ -8,8 +8,8 @@ La segmentation cherche des zones plausibles ; elle ne traduit rien et ne classe
 
 | Langue | Titres principaux |
 |---|---|
-| FR | `ingrédient`, `ingrédients`, `ingredients` selon le motif français |
-| NL | `ingrediënt`, `ingrediënten`, `ingredient`, `ingredienten` |
+| FR | `ingrédient`, `ingrédients`, `Sngredients`, `Ingrécients` |
+| NL | `ingrediënt`, `ingrediënten`, `ingrediènten`, `ingredienten` |
 | EN | `ingredient`, `ingredients` |
 | DE | `zutat`, `zutaten` |
 | ES | `ingrediente`, `ingredientes` |
@@ -35,7 +35,7 @@ Sans marqueur fiable, un unique bloc `UNKNOWN` contient le texte complet avec `u
 
 `OcrBlockLanguageClassifier` recherche le premier titre du bloc, puis compte les mots du contenu dans quatre petits vocabulaires : FR, EN, NL et DE. Les accents sont retirés uniquement pour ce comptage. Une langue de contenu gagne si elle possède au moins deux occurrences et strictement plus que la suivante.
 
-Ainsi, `INGREDIENTS: eau, huile, sel, amidon` peut être corrigé de EN vers FR, tandis que `INGREDIENTS: water, coconut oil, salt` reste EN. La correction et sa raison sont conservées dans `languageCorrectionReason`.
+Ainsi, `INGREDIENTS: eau, huile, sel, amidon` peut être corrigé de EN vers FR, tandis que `INGREDIENTS: water, coconut oil, salt` reste EN. Les titres distinctifs `Zutaten`, `Ingrediënten` et `Ingredientes` gardent leur langue même si le vocabulaire OCR est bruité. La langue suggérée par le titre et la langue normalisée sont conservées dans le diagnostic.
 
 Cette logique a des limites explicites : un contenu court, spécialisé ou absent des quatre vocabulaires conserve la langue suggérée par son titre ou son marqueur. Le titre `Ingredients` est intrinsèquement ambigu entre un anglais correct et un français auquel l’OCR a retiré l’accent ; le contenu doit départager le cas.
 
@@ -43,7 +43,7 @@ Cette logique a des limites explicites : un contenu court, spécialisé ou absen
 
 Chaque bloc reçoit : présence d’un titre, présence d’un séparateur, longueur utile et indice de troncature. Un bloc est manifestement tronqué s’il contient moins de huit caractères alphanumériques, se termine par un mot suivi d’un trait d’union ou présente un déséquilibre de parenthèses/crochets.
 
-Le score de qualité est comparé avant la langue :
+Le score de qualité additionne titre, séparateur, longueur utile, séparateurs de liste, fin cohérente et traces. La langue explicitement reconnue reste un critère affiché dans le diagnostic. Le score retire des points aux textes tronqués, de conservation ou marketing. Il est comparé avant la langue :
 
 1. titre + séparateur + non tronqué ;
 2. titre + non tronqué ;
@@ -63,9 +63,8 @@ DE, IT, ES, PT, SE/SV, DK/DA, NO et FI suivent ces trois langues. La longueur ut
 
 ## Texte éditable et fallback
 
-`OcrTextSelection` ne crée des options explicites que pour FR, EN, NL et DE, et seulement pour les blocs possédant un titre d’ingrédients. La première occurrence de chaque langue est conservée. Le bloc choisi devient le texte éditable ; l’option « Texte complet » reste disponible lorsque plusieurs blocs existent.
+`OcrTextSelection` ne crée des options explicites que pour FR, EN, NL et DE, et seulement pour les blocs possédant un titre d’ingrédients. La première occurrence de chaque langue est conservée. Le bloc choisi devient le texte éditable ; l’option « Texte complet » reste disponible lorsque plusieurs blocs existent. Chaque bloc possède un identifiant stable, transmis au texte éditable, au diagnostic et à l’analyse afin qu’ils désignent le même contenu.
 
 Si la segmentation utilise le fallback, le texte complet nettoyé est présenté. Changer de bloc remplace le texte éditable et vide les analyses précédentes. Le diagnostic conserve le marqueur brut, la langue finale, la correction éventuelle, les langues ignorées et la raison du choix.
 
 Le moteur `VeganAnalyzer` segmente de nouveau son entrée. En mode étiquette ou OCR, il utilise le bloc retenu par le segmentateur. En mode liste manuelle, il cherche d’abord une section exploitable selon la préférence linguistique, puis prend la plus longue si nécessaire.
-

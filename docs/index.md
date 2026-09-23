@@ -1,6 +1,6 @@
 # Présentation
 
-Cette documentation décrit l’état du dépôt **Is It Vegan? 0.6.4.1** (`versionCode 29`). L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
+Cette documentation décrit l’état du dépôt **Is It Vegan? 0.6.5** (`versionCode 30`). L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
 
 Le produit poursuit trois objectifs techniques :
 
@@ -54,4 +54,3 @@ La reconnaissance d’un bloc allemand ou espagnol ne garantit donc pas que tous
 - Les traitements lourds d’image et d’analyse sont envoyés sur `Dispatchers.IO` ou `Dispatchers.Default` pour éviter de bloquer l’interface.
 
 Commencer par [l’architecture générale](architecture.md), puis suivre le [pipeline OCR](ocr.md) ou le [pipeline d’analyse](parsing.md).
-

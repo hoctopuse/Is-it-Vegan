@@ -38,8 +38,14 @@ internal object OcrBlockLanguageClassifier {
         val winner = ranked.firstOrNull()
         val runnerUp = ranked.getOrNull(1)?.value ?: 0
         val contentLanguage = winner?.takeIf { it.value >= 2 && it.value > runnerUp }?.key
-        val finalLanguage = contentLanguage ?: block.language
-        val correction = if (contentLanguage != null && contentLanguage != block.language) {
+        // Distinct printed headings are stronger evidence than noisy vocabulary. Generic
+        // "Ingredients" remains eligible for content classification because it occurs on
+        // multilingual labels without reliably identifying the following language.
+        val explicitHeadingLanguage = heading?.language?.takeIf {
+            it in setOf(LabelLanguage.DUTCH, LabelLanguage.GERMAN, LabelLanguage.SPANISH)
+        }
+        val finalLanguage = explicitHeadingLanguage ?: contentLanguage ?: block.language
+        val correction = if (explicitHeadingLanguage == null && contentLanguage != null && contentLanguage != block.language) {
             "Langue corrigée de ${block.language.displayName} vers ${contentLanguage.displayName} selon le vocabulaire dominant du contenu."
         } else null
         val usefulLength = content.count { it.isLetterOrDigit() }

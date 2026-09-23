@@ -94,7 +94,7 @@ Le texte brut de `Text.text` est copié tel quel dans `OcrDocument.rawText`, pui
 - détecter une coupure de colonnes seulement lorsqu’un espace horizontal dépasse 1,5 fois la hauteur moyenne et que les colonnes coexistent verticalement ;
 - séparer par une ligne vide deux blocs dont l’écart vertical dépasse 1,5 fois la hauteur moyenne.
 
-Cette reconstruction n’est toutefois **pas** la source du texte analysé en 0.6.4.1. `OcrProcessor` nettoie `recognized.text`, compare ce résultat à la reconstruction géométrique, puis conserve l’ordre natif ML Kit. Une divergence ajoute l’avertissement « ordre natif ML Kit conservé ; reconstruction géométrique ignorée ».
+Cette reconstruction n’est toutefois **pas** la source du texte analysé en 0.6.5. `OcrProcessor` nettoie `recognized.text`, compare ce résultat à la reconstruction géométrique, puis conserve l’ordre natif ML Kit. Une divergence ajoute l’avertissement « ordre natif ML Kit conservé ; reconstruction géométrique ignorée ».
 
 ## Nettoyage déterministe
 
@@ -134,4 +134,3 @@ Si le post-traitement lance une `RuntimeException`, `OcrProcessor` rend le texte
 - La reconstruction géométrique n’alimente pas actuellement le texte analysé.
 - Le vocabulaire de reclassification linguistique est volontairement court et orienté ingrédients courants.
 - Un recadrage trop serré ou la limite de 2048 px peut supprimer des détails fins ; l’utilisateur garde l’aperçu et le texte brut pour vérifier.
-

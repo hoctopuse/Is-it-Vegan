@@ -27,8 +27,8 @@ internal object LabelLexicon {
     )
 
     val ingredientHeadings = listOf(
-        IngredientHeading(LabelLanguage.FRENCH, "(?:ingr\u00E9dients?|ingrédients?|ingr\\u00C3\\u2030dients?)", "du|de\\s+la|de\\s+l['’]|des|de"),
-        IngredientHeading(LabelLanguage.DUTCH, "(?:ingredi\u00EBnten?|ingrediënten?|ingredienten?|ingredi\\u00C3\\u2039nten?)", "van\\s+de|van\\s+het|van"),
+        IngredientHeading(LabelLanguage.FRENCH, "(?:ingr\u00E9dients?|sngredients?|ingr[ée]cients?|ingr\\u00C3\\u2030dients?)", "du|de\\s+la|de\\s+l['’]|des|de"),
+        IngredientHeading(LabelLanguage.DUTCH, "(?:ingredi[ëè]nten?|ingrediënten?|ingredienten?|ingredi\\u00C3\\u2039nten?)", "van\\s+de|van\\s+het|van"),
         IngredientHeading(LabelLanguage.ENGLISH, "ingredients?", "of\\s+the|of"),
         IngredientHeading(LabelLanguage.GERMAN, "zutaten?", "der|des|für"),
         IngredientHeading(LabelLanguage.SPANISH, "ingredientes?", "del|de\\s+la|de\\s+los|de\\s+las|de")
@@ -37,14 +37,17 @@ internal object LabelLexicon {
     val ingredientWordPattern: String = ingredientHeadings.joinToString("|") { it.wordPattern }
 
     val tracePrefixes = listOf(
-        "peut\\s+contenir(?:\\s+(?:des?\\s+)?traces?\\s+de)?",
+        "p(?:eu|e)t\\s+cont(?:e|é)nir(?:\\s+(?:des?\\s+)?traces?\\s+de)?",
+        "p(?:eu|e)t\\s+conterir(?:\\s+(?:des?\\s+)?traces?\\s+de)?",
+        "p(?:eu|e)t\\s+conteir(?:\\s+(?:des?\\s+)?traces?\\s+(?:éventuelles?\\s+)?de)?",
+        "p(?:eu|e)t\\s+conteuir(?:\\s+(?:des?\\s+)?traces?\\s+(?:éventuelles?\\s+)?de)?",
         "traces?\\s+éventuelles?\\s+de",
         "traces?\\s*:",
         "may\\s+contain(?:\\s+traces?\\s+of)?",
-        "kan\\s+bevatten",
-        "kan(?:\\s+sporen\\s+van)?(?=\\s+[^.\\r\\n]{1,80}\\s+bevatten\\b)",
-        "kann\\s+enthalten",
-        "kann(?:\\s+spuren\\s+von)?(?=\\s+[^.\\r\\n]{1,80}\\s+enthalten\\b)",
+        "kan(?:\\s+sporen(?:\\s+van)?)?\\s+bevatten",
+        "kan(?:\\s+\\p{L}+){1,5}\\s+bevatten",
+        "kann(?:\\s+spuren(?:\\s+von)?)?\\s+enthalten",
+        "kann(?:\\s+\\p{L}+){1,7}\\s+enthalten",
         "puede\\s+contener(?:\\s+trazas\\s+de)?"
     )
 
