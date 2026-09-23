@@ -71,3 +71,6 @@ Les classes fonctionnelles et les pourcentages restent dans `compositionText` po
 ## Limites
 
 La détection repose sur des expressions régulières et des profondeurs équilibrées. Une ponctuation OCR très dégradée ou une parenthèse non fermée peut déplacer une frontière. Les notes et sections ignorées sont une liste fermée ; un slogan inconnu peut donc rester dans le texte et devenir un inconnu plutôt que d’être supprimé arbitrairement.
+## Stabilisation 0.6.5.1
+
+Les marqueurs de traces français composés, par exemple `Peut contenir : des traces éventuelles de :`, sont consommés comme un seul préfixe. Les occurrences qui se chevauchent et les lignes identiques sont écartées avant l'analyse. Une section de traces porte sa frontière et son texte dans une même structure ; elle n'est jamais analysée comme une composition.

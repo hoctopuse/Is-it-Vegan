@@ -3,8 +3,13 @@ package com.example.isitvegan
 enum class LabelLanguage(val displayName: String) {
     FRENCH("FR"), DUTCH("NL"), ENGLISH("EN"), GERMAN("DE"), ITALIAN("IT"),
     SPANISH("ES"), PORTUGUESE("PT"), SWEDISH("SE/SV"), DANISH("DK/DA"),
-    NORWEGIAN("NO"), FINNISH("FI"), UNKNOWN("inconnue")
+    NORWEGIAN("NO"), FINNISH("FI"), POLISH("PL"), UNKNOWN("inconnue")
 }
+
+/** Identity derives from the source text, never from offsets introduced by a later segmentation. */
+internal fun stableBlockId(rawText: String): String =
+    "block-" + rawText.replace(Regex("\\s*([:;,])\\s*"), "$1")
+        .replace(Regex("\\s+"), " ").trim().hashCode().toUInt().toString(16)
 
 data class LanguageBlock(
     val language: LabelLanguage,
@@ -20,7 +25,9 @@ data class LanguageBlock(
     val usefulLength: Int = 0,
     val manifestlyTruncated: Boolean = false,
     /** Stable identity shared by OCR selection, diagnostics and analysis. */
-    val id: String = "block-$startIndex-$endIndex",
+    val id: String = stableBlockId(rawText),
+    /** Secondary identity for the current segmentation; never replaces the source block identity. */
+    val segmentId: String = "segment-$startIndex-$endIndex",
     val selectionScore: Int = 0,
     val selectionSignals: List<String> = emptyList()
 )
@@ -51,6 +58,7 @@ internal object LabelLanguageSegmenter {
                 MarkerPattern(LabelLanguage.ENGLISH, languageNameRegex("English")),
                 MarkerPattern(LabelLanguage.GERMAN, languageNameRegex("Deutsch")),
                 MarkerPattern(LabelLanguage.SPANISH, languageNameRegex("Español")),
+                MarkerPattern(LabelLanguage.DUTCH, markerRegex("NL\\s+GE\\)")),
                 MarkerPattern(LabelLanguage.FRENCH, markerRegex("\\[FR\\]")),
                 MarkerPattern(LabelLanguage.DUTCH, markerRegex("\\[NL\\]")),
                 MarkerPattern(LabelLanguage.ENGLISH, markerRegex("\\[EN\\]")),
@@ -66,7 +74,8 @@ internal object LabelLanguageSegmenter {
                 MarkerPattern(LabelLanguage.SWEDISH, codeRegex("(?:SE|SV)(?:\\s*(?:[-/]\\s*|\\s+)(?:DK|DA|NO)){0,3}")),
                 MarkerPattern(LabelLanguage.DANISH, codeRegex("(?:DK|DA)")),
                 MarkerPattern(LabelLanguage.NORWEGIAN, codeRegex("NO")),
-                MarkerPattern(LabelLanguage.FINNISH, codeRegex("FI"))
+                MarkerPattern(LabelLanguage.FINNISH, codeRegex("FI")),
+                MarkerPattern(LabelLanguage.POLISH, codeRegex("PL"))
             )
         )
     }
@@ -127,7 +136,7 @@ internal object LabelLanguageSegmenter {
         } + listOf(
         LabelLanguage.GERMAN, LabelLanguage.ITALIAN, LabelLanguage.SPANISH,
         LabelLanguage.PORTUGUESE, LabelLanguage.SWEDISH, LabelLanguage.DANISH,
-        LabelLanguage.NORWEGIAN, LabelLanguage.FINNISH
+        LabelLanguage.NORWEGIAN, LabelLanguage.FINNISH, LabelLanguage.POLISH
         )
         val ranked = blocks.withIndex().sortedWith(
             compareByDescending<IndexedValue<LanguageBlock>> { it.value.selectionScore }
@@ -180,7 +189,7 @@ internal object LabelLanguageSegmenter {
         return LanguageSegmentation(
             text, listOf(block), text, LabelLanguage.UNKNOWN, null, emptyList(), true,
             selectionReason = "Aucun marqueur de langue ; texte complet conservé pour extraction bornée.",
-            selectedBlockId = block.id
+            selectedBlockId = null
         )
     }
 

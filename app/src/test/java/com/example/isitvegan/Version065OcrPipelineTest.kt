@@ -180,6 +180,195 @@ class Version065OcrPipelineTest {
         assertTrue(diagnostics.labelSections.tracesText.orEmpty().contains("œufs"))
     }
 
+    @Test fun blockIdentityIsPositionIndependentAndAllReportedBlocksAreCounted() {
+        val text = "Ingrédients: sucre, eau, sel. Ingredients: sugar, water, salt. Ingredientes: azúcar, agua, sal."
+        val first = LabelLanguageSegmenter.segment(text)
+        val editable = OcrTextSelection.from(first, text)
+        val analysis = VeganAnalyzer.analyzeWithDiagnostics(editable.editableText, database, InputMode.FULL_LABEL)
+        val report = DiagnosticReport.build(analysis, "0.6.5.1")
+
+        assertEquals(3, first.blocks.size)
+        assertEquals(3, first.blocks.map { it.id }.distinct().size)
+        assertTrue(first.selectedBlockId in first.blocks.map { it.id })
+        assertEquals(first.selectedBlockId, editable.selectedBlockId)
+        assertEquals(editable.selectedBlockId, analysis.labelSections.selectedBlockId)
+        assertTrue(report.contains("Identifiant du bloc sélectionné : ${editable.selectedBlockId}"))
+        assertTrue(report.contains("Nombre de segments détectés dans le texte soumis : 1"))
+    }
+
+    @Test fun overlappingTraceMarkersProduceOneTraceSectionAndNoAnimalBlocker() {
+        listOf(
+            "Peut contenir : lait, œufs",
+            "Peut contenir des traces éventuelles de : lait, œufs",
+            "Peut conteir des traces éventuelles de : lait, œufs",
+            "Traces éventuelles de : lait, œufs"
+        ).forEach { notice ->
+            val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+                "Ingrédients : farine de blé, sucre, huile de colza. $notice. A conserver au frais.",
+                database,
+                InputMode.FULL_LABEL
+            )
+            assertEquals(notice, VeganAssessment.VEGAN, diagnostics.result.veganAssessment)
+            assertTrue(notice, diagnostics.result.veganBlockers.isEmpty())
+            assertEquals(notice, 1, diagnostics.crossContactWarnings.size)
+            assertTrue(notice, diagnostics.crossContactWarnings.single().contains("lait, œufs"))
+            assertTrue(notice, diagnostics.labelSections.traceSection != null)
+        }
+    }
+
+    @Test fun fuzzyHeadingsAndFollowingLanguageBoundaryStayBounded() {
+        val headings = listOf(
+            "Ztaten: Zucker, Weizenmehl, Salz." to LabelLanguage.GERMAN,
+            "ingredienti: zucchero, farina di grano, sale." to LabelLanguage.ITALIAN,
+            "Ingediënten: suiker, tarwebloem, zout." to LabelLanguage.DUTCH
+        )
+        headings.forEach { (text, language) ->
+            assertEquals(text, language, LabelLanguageSegmenter.segment(text).selectedLanguage)
+        }
+        val frenchThenDutch = LabelLanguageSegmenter.segment(
+            "Ingrédients : farine de blé, sucre, sel. NL GE) Magere cacaokoekjes..."
+        )
+        val germanThenFrench = LabelLanguageSegmenter.segment(
+            "Zutaten: Zucker, Mehl, Salz. Ingrédients: farine, sucre, sel."
+        )
+        assertFalse(frenchThenDutch.selectedText.contains("Magere"))
+        assertFalse(germanThenFrench.blocks.first().rawText.contains("Ingrédients"))
+    }
+
+    @Test fun targetedCorrectionsKeepRawTextAndSunflowerLecithinVegan() {
+        val raw = "bé entier, estait de male d'orge, siop, tourmesol, müre, mytile, lyophlisée, aröme, écithines (tournesol), extait"
+        val corrected = LabelPreprocessor.preprocess(raw)
+        listOf("blé entier", "extrait de malt d’orge", "sirop", "tournesol", "myrtille", "lyophilisée", "arôme", "lécithines", "extrait").forEach {
+            assertTrue("Correction absente : $it", corrected.compositionText.contains(it))
+        }
+        assertEquals(raw, raw)
+        val rules = OriginQualifierRuleSet.load(File("src/main/assets/origin_qualifier_rules.json").readText()).rules
+        listOf("lecithinen (Sonnenblumen)", "lecithinen (zonnebloem)").forEach { value ->
+            val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+                "Ingrédients : $value.", listOf(Ingredient("e322", "Lécithines", listOf("lécithines", "lecithinen"), "E322", VeganStatus.UNCERTAIN, "test")),
+                InputMode.FULL_LABEL, rules
+            )
+            assertEquals(value, VeganAssessment.VEGAN, diagnostics.result.veganAssessment)
+            assertEquals(value, "plant-sunflower", diagnostics.tokens.single().originOutcomeId)
+        }
+    }
+
+    @Test fun titlelessOcrFallbackIsNotAnalysedAsAnIngredientList() {
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+            "xqz 7 91 / code lot, conserver à l'abri.", database, InputMode.FULL_LABEL
+        )
+        assertFalse(diagnostics.labelSections.hasIngredientHeading)
+        assertEquals(AnalysisAvailability.NO_INGREDIENT_LIST, diagnostics.result.availability)
+        assertTrue(diagnostics.result.veganBlockers.isEmpty())
+    }
+
+    @Test fun explicitOcrBlockIdentitySurvivesEditableTextAndAnalysis() {
+        val full = "FR: Ingrédients: sucre, eau, sel. EN: Ingredients: sugar, water, salt."
+        val segmentation = LabelLanguageSegmenter.segment(full, UiLanguage.FR)
+        val selection = OcrTextSelection.from(segmentation, full)
+        val sourceId = segmentation.selectedBlockId!!
+        val edited = selection.editableText.replace("sel", "sel ").trim()
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+            edited, database, InputMode.OCR_LABEL,
+            preferredLanguage = UiLanguage.FR,
+            selectedBlockId = sourceId
+        )
+        val report = DiagnosticReport.build(diagnostics, "0.6.5.1")
+        val export = OcrExportReport.build(
+            OcrSession(
+                editableText = edited,
+                analyses = listOf(AnalysisSnapshot(edited, report, "VEGAN", 1L, sourceId)),
+                ocrDiagnostics = OcrDiagnostics(
+                    0, 2, 2, listOf("FR", "EN"), emptyList(),
+                    selectedBlockId = sourceId, languageSegmentCount = 2,
+                    selectableBlockCount = 2, selectedBlockCount = 1, rejectedBlockCount = 1
+                ),
+                selectedOptionBlockId = sourceId
+            ),
+            "0.6.5.1"
+        )
+
+        assertEquals(sourceId, selection.selectedBlockId)
+        assertEquals(sourceId, diagnostics.languageSegmentation.selectedBlockId)
+        assertEquals(sourceId, diagnostics.labelSections.selectedBlockId)
+        assertTrue(report.contains("Identifiant du bloc sélectionné : $sourceId"))
+        assertTrue(export.contains("Identifiant du bloc analysé : $sourceId"))
+        assertTrue(export.contains("Blocs géométriques ML Kit : 2"))
+        assertTrue(export.contains("Segments linguistiques détectés : 2"))
+    }
+
+    @Test fun multilingualTraceFormsAreSingleAndNormalizedWithoutBlockers() {
+        val cases = listOf(
+            "Peut contenir : lait, œufs" to "lait, œufs",
+            "Peut contenir des traces éventuelles de : lait, œufs" to "lait, œufs",
+            "Peut conteir des traces éventuelles de : lait, œufs" to "lait, œufs",
+            "Traces éventuelles de : lait, œufs" to "lait, œufs",
+            "Kann Spuren von Milch und Eiern enthalten" to "Milch und Eiern",
+            "Kan sporen van melk en eieren bevatten" to "melk en eieren",
+            "May contain traces of milk and eggs" to "milk and eggs"
+        )
+        cases.forEach { (notice, normalized) ->
+            val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+                "Ingrédients: farine de blé, sucre, huile de colza. $notice.",
+                database,
+                InputMode.FULL_LABEL
+            )
+            assertEquals(notice, normalized, diagnostics.labelSections.traceSection?.normalizedText)
+            assertEquals(notice, 1, diagnostics.labelSections.tracesText.orEmpty().lines().size)
+            assertTrue(notice, diagnostics.result.veganBlockers.isEmpty())
+            assertFalse(notice, diagnostics.tokens.any { it.text.contains("lait", true) || it.text.contains("œuf", true) })
+        }
+    }
+
+    @Test fun traceBoundariesStopBeforeStorageMarketingAndNextLanguage() {
+        val boundaries = listOf(
+            "A conserver", "Après ouverture", "Aufbewahrung", "Nach dem Öffnen", "Bewaring",
+            "Storage instructions", "Best before", "Rainforest Alliance", "Certifié", "zertifiziert", "ra.org",
+            "Zutaten:", "Ingrediënten:", "Ingredients:", "Ingredientes:", "Ingredienti:", "Składniki:"
+        )
+        val languageBoundaries = boundaries.takeLast(6).toSet()
+        boundaries.forEach { boundary ->
+            val text = "Ingrédients: farine de blé, sucre. Peut contenir : lait, œufs. $boundary texte suivant"
+            val segmentation = LabelLanguageSegmenter.segment(text, UiLanguage.FR)
+            val sections = LabelSectionExtractor.extract(segmentation.blocks.first())
+            assertFalse(boundary, sections.ingredientsText.orEmpty().contains(boundary, true))
+            assertFalse(boundary, sections.tracesText.orEmpty().contains(boundary, true))
+            if (boundary in languageBoundaries) {
+                assertFalse(boundary, segmentation.selectedText.contains("texte suivant", true))
+                assertFalse(boundary, sections.ignoredSections.joinToString().contains(boundary, true))
+            }
+        }
+    }
+
+    @Test fun additiveGroupsAndAllPlantLecithinOriginsRemainDistinctAndVegan() {
+        val rules = OriginQualifierRuleSet.load(
+            File("src/main/assets/origin_qualifier_rules.json").readText()
+        ).also { assertTrue(it.errors.joinToString(), it.isValid) }.rules
+        val preprocessed = LabelPreprocessor.preprocess(
+            "émulsifiant (lécithines (tournesol)), correcteur d’acidité (acide citrique)"
+        )
+        val tree = IngredientTreeParser.parse(preprocessed.compositionText, rules)
+        assertEquals(2, tree.size)
+        assertEquals("lécithines", tree[0].rawText)
+        assertEquals("acide citrique", tree[1].rawText)
+        assertEquals(listOf("E202", "E262", "E270"),
+            IngredientTokenizer.flatten(IngredientTreeParser.parse("E202-E262-E270")).map { it.text })
+
+        val lecithin = Ingredient(
+            "e322", "Lécithines", listOf("lécithines", "lecithinen"),
+            "E322", VeganStatus.UNCERTAIN, "test"
+        )
+        listOf(
+            "lécithines (tournesol)", "lecithinen (Sonnenblumen)",
+            "lecithinen (zonnebloem)", "lécithines (soja)"
+        ).forEach { value ->
+            val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(value, listOf(lecithin), rules = rules)
+            assertEquals(value, VeganAssessment.VEGAN, diagnostics.result.veganAssessment)
+            assertTrue(value, diagnostics.tokens.single().originOutcomeId?.startsWith("plant-") == true)
+            assertEquals(value, listOf(VeganStatus.VEGAN), diagnostics.tokens.single().effectiveStatuses)
+        }
+    }
+
     private fun ingredient(id: String, name: String, vararg aliases: String) =
         Ingredient(id, name, aliases.toList() + name, null, VeganStatus.VEGAN, "test")
 }

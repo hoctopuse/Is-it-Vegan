@@ -34,7 +34,7 @@ Un conteneur composite affiche « conteneur analysé » et aucun inconnu propre.
 `OcrDiagnostics` et `OcrExportReport` exposent :
 
 - rotation EXIF transmise à ML Kit ;
-- nombre de blocs et de lignes ;
+- nombre de blocs géométriques ML Kit, de segments linguistiques et de lignes ;
 - zones détectées ;
 - identifiant, marqueur brut, langues originale et normalisée, score et critères de chaque bloc ;
 - langue sélectionnée et ordre de préférence ;
@@ -54,6 +54,8 @@ L’export OCR place dans des sections distinctes :
 3. chaque analyse avec le texte exact soumis, son résultat affiché et son diagnostic détaillé.
 
 Si le texte actuel diffère d’un instantané, une section `ÉTAT` l’indique. L’image et son contenu binaire ne sont jamais insérés dans ce rapport.
+
+L’identifiant `block-*` désigne la source sélectionnée et reste transmis à l’analyse, même après une édition du texte. L’identifiant secondaire `segment-*` décrit uniquement les offsets de la segmentation courante. Les deux ne sont jamais présentés comme un même comptage géométrique ML Kit.
 
 ## Méthode de débogage
 

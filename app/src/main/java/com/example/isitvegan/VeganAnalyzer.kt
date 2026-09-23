@@ -142,8 +142,11 @@ object VeganAnalyzer {
     fun analyzeWithDiagnostics(
         text: String,
         inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST,
-        preferredLanguage: UiLanguage = UiLanguage.FR
-    ): AnalysisDiagnostics = runAnalysis(text, ingredients, inputMode, originRules, originRuleErrors, preferredLanguage)
+        preferredLanguage: UiLanguage = UiLanguage.FR,
+        selectedBlockId: String? = null
+    ): AnalysisDiagnostics = runAnalysis(
+        text, ingredients, inputMode, originRules, originRuleErrors, preferredLanguage, selectedBlockId
+    )
 
     // Exposed for JVM tests: analysis never needs an Android context or a network connection.
     internal fun analyze(
@@ -162,8 +165,11 @@ object VeganAnalyzer {
         inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST,
         rules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty(),
         ruleErrors: List<String> = emptyList(),
-        preferredLanguage: UiLanguage = UiLanguage.FR
-    ): AnalysisDiagnostics = runAnalysis(text, database, inputMode, rules, ruleErrors, preferredLanguage)
+        preferredLanguage: UiLanguage = UiLanguage.FR,
+        selectedBlockId: String? = null
+    ): AnalysisDiagnostics = runAnalysis(
+        text, database, inputMode, rules, ruleErrors, preferredLanguage, selectedBlockId
+    )
 
     private fun runAnalysis(
         text: String,
@@ -171,9 +177,11 @@ object VeganAnalyzer {
         inputMode: InputMode,
         rules: OriginQualifierRuleSet,
         ruleErrors: List<String>,
-        preferredLanguage: UiLanguage = UiLanguage.FR
+        preferredLanguage: UiLanguage = UiLanguage.FR,
+        selectedBlockId: String? = null
     ): AnalysisDiagnostics {
-        val languageSegmentation = LabelLanguageSegmenter.segment(text, preferredLanguage)
+        val detectedSegmentation = LabelLanguageSegmenter.segment(text, preferredLanguage)
+        val languageSegmentation = detectedSegmentation.withSelectedBlockId(selectedBlockId)
         val sections = selectSections(languageSegmentation, inputMode, preferredLanguage)
         val explicitList = sections.hasIngredientHeading && !sections.ingredientsText.isNullOrBlank()
         val manualList = inputMode == InputMode.MANUAL_INGREDIENT_LIST &&
@@ -344,6 +352,17 @@ object VeganAnalyzer {
                 excludedNotes = (preprocessed.excludedNotes + presencePreprocessed.excludedNotes).distinct(),
                 originNonVeganIngredientIds = originNonVegan.toList()
             )
+        )
+    }
+
+    private fun LanguageSegmentation.withSelectedBlockId(sourceBlockId: String?): LanguageSegmentation {
+        if (sourceBlockId == null || usedFallback || selectedBlockId == null) return this
+        val currentSelectedId = selectedBlockId
+        return copy(
+            blocks = blocks.map { block ->
+                if (block.id == currentSelectedId) block.copy(id = sourceBlockId) else block
+            },
+            selectedBlockId = sourceBlockId
         )
     }
 

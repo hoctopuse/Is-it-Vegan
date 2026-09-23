@@ -68,3 +68,6 @@ DE, IT, ES, PT, SE/SV, DK/DA, NO et FI suivent ces trois langues. La longueur ut
 Si la segmentation utilise le fallback, le texte complet nettoyé est présenté. Changer de bloc remplace le texte éditable et vide les analyses précédentes. Le diagnostic conserve le marqueur brut, la langue finale, la correction éventuelle, les langues ignorées et la raison du choix.
 
 Le moteur `VeganAnalyzer` segmente de nouveau son entrée. En mode étiquette ou OCR, il utilise le bloc retenu par le segmentateur. En mode liste manuelle, il cherche d’abord une section exploitable selon la préférence linguistique, puis prend la plus longue si nécessaire.
+## Stabilisation 0.6.5.1
+
+Les titres OCR limités `Ztaten`, `Ingediënten` et `ingredienti` sont reconnus uniquement lorsqu'un séparateur et une liste suffisamment structurée les suivent. Les identifiants de blocs dérivent du texte source normalisé, et non des offsets d'une segmentation ultérieure.

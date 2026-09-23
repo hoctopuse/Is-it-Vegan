@@ -20,11 +20,17 @@ internal object DiagnosticReport {
             appendLine("LANGUE / BLOC SÉLECTIONNÉ")
             appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
             appendLine("Identifiant du bloc sélectionné : ${diagnostics.labelSections.selectedBlockId ?: "texte complet"}")
-            appendLine("Blocs détectés : " + diagnostics.languageSegmentation.blocks
-                .map { it.language.displayName }.distinct().joinToString(", "))
+            val detectedLanguages = diagnostics.languageSegmentation.blocks
+                .map { it.language.displayName }.distinct().joinToString(", ")
+            appendLine("Blocs détectés : $detectedLanguages")
+            appendLine("Segments détectés dans le texte soumis : $detectedLanguages")
+            appendLine("Nombre de segments détectés dans le texte soumis : ${diagnostics.languageSegmentation.blocks.size}")
+            appendLine("Nombre de blocs sélectionnables : ${diagnostics.languageSegmentation.blocks.size}")
+            appendLine("Nombre de blocs sélectionnés : ${if (diagnostics.languageSegmentation.selectedBlockId == null) 0 else 1}")
+            appendLine("Nombre de blocs rejetés : ${diagnostics.languageSegmentation.blocks.count { it.id != diagnostics.languageSegmentation.selectedBlockId }}")
             diagnostics.languageSegmentation.blocks.forEachIndexed { index, block ->
                 appendLine(
-                    "Bloc ${index + 1} (${block.id}) ${if (block.id == diagnostics.languageSegmentation.selectedBlockId) "retenu" else "non retenu"} : marqueur=${block.detectedMarker ?: "aucun"}, " +
+                    "Bloc ${index + 1} (${block.id}, ${block.segmentId}) ${if (block.id == diagnostics.languageSegmentation.selectedBlockId) "retenu" else "non retenu"} : marqueur=${block.detectedMarker ?: "aucun"}, " +
                         "langue originale=${block.headingLanguage?.displayName ?: block.language.displayName}, " +
                         "langue normalisée=${block.language.displayName}, score=${block.selectionScore}, " +
                         "longueur utile=${block.usefulLength}, " +
@@ -65,8 +71,12 @@ internal object DiagnosticReport {
             )
             appendLine("Section présence réelle : ${if (diagnostics.labelSections.declaredContainsText != null) "détectée" else "non détectée"}")
             appendLine("Syntaxe de présence réelle : ${diagnostics.labelSections.declaredContainsSyntax ?: "aucune"}")
-            appendLine("Section traces : ${if (diagnostics.labelSections.tracesText != null) "détectée" else "non détectée"}")
-            diagnostics.labelSections.tracesText?.let { appendLine("Frontière traces : $it") }
+            appendLine("Section traces : ${if (diagnostics.labelSections.traceSection != null) "détectée" else "non détectée"}")
+            diagnostics.labelSections.traceSection?.let {
+                appendLine("Frontière traces : ${it.start}…${it.end}")
+                appendLine("Texte traces : ${it.rawText}")
+                appendLine("Traces normalisées : ${it.normalizedText}")
+            }
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })

@@ -38,7 +38,7 @@ class OcrSessionTest {
         val export = OcrExportReport.build(session, "0.6.2")
 
         assertTrue(export.contains("Rotation EXIF transmise à ML Kit : 90°"))
-        assertTrue(export.contains("Blocs : 8"))
+        assertTrue(export.contains("Blocs géométriques ML Kit : 8"))
         assertTrue(export.contains("Lignes : 34"))
         assertTrue(export.contains("Zones détectées : FR, NL, UNKNOWN"))
         assertFalse(export.contains("data:image"))

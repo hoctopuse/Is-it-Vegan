@@ -24,21 +24,31 @@ internal object LabelPreprocessor {
         Regex("(?i)\\bdoutble\\s+oncentré\\b") to "double concentré",
         Regex("(?i)\\bognon\\b") to "oignon",
         Regex("(?i)\\btoumesol\\b") to "tournesol",
+        Regex("(?i)\\btourmesol\\b") to "tournesol",
+        Regex("(?i)\\bbé\\s+entier\\b") to "blé entier",
+        Regex("(?i)\\bestait\\s+de\\s+male\\s+d['’]orge\\b") to "extrait de malt d’orge",
+        Regex("(?i)\\bsiop\\b") to "sirop",
         Regex("(?i)\\bblé\\s+entie\\b") to "blé entier",
         Regex("(?i)\\bflocons\\s+d['’]?avoine\\b") to "flocons d’avoine",
         Regex("(?i)\\bflocons\\s+de\\s+seigle\\s+entie\\b") to "flocons de seigle entier",
         Regex("(?i)\\bmüre\\b") to "mûre",
         Regex("(?i)\\bmytile\\b") to "myrtille",
         Regex("(?i)\\byophilisée\\b") to "lyophilisée",
+        Regex("(?i)\\blyophlisée\\b") to "lyophilisée",
         Regex("(?i)\\baröớme\\b") to "arôme",
+        Regex("(?i)\\baröme\\b") to "arôme",
         Regex("(?i)\\bfrase\\b") to "fraise",
         Regex("(?i)\\bemuisifiant\\b") to "émulsifiant",
         Regex("(?i)\\blecthines\\b") to "lécithines",
+        Regex("(?i)(?<!\\p{L})écithines\\b") to "lécithines",
+        Regex("(?i)\\bqlucose\\b") to "glucose",
+        Regex("(?i)\\bpoudrel\\b") to "poudre",
         Regex("(?i)\\bextait\\b") to "extrait",
         Regex("(?i)\\blquide\\b") to "liquide",
         Regex("(?i)\\bdéshydrate\\b") to "déshydraté",
         Regex("(?i)\\bgelfiant\\b") to "gélifiant",
-        Regex("(?i)\\barôme\\s+naturel\\s+de\\s+fraise\\s+sel\\b") to "arôme naturel de fraise, sel"
+        Regex("(?i)\\barôme\\s+naturel\\s+de\\s+fraise\\s+sel\\b") to "arôme naturel de fraise, sel",
+        Regex("(?i)(émulsifiant)\\s*\\(\\s*(lécithines\\s*\\([^)]*\\))\\s*,\\s*(?=correcteur\\s+d['’]acidité)") to "$1 : $2, "
     )
 
     fun preprocess(text: String): PreprocessedLabel {

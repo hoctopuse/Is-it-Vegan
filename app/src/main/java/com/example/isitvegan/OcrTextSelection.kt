@@ -13,7 +13,10 @@ internal object OcrTextSelection {
         LabelLanguage.FRENCH,
         LabelLanguage.ENGLISH,
         LabelLanguage.DUTCH,
-        LabelLanguage.GERMAN
+        LabelLanguage.GERMAN,
+        LabelLanguage.ITALIAN,
+        LabelLanguage.SPANISH,
+        LabelLanguage.POLISH
     )
 
     fun from(segmentation: LanguageSegmentation, fullText: String): OcrTextSelectionResult {
@@ -26,7 +29,8 @@ internal object OcrTextSelection {
                     text = OcrTextCleaner.cleanSelectedBlock(block.rawText),
                     marker = block.detectedMarker,
                     languageCorrectionReason = block.languageCorrectionReason,
-                    blockId = block.id
+                    blockId = block.id,
+                    segmentId = block.segmentId
                 )
             }
         val editable = if (segmentation.usedFallback) {

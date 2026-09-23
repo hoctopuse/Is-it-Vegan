@@ -24,6 +24,12 @@ internal object OcrBlockLanguageClassifier {
             "wasser", "raffiniertes", "ungehartetes", "kokosnussol", "starke", "kartoffel", "salz",
             "modifizierte", "tapiokastarke", "saureregulator", "kartoffeleiweiss", "verdickungsmittel",
             "naturliches", "olivenextrakt", "zucker", "mehl"
+        ),
+        LabelLanguage.ITALIAN to setOf(
+            "zucchero", "farina", "grano", "sale", "acqua", "olio", "amido", "estratto"
+        ),
+        LabelLanguage.POLISH to setOf(
+            "cukier", "maka", "pszenna", "sol", "woda", "olej", "skrobia"
         )
     )
 
@@ -42,7 +48,7 @@ internal object OcrBlockLanguageClassifier {
         // "Ingredients" remains eligible for content classification because it occurs on
         // multilingual labels without reliably identifying the following language.
         val explicitHeadingLanguage = heading?.language?.takeIf {
-            it in setOf(LabelLanguage.DUTCH, LabelLanguage.GERMAN, LabelLanguage.SPANISH)
+            it in setOf(LabelLanguage.DUTCH, LabelLanguage.GERMAN, LabelLanguage.SPANISH, LabelLanguage.ITALIAN, LabelLanguage.POLISH)
         }
         val finalLanguage = explicitHeadingLanguage ?: contentLanguage ?: block.language
         val correction = if (explicitHeadingLanguage == null && contentLanguage != null && contentLanguage != block.language) {

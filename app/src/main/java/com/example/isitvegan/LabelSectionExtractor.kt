@@ -11,7 +11,17 @@ data class LabelSections(
     val ingredientHeadingText: String? = null,
     val ingredientHeadingSeparator: HeadingSeparator? = null,
     val declaredContainsSyntax: String? = null,
-    val selectedBlockId: String? = null
+    val selectedBlockId: String? = null,
+    val traceSection: TraceSection? = null
+)
+
+/** Single source of truth for detection, boundaries and displayed trace text. */
+data class TraceSection(
+    val detected: Boolean = true,
+    val start: Int,
+    val end: Int,
+    val rawText: String,
+    val normalizedText: String
 )
 
 internal object LabelSectionExtractor {
@@ -78,13 +88,29 @@ internal object LabelSectionExtractor {
                 .replace(Regex("(?i)^(?:du|des|de\\s+la|de\\s+l['’])\\s+"), "")
                 .takeIf(String::isNotBlank)
         }
-        val traces = markers.filter { it.kind == SectionKind.TRACES }.map { marker ->
+        val traceSections = markers.filter { it.kind == SectionKind.TRACES }.map { marker ->
             val nextSection = markers.firstOrNull {
                     it.range.first > marker.range.first &&
                         (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
                 }?.range?.first ?: text.length
-            text.substring(marker.range.first, traceEnd(text, marker.contentStart, nextSection)).trim()
-        }.filter(String::isNotBlank).joinToString("\n").takeIf(String::isNotBlank)
+            val end = traceEnd(text, marker.contentStart, nextSection)
+            val raw = text.substring(marker.range.first, end).trim()
+            TraceSection(
+                start = marker.range.first,
+                end = end,
+                rawText = raw,
+                normalizedText = normalizeTraceText(raw)
+            )
+        }.filter { it.rawText.isNotBlank() }
+            .fold(mutableListOf<TraceSection>()) { result, candidate ->
+                if (result.none { it.start <= candidate.end && candidate.start <= it.end }) result += candidate
+                result
+            }
+        val uniqueTraceSections = traceSections.distinctBy {
+            TextNormalizer.normalize(it.normalizedText).ifBlank { TextNormalizer.normalize(it.rawText) }
+        }
+        val traces = uniqueTraceSections.map { it.rawText }
+            .joinToString("\n").takeIf(String::isNotBlank)
         val ignored = markers.filter { it.kind == SectionKind.IGNORED }.map { marker ->
             text.substring(
                 marker.range.first,
@@ -107,8 +133,29 @@ internal object LabelSectionExtractor {
             hasIngredientHeading = ingredient != null,
             ingredientHeadingText = ingredient?.originalText,
             ingredientHeadingSeparator = ingredient?.separator,
-            declaredContainsSyntax = contains?.originalText
+            declaredContainsSyntax = contains?.originalText,
+            traceSection = uniqueTraceSections.firstOrNull()?.let {
+                it.copy(normalizedText = uniqueTraceSections.joinToString("\n") { section -> section.normalizedText })
+            }
         )
+    }
+
+    private fun normalizeTraceText(rawText: String): String {
+        val text = rawText.trim()
+        val enclosed = listOf(
+            Regex("(?is)^kann(?:\\s+spuren(?:\\s+von)?)?\\s+(.+?)\\s+enthalten[.!?]?$"),
+            Regex("(?is)^kan(?:\\s+sporen(?:\\s+van)?)?\\s+(.+?)\\s+bevatten[.!?]?$"),
+            Regex("(?is)^puede\\s+contener(?:\\s+trazas\\s+de)?\\s*:?\\s*(.+?)[.!?]?$"),
+            Regex("(?is)^may\\s+contain(?:\\s+traces?\\s+of)?\\s*:?\\s*(.+?)[.!?]?$"),
+            Regex("(?is)^p(?:eu|e)t\\s+(?:cont(?:e|é)nir|conterir|conteir|conteuir)" +
+                "\\s*(?::\\s*)?(?:des\\s+)?(?:traces?\\s+(?:éventuelles?\\s+)?de\\s*:?\\s*)?(.+?)[.!?]?$"),
+            Regex("(?is)^traces?\\s+(?:éventuelles?\\s+)?de\\s*:?\\s*(.+?)[.!?]?$"),
+            Regex("(?is)^traces?\\s*:\\s*(.+?)[.!?]?$")
+        )
+        val content = enclosed.firstNotNullOfOrNull { pattern ->
+            pattern.matchEntire(text)?.groupValues?.getOrNull(1)
+        } ?: text
+        return content.trim().trim(':', ';', '.', '!', '?').trim()
     }
 
     private fun findMarkers(text: String): List<SectionMarker> {
@@ -121,7 +168,7 @@ internal object LabelSectionExtractor {
                 it.separator
             )
         }
-        val traceMarkers = LabelLexicon.tracePrefixes.flatMap { prefix ->
+        val traceMarkers = LabelLexicon.tracePrefixes.sortedByDescending(String::length).flatMap { prefix ->
             Regex("(?i)(?<![\\p{L}\\d])$prefix(?:\\s*:\\s*|(?=\\s|[.,;)\\]]|$))")
                 .findAll(text)
                 .map {
@@ -157,7 +204,9 @@ internal object LabelSectionExtractor {
             .filter { depthAt(text, it.range.first) == 0 }
             .sortedWith(compareBy<SectionMarker> { it.range.first }.thenBy { markerPriority(it.kind) })
             .fold(mutableListOf()) { result, marker ->
-                if (result.lastOrNull()?.range?.contains(marker.range.first) != true) result += marker
+                if (result.none { existing ->
+                        existing.range.first <= marker.range.last && marker.range.first <= existing.range.last
+                    }) result += marker
                 result
             }
     }

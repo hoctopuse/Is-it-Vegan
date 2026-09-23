@@ -70,7 +70,8 @@ class OcrMultilingualSelectionTest {
             diagnostics = OcrDiagnostics(0, 3, 12, listOf("NL", "FR", "DE"), emptyList()),
             fullText = full,
             textOptions = selection.options,
-            selectedOptionLanguage = selection.selectedLanguage
+            selectedOptionLanguage = selection.selectedLanguage,
+            selectedOptionBlockId = selection.selectedBlockId
         )
         val analyzed = OcrSession().withOcrResult(result)
             .addAnalysis(AnalysisSnapshot("ancien", "diagnostic", "résultat", 1L))
@@ -79,9 +80,12 @@ class OcrMultilingualSelectionTest {
 
         assertTrue(german.editableText.contains("Wasser"))
         assertTrue(german.analyses.isEmpty())
+        assertEquals(german.selectedOptionBlockId, german.ocrDiagnostics?.selectedBlockId)
+        assertEquals("DE", german.ocrDiagnostics?.selectedLanguage)
         assertEquals(full, complete.editableText)
         assertTrue(complete.fullTextSelected)
         assertTrue(complete.analyses.isEmpty())
+        assertEquals(null, complete.ocrDiagnostics?.selectedBlockId)
     }
 
     @Test fun safeNoiseAndTraceBoundariesStayOutsideComposition() {

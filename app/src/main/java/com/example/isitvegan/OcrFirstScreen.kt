@@ -91,12 +91,16 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
         focusManager.clearFocus()
         val requestedMode = inputMode
         val requestedLanguage = uiLanguage
+        val requestedBlockId = session.selectedOptionBlockId
+            .takeIf { requestedMode == InputMode.OCR_LABEL && !session.fullTextSelected }
         val versionName = appVersionName(context)
         analyzing = true
         coroutineScope.launch {
             val completed = runCatching {
                 OcrThreading.cpu {
-                    val current = VeganAnalyzer.analyzeWithDiagnostics(text, requestedMode, requestedLanguage)
+                    val current = VeganAnalyzer.analyzeWithDiagnostics(
+                        text, requestedMode, requestedLanguage, requestedBlockId
+                    )
                     val display = OcrFirstScreenResult.render(text, current)
                     Triple(current, display, DiagnosticReport.build(current, versionName))
                 }
@@ -108,7 +112,10 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                 diagnostics = current
                 result = display
                 session = session.addAnalysis(
-                    AnalysisSnapshot(text, report, display, System.currentTimeMillis())
+                    AnalysisSnapshot(
+                        text, report, display, System.currentTimeMillis(),
+                        current.labelSections.selectedBlockId
+                    )
                 )
             }.onFailure {
                 result = "Impossible d’analyser ce texte. Réessayez avec une zone plus courte."

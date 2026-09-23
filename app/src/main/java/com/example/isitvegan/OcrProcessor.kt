@@ -126,9 +126,13 @@ internal class OcrProcessor(context: Context) {
                                 languagePreference = languagePreference(preferredLanguage),
                                 selectionReason = segmentation.selectionReason,
                                 selectedBlockId = textSelection.selectedBlockId,
+                                languageSegmentCount = segmentation.blocks.size,
+                                selectableBlockCount = segmentation.blocks.size,
+                                selectedBlockCount = if (segmentation.selectedBlockId == null) 0 else 1,
+                                rejectedBlockCount = segmentation.blocks.count { it.id != segmentation.selectedBlockId },
                                 detectedBlockDetails = segmentation.blocks.map { block ->
                                     buildString {
-                                        append("${block.id}: ${block.detectedMarker ?: "sans marqueur"} → ${block.language.displayName}; score=${block.selectionScore}")
+                                        append("${block.id} [${block.segmentId}]: ${block.detectedMarker ?: "sans marqueur"} → ${block.language.displayName}; score=${block.selectionScore}")
                                         block.languageCorrectionReason?.let { append(" ($it)") }
                                     }
                                 }

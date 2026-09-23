@@ -59,7 +59,11 @@ internal data class OcrDiagnostics(
     val languagePreference: List<String> = emptyList(),
     val selectionReason: String? = null,
     val detectedBlockDetails: List<String> = emptyList(),
-    val selectedBlockId: String? = null
+    val selectedBlockId: String? = null,
+    val languageSegmentCount: Int = 0,
+    val selectableBlockCount: Int = 0,
+    val selectedBlockCount: Int = 0,
+    val rejectedBlockCount: Int = 0
 )
 
 internal data class OcrTextOption(
@@ -67,7 +71,8 @@ internal data class OcrTextOption(
     val text: String,
     val marker: String?,
     val languageCorrectionReason: String? = null,
-    val blockId: String
+    val blockId: String,
+    val segmentId: String
 )
 
 internal data class OcrProcessingResult(

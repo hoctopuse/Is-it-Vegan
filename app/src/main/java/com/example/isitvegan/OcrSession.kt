@@ -34,6 +34,12 @@ internal data class OcrSession(
             analyses = emptyList(),
             selectedOptionLanguage = language,
             selectedOptionBlockId = option.blockId,
+            ocrDiagnostics = ocrDiagnostics?.copy(
+                selectedLanguage = language.displayName,
+                selectedBlockId = option.blockId,
+                selectedBlockCount = 1,
+                rejectedBlockCount = (ocrDiagnostics.selectableBlockCount - 1).coerceAtLeast(0)
+            ),
             fullTextSelected = false
         )
     }
@@ -43,6 +49,12 @@ internal data class OcrSession(
         analyses = emptyList(),
         selectedOptionLanguage = null,
         selectedOptionBlockId = null,
+        ocrDiagnostics = ocrDiagnostics?.copy(
+            selectedLanguage = null,
+            selectedBlockId = null,
+            selectedBlockCount = 0,
+            rejectedBlockCount = 0
+        ),
         fullTextSelected = true
     )
 
@@ -54,7 +66,8 @@ data class AnalysisSnapshot(
     val submittedText: String,
     val diagnosticReport: String,
     val displayResult: String,
-    val timestampMillis: Long
+    val timestampMillis: Long,
+    val selectedBlockId: String? = null
 )
 
 internal object OcrExportReport {
@@ -69,7 +82,11 @@ internal object OcrExportReport {
                 "Rotation EXIF transmise à ML Kit : " +
                     (diagnostic.orientationDegrees?.let { "$it°" } ?: "indéterminée")
             )
-            appendLine("Blocs : ${diagnostic.blockCount}")
+            appendLine("Blocs géométriques ML Kit : ${diagnostic.blockCount}")
+            appendLine("Segments linguistiques détectés : ${diagnostic.languageSegmentCount}")
+            appendLine("Blocs sélectionnables : ${diagnostic.selectableBlockCount}")
+            appendLine("Blocs sélectionnés : ${diagnostic.selectedBlockCount}")
+            appendLine("Blocs rejetés : ${diagnostic.rejectedBlockCount}")
             appendLine("Lignes : ${diagnostic.lineCount}")
             appendLine("Zones détectées : ${diagnostic.detectedZones.ifEmpty { listOf("UNKNOWN") }.joinToString()}")
             diagnostic.detectedBlockDetails.forEach { appendLine("Bloc : $it") }
@@ -92,6 +109,7 @@ internal object OcrExportReport {
         } else {
             session.analyses.forEachIndexed { index, analysis ->
                 appendLine("ANALYSE ${index + 1} — texte exact soumis")
+                appendLine("Identifiant du bloc analysé : ${analysis.selectedBlockId ?: "texte complet"}")
                 appendLine(analysis.submittedText.ifBlank { "(vide)" })
                 appendLine("Résultat affiché")
                 appendLine(analysis.displayResult)
