@@ -14,7 +14,7 @@ class Version066MultilingualMatchingTest {
         File("src/main/assets/origin_qualifier_rules.json").readText()
     ).also { assertTrue(it.errors.joinToString(), it.isValid) }.rules
     private val database = listOf(
-        vegan("cereals", "céréales"), vegan("wheat", "blé"), vegan("wheat_flour", "farine de blé"),
+        vegan("wheat", "blé"), vegan("wheat_flour", "farine de blé"),
         vegan("oats", "avoine"), vegan("rye", "seigle"), vegan("barley", "orge"),
         vegan("malt", "malt"), vegan("starch", "amidon"), vegan("rice", "riz"), vegan("corn", "maïs"),
         vegan("sunflower_oil", "huile de tournesol"), vegan("rapeseed_oil", "huile de colza"),

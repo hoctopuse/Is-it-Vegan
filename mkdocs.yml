@@ -16,6 +16,8 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.details
+  - pymdownx.snippets:
+      base_path: docs
   - pymdownx.highlight
   - pymdownx.superfences:
       custom_fences:

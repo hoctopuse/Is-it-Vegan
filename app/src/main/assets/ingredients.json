@@ -182,6 +182,45 @@
     "source": "vegan-society"
   },
   {
+    "id": "barley",
+    "name": "Orge",
+    "eNumber": "",
+    "aliases": [
+      "orge",
+      "orges",
+      "barley",
+      "barleys"
+    ],
+    "status": "VEGAN",
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "rye",
+    "name": "Seigle",
+    "eNumber": "",
+    "aliases": [
+      "seigle",
+      "rye"
+    ],
+    "status": "VEGAN",
+    "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "malt",
+    "name": "Malt",
+    "eNumber": "",
+    "aliases": [
+      "malt",
+      "extrait de malt",
+      "malt extract"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit obtenu par germination de céréales ; sa désignation simple ne contient pas d’ingrédient animal.",
+    "source": "vegan-society"
+  },
+  {
     "id": "corn",
     "name": "Maïs",
     "eNumber": "",
@@ -197,6 +236,18 @@
     ],
     "status": "VEGAN",
     "reason": "Céréale d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "inulin",
+    "name": "Inuline",
+    "eNumber": "",
+    "aliases": [
+      "inuline",
+      "inulin"
+    ],
+    "status": "VEGAN",
+    "reason": "Fibre alimentaire végétale, généralement extraite notamment de chicorée.",
     "source": "vegan-society"
   },
   {
@@ -283,6 +334,36 @@
     ],
     "status": "VEGAN",
     "reason": "Huile végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "palm_oil",
+    "name": "Huile de palme",
+    "eNumber": "",
+    "aliases": [
+      "huile de palme",
+      "graisse de palme",
+      "palm oil",
+      "palm fat"
+    ],
+    "status": "VEGAN",
+    "reason": "Huile et matière grasse explicitement issues d’un végétal.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "palm_kernel",
+    "name": "Palmiste",
+    "eNumber": "",
+    "aliases": [
+      "palmiste",
+      "huile de palmiste",
+      "graisse de palmiste",
+      "palm kernel",
+      "palm kernel oil",
+      "palm kernel fat"
+    ],
+    "status": "VEGAN",
+    "reason": "Graine et huile explicitement issues du palmier.",
     "source": "vegan-society"
   },
   {
@@ -632,6 +713,20 @@
     ],
     "status": "VEGAN",
     "reason": "Le mot lait est ici qualifié par amande, une plante.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "almond",
+    "name": "Amande",
+    "eNumber": "",
+    "aliases": [
+      "amande",
+      "amandes",
+      "almond",
+      "almonds"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit à coque d’origine végétale.",
     "source": "vegan-society"
   },
   {
@@ -1079,6 +1174,18 @@
     "source": "eu-additives"
   },
   {
+    "id": "e170",
+    "name": "Carbonate de calcium",
+    "eNumber": "E170",
+    "aliases": [
+      "carbonate de calcium",
+      "calcium carbonate"
+    ],
+    "status": "VEGAN",
+    "reason": "Sel minéral de calcium, sans origine animale dans cette désignation d’additif.",
+    "source": "eu-additives"
+  },
+  {
     "id": "e406",
     "name": "Agar-agar",
     "eNumber": "E406",
@@ -1089,6 +1196,19 @@
     ],
     "status": "VEGAN",
     "reason": "Gélifiant issu d’algues.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e418",
+    "name": "Gomme gellane",
+    "eNumber": "E418",
+    "aliases": [
+      "gomme gellane",
+      "gellan gum",
+      "gellan"
+    ],
+    "status": "VEGAN",
+    "reason": "Gélifiant obtenu par fermentation microbienne, sans origine animale attendue.",
     "source": "eu-additives"
   },
   {
@@ -1159,6 +1279,22 @@
     "source": "eu-additives"
   },
   {
+    "id": "e503",
+    "name": "Carbonates d’ammonium",
+    "eNumber": "E503",
+    "aliases": [
+      "carbonate d ammonium",
+      "carbonate d’ammonium",
+      "carbonates d ammonium",
+      "carbonates d’ammonium",
+      "ammonium carbonate",
+      "ammonium carbonates"
+    ],
+    "status": "VEGAN",
+    "reason": "Sels minéraux d’ammonium, sans origine animale dans cette désignation d’additif.",
+    "source": "eu-additives"
+  },
+  {
     "id": "e524",
     "name": "Hydroxyde de sodium",
     "eNumber": "E524",
@@ -1197,6 +1333,20 @@
     ],
     "status": "VEGAN",
     "reason": "Produit industriel généralement obtenu par fermentation, sans origine animale attendue.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e332",
+    "name": "Citrates de potassium",
+    "eNumber": "E332",
+    "aliases": [
+      "citrate de potassium",
+      "citrates de potassium",
+      "potassium citrate",
+      "potassium citrates"
+    ],
+    "status": "VEGAN",
+    "reason": "Sels de l’acide citrique, sans origine animale dans cette désignation d’additif.",
     "source": "eu-additives"
   },
   {
@@ -1573,6 +1723,36 @@
       "strawberries",
       "aardbei",
       "aardbeien"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "blackberry",
+    "name": "Mûre",
+    "eNumber": "",
+    "aliases": [
+      "mûre",
+      "mure",
+      "mûres",
+      "mures",
+      "blackberry",
+      "blackberries"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "blueberry",
+    "name": "Myrtille",
+    "eNumber": "",
+    "aliases": [
+      "myrtille",
+      "myrtilles",
+      "blueberry",
+      "blueberries"
     ],
     "status": "VEGAN",
     "reason": "Fruit d’origine végétale.",

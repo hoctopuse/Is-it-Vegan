@@ -1,5 +1,23 @@
 # Base de connaissances
 
+Cette page est le point de préparation des évolutions de données. Les tableaux générés reflètent les fichiers réellement chargés ou édités par le projet ; ils ne constituent pas une seconde base maintenue à la main.
+
+## Rôle de chaque source
+
+| Source | Responsabilité |
+|---|---|
+| `knowledge/ingredients.json` | Concepts canoniques, statuts, raisons et références éditoriales. |
+| `app/src/main/assets/ingredients.json` | Copie générée et chargée hors ligne par Android. |
+| `ingredient_aliases_multilingual.json` | Alias par langue et variantes OCR ; aucun statut vegan. |
+| `knowledge/origin_qualifier_rules.json` | Origine explicitement attachée à certains ingrédients et additifs. |
+| Cette page | Vue documentaire, propositions et backlog. |
+
+Un **concept** est l’identifiant canonique, par exemple `sunflower_oil`. Un **alias** est une surface reconnue dans une langue, par exemple `zonnebloemolie`. Un alias peut être reconnu alors que son concept est absent : le diagnostic le signale comme non classifiable et le verdict reste prudent.
+
+Les `UNKNOWN` désignent un texte sans correspondance classifiable. Un concept absent est plus précis : le terme et l’ID proposé sont connus, mais aucun statut n’est disponible dans `ingredients.json`.
+
+Les traces (`Peut contenir`, `Kan sporen bevatten`, `Kann Spuren enthalten`, etc.) forment une section distincte. Elles sont affichées comme information de contamination croisée et ne modifient jamais le verdict des ingrédients réellement déclarés.
+
 Le dépôt contient deux représentations liées :
 
 - `knowledge/ingredients.json` est la source éditoriale ;
@@ -23,7 +41,11 @@ Chaque entrée de `knowledge/ingredients.json` contient :
 
 L’asset embarqué conserve `id`, `name`, `eNumber`, `aliases`, `status`, `reason` et joint les identifiants de `sources` dans le champ chaîne `source`. `VeganAnalyzer.loadDatabase` transforme cet asset en objets `Ingredient` avec `org.json.JSONArray`.
 
-Lors de l’audit de la version 0.6.4.1, l’asset contient 101 entrées : 74 `VEGAN`, 8 `VEGETARIAN`, 6 `NON_VEGAN` et 13 `UNCERTAIN`. Ces nombres décrivent cette révision, pas une contrainte du schéma.
+## Données générées
+
+Les sections suivantes sont générées par `python tools/build_knowledge_docs.py` depuis la base éditoriale, le lexique multilingue et les règles d’origine.
+
+--8<-- "generated/base-connaissances-data.md"
 
 ## Signification des statuts
 
@@ -46,21 +68,79 @@ Les qualifications d’origine suivent leur propre source éditoriale, `knowledg
 
 1. Modifier uniquement `knowledge/ingredients.json`.
 2. Vérifier l’unicité des identifiants et des alias, le statut, la raison et les sources.
-3. Générer l’asset :
+3. Générer l’asset et les tableaux documentaires :
 
    ```bash
    python tools/build_ingredients.py
+   python tools/build_knowledge_docs.py
    ```
 
 4. Vérifier sans écrire :
 
    ```bash
    python tools/build_ingredients.py --check
+   python tools/build_origin_rules.py --check
+   python tools/build_knowledge_docs.py --check
    ```
 
 5. Ajouter des tests de matching et de verdict pour les cas ambigus.
 
 Le générateur refuse un alias appartenant à deux identifiants et un statut hors enum. Il ne vérifie pas automatiquement la qualité éditoriale d’une preuve : cette revue reste humaine.
 
-Cette tâche documentaire ne modifie aucune donnée de `ingredients.json`.
+## Propositions d’ajout
 
+Cette table est un backlog éditorial. Une ligne n’est pas une instruction de modifier les données : la décision exige une raison, une source et un test réel.
+
+| ID proposé | Nom FR | Alias connus | Statut proposé | Source à vérifier | Décision |
+|---|---|---|---|---|---|
+| `cereals` | Céréales non précisées | céréales, granen, cereals | Aucun statut | Cas d’étiquette réel | Concept générique |
+| `e422` | Glycérol | glycerol, glycerine | `UNCERTAIN` | Règle d’origine existante | Déjà couvert |
+| `natural_flavouring` | Arôme naturel | arôme naturel, natural flavouring | `UNCERTAIN` | Formulation et fabricant | À conserver incertain |
+| `vitamin_d` | Vitamine D | vitamin D, cholecalciferol | `UNCERTAIN` | Origine précise / fabricant | À conserver incertain |
+| `e322` | Lécithines sans origine | lecithin, lecithinen | `UNCERTAIN` | Origine explicitement rattachée | Déjà couvert |
+| Additif ou arôme ambigu | À qualifier | Étiquette complète | Aucun statut implicite | Source primaire ou fabricant | À vérifier |
+
+Les décisions possibles sont : `À vérifier`, `À ajouter`, `Déjà couvert`, `Alias uniquement`, `Concept générique`, `À conserver incertain` et `À ne pas ajouter`.
+
+## Bloc à transmettre pour préparer les prochains ajouts
+
+```text
+CONCEPTS À AJOUTER
+- id :
+  nom français :
+  alias FR :
+  alias NL :
+  alias DE :
+  alias EN :
+  alias IT :
+  alias ES :
+  statut proposé :
+  raison :
+  source :
+  test réel :
+
+CONCEPTS RECONNUS MAIS NON CLASSIFIABLES
+- concept :
+  alias observé :
+  langue :
+  raison :
+
+CORRECTIONS OCR
+- langue :
+  texte OCR :
+  correction :
+  concept :
+
+ORIGINES À AJOUTER
+- texte :
+  origine :
+  langue :
+  classification attendue :
+
+CAS À TESTER
+- étiquette :
+  langue :
+  verdict attendu :
+  traces :
+  erreur actuelle :
+```

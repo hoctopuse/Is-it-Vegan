@@ -42,10 +42,30 @@ class Version066MultilingualLexiconTest {
         val validation = lexicon.validateAgainst(canonicalDatabase)
 
         assertTrue(validation.errors.joinToString(), validation.isValid)
-        assertEquals(
-            listOf("barley", "blackberry", "blueberry", "cereals", "malt", "palm_oil", "rye"),
-            validation.unavailableCanonicalIds
+        assertEquals(listOf("cereals"), validation.unavailableCanonicalIds)
+    }
+
+    @Test fun reviewedCanonicalConceptsAndTheirMultilingualAliasesAreAvailable() {
+        val canonicalDatabase = runtimeDatabase()
+        val expected = mapOf(
+            "barley" to VeganStatus.VEGAN, "rye" to VeganStatus.VEGAN,
+            "malt" to VeganStatus.VEGAN, "blackberry" to VeganStatus.VEGAN,
+            "blueberry" to VeganStatus.VEGAN, "palm_oil" to VeganStatus.VEGAN,
+            "palm_kernel" to VeganStatus.VEGAN, "almond" to VeganStatus.VEGAN,
+            "inulin" to VeganStatus.VEGAN, "e170" to VeganStatus.VEGAN,
+            "e418" to VeganStatus.VEGAN, "e332" to VeganStatus.VEGAN,
+            "e503" to VeganStatus.VEGAN
         )
+
+        expected.forEach { (id, status) ->
+            assertEquals(status, canonicalDatabase.single { it.id == id }.status)
+        }
+        assertEquals("barley", lexicon.resolve("orzo", LabelLanguage.ITALIAN, canonicalDatabase).canonicalId)
+        assertEquals("blueberry", lexicon.resolve("Heidelbeeren", LabelLanguage.GERMAN, canonicalDatabase).canonicalId)
+        assertEquals("e503", lexicon.resolve("carbonatos de amonio", LabelLanguage.SPANISH, canonicalDatabase).canonicalId)
+        val generic = lexicon.resolve("granen", LabelLanguage.DUTCH, canonicalDatabase)
+        assertEquals("cereals", generic.canonicalId)
+        assertFalse(generic.canonicalAvailable!!)
     }
 
     @Test fun invalidOrDuplicatedEntriesAreRejectedAtLoadTime() {
@@ -65,4 +85,19 @@ class Version066MultilingualLexiconTest {
 
     private fun ingredient(id: String, name: String) =
         Ingredient(id, name, listOf(name), null, VeganStatus.VEGAN, "test")
+
+    private fun runtimeDatabase(): List<Ingredient> = (MiniJson.parse(
+        File("src/main/assets/ingredients.json").readText()
+    ) as List<*>).map { value ->
+        val item = value as Map<*, *>
+        Ingredient(
+            id = item["id"] as String,
+            name = item["name"] as String,
+            aliases = (item["aliases"] as List<*>).filterIsInstance<String>(),
+            eNumber = item["eNumber"] as? String,
+            status = VeganStatus.valueOf(item["status"] as String),
+            reason = item["reason"] as String,
+            source = item["source"] as? String
+        )
+    }
 }
