@@ -18,6 +18,16 @@ internal object LabelPreprocessor {
     )
     private val ingredientHeading = Regex("(?i)^\\s*(?:ingr[ée]dients?|sngredients?|ingr[ée]cients?|ingredi[ëè]nten?|ingredienten?|zutaten|ingredientes?)\\s*:\\s*")
     private val simpleOcrCorrections = listOf(
+        // These spellings are only processed after section extraction, never in raw label text.
+        Regex("(?i)\\bTOZijnen\\b") to "rozijnen",
+        Regex("(?i)\\bqerousterde\\b") to "geroosterde",
+        Regex("(?i)\\bpisaehenoten\\b") to "pistachenoten",
+        Regex("(?i)\\bcranbery's\\b") to "cranberry's",
+        Regex("(?i)\\bsujke\\b") to "suiker",
+        Regex("(?i)\\bp\u00e5te\\b") to "p\u00e2te",
+        Regex("\\bSUCre\\b") to "sucre",
+        Regex("(?i)\\bl\u00e9cith\u00ednes\\b") to "l\u00e9cithines",
+        Regex("(?i)\\bsirop\\s+de\\s+qlucose\\b") to "sirop de glucose",
         Regex("(?i)\\bhulle\\s+de\\s+tournesol\\b") to "huile de tournesol",
         Regex("(?i)\\bhulle\\s+de\\s*\\r?\\n\\s*tournesol\\b") to "huile de tournesol",
         Regex("(?i)\\bhuile\\s+de\\s*\\r?\\n\\s*tournesol\\b") to "huile de tournesol",
@@ -48,7 +58,6 @@ internal object LabelPreprocessor {
         Regex("(?i)\\bemuisifiant\\b") to "émulsifiant",
         Regex("(?i)\\blecthines\\b") to "lécithines",
         Regex("(?i)(?<!\\p{L})écithines\\b") to "lécithines",
-        Regex("(?i)\\bqlucose\\b") to "glucose",
         Regex("(?i)\\bSáurerequlator\\b") to "Säureregulator",
         Regex("(?i)\\bCitronensåure\\b") to "Citronensäure",
         Regex("(?i)\\bpoudrel\\b") to "poudre",

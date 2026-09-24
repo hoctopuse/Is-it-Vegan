@@ -2,7 +2,7 @@
 
 Application Android en Kotlin et Jetpack Compose qui analyse une liste d’ingrédients et évalue sa compatibilité vegan à partir d’une base embarquée. Elle accepte une étiquette saisie, une liste seule ou une photo traitée par l’OCR latin de ML Kit. Le flux photo comprend l’orientation EXIF, un recadrage en mémoire, la sélection prudente d’un bloc linguistique et un texte éditable avant analyse.
 
-La version documentée est **0.6.5** (`versionCode 30`). L’interface est disponible en français, anglais et néerlandais. Le moteur distingue la compatibilité vegan, la classification végétarienne détaillée, les ingrédients incertains, les éléments inconnus et les traces de contamination croisée.
+La version documentée est **0.6.8** (`versionCode 34`). L’interface est disponible en français, anglais et néerlandais. Le moteur distingue la compatibilité vegan, la classification végétarienne détaillée, les ingrédients incertains, les éléments inconnus et les traces de contamination croisée.
 
 Le moteur d’analyse, la base d’ingrédients et le modèle OCR utilisé sont embarqués. Le code applicatif ne contacte aucun service métier distant. Les dépendances ML Kit ajoutent toutefois des composants de transport et des permissions réseau au manifeste final ; les limites exactes sont détaillées dans la [documentation sur la vie privée](docs/vie-privee.md).
 

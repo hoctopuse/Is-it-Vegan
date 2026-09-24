@@ -24,7 +24,6 @@ OCR_CONCEPTS = {
     "Kakaopulvert": "cocoa",
     "Olpalme": "palm_oil",
     "écithines": "e322",
-    "qlucose": "glucose_syrup",
     "tarwesioop": "wheat_syrup",
     "soja lecithinen": "e322 (origine soja)",
     "Werzersiup": "wheat_syrup",

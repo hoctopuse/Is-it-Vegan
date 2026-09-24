@@ -7,7 +7,8 @@ internal object LabelLexicon {
     data class IngredientHeading(
         val language: LabelLanguage,
         val wordPattern: String,
-        val connectorsPattern: String
+        val connectorsPattern: String,
+        val allowDelimited: Boolean = true
     ) {
         private val extendedTitle =
             "(?:\\s+(?:$connectorsPattern)\\s+[^:\\r\\n,;.()\\[\\]]{1,64})?"
@@ -27,6 +28,7 @@ internal object LabelLexicon {
     )
 
     val ingredientHeadings = listOf(
+        IngredientHeading(LabelLanguage.DUTCH, "(?:ngredi\\u00ebnten?|inoredienten|ingredi\\u00eanten?)", "van\\s+de|van\\s+het|van", allowDelimited = false),
         IngredientHeading(LabelLanguage.FRENCH, "(?:ingr\u00E9dients?|sngredients?|ingr[ée]cients?|ingr\\u00C3\\u2030dients?)", "du|de\\s+la|de\\s+l['’]|des|de"),
         IngredientHeading(LabelLanguage.DUTCH, "(?:ingredi[ëè]nten?|ingedi[ëè]nten?|ingrediënten?|ingredienten?|ingredi\\u00C3\\u2039nten?)", "van\\s+de|van\\s+het|van"),
         IngredientHeading(LabelLanguage.ENGLISH, "ingredients?", "of\\s+the|of"),
@@ -92,12 +94,20 @@ internal object LabelLexicon {
                 if (match.groups[2] != null) HeadingSeparator.COLON else HeadingSeparator.DASH
             )
         }
-        (bounded + delimited).filter { match ->
+        (bounded + if (heading.allowDelimited) delimited else emptySequence()).filter { match ->
             !match.originalText.equals("ztaten", true) && !match.originalText.equals("ingediënten", true) ||
                 text.substring(match.contentStart).take(160).let { content ->
                     content.count { it.isLetter() } >= 12 && Regex("\\p{L}+\\s*[,;]\\s*\\p{L}+").containsMatchIn(content)
                 }
         }.filterNot { match -> isOrganicCertificationClaim(match.originalText) }
+            .filter { match ->
+                val degradedDutchTitle = match.originalText.equals("ngrediënten", true) ||
+                    match.originalText.equals("inoredienten", true) ||
+                    match.originalText.equals("ingrediênten", true)
+                !degradedDutchTitle || text.substring(match.contentStart).take(160).substringBefore('.').let { content ->
+                    content.count { it == ',' || it == ';' } >= 1 && content.count(Char::isLetter) >= 12
+                }
+            }
             .distinctBy { it.range }.toList()
     }.sortedBy { it.range.first }
 

@@ -72,6 +72,23 @@ internal object IngredientTreeParser {
         originRules: OriginQualifierRuleSet = OriginQualifierRuleSet.empty()
     ): List<IngredientNode> = parseList(expandGroupedENumbers(text), originRules)
 
+    internal fun inspectParentheses(text: String): ParenthesisStructure {
+        var depth = 0
+        var maximumDepth = 0
+        var unexpected = 0
+        text.forEach { character -> when (character) {
+            '(', '[' -> { depth++; maximumDepth = maxOf(maximumDepth, depth) }
+            ')', ']' -> if (depth == 0) unexpected++ else depth--
+        } }
+        return ParenthesisStructure(
+            balanced = depth == 0 && unexpected == 0,
+            missingClosings = depth,
+            unexpectedClosings = unexpected,
+            maximumDepth = maximumDepth,
+            recoveryApplied = depth > 0
+        )
+    }
+
     /** Splits an OCR-confirmed additive series without touching ordinary hyphenated words. */
     private fun expandGroupedENumbers(text: String): String = groupedENumbers.replace(text) { match ->
         Regex("(?i)(?:E|EZ)?\\s*(\\d{3})").findAll(match.value)
@@ -275,6 +292,7 @@ internal object IngredientTreeParser {
 
     private fun splitAtCurrentDepthWithSeparators(text: String): List<Segment> {
         val source = replaceTopLevelAlternatives(text)
+        val recoveryForMissingClosing = inspectParentheses(source).missingClosings > 0
         val parts = mutableListOf<Segment>()
         var start = 0
         var depth = 0
@@ -282,7 +300,7 @@ internal object IngredientTreeParser {
             when (character) {
                 '(', '[' -> depth++
                 ')', ']' -> depth = (depth - 1).coerceAtLeast(0)
-                ',', ';', '\n' -> if (depth == 0 &&
+                ',', ';', '\n' -> if ((depth == 0 || (recoveryForMissingClosing && depth == 1)) &&
                     !(character == ',' && index > 0 && index < source.lastIndex &&
                         source[index - 1].isDigit() && source[index + 1].isDigit()) &&
                     !(character == '\n' && nextNonWhitespace(source, index + 1) in listOf('(', '['))

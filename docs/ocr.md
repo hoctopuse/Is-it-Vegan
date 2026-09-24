@@ -94,7 +94,7 @@ Le texte brut de `Text.text` est copié tel quel dans `OcrDocument.rawText`, pui
 - détecter une coupure de colonnes seulement lorsqu’un espace horizontal dépasse 1,5 fois la hauteur moyenne et que les colonnes coexistent verticalement ;
 - séparer par une ligne vide deux blocs dont l’écart vertical dépasse 1,5 fois la hauteur moyenne.
 
-Cette reconstruction n’est toutefois **pas** la source du texte analysé en 0.6.5. `OcrProcessor` nettoie `recognized.text`, compare ce résultat à la reconstruction géométrique, puis conserve l’ordre natif ML Kit. Une divergence ajoute l’avertissement « ordre natif ML Kit conservé ; reconstruction géométrique ignorée ».
+Depuis 0.6.5, et toujours en 0.6.8, cette reconstruction n’est **pas** la source du texte analysé. `OcrProcessor` nettoie `recognized.text`, compare ce résultat à la reconstruction géométrique, puis conserve l’ordre natif ML Kit. Une divergence ajoute l’avertissement « ordre natif ML Kit conservé ; reconstruction géométrique ignorée ».
 
 ## Nettoyage déterministe
 
@@ -134,3 +134,5 @@ Si le post-traitement lance une `RuntimeException`, `OcrProcessor` rend le texte
 - La reconstruction géométrique n’alimente pas actuellement le texte analysé.
 - Le vocabulaire de reclassification linguistique est volontairement court et orienté ingrédients courants.
 - Un recadrage trop serré ou la limite de 2048 px peut supprimer des détails fins ; l’utilisateur garde l’aperçu et le texte brut pour vérifier.
+
+Les titres d’ingrédients FR, NL, DE, EN, IT et ES exigent un séparateur. Les formes NL OCR `ngrediënten`, `Inoredienten` et `Ingrediênten` sont acceptées seulement à cette frontière ; une mention biologique n’est jamais une composition. Les corrections déterministes sont appliquées après sélection de la section et figurent dans le diagnostic. La reconstruction complète des colonnes reste une limite connue : les blocs géométriques ML Kit et les segments linguistiques restent distincts.

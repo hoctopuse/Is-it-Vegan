@@ -94,6 +94,9 @@ internal object DiagnosticReport {
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })
             val ocrCorrections = diagnostics.ocrCorrections.joinToString(" ; ").ifBlank { "(aucune)" }
+            val structure = diagnostics.parenthesisStructure
+            appendLine("Structure OCR : balanced=${structure.balanced}; missingClosings=${structure.missingClosings}; unexpectedClosings=${structure.unexpectedClosings}; maximumDepth=${structure.maximumDepth}; recoveryApplied=${structure.recoveryApplied}")
+            if (!structure.balanced) appendLine("Alerte structurelle : structure OCR incomplète ; les segments non fiables restent inconnus.")
             appendLine("Corrections OCR appliquées : $ocrCorrections")
             appendLine("Présence réelle déclarée : ${diagnostics.declaredPresenceText ?: "(aucune)"}")
             appendLine()

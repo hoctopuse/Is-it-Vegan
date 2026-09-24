@@ -215,6 +215,38 @@
     ,{"canonicalId":"wheat_syrup","language":"ES","aliases":["jarabe de trigo"],"ocrVariants":[]}
     ,{"canonicalId":"coconut_fat","language":"ES","aliases":["grasa de coco"],"ocrVariants":[]}
     ,{"canonicalId":"e306","language":"ES","aliases":["extracto rico en tocoferoles"],"ocrVariants":[]}
+    ,{"canonicalId":"rice","language":"FR","aliases":["pétales de riz"],"ocrVariants":[]}
+    ,{"canonicalId":"wheat","language":"FR","aliases":["blé complet"],"ocrVariants":[]}
+    ,{"canonicalId":"barley","language":"FR","aliases":["orge complète"],"ocrVariants":[]}
+    ,{"canonicalId":"oats","language":"FR","aliases":["flocons d’avoine complète","avoine fermentée"],"ocrVariants":[]}
+    ,{"canonicalId":"almond","language":"FR","aliases":["amandes moulues"],"ocrVariants":[]}
+    ,{"canonicalId":"peas","language":"FR","aliases":["protéines de pois en poudre"],"ocrVariants":[]}
+    ,{"canonicalId":"salt","language":"FR","aliases":["sel marin"],"ocrVariants":[]}
+    ,{"canonicalId":"e340","language":"FR","aliases":["phosphates de potassium"],"ocrVariants":[]}
+    ,{"canonicalId":"vitamin_b12","language":"FR","aliases":["vitamine B12"],"ocrVariants":[]}
+    ,{"canonicalId":"malt","language":"FR","aliases":["farine de malt d’orge","farine de malt de blé"],"ocrVariants":[]}
+    ,{"canonicalId":"cocoa","language":"FR","aliases":["cacao maigre en poudre"],"ocrVariants":[]}
+    ,{"canonicalId":"sugar","language":"FR","aliases":["sirop de sucre caramélisé"],"ocrVariants":[]}
+    ,{"canonicalId":"rice","language":"NL","aliases":["rijstvlokken"],"ocrVariants":[]}
+    ,{"canonicalId":"barley","language":"NL","aliases":["volkoren gerst"],"ocrVariants":[]}
+    ,{"canonicalId":"almond","language":"NL","aliases":["gemalen amandelen"],"ocrVariants":[]}
+    ,{"canonicalId":"oats","language":"NL","aliases":["gefermenteerde haver"],"ocrVariants":[]}
+    ,{"canonicalId":"peas","language":"NL","aliases":["erwteneiwitpoeder"],"ocrVariants":[]}
+    ,{"canonicalId":"salt","language":"NL","aliases":["zeezout"],"ocrVariants":[]}
+    ,{"canonicalId":"e340","language":"NL","aliases":["kaliumfosfaten"],"ocrVariants":[]}
+    ,{"canonicalId":"vitamin_b12","language":"NL","aliases":["vitamine B12"],"ocrVariants":[]}
+    ,{"canonicalId":"malt","language":"NL","aliases":["gemoute gerstemeel","gemoute tarwebloem"],"ocrVariants":[]}
+    ,{"canonicalId":"glucose_syrup","language":"NL","aliases":["glucose-fructosestroop"],"ocrVariants":[]}
+    ,{"canonicalId":"sugar","language":"NL","aliases":["gekarameliseerde suikersiroop"],"ocrVariants":[]}
+    ,{"canonicalId":"e422","language":"NL","aliases":["glycerol"],"ocrVariants":[]}
+    ,{"canonicalId":"pistachio","language":"NL","aliases":["pistachenoten"],"ocrVariants":["pisaehenoten"]}
+    ,{"canonicalId":"hazelnut","language":"NL","aliases":["hazelnoot"],"ocrVariants":[]}
+    ,{"canonicalId":"walnut","language":"NL","aliases":["walnoot"],"ocrVariants":[]}
+    ,{"canonicalId":"cashew","language":"NL","aliases":["cashewnoot"],"ocrVariants":[]}
+    ,{"canonicalId":"pecan","language":"NL","aliases":["pecannoot"],"ocrVariants":[]}
+    ,{"canonicalId":"brazil_nut","language":"NL","aliases":["paranoot"],"ocrVariants":[]}
+    ,{"canonicalId":"macadamia","language":"NL","aliases":["macadamianoot"],"ocrVariants":[]}
+    ,{"canonicalId":"blueberry","language":"NL","aliases":["gedroogde blauwe bessen"],"ocrVariants":[]}
   ],
   "ocrCorrections": [
     {"language":"NL","from":"havervokken","to":"havervlokken"},
@@ -232,7 +264,6 @@
     {"language":"EN","from":"wheat synup","to":"wheat syrup"},
     {"language":"IT","from":"scranDe di frumento","to":"sciroppo di frumento"},
     {"language":"IT","from":"estratto ad ato contenuto di tocoferoli","to":"estratto ad alto contenuto di tocoferoli"},
-    {"language":"FR","from":"qlucose","to":"glucose"},
     {"language":"FR","from":"écithines","to":"lécithines"},
     {"language":"FR","from":"siop de blé","to":"sirop de blé"},
     {"language":"FR","from":"extait riche en tocophérols","to":"extrait riche en tocophérols"},

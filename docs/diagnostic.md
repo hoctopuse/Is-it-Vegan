@@ -31,6 +31,8 @@ Un conteneur composite affiche « conteneur analysé » et aucun inconnu propre.
 
 ## Diagnostic OCR
 
+En 0.6.8, le rapport d’analyse expose aussi l’équilibre des parenthèses, le nombre de fermetures manquantes ou inattendues, la profondeur maximale et l’application éventuelle de la récupération conservatrice. Les corrections OCR listées concernent uniquement la composition extraite ; elles ne réécrivent ni les traces, ni la conservation, ni les instructions. Les traces normalisées restent affichées séparément et sont exclues du verdict.
+
 ## Matching multilingue 0.6.6
 
 Pour chaque alias linguistique retenu, le diagnostic d’analyse affiche le texte OCR, la correction éventuelle, l’alias, le concept canonique, sa disponibilité dans `ingredients.json` et la langue de matching. Un concept proposé mais absent est affiché comme non classifiable et reste inconnu. L’identifiant canonique ne porte aucun statut : la classification continue de provenir exclusivement de `ingredients.json`.

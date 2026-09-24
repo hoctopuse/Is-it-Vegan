@@ -2028,6 +2028,60 @@
     "source": "vegan-society"
   },
   {
+    "id": "pistachio",
+    "name": "Pistache",
+    "eNumber": "",
+    "aliases": [
+      "pistache",
+      "pistaches",
+      "pistachio",
+      "pistachios"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit à coque d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "walnut",
+    "name": "Noix",
+    "eNumber": "",
+    "aliases": [
+      "noix",
+      "walnut",
+      "walnuts"
+    ],
+    "status": "VEGAN",
+    "reason": "Fruit à coque d’origine végétale.",
+    "source": "vegan-society"
+  },
+  {
+    "id": "e340",
+    "name": "Phosphates de potassium",
+    "eNumber": "E340",
+    "aliases": [
+      "e340",
+      "phosphates de potassium",
+      "potassium phosphates",
+      "kaliumfosfaten"
+    ],
+    "status": "VEGAN",
+    "reason": "Sels minéraux de potassium utilisés comme additifs.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "vitamin_b12",
+    "name": "Vitamine B12",
+    "eNumber": "",
+    "aliases": [
+      "vitamine b12",
+      "vitamin b12",
+      "b12"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "L’étiquette ne documente pas toujours l’origine ni le procédé de fabrication.",
+    "source": "vegan-society"
+  },
+  {
     "id": "cottonseed_oil",
     "name": "Huile de graine de coton",
     "eNumber": "",

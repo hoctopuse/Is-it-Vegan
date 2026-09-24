@@ -85,6 +85,7 @@ data class AnalysisDiagnostics(
     val labelSections: LabelSections,
     val preprocessedInput: String,
     val ocrCorrections: List<String>,
+    val parenthesisStructure: ParenthesisStructure,
     val declaredPresenceText: String?,
     val ingredientTree: List<IngredientNode>,
     val tokens: List<TokenDiagnostic>,
@@ -94,6 +95,14 @@ data class AnalysisDiagnostics(
     val crossContactWarnings: List<String> get() = result.crossContactWarnings
     val excludedNotes: List<String> get() = result.excludedNotes
 }
+
+data class ParenthesisStructure(
+    val balanced: Boolean,
+    val missingClosings: Int,
+    val unexpectedClosings: Int,
+    val maximumDepth: Int,
+    val recoveryApplied: Boolean
+)
 
 enum class AnalysisVerdict { VEGAN, VEGETARIAN, NON_VEGETARIAN, UNCERTAIN, INCONCLUSIVE }
 enum class VeganAssessment { VEGAN, NOT_VEGAN, UNCERTAIN }
@@ -205,10 +214,11 @@ object VeganAnalyzer {
         val ingredientInput = when {
             !canParseIngredientText -> ""
             requestedManualFallback -> sections.rawText
-            else -> sections.ingredientsText.orEmpty()
+            else -> sections.ingredientsText
         }
         val preprocessed = LabelPreprocessor.preprocess(ingredientInput)
         val presencePreprocessed = LabelPreprocessor.preprocess(sections.declaredContainsText.orEmpty())
+        val parenthesisStructure = IngredientTreeParser.inspectParentheses(preprocessed.compositionText)
         val ingredientTree = IngredientTreeParser.parse(preprocessed.compositionText, rules)
         val availability = if (canParseIngredientText && ingredientTree.isNotEmpty()) {
             AnalysisAvailability.INGREDIENT_LIST_ANALYZED
@@ -379,6 +389,7 @@ object VeganAnalyzer {
             labelSections = sections,
             preprocessedInput = preprocessed.compositionText,
             ocrCorrections = preprocessed.ocrCorrections,
+            parenthesisStructure = parenthesisStructure,
             declaredPresenceText = presencePreprocessed.compositionText.takeIf(String::isNotBlank),
             ingredientTree = ingredientTree,
             tokens = tokenDiagnostics,

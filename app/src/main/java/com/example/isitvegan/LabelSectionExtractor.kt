@@ -154,6 +154,8 @@ internal object LabelSectionExtractor {
     private fun normalizeTraceText(rawText: String): String {
         val text = rawText.trim()
         val enclosed = listOf(
+            Regex("(?is)^kan(?:\\s+sporen)?\\s+bevatten(?:\\s+van)?\\s*:?\\s*(.+?)[.!?]?$") ,
+            Regex("(?is)^kann\\s+spuren\\s+enthalten(?:\\s+von)?\\s*:?\\s*(.+?)[.!?]?$") ,
             Regex("(?is)^kann\\s+spuren\\s+enthalten\\s+von\\s+(.+?)[.!?]?$") ,
             Regex("(?is)^kan\\s+sporen\\s+bevatten\\s+van\\s+(.+?)[.!?]?$") ,
             Regex("(?is)^kann(?:\\s+spuren(?:\\s+von)?)?\\s+(.+?)\\s+enthalten[.!?]?$"),
@@ -223,7 +225,10 @@ internal object LabelSectionExtractor {
         }
         return (ingredientMarkers + traceMarkers + containsMarkers +
             colonDelimitedIgnoredMarkers + boundaryIgnoredMarkers + organicClaimMarkers)
-            .filter { depthAt(text, it.range.first) == 0 }
+            .filter { marker ->
+                depthAt(text, marker.range.first) == 0 ||
+                    marker.kind == SectionKind.TRACES || marker.kind == SectionKind.IGNORED
+            }
             .sortedWith(compareBy<SectionMarker> { it.range.first }.thenBy { markerPriority(it.kind) })
             .fold(mutableListOf()) { result, marker ->
                 if (result.none { existing ->

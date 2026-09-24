@@ -93,3 +93,7 @@ flowchart TD
 - Une parenthèse à mot unique est considérée comme composition, sauf protection explicite ; cette heuristique ne comprend pas le sens libre de toute étiquette.
 - Le parseur n’effectue ni validation réglementaire de l’ordre pondéral, ni contrôle des pourcentages QUID.
 - Il ne complète pas une sous-composition omise par le fabricant.
+
+## Parenthèses OCR incomplètes
+
+Le diagnostic indique l’équilibre, le nombre de fermetures manquantes ou inattendues et la profondeur maximale. Lorsqu’une fermeture manque, le parseur ne prolonge pas un composite jusqu’à la fin : il rétablit les séparateurs de premier niveau de façon conservatrice. Les segments impossibles à rattacher restent inconnus. Les frontières de traces restent prioritaires et ne participent jamais au verdict.

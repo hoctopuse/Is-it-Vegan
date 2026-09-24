@@ -33,7 +33,7 @@ class Version066OcrNormalizationTest {
         assertEquals(false, palm.canonicalAvailable)
         assertNull(lexicon.resolve("havervokken", LabelLanguage.FRENCH, database).canonicalId)
         assertEquals("Weizenmehl", lexicon.resolve("Weizenmell", LabelLanguage.GERMAN, database).correctedText)
-        assertEquals("glucose", lexicon.resolve("qlucose", LabelLanguage.FRENCH, database).correctedText)
+        assertEquals("qlucose", lexicon.resolve("qlucose", LabelLanguage.FRENCH, database).correctedText)
         assertEquals("lécithines", lexicon.resolve("écithines", LabelLanguage.FRENCH, database).correctedText)
     }
 
