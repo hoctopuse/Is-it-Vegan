@@ -36,6 +36,13 @@ internal object VerdictEngine {
         }
     }
 
-    fun isDecisiveNonVegetarian(ingredients: List<Ingredient>): Boolean =
-        ingredients.any { it.status == VeganStatus.NON_VEGAN }
+    /** Does not alter vegan analysis: it only reports the known non-uncertain ingredients. */
+    fun evaluateVegetarianCompatibility(matched: List<Ingredient>): AnalysisVerdict {
+        val considered = matched.filter { it.status != VeganStatus.UNCERTAIN }
+        return when {
+            considered.any { it.status == VeganStatus.NON_VEGAN } -> AnalysisVerdict.NON_VEGETARIAN
+            considered.isEmpty() -> AnalysisVerdict.INCONCLUSIVE
+            else -> AnalysisVerdict.VEGETARIAN
+        }
+    }
 }

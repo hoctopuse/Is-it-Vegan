@@ -77,6 +77,21 @@ internal object LabelLexicon {
 
     val declaredPresenceWords = listOf("contient", "contains", "bevat", "enth(?:\\u00E4lt|Ã¤lt|Ält)", "contiene")
 
+    data class ProductLanguageBoundary(val language: LabelLanguage, val range: IntRange)
+
+    /** Reviewed product-title starts seen after a completed multilingual ingredient list. */
+    fun findProductLanguageBoundaries(text: String): List<ProductLanguageBoundary> = productLanguageTitles.flatMap { (language, title) ->
+        Regex("(?im)(?:^|(?<=[.!?]\\s)|(?<=\\n)\\s*)($title)").findAll(text).map { match ->
+            ProductLanguageBoundary(language, match.groups[1]!!.range)
+        }.toList()
+    }.sortedBy { it.range.first }
+
+    private val productLanguageTitles = listOf(
+        LabelLanguage.DUTCH to "(?:NL\\s+)?BISCUITS\\s+BEDEKT\\s+MET\\s+MELKCHOCOLADE\\b",
+        LabelLanguage.GERMAN to "E\\)\\s*KEKSE\\s+ÜBERZOGEN\\s+MIT\\b",
+        LabelLanguage.ITALIAN to "ENIKEDAO\\s+AL\\s+LATTE\\b"
+    )
+
     fun findIngredientHeadings(text: String): List<HeadingMatch> = ingredientHeadings.flatMap { heading ->
         val options = setOf(RegexOption.IGNORE_CASE, RegexOption.MULTILINE)
         val bounded = Regex(heading.boundedPattern, options).findAll(text).map { match ->

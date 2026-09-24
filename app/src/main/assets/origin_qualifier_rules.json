@@ -104,7 +104,7 @@
         {
           "id": "plant-soy",
           "origin": "plant-soy",
-          "qualifiers": ["soja", "soia", "soy", "soya", "soybean", "sojaboon"],
+          "qualifiers": ["soja", "de soja", "soia", "di soia", "soy", "of soy", "soya", "de soya", "soybean", "sojaboon"],
           "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
           "veganStatus": "VEGAN",
           "vegetarianStatus": "VEGETARIAN_OR_VEGAN",

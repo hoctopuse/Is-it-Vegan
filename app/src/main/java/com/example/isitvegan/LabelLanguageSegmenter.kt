@@ -123,6 +123,8 @@ internal object LabelLanguageSegmenter {
             heading.range.first,
             heading.originalText
         )
+    } + LabelLexicon.findProductLanguageBoundaries(text).map { boundary ->
+        Marker(boundary.language, boundary.range, boundary.range.first, "titre produit ${boundary.language.displayName}")
     }).sortedBy { it.range.first }.fold(mutableListOf()) { markers, candidate ->
         val previous = markers.lastOrNull()
         val overlaps = previous?.range?.contains(candidate.range.first) == true

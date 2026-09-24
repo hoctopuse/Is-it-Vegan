@@ -90,6 +90,7 @@ internal object DiagnosticReport {
                 appendLine("Texte traces : ${it.rawText}")
                 appendLine("Traces normalisées : ${it.normalizedText}")
             }
+            appendLine("Sections produit ignorées : ${diagnostics.labelSections.ignoredSections.joinToString(" | ").ifBlank { "aucune" }}")
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })
@@ -192,6 +193,7 @@ internal object DiagnosticReport {
                 )
                 appendLine("Classification détaillée : ${result.verdict}")
                 appendLine("Verdict sans les incertains : ${result.verdictWithoutUncertain}")
+                appendLine("Végétarien selon les ingrédients reconnus, hors éléments incertains : ${result.vegetarianVerdictWithoutUncertain}")
             }
             appendLine(
                 "Bloqueurs détectés : " + result.veganBlockers

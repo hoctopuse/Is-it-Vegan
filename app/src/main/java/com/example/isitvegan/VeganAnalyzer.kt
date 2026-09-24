@@ -37,6 +37,11 @@ data class AnalysisResult(
     val verdict: AnalysisVerdict?
         get() = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) null
         else VerdictEngine.evaluate(matched, unknown)
+
+    /** Secondary classification: unknown and uncertain items are deliberately left aside. */
+    val vegetarianVerdictWithoutUncertain: AnalysisVerdict?
+        get() = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) null
+        else VerdictEngine.evaluateVegetarianCompatibility(matched)
 }
 
 data class TokenDiagnostic(

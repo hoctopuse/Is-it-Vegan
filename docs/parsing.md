@@ -94,6 +94,14 @@ flowchart TD
 - Le parseur n’effectue ni validation réglementaire de l’ordre pondéral, ni contrôle des pourcentages QUID.
 - Il ne complète pas une sous-composition omise par le fabricant.
 
+## Frontières OCR ciblées (0.6.8.1)
+
+Les mentions de teneur minimale en cacao ou lait et les titres produit NL, DE et IT relevés sur les étiquettes arrêtent la composition avant le bloc suivant. Elles sont conservées comme sections ignorées. Les jonctions de lignes se limitent aux expressions connues et les corrections `ES03`/`EA76` demandent un contexte d’agent levant ou d’émulsifiant ; aucune correction à distance n’est appliquée au texte libre, aux traces, à la conservation ou à la préparation.
+
+`beurre de` suivi de `cacao` sur la ligne suivante est une de ces expressions connues : la jonction intervient avant l’arbre et le matching, afin que `beurre` ne soit jamais évalué seul. Une virgule reste une frontière et `beurre, cacao` n’est donc pas fusionné.
+
+Le diagnostic fournit aussi « végétarien selon les ingrédients reconnus, hors éléments incertains ». Cette classification secondaire ignore inconnus et statuts `UNCERTAIN`, renvoie `NON_VEGETARIAN` pour les ingrédients explicitement non végétariens et `INCONCLUSIVE` si aucun ingrédient exploitable n’est connu. Elle ne modifie jamais le verdict vegan.
+
 ## Parenthèses OCR incomplètes
 
 Le diagnostic indique l’équilibre, le nombre de fermetures manquantes ou inattendues et la profondeur maximale. Lorsqu’une fermeture manque, le parseur ne prolonge pas un composite jusqu’à la fin : il rétablit les séparateurs de premier niveau de façon conservatrice. Les segments impossibles à rattacher restent inconnus. Les frontières de traces restent prioritaires et ne participent jamais au verdict.

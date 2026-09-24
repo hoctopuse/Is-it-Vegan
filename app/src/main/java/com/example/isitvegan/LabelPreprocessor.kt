@@ -19,6 +19,13 @@ internal object LabelPreprocessor {
     private val ingredientHeading = Regex("(?i)^\\s*(?:ingr[ée]dients?|sngredients?|ingr[ée]cients?|ingredi[ëè]nten?|ingredienten?|zutaten|ingredientes?)\\s*:\\s*")
     private val simpleOcrCorrections = listOf(
         // These spellings are only processed after section extraction, never in raw label text.
+        Regex("(?i)\\bSICTe\\b|\\bSure\\b") to "sucre",
+        Regex("(?i)LAIT\\s+\\p{L}r\\p{L}m\\p{L}") to "LAIT écrémé",
+        Regex("(?i)LAlIT") to "LAIT",
+        Regex("(?i)BEURRE\\s+CORCentié") to "BEURRE concentré",
+        Regex("(?i)ém[a-zéèê]+isinants?") to "émulsifiant",
+        Regex("(?i)l(?:ecthines|écithines)\\s+de\\s+SQA") to "lécithines de SOJA",
+        Regex("(?i)\\bS[0Q]JALECITHINEN?\\b") to "SOJALECITHINEN",
         Regex("(?i)\\bTOZijnen\\b") to "rozijnen",
         Regex("(?i)\\bqerousterde\\b") to "geroosterde",
         Regex("(?i)\\bpisaehenoten\\b") to "pistachenoten",
@@ -98,6 +105,13 @@ internal object LabelPreprocessor {
             .joinToString("\n")
             .replace(ingredientHeading, "")
 
+        cleaned = joinKnownWrappedExpressions(cleaned)
+        cleaned = correctSoyOcrInLecithinContext(cleaned, corrections)
+        contextualAdditiveCorrections(cleaned).forEach { (pattern, replacement) ->
+            pattern.findAll(cleaned).forEach { corrections += "${it.value} → $replacement" }
+            cleaned = cleaned.replace(pattern, replacement)
+        }
+
         Regex("(?i)\\b(\\d{1,2},\\d)h(?=\\s*(?:huile|hulle)\\b)").findAll(cleaned).forEach { match ->
             corrections += "${match.value} → ${match.groupValues[1]} %"
         }
@@ -122,6 +136,39 @@ internal object LabelPreprocessor {
         }
         return PreprocessedLabel(cleaned, warnings.toList(), notes.toList(), corrections.toList())
     }
+
+    /** Joins only reviewed lexical expressions after section extraction; ordinary lines stay separate. */
+    private fun joinKnownWrappedExpressions(value: String): String = knownWrappedExpressions.fold(value) { text, expression ->
+        expression.replace(text) { match -> match.value.replace(Regex("\\s*\\r?\\n\\s*"), " ") }
+    }
+
+    /** E-number repairs require their functional-class context, never a character-distance guess. */
+    private fun contextualAdditiveCorrections(value: String): List<Pair<Regex, String>> = buildList {
+        if (Regex("(?i)\\b(?:poudre\\s+à\\s+lever|poudres?\\s+à\\s+lever|agents?\\s+levants?)\\b").containsMatchIn(value)) {
+            add(Regex("(?i)\\bES03\\b") to "E503")
+        }
+        if (Regex("(?i)\\p{L}mulsifiant(?:s)?").containsMatchIn(value)) {
+            add(Regex("(?i)EA76") to "E476")
+        }
+    }
+
+    /** OCR zero/Q repairs are permitted only beside a lecithin or emulsifier designation. */
+    private fun correctSoyOcrInLecithinContext(value: String, corrections: MutableSet<String>): String {
+        val context = Regex("(?i)(?:l(?:écithines|ecithines|ecthines)|émulsifiant[^,.;()]{0,40}l(?:écithines|ecithines|ecthines))\\s+de\\s+(S[0Q]JA|S0YA)")
+        return context.replace(value) { match ->
+            val corrected = match.value.replace(Regex("(?i)S[0Q]JA|S0YA"), "SOJA")
+            corrections += "${match.value} → $corrected"
+            corrected
+        }
+    }
+
+    private val knownWrappedExpressions = listOf(
+        Regex("(?i)\\bbeurre\\s+de\\s*\\r?\\n\\s*cacao\\b"),
+        Regex("(?i)\\bLAIT\\s+écrémé\\s+en\\s*\\r?\\n\\s*poudre\\b"),
+        Regex("(?i)\\blactosérum\\s+en\\s*\\r?\\n\\s*poudre\\b"),
+        Regex("(?i)\\blactosérum\\s+en\\s+poudre\\s*\\(\\s*de\\s*\\r?\\n\\s*LAIT\\s*\\)"),
+        Regex("(?i)\\bpâte\\s+de\\s*\\r?\\n\\s*(?:cacao|noisette)\\b")
+    )
 
     private val noteMarker = Regex(
         "(?i)(?:(?:\\*{1,3}|[¹²³])?\\s*(?:" +

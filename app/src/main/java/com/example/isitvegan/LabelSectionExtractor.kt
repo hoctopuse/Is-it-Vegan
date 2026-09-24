@@ -127,7 +127,8 @@ internal object LabelSectionExtractor {
                 marker.range.first,
                 markers.firstOrNull {
                     it.range.first > marker.range.first &&
-                        (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
+                        (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS ||
+                            it.kind == SectionKind.TRACES)
                 }?.range?.first ?: text.length
             ).trim()
         }.filter(String::isNotBlank)
@@ -223,8 +224,18 @@ internal object LabelSectionExtractor {
                     SectionMarker(SectionKind.IGNORED, range, range.last + 1)
                 }.toList()
         }
+        val productLanguageMarkers = LabelLexicon.findProductLanguageBoundaries(text).map { boundary ->
+            SectionMarker(SectionKind.IGNORED, boundary.range, boundary.range.first)
+        }
+        val cocoaSolidsMarkers = Regex(
+            "(?im)(?:^|(?<=[.!?]\\s)|(?<=\\n)\\s*)((?:cacao|cocoa\\s+solids|milk\\s+solids|kakao)\\s*:\\s*\\d+(?:[,.]\\d+)?\\s*%\\s*(?:minimum|mindestens|ten\\s+minste)\\b[^\\n.]*(?:\\.|$))"
+        ).findAll(text).map { match ->
+            val range = match.groups[1]!!.range
+            SectionMarker(SectionKind.IGNORED, range, range.first)
+        }.toList()
         return (ingredientMarkers + traceMarkers + containsMarkers +
-            colonDelimitedIgnoredMarkers + boundaryIgnoredMarkers + organicClaimMarkers)
+            colonDelimitedIgnoredMarkers + boundaryIgnoredMarkers + organicClaimMarkers +
+            productLanguageMarkers + cocoaSolidsMarkers)
             .filter { marker ->
                 depthAt(text, marker.range.first) == 0 ||
                     marker.kind == SectionKind.TRACES || marker.kind == SectionKind.IGNORED
