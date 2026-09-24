@@ -9,7 +9,7 @@ internal data class PreprocessedLabel(
 
 internal object LabelPreprocessor {
     private val crossContactMarker = Regex(
-        "(?i)\\b(?:p(?:eu|e)t\\s+cont(?:e|é)nir|p(?:eu|e)t\\s+conterir|p(?:eu|e)t\\s+conteir|p(?:eu|e)t\\s+conteuir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
+        "(?i)\\b(?:p(?:eu|e)t\\s+cont[eé]nir|p(?:eu|e)t\\s+conterir|p(?:eu|e)t\\s+conteir|p(?:eu|e)t\\s+conteuir|traces?\\s*(?:éventuelles?\\s*)?(?:de|d['’]|:)|" +
             "may\\s+contain(?:\\s+traces?\\s+of)?|" +
             "kan(?:\\s+\\p{L}+){0,5}\\s+bevatten|" +
             "kann(?:\\s+\\p{L}+){0,7}\\s+enthalten|" +
@@ -18,6 +18,12 @@ internal object LabelPreprocessor {
     )
     private val ingredientHeading = Regex("(?i)^\\s*(?:ingr[ée]dients?|sngredients?|ingr[ée]cients?|ingredi[ëè]nten?|ingredienten?|zutaten|ingredientes?)\\s*:\\s*")
     private val simpleOcrCorrections = listOf(
+        Regex("(?i)\\bhulle\\s+de\\s+tournesol\\b") to "huile de tournesol",
+        Regex("(?i)\\bhulle\\s+de\\s*\\r?\\n\\s*tournesol\\b") to "huile de tournesol",
+        Regex("(?i)\\bhuile\\s+de\\s*\\r?\\n\\s*tournesol\\b") to "huile de tournesol",
+        Regex("(?i)\\bfarine\\s+de\\s*\\r?\\n\\s*riz\\b") to "farine de riz",
+        Regex("(?i)\\bextrait\\s+riche\\s+en\\s*\\r?\\n\\s*tocophérols\\b") to "extrait riche en tocophérols",
+        Regex("(?i)\\b(\\d{1,2},\\d)h(?=\\s*(?:huile|hulle)\\b)") to "$1 %",
         Regex("(?i)\\bformage(?=\\s+grana\\b)") to "fromage",
         Regex("(?i)\\bpowron\\b") to "poivron",
         Regex("(?i)\\bolves\\s+nores\\b") to "olives noires",
@@ -82,6 +88,10 @@ internal object LabelPreprocessor {
             }
             .joinToString("\n")
             .replace(ingredientHeading, "")
+
+        Regex("(?i)\\b(\\d{1,2},\\d)h(?=\\s*(?:huile|hulle)\\b)").findAll(cleaned).forEach { match ->
+            corrections += "${match.value} → ${match.groupValues[1]} %"
+        }
 
         simpleOcrCorrections.forEach { (pattern, replacement) ->
             if ('$' !in replacement) {

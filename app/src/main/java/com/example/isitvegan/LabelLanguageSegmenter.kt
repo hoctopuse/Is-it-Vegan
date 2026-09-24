@@ -95,7 +95,12 @@ internal object LabelLanguageSegmenter {
         return LanguageSegmentation(text, blocks, selected.rawText, selected.language, selected.detectedMarker,
             blocks.map { it.language }.filter { it != selected.language }.distinct(), false,
             selectionReason = if (titledBlocks.isNotEmpty()) {
-                "Qualité du bloc évaluée avant la préférence linguistique.$correctionReason"
+                val qualityDecision = if (titledBlocks.count { it.selectionScore == selected.selectionScore } == 1) {
+                    "Bloc retenu pour qualité."
+                } else {
+                    "Bloc retenu pour préférence linguistique parmi des qualités comparables."
+                }
+                "$qualityDecision Qualité du bloc évaluée avant la préférence linguistique.$correctionReason"
             } else {
                 "Aucun bloc avec titre d’ingrédients ; bloc conservé pour un éventuel mode manuel."
             },
@@ -151,6 +156,10 @@ internal object LabelLanguageSegmenter {
         val text = block.rawText
         val signals = mutableListOf<String>()
         var score = 0
+        if (!block.hasIngredientHeading && LabelLexicon.isOrganicCertificationClaim(text)) {
+            score -= 80
+            signals += "faux marqueur de certification biologique"
+        }
         if (block.hasIngredientHeading) { score += 40; signals += "titre d’ingrédients" }
         if (block.hasHeadingSeparator) { score += 8; signals += "séparateur de titre" }
         if (block.headingLanguage != null && block.headingLanguage == block.language) {
@@ -171,6 +180,15 @@ internal object LabelLanguageSegmenter {
         if (block.hasIngredientHeading) {
             score += itemCount * 2
             if (itemCount >= 2) signals += "liste structurée=$itemCount"
+            val percentageCount = Regex("\\b\\d+(?:[,.]\\d+)?\\s*%").findAll(text).count().coerceAtMost(4)
+            if (percentageCount > 0) {
+                score += percentageCount * 3
+                signals += "pourcentages=$percentageCount"
+            }
+            if (text.contains('(') && text.count { it == '(' } == text.count { it == ')' }) {
+                score += 3
+                signals += "parenthèses structurées"
+            }
         }
         if (text.trimEnd().lastOrNull() in setOf('.', ')', ']')) { score += 3; signals += "fin de liste cohérente" }
         if (LabelLexicon.tracePrefixes.any { Regex("(?i)$it").containsMatchIn(text) }) {

@@ -40,6 +40,8 @@ internal object LabelSectionExtractor {
         "mode\\s+d['’]emploi", "zubereitung", "fabricant", "distributeur",
         "manufacturer", "hersteller", "fabriqué\\s+en", "origine", "origin",
         "importateur", "importer", "imported\\s+by", "certification", "certified", "certifi[ée]", "zertifiziert", "gecertificeerd",
+        "conditionn[ée]\\s+sous\\s+atmosph[èe]re\\s+protectrice",
+        "en\\s+d[ée]pit\\s+des\\s+contr[ôo]les\\s+effectu[ée]s",
         "open\\s+here", "ouvrir\\s+ici"
     )
     private val boundaryHeadings = listOf(
@@ -54,7 +56,16 @@ internal object LabelSectionExtractor {
         "vor\\s+wärme\\s+schützen", "zu\\s+verbrauchen\\s+bis", "después\\s+de\\s+abrir",
         "rainforest\\s+alliance", "ra\\.org", "mehr\\s+unter", "informations?\\s+nutritionnelles?", "voedingswaarden",
         "lot", "importateur", "importer", "imported\\s+by", "certification", "certified", "certifi[ée]", "zertifiziert", "gecertificeerd",
+        "conditionn[ée]\\s+sous\\s+atmosph[èe]re\\s+protectrice",
+        "en\\s+d[ée]pit\\s+des\\s+contr[ôo]les\\s+effectu[ée]s",
         "open\\s+here", "ouvrir\\s+ici"
+    )
+
+    private val organicCertificationClaims = listOf(
+        "ingr\\u00e9dients?\\s+(?:(?:issus?|provenant)\\s+de\\s+l['’]agriculture\\s+biologique|d['’]origine\\s+biologique)",
+        "ingredi\\u00ebnten\\s+uit\\s+de\\s+biologische\\s+landbouw",
+        "ingredients?\\s+from\\s+organic\\s+farming",
+        "zutaten\\s+aus\\s+\\u00f6kologischem\\s+landbau"
     )
 
     fun extract(block: LanguageBlock): LabelSections =
@@ -143,13 +154,15 @@ internal object LabelSectionExtractor {
     private fun normalizeTraceText(rawText: String): String {
         val text = rawText.trim()
         val enclosed = listOf(
+            Regex("(?is)^kann\\s+spuren\\s+enthalten\\s+von\\s+(.+?)[.!?]?$") ,
+            Regex("(?is)^kan\\s+sporen\\s+bevatten\\s+van\\s+(.+?)[.!?]?$") ,
             Regex("(?is)^kann(?:\\s+spuren(?:\\s+von)?)?\\s+(.+?)\\s+enthalten[.!?]?$"),
             Regex("(?is)^kan(?:\\s+sporen(?:\\s+van)?)?\\s+(.+?)\\s+bevatten[.!?]?$"),
             Regex("(?is)^pu[òo]\\s+contenere(?:\\s+(?:eventuali\\s+)?tracce\\s+di)?\\s*:?\\s*(.+?)[.!?]?$"),
             Regex("(?is)^puede\\s+contener(?:\\s+trazas\\s+de)?\\s*:?\\s*(.+?)[.!?]?$"),
             Regex("(?is)^may\\s+contain(?:\\s+traces?\\s+of)?\\s*:?\\s*(.+?)[.!?]?$"),
-            Regex("(?is)^p(?:eu|e)t\\s+(?:cont(?:e|é)nir|conterir|conteir|conteuir)" +
-                "\\s*(?::\\s*)?(?:des\\s+)?(?:traces?\\s+(?:éventuelles?\\s+)?de\\s*:?\\s*)?(.+?)[.!?]?$"),
+            Regex("(?is)^p(?:eu|e)t\\s+(?:cont[eé]nir|conterir|conteir|conteuir)" +
+                "\\s*(?::\\s*)?(?:des\\s+)?(?:traces?\\s+(?:éventuelles?\\s+)?d(?:e|['’])\\s*:?\\s*)?(.+?)[.!?]?$"),
             Regex("(?is)^traces?\\s+(?:éventuelles?\\s+)?de\\s*:?\\s*(.+?)[.!?]?$"),
             Regex("(?is)^traces?\\s*:\\s*(.+?)[.!?]?$")
         )
@@ -191,7 +204,7 @@ internal object LabelSectionExtractor {
         }
         val boundaryIgnoredMarkers = boundaryHeadings.flatMap { heading ->
             Regex(
-                "(?im)(?:^[\\t ]*|(?<=[.!?])[\\t ]+)($heading)(?:[\\t ]*:[\\t ]*|(?=[\\t ,]|$))"
+                "(?im)(?:^[\\t ]*|(?<=[.!?])[\\t ]+)($heading)(?:[\\t ]*:[\\t ]*|(?=[\\t ,.?!;]|$))"
             )
                 .findAll(text)
                 .map { match ->
@@ -200,8 +213,16 @@ internal object LabelSectionExtractor {
                 }
                 .toList()
         }
+        val organicClaimMarkers = organicCertificationClaims.flatMap { claim ->
+            Regex("(?im)(?:^[\\t ]*|(?<=[.!?])[\\t ]+)($claim)(?=[\\t .,!?:;]|$)")
+                .findAll(text)
+                .map { match ->
+                    val range = match.groups[1]!!.range
+                    SectionMarker(SectionKind.IGNORED, range, range.last + 1)
+                }.toList()
+        }
         return (ingredientMarkers + traceMarkers + containsMarkers +
-            colonDelimitedIgnoredMarkers + boundaryIgnoredMarkers)
+            colonDelimitedIgnoredMarkers + boundaryIgnoredMarkers + organicClaimMarkers)
             .filter { depthAt(text, it.range.first) == 0 }
             .sortedWith(compareBy<SectionMarker> { it.range.first }.thenBy { markerPriority(it.kind) })
             .fold(mutableListOf()) { result, marker ->
@@ -227,7 +248,15 @@ internal object LabelSectionExtractor {
     ): String {
         val end = markers.firstOrNull { it.range.first > marker.range.first && stop(it) }
             ?.range?.first ?: text.length
-        return text.substring(marker.contentStart, end)
+        return trimTrailingProductTitle(text.substring(marker.contentStart, end))
+    }
+
+    /** A completed ingredient sentence followed by a fresh label line is commonly the product title. */
+    private fun trimTrailingProductTitle(content: String): String {
+        val titleStart = Regex(
+            "(?im)(?<=[.!?])\\s*\\r?\\n\\s*(?=(?:[A-Z0-9]{2,}[ A-Z0-9-]{2,}\\s+)?(?:nouilles|muesli|mélange|barre)\\b)"
+        ).find(content)?.range?.first ?: return content
+        return content.substring(0, titleStart).trimEnd()
     }
 
     /** A trace list may span lines, but a completed allergen sentence is its strongest boundary. */

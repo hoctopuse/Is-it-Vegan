@@ -20,6 +20,9 @@ internal object DiagnosticReport {
             appendLine("LANGUE / BLOC SÉLECTIONNÉ")
             appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
             appendLine("Identifiant du bloc sélectionné : ${diagnostics.labelSections.selectedBlockId ?: "texte complet"}")
+            val selectedBlock = diagnostics.languageSegmentation.blocks
+                .firstOrNull { it.id == diagnostics.languageSegmentation.selectedBlockId }
+            appendLine("Identifiant du segment sélectionné : ${selectedBlock?.segmentId ?: "texte complet"}")
             val detectedLanguages = diagnostics.languageSegmentation.blocks
                 .map { it.language.displayName }.distinct().joinToString(", ")
             appendLine("Blocs détectés : $detectedLanguages")
@@ -38,6 +41,16 @@ internal object DiagnosticReport {
                 )
                 val criteria = block.selectionSignals.joinToString("; ").ifBlank { "aucun" }
                 appendLine("  Critères : $criteria")
+                if (block.id != diagnostics.languageSegmentation.selectedBlockId) {
+                    val rejectionReason = when {
+                        block.selectionSignals.any { it.contains("faux marqueur", true) } -> "faux marqueur"
+                        block.manifestlyTruncated -> "bloc tronqué"
+                        block.selectionSignals.any { it.contains("fragment court", true) } -> "bloc trop court"
+                        selectedBlock != null && block.selectionScore < selectedBlock.selectionScore -> "qualité inférieure"
+                        else -> "préférence linguistique entre blocs de qualité comparable"
+                    }
+                    appendLine("  Raison du rejet : $rejectionReason")
+                }
                 block.languageCorrectionReason?.let { appendLine("Correction : $it") }
             }
             appendLine("Marqueur sélectionné : ${diagnostics.languageSegmentation.detectedMarker ?: "aucun"}")

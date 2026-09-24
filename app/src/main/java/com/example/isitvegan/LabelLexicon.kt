@@ -39,24 +39,39 @@ internal object LabelLexicon {
     val ingredientWordPattern: String = ingredientHeadings.joinToString("|") { it.wordPattern }
 
     val tracePrefixes = listOf(
-        "p(?:eu|e)t\\s+cont(?:e|é)nir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:éventuelles?\\s+)?de",
+        "p(?:eu|e)t\\s+cont[eé]nir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:éventuelles?\\s+)?de",
         "p(?:eu|e)t\\s+conterir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:éventuelles?\\s+)?de",
         "p(?:eu|e)t\\s+conteir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:éventuelles?\\s+)?de",
         "p(?:eu|e)t\\s+conteuir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:éventuelles?\\s+)?de",
-        "p(?:eu|e)t\\s+cont(?:e|é)nir",
+        "p(?:eu|e)t\\s+cont[eé]nir",
         "p(?:eu|e)t\\s+conterir",
         "p(?:eu|e)t\\s+conteir",
         "p(?:eu|e)t\\s+conteuir",
+        "p(?:eu|e)t\\s+cont[e\\u00e9]nir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:\\u00e9ventuelles?\\s+)?d['’]",
+        "p(?:eu|e)t\\s+conterir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:\\u00e9ventuelles?\\s+)?d['’]",
+        "p(?:eu|e)t\\s+conteir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:\\u00e9ventuelles?\\s+)?d['’]",
+        "p(?:eu|e)t\\s+conteuir\\s*(?::\\s*)?(?:des\\s+)?traces?\\s+(?:\\u00e9ventuelles?\\s+)?d['’]",
         "traces?\\s+éventuelles?\\s+de",
         "traces?\\s*:",
         "may\\s+contain(?:\\s+traces?\\s+of)?",
+        "kan\\s+sporen\\s+bevatten\\s+van",
         "kan(?:\\s+sporen(?:\\s+van)?)?\\s+bevatten",
         "kan(?:\\s+\\p{L}+){1,5}\\s+bevatten",
         "kann(?:\\s+spuren(?:\\s+von)?)?\\s+enthalten",
+        "kann\\s+spuren\\s+enthalten\\s+von",
         "kann(?:\\s+\\p{L}+){1,7}\\s+enthalten",
         "pu[òo]\\s+contenere(?:\\s+(?:eventuali\\s+)?tracce\\s+di)?",
         "puede\\s+contener(?:\\s+trazas\\s+de)?"
     )
+
+    private val organicCertificationClaim = Regex(
+        "(?i)\\bingr\\u00e9dients?\\s+(?:(?:issus?|provenant)\\s+de\\s+l['’]agriculture\\s+biologique|d['’]origine\\s+biologique)\\b|" +
+            "\\bingredi\\u00ebnten\\s+uit\\s+de\\s+biologische\\s+landbouw\\b|" +
+            "\\bingredients?\\s+from\\s+organic\\s+farming\\b|" +
+            "\\bzutaten\\s+aus\\s+\\u00f6kologischem\\s+landbau\\b"
+    )
+
+    fun isOrganicCertificationClaim(value: String): Boolean = organicCertificationClaim.containsMatchIn(value)
 
     val declaredPresenceWords = listOf("contient", "contains", "bevat", "enth(?:\\u00E4lt|Ã¤lt|Ält)", "contiene")
 
@@ -82,7 +97,8 @@ internal object LabelLexicon {
                 text.substring(match.contentStart).take(160).let { content ->
                     content.count { it.isLetter() } >= 12 && Regex("\\p{L}+\\s*[,;]\\s*\\p{L}+").containsMatchIn(content)
                 }
-        }.distinctBy { it.range }.toList()
+        }.filterNot { match -> isOrganicCertificationClaim(match.originalText) }
+            .distinctBy { it.range }.toList()
     }.sortedBy { it.range.first }
 
     private fun headingMatch(
