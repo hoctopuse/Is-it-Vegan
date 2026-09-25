@@ -18,7 +18,18 @@ dependencies {
 }
 
 pitest {
-    targetClasses.set(setOf("com.example.isitvegan.VerdictEngine", "com.example.isitvegan.IngredientMatcher"))
+    targetClasses.set(setOf(
+        "com.example.isitvegan.VerdictEngine",
+        "com.example.isitvegan.IngredientMatcher",
+        "com.example.isitvegan.IngredientTreeParser",
+        "com.example.isitvegan.FunctionalClassLexicon",
+        "com.example.isitvegan.OriginQualifierRuleSet",
+        "com.example.isitvegan.TextNormalizer",
+        "com.example.isitvegan.LabelSectionExtractor",
+        "com.example.isitvegan.LabelLexicon",
+        "com.example.isitvegan.LabelLanguageSegmenter",
+        "com.example.isitvegan.OcrBlockLanguageClassifier"
+    ))
     targetTests.set(setOf("com.example.isitvegan.*"))
     outputFormats.set(setOf("HTML", "XML"))
     timestampedReports.set(false)
