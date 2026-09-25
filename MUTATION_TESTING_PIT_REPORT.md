@@ -5,9 +5,10 @@ Branch: `mutation-testing-pit`
 
 ## Git state
 
-Before the PIT change, `git status --short` was clean. After the change, only
-`mutation-core/build.gradle.kts` and this report are modified/untracked. No
-commit or push was performed.
+Before the original PIT change, `git status --short` was clean. At the start of
+the diagnostic follow-up, the working tree was also clean at commit `3e15c43`.
+After the diagnostic, only this report is modified. No commit or push was
+performed by the diagnostic agent.
 
 ## Baseline
 
@@ -53,30 +54,18 @@ Commands run included:
 ./gradlew :mutation-core:pitest --no-daemon --console=plain
 ```
 
-## PIT execution result
+## Initial PIT execution result
 
-PIT performed its pre-scan and created 2 mutation test units, then sent 116
-test classes to a coverage minion. Coverage generation failed before mutation
-generation:
+The first execution performed its pre-scan and created 2 mutation test units,
+then sent 116 tests to a coverage minion. Coverage generation stopped with:
 
 ```text
 Coverage generator Minion exited abnormally due to UNKNOWN_ERROR
 org.pitest.util.PitError: Coverage generation minion exited abnormally!
 ```
 
-The Gradle task failed with the Java 17 fork exiting with code 1. Therefore:
-
-- mutants generated: 0
-- killed: 0
-- survivors: 0
-- equivalent: 0
-- not covered: 0
-- mutation score: unavailable
-- HTML/XML mutation report: not produced
-
-Duration was approximately 18 seconds for the PIT task. No memory exhaustion
-was reported. The campaign was not retried or expanded after this compatibility
-failure.
+That first run produced no mutants or report. The diagnostic below supersedes
+this initial result.
 
 ## Scope
 
@@ -92,20 +81,91 @@ only records execution, while mutation testing requires assertions to fail when
 behavior is deliberately changed. No mutation score can be inferred from this
 run because PIT failed during coverage discovery.
 
-The failure is a PIT/Gradle/JVM execution incompatibility or runtime minion
-failure that needs investigation by a later agent. The unexpectedly large test
-class count (116) should also be checked before any future campaign. This report
-does not attempt to fix test weaknesses or alter production behavior.
+The 116 value reported by PIT is the number of tests examined, rather than an
+unexpected number of compiled test classes. This report does not fix the test
+weaknesses found by mutation analysis or alter production behavior.
 
 ## Recommendations
 
-Validate the PIT 1.19.0 and Gradle 9.7.1 combination with a minimal Java-only
-fixture, inspect the minion stderr with PIT verbose diagnostics, and then retry
-on exactly the two target classes. Keep PIT confined to `:mutation-core` and
-preserve the existing Android configuration and assets.
+Keep the campaign confined to `:mutation-core`. A later agent can triage the
+surviving and uncovered mutants, especially the matching boundary conditions,
+without changing tests merely to raise the score. If the minion error recurs,
+capture verbose PIT output and inspect host resource/process interference.
+
+## Diagnostic of the coverage minion failure
+
+The failure was reproduced originally with:
+
+```text
+./gradlew :mutation-core:pitest --no-daemon --console=plain
+```
+
+It could not be reproduced during the diagnostic. The first diagnostic command
+disabled only the Gradle configuration cache and retained the existing Java 17
+PIT toolchain:
+
+```text
+./gradlew :mutation-core:pitest --stacktrace --info \
+  --no-configuration-cache --no-daemon --console=plain
+```
+
+It completed coverage and generated mutants. A second forced execution with the
+configuration cache enabled also completed:
+
+```text
+./gradlew :mutation-core:pitest --rerun-tasks --stacktrace --info \
+  --no-daemon --console=plain
+```
+
+The second command reused the configuration cache, which rules it out as the
+cause observed here. `:mutation-core:test` succeeded between the diagnostic
+attempts. No Gradle or PIT configuration correction was needed or retained.
+
+The runtime split shown by `--info` is:
+
+- Gradle launcher environment: Oracle JDK 27;
+- Gradle daemon selected by `gradle-daemon-jvm.properties`: Eclipse Temurin 25;
+- Kotlin compilation, PIT command process and PIT minions: Eclipse Temurin
+  17.0.20.1.
+
+The relevant versions are Gradle 9.7.1, Kotlin plugin 2.4.20, PIT Gradle plugin
+1.19.0, and PIT engine 1.22.1 selected by that plugin. Both successful runs used
+the same Java 17 PIT process as the failed run. There is therefore no evidence
+of a Java 25/27, Kotlin bytecode, classpath, fork communication, worker, or
+configuration-cache incompatibility. The most likely explanation for the
+original `UNKNOWN_ERROR` is a transient minion process failure; the available
+log did not preserve a more specific child-process exception, so its exact
+external trigger cannot be confirmed.
+
+Both diagnostic campaigns produced the same aggregate result:
+
+- line coverage for the two mutated classes: 287/291 (99%);
+- tests examined: 116;
+- mutants generated: 157;
+- killed: 106;
+- survived: 41;
+- no coverage: 10;
+- timed out, non-viable, memory error, run error: 0;
+- mutation score: 68%;
+- test strength among covered mutants: 72%;
+- total PIT duration: 8–10 seconds (approximately 20–23 seconds including the
+  Gradle invocation);
+- reports: `mutation-core/build/reports/pitest/index.html` and `mutations.xml`.
+
+No mutant was left in source code. PIT performed its mutations in forked
+processes and generated only build reports. Important survivors to investigate
+later include conditional boundaries and negated conditions in
+`IngredientMatcher` (`protectedPair`, `hasNoSemanticRemainder`, `isCovered`,
+and `match`) and a negated condition in
+`VerdictEngine.assessVeganCompatibility`. Several surviving removed Kotlin
+null-check calls may be compiler-generated or equivalent; equivalence was not
+proven and is not counted separately by PIT.
+
+The retained correction is therefore documentation only. No JVM override,
+plugin migration, source change, test change, or cache workaround is justified
+by the successful controlled reruns.
 
 ## Verdict
 
-`PIT_PARTIELLEMENT_OPERATIONNEL` — the classic plugin resolves, the dedicated
-task is available, and PIT starts its pre-scan, but no mutation campaign reaches
-coverage or mutant generation.
+`PIT_OPERATIONNEL` — coverage and mutation generation completed twice on the
+limited two-class scope, including once with the configuration cache enabled.
