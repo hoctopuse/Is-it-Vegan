@@ -24,3 +24,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Is it Vegan"
 include(":app")
+include(":mutation-core")

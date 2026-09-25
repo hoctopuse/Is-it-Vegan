@@ -22,11 +22,14 @@ Le dépôt ne fixe pas une version précise d’Android Studio. Utiliser une ver
 
 ```text
 app/
-  src/main/java/com/example/isitvegan/   code Kotlin
+  src/main/java/com/example/isitvegan/   adaptateurs Android, UI et OCR ML Kit
   src/main/res/                           ressources Compose/Android FR, EN, NL
   src/main/assets/                        base et règles embarquées générées
   src/test/                               tests JVM
   src/androidTest/                        tests Android et fixtures OCR
+mutation-core/
+  src/main/kotlin/com/example/isitvegan/ cœur d’analyse Kotlin/JVM partagé
+  src/test/                               tests JUnit du cœur
 knowledge/                                sources éditoriales JSON
 tools/                                    validateurs/générateurs Python
 docs/                                     documentation MkDocs
@@ -56,6 +59,7 @@ La variante release n’active actuellement pas la minification.
 
 ```powershell
 .\gradlew.bat testDebugUnitTest
+.\gradlew.bat :mutation-core:test
 .\gradlew.bat assembleDebugAndroidTest
 .\gradlew.bat connectedDebugAndroidTest
 ```
@@ -135,4 +139,3 @@ git status --short
 ```
 
 Ajouter `connectedDebugAndroidTest` lorsque l’environnement le permet. Vérifier aussi le manifeste fusionné si une dépendance, une permission ou la promesse hors ligne change.
-

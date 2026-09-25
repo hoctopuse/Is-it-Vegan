@@ -1,6 +1,6 @@
 # Stratégie de tests
 
-Le projet sépare les tests JVM rapides (`app/src/test`) des tests instrumentés Android (`app/src/androidTest`). Les composants structurels sont conçus avec des fonctions pures afin que la majorité du pipeline puisse être testée sans ML Kit, image ou appareil.
+Le projet sépare les tests du cœur JVM (`mutation-core/src/test`), les autres tests JVM (`app/src/test`) et les tests instrumentés Android (`app/src/androidTest`). Les composants structurels sont conçus avec des fonctions pures afin que la majorité du pipeline puisse être testée sans ML Kit, image ou appareil.
 
 ## Tests JVM
 
@@ -8,6 +8,12 @@ Commande complète :
 
 ```powershell
 .\gradlew.bat testDebugUnitTest
+```
+
+Tests du cœur partagé :
+
+```powershell
+.\gradlew.bat :mutation-core:test
 ```
 
 Les suites principales sont regroupées ci-dessous.
