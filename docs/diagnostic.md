@@ -18,6 +18,15 @@ Le projet produit deux rapports texte complémentaires : un rapport d’analyse 
 | Règles d’origine | validité ou erreurs de chargement JSON |
 | Résultat | compatibilité vegan, classification détaillée, verdict sans incertains, bloqueurs, connus et inconnus |
 
+Le modèle `AnalysisDiagnostics` fournit aussi une représentation structurée destinée aux tests et aux outils :
+
+- `inputWarnings` code les entrées vides, les blocs manifestement tronqués et les structures de parenthèses incohérentes ;
+- `ingredientGroups` sépare les identifiants vegan, végétariens, non végétariens et incertains, ainsi que les textes inconnus ;
+- `decision` expose le verdict, le statut végétarien secondaire, une raison stable, les identifiants responsables, l’effet bloquant des inconnus et l’exclusion des traces ;
+- `ignoredSectionDiagnostics` associe chaque texte ignoré à la raison `OUTSIDE_INGREDIENT_COMPOSITION`.
+
+Ces propriétés sont dérivées du résultat existant. Elles n’appellent ni le parseur, ni le matcher, ni le moteur de verdict une seconde fois.
+
 Pour chaque token, regarder en priorité :
 
 - `profondeur` et `parent` pour vérifier l’arbre ;
@@ -47,6 +56,8 @@ Pour chaque alias linguistique retenu, le diagnostic d’analyse affiche le text
 - raison du choix ;
 - avertissements d’orientation, d’ordre ou de fallback.
 
+`LabelSections.ingredientSection` expose les offsets début inclusif/fin exclusive de la composition. `traceSections` conserve séparément les offsets, le texte brut et le texte normalisé de chaque section de traces. Les anciens champs `traceSection` et `tracesText` restent disponibles pour compatibilité.
+
 L’orientation affichée vaut 0 degré pour un bitmap de recadrage déjà orienté. Pour une image entière, elle correspond à la rotation donnée à `InputImage`. Une valeur indéterminée signifie que l’EXIF n’a pas fourni de rotation exploitable.
 
 L’avertissement sur l’ordre natif signifie que la reconstruction issue des rectangles différait de `Text.text`. Le pipeline a alors gardé le texte natif de ML Kit, conformément au comportement de la version 0.6.5.
@@ -60,6 +71,8 @@ L’export OCR place dans des sections distinctes :
 3. chaque analyse avec le texte exact soumis, son résultat affiché et son diagnostic détaillé.
 
 Si le texte actuel diffère d’un instantané, une section `ÉTAT` l’indique. L’image et son contenu binaire ne sont jamais insérés dans ce rapport.
+
+Chaque `AnalysisSnapshot` conserve en mémoire le même `AnalysisDiagnostics` structuré que celui utilisé pour produire le rapport lisible. Le texte OCR brut reste porté une seule fois par `OcrSession` et l’image n’entre dans aucun modèle de diagnostic ou d’instantané.
 
 L’identifiant `block-*` désigne la source sélectionnée et reste transmis à l’analyse, même après une édition du texte. L’identifiant secondaire `segment-*` décrit uniquement les offsets de la segmentation courante. Les deux ne sont jamais présentés comme un même comptage géométrique ML Kit.
 

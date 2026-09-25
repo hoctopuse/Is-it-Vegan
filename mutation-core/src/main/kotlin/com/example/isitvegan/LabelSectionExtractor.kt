@@ -12,7 +12,16 @@ data class LabelSections(
     val ingredientHeadingSeparator: HeadingSeparator? = null,
     val declaredContainsSyntax: String? = null,
     val selectedBlockId: String? = null,
-    val traceSection: TraceSection? = null
+    val traceSection: TraceSection? = null,
+    val ingredientSection: IngredientSection? = null,
+    val traceSections: List<TraceSection> = listOfNotNull(traceSection)
+)
+
+/** Start is inclusive and end is exclusive in LabelSections.rawText. */
+data class IngredientSection(
+    val start: Int,
+    val end: Int,
+    val rawText: String
 )
 
 /** Single source of truth for detection, boundaries and displayed trace text. */
@@ -78,11 +87,14 @@ object LabelSectionExtractor {
         val markers = findMarkers(text)
         val ingredient = markers.firstOrNull { it.kind == SectionKind.INGREDIENTS }
         val contains = markers.firstOrNull { it.kind == SectionKind.CONTAINS }
-        val ingredientsText = when {
-            ingredient != null -> contentUntil(text, ingredient, markers) {
+        val ingredientSectionText = ingredient?.let { marker ->
+            contentUntil(text, marker, markers) {
                 it.kind == SectionKind.TRACES || it.kind == SectionKind.IGNORED ||
                     it.kind == SectionKind.INGREDIENTS || it.kind == SectionKind.CONTAINS
             }
+        }
+        val ingredientsText = when {
+            ingredient != null -> ingredientSectionText
             contains != null -> null
             else -> text.substring(
                 0,
@@ -148,7 +160,12 @@ object LabelSectionExtractor {
             declaredContainsSyntax = contains?.originalText,
             traceSection = uniqueTraceSections.firstOrNull()?.let {
                 it.copy(normalizedText = uniqueTraceSections.joinToString("\n") { section -> section.normalizedText })
-            }
+            },
+            ingredientSection = ingredient?.let { marker ->
+                val raw = ingredientSectionText.orEmpty()
+                IngredientSection(marker.contentStart, marker.contentStart + raw.length, raw)
+            },
+            traceSections = uniqueTraceSections
         )
     }
 

@@ -67,7 +67,9 @@ data class AnalysisSnapshot(
     val diagnosticReport: String,
     val displayResult: String,
     val timestampMillis: Long,
-    val selectedBlockId: String? = null
+    val selectedBlockId: String? = null,
+    /** Structured counterpart of diagnosticReport, retained in memory for this OCR session only. */
+    val diagnostics: AnalysisDiagnostics? = null
 )
 
 internal object OcrExportReport {

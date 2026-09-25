@@ -78,4 +78,30 @@ class OcrSessionTest {
         assertEquals(edited, diagnostics.input)
         assertTrue(diagnostics.result.matched.none { it.id == "milk" })
     }
+
+    @Test fun analysisSnapshotKeepsStructuredDiagnosticsWithoutImageData() {
+        val database = listOf(
+            Ingredient("water", "eau", listOf("eau"), null, VeganStatus.VEGAN, "minéral", null)
+        )
+        val raw = "INGRÉDIENTS\n eau"
+        val editable = "Ingrédients : eau"
+        val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+            editable, database, InputMode.OCR_LABEL
+        )
+        val session = OcrSession().withOcrResult(
+            OcrProcessingResult(
+                rawText = raw,
+                editableText = editable,
+                diagnostics = OcrDiagnostics(90, 1, 2, listOf("FR"), emptyList())
+            )
+        ).addAnalysis(
+            AnalysisSnapshot(editable, "rapport", "VEGAN", 1L, diagnostics = diagnostics)
+        )
+
+        assertEquals(raw, session.rawOcrText)
+        assertEquals(editable, session.editableText)
+        assertEquals(editable, session.analyses.single().diagnostics?.input)
+        assertEquals(90, session.ocrDiagnostics?.orientationDegrees)
+        assertFalse(OcrExportReport.build(session, "test").contains("data:image"))
+    }
 }
