@@ -100,6 +100,36 @@ class LabelSectionExtractorTest {
         assertTrue(falseMarkers.usedFallback)
     }
 
+    @Test fun exactlyAdjacentTraceSectionsArePreservedAndExcludedFromVerdict() {
+        val text = "Ingrédients : eau. Peut contenir : lait.May contain traces of egg."
+        val baseline = CoreTestAnalyzer.analyzeWithDiagnostics("Ingrédients : eau.", database)
+        val diagnostics = CoreTestAnalyzer.analyzeWithDiagnostics(text, database)
+        val traces = diagnostics.labelSections.traceSections
+
+        assertEquals(2, traces.size)
+        assertEquals(traces[0].end, traces[1].start)
+        assertTrue(traces[0].rawText.contains("lait"))
+        assertTrue(traces[1].rawText.contains("egg"))
+        assertEquals(baseline.result.verdict, diagnostics.result.verdict)
+        assertEquals(AnalysisVerdict.VEGAN, diagnostics.result.verdict)
+        assertTrue(diagnostics.decision.tracesExcludedFromVerdict)
+        assertFalse(diagnostics.result.matched.any { it.id == "milk" })
+        assertFalse(diagnostics.tokens.any { it.text.contains("lait", true) || it.text.contains("egg", true) })
+    }
+
+    @Test fun trulyOverlappingTraceMarkersStillProduceOneTraceSection() {
+        val diagnostics = CoreTestAnalyzer.analyzeWithDiagnostics(
+            "Ingrédients : eau. Peut contenir des traces éventuelles de : lait, œufs.",
+            database
+        )
+
+        assertEquals(1, diagnostics.labelSections.traceSections.size)
+        assertTrue(diagnostics.crossContactWarnings.single().contains("lait, œufs"))
+        assertEquals(AnalysisVerdict.VEGAN, diagnostics.result.verdict)
+        assertTrue(diagnostics.decision.tracesExcludedFromVerdict)
+        assertFalse(diagnostics.result.matched.any { it.id == "milk" })
+    }
+
     private fun ingredient(id: String, alias: String, status: VeganStatus = VeganStatus.VEGAN) = Ingredient(
         id, alias, listOf(alias), null, status, "Test"
     )

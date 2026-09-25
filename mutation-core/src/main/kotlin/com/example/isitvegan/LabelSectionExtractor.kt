@@ -126,7 +126,7 @@ object LabelSectionExtractor {
             )
         }.filter { it.rawText.isNotBlank() }
             .fold(mutableListOf<TraceSection>()) { result, candidate ->
-                if (result.none { it.start <= candidate.end && candidate.start <= it.end }) result += candidate
+                if (result.none { it.start <= candidate.end && candidate.start < it.end }) result += candidate
                 result
             }
         val uniqueTraceSections = traceSections.distinctBy {
