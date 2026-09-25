@@ -16,6 +16,10 @@ object DiagnosticReport {
             appendLine()
             appendLine("ENTRÉE")
             appendLine(diagnostics.input.ifBlank { "(vide)" })
+            appendLine(
+                "Avertissements d’entrée : " + diagnostics.inputWarnings
+                    .joinToString(" ; ") { it.displayName }.ifBlank { "aucun" }
+            )
             appendLine()
             appendLine("LANGUE / BLOC SÉLECTIONNÉ")
             appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
@@ -36,7 +40,7 @@ object DiagnosticReport {
                     "Bloc ${index + 1} (${block.id}, ${block.segmentId}) ${if (block.id == diagnostics.languageSegmentation.selectedBlockId) "retenu" else "non retenu"} : marqueur=${block.detectedMarker ?: "aucun"}, " +
                         "langue originale=${block.headingLanguage?.displayName ?: block.language.displayName}, " +
                         "langue normalisée=${block.language.displayName}, score=${block.selectionScore}, " +
-                        "longueur utile=${block.usefulLength}, " +
+                        "frontière=${block.startIndex}…${block.endIndex}, longueur utile=${block.usefulLength}, " +
                         "tronqué=${if (block.manifestlyTruncated) "oui" else "non"}"
                 )
                 val criteria = block.selectionSignals.joinToString("; ").ifBlank { "aucun" }
@@ -78,6 +82,9 @@ object DiagnosticReport {
             appendLine("SECTIONS DÉTECTÉES")
             appendLine("Section ingrédients : ${if (diagnostics.labelSections.hasIngredientHeading) "détectée" else "non détectée"}")
             appendLine("Titre détecté : ${diagnostics.labelSections.ingredientHeadingText ?: "aucun"}")
+            diagnostics.labelSections.ingredientSection?.let {
+                appendLine("Frontière ingrédients : ${it.start}…${it.end}")
+            }
             appendLine(
                 "Séparateur du titre : " +
                     (diagnostics.labelSections.ingredientHeadingSeparator?.displayName ?: "aucun")
@@ -85,12 +92,15 @@ object DiagnosticReport {
             appendLine("Section présence réelle : ${if (diagnostics.labelSections.declaredContainsText != null) "détectée" else "non détectée"}")
             appendLine("Syntaxe de présence réelle : ${diagnostics.labelSections.declaredContainsSyntax ?: "aucune"}")
             appendLine("Section traces : ${if (diagnostics.labelSections.traceSection != null) "détectée" else "non détectée"}")
-            diagnostics.labelSections.traceSection?.let {
-                appendLine("Frontière traces : ${it.start}…${it.end}")
-                appendLine("Texte traces : ${it.rawText}")
-                appendLine("Traces normalisées : ${it.normalizedText}")
+            diagnostics.labelSections.traceSections.forEachIndexed { index, section ->
+                appendLine("Frontière traces ${index + 1} : ${section.start}…${section.end}")
+                appendLine("Texte traces ${index + 1} : ${section.rawText}")
+                appendLine("Traces normalisées ${index + 1} : ${section.normalizedText}")
             }
             appendLine("Sections produit ignorées : ${diagnostics.labelSections.ignoredSections.joinToString(" | ").ifBlank { "aucune" }}")
+            diagnostics.ignoredSectionDiagnostics.forEach {
+                appendLine("  Exclusion : ${it.text} | raison=${it.reason.displayName}")
+            }
             appendLine()
             appendLine("COMPOSITION APRÈS PRÉTRAITEMENT")
             appendLine(diagnostics.preprocessedInput.ifBlank { "(vide)" })
@@ -103,6 +113,7 @@ object DiagnosticReport {
             appendLine()
             appendLine("TRACES / CONTAMINATION CROISÉE")
             appendLine(diagnostics.crossContactWarnings.joinToString("\n").ifBlank { "(aucune)" })
+            appendLine("Influence des traces sur le verdict : aucune (traces exclues de l’analyse)")
             appendLine()
             appendLine("NOTES EXCLUES")
             appendLine(diagnostics.excludedNotes.joinToString("\n").ifBlank { "(aucune)" })
@@ -199,6 +210,11 @@ object DiagnosticReport {
                 "Bloqueurs détectés : " + result.veganBlockers
                     .joinToString(", ") { it.id }.ifBlank { "aucun" }
             )
+            val groups = diagnostics.ingredientGroups
+            appendLine("Ingrédients vegan : ${groups.veganIngredientIds.joinToString().ifBlank { "aucun" }}")
+            appendLine("Ingrédients végétariens non vegan : ${groups.vegetarianIngredientIds.joinToString().ifBlank { "aucun" }}")
+            appendLine("Ingrédients non végétariens : ${groups.nonVegetarianIngredientIds.joinToString().ifBlank { "aucun" }}")
+            appendLine("Ingrédients incertains : ${groups.uncertainIngredientIds.joinToString().ifBlank { "aucun" }}")
             appendLine(
                 "Preuves de présence réelle : " + result.declaredPresenceIngredientIds
                     .joinToString(", ").ifBlank { "aucune" }
@@ -210,8 +226,37 @@ object DiagnosticReport {
             appendLine("Analyse arrêtée tôt : ${if (result.stoppedAtNonVegetarian) "oui" else "non"}")
             appendLine("Reconnus : ${result.matched.joinToString(", ") { "${it.id} (${it.status})" }.ifBlank { "aucun" }}")
             appendLine("Inconnus : ${result.unknown.joinToString(", ").ifBlank { "aucun" }}")
+            val decision = diagnostics.decision
+            appendLine("Éléments responsables du verdict : ${decision.responsibleIngredientIds.joinToString().ifBlank { "aucun identifiant connu" }}")
+            appendLine("Raison de décision : ${decision.reason.displayName}")
+            appendLine("Un ingrédient inconnu empêche un verdict VEGAN : ${if (decision.unknownPreventsVegan) "oui" else "non"}")
+            appendLine("Traces prises en compte dans le verdict : ${if (decision.tracesExcludedFromVerdict) "non" else "oui"}")
         }.trimEnd()
     }
+
+    private val DiagnosticInputWarning.displayName: String
+        get() = when (this) {
+            DiagnosticInputWarning.EMPTY_INPUT -> "texte vide"
+            DiagnosticInputWarning.MANIFESTLY_TRUNCATED_BLOCK -> "bloc linguistique manifestement tronqué"
+            DiagnosticInputWarning.UNBALANCED_STRUCTURE -> "parenthèses ou crochets incohérents"
+        }
+
+    private val IgnoredSectionReason.displayName: String
+        get() = when (this) {
+            IgnoredSectionReason.OUTSIDE_INGREDIENT_COMPOSITION ->
+                "section hors composition, exclue du parsing et du verdict"
+        }
+
+    private val DecisionReason.displayName: String
+        get() = when (this) {
+            DecisionReason.NO_INGREDIENT_LIST -> "aucune liste d’ingrédients exploitable"
+            DecisionReason.EXPLICIT_NON_VEGAN_ORIGIN -> "origine explicitement incompatible avec un verdict vegan"
+            DecisionReason.KNOWN_VEGAN_BLOCKER -> "au moins un ingrédient reconnu est incompatible avec un verdict vegan"
+            DecisionReason.UNCERTAIN_INGREDIENT -> "au moins un ingrédient reconnu a un statut incertain"
+            DecisionReason.UNKNOWN_INGREDIENT -> "au moins un ingrédient inconnu empêche de conclure VEGAN"
+            DecisionReason.NO_RECOGNIZED_INGREDIENT -> "aucun ingrédient reconnu"
+            DecisionReason.ALL_RECOGNIZED_INGREDIENTS_VEGAN -> "tous les ingrédients analysés sont reconnus vegan"
+        }
 
     private val VeganAssessment.displayName: String
         get() = when (this) {

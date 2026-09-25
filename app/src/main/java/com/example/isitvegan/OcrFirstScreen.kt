@@ -114,7 +114,7 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                 session = session.addAnalysis(
                     AnalysisSnapshot(
                         text, report, display, System.currentTimeMillis(),
-                        current.labelSections.selectedBlockId
+                        current.labelSections.selectedBlockId, current
                     )
                 )
             }.onFailure {

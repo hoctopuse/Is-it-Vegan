@@ -97,6 +97,13 @@ data class AnalysisDiagnostics(
 ) {
     val crossContactWarnings: List<String> get() = result.crossContactWarnings
     val excludedNotes: List<String> get() = result.excludedNotes
+    val inputWarnings: List<DiagnosticInputWarning> get() = deriveInputWarnings()
+    val ignoredSectionDiagnostics: List<IgnoredSectionDiagnostic> get() =
+        labelSections.ignoredSections.map {
+            IgnoredSectionDiagnostic(it, IgnoredSectionReason.OUTSIDE_INGREDIENT_COMPOSITION)
+        }
+    val ingredientGroups: IngredientDiagnosticGroups get() = result.toIngredientDiagnosticGroups()
+    val decision: DecisionDiagnostic get() = result.toDecisionDiagnostic()
 }
 
 data class ParenthesisStructure(

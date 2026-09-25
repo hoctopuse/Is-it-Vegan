@@ -9,6 +9,8 @@
 - `ingredientsText` : composition située après un titre reconnu ;
 - `declaredContainsText` : présence réelle déclarée par « contient », `contains`, `bevat`, `enthält` ou `contiene` ;
 - `tracesText` : avertissements de contamination croisée ;
+- `ingredientSection` : limites début inclusif/fin exclusive et texte brut de la composition ;
+- `traceSections` : limites et textes brut/normalisé de chaque avertissement de traces ;
 - `ignoredSections` : sections non alimentaires ou bornes de fin ;
 - le texte brut du bloc, la langue et les métadonnées du titre.
 
