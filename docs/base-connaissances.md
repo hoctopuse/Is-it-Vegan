@@ -39,7 +39,7 @@ Chaque entrée de `knowledge/ingredients.json` contient :
 | `reason` | chaîne | justification affichée et diagnostique |
 | `sources` | tableau non vide | identifiants référencés dans `knowledge/sources.json` |
 
-L’asset embarqué conserve `id`, `name`, `eNumber`, `aliases`, `status`, `reason` et joint les identifiants de `sources` dans le champ chaîne `source`. `VeganAnalyzer.loadDatabase` transforme cet asset en objets `Ingredient` avec `org.json.JSONArray`.
+L’asset embarqué conserve `id`, `name`, `eNumber`, `aliases`, `status`, `reason` et joint les identifiants de `sources` dans le champ chaîne `source`. `AndroidIngredientKnowledgeLoader` lit les trois assets sans les transformer, puis le lecteur JSON JVM de `IngredientKnowledge.fromJson` construit les objets `Ingredient`, le lexique multilingue et les règles d’origine.
 
 ## Données générées
 

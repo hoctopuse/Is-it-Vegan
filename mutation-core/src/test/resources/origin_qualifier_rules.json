@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 2,
+  "title": "Origin qualifiers for vegan assessment",
+  "purpose": "Resolve an otherwise uncertain ingredient only when an explicit origin qualifier is syntactically attached to that ingredient or additive.",
+  "reviewedOn": "2026-09-21",
+  "limitations": [
+    "This is a cautious candidate list based on Food-Info (Stichting Food-Info), not an EU vegan-status list or a certification.",
+    "Food-Info's animal-origin overview is not a current regulatory authorisation list; the presence of an E-number here does not assert that it is currently authorised for every use in the EU.",
+    "An origin qualifier resolves only its own ingredient/additive. A separate mention of vegetable oils must never resolve E471 or another additive.",
+    "If the parser cannot establish the local attachment of the qualifier, keep the ingredient UNCERTAIN."
+  ],
+  "sources": [
+    {
+      "id": "eu-additives",
+      "title": "European Commission — Food Additives Database",
+      "publisher": "European Commission",
+      "url": "https://food.ec.europa.eu/food-safety/food-improvement-agents/additives/database_en",
+      "role": "Official E-number identity reference for the targeted E270 rule."
+    },
+    {
+      "id": "food-info-animal-origin-overview",
+      "title": "Which E-numbers and additives are from animal origin?",
+      "publisher": "Food-Info.net, Stichting Food-Info",
+      "url": "https://www.food-info.net/uk/qa/qa-fi45.htm",
+      "role": "Secondary overview for identifying origin-variable additives",
+      "caveat": "Use as a research lead; not a regulatory source and not a substitute for current manufacturer specifications."
+    },
+    {
+      "id": "food-info-e322",
+      "title": "E322 Lecithin",
+      "publisher": "Food-Info.net, Stichting Food-Info",
+      "url": "https://www.food-info.net/uk/e/e322.htm",
+      "role": "Supports soy versus egg yolk as commercial lecithin sources"
+    },
+    {
+      "id": "food-info-e471",
+      "title": "E471 Mono- and diglycerides",
+      "publisher": "Food-Info.net, Stichting Food-Info",
+      "url": "https://www.food-info.net/uk/e/e471.htm",
+      "role": "Supports plant or animal fat origins and says the producer is needed to establish the exact source"
+    },
+    {
+      "id": "efsa-e322-2017",
+      "title": "Re-evaluation of lecithins (E 322) as a food additive",
+      "publisher": "European Food Safety Authority",
+      "url": "https://doi.org/10.2903/j.efsa.2017.4742",
+      "role": "Primary scientific review confirming that E322 may be obtained from animal or vegetable foodstuffs, including soy and egg-yolk sources",
+      "caveat": "Safety assessment and source description; it is not a vegan certification."
+    },
+    {
+      "id": "efsa-e471-2017",
+      "title": "Re-evaluation of mono- and di-glycerides of fatty acids (E 471) as food additives",
+      "publisher": "European Food Safety Authority",
+      "url": "https://doi.org/10.2903/j.efsa.2017.5045",
+      "role": "Primary scientific review for the identity and manufacture of E471",
+      "caveat": "Safety assessment; it does not classify E471 as vegan and does not identify the source of a particular product."
+    },
+    {
+      "id": "food-info-e630",
+      "title": "E630 Inosinic acid",
+      "publisher": "Food-Info.net, Stichting Food-Info",
+      "url": "https://www.food-info.net/uk/e/e630.htm",
+      "role": "Supports meat/fish or bacterial-fermentation origins for E630"
+    },
+    {
+      "id": "vegan-society",
+      "title": "Definition of veganism",
+      "publisher": "The Vegan Society",
+      "url": "https://www.vegansociety.com/go-vegan/definition-veganism",
+      "role": "General basis for the fixed vegan classification of explicitly vegetable oils"
+    }
+  ],
+  "attachmentPolicy": {
+    "qualifierMustAttachToSameIngredient": true,
+    "acceptedExamples": [
+      "lécithines (soja)",
+      "lécithines (œuf)",
+      "E471 d'origine végétale",
+      "E471 (origine végétale)",
+      "E471 (porc)"
+    ],
+    "rejectedExamples": [
+      "huiles végétales (palme, tournesol), émulsifiant : E471",
+      "E471, huiles végétales (palme, tournesol)",
+      "E471 (origine non précisée)"
+    ],
+    "notes": [
+      "Do not infer an additive's source from another ingredient, another composite child, or a distant parenthetical.",
+      "A general animal-origin statement proves NOT_VEGAN, but does not always determine the vegetarian sub-class; retain that distinction where the engine models it."
+    ]
+  },
+  "rules": [
+    {
+      "id": "lecithin-e322",
+      "target": {
+        "ingredientIds": ["e322"],
+        "eNumbers": ["E322"],
+        "aliases": ["lécithine", "lécithines", "lecithine", "lecithins", "lecithinen", "lecitine", "lecitinas", "lecitinen"]
+      },
+      "originMode": "variable",
+      "evidenceLevel": "direct-item-source-description",
+      "sourceIds": ["efsa-e322-2017", "food-info-e322"],
+      "qualifierOutcomes": [
+        {
+          "id": "plant-soy",
+          "origin": "plant-soy",
+          "qualifiers": ["soja", "de soja", "soia", "di soia", "soy", "of soy", "soya", "de soya", "soybean", "sojaboon"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN",
+          "reason": "origine soja directement rattachée"
+        },
+        {
+          "id": "plant-sunflower",
+          "origin": "plant-sunflower",
+          "qualifiers": ["tournesol", "sunflower", "zonnebloem", "sonnenblume", "sonnenblumen", "girasol", "girasole"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN",
+          "reason": "origine tournesol directement rattachée"
+        },
+        {
+          "id": "egg",
+          "origin": "egg",
+          "qualifiers": ["œuf", "oeuf", "egg", "ei", "eigeel", "jaune d'œuf", "jaune d'oeuf"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "VEGETARIAN",
+          "reason": "origine œuf directement rattachée"
+        }
+      ],
+      "unresolvedStatus": "UNCERTAIN",
+      "activation": "ACTIVE",
+      "caveat": "Only resolve when the soy/egg wording labels the lecithin source, e.g. 'lécithines (soja)'."
+    },
+    {
+      "id": "mono-diglycerides-e471",
+      "target": {
+        "ingredientIds": ["e471"],
+        "eNumbers": ["E471"],
+        "aliases": ["mono- et diglycérides d'acides gras", "mono- et diglycérides d’acides gras"]
+      },
+      "originMode": "variable",
+      "evidenceLevel": "primary identity review plus secondary source-origin description",
+      "sourceIds": ["efsa-e471-2017", "food-info-e471"],
+      "qualifierOutcomes": [
+        {
+          "id": "plant",
+          "origin": "plant",
+          "qualifiers": ["d'origine végétale", "d’origine végétale", "origine végétale", "plant-based", "of vegetable origin", "van plantaardige oorsprong", "pflanzlichen Ursprungs", "de origen vegetal"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN",
+          "reason": "origine végétale directement rattachée"
+        },
+        {
+          "id": "animal-unspecified",
+          "origin": "animal-unspecified",
+          "qualifiers": ["d'origine animale", "d’origine animale", "origine animale", "animal origin", "van dierlijke oorsprong", "tierischen Ursprungs", "de origen animal"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "UNCERTAIN",
+          "reason": "origine animale directement rattachée ; statut végétarien indéterminé"
+        },
+        {
+          "id": "meat-or-fish",
+          "origin": "meat-or-fish",
+          "qualifiers": ["porc", "pork", "bœuf", "boeuf", "beef", "poisson", "fish", "d'origine porcine", "d’origine porcine", "d'origine bovine", "d’origine bovine"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "NON_VEGETARIAN",
+          "reason": "origine animale non végétarienne directement rattachée"
+        }
+      ],
+      "unresolvedStatus": "UNCERTAIN",
+      "activation": "ACTIVE",
+      "caveat": "The origin must explicitly qualify the additive itself. A nearby but separately listed 'huiles végétales' is not evidence for E471. Exclude E476: the reviewed Food-Info overview describes it as synthetic vegetable fat."
+    },
+    {
+      "id": "other-fatty-acid-derived-additives",
+      "target": {
+        "ingredientIds": [],
+        "eNumbers": ["E430-E436", "E470", "E472-E475", "E477-E479b", "E481-E484", "E491-E495", "E570-E573"],
+        "aliases": []
+      },
+      "originMode": "variable-candidate",
+      "evidenceLevel": "secondary overview only; each exact additive still requires review",
+      "sourceIds": ["food-info-animal-origin-overview"],
+      "qualifierOutcomes": [],
+      "unresolvedStatus": "UNCERTAIN",
+      "activation": "REVIEW_BEFORE_ENGINE_USE",
+      "caveat": "No member of this grouped candidate list is activated by the 0.5.11 engine."
+    },
+    {
+      "id": "glycerol-e422",
+      "target": {
+        "ingredientIds": ["e422"],
+        "eNumbers": ["E422"],
+        "aliases": ["glycérol", "glycerol", "glycerine", "glycerin"]
+      },
+      "originMode": "variable",
+      "evidenceLevel": "secondary-overview; not independently corroborated in this review",
+      "sourceIds": ["food-info-animal-origin-overview"],
+      "qualifierOutcomes": [
+        {
+          "origin": "synthetic-non-animal",
+          "qualifiers": ["synthétique", "synthetic"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN"
+        },
+        {
+          "origin": "animal",
+          "qualifiers": ["animal", "animale", "graisse animale", "animal fat"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "UNCERTAIN"
+        }
+      ],
+      "unresolvedStatus": "UNCERTAIN",
+      "activation": "REVIEW_BEFORE_ENGINE_USE"
+    },
+    {
+      "id": "inosinates-e626-e629-e630-e635",
+      "target": {
+        "ingredientIds": ["e626", "e627", "e628", "e629", "e630", "e631", "e632", "e633", "e634", "e635"],
+        "eNumbers": ["E626", "E627", "E628", "E629", "E630", "E631", "E632", "E633", "E634", "E635"],
+        "aliases": []
+      },
+      "originMode": "variable",
+      "evidenceLevel": "secondary-overview; E630 page individually checked",
+      "sourceIds": ["food-info-animal-origin-overview", "food-info-e630"],
+      "qualifierOutcomes": [
+        {
+          "origin": "microbial-fermentation-or-yeast",
+          "qualifiers": ["levure", "yeast", "fermentation", "bactérienne", "bacterial", "microbienne", "microbial"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN"
+        },
+        {
+          "origin": "meat-or-fish",
+          "qualifiers": ["viande", "meat", "poisson", "fish", "sardine", "extrait de viande", "meat extract"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "NON_VEGETARIAN"
+        }
+      ],
+      "unresolvedStatus": "UNCERTAIN",
+      "activation": "REVIEW_BEFORE_ENGINE_USE",
+      "caveat": "Food-Info specifically describes E630 as commercially meat/fish-derived but also producible by bacterial fermentation; do not generalise that exact manufacturing distribution to every code without checking its specification."
+    },
+    {
+      "id": "glycine-e640",
+      "target": {
+        "ingredientIds": ["e640"],
+        "eNumbers": ["E640"],
+        "aliases": ["glycine"]
+      },
+      "originMode": "variable",
+      "evidenceLevel": "secondary-overview only",
+      "sourceIds": ["food-info-animal-origin-overview"],
+      "qualifierOutcomes": [
+        {
+          "origin": "synthetic-non-animal",
+          "qualifiers": ["synthétique", "synthetic"],
+          "veganStatus": "VEGAN",
+          "vegetarianStatus": "VEGETARIAN_OR_VEGAN"
+        },
+        {
+          "origin": "gelatine",
+          "qualifiers": ["gélatine", "gelatine", "gelatin"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "UNCERTAIN"
+        }
+      ],
+      "unresolvedStatus": "UNCERTAIN",
+      "activation": "REVIEW_BEFORE_ENGINE_USE"
+    },
+    {
+      "id": "lactic-acid-e270",
+      "target": {
+        "ingredientIds": ["e270"],
+        "eNumbers": ["E270"],
+        "aliases": ["acide lactique", "lactic acid", "melkzuur", "Milchsäure"]
+      },
+      "originMode": "variable",
+      "evidenceLevel": "explicit attached dairy qualifier",
+      "sourceIds": ["eu-additives", "vegan-society"],
+      "qualifierOutcomes": [
+        {
+          "id": "dairy",
+          "origin": "dairy",
+          "qualifiers": ["lait", "milk", "melk", "Milch"],
+          "attachmentForms": ["PARENTHETICAL", "DIRECT_SUFFIX"],
+          "veganStatus": "NOT_VEGAN",
+          "vegetarianStatus": "VEGETARIAN",
+          "reason": "origine laitière explicitement rattachée à E270"
+        }
+      ],
+      "unresolvedStatus": "VEGAN",
+      "activation": "ACTIVE",
+      "caveat": "E270 seul reste vegan par défaut ; seule une origine laitière syntaxiquement attachée modifie son statut."
+    }
+  ],
+  "protectedExpressions": [
+    {
+      "id": "vegetable-oil",
+      "ingredientId": "vegetable_oil",
+      "aliases": ["huile végétale", "huiles végétales", "vegetable oil", "vegetable oils", "plantaardige olie", "plantaardige oliën"],
+      "matcherAlias": "huile végétale",
+      "knownStatus": "VEGAN",
+      "parenthesisPolicy": "IGNORE_CONTENT_FOR_VERDICT",
+      "activation": "ACTIVE",
+      "evidenceLevel": "fixed ingredient designation",
+      "sourceIds": ["vegan-society"],
+      "caveat": "The parenthesis may describe plant varieties. It is neither an origin qualifier for another ingredient nor an allergen declaration."
+    }
+  ],
+  "notOriginResolverRules": [
+    {
+      "id": "unambiguous-animal-ingredients",
+      "examples": ["lait", "œuf", "porc", "gélatine"],
+      "handling": "Match as ordinary ingredients; do not require parentheses to establish their known classification."
+    },
+    {
+      "id": "vegetable-oils",
+      "examples": ["huile végétale", "huiles végétales (palme, tournesol)"],
+      "handling": "Classify the oil wording itself. Never use its parentheses to resolve a different additive."
+    }
+  ]
+}

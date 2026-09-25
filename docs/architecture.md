@@ -1,6 +1,6 @@
 # Architecture générale
 
-Le projet contient un unique module Android `:app`. Les classes applicatives sont regroupées dans `com.example.isitvegan`, avec le thème Compose dans `com.example.isitvegan.ui.theme`. Il n’existe ni couche réseau métier, ni base SQL, ni service distant.
+Le projet contient le module Android `:app` et le module Kotlin/JVM `:mutation-core`. `:app` dépend de `:mutation-core`; la dépendance inverse est interdite. Les deux modules conservent le package `com.example.isitvegan`, avec le thème Compose dans `com.example.isitvegan.ui.theme`. Il n’existe ni couche réseau métier, ni base SQL, ni service distant.
 
 ## Flux actif
 
@@ -17,7 +17,7 @@ flowchart TD
     CLEAN --> LANG[LabelLanguageSegmenter\n+ OcrBlockLanguageClassifier]
     LANG --> SELECT[OcrTextSelection]
     SELECT --> SESSION[OcrSession\nbrut, éditable, options, diagnostics]
-    SESSION --> ANALYZE[VeganAnalyzer]
+    SESSION --> ANALYZE[VeganAnalyzer adaptateur Android\nIngredientAnalysisService JVM]
     ANALYZE --> SECTIONS[LabelSectionExtractor]
     SECTIONS --> PREPROCESS[LabelPreprocessor]
     PREPROCESS --> TREE[IngredientTreeParser]
@@ -29,7 +29,7 @@ flowchart TD
     VERDICT --> RESULT[Résultat Compose\n+ DiagnosticReport]
 ```
 
-L’analyse rappelle `LabelLanguageSegmenter` dans `VeganAnalyzer`. Cette seconde segmentation est volontairement indépendante de l’acquisition : les modes texte et OCR passent ainsi par le même moteur.
+L’analyse rappelle `LabelLanguageSegmenter` dans `IngredientAnalysisService`. `VeganAnalyzer` reste la façade Android et lui délègue. Cette seconde segmentation est volontairement indépendante de l’acquisition : les modes texte et OCR passent ainsi par le même moteur.
 
 ## Responsabilités
 
@@ -47,7 +47,7 @@ L’analyse rappelle `LabelLanguageSegmenter` dans `VeganAnalyzer`. Cette second
 
 ## État et concurrence
 
-`MainActivity` charge les deux assets de connaissance via `VeganAnalyzer.loadDatabase` sur `Dispatchers.IO`. Le bouton d’analyse reste désactivé tant que ce chargement n’a pas réussi. `OcrFirstScreen` exécute le décodage sur `Dispatchers.IO` et l’analyse CPU sur `Dispatchers.Default`. `OcrProcessor` possède un `CoroutineScope` supervisé et restitue ses callbacks sur `Dispatchers.Main`.
+`MainActivity` charge les trois assets de connaissance via `VeganAnalyzer.loadDatabase` sur `Dispatchers.IO`. `AndroidIngredientKnowledgeLoader` lit les assets avec `Context`, puis `IngredientKnowledge.fromJson` les valide et les injecte dans `IngredientAnalysisService`. Aucun accès Android n’existe dans `:mutation-core`. Le bouton d’analyse reste désactivé tant que ce chargement n’a pas réussi. `OcrFirstScreen` exécute le décodage sur `Dispatchers.IO` et l’analyse CPU sur `Dispatchers.Default`. `OcrProcessor` possède un `CoroutineScope` supervisé et restitue ses callbacks sur `Dispatchers.Main`.
 
 La session OCR est un objet immutable `OcrSession` gardé par `remember`. Elle contient le texte brut, le texte éditable, les options linguistiques, le diagnostic et les instantanés des analyses. L’URI de la photo n’appartient volontairement pas au modèle de session.
 
@@ -62,4 +62,3 @@ La session OCR est un objet immutable `OcrSession` gardé par `remember`. Elle c
 - Le matcher classe les feuilles à partir de la base ; il ne corrige pas la syntaxe.
 - Les traces et notes restent hors du moteur de verdict.
 - L’interface ne transforme jamais une image directement en verdict : elle obtient d’abord un texte éditable.
-
