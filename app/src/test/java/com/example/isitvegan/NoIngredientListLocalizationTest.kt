@@ -16,7 +16,12 @@ class NoIngredientListLocalizationTest {
             "no_ingredient_list",
             "no_vegan_conclusion",
             "analysis_not_evaluated",
-            "traces_excluded_notice"
+            "traces_excluded_notice",
+            "unidentified_ingredient_item",
+            "unidentified_parent_item",
+            "unidentified_child_item",
+            "ingredient_with_percentage",
+            "unidentified_ingredients_notice"
         )
 
         resourceFiles.forEach { file ->

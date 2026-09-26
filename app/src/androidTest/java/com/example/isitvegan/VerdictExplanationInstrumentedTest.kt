@@ -2,6 +2,7 @@ package com.example.isitvegan
 
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
+import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
@@ -91,6 +92,25 @@ class VerdictExplanationInstrumentedTest {
             val rendered = VerdictExplanationFormatter.render(resources, diagnostics.input, diagnostics)
             terms.forEach { term -> assertTrue("$language: $term", rendered.contains(term)) }
             assertTrue(rendered.contains("Peut contenir"))
+        }
+    }
+
+    @Test fun unknownIngredientsUseBulletsAndKeepNestedOccurrenceContext() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val diagnostics = service.analyzeWithDiagnostics(
+            "cumin, piment rouge, sirop de grenade 4,4 % (concentré de grenade 50 %), cumin"
+        )
+
+        UiLanguage.entries.forEach { language ->
+            val resources = localizedContext(context, language).resources
+            val rendered = VerdictExplanationFormatter.render(resources, diagnostics.input, diagnostics)
+            assertTrue(rendered.contains(resources.getString(R.string.unidentified_ingredients_title)))
+            assertTrue(rendered.contains("• cumin"))
+            assertEquals(2, rendered.split("• cumin").size - 1)
+            assertTrue(rendered.contains("• sirop de grenade —"))
+            assertTrue(rendered.contains("└─ concentré de grenade —"))
+            assertFalse(rendered.contains("|"))
+            assertEquals(1, rendered.split(resources.getString(R.string.unidentified_ingredients_notice)).size - 1)
         }
     }
 }

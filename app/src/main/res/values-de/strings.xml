@@ -45,7 +45,11 @@
     <string name="uncertain_ingredients_title">Unsichere Zutaten:</string>
     <string name="uncertain_ingredient_item">Unsichere Zutat: %1$s\nDieses Element verhindert die Bestätigung, dass das Produkt vegan ist.</string>
     <string name="unidentified_ingredients_title">Nicht identifizierte Zutaten:</string>
-    <string name="unidentified_ingredient_item">Nicht identifizierte Zutat: %1$s\nDieses Element verhindert die Bestätigung, dass das Produkt vegan ist.</string>
+    <string name="unidentified_ingredient_item">• %1$s</string>
+    <string name="unidentified_parent_item">• %1$s</string>
+    <string name="unidentified_child_item">   └─ %1$s</string>
+    <string name="ingredient_with_percentage">%1$s — %2$s %%</string>
+    <string name="unidentified_ingredients_notice">Diese Elemente verhindern die Bestätigung, dass das Produkt vegan ist.</string>
     <string name="conditional_vegan">Vegan ohne unsichere Zutat</string>
     <string name="conditional_vegetarian">Vegetarisch ohne unsichere Zutat</string>
     <string name="empty_input_prompt">ℹ️ Geben Sie zuerst eine Zutatenliste ein.</string>
