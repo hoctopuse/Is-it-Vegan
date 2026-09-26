@@ -101,6 +101,14 @@ class VerdictExplanationInstrumentedTest {
             "cumin, piment rouge, sirop de grenade 4,4 % (concentré de grenade 50 %), cumin"
         )
 
+        val parent = diagnostics.tokens.single { it.text.startsWith("sirop de grenade") }
+        val child = diagnostics.tokens.single { it.text.startsWith("concentré de grenade") }
+        assertEquals(parent.order, child.parentOrder)
+        assertTrue(diagnostics.visibleUnknownTokens.any { it.order == child.order })
+        assertFalse(diagnostics.visibleUnknownIngredients.any { it.startsWith("sirop de grenade") })
+        assertTrue(diagnostics.ingredientGroups.unknownIngredients.any { it.startsWith("concentré de grenade") })
+        assertEquals(diagnostics.result.verdict, diagnostics.verdictExplanation.mainVerdict)
+
         UiLanguage.entries.forEach { language ->
             val resources = localizedContext(context, language).resources
             val rendered = VerdictExplanationFormatter.render(resources, diagnostics.input, diagnostics)

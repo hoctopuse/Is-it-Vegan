@@ -124,44 +124,42 @@ internal object VerdictExplanationFormatter {
     private fun renderUnknownIngredients(resources: Resources, diagnostics: AnalysisDiagnostics): String {
         val tokensByOrder = diagnostics.tokens.associateBy { it.order }
         val occurrences = diagnostics.visibleUnknownTokens
-        val entries = mutableListOf<UnknownEntry>()
-        occurrences.forEach { token ->
-            val parent = token.parentOrder?.let(tokensByOrder::get)
-            if (parent == null) {
-                entries += UnknownEntry.Simple(token.unknown.orEmpty())
-            } else {
-                val group = entries.filterIsInstance<UnknownEntry.Nested>()
-                    .firstOrNull { it.parent.order == parent.order }
-                if (group == null) {
-                    entries += UnknownEntry.Nested(parent, mutableListOf(token))
-                } else {
-                    group.children += token
+        val nodes = linkedMapOf<Int, UnknownDisplayNode>()
+
+        fun nodeFor(token: TokenDiagnostic): UnknownDisplayNode =
+            nodes.getOrPut(token.order) { UnknownDisplayNode(token) }
+
+        occurrences.forEach { occurrence ->
+            var current: TokenDiagnostic? = occurrence
+            var child: UnknownDisplayNode? = null
+            while (current != null) {
+                val currentNode = nodeFor(current)
+                if (child != null && currentNode.children.none { it.token.order == child.token.order }) {
+                    currentNode.children += child
                 }
+                if (current.order == occurrence.order) currentNode.isVisibleUnknown = true
+                child = currentNode
+                current = current.parentOrder?.let(tokensByOrder::get)
             }
         }
-        if (entries.isEmpty()) {
-            diagnostics.visibleUnknownIngredients.forEach { entries += UnknownEntry.Simple(it) }
+        val roots = nodes.values.filter { node ->
+            node.token.parentOrder?.let(nodes::containsKey) != true
         }
-        val items = entries.joinToString("\n") { entry ->
-            when (entry) {
-                is UnknownEntry.Simple -> resources.getString(
-                    R.string.unidentified_ingredient_item,
-                    entry.text.displayText()
-                )
-                is UnknownEntry.Nested -> {
-                    val parent = resources.getString(
-                        R.string.unidentified_parent_item,
-                        entry.parent.text.displayTextWithPercentage(resources, entry.parent.quantityPercent)
-                    )
-                    parent + entry.children.joinToString("") { child ->
-                        "\n" + resources.getString(
-                            R.string.unidentified_child_item,
-                            child.unknown.orEmpty().displayTextWithPercentage(resources, child.quantityPercent)
-                        )
-                    }
-                }
+
+        fun renderNode(node: UnknownDisplayNode, nested: Boolean): String {
+            val label = (if (node.isVisibleUnknown) node.token.unknown else node.token.text)
+                .orEmpty()
+                .displayTextWithPercentage(resources, node.token.quantityPercent)
+            val line = resources.getString(
+                if (nested) R.string.unidentified_child_item else R.string.unidentified_parent_item,
+                label
+            )
+            return line + node.children.joinToString("") { child ->
+                "\n" + renderNode(child, nested = true)
             }
         }
+
+        val items = roots.joinToString("\n") { renderNode(it, nested = false) }
         return resources.getString(R.string.unidentified_ingredients_title) + "\n" + items
     }
 
@@ -174,11 +172,8 @@ internal object VerdictExplanationFormatter {
         return resources.getString(R.string.ingredient_with_percentage, displayText(), formatted)
     }
 
-    private sealed interface UnknownEntry {
-        data class Simple(val text: String) : UnknownEntry
-        data class Nested(
-            val parent: TokenDiagnostic,
-            val children: MutableList<TokenDiagnostic>
-        ) : UnknownEntry
+    private class UnknownDisplayNode(val token: TokenDiagnostic) {
+        val children = mutableListOf<UnknownDisplayNode>()
+        var isVisibleUnknown: Boolean = false
     }
 }

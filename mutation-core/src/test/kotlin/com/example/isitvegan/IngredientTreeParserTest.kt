@@ -82,6 +82,21 @@ class IngredientTreeParserTest {
         assertEquals(2, roots[1].children.size)
     }
 
+    @Test fun singlePercentageChildKeepsParentAndChildDiagnostics() {
+        val diagnostics = CoreTestAnalyzer.analyzeWithDiagnostics(
+            "cumin, piment rouge, sirop de grenade 4,4 % (concentré de grenade 50 %), cumin",
+            database
+        )
+
+        val parent = diagnostics.tokens.single { it.text.startsWith("sirop de grenade") }
+        val child = diagnostics.tokens.single { it.text.startsWith("concentré de grenade") }
+        assertEquals(parent.order, child.parentOrder)
+        assertEquals(BigDecimal("4.4"), parent.quantityPercent)
+        assertEquals(BigDecimal("50"), child.quantityPercent)
+        assertTrue(diagnostics.visibleUnknownTokens.any { it.order == child.order })
+        assertFalse(diagnostics.visibleUnknownIngredients.any { it.startsWith("sirop de grenade") })
+    }
+
     @Test fun additiveKeepsFunctionalClassOutsideMatcherText() {
         val diagnostics = CoreTestAnalyzer.analyzeWithDiagnostics(
             "eau, huile de colza, émulsifiant : E471 ; sel",
