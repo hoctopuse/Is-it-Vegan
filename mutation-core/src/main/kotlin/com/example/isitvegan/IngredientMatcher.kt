@@ -204,7 +204,8 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             "en poudre", "decortiquees", "decortiquee", "rehydrate", "rehydratees",
             "rehydrates", "rehydratee", "concentre", "concentree", "concentres",
             "concentrees", "depellicule", "depelliculee", "depellicules", "depelliculees",
-            "fume", "fumee", "fumes", "fumees", "au bois de hetre"
+            "fume", "fumee", "fumes", "fumees", "au bois de hetre",
+            "rouge", "seche au soleil", "sechee au soleil"
         ).sortedByDescending(String::length)
         val derivedSourcePrefix = Regex("^(?:puree|pate|graines?|huile|graisse) (?:de|d)$")
         val derivedSourceSuffix = Regex("^(?:moulu|moulue|moulus|moulues)$")

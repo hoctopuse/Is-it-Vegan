@@ -47,7 +47,7 @@ internal object VerdictExplanationFormatter {
                 )
                 sections += resources.getString(
                     R.string.declared_presence_format,
-                    result.declaredPresenceIngredientIds.joinToString(", ")
+                    result.declaredPresenceIngredientIds.joinToString(" | ") { it.replace("|", "\\|") }
                 )
             }
             return sections.joinToString("\n\n")
@@ -65,26 +65,26 @@ internal object VerdictExplanationFormatter {
 
         if (explanation.knownBlockingIngredients.isNotEmpty()) {
             sections += resources.getString(R.string.known_blocking_ingredients_title) + "\n" +
-                explanation.knownBlockingIngredients.joinToString("\n\n") {
+                explanation.knownBlockingIngredients.joinToString(" | ") {
                     resources.getString(
                         R.string.detected_ingredient_item,
-                        it.path.joinToString(" → ")
+                        it.path.joinToString(" → ").replace("|", "\\|")
                     )
                 }
         }
         if (explanation.uncertainIngredients.isNotEmpty()) {
             sections += resources.getString(R.string.uncertain_ingredients_title) + "\n" +
-                explanation.uncertainIngredients.joinToString("\n\n") {
+                explanation.uncertainIngredients.joinToString(" | ") {
                     resources.getString(
                         R.string.uncertain_ingredient_item,
-                        it.path.joinToString(" → ")
+                        it.path.joinToString(" → ").replace("|", "\\|")
                     )
                 }
         }
         if (result.unknown.isNotEmpty()) {
             sections += resources.getString(R.string.unidentified_ingredients_title) + "\n" +
-                result.unknown.joinToString("\n") {
-                    resources.getString(R.string.unidentified_ingredient_item, it)
+                result.unknown.joinToString(" | ") {
+                    resources.getString(R.string.unidentified_ingredient_item, it.replace("|", "\\|"))
                 }
         }
 
@@ -104,7 +104,9 @@ internal object VerdictExplanationFormatter {
 
     private fun renderTraces(resources: Resources, warnings: List<String>): String {
         if (warnings.isEmpty()) return ""
-        val items = warnings.joinToString("\n") { resources.getString(R.string.trace_item, it) }
+        val items = warnings.joinToString(" | ") {
+            resources.getString(R.string.trace_item, it.replace("|", "\\|"))
+        }
         return "\n\n" + resources.getString(R.string.traces_title) + "\n" + items +
             "\n\n" + resources.getString(R.string.traces_excluded_notice)
     }
