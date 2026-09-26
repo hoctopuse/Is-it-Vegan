@@ -37,9 +37,9 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
     var inputMode by remember { mutableStateOf(InputMode.FULL_LABEL) }
     var session by remember { mutableStateOf(OcrSession()) }
     var sourceUri by remember { mutableStateOf<Uri?>(null) }
-    var preview by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
+    var preview by remember { mutableStateOf<Bitmap?>(null) }
     var cropRect by remember { mutableStateOf<OcrCropRect?>(null) }
-    var cropPreview by remember { mutableStateOf<android.graphics.Bitmap?>(null) }
+    var cropPreview by remember { mutableStateOf<Bitmap?>(null) }
     var cropDialogVisible by remember { mutableStateOf(false) }
     var ocrMessage by remember { mutableStateOf("Aucune photo sélectionnée.") }
     var extracting by remember { mutableStateOf(false) }

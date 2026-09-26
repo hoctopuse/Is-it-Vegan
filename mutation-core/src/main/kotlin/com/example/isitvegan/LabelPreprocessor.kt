@@ -139,7 +139,11 @@ object LabelPreprocessor {
 
     /** Joins only reviewed lexical expressions after section extraction; ordinary lines stay separate. */
     private fun joinKnownWrappedExpressions(value: String): String = knownWrappedExpressions.fold(value) { text, expression ->
-        expression.replace(text) { match -> match.value.replace(Regex("\\s*\\r?\\n\\s*"), " ") }
+        expression.replace(text) { match ->
+            match.value
+                .replace(Regex("-\\s*\\r?\\n\\s*"), "-")
+                .replace(Regex("\\s*\\r?\\n\\s*"), " ")
+        }
     }
 
     /** E-number repairs require their functional-class context, never a character-distance guess. */
@@ -164,6 +168,10 @@ object LabelPreprocessor {
 
     private val knownWrappedExpressions = listOf(
         Regex("(?i)\\bbeurre\\s+de\\s*\\r?\\n\\s*cacao\\b"),
+        Regex("(?i)\\bhuile\\s+de\\s*\\r?\\n\\s*colza\\b"),
+        Regex("(?i)\\bfarine\\s+de\\s*\\r?\\n\\s*bl(?:é|e)(?=\\s|$|[,.;)])"),
+        Regex("(?i)\\bsirop\\s+de\\s+glucose-\\s*\\r?\\n\\s*fructose\\b"),
+        Regex("(?i)\\bacide\\s*\\r?\\n\\s*citrique\\b"),
         Regex("(?i)\\bLAIT\\s+écrémé\\s+en\\s*\\r?\\n\\s*poudre\\b"),
         Regex("(?i)\\blactosérum\\s+en\\s*\\r?\\n\\s*poudre\\b"),
         Regex("(?i)\\blactosérum\\s+en\\s+poudre\\s*\\(\\s*de\\s*\\r?\\n\\s*LAIT\\s*\\)"),

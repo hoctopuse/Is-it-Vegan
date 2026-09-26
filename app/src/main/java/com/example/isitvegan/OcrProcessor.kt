@@ -67,18 +67,6 @@ internal class OcrProcessor(context: Context) {
         }
     }
 
-    /** Runs the same ML Kit pipeline on an in-memory, already oriented crop. */
-    fun process(bitmap: Bitmap, onSuccess: (OcrProcessingResult) -> Unit, onFailure: (String) -> Unit, preferredLanguage: UiLanguage = UiLanguage.FR) {
-        scope.launch {
-            processPrepared(
-                PreparedOcrImage(InputImage.fromBitmap(bitmap, 0), orientationDegrees = 0),
-                onSuccess,
-                onFailure,
-                preferredLanguage
-            )
-        }
-    }
-
     private fun processPrepared(
         prepared: PreparedOcrImage,
         onSuccess: (OcrProcessingResult) -> Unit,

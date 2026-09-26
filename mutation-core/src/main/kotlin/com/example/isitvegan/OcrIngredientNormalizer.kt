@@ -3,7 +3,7 @@ package com.example.isitvegan
 /** Reviewed OCR and language bridge used only for matching; raw OCR remains untouched. */
 object OcrIngredientNormalizer {
     private val biologicalSuffix = Regex("(?:^|\\s)(?:bio|biologique|biologisch|organic)$")
-    private val biologicalPrefix = Regex("^(?:bio|biologique|biologisch|organic)(?:[-\\s]+)")
+    private val biologicalPrefix = Regex("^(?:bio|biologique|biologisch|organic)[-\\s]+")
 
     private val exactReplacements = mapOf(
         "powron" to "poivron", "olves nores" to "olives noires",
