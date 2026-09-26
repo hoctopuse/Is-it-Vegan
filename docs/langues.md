@@ -58,8 +58,14 @@ Le score de qualité additionne titre, séparateur, longueur utile, séparateurs
 | FR | FR → EN → NL |
 | EN | EN → FR → NL |
 | NL | NL → EN → FR |
+| DE | DE → EN → FR |
 
-DE, IT, ES, PT, SE/SV, DK/DA, NO et FI suivent ces trois langues. La longueur utile puis l’ordre d’apparition départagent encore les égalités. Un bloc EN complet peut donc battre un bloc FR tronqué, même avec une interface française.
+IT, ES, PT, SE/SV, DK/DA, NO et FI suivent ces quatre langues. La longueur utile puis l’ordre d’apparition départagent encore les égalités. Un bloc EN complet peut donc battre un bloc FR tronqué, même avec une interface française.
+
+L’interface, les verdicts, les listes explicatives, les formulations conditionnelles et
+les mentions de traces disposent de ressources FR, NL, EN et DE. Le choix DE ne modifie
+aucune règle de classification ; il donne seulement la priorité au bloc allemand à
+qualité égale et sélectionne les ressources Android allemandes.
 
 ## Texte éditable et fallback
 

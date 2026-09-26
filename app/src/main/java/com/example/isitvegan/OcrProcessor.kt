@@ -172,6 +172,7 @@ internal class OcrProcessor(context: Context) {
         UiLanguage.FR -> listOf("FR", "EN", "NL")
         UiLanguage.EN -> listOf("EN", "FR", "NL")
         UiLanguage.NL -> listOf("NL", "EN", "FR")
+        UiLanguage.DE -> listOf("DE", "EN", "FR")
     }
 
     private suspend fun deliverFailure(onFailure: (String) -> Unit, message: String) {

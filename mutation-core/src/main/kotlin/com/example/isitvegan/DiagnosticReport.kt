@@ -231,6 +231,28 @@ object DiagnosticReport {
             appendLine("Raison de décision : ${decision.reason.displayName}")
             appendLine("Un ingrédient inconnu empêche un verdict VEGAN : ${if (decision.unknownPreventsVegan) "oui" else "non"}")
             appendLine("Traces prises en compte dans le verdict : ${if (decision.tracesExcludedFromVerdict) "non" else "oui"}")
+            val explanation = diagnostics.verdictExplanation
+            appendLine()
+            appendLine("EXPLICATION CONDITIONNELLE 0.6.9")
+            appendLine("Verdict principal conservé : ${explanation.mainVerdict ?: "non calculé"}")
+            appendLine(
+                "Ingrédients incertains exclus : " + explanation.uncertainIngredients
+                    .joinToString(" ; ") { ingredient ->
+                        "${ingredient.ingredientId}#${ingredient.occurrenceId} " +
+                            "[${ingredient.path.joinToString(" → ")}]"
+                    }.ifBlank { "aucun" }
+            )
+            appendLine(
+                "Bloqueurs connus conservés : " + explanation.knownBlockingIngredients
+                    .joinToString(", ") { it.ingredientId }.ifBlank { "aucun" }
+            )
+            appendLine("Résultat conditionnel hors incertains : ${explanation.conditionalVerdict ?: "non affiché"}")
+            appendLine("Raison du résultat conditionnel : ${explanation.conditionalReason.displayName}")
+            appendLine("Statut végétarien informatif : ${explanation.vegetarianStatus ?: "non calculé"}")
+            appendLine(
+                "Traces prises en compte dans le résultat conditionnel : " +
+                    if (explanation.tracesExcludedFromConditionalVerdict) "non" else "oui"
+            )
         }.trimEnd()
     }
 
@@ -256,6 +278,20 @@ object DiagnosticReport {
             DecisionReason.UNKNOWN_INGREDIENT -> "au moins un ingrédient inconnu empêche de conclure VEGAN"
             DecisionReason.NO_RECOGNIZED_INGREDIENT -> "aucun ingrédient reconnu"
             DecisionReason.ALL_RECOGNIZED_INGREDIENTS_VEGAN -> "tous les ingrédients analysés sont reconnus vegan"
+        }
+
+    private val ConditionalVerdictReason.displayName: String
+        get() = when (this) {
+            ConditionalVerdictReason.UNCERTAIN_INGREDIENTS_EXCLUDED ->
+                "les seuls ingrédients incertains ont été exclus"
+            ConditionalVerdictReason.KNOWN_NON_VEGETARIAN_INGREDIENT_REMAINS ->
+                "un ingrédient non végétarien connu reste bloquant"
+            ConditionalVerdictReason.UNKNOWN_INGREDIENT_REMAINS ->
+                "un ingrédient non identifié reste bloquant"
+            ConditionalVerdictReason.NO_RELIABLE_ANALYSIS ->
+                "aucune analyse fiable du reste de la composition"
+            ConditionalVerdictReason.NO_UNCERTAIN_INGREDIENT ->
+                "aucun ingrédient incertain à exclure"
         }
 
     private val VeganAssessment.displayName: String

@@ -8,4 +8,34 @@
     <string name="paste_full_label">Paste the full label text</string><string name="paste_ingredients">Paste only the ingredient list</string><string name="paste_ocr">Correct or enter the label text</string><string name="check_text">OCR may contain errors: check the text before analysis.</string><string name="local_only">The list stays on this device.</string><string name="waiting">⚪ Waiting for analysis</string><string name="no_photo">No photo selected.</string><string name="photo_selected">Photo selected. Press EXTRACT TEXT.</string><string name="manual_enabled">Manual entry enabled.</string><string name="crop_reset_message">Crop reset. The full image will be used.</string><string name="ocr_raw_kept">Raw text is kept exactly as provided by ML Kit.</string>
     <string name="language_french">Français</string><string name="language_english">English</string><string name="language_dutch">Nederlands</string>
     <string name="ocr_block_choice">OCR block to analyze</string><string name="full_ocr_text">Full text</string>
+    <string name="language_german">Deutsch</string>
+    <string name="verdict_uncertain">⚠️ UNCERTAIN</string>
+    <string name="uncertain_ingredients_title">Uncertain ingredients:</string>
+    <string name="uncertain_ingredient_item">Uncertain ingredient: %1$s\nThis item prevents confirmation that the product is vegan.</string>
+    <string name="unidentified_ingredients_title">Unidentified ingredients:</string>
+    <string name="unidentified_ingredient_item">Unidentified ingredient: %1$s\nThis item prevents confirmation that the product is vegan.</string>
+    <string name="conditional_vegan">Vegan excluding uncertain ingredient</string>
+    <string name="conditional_vegetarian">Vegetarian excluding uncertain ingredient</string>
+    <string name="empty_input_prompt">ℹ️ Enter an ingredient list first.</string>
+    <string name="no_ingredient_list">ℹ️ NO INGREDIENT LIST DETECTED</string>
+    <string name="no_vegan_conclusion">No vegan conclusion is produced.</string>
+    <string name="verdict_non_vegan">❌ NON VEGAN</string>
+    <string name="verdict_inconclusive">⚠️ INCONCLUSIVE</string>
+    <string name="verdict_vegetarian">🥕 VEGETARIAN</string>
+    <string name="verdict_vegan">✅ VEGAN</string>
+    <string name="known_blocking_ingredients_title">Known causes incompatible with a vegan verdict:</string>
+    <string name="detected_ingredient_item">%1$s</string>
+    <string name="inconclusive_explanation">The database does not recognize the entire list.</string>
+    <string name="vegetarian_explanation">Verdict based on the ingredient list, not a product certification.</string>
+    <string name="vegan_explanation">All ingredients in the list were recognized as plant-based or mineral in the offline database.</string>
+    <string name="traces_title">⚠️ REPORTED TRACES</string>
+    <string name="trace_item">• %1$s</string>
+    <string name="traces_excluded_notice">Traces are shown separately and influenced neither the verdict nor the conditional result.</string>
+    <string name="assessment_vegan">VEGAN</string>
+    <string name="assessment_non_vegan">NON VEGAN</string>
+    <string name="assessment_uncertain">UNCERTAIN</string>
+    <string name="vegan_compatibility_format">Vegan compatibility based on declared ingredients: %1$s</string>
+    <string name="declared_presence_format">Declared actual presence: %1$s</string>
+    <string name="detailed_classification_title">Detailed classification:</string>
+    <string name="analysis_declared_notice">Analysis based on the information declared on the label.</string>
 </resources>

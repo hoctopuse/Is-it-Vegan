@@ -101,7 +101,7 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                     val current = VeganAnalyzer.analyzeWithDiagnostics(
                         text, requestedMode, requestedLanguage, requestedBlockId
                     )
-                    val display = OcrFirstScreenResult.render(text, current)
+                    val display = OcrFirstScreenResult.render(text, current, localized.resources)
                     Triple(current, display, DiagnosticReport.build(current, versionName))
                 }
             }
@@ -219,6 +219,7 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                         UiLanguage.FR -> ui(R.string.language_french)
                         UiLanguage.EN -> ui(R.string.language_english)
                         UiLanguage.NL -> ui(R.string.language_dutch)
+                        UiLanguage.DE -> ui(R.string.language_german)
                     }
                     FilterChip(
                         selected = uiLanguage == language,
@@ -280,19 +281,8 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
 }
 
 private object OcrFirstScreenResult {
-    fun render(text: String, diagnostics: AnalysisDiagnostics): String {
-        val a = diagnostics.result
-        val unknown = if (a.unknown.isEmpty()) "" else "\n\nNon reconnus : " + a.unknown.joinToString(", ")
-        val detail = when {
-            text.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
-            a.availability == AnalysisAvailability.NO_INGREDIENT_LIST -> "ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE\n\nAucune conclusion vegan n’est produite."
-            a.verdict == AnalysisVerdict.NON_VEGETARIAN -> "❌ NON VEGAN\n\nIngrédient détecté :\n" + a.matched.filter { it.status == VeganStatus.NON_VEGAN }.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" }
-            a.verdict == AnalysisVerdict.UNCERTAIN -> "⚠️ INCERTAIN\n\nÀ vérifier :\n" + a.uncertainIngredients.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" } + unknown
-            a.verdict == AnalysisVerdict.INCONCLUSIVE -> "⚠️ INCONCLUS\n\nLa base ne reconnaît pas toute la liste." + unknown
-            a.verdict == AnalysisVerdict.VEGETARIAN -> "🥕 VÉGÉTARIEN\n\nIngrédient détecté :\n" + a.vegetarianIngredients.joinToString("\n\n") { "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}" }
-            else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus comme végétaux ou minéraux dans la base hors ligne."
-        }
-        return detail + CrossContactNotice.format(a.crossContactWarnings)
+    fun render(text: String, diagnostics: AnalysisDiagnostics, resources: android.content.res.Resources): String {
+        return VerdictExplanationFormatter.render(resources, text, diagnostics)
     }
 }
 

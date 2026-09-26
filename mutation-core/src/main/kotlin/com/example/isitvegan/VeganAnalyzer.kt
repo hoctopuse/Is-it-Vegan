@@ -104,6 +104,7 @@ data class AnalysisDiagnostics(
         }
     val ingredientGroups: IngredientDiagnosticGroups get() = result.toIngredientDiagnosticGroups()
     val decision: DecisionDiagnostic get() = result.toDecisionDiagnostic()
+    val verdictExplanation: VerdictExplanation get() = toVerdictExplanation()
 }
 
 data class ParenthesisStructure(
@@ -471,6 +472,7 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
             UiLanguage.FR -> listOf(LabelLanguage.FRENCH, LabelLanguage.ENGLISH, LabelLanguage.DUTCH)
             UiLanguage.EN -> listOf(LabelLanguage.ENGLISH, LabelLanguage.FRENCH, LabelLanguage.DUTCH)
             UiLanguage.NL -> listOf(LabelLanguage.DUTCH, LabelLanguage.ENGLISH, LabelLanguage.FRENCH)
+            UiLanguage.DE -> listOf(LabelLanguage.GERMAN, LabelLanguage.ENGLISH, LabelLanguage.FRENCH)
         } + listOf(
             LabelLanguage.GERMAN,
             LabelLanguage.SPANISH

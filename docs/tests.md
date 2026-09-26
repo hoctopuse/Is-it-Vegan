@@ -28,6 +28,7 @@ Les suites principales sont regroupées ci-dessous.
 | Régression 0.6.5 | `Version065OcrPipelineTest` | titres OCR, score bloc complet, identité partagée, traces FR/DE/NL, conservation, séries E et pont allemand |
 | Parsing | `IngredientTreeParserTest`, `HierarchyAnalysisTest`, `ParserModulesTest` | parenthèses, crochets, niveaux, pourcentages, classes fonctionnelles et additifs |
 | Matching/verdict | `VeganAnalyzerTest`, `UnknownCollectionHotfixTest`, suites `Version05…Test` | alias longs, expressions protégées, inconnus, règles d’origine et priorité du verdict |
+| Explication 0.6.9 | `VerdictExplanation069Test` | résultat conditionnel vegan/végétarien, bloqueurs, occurrences identiques ordonnées, chemins imbriqués, traces et stabilité du verdict principal |
 
 Les noms historiques de certaines suites correspondent à la version où le comportement a été introduit. Ils restent des tests de régression du code actuel.
 
@@ -82,6 +83,7 @@ Suites actuelles :
 - `OcrTextCleanerInstrumentedTest` : expressions Unicode exécutées par le moteur regex Android, notamment les majuscules accentuées ;
 - `RealLabelsInstrumentedTest` : étiquettes réalistes, hiérarchies, verdicts et traces avec l’asset embarqué ;
 - `Version0511InstrumentedTest` : présence de données attendues dans la base embarquée.
+- `VerdictExplanationInstrumentedTest` : terminologie conditionnelle, rendu NON VEGAN avec incertains, traces et chemin explicatif en FR, NL, EN et DE.
 
 Les fixtures OCR possèdent un `.png` et un `.txt` de référence pour `simple`, `multilingual`, `nested` et `may_contain`. Seule cette suite dépend réellement de ML Kit ; les tests de reconstruction utilisent des `OcrDocument` simulés.
 

@@ -45,6 +45,8 @@ L’analyse rappelle `LabelLanguageSegmenter` dans `IngredientAnalysisService`. 
 | Décision | `UnknownCollector`, `VerdictEngine`, `AnalysisResult` | inconnus, compatibilité vegan et classification détaillée |
 | Diagnostic | `DiagnosticReport`, `OcrExportReport` | rapports texte partageables à l’initiative de l’utilisateur |
 
+`AnalysisDiagnostics.verdictExplanation` est une vue dérivée du résultat et des chemins de tokens. Elle consulte la propriété calculée `verdictWithoutUncertain`, qui peut rappeler `VerdictEngine.evaluate` en excluant uniquement les statuts `UNCERTAIN`. Il n’existe pas de second moteur divergent : `AnalysisResult.verdict` reste la référence métier et le résultat conditionnel reste une information distincte.
+
 ## État et concurrence
 
 `MainActivity` charge les trois assets de connaissance via `VeganAnalyzer.loadDatabase` sur `Dispatchers.IO`. `AndroidIngredientKnowledgeLoader` lit les assets avec `Context`, puis `IngredientKnowledge.fromJson` les valide et les injecte dans `IngredientAnalysisService`. Aucun accès Android n’existe dans `:mutation-core`. Le bouton d’analyse reste désactivé tant que ce chargement n’a pas réussi. `OcrFirstScreen` exécute le décodage sur `Dispatchers.IO` et l’analyse CPU sur `Dispatchers.Default`. `OcrProcessor` possède un `CoroutineScope` supervisé et restitue ses callbacks sur `Dispatchers.Main`.

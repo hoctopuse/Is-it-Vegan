@@ -25,6 +25,36 @@ data class IngredientDiagnosticGroups(
     val unknownIngredients: List<String>
 )
 
+data class VerdictIngredientReference(
+    /** Stable identity of this analyzed occurrence, independent of its text and path. */
+    val occurrenceId: String,
+    val ingredientId: String,
+    val displayName: String,
+    val path: List<String>,
+    val status: VeganStatus,
+    val reason: String
+)
+
+enum class ConditionalVerdictReason {
+    UNCERTAIN_INGREDIENTS_EXCLUDED,
+    KNOWN_NON_VEGETARIAN_INGREDIENT_REMAINS,
+    UNKNOWN_INGREDIENT_REMAINS,
+    NO_RELIABLE_ANALYSIS,
+    NO_UNCERTAIN_INGREDIENT
+}
+
+/** Structured explanation derived from the completed analysis; it never changes the main verdict. */
+data class VerdictExplanation(
+    val mainVerdict: AnalysisVerdict?,
+    val mainVeganAssessment: VeganAssessment,
+    val knownBlockingIngredients: List<VerdictIngredientReference>,
+    val uncertainIngredients: List<VerdictIngredientReference>,
+    val conditionalVerdict: AnalysisVerdict?,
+    val conditionalReason: ConditionalVerdictReason,
+    val vegetarianStatus: AnalysisVerdict?,
+    val tracesExcludedFromConditionalVerdict: Boolean
+)
+
 enum class DecisionReason {
     NO_INGREDIENT_LIST,
     EXPLICIT_NON_VEGAN_ORIGIN,
@@ -91,5 +121,81 @@ internal fun AnalysisResult.toDecisionDiagnostic(): DecisionDiagnostic {
         unknownIngredients = unknown,
         unknownPreventsVegan = unknown.isNotEmpty() && veganAssessment == VeganAssessment.UNCERTAIN,
         tracesExcludedFromVerdict = true
+    )
+}
+
+internal fun AnalysisDiagnostics.toVerdictExplanation(): VerdictExplanation {
+    val tokensByOrder = tokens.associateBy { it.order }
+    fun pathFor(token: TokenDiagnostic): List<String> {
+        val reversed = mutableListOf<String>()
+        var current: TokenDiagnostic? = token
+        val visited = hashSetOf<Int>()
+        while (current != null && visited.add(current.order)) {
+            reversed += current.text
+            current = current.parentOrder?.let(tokensByOrder::get)
+        }
+        return reversed.asReversed()
+    }
+
+    fun referencesFor(ingredients: List<Ingredient>): List<VerdictIngredientReference> {
+        val byId = ingredients.associateBy { it.id }
+        val occurrences = tokens.flatMap { token ->
+            token.matchedIngredientIds.mapIndexedNotNull { index, id ->
+                byId[id]?.takeIf { ingredient ->
+                    token.effectiveStatuses.getOrNull(index)?.let { it == ingredient.status } ?: true
+                }?.let { ingredient ->
+                    VerdictIngredientReference(
+                        occurrenceId = "token:${token.order}:match:$index",
+                        ingredientId = ingredient.id,
+                        displayName = ingredient.eNumber ?: ingredient.name,
+                        path = pathFor(token),
+                        status = ingredient.status,
+                        reason = ingredient.reason
+                    )
+                }
+            }
+        }
+        val representedIds = occurrences.mapTo(hashSetOf()) { it.ingredientId }
+        return occurrences + ingredients.filterNot { it.id in representedIds }.map { ingredient ->
+            VerdictIngredientReference(
+                occurrenceId = "ingredient:${ingredient.id}",
+                ingredientId = ingredient.id,
+                displayName = ingredient.eNumber ?: ingredient.name,
+                path = listOf(ingredient.eNumber ?: ingredient.name),
+                status = ingredient.status,
+                reason = ingredient.reason
+            )
+        }
+    }
+
+    val uncertain = referencesFor(result.uncertainIngredients)
+    val explicitOriginBlockers = result.matched.filter { it.id in result.originNonVeganIngredientIds }
+    val knownBlockers = referencesFor((result.veganBlockers + explicitOriginBlockers).distinctBy { it.id })
+    val conditionalCandidate = result.verdictWithoutUncertain
+    val conditionalReason = when {
+        result.availability == AnalysisAvailability.NO_INGREDIENT_LIST || result.verdict == null ->
+            ConditionalVerdictReason.NO_RELIABLE_ANALYSIS
+        uncertain.isEmpty() -> ConditionalVerdictReason.NO_UNCERTAIN_INGREDIENT
+        result.originNonVeganIngredientIds.isNotEmpty() ||
+            conditionalCandidate == AnalysisVerdict.NON_VEGETARIAN ->
+            ConditionalVerdictReason.KNOWN_NON_VEGETARIAN_INGREDIENT_REMAINS
+        conditionalCandidate == AnalysisVerdict.INCONCLUSIVE ->
+            if (result.unknown.isNotEmpty()) ConditionalVerdictReason.UNKNOWN_INGREDIENT_REMAINS
+            else ConditionalVerdictReason.NO_RELIABLE_ANALYSIS
+        else -> ConditionalVerdictReason.UNCERTAIN_INGREDIENTS_EXCLUDED
+    }
+    val conditionalVerdict = conditionalCandidate.takeIf {
+        conditionalReason == ConditionalVerdictReason.UNCERTAIN_INGREDIENTS_EXCLUDED &&
+            it in setOf(AnalysisVerdict.VEGAN, AnalysisVerdict.VEGETARIAN)
+    }
+    return VerdictExplanation(
+        mainVerdict = result.verdict,
+        mainVeganAssessment = result.veganAssessment,
+        knownBlockingIngredients = knownBlockers,
+        uncertainIngredients = uncertain,
+        conditionalVerdict = conditionalVerdict,
+        conditionalReason = conditionalReason,
+        vegetarianStatus = result.vegetarianVerdictWithoutUncertain,
+        tracesExcludedFromConditionalVerdict = true
     )
 }

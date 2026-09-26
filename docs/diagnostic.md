@@ -23,9 +23,17 @@ Le modèle `AnalysisDiagnostics` fournit aussi une représentation structurée d
 - `inputWarnings` code les entrées vides, les blocs manifestement tronqués et les structures de parenthèses incohérentes ;
 - `ingredientGroups` sépare les identifiants vegan, végétariens, non végétariens et incertains, ainsi que les textes inconnus ;
 - `decision` expose le verdict, le statut végétarien secondaire, une raison stable, les identifiants responsables, l’effet bloquant des inconnus et l’exclusion des traces ;
+- `verdictExplanation` sépare le verdict principal, les bloqueurs connus, toutes les occurrences incertaines avec leur chemin, le résultat conditionnel éventuel, sa raison, le statut végétarien et l’exclusion des traces ;
 - `ignoredSectionDiagnostics` associe chaque texte ignoré à la raison `OUTSIDE_INGREDIENT_COMPOSITION`.
 
-Ces propriétés sont dérivées du résultat existant. Elles n’appellent ni le parseur, ni le matcher, ni le moteur de verdict une seconde fois.
+Ces propriétés sont dérivées de l’analyse existante et ne rappellent ni le parseur ni le matcher.
+Il n’existe pas de second moteur de verdict divergent : certaines propriétés calculées, dont
+`verdictExplanation`, consultent `verdictWithoutUncertain`, qui rappelle
+`VerdictEngine.evaluate` avec l’exclusion explicite des seuls statuts `UNCERTAIN`.
+`AnalysisResult.verdict` reste la référence métier ; le résultat conditionnel est une vue
+informative distincte qui réutilise exactement les règles du moteur existant.
+
+La section `EXPLICATION CONDITIONNELLE 0.6.9` du rapport texte reprend ces champs. Un résultat conditionnel absent est toujours accompagné d’une raison structurée ; le rapport ne présente donc jamais un reste inconclusif comme vegan.
 
 Pour chaque token, regarder en priorité :
 

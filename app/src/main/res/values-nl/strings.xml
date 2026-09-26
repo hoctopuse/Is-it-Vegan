@@ -3,4 +3,34 @@
     <string name="choose_photo">FOTO KIEZEN</string><string name="manual_entry">HANDMATIGE INVOER</string><string name="crop_for_ocr">BIJSNIJDEN VOOR OCR</string><string name="use_crop">DIT KADER GEBRUIKEN</string><string name="reset_crop">KADER RESETTEN</string><string name="ocr_full_image">OCR op volledige afbeelding</string><string name="ocr_cropped_image">OCR op bijgesneden gebied</string><string name="extract_text">TEKST EXTRAHEREN</string><string name="extracting">EXTRACTIE…</string><string name="analyze">ANALYSEREN</string><string name="clear">WISSEN</string><string name="export">EXPORTEREN</string><string name="result">Resultaat</string><string name="language">Taal</string>
     <string name="raw_ocr">Ruwe OCR-tekst (alleen lezen)</string><string name="editable_ocr">Bewerkbare tekst voor analyse</string><string name="full_label_text">Etikettekst</string><string name="ingredient_list">Ingrediëntenlijst</string><string name="ocr_text">OCR-tekst</string><string name="paste_full_label">Plak de volledige etikettekst</string><string name="paste_ingredients">Plak alleen de ingrediëntenlijst</string><string name="paste_ocr">Corrigeer of voer de etikettekst in</string><string name="check_text">OCR kan fouten bevatten: controleer de tekst vóór analyse.</string><string name="local_only">De lijst blijft op dit apparaat.</string><string name="waiting">⚪ Wachten op analyse</string><string name="no_photo">Geen foto geselecteerd.</string><string name="photo_selected">Foto geselecteerd. Druk op TEKST EXTRAHEREN.</string><string name="manual_enabled">Handmatige invoer geactiveerd.</string><string name="crop_reset_message">Kader gereset. De volledige afbeelding wordt gebruikt.</string><string name="ocr_raw_kept">De ruwe tekst blijft exact zoals geleverd door ML Kit.</string><string name="language_french">Français</string><string name="language_english">English</string><string name="language_dutch">Nederlands</string>
     <string name="ocr_block_choice">OCR-blok om te analyseren</string><string name="full_ocr_text">Volledige tekst</string>
+    <string name="language_german">Deutsch</string>
+    <string name="verdict_uncertain">⚠️ ONZEKER</string>
+    <string name="uncertain_ingredients_title">Onzekere ingrediënten:</string>
+    <string name="uncertain_ingredient_item">Onzeker ingrediënt: %1$s\nDit element verhindert de bevestiging dat het product vegan is.</string>
+    <string name="unidentified_ingredients_title">Niet-geïdentificeerde ingrediënten:</string>
+    <string name="unidentified_ingredient_item">Niet-geïdentificeerd ingrediënt: %1$s\nDit element verhindert de bevestiging dat het product vegan is.</string>
+    <string name="conditional_vegan">Vegan zonder onzeker ingrediënt</string>
+    <string name="conditional_vegetarian">Vegetarisch zonder onzeker ingrediënt</string>
+    <string name="empty_input_prompt">ℹ️ Voer eerst een ingrediëntenlijst in.</string>
+    <string name="no_ingredient_list">ℹ️ GEEN INGREDIËNTENLIJST GEDETECTEERD</string>
+    <string name="no_vegan_conclusion">Er wordt geen vegan conclusie gegeven.</string>
+    <string name="verdict_non_vegan">❌ NIET VEGAN</string>
+    <string name="verdict_inconclusive">⚠️ GEEN CONCLUSIE</string>
+    <string name="verdict_vegetarian">🥕 VEGETARISCH</string>
+    <string name="verdict_vegan">✅ VEGAN</string>
+    <string name="known_blocking_ingredients_title">Bekende oorzaken die een vegan oordeel uitsluiten:</string>
+    <string name="detected_ingredient_item">%1$s</string>
+    <string name="inconclusive_explanation">De databank herkent niet de volledige lijst.</string>
+    <string name="vegetarian_explanation">Oordeel gebaseerd op de ingrediëntenlijst, niet op een productcertificering.</string>
+    <string name="vegan_explanation">Alle ingrediënten in de lijst zijn in de offline databank als plantaardig of mineraal herkend.</string>
+    <string name="traces_title">⚠️ VERMELDE SPOREN</string>
+    <string name="trace_item">• %1$s</string>
+    <string name="traces_excluded_notice">Sporen worden apart getoond en hadden geen invloed op het oordeel of het voorwaardelijke resultaat.</string>
+    <string name="assessment_vegan">VEGAN</string>
+    <string name="assessment_non_vegan">NIET VEGAN</string>
+    <string name="assessment_uncertain">ONZEKER</string>
+    <string name="vegan_compatibility_format">Vegan compatibiliteit volgens de vermelde ingrediënten: %1$s</string>
+    <string name="declared_presence_format">Uitdrukkelijk vermelde aanwezigheid: %1$s</string>
+    <string name="detailed_classification_title">Gedetailleerde classificatie:</string>
+    <string name="analysis_declared_notice">Analyse gebaseerd op de informatie op het etiket.</string>
 </resources>
