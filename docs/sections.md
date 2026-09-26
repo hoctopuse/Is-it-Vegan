@@ -6,7 +6,7 @@
 
 `LabelSections` expose :
 
-- `ingredientsText` : composition située après un titre reconnu ;
+- `ingredientsText` : composition située après un titre reconnu ou retenue sans titre après contrôle structurel ;
 - `declaredContainsText` : présence réelle déclarée par « contient », `contains`, `bevat`, `enthält` ou `contiene` ;
 - `tracesText` : avertissements de contamination croisée ;
 - `ingredientSection` : limites début inclusif/fin exclusive et texte brut de la composition ;
@@ -22,7 +22,7 @@ Les marqueurs sont cherchés dans le texte, puis filtrés avec `depthAt`. Seuls 
 
 ## Composition et présence réelle
 
-Après un titre d’ingrédients, la composition s’arrête au prochain titre d’ingrédients, à une trace, à une présence réelle ou à une section ignorée. Si aucun titre n’existe, le texte précédant une trace ou une section ignorée reste disponible pour le mode manuel ; les modes étiquette et OCR exigent toutefois un vrai titre avant de l’analyser.
+Après un titre d’ingrédients, la composition s’arrête au prochain titre d’ingrédients, à une trace, à une présence réelle ou à une section ignorée. Sans titre, les modes étiquette et OCR n’acceptent une composition que si plusieurs indices indépendants convergent : au moins trois séparateurs de premier niveau, quatre éléments compatibles avec le parseur, deux termes alimentaires bornés et un indice supplémentaire (pourcentage, structure équilibrée ou séquence dense). Les textes nutritionnels, marketing, courts ou limités aux traces restent `NO_INGREDIENT_LIST`.
 
 Une section `contient : lait` est parsée séparément. Les petits déterminants français initiaux (`du`, `des`, `de la`, `de l’`) sont retirés avant parsing. Ses ingrédients reconnus contribuent au résultat et leurs identifiants sont ajoutés à `declaredPresenceIngredientIds`.
 

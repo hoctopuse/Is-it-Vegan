@@ -11,7 +11,7 @@ Le projet produit deux rapports texte complémentaires : un rapport d’analyse 
 | En-tête | version, mode d’entrée, disponibilité, fallback manuel et portée |
 | Entrée | texte exact soumis à `VeganAnalyzer` |
 | Langue/bloc | identifiant, langues originale/normalisée, score, critères, longueur, troncature, corrections et fallback |
-| Sections | titre, séparateur, présence réelle, traces et frontière détectée |
+| Sections | titre ou liste implicite, indices/confiance structurels, séparateur, présence réelle, traces et frontière détectée |
 | Composition | texte après `LabelPreprocessor` et présence réelle séparée |
 | Traces/notes | avertissements de contamination et notes exclues |
 | Étapes | un enregistrement par nœud/token |

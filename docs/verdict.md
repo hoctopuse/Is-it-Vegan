@@ -43,7 +43,7 @@ Une qualification active peut remplacer le statut d’une entrée incertaine par
 
 ## Présence réelle et absence de liste
 
-En mode `FULL_LABEL` ou `OCR_LABEL`, aucun arbre n’est construit sans titre d’ingrédients reconnu. `availability` vaut alors `NO_INGREDIENT_LIST` et `verdict`/`verdictWithoutUncertain` valent `null`.
+En mode `FULL_LABEL` ou `OCR_LABEL`, aucun arbre n’est construit sans une composition explicite ou une composition sans titre retenue par les contrôles structurels de `LabelSectionExtractor`. Sinon, `availability` vaut `NO_INGREDIENT_LIST` et `verdict`/`verdictWithoutUncertain` valent `null`.
 
 Une section autonome « contient » est néanmoins parsée séparément. Ses correspondances alimentent `matched`, `declaredPresenceIngredientIds` et `veganAssessment`, mais ne créent pas artificiellement une liste d’ingrédients complète.
 

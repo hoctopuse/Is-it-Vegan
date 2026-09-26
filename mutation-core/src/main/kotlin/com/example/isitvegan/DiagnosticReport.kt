@@ -80,8 +80,19 @@ object DiagnosticReport {
             )
             appendLine()
             appendLine("SECTIONS DÉTECTÉES")
-            appendLine("Section ingrédients : ${if (diagnostics.labelSections.hasIngredientHeading) "détectée" else "non détectée"}")
+            val implicitList = diagnostics.labelSections.implicitIngredientList
+            appendLine(
+                "Section ingrédients : " + when {
+                    implicitList != null -> "détectée sans titre explicite"
+                    diagnostics.labelSections.hasIngredientHeading -> "détectée"
+                    else -> "non détectée"
+                }
+            )
             appendLine("Titre détecté : ${diagnostics.labelSections.ingredientHeadingText ?: "aucun"}")
+            implicitList?.let {
+                appendLine("Confiance liste implicite : ${it.confidence.displayName}")
+                appendLine("Indices liste implicite : ${it.structuralReasons.structuredList()}")
+            }
             diagnostics.labelSections.ingredientSection?.let {
                 appendLine("Frontière ingrédients : ${it.start}…${it.end}")
             }
@@ -351,5 +362,10 @@ object DiagnosticReport {
             HeadingSeparator.COLON -> "deux-points"
             HeadingSeparator.DASH -> "tiret"
             HeadingSeparator.LINE_BREAK -> "retour à la ligne"
+        }
+
+    private val ImplicitIngredientListConfidence.displayName: String
+        get() = when (this) {
+            ImplicitIngredientListConfidence.HIGH -> "élevée (indices structurels concordants)"
         }
 }
