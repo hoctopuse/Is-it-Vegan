@@ -95,7 +95,7 @@ internal fun AnalysisResult.toIngredientDiagnosticGroups() = IngredientDiagnosti
 
 internal fun AnalysisResult.toDecisionDiagnostic(): DecisionDiagnostic {
     val reason = when {
-        availability == AnalysisAvailability.NO_INGREDIENT_LIST && matched.isEmpty() ->
+        availability == AnalysisAvailability.NO_INGREDIENT_LIST ->
             DecisionReason.NO_INGREDIENT_LIST
         originNonVeganIngredientIds.isNotEmpty() -> DecisionReason.EXPLICIT_NON_VEGAN_ORIGIN
         veganBlockers.isNotEmpty() -> DecisionReason.KNOWN_VEGAN_BLOCKER
@@ -168,9 +168,17 @@ internal fun AnalysisDiagnostics.toVerdictExplanation(): VerdictExplanation {
         }
     }
 
-    val uncertain = referencesFor(result.uncertainIngredients)
+    val uncertain = if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+        emptyList()
+    } else {
+        referencesFor(result.uncertainIngredients)
+    }
     val explicitOriginBlockers = result.matched.filter { it.id in result.originNonVeganIngredientIds }
-    val knownBlockers = referencesFor((result.veganBlockers + explicitOriginBlockers).distinctBy { it.id })
+    val knownBlockers = if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+        emptyList()
+    } else {
+        referencesFor((result.veganBlockers + explicitOriginBlockers).distinctBy { it.id })
+    }
     val conditionalCandidate = result.verdictWithoutUncertain
     val conditionalReason = when {
         result.availability == AnalysisAvailability.NO_INGREDIENT_LIST || result.verdict == null ->

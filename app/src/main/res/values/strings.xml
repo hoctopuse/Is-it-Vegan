@@ -51,6 +51,7 @@
     <string name="empty_input_prompt">ℹ️ Entrez d’abord une liste d’ingrédients.</string>
     <string name="no_ingredient_list">ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE</string>
     <string name="no_vegan_conclusion">Aucune conclusion vegan n’est produite.</string>
+    <string name="analysis_not_evaluated">Analyse non évaluée : aucune liste d’ingrédients exploitable.</string>
     <string name="verdict_non_vegan">❌ NON VEGAN</string>
     <string name="verdict_inconclusive">⚠️ INCONCLUS</string>
     <string name="verdict_vegetarian">🥕 VÉGÉTARIEN</string>

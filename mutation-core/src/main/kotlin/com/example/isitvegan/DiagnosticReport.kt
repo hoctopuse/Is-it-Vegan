@@ -192,11 +192,9 @@ object DiagnosticReport {
             appendLine(diagnostics.originRuleErrors.structuredList().ifBlank { "valide" })
             appendLine()
             appendLine("RÉSULTAT")
-            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST &&
-                result.matched.isEmpty()
-            ) {
-                appendLine("Compatibilité vegan selon les ingrédients déclarés : non évaluée")
-                appendLine("Classification détaillée : non calculée")
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                appendLine("Résultat : non évalué")
+                appendLine("Aucune conclusion vegan fiable n’est produite")
             } else {
                 appendLine(
                     "Compatibilité vegan selon les ingrédients déclarés : " +
@@ -206,26 +204,46 @@ object DiagnosticReport {
                 appendLine("Verdict sans les incertains : ${result.verdictWithoutUncertain}")
                 appendLine("Végétarien selon les ingrédients reconnus, hors éléments incertains : ${result.vegetarianVerdictWithoutUncertain}")
             }
-            appendLine(
-                "Bloqueurs détectés : " + result.veganBlockers
-                    .map { it.id }.structuredList().ifBlank { "aucun" }
-            )
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                appendLine("Bloqueurs détectés : non calculés")
+            } else {
+                appendLine(
+                    "Bloqueurs détectés : " + result.veganBlockers
+                        .map { it.id }.structuredList().ifBlank { "aucun" }
+                )
+            }
             val groups = diagnostics.ingredientGroups
-            appendLine("Ingrédients vegan : ${groups.veganIngredientIds.structuredList().ifBlank { "aucun" }}")
-            appendLine("Ingrédients végétariens non vegan : ${groups.vegetarianIngredientIds.structuredList().ifBlank { "aucun" }}")
-            appendLine("Ingrédients non végétariens : ${groups.nonVegetarianIngredientIds.structuredList().ifBlank { "aucun" }}")
-            appendLine("Ingrédients incertains : ${groups.uncertainIngredientIds.structuredList().ifBlank { "aucun" }}")
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                appendLine("Ingrédients vegan : non calculés")
+                appendLine("Ingrédients végétariens non vegan : non calculés")
+                appendLine("Ingrédients non végétariens : non calculés")
+                appendLine("Ingrédients incertains : non calculés")
+            } else {
+                appendLine("Ingrédients vegan : ${groups.veganIngredientIds.structuredList().ifBlank { "aucun" }}")
+                appendLine("Ingrédients végétariens non vegan : ${groups.vegetarianIngredientIds.structuredList().ifBlank { "aucun" }}")
+                appendLine("Ingrédients non végétariens : ${groups.nonVegetarianIngredientIds.structuredList().ifBlank { "aucun" }}")
+                appendLine("Ingrédients incertains : ${groups.uncertainIngredientIds.structuredList().ifBlank { "aucun" }}")
+            }
             appendLine(
                 "Preuves de présence réelle : " + result.declaredPresenceIngredientIds
                     .structuredList().ifBlank { "aucune" }
             )
-            appendLine(
-                "Origines explicitement non vegan : " + result.originNonVeganIngredientIds
-                    .structuredList().ifBlank { "aucune" }
-            )
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                appendLine("Origines explicitement non vegan : non calculées")
+            } else {
+                appendLine(
+                    "Origines explicitement non vegan : " + result.originNonVeganIngredientIds
+                        .structuredList().ifBlank { "aucune" }
+                )
+            }
             appendLine("Analyse arrêtée tôt : ${if (result.stoppedAtNonVegetarian) "oui" else "non"}")
-            appendLine("Reconnus : ${result.matched.map { "${it.id} (${it.status})" }.structuredList().ifBlank { "aucun" }}")
-            appendLine("Inconnus : ${result.unknown.structuredList().ifBlank { "aucun" }}")
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                appendLine("Reconnus : non calculés")
+                appendLine("Inconnus : non calculés")
+            } else {
+                appendLine("Reconnus : ${result.matched.map { "${it.id} (${it.status})" }.structuredList().ifBlank { "aucun" }}")
+                appendLine("Inconnus : ${result.unknown.structuredList().ifBlank { "aucun" }}")
+            }
             val decision = diagnostics.decision
             appendLine("Éléments responsables du verdict : ${decision.responsibleIngredientIds.structuredList().ifBlank { "aucun identifiant connu" }}")
             appendLine("Raison de décision : ${decision.reason.displayName}")
@@ -234,18 +252,28 @@ object DiagnosticReport {
             val explanation = diagnostics.verdictExplanation
             appendLine()
             appendLine("EXPLICATION CONDITIONNELLE 0.6.9")
-            appendLine("Verdict principal conservé : ${explanation.mainVerdict ?: "non calculé"}")
             appendLine(
-                "Ingrédients incertains exclus : " + explanation.uncertainIngredients
-                    .joinToString(" | ") { ingredient ->
-                        "${ingredient.ingredientId}#${ingredient.occurrenceId} " +
-                            "[${ingredient.path.joinToString(" → ")}]"
-                    }.ifBlank { "aucun" }
+                "Verdict principal conservé : " +
+                    if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                        "non évalué"
+                    } else explanation.mainVerdict ?: "non calculé"
             )
-            appendLine(
-                "Bloqueurs connus conservés : " + explanation.knownBlockingIngredients
-                    .map { it.ingredientId }.structuredList().ifBlank { "aucun" }
-            )
+            if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
+                appendLine("Ingrédients incertains exclus : non calculés")
+                appendLine("Bloqueurs connus conservés : non calculés")
+            } else {
+                appendLine(
+                    "Ingrédients incertains exclus : " + explanation.uncertainIngredients
+                        .joinToString(" | ") { ingredient ->
+                            "${ingredient.ingredientId}#${ingredient.occurrenceId} " +
+                                "[${ingredient.path.joinToString(" → ")}]"
+                        }.ifBlank { "aucun" }
+                )
+                appendLine(
+                    "Bloqueurs connus conservés : " + explanation.knownBlockingIngredients
+                        .map { it.ingredientId }.structuredList().ifBlank { "aucun" }
+                )
+            }
             appendLine("Résultat conditionnel hors incertains : ${explanation.conditionalVerdict ?: "non affiché"}")
             appendLine("Raison du résultat conditionnel : ${explanation.conditionalReason.displayName}")
             appendLine("Statut végétarien informatif : ${explanation.vegetarianStatus ?: "non calculé"}")

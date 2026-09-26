@@ -14,6 +14,7 @@
     <string name="empty_input_prompt">ℹ️ Voer eerst een ingrediëntenlijst in.</string>
     <string name="no_ingredient_list">ℹ️ GEEN INGREDIËNTENLIJST GEDETECTEERD</string>
     <string name="no_vegan_conclusion">Er wordt geen vegan conclusie gegeven.</string>
+    <string name="analysis_not_evaluated">Analyse niet uitgevoerd: geen bruikbare ingrediëntenlijst.</string>
     <string name="verdict_non_vegan">❌ NIET VEGAN</string>
     <string name="verdict_inconclusive">⚠️ GEEN CONCLUSIE</string>
     <string name="verdict_vegetarian">🥕 VEGETARISCH</string>

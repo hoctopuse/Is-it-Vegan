@@ -37,14 +37,12 @@ internal object VerdictExplanationFormatter {
         val result = diagnostics.result
         if (input.isBlank()) return resources.getString(R.string.empty_input_prompt)
         if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
-            val sections = mutableListOf(resources.getString(R.string.no_ingredient_list))
-            if (result.declaredPresenceIngredientIds.isEmpty()) {
-                sections += resources.getString(R.string.no_vegan_conclusion)
-            } else {
-                sections += resources.getString(
-                    R.string.vegan_compatibility_format,
-                    veganAssessment(resources, result.veganAssessment)
-                )
+            val sections = mutableListOf(
+                resources.getString(R.string.no_ingredient_list),
+                resources.getString(R.string.no_vegan_conclusion),
+                resources.getString(R.string.analysis_not_evaluated)
+            )
+            if (result.declaredPresenceIngredientIds.isNotEmpty()) {
                 sections += resources.getString(
                     R.string.declared_presence_format,
                     result.declaredPresenceIngredientIds.joinToString(" | ") { it.replace("|", "\\|") }
