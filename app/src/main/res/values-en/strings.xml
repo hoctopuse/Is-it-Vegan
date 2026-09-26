@@ -11,13 +11,14 @@
     <string name="language_german">Deutsch</string>
     <string name="verdict_uncertain">⚠️ UNCERTAIN</string>
     <string name="uncertain_ingredients_title">Uncertain ingredients:</string>
-    <string name="uncertain_ingredient_item">Uncertain ingredient: %1$s\nThis item prevents confirmation that the product is vegan.</string>
+    <string name="uncertain_ingredient_item">• %1$s</string>
     <string name="unidentified_ingredients_title">Unidentified ingredients:</string>
     <string name="unidentified_ingredient_item">• %1$s</string>
     <string name="unidentified_parent_item">• %1$s</string>
     <string name="unidentified_child_item">   └─ %1$s</string>
     <string name="ingredient_with_percentage">%1$s — %2$s %%</string>
     <string name="unidentified_ingredients_notice">These items prevent confirmation that the product is vegan.</string>
+    <string name="unconfirmed_vegan_notice">These items prevent confirmation that the product is vegan.</string>
     <string name="conditional_vegan">Vegan excluding uncertain ingredient</string>
     <string name="conditional_vegetarian">Vegetarian excluding uncertain ingredient</string>
     <string name="empty_input_prompt">ℹ️ Enter an ingredient list first.</string>

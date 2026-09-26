@@ -110,7 +110,22 @@ class VerdictExplanationInstrumentedTest {
             assertTrue(rendered.contains("• sirop de grenade —"))
             assertTrue(rendered.contains("└─ concentré de grenade —"))
             assertFalse(rendered.contains("|"))
-            assertEquals(1, rendered.split(resources.getString(R.string.unidentified_ingredients_notice)).size - 1)
+            assertEquals(1, rendered.split(resources.getString(R.string.unconfirmed_vegan_notice)).size - 1)
         }
+    }
+
+    @Test fun uncertainVerdictShowsUnknownIngredientsAndOneSharedBlockingNotice() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val diagnostics = service.analyzeWithDiagnostics("eau, arôme, mystère")
+        val resources = localizedContext(context, UiLanguage.FR).resources
+        val rendered = VerdictExplanationFormatter.render(resources, diagnostics.input, diagnostics)
+
+        assertEquals(AnalysisVerdict.UNCERTAIN, diagnostics.result.verdict)
+        assertTrue(rendered.contains(resources.getString(R.string.uncertain_ingredients_title)))
+        assertTrue(rendered.contains(resources.getString(R.string.unidentified_ingredients_title)))
+        assertTrue(rendered.contains("• mystère"))
+        assertFalse(rendered.contains(resources.getString(R.string.conditional_vegan)))
+        assertFalse(rendered.contains(resources.getString(R.string.conditional_vegetarian)))
+        assertEquals(1, rendered.split(resources.getString(R.string.unconfirmed_vegan_notice)).size - 1)
     }
 }

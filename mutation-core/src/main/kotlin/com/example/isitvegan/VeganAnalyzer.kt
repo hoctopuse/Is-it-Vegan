@@ -102,8 +102,9 @@ data class AnalysisDiagnostics(
         labelSections.ignoredSections.map {
             IgnoredSectionDiagnostic(it, IgnoredSectionReason.OUTSIDE_INGREDIENT_COMPOSITION)
         }
-    val ingredientGroups: IngredientDiagnosticGroups get() = result.toIngredientDiagnosticGroups()
-    val decision: DecisionDiagnostic get() = result.toDecisionDiagnostic()
+    val ingredientGroups: IngredientDiagnosticGroups get() =
+        result.toIngredientDiagnosticGroups(visibleUnknownIngredients)
+    val decision: DecisionDiagnostic get() = result.toDecisionDiagnostic(visibleUnknownIngredients)
     val verdictExplanation: VerdictExplanation get() = toVerdictExplanation()
 }
 

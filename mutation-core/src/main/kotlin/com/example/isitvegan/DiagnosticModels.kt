@@ -85,15 +85,38 @@ internal fun AnalysisDiagnostics.deriveInputWarnings(): List<DiagnosticInputWarn
     if (!parenthesisStructure.balanced) add(DiagnosticInputWarning.UNBALANCED_STRUCTURE)
 }
 
-internal fun AnalysisResult.toIngredientDiagnosticGroups() = IngredientDiagnosticGroups(
+/** UI/report aggregation: a token effectively classified as vegan is not an unknown. */
+val AnalysisDiagnostics.visibleUnknownTokens: List<TokenDiagnostic>
+    get() = tokens.mapNotNull { token ->
+        val unknown = token.unknown ?: return@mapNotNull null
+        if (token.isDeclaredPresence) return@mapNotNull null
+        val effectivelyVegan = token.effectiveStatuses.isNotEmpty() &&
+            token.effectiveStatuses.all { it == VeganStatus.VEGAN }
+        if (!effectivelyVegan) return@mapNotNull token
+
+        // OCR may prepend a standalone number to an otherwise recognized ingredient.
+        // Keep that unmatched fragment visible without presenting the recognized phrase as unknown.
+        Regex("^\\s*(\\d+)\\s+").find(unknown)?.groupValues?.getOrNull(1)?.let { number ->
+            token.copy(unknown = number)
+        }
+    }
+
+val AnalysisDiagnostics.visibleUnknownIngredients: List<String>
+    get() = visibleUnknownTokens.mapNotNull { it.unknown }.distinctBy(TextNormalizer::normalize)
+
+internal fun AnalysisResult.toIngredientDiagnosticGroups(
+    aggregatedUnknownIngredients: List<String> = unknown
+) = IngredientDiagnosticGroups(
     veganIngredientIds = matched.filter { it.status == VeganStatus.VEGAN }.map { it.id },
     vegetarianIngredientIds = matched.filter { it.status == VeganStatus.VEGETARIAN }.map { it.id },
     nonVegetarianIngredientIds = matched.filter { it.status == VeganStatus.NON_VEGAN }.map { it.id },
     uncertainIngredientIds = matched.filter { it.status == VeganStatus.UNCERTAIN }.map { it.id },
-    unknownIngredients = unknown
+    unknownIngredients = aggregatedUnknownIngredients
 )
 
-internal fun AnalysisResult.toDecisionDiagnostic(): DecisionDiagnostic {
+internal fun AnalysisResult.toDecisionDiagnostic(
+    aggregatedUnknownIngredients: List<String> = unknown
+): DecisionDiagnostic {
     val reason = when {
         availability == AnalysisAvailability.NO_INGREDIENT_LIST ->
             DecisionReason.NO_INGREDIENT_LIST
@@ -118,7 +141,7 @@ internal fun AnalysisResult.toDecisionDiagnostic(): DecisionDiagnostic {
         vegetarianVerdictWithoutUncertain = vegetarianVerdictWithoutUncertain,
         reason = reason,
         responsibleIngredientIds = responsibleIds,
-        unknownIngredients = unknown,
+        unknownIngredients = aggregatedUnknownIngredients,
         unknownPreventsVegan = unknown.isNotEmpty() && veganAssessment == VeganAssessment.UNCERTAIN,
         tracesExcludedFromVerdict = true
     )

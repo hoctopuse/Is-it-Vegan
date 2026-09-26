@@ -253,7 +253,7 @@ object DiagnosticReport {
                 appendLine("Inconnus : non calculés")
             } else {
                 appendLine("Reconnus : ${result.matched.map { "${it.id} (${it.status})" }.structuredList().ifBlank { "aucun" }}")
-                appendLine("Inconnus : ${result.unknown.structuredList().ifBlank { "aucun" }}")
+                appendLine("Inconnus : ${diagnostics.visibleUnknownIngredients.structuredList().ifBlank { "aucun" }}")
             }
             val decision = diagnostics.decision
             appendLine("Éléments responsables du verdict : ${decision.responsibleIngredientIds.structuredList().ifBlank { "aucun identifiant connu" }}")

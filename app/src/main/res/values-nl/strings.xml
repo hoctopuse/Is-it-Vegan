@@ -6,13 +6,14 @@
     <string name="language_german">Deutsch</string>
     <string name="verdict_uncertain">⚠️ ONZEKER</string>
     <string name="uncertain_ingredients_title">Onzekere ingrediënten:</string>
-    <string name="uncertain_ingredient_item">Onzeker ingrediënt: %1$s\nDit element verhindert de bevestiging dat het product vegan is.</string>
+    <string name="uncertain_ingredient_item">• %1$s</string>
     <string name="unidentified_ingredients_title">Niet-geïdentificeerde ingrediënten:</string>
     <string name="unidentified_ingredient_item">• %1$s</string>
     <string name="unidentified_parent_item">• %1$s</string>
     <string name="unidentified_child_item">   └─ %1$s</string>
     <string name="ingredient_with_percentage">%1$s — %2$s %%</string>
     <string name="unidentified_ingredients_notice">Deze elementen verhinderen de bevestiging dat het product vegan is.</string>
+    <string name="unconfirmed_vegan_notice">Deze elementen verhinderen de bevestiging dat het product vegan is.</string>
     <string name="conditional_vegan">Vegan zonder onzeker ingrediënt</string>
     <string name="conditional_vegetarian">Vegetarisch zonder onzeker ingrediënt</string>
     <string name="empty_input_prompt">ℹ️ Voer eerst een ingrediëntenlijst in.</string>

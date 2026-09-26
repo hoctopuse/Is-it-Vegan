@@ -33,6 +33,20 @@ class DiagnosticOutput093Test {
         assertEquals(AnalysisVerdict.INCONCLUSIVE, diagnostics.result.verdict)
     }
 
+    @Test fun effectiveVeganContextualMatchIsExcludedFromAggregatedUnknownLists() {
+        val diagnostics = analyze("tomate inhabituelle, mystère")
+        val report = DiagnosticReport.build(diagnostics, "0.6.9.7")
+
+        assertTrue(diagnostics.result.unknown.any { it.equals("tomate inhabituelle", true) })
+        assertTrue(diagnostics.tokens.first { it.text.equals("tomate inhabituelle", true) }
+            .effectiveStatuses.let { statuses -> statuses.isNotEmpty() && statuses.all { it == VeganStatus.VEGAN } })
+        assertEquals(listOf("mystère"), diagnostics.visibleUnknownIngredients)
+        assertEquals(listOf("mystère"), diagnostics.ingredientGroups.unknownIngredients)
+        assertEquals(listOf("mystère"), diagnostics.decision.unknownIngredients)
+        assertFalse(report.substringAfter("Inconnus :").substringBefore("Éléments responsables")
+            .contains("tomate inhabituelle", true))
+    }
+
     @Test fun realisticCompositionKeepsKnownAndUnknownListsConsistent() {
         val diagnostics = analyze(
             "poivron rouge 53%, noix de cajou 8,8%, noix 8,8%, huile de colza, " +

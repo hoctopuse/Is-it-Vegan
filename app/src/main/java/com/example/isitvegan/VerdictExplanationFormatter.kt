@@ -80,8 +80,15 @@ internal object VerdictExplanationFormatter {
                     )
                 }
         }
-        if (result.verdict == AnalysisVerdict.INCONCLUSIVE && result.unknown.isNotEmpty()) {
+        val showsUnknownIngredients = result.verdict in setOf(
+            AnalysisVerdict.INCONCLUSIVE,
+            AnalysisVerdict.UNCERTAIN
+        ) && diagnostics.visibleUnknownIngredients.isNotEmpty()
+        if (showsUnknownIngredients) {
             sections += renderUnknownIngredients(resources, diagnostics)
+        }
+        if (explanation.uncertainIngredients.isNotEmpty() || showsUnknownIngredients) {
+            sections += resources.getString(R.string.unconfirmed_vegan_notice)
         }
 
         when (explanation.conditionalVerdict) {
@@ -116,7 +123,7 @@ internal object VerdictExplanationFormatter {
 
     private fun renderUnknownIngredients(resources: Resources, diagnostics: AnalysisDiagnostics): String {
         val tokensByOrder = diagnostics.tokens.associateBy { it.order }
-        val occurrences = diagnostics.tokens.filter { it.unknown != null && !it.isDeclaredPresence }
+        val occurrences = diagnostics.visibleUnknownTokens
         val entries = mutableListOf<UnknownEntry>()
         occurrences.forEach { token ->
             val parent = token.parentOrder?.let(tokensByOrder::get)
@@ -133,7 +140,7 @@ internal object VerdictExplanationFormatter {
             }
         }
         if (entries.isEmpty()) {
-            diagnostics.result.unknown.forEach { entries += UnknownEntry.Simple(it) }
+            diagnostics.visibleUnknownIngredients.forEach { entries += UnknownEntry.Simple(it) }
         }
         val items = entries.joinToString("\n") { entry ->
             when (entry) {
@@ -155,8 +162,7 @@ internal object VerdictExplanationFormatter {
                 }
             }
         }
-        return resources.getString(R.string.unidentified_ingredients_title) + "\n" + items +
-            "\n\n" + resources.getString(R.string.unidentified_ingredients_notice)
+        return resources.getString(R.string.unidentified_ingredients_title) + "\n" + items
     }
 
     private fun String.displayText(): String = replace("|", "¦")
