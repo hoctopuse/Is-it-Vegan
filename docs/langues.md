@@ -73,6 +73,8 @@ qualité égale et sélectionne les ressources Android allemandes.
 
 Si la segmentation utilise le fallback, le texte complet nettoyé est présenté. Changer de bloc remplace le texte éditable et vide les analyses précédentes. Le diagnostic conserve le marqueur brut, la langue finale, la correction éventuelle, les langues ignorées et la raison du choix.
 
+Les options de blocs permettent à l’utilisateur de comparer et de valider une étiquette multilingue, mais elles ne fusionnent pas plusieurs langues dans une seule composition. Cette consolidation reste un travail futur non livré. De même, aucun signal actuel ne recommande automatiquement de reprendre une photo plus large : une composition tronquée ou peu lisible doit être corrigée ou photographiée de nouveau par l’utilisateur.
+
 Le moteur `VeganAnalyzer` segmente de nouveau son entrée. En mode étiquette ou OCR, il utilise le bloc retenu par le segmentateur. En mode liste manuelle, il cherche d’abord une section exploitable selon la préférence linguistique, puis prend la plus longue si nécessaire.
 ## Stabilisation 0.6.5.1
 

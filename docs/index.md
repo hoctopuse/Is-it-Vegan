@@ -1,10 +1,10 @@
 # Présentation
 
-Cette documentation décrit l’état du dépôt **Is It Vegan? 0.6.8** (`versionCode 34`). L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
+Cette documentation décrit l’état livré du dépôt **Is It Vegan? jusqu’à 0.6.9.8**, avant les travaux fonctionnels 0.7. L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
 
 Le produit poursuit trois objectifs techniques :
 
-- conserver les données et le calcul métier sur l’appareil ;
+- conserver les données et le calcul métier sur l’appareil, sans décision par IA générative ni service cloud ;
 - séparer la lecture de l’étiquette, sa structure syntaxique et la classification vegan ;
 - rester prudent : un texte non reconnu ou une origine variable ne devient jamais vegan par défaut.
 
@@ -19,11 +19,11 @@ L’écran actif, `OcrFirstScreen`, affiche principalement :
 
 - **VEGAN** si tous les ingrédients analysés sont reconnus vegan ;
 - **NON VEGAN** lorsqu’un ingrédient non végétarien est identifié ;
-- **VÉGÉTARIEN** lorsque les ingrédients animaux reconnus restent compatibles avec ce régime ;
+- **VÉGÉTARIEN** comme information détaillée lorsque les ingrédients animaux reconnus restent compatibles avec ce régime ; ce statut reste incompatible vegan ;
 - **INCERTAIN** lorsqu’un ingrédient connu possède un statut variable ;
 - **INCONCLUS** lorsque du texte réellement analysable reste inconnu.
 
-Une étiquette sans section d’ingrédients reconnue produit `NO_INGREDIENT_LIST` et aucune conclusion. Une déclaration autonome telle que « contient : lait » peut néanmoins fournir une preuve de présence réelle, exposée séparément dans le diagnostic.
+Une étiquette sans section d’ingrédients exploitable produit `NO_INGREDIENT_LIST` et aucune conclusion. Une déclaration autonome telle que « contient : lait » peut néanmoins fournir une preuve de présence réelle, exposée séparément dans le diagnostic.
 
 ## Ingrédients, allergènes et traces
 
@@ -33,7 +33,7 @@ Les déclarations d’allergènes reconnues sont conservées dans les notes excl
 
 ## Langues
 
-L’interface utilisateur existe en **FR**, **EN** et **NL**. Au premier lancement, `UiLanguagePreferences` choisit la langue du téléphone pour l’anglais ou le néerlandais et utilise le français pour les autres langues ; le choix est ensuite mémorisé dans `SharedPreferences`.
+L’interface utilisateur, les verdicts, les explications conditionnelles et les traces existent en **FR**, **NL**, **EN** et **DE**. Le choix est mémorisé dans `SharedPreferences`.
 
 La portée linguistique du traitement est plus large mais inégale :
 
@@ -47,10 +47,16 @@ La reconnaissance d’un bloc allemand ou espagnol ne garantit donc pas que tous
 ## Principes de conception observés
 
 - Le texte brut ML Kit est conservé sans modification dans `OcrSession.rawOcrText`.
-- Le texte éditable est nettoyé de manière déterministe et reste modifiable avant analyse.
+- Le texte éditable est nettoyé de manière déterministe, reste modifiable et doit être vérifié avant analyse.
 - L’ordre natif de `Text.text` fourni par ML Kit est la source du texte analysé. La reconstruction géométrique sert actuellement à détecter et signaler les divergences.
 - Les conteneurs composites structurent l’arbre mais seuls leurs enfants terminaux sont classés.
 - Les alias, statuts et raisons viennent de fichiers JSON versionnés, jamais d’un service distant ou d’une correction générative.
 - Les traitements lourds d’image et d’analyse sont envoyés sur `Dispatchers.IO` ou `Dispatchers.Default` pour éviter de bloquer l’interface.
 
-Commencer par [l’architecture générale](architecture.md), puis suivre le [pipeline OCR](ocr.md) ou le [pipeline d’analyse](parsing.md).
+## Limites et travaux non livrés
+
+L’OCR reste sensible au flou, à l’éclairage, au recadrage, aux petits caractères, aux tableaux et aux étiquettes multilingues. Lorsque la composition est incomplète ou douteuse, l’utilisateur doit corriger le texte ou reprendre une photo plus lisible, idéalement avec un cadrage plus large. L’application ne suggère pas encore automatiquement cette reprise.
+
+La consolidation de plusieurs langues d’une même étiquette n’est pas livrée : le choix de bloc sert à sélectionner le texte à analyser, et les autres blocs multilingues restent une aide de validation dans le diagnostic. Ces sujets sont des travaux futurs, sans calendrier annoncé.
+
+Commencer par [l’architecture générale](architecture.md), puis suivre le [pipeline OCR](ocr.md), le [pipeline d’analyse](parsing.md) ou les [notes de version](changelog.md).

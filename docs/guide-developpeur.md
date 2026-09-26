@@ -23,7 +23,7 @@ Le dépôt ne fixe pas une version précise d’Android Studio. Utiliser une ver
 ```text
 app/
   src/main/java/com/example/isitvegan/   adaptateurs Android, UI et OCR ML Kit
-  src/main/res/                           ressources Compose/Android FR, EN, NL
+  src/main/res/                           ressources Compose/Android FR, NL, EN, DE
   src/main/assets/                        base et règles embarquées générées
   src/test/                               tests JVM
   src/androidTest/                        tests Android et fixtures OCR
@@ -118,13 +118,14 @@ Une règle `REVIEW_BEFORE_ENGINE_USE` est ignorée. Pour activer une règle, vé
 
 ## Ressources et langues UI
 
-Les textes externalisés sont dans :
+Les textes externalisés de l’interface sont dans les quatre ensembles de ressources :
 
 - `app/src/main/res/values/strings.xml` — français ;
 - `app/src/main/res/values-en/strings.xml` — anglais ;
 - `app/src/main/res/values-nl/strings.xml` — néerlandais.
+- `app/src/main/res/values-de/strings.xml` — allemand.
 
-Certains messages plus anciens restent codés en dur dans `OcrFirstScreen` et dans le composable hérité. Lors d’une modification UI, éviter d’en ajouter et maintenir les trois fichiers de ressources.
+Certains messages plus anciens restent codés en dur dans `OcrFirstScreen` et dans le composable hérité. Lors d’une modification UI, éviter d’en ajouter et maintenir la cohérence des quatre ensembles de ressources FR, NL, EN et DE : toute nouvelle chaîne destinée à l’utilisateur doit être alignée dans ces quatre langues.
 
 ## Contrôles avant livraison
 

@@ -128,6 +128,10 @@ Si le post-traitement lance une `RuntimeException`, `OcrProcessor` rend le texte
 
 ## Limites constatables
 
+Le texte OCR n’est pas une preuve autonome : il doit être relu et corrigé dans le champ éditable avant l’analyse. Une photo floue, tronquée, trop serrée, tournée, très dense ou mal éclairée peut produire une composition incomplète ou des inconnus. Lorsque la liste ne tient pas dans le cadre ou reste difficile à lire, reprendre une photo plus nette avec un cadrage plus large est la meilleure action manuelle.
+
+Une suggestion automatique de reprendre la photo plus large n’est pas livrée. La consolidation automatique de plusieurs blocs linguistiques d’une même étiquette ne l’est pas non plus : les blocs non sélectionnés sont conservés dans le diagnostic comme aide de validation.
+
 - Le recognizer configuré est uniquement `TextRecognizerOptions.DEFAULT_OPTIONS`, donc le script latin.
 - Une image sans EXIF exploitable n’est pas redressée par analyse visuelle.
 - Il n’existe pas de correction de perspective.

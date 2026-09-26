@@ -37,6 +37,8 @@ Depuis la version 0.6.9, `AnalysisDiagnostics.verdictExplanation` encadre ce cal
 
 Cette vue ne remplace jamais `AnalysisResult.verdict`. Elle réutilise `verdictWithoutUncertain`, donc `VerdictEngine`, et retire uniquement les correspondances dont le statut effectif est `UNCERTAIN`. Les inconnus, les ingrédients `VEGETARIAN`, les ingrédients `NON_VEGAN` et les origines explicitement non vegan ne sont jamais transformés en ingrédients vegan. Les traces restent exclues du calcul principal comme du calcul conditionnel.
 
+Depuis 0.6.9.7, un verdict `UNCERTAIN` peut afficher à la fois les ingrédients incertains et les vrais inconnus visibles. Un vrai inconnu brut conserve son effet bloquant : le résultat « hors ingrédients incertains » reste absent avec la raison `UNKNOWN_INGREDIENT_REMAINS`. Cette explication est informative et ne modifie jamais le verdict principal.
+
 ## Qualifications d’origine
 
 Une qualification active peut remplacer le statut d’une entrée incertaine par `VEGAN`, `VEGETARIAN` ou `NON_VEGAN`. Si une origine est explicitement non vegan mais ne permet pas de décider si elle est végétarienne, `originNonVeganIngredientIds` force `veganAssessment = NOT_VEGAN` alors que le statut effectif peut rester `UNCERTAIN`. Le diagnostic expose le statut de base, le statut effectif et l’explication.

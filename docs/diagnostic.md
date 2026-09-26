@@ -26,6 +26,12 @@ Le modèle `AnalysisDiagnostics` fournit aussi une représentation structurée d
 - `verdictExplanation` sépare le verdict principal, les bloqueurs connus, toutes les occurrences incertaines avec leur chemin, le résultat conditionnel éventuel, sa raison, le statut végétarien et l’exclusion des traces ;
 - `ignoredSectionDiagnostics` associe chaque texte ignoré à la raison `OUTSIDE_INGREDIENT_COMPOSITION`.
 
+## Inconnus imbriqués et contexte visuel
+
+Le moteur conserve seulement les feuilles inconnues. Depuis 0.6.9.8, le formatter peut toutefois reconstruire leur chemin parent → enfant depuis `parentOrder` et les tokens de diagnostic afin de rendre le contexte d’une occurrence imbriquée. Les parents ajoutés au rendu ne deviennent ni des inconnus, ni des ingrédients classés, ni des éléments responsables du verdict. Les pourcentages, l’ordre et les occurrences restent ceux des nœuds d’origine.
+
+Cette séparation est importante avec les vues d’inconnus : `AnalysisResult.unknown` reste la donnée brute du moteur, tandis que `visibleUnknownTokens` et les agrégats structurés servent la présentation. Une correspondance contextuelle effectivement vegan peut être retirée de cette dernière vue, mais pas de la trace détaillée ni du raisonnement qui protège un vrai inconnu.
+
 Ces propriétés sont dérivées de l’analyse existante et ne rappellent ni le parseur ni le matcher.
 Il n’existe pas de second moteur de verdict divergent : certaines propriétés calculées, dont
 `verdictExplanation`, consultent `verdictWithoutUncertain`, qui rappelle

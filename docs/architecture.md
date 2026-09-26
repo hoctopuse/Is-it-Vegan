@@ -47,6 +47,8 @@ L’analyse rappelle `LabelLanguageSegmenter` dans `IngredientAnalysisService`. 
 
 `AnalysisDiagnostics.verdictExplanation` est une vue dérivée du résultat et des chemins de tokens. Elle consulte la propriété calculée `verdictWithoutUncertain`, qui peut rappeler `VerdictEngine.evaluate` en excluant uniquement les statuts `UNCERTAIN`. Il n’existe pas de second moteur divergent : `AnalysisResult.verdict` reste la référence métier et le résultat conditionnel reste une information distincte.
 
+Les composites restent des conteneurs syntaxiques : leur token est conservé pour l’arbre et le diagnostic, mais n’est ni matché ni classé. Les feuilles et additifs descendants alimentent directement `UnknownCollector` et `VerdictEngine`. Le contexte parent → enfant ajouté au rendu des inconnus en 0.6.9.8 est une projection de présentation basée sur `parentOrder`; il n’écrit aucun statut dans le parent. La décision documentée dans `COMPOSITE_STATUS_PROPAGATION_AUDIT_0_6_9_9.md` à la racine du dépôt est de ne pas propager de statut métier enfant → `COMPOSITE`.
+
 ## État et concurrence
 
 `MainActivity` charge les trois assets de connaissance via `VeganAnalyzer.loadDatabase` sur `Dispatchers.IO`. `AndroidIngredientKnowledgeLoader` lit les assets avec `Context`, puis `IngredientKnowledge.fromJson` les valide et les injecte dans `IngredientAnalysisService`. Aucun accès Android n’existe dans `:mutation-core`. Le bouton d’analyse reste désactivé tant que ce chargement n’a pas réussi. `OcrFirstScreen` exécute le décodage sur `Dispatchers.IO` et l’analyse CPU sur `Dispatchers.Default`. `OcrProcessor` possède un `CoroutineScope` supervisé et restitue ses callbacks sur `Dispatchers.Main`.
