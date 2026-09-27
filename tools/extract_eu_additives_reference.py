@@ -11,6 +11,11 @@ from pathlib import Path
 
 from pypdf import PdfReader
 
+# PDF text can contain symbols absent from the Windows legacy console encoding.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+
 HEADERS = ["e_number", "official_name_fr", "official_name_nl", "official_name_en", "official_name_de", "eu_category", "annex_section", "source_celex", "source_consolidation_date", "source_url_fr", "source_url_nl", "source_url_en", "source_url_de", "commission_database_url", "verification_status", "verification_note"]
 LANGS = ("FR", "NL", "EN", "DE")
 STARTS = {"FR": ("PARTIE B",), "NL": ("DEEL B",), "EN": ("PART B",), "DE": ("TEIL B",)}

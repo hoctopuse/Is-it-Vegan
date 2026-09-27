@@ -2,6 +2,11 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.9.10
+
+- Le référentiel reconnaît davantage d’additifs alimentaires autorisés dans l’Union européenne, par leur numéro E et des dénominations françaises, néerlandaises, anglaises et allemandes.
+- Les nouveaux additifs importés restent tous `UNCERTAIN` : l’autorisation UE et une dénomination réglementaire ne suffisent pas à conclure sur leur origine vegan.
+
 ## 0.6.9.9
 
 - Lorsque le verdict principal est `UNCERTAIN` ou `INCONCLUSIVE`, l’interface peut afficher avant les listes un résultat informatif fondé uniquement sur les ingrédients reconnus dont le statut effectif est établi.
