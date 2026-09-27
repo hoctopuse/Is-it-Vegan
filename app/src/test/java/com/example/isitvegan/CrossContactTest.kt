@@ -94,7 +94,7 @@ class CrossContactTest {
         val report = DiagnosticReport.build(diagnostics, "0.5.6")
         assertTrue(report.contains("COMPOSITION APRÈS PRÉTRAITEMENT\n"))
         assertTrue(report.contains("TRACES / CONTAMINATION CROISÉE\n${diagnostics.crossContactWarnings.single()}"))
-        assertTrue(report.contains("NOTES EXCLUES\nAgriculture biologique.\nAllergènes : soja"))
+        assertTrue(report.contains("NOTES EXCLUES\nAgriculture biologique. | Allergènes : soja"))
     }
 
     @Test fun certificationAndMarketingFooterAreRetainedAfterTraces() {

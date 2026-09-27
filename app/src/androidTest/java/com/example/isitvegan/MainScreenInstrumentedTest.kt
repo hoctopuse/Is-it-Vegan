@@ -5,6 +5,7 @@ import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.hasText
+import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -111,6 +112,37 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("✅ VEGAN", substring = true)
             .performScrollTo()
             .assertIsDisplayed()
+    }
+
+    @Test fun uncertainVerdictShowsTheConditionalResultWithoutChangingTheMainVerdict() {
+        composeRule.onNodeWithText("Texte de l’étiquette")
+            .performTextInput("INGRÉDIENTS\nsucre, E471")
+        composeRule.waitUntilAtLeastOneExists(hasText("ANALYSER").and(isEnabled()), 10_000)
+        composeRule.onNodeWithText("ANALYSER").performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("⚠️ INCERTAIN", substring = true), 10_000)
+        composeRule.onNodeWithText("⚠️ INCERTAIN", substring = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Vegan hors ingrédient incertain", substring = true)
+            .assertIsDisplayed()
+    }
+
+    @Test fun nonVeganVerdictAlsoShowsUncertainIngredientsWithoutConditionalResult() {
+        composeRule.onNodeWithText("Texte de l’étiquette")
+            .performTextInput("INGRÉDIENTS\ngélatine, E471")
+        composeRule.waitUntilAtLeastOneExists(hasText("ANALYSER").and(isEnabled()), 10_000)
+        composeRule.onNodeWithText("ANALYSER").performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("❌ NON VEGAN", substring = true), 10_000)
+
+        composeRule.onNodeWithText("❌ NON VEGAN", substring = true)
+            .performScrollTo()
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Causes connues incompatibles", substring = true)
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Ingrédients incertains", substring = true)
+            .assertIsDisplayed()
+        composeRule.onNodeWithText("Vegan hors ingrédient incertain", substring = true)
+            .assertDoesNotExist()
     }
 
     @Test fun changingModeInvalidatesThePreviousResult() {

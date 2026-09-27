@@ -139,6 +139,7 @@ object LabelLanguageSegmenter {
             UiLanguage.NL -> listOf(LabelLanguage.DUTCH, LabelLanguage.ENGLISH, LabelLanguage.FRENCH)
             UiLanguage.EN -> listOf(LabelLanguage.ENGLISH, LabelLanguage.FRENCH, LabelLanguage.DUTCH)
             UiLanguage.FR -> listOf(LabelLanguage.FRENCH, LabelLanguage.ENGLISH, LabelLanguage.DUTCH)
+            UiLanguage.DE -> listOf(LabelLanguage.GERMAN, LabelLanguage.ENGLISH, LabelLanguage.FRENCH)
             null -> listOf(LabelLanguage.FRENCH, LabelLanguage.DUTCH, LabelLanguage.ENGLISH)
         } + listOf(
         LabelLanguage.GERMAN, LabelLanguage.ITALIAN, LabelLanguage.SPANISH,

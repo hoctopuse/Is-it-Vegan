@@ -14,8 +14,17 @@ data class LabelSections(
     val selectedBlockId: String? = null,
     val traceSection: TraceSection? = null,
     val ingredientSection: IngredientSection? = null,
-    val traceSections: List<TraceSection> = listOfNotNull(traceSection)
+    val traceSections: List<TraceSection> = listOfNotNull(traceSection),
+    /** Present only when a composition is accepted without an explicit label heading. */
+    val implicitIngredientList: ImplicitIngredientList? = null
 )
+
+data class ImplicitIngredientList(
+    val structuralReasons: List<String>,
+    val confidence: ImplicitIngredientListConfidence
+)
+
+enum class ImplicitIngredientListConfidence { HIGH }
 
 /** Start is inclusive and end is exclusive in LabelSections.rawText. */
 data class IngredientSection(
@@ -144,6 +153,11 @@ object LabelSectionExtractor {
                 }?.range?.first ?: text.length
             ).trim()
         }.filter(String::isNotBlank)
+        val implicitIngredients = if (ingredient == null && contains == null) {
+            detectImplicitIngredientList(ingredientsText)
+        } else {
+            null
+        }
         return LabelSections(
             language = ingredient?.let { marker ->
                 LabelLexicon.findIngredientHeadings(text)
@@ -154,7 +168,9 @@ object LabelSectionExtractor {
             tracesText = traces,
             ignoredSections = ignored,
             rawText = text,
-            hasIngredientHeading = ingredient != null,
+            // Existing callers use this flag as the authorization to parse an extracted list.
+            // An accepted implicit list meets the same high-confidence extraction contract.
+            hasIngredientHeading = ingredient != null || implicitIngredients != null,
             ingredientHeadingText = ingredient?.originalText,
             ingredientHeadingSeparator = ingredient?.separator,
             declaredContainsSyntax = contains?.originalText,
@@ -164,10 +180,82 @@ object LabelSectionExtractor {
             ingredientSection = ingredient?.let { marker ->
                 val raw = ingredientSectionText.orEmpty()
                 IngredientSection(marker.contentStart, marker.contentStart + raw.length, raw)
+            } ?: implicitIngredients?.let {
+                val raw = ingredientsText.orEmpty()
+                IngredientSection(0, raw.length, raw)
             },
-            traceSections = uniqueTraceSections
+            traceSections = uniqueTraceSections,
+            implicitIngredientList = implicitIngredients
         )
     }
+
+    /**
+     * A heading-free composition is accepted only when independent structural signals agree.
+     * This deliberately keeps ordinary prose, nutrition panels and a trace-only statement out.
+     */
+    private fun detectImplicitIngredientList(candidate: String?): ImplicitIngredientList? {
+        val text = candidate?.trim()?.takeIf(String::isNotBlank) ?: return null
+        val normalized = TextNormalizer.normalize(text)
+        if (implicitListExclusions.any { normalized.contains(it) }) return null
+
+        val topLevelSeparators = topLevelSeparatorCount(text)
+        val nodes = IngredientTreeParser.parse(text)
+        val parsedElements = nodeCount(nodes)
+        val knownFoodTerms = implicitIngredientTerms.count { term ->
+            Regex("(?<![a-z0-9])${Regex.escape(term)}(?![a-z0-9])").containsMatchIn(normalized)
+        }
+        val hasPercentage = Regex("\\d+(?:[,.]\\d+)?\\s*%").containsMatchIn(text)
+        val hasStructuredGroup = text.any { it == '(' || it == '[' } &&
+            IngredientTreeParser.inspectParentheses(text).balanced
+        val hasDenseDelimitedSequence = topLevelSeparators >= 4
+
+        // Delimiters, parser output and ingredient vocabulary are all required. A fourth
+        // structural signal prevents a short comma-separated sentence from being accepted.
+        if (topLevelSeparators < 3 || parsedElements < 4 || knownFoodTerms < 2 ||
+            !(hasPercentage || hasStructuredGroup || hasDenseDelimitedSequence)
+        ) return null
+
+        return ImplicitIngredientList(
+            structuralReasons = buildList {
+                add("au moins $topLevelSeparators séparateurs d’éléments")
+                add("$parsedElements éléments compatibles avec le parseur")
+                add("$knownFoodTerms termes alimentaires reconnus")
+                if (hasPercentage) add("pourcentage alimentaire")
+                if (hasStructuredGroup) add("structure parenthésée équilibrée")
+                if (hasDenseDelimitedSequence) add("séquence d’éléments dense")
+            },
+            confidence = ImplicitIngredientListConfidence.HIGH
+        )
+    }
+
+    private fun topLevelSeparatorCount(text: String): Int {
+        var depth = 0
+        var count = 0
+        text.forEach { character ->
+            when (character) {
+                '(', '[' -> depth++
+                ')', ']' -> depth = (depth - 1).coerceAtLeast(0)
+                ',', ';' -> if (depth == 0) count++
+            }
+        }
+        return count
+    }
+
+    private fun nodeCount(nodes: List<IngredientNode>): Int =
+        nodes.sumOf { 1 + nodeCount(it.children) }
+
+    private val implicitListExclusions = listOf(
+        "valeurs nutritionnelles", "nutrition", "energie", "energy", "kcal", "kj",
+        "peut contenir", "may contain", "kan sporen", "kann spuren"
+    )
+
+    // Bounded hints support structural extraction only; they never identify or classify an ingredient.
+    private val implicitIngredientTerms = listOf(
+        "farine", "ble", "avoine", "orge", "seigle", "mais", "riz", "triticale",
+        "sucre", "cacao", "huile", "sel", "eau", "tomate", "poivron", "epices",
+        "lait", "oeuf", "soja", "vinaigre", "amidon", "wheat", "flour", "oats",
+        "barley", "rye", "corn", "rice", "sugar", "cocoa", "oil", "salt", "water"
+    )
 
     private fun normalizeTraceText(rawText: String): String {
         val text = rawText.trim()

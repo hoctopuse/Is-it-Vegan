@@ -5,6 +5,7 @@ internal object OcrTextCleaner {
         // Compile on demand: a platform-specific regex failure must remain catchable by OcrProcessor.
         val uppercaseHyphenatedLineBreak = Regex("""(\p{Lu}{2,})-\r?\n(\p{Lu}{2,})""")
         val hyphenatedLineBreak = Regex("""(\p{L}{2,})-\r?\n(\p{Ll}{2,})""")
+        val glucoseFructoseHyphenatedLineBreak = Regex("""(?i)\bglucose-\r?\n\s*fructose\b""")
         // Frequent ML Kit confusion on small French labels: the narrow "i" is read as
         // a lowercase "l". Restrict the correction to a delimited section heading so
         // ordinary ingredient text is never guessed or rewritten.
@@ -30,6 +31,7 @@ internal object OcrTextCleaner {
 
         return text
             .replace("\r\n", "\n")
+            .replace(glucoseFructoseHyphenatedLineBreak, "glucose-fructose")
             .replace(uppercaseHyphenatedLineBreak, "$1-$2")
             .replace(hyphenatedLineBreak, "$1$2")
             .replace(frenchIngredientHeadingWithOcrL, "ingrédients")

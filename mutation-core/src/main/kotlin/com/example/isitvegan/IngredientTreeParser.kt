@@ -281,6 +281,10 @@ object IngredientTreeParser {
             }
         ) return true
         if (qualificationPrefix.containsMatchIn(content)) return false
+        // A percentage-bearing designation in parentheses is a structured child
+        // even when the composition contains only one child (for example
+        // "sirop de grenade 4,4 % (concentré de grenade 50 %)").
+        if (quantityPattern.containsMatchIn(content)) return true
         val letters = content.filter(Char::isLetter)
         if (letters.length > 1 && letters.all(Char::isUpperCase)) return true
         val contentWords = TextNormalizer.normalize(content).split(Regex("\\s+")).filter(String::isNotBlank)

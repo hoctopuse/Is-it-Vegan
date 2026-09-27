@@ -77,6 +77,14 @@ Le chargeur valide la version de schéma, les enums, identifiants dupliqués et 
 
 Un conteneur composite n’est jamais envoyé au collecteur ; seuls ses enfants peuvent devenir inconnus. Cette règle sépare la qualité du parsing de la couverture de la base.
 
+### Inconnus bruts, visibles et détaillés
+
+`AnalysisResult.unknown` conserve la liste brute qui sert au moteur et au blocage du verdict conditionnel. Elle reste donc prudente : un vrai inconnu ne disparaît jamais du raisonnement parce qu’une partie de son expression a été reconnue.
+
+`AnalysisDiagnostics.visibleUnknownTokens` et `visibleUnknownIngredients` sont des vues d’affichage et d’export. Elles retirent seulement un token dont les statuts effectifs sont présents et tous `VEGAN`; ce cas correspond à une expression contextuelle finalement classée vegan. Un préfixe numérique OCR isolé reste visible. Les diagnostics de token conservent néanmoins le texte, la résolution, les statuts de base/effectifs et l’inconnu brut pour expliquer le résultat.
+
+Les agrégats structurés `ingredientGroups` et `decision`, ainsi que le rapport texte, utilisent la même vue visible. Cette présentation ne modifie ni le matching ni `AnalysisResult.unknown`.
+
 ## Parsing et classification
 
 La distinction est stricte :

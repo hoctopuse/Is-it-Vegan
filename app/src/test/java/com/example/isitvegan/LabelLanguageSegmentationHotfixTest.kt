@@ -78,9 +78,9 @@ class LabelLanguageSegmentationHotfixTest {
         assertEquals(setOf("BE", "LUX"), segmentation.blocks[1].marketTags)
         listOf(
             "Langue sélectionnée : FR",
-            "Blocs détectés : FR, NL, EN, DE",
+            "Blocs détectés : FR | NL | EN | DE",
             "Marqueur sélectionné : FR/BE/LUX",
-            "Autres blocs ignorés : NL, EN, DE",
+            "Autres blocs ignorés : NL | EN | DE",
             "Fallback texte complet : non"
         ).forEach { expected -> assertTrue(expected, report.contains(expected)) }
 

@@ -154,85 +154,12 @@ fun IsItVeganScreen() {
                         inputMode
                     )
                     diagnostics = currentDiagnostics
-                    val analysis = currentDiagnostics.result
-                    val matches = analysis.matched
-                    val unknownMessage = if (analysis.unknown.isEmpty()) "" else
-                        "\n\nNon reconnus : " + analysis.unknown.joinToString(", ")
-                    val detailedResult = when {
-                        ingredients.isBlank() -> "ℹ️ Entre d'abord une liste d'ingrédients."
-                        analysis.availability == AnalysisAvailability.NO_INGREDIENT_LIST -> {
-                            val presence = analysis.declaredPresenceIngredientIds
-                            if (presence.isEmpty()) {
-                                "ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE\n\n" +
-                                    "Aucune conclusion vegan n’est produite."
-                            } else {
-                                val compatibility = when (analysis.veganAssessment) {
-                                    VeganAssessment.VEGAN -> "VEGAN"
-                                    VeganAssessment.NOT_VEGAN -> "NON VEGAN"
-                                    VeganAssessment.UNCERTAIN -> "INCERTAINE"
-                                }
-                                "ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE\n\n" +
-                                    "Compatibilité vegan selon les ingrédients déclarés : $compatibility\n" +
-                                    "Présence réelle déclarée : ${presence.joinToString(", ")}"
-                            }
-                        }
-                        analysis.verdict == AnalysisVerdict.NON_VEGETARIAN -> {
-                            val found = matches.filter { it.status == VeganStatus.NON_VEGAN }
-                            "❌ NON VÉGÉTARIEN\n\nIngrédient détecté :\n" + found.joinToString("\n\n") {
-                                "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                            } + if (analysis.stoppedAtNonVegetarian) {
-                                "\n\nAnalyse arrêtée : cet ingrédient suffit pour conclure."
-                            } else ""
-                        }
-                        analysis.verdict == AnalysisVerdict.UNCERTAIN -> {
-                            val uncertain = analysis.uncertainIngredients
-                            val uncertainMessage = "⚠️ INCERTAIN\n\nÀ vérifier :\n" +
-                                uncertain.joinToString("\n\n") {
-                                    "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                                }
-                            val remainderMessage = when (analysis.verdictWithoutUncertain) {
-                                AnalysisVerdict.VEGAN ->
-                                    "\n\nEn excluant ${if (uncertain.size == 1) "cet ingrédient" else "ces ingrédients"} :\n🌱 VEGAN"
-                                AnalysisVerdict.VEGETARIAN -> {
-                                    val vegetarian = analysis.vegetarianIngredients.joinToString("\n") {
-                                        "• ${it.eNumber ?: it.name} — ${it.name}"
-                                    }
-                                    "\n\nEn excluant ${if (uncertain.size == 1) "cet ingrédient" else "ces ingrédients"} :" +
-                                        "\n🥕 VÉGÉTARIEN\n\nIngrédient${if (analysis.vegetarianIngredients.size > 1) "s" else ""} " +
-                                        "végétarien${if (analysis.vegetarianIngredients.size > 1) "s" else ""} détecté${if (analysis.vegetarianIngredients.size > 1) "s" else ""} :\n" +
-                                        vegetarian
-                                }
-                                else ->
-                                    "\n\nEn excluant ${if (uncertain.size == 1) "cet ingrédient" else "ces ingrédients"} :" +
-                                        "\n⚠️ INCONCLUS — certains ingrédients ne sont pas reconnus."
-                            }
-                            uncertainMessage + remainderMessage + unknownMessage
-                        }
-                        analysis.verdict == AnalysisVerdict.INCONCLUSIVE -> {
-                            "⚠️ INCONCLUS\n\nLa base ne reconnaît pas toute la liste." + unknownMessage
-                        }
-                        analysis.verdict == AnalysisVerdict.VEGETARIAN -> {
-                            val found = matches.filter { it.status == VeganStatus.VEGETARIAN }
-                            "🥕 VÉGÉTARIEN\n\nIngrédient détecté :\n" + found.joinToString("\n\n") {
-                                "${it.eNumber ?: it.name} — ${it.name}\n${it.reason}"
-                            } + "\n\nVerdict basé sur la liste d'ingrédients, pas une certification du produit."
-                        }
-                        else -> "✅ VEGAN\n\nTous les ingrédients de la liste ont été reconnus " +
-                            "comme végétaux ou minéraux dans la base hors ligne."
-                    }
-                    result = if (analysis.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
-                        detailedResult + CrossContactNotice.format(analysis.crossContactWarnings)
-                    } else {
-                        val veganCompatibility = when (analysis.veganAssessment) {
-                            VeganAssessment.VEGAN -> "VEGAN"
-                            VeganAssessment.NOT_VEGAN -> "NON VEGAN"
-                            VeganAssessment.UNCERTAIN -> "INCERTAINE"
-                        }
-                        "Compatibilité vegan selon les ingrédients déclarés : $veganCompatibility" +
-                            "\n\nClassification détaillée :\n" + detailedResult +
-                            "\n\nAnalyse fondée sur les informations déclarées sur l’étiquette." +
-                            CrossContactNotice.format(analysis.crossContactWarnings)
-                    }
+                    result = VerdictExplanationFormatter.render(
+                        context.resources,
+                        ingredients,
+                        currentDiagnostics,
+                        includeAnalysisContext = true
+                    )
                 },
                 modifier = Modifier.fillMaxWidth()
             ) {

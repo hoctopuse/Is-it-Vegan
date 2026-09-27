@@ -150,7 +150,7 @@ Gedroogde en gearomatiseerde groentebouillon. Ingrediënten van de gedehydrateer
         assertFalse(result.stoppedAtNonVegetarian)
         val report = DiagnosticReport.build(diagnostics, "0.5.9")
         assertTrue(report.contains("Compatibilité vegan selon les ingrédients déclarés : NON VEGAN"))
-        assertTrue(report.contains("Bloqueurs détectés : egg, milk"))
+        assertTrue(report.contains("Bloqueurs détectés : egg | milk"))
         assertTrue(report.contains("Classification détaillée : UNCERTAIN"))
     }
 

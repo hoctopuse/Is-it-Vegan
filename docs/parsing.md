@@ -87,6 +87,8 @@ flowchart TD
 
 `VeganAnalyzer` ignore les tokens `SECTION_HEADING` et `COMPOSITE_INGREDIENT` pour le matching. Seules les feuilles et désignations d’additifs sont évaluées. Cela évite qu’un nom générique de recette comme « sauce » devienne un faux inconnu ou qu’un parent composite masque un enfant animal.
 
+Les enfants sont déjà agrégés par le verdict global, quelle que soit leur profondeur. Le nœud `COMPOSITE` ne reçoit volontairement ni statut de base, ni statut effectif, ni correspondance, ni inconnu propre. L’audit d’architecture `COMPOSITE_STATUS_PROPAGATION_AUDIT_0_6_9_9.md`, conservé à la racine du dépôt, conclut qu’une propagation métier enfant → parent serait redondante et risquerait de classer un libellé générique. Il n’existe donc pas de verdict par sous-arbre ni de statut synthétique du parent.
+
 ## Limites
 
 - Les délimiteurs non équilibrés peuvent modifier l’interprétation des groupes suivants.

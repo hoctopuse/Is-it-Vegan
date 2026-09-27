@@ -11,7 +11,7 @@ Le projet produit deux rapports texte complémentaires : un rapport d’analyse 
 | En-tête | version, mode d’entrée, disponibilité, fallback manuel et portée |
 | Entrée | texte exact soumis à `VeganAnalyzer` |
 | Langue/bloc | identifiant, langues originale/normalisée, score, critères, longueur, troncature, corrections et fallback |
-| Sections | titre, séparateur, présence réelle, traces et frontière détectée |
+| Sections | titre ou liste implicite, indices/confiance structurels, séparateur, présence réelle, traces et frontière détectée |
 | Composition | texte après `LabelPreprocessor` et présence réelle séparée |
 | Traces/notes | avertissements de contamination et notes exclues |
 | Étapes | un enregistrement par nœud/token |
@@ -23,9 +23,23 @@ Le modèle `AnalysisDiagnostics` fournit aussi une représentation structurée d
 - `inputWarnings` code les entrées vides, les blocs manifestement tronqués et les structures de parenthèses incohérentes ;
 - `ingredientGroups` sépare les identifiants vegan, végétariens, non végétariens et incertains, ainsi que les textes inconnus ;
 - `decision` expose le verdict, le statut végétarien secondaire, une raison stable, les identifiants responsables, l’effet bloquant des inconnus et l’exclusion des traces ;
+- `verdictExplanation` sépare le verdict principal, les bloqueurs connus, toutes les occurrences incertaines avec leur chemin, le résultat conditionnel éventuel, sa raison, le statut végétarien et l’exclusion des traces ;
 - `ignoredSectionDiagnostics` associe chaque texte ignoré à la raison `OUTSIDE_INGREDIENT_COMPOSITION`.
 
-Ces propriétés sont dérivées du résultat existant. Elles n’appellent ni le parseur, ni le matcher, ni le moteur de verdict une seconde fois.
+## Inconnus imbriqués et contexte visuel
+
+Le moteur conserve seulement les feuilles inconnues. Depuis 0.6.9.8, le formatter peut toutefois reconstruire leur chemin parent → enfant depuis `parentOrder` et les tokens de diagnostic afin de rendre le contexte d’une occurrence imbriquée. Les parents ajoutés au rendu ne deviennent ni des inconnus, ni des ingrédients classés, ni des éléments responsables du verdict. Les pourcentages, l’ordre et les occurrences restent ceux des nœuds d’origine.
+
+Cette séparation est importante avec les vues d’inconnus : `AnalysisResult.unknown` reste la donnée brute du moteur, tandis que `visibleUnknownTokens` et les agrégats structurés servent la présentation. Une correspondance contextuelle effectivement vegan peut être retirée de cette dernière vue, mais pas de la trace détaillée ni du raisonnement qui protège un vrai inconnu.
+
+Ces propriétés sont dérivées de l’analyse existante et ne rappellent ni le parseur ni le matcher.
+Il n’existe pas de second moteur de verdict divergent : certaines propriétés calculées, dont
+`verdictExplanation`, consultent `verdictWithoutUncertain`, qui rappelle
+`VerdictEngine.evaluate` avec l’exclusion explicite des seuls statuts `UNCERTAIN`.
+`AnalysisResult.verdict` reste la référence métier ; le résultat conditionnel est une vue
+informative distincte qui réutilise exactement les règles du moteur existant.
+
+La section `EXPLICATION CONDITIONNELLE 0.6.9` du rapport texte reprend ces champs. Un résultat conditionnel absent est toujours accompagné d’une raison structurée ; le rapport ne présente donc jamais un reste inconclusif comme vegan.
 
 Pour chaque token, regarder en priorité :
 

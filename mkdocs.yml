@@ -1,5 +1,5 @@
 site_name: Is It Vegan? — Documentation technique
-site_description: Architecture et fonctionnement de Is It Vegan? 0.6.5
+site_description: Fonctionnement et architecture de Is It Vegan? jusqu’à 0.6.9.8
 docs_dir: docs
 site_dir: site
 theme:
@@ -34,6 +34,7 @@ nav:
   - Matching des ingrédients: matching.md
   - Base de connaissances: base-connaissances.md
   - Moteur de verdict: verdict.md
+  - Notes de version: changelog.md
   - Tests: tests.md
   - Diagnostic: diagnostic.md
   - Vie privée et hors ligne: vie-privee.md

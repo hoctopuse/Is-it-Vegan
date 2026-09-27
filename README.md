@@ -1,14 +1,25 @@
 # Is It Vegan?
 
-Application Android en Kotlin et Jetpack Compose qui analyse une liste d’ingrédients et évalue sa compatibilité vegan à partir d’une base embarquée. Elle accepte une étiquette saisie, une liste seule ou une photo traitée par l’OCR latin de ML Kit. Le flux photo comprend l’orientation EXIF, un recadrage en mémoire, la sélection prudente d’un bloc linguistique et un texte éditable avant analyse.
+Application Android en Kotlin et Jetpack Compose qui analyse une liste d’ingrédients à partir d’une base embarquée. Elle accepte une étiquette saisie, une liste seule ou une photo traitée par l’OCR latin de ML Kit. Le flux photo inclut l’orientation EXIF, un recadrage en mémoire, la sélection prudente d’un bloc linguistique et un texte éditable à vérifier avant analyse.
 
-La version documentée est **0.6.8** (`versionCode 34`). L’interface est disponible en français, anglais et néerlandais. Le moteur distingue la compatibilité vegan, la classification végétarienne détaillée, les ingrédients incertains, les éléments inconnus et les traces de contamination croisée.
+La documentation couvre l’état livré jusqu’à **0.6.9.8**. L’interface et ses explications sont disponibles en français, néerlandais, anglais et allemand. Le moteur est déterministe : il ne prend aucune décision par IA générative, cloud ou service métier distant. Le modèle OCR et les données de classification sont embarqués ; les dépendances ML Kit et le manifeste fusionné sont détaillés dans la [documentation sur la vie privée](docs/vie-privee.md).
 
-Le moteur d’analyse, la base d’ingrédients et le modèle OCR utilisé sont embarqués. Le code applicatif ne contacte aucun service métier distant. Les dépendances ML Kit ajoutent toutefois des composants de transport et des permissions réseau au manifeste final ; les limites exactes sont détaillées dans la [documentation sur la vie privée](docs/vie-privee.md).
+## Résultat et prudence
+
+Le verdict principal affiché est l’un des suivants :
+
+- **VEGAN** : tous les ingrédients considérés sont reconnus vegan ;
+- **NON VEGAN** : un ingrédient non végétarien est identifié ;
+- **INCERTAIN** : un ingrédient connu a une origine ou un statut variable ;
+- **INCONCLUS** (`INCONCLUSIVE`) : un ingrédient réellement inconnu ou une analyse insuffisante empêche une conclusion complète.
+
+`VEGETARIAN` est une classification détaillée informative : elle décrit les ingrédients connus comme végétariens mais incompatibles vegan. Elle ne transforme jamais le verdict vegan en résultat favorable. Les traces de contamination croisée sont affichées séparément et exclues du verdict. Une déclaration de présence réelle telle que « contient : lait » suit un parcours distinct des traces.
+
+L’OCR peut mal lire une étiquette, surtout si elle est floue, tronquée, tournée, très dense ou composée de plusieurs langues. Vérifier et corriger le texte avant l’analyse reste indispensable. Si la composition n’est pas lisible dans son ensemble, reprendre une photo plus nette ou avec un cadrage plus large est la recommandation pratique ; cette aide est un conseil, pas une détection automatique livrée.
 
 ## Documentation
 
-La documentation technique complète se trouve dans [`/docs`](docs/index.md). Elle peut être servie localement avec MkDocs Material :
+La documentation publiée sépare présentation utilisateur, fonctionnement, architecture développeur et [notes de version](docs/changelog.md). Elle peut être servie localement avec MkDocs Material :
 
 ```bash
 python -m pip install -r requirements-docs.txt
@@ -36,4 +47,4 @@ Avec un appareil ou un émulateur connecté :
 .\gradlew.bat connectedDebugAndroidTest
 ```
 
-La base éditoriale se trouve dans [`knowledge/ingredients.json`](knowledge/ingredients.json). Voir le [guide développeur](docs/guide-developpeur.md) avant toute modification.
+L’architecture sépare l’application Android `:app` et le cœur Kotlin/JVM `:mutation-core`; les tests couvrent le parsing, le matching, les verdicts, les diagnostics et les régressions OCR. La base éditoriale se trouve dans [`knowledge/ingredients.json`](knowledge/ingredients.json). Voir le [guide développeur](docs/guide-developpeur.md) avant toute modification.
