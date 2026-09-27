@@ -25,6 +25,7 @@ class VerdictExplanation069Test {
         assertEquals(AnalysisVerdict.UNCERTAIN, explanation.mainVerdict)
         assertEquals(listOf("flavour"), explanation.uncertainIngredients.map { it.ingredientId })
         assertEquals(AnalysisVerdict.VEGAN, explanation.conditionalVerdict)
+        assertEquals(AnalysisVerdict.VEGAN, explanation.establishedIngredientVerdict)
         assertEquals(
             ConditionalVerdictReason.UNCERTAIN_INGREDIENTS_EXCLUDED,
             explanation.conditionalReason
@@ -36,6 +37,7 @@ class VerdictExplanation069Test {
 
         assertEquals(AnalysisVerdict.UNCERTAIN, explanation.mainVerdict)
         assertEquals(AnalysisVerdict.VEGETARIAN, explanation.conditionalVerdict)
+        assertEquals(AnalysisVerdict.VEGETARIAN, explanation.establishedIngredientVerdict)
         assertEquals(AnalysisVerdict.VEGETARIAN, explanation.vegetarianStatus)
         assertEquals(listOf("milk"), explanation.knownBlockingIngredients.map { it.ingredientId })
     }
@@ -86,6 +88,7 @@ class VerdictExplanation069Test {
         assertEquals(listOf("e471"), diagnostics.result.originNonVeganIngredientIds)
         assertEquals(listOf("e471"), explanation.knownBlockingIngredients.map { it.ingredientId })
         assertTrue(explanation.uncertainIngredients.any { it.ingredientId == "flavour" })
+        assertNull(explanation.establishedIngredientVerdict)
         assertNull(explanation.conditionalVerdict)
         assertEquals(
             ConditionalVerdictReason.KNOWN_NON_VEGETARIAN_INGREDIENT_REMAINS,
@@ -240,6 +243,15 @@ class VerdictExplanation069Test {
         assertEquals(AnalysisVerdict.VEGAN, explanation.establishedIngredientVerdict)
     }
 
+    @Test fun tracesAloneDoNotCreateAnyVerdictOrEstablishedResult() {
+        val diagnostics = analyze("Peut contenir : lait, gélatine")
+
+        assertEquals(AnalysisAvailability.NO_INGREDIENT_LIST, diagnostics.result.availability)
+        assertNull(diagnostics.result.verdict)
+        assertNull(diagnostics.verdictExplanation.establishedIngredientVerdict)
+        assertTrue(diagnostics.crossContactWarnings.isNotEmpty())
+    }
+
     @Test fun nestedOccurrencesRemainDiagnosticDataWhileEstablishedResultUsesLeaves() {
         val diagnostics = analyze("préparation [eau, arôme], eau")
 
@@ -256,6 +268,7 @@ class VerdictExplanation069Test {
         listOf("", "Ingrédients:", "25 %").forEach { text ->
             val explanation = analyze(text).verdictExplanation
             assertNull(text, explanation.conditionalVerdict)
+            assertNull(text, explanation.establishedIngredientVerdict)
             assertEquals(text, ConditionalVerdictReason.NO_RELIABLE_ANALYSIS, explanation.conditionalReason)
         }
     }
