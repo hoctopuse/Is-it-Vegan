@@ -53,6 +53,9 @@
     <string name="unconfirmed_vegan_notice">Ces éléments empêchent de confirmer que le produit est vegan.</string>
     <string name="conditional_vegan">Vegan hors ingrédient incertain</string>
     <string name="conditional_vegetarian">Végétarien hors ingrédient incertain</string>
+    <string name="established_vegan">Selon les ingrédients au statut établi : VEGAN</string>
+    <string name="established_vegetarian">Selon les ingrédients au statut établi : VÉGÉTARIEN</string>
+    <string name="established_ingredients_notice">Des éléments incertains ou non identifiés restent listés et empêchent toujours la confirmation globale.</string>
     <string name="empty_input_prompt">ℹ️ Entrez d’abord une liste d’ingrédients.</string>
     <string name="no_ingredient_list">ℹ️ AUCUNE LISTE D’INGRÉDIENTS DÉTECTÉE</string>
     <string name="no_vegan_conclusion">Aucune conclusion vegan n’est produite.</string>

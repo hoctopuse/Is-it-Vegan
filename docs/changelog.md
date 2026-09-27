@@ -2,6 +2,12 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.9.9
+
+- Lorsque le verdict principal est `UNCERTAIN` ou `INCONCLUSIVE`, l’interface peut afficher avant les listes un résultat informatif fondé uniquement sur les ingrédients reconnus dont le statut effectif est établi.
+- Cet encart conserve le verdict principal, laisse visibles les inconnus et les incertains, et ajoute une note indiquant qu’ils empêchent toujours la confirmation globale.
+- Les traces, la présence réelle et les nœuds composites ne sont pas transformés en statut métier pour cet encart.
+
 ## 0.6.9.8
 
 - Le rendu des vrais inconnus imbriqués conserve le contexte visuel parent → enfant.

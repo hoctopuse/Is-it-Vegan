@@ -50,6 +50,8 @@ data class VerdictExplanation(
     val knownBlockingIngredients: List<VerdictIngredientReference>,
     val uncertainIngredients: List<VerdictIngredientReference>,
     val conditionalVerdict: AnalysisVerdict?,
+    /** Informational result from established matched ingredients only; never the product verdict. */
+    val establishedIngredientVerdict: AnalysisVerdict?,
     val conditionalReason: ConditionalVerdictReason,
     val vegetarianStatus: AnalysisVerdict?,
     val tracesExcludedFromConditionalVerdict: Boolean
@@ -219,12 +221,23 @@ internal fun AnalysisDiagnostics.toVerdictExplanation(): VerdictExplanation {
         conditionalReason == ConditionalVerdictReason.UNCERTAIN_INGREDIENTS_EXCLUDED &&
             it in setOf(AnalysisVerdict.VEGAN, AnalysisVerdict.VEGETARIAN)
     }
+    val establishedIngredients = result.matched.filter { it.status != VeganStatus.UNCERTAIN }
+    val establishedIngredientVerdict = if (
+        result.verdict in setOf(AnalysisVerdict.UNCERTAIN, AnalysisVerdict.INCONCLUSIVE) &&
+        establishedIngredients.isNotEmpty()
+    ) {
+        VerdictEngine.evaluate(establishedIngredients, emptyList())
+            .takeIf { it in setOf(AnalysisVerdict.VEGAN, AnalysisVerdict.VEGETARIAN) }
+    } else {
+        null
+    }
     return VerdictExplanation(
         mainVerdict = result.verdict,
         mainVeganAssessment = result.veganAssessment,
         knownBlockingIngredients = knownBlockers,
         uncertainIngredients = uncertain,
         conditionalVerdict = conditionalVerdict,
+        establishedIngredientVerdict = establishedIngredientVerdict,
         conditionalReason = conditionalReason,
         vegetarianStatus = result.vegetarianVerdictWithoutUncertain,
         tracesExcludedFromConditionalVerdict = true

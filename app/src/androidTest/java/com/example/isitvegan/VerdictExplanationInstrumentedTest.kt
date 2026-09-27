@@ -25,10 +25,10 @@ class VerdictExplanationInstrumentedTest {
     @Test fun conditionalVerdictTerminologyIsLocalizedInEverySupportedInterfaceLanguage() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val expected = mapOf(
-            UiLanguage.FR to listOf("INCERTAIN", "Vegan hors ingrédient incertain"),
-            UiLanguage.EN to listOf("UNCERTAIN", "Vegan excluding uncertain ingredient"),
-            UiLanguage.NL to listOf("ONZEKER", "Vegan zonder onzeker ingrediënt"),
-            UiLanguage.DE to listOf("UNSICHER", "Vegan ohne unsichere Zutat")
+            UiLanguage.FR to listOf("INCERTAIN", "Selon les ingrédients au statut établi : VEGAN"),
+            UiLanguage.EN to listOf("UNCERTAIN", "According to ingredients with an established status: VEGAN"),
+            UiLanguage.NL to listOf("ONZEKER", "Volgens ingrediënten met een vastgestelde status: VEGAN"),
+            UiLanguage.DE to listOf("UNSICHER", "Nach Zutaten mit festgestelltem Status: VEGAN")
         )
 
         expected.forEach { (language, terms) ->
@@ -43,10 +43,10 @@ class VerdictExplanationInstrumentedTest {
         val context = InstrumentationRegistry.getInstrumentation().targetContext
         val diagnostics = service.analyzeWithDiagnostics("eau, lait, arôme")
         val expected = mapOf(
-            UiLanguage.FR to "Végétarien hors ingrédient incertain",
-            UiLanguage.EN to "Vegetarian excluding uncertain ingredient",
-            UiLanguage.NL to "Vegetarisch zonder onzeker ingrediënt",
-            UiLanguage.DE to "Vegetarisch ohne unsichere Zutat"
+            UiLanguage.FR to "Selon les ingrédients au statut établi : VÉGÉTARIEN",
+            UiLanguage.EN to "According to ingredients with an established status: VEGETARIAN",
+            UiLanguage.NL to "Volgens ingrediënten met een vastgestelde status: VEGETARISCH",
+            UiLanguage.DE to "Nach Zutaten mit festgestelltem Status: VEGETARISCH"
         )
 
         expected.forEach { (language, conditional) ->
@@ -134,6 +134,7 @@ class VerdictExplanationInstrumentedTest {
         assertTrue(rendered.contains("• mystère"))
         assertFalse(rendered.contains(resources.getString(R.string.conditional_vegan)))
         assertFalse(rendered.contains(resources.getString(R.string.conditional_vegetarian)))
-        assertEquals(1, rendered.split(resources.getString(R.string.unconfirmed_vegan_notice)).size - 1)
+        assertTrue(rendered.contains(resources.getString(R.string.established_vegan)))
+        assertEquals(1, rendered.split(resources.getString(R.string.established_ingredients_notice)).size - 1)
     }
 }

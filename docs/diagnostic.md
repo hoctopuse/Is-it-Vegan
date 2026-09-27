@@ -39,7 +39,7 @@ Il n’existe pas de second moteur de verdict divergent : certaines propriétés
 `AnalysisResult.verdict` reste la référence métier ; le résultat conditionnel est une vue
 informative distincte qui réutilise exactement les règles du moteur existant.
 
-La section `EXPLICATION CONDITIONNELLE 0.6.9` du rapport texte reprend ces champs. Un résultat conditionnel absent est toujours accompagné d’une raison structurée ; le rapport ne présente donc jamais un reste inconclusif comme vegan.
+La section `EXPLICATION CONDITIONNELLE 0.6.9` du rapport texte reprend ces champs. Depuis 0.6.9.9, l’interface peut aussi afficher avant les listes un encart « selon les ingrédients au statut établi » pour `VEGAN` ou `VEGETARIAN` lorsque le verdict principal est incomplet. Cet encart ignore les inconnus, les incertains et les traces, qui restent visibles ou séparés ; il ne présente jamais le produit entier comme confirmé.
 
 Pour chaque token, regarder en priorité :
 

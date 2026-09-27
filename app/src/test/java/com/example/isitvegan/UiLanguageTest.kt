@@ -39,6 +39,9 @@ class UiLanguageTest {
             "unidentified_ingredients_title",
             "conditional_vegan",
             "conditional_vegetarian",
+            "established_vegan",
+            "established_vegetarian",
+            "established_ingredients_notice",
             "traces_title",
             "traces_excluded_notice"
         )

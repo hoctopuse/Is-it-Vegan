@@ -21,6 +21,9 @@
     <string name="unconfirmed_vegan_notice">These items prevent confirmation that the product is vegan.</string>
     <string name="conditional_vegan">Vegan excluding uncertain ingredient</string>
     <string name="conditional_vegetarian">Vegetarian excluding uncertain ingredient</string>
+    <string name="established_vegan">According to ingredients with an established status: VEGAN</string>
+    <string name="established_vegetarian">According to ingredients with an established status: VEGETARIAN</string>
+    <string name="established_ingredients_notice">Uncertain or unidentified items remain listed and still prevent global confirmation.</string>
     <string name="empty_input_prompt">ℹ️ Enter an ingredient list first.</string>
     <string name="no_ingredient_list">ℹ️ NO INGREDIENT LIST DETECTED</string>
     <string name="no_vegan_conclusion">No vegan conclusion is produced.</string>

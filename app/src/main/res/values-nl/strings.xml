@@ -16,6 +16,9 @@
     <string name="unconfirmed_vegan_notice">Deze elementen verhinderen de bevestiging dat het product vegan is.</string>
     <string name="conditional_vegan">Vegan zonder onzeker ingrediënt</string>
     <string name="conditional_vegetarian">Vegetarisch zonder onzeker ingrediënt</string>
+    <string name="established_vegan">Volgens ingrediënten met een vastgestelde status: VEGAN</string>
+    <string name="established_vegetarian">Volgens ingrediënten met een vastgestelde status: VEGETARISCH</string>
+    <string name="established_ingredients_notice">Onzekere of niet-geïdentificeerde elementen blijven vermeld en verhinderen nog steeds een globale bevestiging.</string>
     <string name="empty_input_prompt">ℹ️ Voer eerst een ingrediëntenlijst in.</string>
     <string name="no_ingredient_list">ℹ️ GEEN INGREDIËNTENLIJST GEDETECTEERD</string>
     <string name="no_vegan_conclusion">Er wordt geen vegan conclusie gegeven.</string>

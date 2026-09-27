@@ -183,7 +183,73 @@ class VerdictExplanation069Test {
         val explanation = analyze("eau, arôme, poudre mystérieuse").verdictExplanation
 
         assertNull(explanation.conditionalVerdict)
+        assertEquals(AnalysisVerdict.VEGAN, explanation.establishedIngredientVerdict)
         assertEquals(ConditionalVerdictReason.UNKNOWN_INGREDIENT_REMAINS, explanation.conditionalReason)
+    }
+
+    @Test fun unknownIngredientsAloneDoNotCreateAnEstablishedVerdict() {
+        val explanation = analyze("poudre mystérieuse").verdictExplanation
+
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, explanation.mainVerdict)
+        assertNull(explanation.establishedIngredientVerdict)
+    }
+
+    @Test fun uncertainIngredientsAloneDoNotCreateAnEstablishedVerdict() {
+        val explanation = analyze("arôme").verdictExplanation
+
+        assertEquals(AnalysisVerdict.UNCERTAIN, explanation.mainVerdict)
+        assertNull(explanation.establishedIngredientVerdict)
+    }
+
+    @Test fun unknownAndUncertainIngredientsWithoutKnownStatusDoNotCreateAnEstablishedVerdict() {
+        val explanation = analyze("poudre mystérieuse, arôme").verdictExplanation
+
+        assertEquals(AnalysisVerdict.UNCERTAIN, explanation.mainVerdict)
+        assertNull(explanation.establishedIngredientVerdict)
+    }
+
+    @Test fun establishedVeganResultIgnoresUnknownAndUncertainItems() {
+        val unknown = analyze("eau, huile de colza, poudre mystérieuse").verdictExplanation
+        val uncertain = analyze("eau, huile de colza, arôme").verdictExplanation
+
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, unknown.mainVerdict)
+        assertEquals(AnalysisVerdict.VEGAN, unknown.establishedIngredientVerdict)
+        assertEquals(AnalysisVerdict.UNCERTAIN, uncertain.mainVerdict)
+        assertEquals(AnalysisVerdict.VEGAN, uncertain.establishedIngredientVerdict)
+    }
+
+    @Test fun establishedVegetarianResultUsesKnownVegetarianIngredients() {
+        val explanation = analyze("eau, lait, poudre mystérieuse").verdictExplanation
+
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, explanation.mainVerdict)
+        assertEquals(AnalysisVerdict.VEGETARIAN, explanation.establishedIngredientVerdict)
+    }
+
+    @Test fun establishedResultDoesNotDuplicateKnownNonVeganVerdict() {
+        val explanation = analyze("gélatine, poudre mystérieuse, arôme").verdictExplanation
+
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, explanation.mainVerdict)
+        assertNull(explanation.establishedIngredientVerdict)
+    }
+
+    @Test fun tracesDoNotParticipateInEstablishedResult() {
+        val explanation = analyze("eau, poudre mystérieuse. Peut contenir : lait, gélatine")
+            .verdictExplanation
+
+        assertEquals(AnalysisVerdict.INCONCLUSIVE, explanation.mainVerdict)
+        assertEquals(AnalysisVerdict.VEGAN, explanation.establishedIngredientVerdict)
+    }
+
+    @Test fun nestedOccurrencesRemainDiagnosticDataWhileEstablishedResultUsesLeaves() {
+        val diagnostics = analyze("préparation [eau, arôme], eau")
+
+        assertEquals(AnalysisVerdict.VEGAN, diagnostics.verdictExplanation.establishedIngredientVerdict)
+        assertEquals(
+            listOf(listOf("préparation", "arôme")),
+            diagnostics.verdictExplanation.uncertainIngredients.map { it.path }
+        )
+        assertEquals(1, diagnostics.verdictExplanation.establishedIngredientVerdict
+            ?.let { diagnostics.result.matched.count { ingredient -> ingredient.status == VeganStatus.VEGAN } })
     }
 
     @Test fun emptyOrUninterpretableInputHasNoConditionalResult() {

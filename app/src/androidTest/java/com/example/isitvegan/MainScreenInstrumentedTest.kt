@@ -123,7 +123,7 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("⚠️ INCERTAIN", substring = true)
             .performScrollTo()
             .assertIsDisplayed()
-        composeRule.onNodeWithText("Vegan hors ingrédient incertain", substring = true)
+        composeRule.onNodeWithText("Selon les ingrédients au statut établi : VEGAN", substring = true)
             .assertIsDisplayed()
     }
 
@@ -141,7 +141,7 @@ class MainScreenInstrumentedTest {
             .assertIsDisplayed()
         composeRule.onNodeWithText("Ingrédients incertains", substring = true)
             .assertIsDisplayed()
-        composeRule.onNodeWithText("Vegan hors ingrédient incertain", substring = true)
+        composeRule.onNodeWithText("Selon les ingrédients au statut établi : VEGAN", substring = true)
             .assertDoesNotExist()
     }
 

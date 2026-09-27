@@ -62,6 +62,15 @@ internal object VerdictExplanationFormatter {
             AnalysisVerdict.VEGAN, null -> resources.getString(R.string.verdict_vegan)
         }
 
+        when (explanation.establishedIngredientVerdict) {
+            AnalysisVerdict.VEGAN -> sections += resources.getString(R.string.established_vegan)
+            AnalysisVerdict.VEGETARIAN -> sections += resources.getString(R.string.established_vegetarian)
+            else -> Unit
+        }
+        if (explanation.establishedIngredientVerdict != null) {
+            sections += resources.getString(R.string.established_ingredients_notice)
+        }
+
         if (explanation.knownBlockingIngredients.isNotEmpty()) {
             sections += resources.getString(R.string.known_blocking_ingredients_title) + "\n" +
                 explanation.knownBlockingIngredients.joinToString("\n") {
@@ -87,11 +96,16 @@ internal object VerdictExplanationFormatter {
         if (showsUnknownIngredients) {
             sections += renderUnknownIngredients(resources, diagnostics)
         }
-        if (explanation.uncertainIngredients.isNotEmpty() || showsUnknownIngredients) {
+        if (
+            explanation.establishedIngredientVerdict == null &&
+            (explanation.uncertainIngredients.isNotEmpty() || showsUnknownIngredients)
+        ) {
             sections += resources.getString(R.string.unconfirmed_vegan_notice)
         }
 
-        when (explanation.conditionalVerdict) {
+        when (explanation.conditionalVerdict.takeUnless {
+            explanation.establishedIngredientVerdict != null
+        }) {
             AnalysisVerdict.VEGAN -> sections += resources.getString(R.string.conditional_vegan)
             AnalysisVerdict.VEGETARIAN -> sections += resources.getString(R.string.conditional_vegetarian)
             else -> Unit
