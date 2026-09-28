@@ -56,12 +56,12 @@
 | e904 | Gomme-laque | NON_VEGAN | E904 | — | eu-additives, vegan-society |
 | gelatin | Gélatine | NON_VEGAN | — | — | vegan-society |
 | grana_padano | Grana Padano AOP | NON_VEGAN | — | — | grana-padano-ingredients |
-| milk | Lait animal | VEGETARIAN | — | — | vegan-society, vegetarian-society |
+| milk | Lait animal | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614 |
 | lactose | Lactose | VEGETARIAN | — | — | vegan-society, vegetarian-society |
 | whey | Lactosérum | VEGETARIAN | — | — | vegan-society, vegetarian-society |
 | casein | Caséine | VEGETARIAN | — | — | vegan-society, vegetarian-society |
 | butter | Beurre laitier | VEGETARIAN | — | — | vegan-society, vegetarian-society |
-| cream | Crème laitière | VEGETARIAN | — | — | vegan-society, vegetarian-society |
+| cream | Crème laitière | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614 |
 | ricotta | Ricotta | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | cheese | Fromage | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | egg | Œuf | VEGETARIAN | — | — | vegan-society, vegetarian-society |
@@ -478,6 +478,7 @@
 | corn | — | maïsmeel | — | — | mais | maíz | — |
 | cottonseed_oil | huile de graine de coton, huile de coton | katoenzaadolie | Baumwollsaatöl | — | — | — | — |
 | cranberry | canneberges, canneberges séchées et sucrées | cranberry's | — | — | — | — | — |
+| cream | crème en poudre | roompoeder | Rahmpulver, Sahnepulver | — | — | — | — |
 | date | dattes, morceaux de dattes secs | dadels | — | — | — | — | — |
 | e100 | Curcumine | Curcumine | Kurkumin | Curcumin | — | — | — |
 | e101 | Riboflavines | Riboflavinen | Riboflavine | Riboflavins | — | — | — |
@@ -823,7 +824,7 @@
 | inulin | inuline | inuline | Inulin | inulin | inulina | inulina | — |
 | macadamia | noix de macadamia | macadamianoten, macadamianoot | — | — | — | — | — |
 | malt | malt, extrait de malt, flocons de céréales maltés, farine de malt d’orge, farine de malt de blé | mout, gerstermout, gerstermoutextract, gemoute gerstemeel, gemoute tarwebloem | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
-| milk | — | magere melkpoeder | Magermilchpulver | — | — | — | — |
+| milk | lait, lait partiellement déshydraté, lait concentré riche en matières grasses, lait concentré, lait concentré partiellement écrémé, lait concentré écrémé, lait concentré sucré, lait concentré sucré partiellement écrémé, lait concentré sucré écrémé, lait totalement déshydraté, lait en poudre riche en matières grasses, poudre de lait riche en matières grasses, lait en poudre entier, poudre de lait entier, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé, lait en poudre écrémé, poudre de lait écrémé, lait demi-écrémé concentré, lait de mi-écrémé concentré non sucré, lait demi-écrémé concentré sucré, lait demi-écrémé en poudre | magere melkpoeder, melk, gedeeltelijk gedehydrateerde melk, geëvaporeerde melk met hoog vetgehalte, geëvaporeerde volle melk, geëvaporeerde gedeeltelijk afgeroomde melk, geëvaporeerde magere melk, gecondenseerde volle melk met suiker, gecondenseerde gedeeltelijk afgeroomde melk met suiker, gecondenseerde magere melk met suiker, geheel gedehydrateerde melk, melkpoeder, melkpoeder met hoog vetgehalte, volle melkpoeder, melkpoeder van gedeeltelijk afgeroomde melk, geëvaporeerde halfvolle melk, halfvolle koffiemelk, halfvolle melkpoeder, koffiemelk | Magermilchpulver, Milch, Eingedickte Milch, Kondensmilch mit hohem Fettgehalt, Kondensmilch, kondensierte Vollmilch, Teilentrahmte Kondensmilch, Kondensmagermilch, kondensierte Magermilch, Gezuckerte Kondensmilch, gezuckerte kondensierte Vollmilch, Gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte kondensierte Milch, Gezuckerte Kondensmagermilch, gezuckerte kondensierte Magermilch, Trockenmilch, Milchpulver, Milchpulver mit hohem Fettgehalt, Vollmilchpulver, Teilentrahmtes Milchpulver, kondensierte Kaffeesahne | milk, partly dehydrated milk, condensed high-fat milk, condensed milk, condensed, partly skimmed milk, condensed skimmed milk, sweetened condensed milk, sweetened condensed, partly skimmed milk, sweetened condensed skimmed milk, totally dehydrated milk, milk powder, dried high-fat milk, high-fat milk powder, dried whole milk, whole milk powder, dried partly skimmed milk, partly skimmed-milk powder, dried skimmed milk, skimmed-milk powder, evaporated milk, evaporated semi-skimmed milk, semi-skimmed milk powder, dried semi-skimmed milk | — | — | — |
 | natural_flavouring | — | natuurlijk aardbeienaroma | natürliches Aroma | — | — | — | — |
 | oats | flocons d’avoine complets, flocons d’avoine complète, avoine fermentée | haver, havervlokken, volkoren havervlokken, gefermenteerde haver | Hafer, Haferflocken | — | avena | avena | — |
 | olive_oil | — | olijfolie | Olivenöl | — | — | — | — |

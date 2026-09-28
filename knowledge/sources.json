@@ -111,5 +111,23 @@
     "role": "Primary local regulatory source for honey definitions and multilingual product names in Annex I.",
     "limitations": "Defines the regulated honey product and names; it does not classify composite products or replace their declared ingredient lists.",
     "use": "Evidence for the honey concept and Annex I multilingual aliases."
+  },
+  {
+    "id": "eu-preserved-milk-directive-2001-114-20260614",
+    "title": "Council Directive 2001/114/EC — relating to certain preserved partly or wholly dehydrated milks for human consumption",
+    "celex": "02001L0114",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02001L0114-20260614",
+    "language": "FR, NL, EN, DE",
+    "institution": "Council of the European Union",
+    "consolidationDate": "2026-06-14",
+    "localPdfPaths": [
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02001L0114-20260614_FR_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02001L0114-20260614_NL_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02001L0114-20260614_EN_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02001L0114-20260614_DE_TXT.pdf"
+    ],
+    "role": "Primary local regulatory source for preserved partly and wholly dehydrated milk definitions and multilingual product names in Annexes I and II.",
+    "limitations": "Defines regulated dairy product names and composition only; it does not classify composite products, flavour wording, plant drinks or an individual label beyond its declared ingredients.",
+    "use": "Evidence for CELEX 02001L0114 multilingual aliases attached to the existing milk and cream concepts."
   }
 ]

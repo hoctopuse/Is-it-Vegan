@@ -78,7 +78,8 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             }
         }
         val eligible = candidates.filterNot { it in blocked ||
-            (it.ingredient.id == "honey" && honeyFlavourContext.matches(normalized))
+            (it.ingredient.id == "honey" && honeyFlavourContext.matches(normalized)) ||
+            (it.ingredient.id == "milk" && milkNonIngredientContext.matches(normalized))
         }
         val covered = BooleanArray(normalized.length)
         val selected = mutableListOf<Candidate>()
@@ -218,6 +219,12 @@ class IngredientMatcher(private val database: List<Ingredient>) {
         )
         val honeyFlavourContext = Regex(
             "^(?:(?:arome de|gout de|gout) (?:miel|honey|honing|honig)|(?:miel|honey|honing|honig) (?:flavour|flavor|aroma))$"
+        )
+        val milkNonIngredientContext = Regex(
+            "^(?:(?:arome de|gout de|gout) (?:lait|milk|melk|milch)|" +
+                "(?:lait|milk|melk|milch) (?:flavour|flavor|aroma)|" +
+                "(?:lait vegetal|plant milk|plantaardige melk|pflanzliche milch)|" +
+                "(?:contient(?: du)? lait|contains milk|bevat melk|enthalt milch))$"
         )
     }
 }
