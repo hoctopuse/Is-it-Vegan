@@ -739,11 +739,7 @@
       "acide carminique",
       "carmine",
       "cochineal",
-      "karmijn",
-      "Acide carminique, carmins",
-      "Karmijnzuur, karmijn",
-      "Carminic acid, Carmine",
-      "Echtes Karmin"
+      "karmijn"
     ],
     "status": "NON_VEGAN",
     "reason": "Colorant obtenu à partir de cochenilles.",
@@ -759,10 +755,7 @@
       "shellac",
       "schellak",
       "resine de shellac",
-      "résine de shellac",
-      "Shellac",
-      "Schellak",
-      "Schellack"
+      "résine de shellac"
     ],
     "status": "NON_VEGAN",
     "reason": "Résine produite par l’insecte Kerria lacca.",
@@ -1019,10 +1012,7 @@
       "mono and diglycerides",
       "mono en diglyceriden",
       "monostéarine",
-      "monostearine",
-      "Mono- en diglyceriden van vetzuren",
-      "Mono-and diglycerides of fatty acids",
-      "Mono- und Diglyceride von Speisefettsäuren"
+      "monostearine"
     ],
     "status": "UNCERTAIN",
     "reason": "Les acides gras peuvent être végétaux ou animaux selon le fabricant.",
@@ -1050,10 +1040,7 @@
       "lécithine",
       "lecithine",
       "lecithin",
-      "lecithinen",
-      "Lecithinen",
-      "Lecithins",
-      "a  Haferlecithin"
+      "lecithinen"
     ],
     "status": "UNCERTAIN",
     "reason": "Souvent végétale, mais peut provenir notamment de l’œuf.",
@@ -1068,9 +1055,7 @@
       "glycerol",
       "glycerine",
       "glycerin",
-      "glycerol",
-      "Glycerol",
-      "Glycerin"
+      "glycerol"
     ],
     "status": "UNCERTAIN",
     "reason": "Peut être produit à partir de matières végétales ou animales.",
@@ -1083,10 +1068,7 @@
     "aliases": [
       "acides gras",
       "fatty acids",
-      "vetzuren",
-      "Vetzuren",
-      "Fatty acids",
-      "Speisefettsäuren"
+      "vetzuren"
     ],
     "status": "UNCERTAIN",
     "reason": "Peuvent provenir de matières végétales ou animales.",
@@ -1100,10 +1082,7 @@
       "guanylate de sodium",
       "guanylate disodique",
       "disodium guanylate",
-      "natriumguanylaat",
-      "Natriumguanylaat",
-      "Disodium guanylate",
-      "Dinatriumguanylat"
+      "natriumguanylaat"
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
@@ -1116,10 +1095,7 @@
     "aliases": [
       "inosinate disodique",
       "disodium inosinate",
-      "natriuminosinaat",
-      "Dinatriuminosinaat",
-      "Disodium inosinate",
-      "Dinatriuminosinat"
+      "natriuminosinaat"
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
@@ -1133,11 +1109,7 @@
       "ribonucléotides disodiques",
       "ribonucleotides disodiques",
       "disodium ribonucleotides",
-      "natriumribonucleotiden",
-      "5′-ribonucléotide disodique",
-      "Dinatrium-5'-ribonucleotiden",
-      "Disodium 5′-ribonucleotides",
-      "Dinatrium-5′-ribonucleotid"
+      "natriumribonucleotiden"
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
@@ -1182,10 +1154,7 @@
     "aliases": [
       "acide ascorbique",
       "ascorbic acid",
-      "ascorbinezuur",
-      "Ascorbinezuur",
-      "Ascorbic acid",
-      "Ascorbinsäure"
+      "ascorbinezuur"
     ],
     "status": "VEGAN",
     "reason": "Additif de synthèse ou issu de végétaux, sans origine animale attendue.",
@@ -1198,10 +1167,7 @@
     "aliases": [
       "acide citrique",
       "citric acid",
-      "citroenzuur",
-      "Citroenzuur",
-      "Citric acid",
-      "Citronensäure"
+      "citroenzuur"
     ],
     "status": "VEGAN",
     "reason": "Additif issu de fermentation ou de synthèse, sans origine animale attendue.",
@@ -1213,10 +1179,7 @@
     "eNumber": "E170",
     "aliases": [
       "carbonate de calcium",
-      "calcium carbonate",
-      "Calciumcarbonaat",
-      "Calcium carbonate",
-      "Calciumcarbonat"
+      "calcium carbonate"
     ],
     "status": "VEGAN",
     "reason": "Sel minéral de calcium, sans origine animale dans cette désignation d’additif.",
@@ -1229,10 +1192,7 @@
     "aliases": [
       "agar agar",
       "agar-agar",
-      "agar",
-      "Agaragar",
-      "Agar",
-      "Agar-Agar"
+      "agar"
     ],
     "status": "VEGAN",
     "reason": "Gélifiant issu d’algues.",
@@ -1245,11 +1205,7 @@
     "aliases": [
       "gomme gellane",
       "gellan gum",
-      "gellan",
-      "Gomme Gellane",
-      "Gellangom",
-      "Gellan gum",
-      "Gellan"
+      "gellan"
     ],
     "status": "VEGAN",
     "reason": "Gélifiant obtenu par fermentation microbienne, sans origine animale attendue.",
@@ -1262,11 +1218,7 @@
     "aliases": [
       "gomme de caroube",
       "locust bean gum",
-      "johannesbroodpitmeel",
-      "Farine de graines de caroube",
-      "Johannesbroodpitmeel",
-      "Locust bean gum",
-      "Johannisbrotkernmehl"
+      "johannesbroodpitmeel"
     ],
     "status": "VEGAN",
     "reason": "Épaississant issu de caroube.",
@@ -1279,10 +1231,7 @@
     "aliases": [
       "gomme guar",
       "guar gum",
-      "guargom",
-      "Guarpitmeel",
-      "Guar gum",
-      "Guarkernmehl"
+      "guargom"
     ],
     "status": "VEGAN",
     "reason": "Épaississant issu de guar.",
@@ -1295,10 +1244,7 @@
     "aliases": [
       "gomme xanthane",
       "xanthan gum",
-      "xanthaangom",
-      "Xanthaangom",
-      "Xanthan gum",
-      "Xanthan"
+      "xanthaangom"
     ],
     "status": "VEGAN",
     "reason": "Épaississant issu de fermentation microbienne.",
@@ -1312,10 +1258,7 @@
       "pectine",
       "pectines",
       "pectin",
-      "pectine",
-      "Pectinen",
-      "Pectins",
-      "Pektine E-Nummer Bezeichnung"
+      "pectine"
     ],
     "status": "VEGAN",
     "reason": "Gélifiant issu de végétaux.",
@@ -1329,10 +1272,7 @@
       "bicarbonate de sodium",
       "sodium bicarbonate",
       "natriumbicarbonaat",
-      "carbonates de sodium",
-      "Natriumcarbonaten",
-      "Sodium carbonates",
-      "Natriumcarbonate"
+      "carbonates de sodium"
     ],
     "status": "VEGAN",
     "reason": "Substance minérale, sans origine animale.",
@@ -1348,10 +1288,7 @@
       "carbonates d ammonium",
       "carbonates d’ammonium",
       "ammonium carbonate",
-      "ammonium carbonates",
-      "Ammoniumcarbonaten",
-      "Ammonium carbonates",
-      "Ammoniumcarbonate"
+      "ammonium carbonates"
     ],
     "status": "VEGAN",
     "reason": "Sels minéraux d’ammonium, sans origine animale dans cette désignation d’additif.",
@@ -1364,10 +1301,7 @@
     "aliases": [
       "hydroxyde de sodium",
       "sodium hydroxide",
-      "natriumhydroxide",
-      "Natriumhydroxide",
-      "Sodium hydroxide",
-      "Natriumhydroxid E-Nummer Bezeichnung"
+      "natriumhydroxide"
     ],
     "status": "VEGAN",
     "reason": "Substance minérale, sans origine animale.",
@@ -1380,10 +1314,7 @@
     "aliases": [
       "dioxyde de silicium",
       "silicon dioxide",
-      "siliciumdioxide",
-      "Siliciumdioxide",
-      "Silicon dioxide",
-      "Siliciumdioxid"
+      "siliciumdioxide"
     ],
     "status": "VEGAN",
     "reason": "Substance minérale, sans origine animale.",
@@ -1398,10 +1329,7 @@
       "monosodium glutamate",
       "msg",
       "ve tsin",
-      "natriumglutamaat",
-      "Mononatriumglutamaat",
-      "Monosodium glutamate",
-      "Mononatriumglutamat E-Nummer Bezeichnung"
+      "natriumglutamaat"
     ],
     "status": "VEGAN",
     "reason": "Produit industriel généralement obtenu par fermentation, sans origine animale attendue.",
@@ -1415,10 +1343,7 @@
       "citrate de potassium",
       "citrates de potassium",
       "potassium citrate",
-      "potassium citrates",
-      "Kaliumcitraten",
-      "Potassium citrates",
-      "Kaliumcitrate"
+      "potassium citrates"
     ],
     "status": "VEGAN",
     "reason": "Sels de l’acide citrique, sans origine animale dans cette désignation d’additif.",
@@ -1431,11 +1356,7 @@
     "aliases": [
       "acésulfame k",
       "acesulfame k",
-      "acesulfaam k",
-      "Acésulfame-K",
-      "Acesulfaam-K",
-      "Acesulfame K",
-      "Acesulfam K"
+      "acesulfaam k"
     ],
     "status": "VEGAN",
     "reason": "Édulcorant de synthèse, sans origine animale attendue.",
@@ -1889,10 +1810,7 @@
       "tocophérols",
       "tocopherols",
       "tocopherol-rich extract",
-      "extract rich in tocopherols",
-      "Tocoferolrijk extract",
-      "Tocopherol-rich extract",
-      "Stark tocopherolhaltige Extrakte"
+      "extract rich in tocopherols"
     ],
     "status": "VEGAN",
     "reason": "Lorsque la dénomination correspond clairement à l’extrait riche en tocophérols défini pour E306, l’additif est retenu comme compatible ; la formulation commerciale reste à confirmer si l’étiquette est ambiguë.",
@@ -2144,10 +2062,7 @@
       "e340",
       "phosphates de potassium",
       "potassium phosphates",
-      "kaliumfosfaten",
-      "Kaliumfosfaten",
-      "Potassium phosphates",
-      "Kaliumphosphate"
+      "kaliumfosfaten"
     ],
     "status": "VEGAN",
     "reason": "Sels minéraux de potassium utilisés comme additifs.",
@@ -2186,11 +2101,7 @@
     "aliases": [
       "e202",
       "sorbate de potassium",
-      "potassium sorbate",
-      "Sorbate de potassium __________",
-      "Kaliumsorbaat __________",
-      "Potassium sorbate __________",
-      "Kaliumsorbat __________"
+      "potassium sorbate"
     ],
     "status": "VEGAN",
     "reason": "Sel de potassium utilisé comme conservateur, sans origine animale attendue dans cette désignation.",
@@ -2205,11 +2116,7 @@
       "dioxyde de soufre",
       "anhydride sulfureux",
       "sulfur dioxide",
-      "sulphur dioxide",
-      "Anhydride sulfureux",
-      "Zwaveldioxide",
-      "Sulphur dioxide",
-      "Schwefeldioxid"
+      "sulphur dioxide"
     ],
     "status": "VEGAN",
     "reason": "Composé minéral sans origine animale.",
@@ -2223,10 +2130,7 @@
       "e262",
       "acétates de sodium",
       "acetates de sodium",
-      "sodium acetates",
-      "Natriumacetaten",
-      "Sodium acetates",
-      "Natriumacetate"
+      "sodium acetates"
     ],
     "status": "VEGAN",
     "reason": "Sels de sodium sans origine animale attendue dans cette désignation.",
@@ -2241,9 +2145,7 @@
       "acide lactique",
       "lactic acid",
       "melkzuur",
-      "Milchsäure",
-      "Melkzuur",
-      "Lactic acid"
+      "Milchsäure"
     ],
     "status": "VEGAN",
     "reason": "Le statut par défaut de l’acide lactique est vegan ; une origine laitière explicitement attachée est traitée par la règle d’origine.",
@@ -3167,9 +3069,6 @@
     "name": "Cire d’abeille",
     "eNumber": "E901",
     "aliases": [
-      "cire d abeille",
-      "bijenwas",
-      "beeswax",
       "bienenwachs",
       "Cire d’abeille blanche et jaune",
       "Bijenwas, wit en geel",

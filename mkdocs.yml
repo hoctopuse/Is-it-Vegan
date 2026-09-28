@@ -36,6 +36,8 @@ nav:
   - Matching des ingrédients: matching.md
   - Base de connaissances: base-connaissances.md
   - Référentiel des additifs UE: additifs.md
+  - Sources:
+    - Extraction annexe II-B UE: sources/eu-additives-annex-ii-b.md
   - Moteur de verdict: verdict.md
   - Notes de version: changelog.md
   - Tests: tests.md

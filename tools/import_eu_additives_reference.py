@@ -1,16 +1,21 @@
 #!/usr/bin/env python3
-"""Import the locally acquired EU additive reference into the runtime database."""
+"""Synchronize the EU additive reference into editorial knowledge sources."""
 
 import argparse
 import csv
 import json
 import tempfile
+import unicodedata
+import re
 from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
 REFERENCE = ROOT / "reference-input" / "eu-food-labelling" / "03-food-additives" / "EU_ADDITIVES_OFFICIAL_MULTILINGUAL_REFERENCE.csv"
-DATABASE = ROOT / "app" / "src" / "main" / "assets" / "ingredients.json"
+DATABASE = ROOT / "knowledge" / "ingredients.json"
+RUNTIME_DATABASE = ROOT / "app" / "src" / "main" / "assets" / "ingredients.json"
+LEXICON = ROOT / "knowledge" / "ingredient_aliases_multilingual.json"
+RUNTIME_LEXICON = ROOT / "app" / "src" / "main" / "assets" / "ingredient_aliases_multilingual.json"
 LANGUAGE_COLUMNS = (
     "official_name_fr",
     "official_name_nl",
@@ -30,7 +35,12 @@ def read_inputs():
         reference = list(csv.DictReader(handle))
     with DATABASE.open(encoding="utf-8") as handle:
         database = json.load(handle)
-    return reference, database
+    with RUNTIME_DATABASE.open(encoding="utf-8") as handle:
+        runtime_database = json.load(handle)
+    lexicon_path = LEXICON if LEXICON.exists() else RUNTIME_LEXICON
+    with lexicon_path.open(encoding="utf-8") as handle:
+        lexicon = json.load(handle)
+    return reference, database, runtime_database, lexicon
 
 
 def validate_reference(reference):
@@ -64,7 +74,127 @@ def unique(values):
     return result
 
 
-def import_reference(reference, database):
+def normalized(value):
+    decomposed = "".join(
+        character for character in unicodedata.normalize("NFKD", value.casefold().strip())
+        if not unicodedata.combining(character)
+    )
+    compact = re.sub(r"[^a-z0-9]+", " ", decomposed).strip()
+    return re.sub(r"^e\s+(?=\d)", "e", compact)
+
+
+def source_entry(runtime_item):
+    """Convert the prior generated representation without losing historical data."""
+    return {
+        "id": runtime_item["id"],
+        "name": runtime_item["name"],
+        "eNumber": runtime_item.get("eNumber", ""),
+        "aliases": runtime_item["aliases"],
+        "status": runtime_item["status"],
+        "reason": runtime_item["reason"],
+        "sources": [item.strip() for item in runtime_item.get("source", "").split(",") if item.strip()],
+    }
+
+
+def merge_runtime_history(database, runtime_database):
+    """Recover entries previously written directly to the generated asset exactly once."""
+    by_id = {item["id"]: item for item in database}
+    for runtime_item in runtime_database:
+        if runtime_item["id"] not in by_id:
+            editorial = source_entry(runtime_item)
+            database.append(editorial)
+            by_id[editorial["id"]] = editorial
+
+
+def remove_injected_conflicting_aliases(reference, database):
+    """Keep historical aliases, but move direct-import copies into the language lexicon.
+
+    E470b/E572 is a documented deliberate ambiguity and remains in the canonical
+    matcher.  Other collisions came from the old asset-only import and would make
+    the editorial validator choose one concept implicitly.
+    """
+    by_number = {row["e_number"]: row for row in reference}
+    owners = {}
+    for entry in database:
+        for alias in entry.get("aliases", []):
+            owners.setdefault(alias.casefold().strip(), set()).add(entry["id"])
+    for entry in database:
+        number = entry.get("eNumber")
+        row = by_number.get(number)
+        if not row or number == "E470b":
+            continue
+        if number == "E901":
+            # The direct asset import copied the older generic beeswax aliases
+            # onto E901 although its Annex II-B name is more specific.  Keep the
+            # historical beeswax concept and recognize the official forms only
+            # through the per-language lexicon.
+            entry["aliases"] = [
+                alias for alias in entry["aliases"]
+                if len(owners.get(alias.casefold().strip(), set())) == 1
+            ] or [number, number.replace("E", "E ", 1)]
+        official = {row[column].casefold().strip() for column in LANGUAGE_COLUMNS if row[column].strip()}
+        conflicting = {alias for alias in official if len(owners.get(alias, set())) > 1}
+        if conflicting:
+            entry["aliases"] = [
+                alias for alias in entry["aliases"] if alias.casefold().strip() not in conflicting
+            ]
+            if not entry["aliases"]:
+                entry["aliases"] = [number, number.replace("E", "E ", 1)]
+
+
+def add_official_aliases(lexicon, row, identifier):
+    entries = lexicon.setdefault("aliases", [])
+    seen = {}
+    for entry in entries:
+        for alias in entry.get("aliases", []) + entry.get("ocrVariants", []):
+            seen[(entry["language"], normalized(alias))] = entry["canonicalId"]
+    for language, column in zip(("FR", "NL", "EN", "DE"), LANGUAGE_COLUMNS):
+        alias = row[column].strip()
+        if not alias:
+            continue
+        key = (language, normalized(alias))
+        owner = seen.get(key)
+        if owner and owner != identifier:
+            raise ValueError(f"multilingual alias collision: {language} {alias!r} belongs to {owner}")
+        matching_entry = next((entry for entry in entries if entry["canonicalId"] == identifier and entry["language"] == language), None)
+        if matching_entry is None:
+            matching_entry = {"canonicalId": identifier, "language": language, "aliases": [], "ocrVariants": []}
+            entries.append(matching_entry)
+        existing_terms = matching_entry["aliases"] + matching_entry["ocrVariants"]
+        equivalent_alias_index = next(
+            (index for index, term in enumerate(matching_entry["aliases"]) if normalized(term) == normalized(alias)),
+            None
+        )
+        if equivalent_alias_index is not None:
+            # Retain the official source spelling/case while avoiding a second
+            # normalized surface in the runtime lexicon.
+            matching_entry["aliases"][equivalent_alias_index] = alias
+        elif normalized(alias) not in {normalized(term) for term in existing_terms}:
+            matching_entry["aliases"].append(alias)
+        seen[key] = identifier
+
+
+def consolidate_lexicon(lexicon):
+    """The pre-existing lexicon may have several blocks for one concept/language."""
+    merged = {}
+    for entry in lexicon.get("aliases", []):
+        key = (entry["canonicalId"], entry["language"])
+        target = merged.setdefault(key, {
+            "canonicalId": entry["canonicalId"], "language": entry["language"],
+            "aliases": [], "ocrVariants": []
+        })
+        seen = {normalized(term) for term in target["aliases"] + target["ocrVariants"]}
+        for field in ("aliases", "ocrVariants"):
+            for term in entry.get(field, []):
+                if normalized(term) not in seen:
+                    target[field].append(term)
+                    seen.add(normalized(term))
+    lexicon["aliases"] = list(merged.values())
+
+
+def import_reference(reference, database, runtime_database, lexicon):
+    merge_runtime_history(database, runtime_database)
+    remove_injected_conflicting_aliases(reference, database)
     by_number = {
         item["eNumber"].upper(): item
         for item in database
@@ -102,11 +232,9 @@ def import_reference(reference, database):
         existing = by_number.get(number.upper())
         if existing is not None:
             already_present.append(number)
-            aliases = existing.setdefault("aliases", [])
-            for official_name in official_names:
-                if official_name not in aliases and official_name != existing["name"]:
-                    aliases.append(official_name)
-                    aliases_added_to_existing += 1
+            before_aliases = sum(len(entry.get("aliases", [])) for entry in lexicon.get("aliases", []))
+            add_official_aliases(lexicon, row, existing["id"])
+            aliases_added_to_existing += sum(len(entry.get("aliases", [])) for entry in lexicon.get("aliases", [])) - before_aliases
             continue
 
         identifier = number.lower()
@@ -116,15 +244,18 @@ def import_reference(reference, database):
             "id": identifier,
             "name": row["official_name_fr"],
             "eNumber": number,
-            "aliases": official_names,
+            "aliases": [number, number.replace("E", "E ", 1)],
             "status": "UNCERTAIN",
             "reason": UNCERTAIN_REASON,
-            "source": "eu-additives",
+            "sources": ["eu-additives"],
         }
         database.append(entry)
         by_number[number.upper()] = entry
         ids.add(identifier)
         imported.append(number)
+        add_official_aliases(lexicon, row, identifier)
+
+    consolidate_lexicon(lexicon)
 
     if any(item["status"] != before_statuses[item["id"]] for item in database if item["id"] in before_statuses):
         raise ValueError("an existing classification changed")
@@ -134,11 +265,12 @@ def import_reference(reference, database):
         if item["id"] in before_fields
     ):
         raise ValueError("an existing non-alias field changed")
-    if any(item["status"] != "UNCERTAIN" for item in database if item["eNumber"] in imported):
+    if any(item["status"] != "UNCERTAIN" for item in database if item.get("eNumber") in imported):
         raise ValueError("a newly imported additive is not UNCERTAIN")
 
     return {
         "database": database,
+        "lexicon": lexicon,
         "imported": imported,
         "already_present": already_present,
         "excluded": excluded,
@@ -146,27 +278,28 @@ def import_reference(reference, database):
     }
 
 
-def write_database(database):
-    content = json.dumps(database, ensure_ascii=False, indent=2) + "\n"
+def write_json(path, data):
+    content = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
     with tempfile.NamedTemporaryFile(
-        "w", encoding="utf-8", newline="\n", dir=DATABASE.parent, delete=False
+        "w", encoding="utf-8", newline="\n", dir=path.parent, delete=False
     ) as handle:
         handle.write(content)
         temporary = Path(handle.name)
-    temporary.replace(DATABASE)
+    temporary.replace(path)
 
 
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--write", action="store_true", help="replace the runtime database atomically")
     args = parser.parse_args()
-    reference, database = read_inputs()
+    reference, database, runtime_database, lexicon = read_inputs()
     validate_reference(reference)
     before_entries = len(database)
     before_aliases = sum(len(item.get("aliases", [])) for item in database)
-    result = import_reference(reference, database)
+    result = import_reference(reference, database, runtime_database, lexicon)
     if args.write:
-        write_database(result["database"])
+        write_json(DATABASE, result["database"])
+        write_json(LEXICON, result["lexicon"])
     summary = {
         "mode": "write" if args.write else "dry-run",
         "entries_before": before_entries,

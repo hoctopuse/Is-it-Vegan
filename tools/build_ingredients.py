@@ -11,6 +11,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "knowledge" / "ingredients.json"
 OUTPUT = ROOT / "app" / "src" / "main" / "assets" / "ingredients.json"
+ALIASES_SOURCE = ROOT / "knowledge" / "ingredient_aliases_multilingual.json"
+ALIASES_OUTPUT = ROOT / "app" / "src" / "main" / "assets" / "ingredient_aliases_multilingual.json"
 VALID_STATUSES = {"VEGAN", "VEGETARIAN", "NON_VEGAN", "UNCERTAIN"}
 
 
@@ -44,7 +46,11 @@ def main() -> None:
         for alias in entry_aliases:
             key = alias.casefold().strip()
             previous = aliases.get(key)
-            if previous and previous != identifier:
+            # E470b and E572 share the same official names in Annex II-B.  Both
+            # concepts are explicitly uncertain; retain this documented ambiguity
+            # instead of silently reassigning a historical alias.
+            permitted_collision = {previous, identifier} == {"e470b", "e572"}
+            if previous and previous != identifier and not permitted_collision:
                 fail(f"alias '{alias}' belongs to both {previous} and {identifier}")
             aliases[key] = identifier
 
@@ -59,13 +65,19 @@ def main() -> None:
         })
 
     rendered = json.dumps(exported, ensure_ascii=False, indent=2) + "\n"
+    if not ALIASES_SOURCE.exists():
+        fail(f"missing multilingual alias source: {ALIASES_SOURCE.relative_to(ROOT)}")
+    aliases_rendered = ALIASES_SOURCE.read_bytes()
     if "--check" in sys.argv:
         if not OUTPUT.exists() or OUTPUT.read_text(encoding="utf-8") != rendered:
             fail("Android asset is stale; run: python3 tools/build_ingredients.py")
+        if not ALIASES_OUTPUT.exists() or ALIASES_OUTPUT.read_bytes() != aliases_rendered:
+            fail("Android multilingual alias asset is stale; run: python3 tools/build_ingredients.py")
         print(f"Knowledge base is valid and {OUTPUT.relative_to(ROOT)} is current.")
         return
 
     OUTPUT.write_text(rendered, encoding="utf-8")
+    ALIASES_OUTPUT.write_bytes(aliases_rendered)
     print(f"Generated {OUTPUT.relative_to(ROOT)}: {len(exported)} entries; {dict(Counter(x['status'] for x in exported))}")
 
 

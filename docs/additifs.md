@@ -15,6 +15,8 @@ Le [CSV de référence multilingue](https://github.com/hoctopuse/Is-it-Vegan/blo
 
 Ces liens pointent vers les fichiers de provenance du dépôt. Les PDF et le CSV ne sont pas des assets Android et ne sont pas chargés à l’exécution.
 
+La méthode de lecture de l’annexe II-B, la jointure exacte des numéros E, les exceptions `E345` / `E345(i)` et le cas structurel `E960b` sont documentés dans [Extraction de l’annexe II-B](sources/eu-additives-annex-ii-b.md).
+
 ## Ce que la base reconnaît
 
 Les 338 lignes importables du CSV sont couvertes dans `app/src/main/assets/ingredients.json` : 250 nouvelles entrées ont été ajoutées et les 88 entrées déjà présentes ont conservé leurs classifications, raisons, sources, identifiants et alias métier. Les nouvelles entrées ont toutes le statut `UNCERTAIN`.

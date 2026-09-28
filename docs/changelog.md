@@ -2,6 +2,10 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.10
+
+- Synchronise le référentiel UE des additifs depuis `knowledge/`, génère les assets Android et documente l’extraction de l’annexe II-B.
+
 ## 0.6.9.10
 
 - Le référentiel local couvre les 338 lignes importables sur 340 de la référence officielle UE acquise pour l’annexe II-B, par leur numéro E et leurs dénominations françaises, néerlandaises, anglaises et allemandes disponibles.

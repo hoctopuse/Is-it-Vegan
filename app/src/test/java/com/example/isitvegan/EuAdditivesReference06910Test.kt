@@ -28,12 +28,41 @@ class EuAdditivesReference06910Test {
         assertEquals(452, database.size)
         assertEquals(342, byNumber.size)
 
+    }
+
+    @Test fun editorialSourceGeneratesTheProductionAssetForAllImportableRows() {
+        val editorial = editorialDatabase()
+        val editorialByNumber = editorial.filter { !it.eNumber.isNullOrBlank() }.associateBy { it.eNumber!! }
+        assertEquals(452, editorial.size)
+        assertEquals(referenceImportableNumbers, referenceImportableNumbers.mapNotNull { editorialByNumber[it]?.eNumber }.toSet())
+        assertNull(editorialByNumber["E345"])
+        assertNull(editorialByNumber["E345(i)"])
+
+        database.forEach { runtime ->
+            val source = editorial.single { it.id == runtime.id }
+            assertEquals(runtime.status, source.status)
+            assertEquals(runtime.reason, source.reason)
+            assertEquals(runtime.source, source.sources.joinToString(", "))
+        }
+        referenceImportableNumbers.forEach { number ->
+            assertEquals(number, byNumber.getValue(number).eNumber)
+            assertEquals(number, editorialByNumber.getValue(number).eNumber)
+        }
+    }
+
+    @Test fun officialNamesAreInTheProductionMultilingualLexiconByLanguage() {
+        val aliases = multilingualAliases()
         reference.filter { it.eNumber in referenceImportableNumbers }.forEach { row ->
-            val ingredient = byNumber.getValue(row.eNumber)
-            row.officialNames.filter(String::isNotBlank).forEach { officialName ->
-                assertTrue("${row.eNumber}: $officialName", officialName == ingredient.name || officialName in ingredient.aliases)
+            val id = row.eNumber.lowercase()
+            listOf("FR", "NL", "EN", "DE").zip(row.officialNames).forEach { (language, name) ->
+                val terms = aliases.filter { it.canonicalId == id && it.language == language }
+                    .flatMap { it.aliases + it.ocrVariants }
+                if (name.isBlank()) assertTrue("$id/$language", terms.isEmpty())
+                else assertTrue("$id/$language: $name", name in terms)
             }
         }
+        assertEquals(setOf("FR", "NL", "EN"), aliases.filter { it.canonicalId == "e322a" }.map { it.language }.toSet())
+        assertTrue(aliases.none { it.canonicalId == "e345" || it.canonicalId == "e345(i)" })
     }
 
     @Test fun everyNewlyImportedAdditiveIsUncertain() {
@@ -155,6 +184,31 @@ class EuAdditivesReference06910Test {
             )
         }
 
+    private fun editorialDatabase(): List<EditorialIngredient> =
+        (MiniJson.parse(projectFile("knowledge/ingredients.json").readText()) as List<*>).map { value ->
+            val item = value as Map<*, *>
+            EditorialIngredient(
+                id = item["id"] as String,
+                eNumber = (item["eNumber"] as? String)?.takeIf(String::isNotBlank),
+                status = VeganStatus.valueOf(item["status"] as String),
+                reason = item["reason"] as String,
+                sources = (item["sources"] as List<*>).filterIsInstance<String>()
+            )
+        }
+
+    private fun multilingualAliases(): List<MultilingualAlias> {
+        val root = MiniJson.parse(projectFile("app/src/main/assets/ingredient_aliases_multilingual.json").readText()) as Map<*, *>
+        return (root["aliases"] as List<*>).map { value ->
+            val item = value as Map<*, *>
+            MultilingualAlias(
+                canonicalId = item["canonicalId"] as String,
+                language = item["language"] as String,
+                aliases = (item["aliases"] as List<*>).filterIsInstance<String>(),
+                ocrVariants = (item["ocrVariants"] as List<*>).filterIsInstance<String>()
+            )
+        }
+    }
+
     private fun referenceRows(): List<ReferenceRow> {
         val lines = projectFile("reference-input/eu-food-labelling/03-food-additives/EU_ADDITIVES_OFFICIAL_MULTILINGUAL_REFERENCE.csv").readLines()
         val header = parseCsvLine(lines.first()).withIndex().associate { it.value to it.index }
@@ -206,6 +260,21 @@ class EuAdditivesReference06910Test {
         val eNumber: String,
         val officialNames: List<String>,
         val verificationStatus: String
+    )
+
+    private data class EditorialIngredient(
+        val id: String,
+        val eNumber: String?,
+        val status: VeganStatus,
+        val reason: String,
+        val sources: List<String>
+    )
+
+    private data class MultilingualAlias(
+        val canonicalId: String,
+        val language: String,
+        val aliases: List<String>,
+        val ocrVariants: List<String>
     )
 
     private companion object {

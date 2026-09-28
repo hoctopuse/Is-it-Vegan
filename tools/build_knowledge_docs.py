@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INGREDIENTS = ROOT / "knowledge" / "ingredients.json"
-ALIASES = ROOT / "app" / "src" / "main" / "assets" / "ingredient_aliases_multilingual.json"
+ALIASES = ROOT / "knowledge" / "ingredient_aliases_multilingual.json"
 ORIGIN_RULES = ROOT / "knowledge" / "origin_qualifier_rules.json"
 OUTPUT = ROOT / "docs" / "generated" / "base-connaissances-data.md"
 

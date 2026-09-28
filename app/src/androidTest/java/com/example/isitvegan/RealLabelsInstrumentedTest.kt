@@ -124,7 +124,7 @@ Peut contenir des traces de fruits à coque."""
             **Allergènes :** soja
             **Traces :** céleri, gluten, lupin, moutarde, fruits à coque, graines de sésame""".trimIndent()
         val result = VeganAnalyzer.analyze(label)
-        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
         assertTrue(result.matched.any { it.id == "soy" })
         assertTrue(result.matched.any { it.id == "nigari" })
         assertFalse(result.unknown.any { it.contains("nigari", ignoreCase = true) })
@@ -259,10 +259,10 @@ Peut contenir des traces de fruits à coque."""
         assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
         assertTrue(result.matched.any { it.id == "natural_flavouring" })
 
-        // Les données absentes restent inconnues : la hiérarchie ne doit pas les
-        // transformer artificiellement en ingrédients vegans.
+        // Les additifs UE sont désormais reconnus comme incertains, sans être
+        // promus vegan ; les ingrédients hors référentiel restent inconnus.
         assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdictWithoutUncertain)
-        listOf("méthylcellulose", "hydroxyde de potassium")
+        listOf("vinaigre d'alcool", "fibres d'agrumes")
             .forEach { absent ->
                 assertTrue("Absent attendu de la base : $absent (${result.unknown})",
                     result.unknown.any { it.contains(absent, ignoreCase = true) })
@@ -329,7 +329,7 @@ Peut contenir des traces de fruits à coque."""
     @Test fun cashewDrinkRemovesQuantitiesAndCrossContactNotes() {
         val label = """Eau, sucre, 2,9% CAJOU partiellement dégraissé, 1,7% poudre de cacao¹, 0,5% protéine de pois, fructose, huile de coco, sel, arôme, carbonate de calcium, correcteur d'acidité (phosphates de potassium, citrates de sodium), stabilisant (cellulose, gomme cellulosique, gomme gellane). Peut contenir du soja, des amandes, des noisettes et des noix.¹Rainforest Alliance Certified. Find out more at ra.org"""
         val result = VeganAnalyzer.analyze(label)
-        assertEquals(AnalysisVerdict.INCONCLUSIVE, result.verdict)
+        assertEquals(AnalysisVerdict.UNCERTAIN, result.verdict)
         assertTrue(result.matched.any { it.id == "cocoa" })
         assertTrue(result.matched.any { it.id == "peas" })
         assertTrue(result.unknown.any { it.contains("CAJOU", ignoreCase = true) })
