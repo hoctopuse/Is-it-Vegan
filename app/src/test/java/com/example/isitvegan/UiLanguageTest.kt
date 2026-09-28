@@ -42,6 +42,17 @@ class UiLanguageTest {
             "established_vegan",
             "established_vegetarian",
             "established_ingredients_notice",
+            "possible_origin_note",
+            "possible_origin_plant",
+            "possible_origin_animal",
+            "possible_origin_egg",
+            "possible_origin_synthetic",
+            "possible_origin_microbial",
+            "possible_origin_marine",
+            "possible_origin_raw_material_and_process",
+            "possible_origin_production_method",
+            "possible_origin_manufacturer",
+            "possible_origin_prevents_vegan",
             "traces_title",
             "traces_excluded_notice"
         )

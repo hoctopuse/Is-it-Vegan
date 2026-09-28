@@ -32,7 +32,8 @@ data class VerdictIngredientReference(
     val displayName: String,
     val path: List<String>,
     val status: VeganStatus,
-    val reason: String
+    val reason: String,
+    val possibleOriginNote: PossibleOriginNote? = null
 )
 
 enum class ConditionalVerdictReason {
@@ -175,7 +176,9 @@ internal fun AnalysisDiagnostics.toVerdictExplanation(): VerdictExplanation {
                         displayName = ingredient.eNumber ?: ingredient.name,
                         path = pathFor(token),
                         status = ingredient.status,
-                        reason = ingredient.reason
+                        reason = ingredient.reason,
+                        possibleOriginNote = ingredient.possibleOriginNote
+                            ?.takeIf { ingredient.status == VeganStatus.UNCERTAIN }
                     )
                 }
             }
@@ -188,7 +191,9 @@ internal fun AnalysisDiagnostics.toVerdictExplanation(): VerdictExplanation {
                 displayName = ingredient.eNumber ?: ingredient.name,
                 path = listOf(ingredient.eNumber ?: ingredient.name),
                 status = ingredient.status,
-                reason = ingredient.reason
+                reason = ingredient.reason,
+                possibleOriginNote = ingredient.possibleOriginNote
+                    ?.takeIf { ingredient.status == VeganStatus.UNCERTAIN }
             )
         }
     }

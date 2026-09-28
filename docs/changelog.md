@@ -2,6 +2,18 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.11.2
+
+- Ajoute des notes localisées d’origines possibles aux additifs incertains documentés, sans modifier leurs statuts ni les verdicts ; les règles d’origine locales restent prioritaires.
+
+## 0.6.11.1
+
+- Qualifie E966 (lactitol) et E1105 (lysozyme) comme `VEGETARIAN` : leur origine laitière ou œuf est documentée par les spécifications UE et corroborée par des sources spécialisées ; les cas à origine variable restent `UNCERTAIN`.
+
+## 0.6.11
+
+- Qualifie E901 comme non vegan et E902, E903, E938, E941 et E948 comme vegan à partir des spécifications UE ; les autres origines non établies restent incertaines.
+
 ## 0.6.10
 
 - Synchronise le référentiel UE des additifs depuis `knowledge/`, génère les assets Android et documente l’extraction de l’annexe II-B.

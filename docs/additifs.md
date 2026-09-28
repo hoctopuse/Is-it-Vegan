@@ -48,4 +48,16 @@ La présence d’un numéro explicite rétablit la distinction : `E572` sélecti
 
 ## Suite prévue
 
+## Qualification d’origine 0.6.11
+
+La qualification ne part jamais de l’autorisation UE seule. Une classification globale n’est modifiée que lorsque la spécification primaire définit directement une matière animale, végétale ou élémentaire. Ainsi, E901 est non vegan car la spécification définit une cire provenant des rayons construits par l’abeille ; E902 et E903 sont vegan car elles sont définies comme cires de feuilles végétales ; E938, E941 et E948 sont des gaz élémentaires spécifiés.
+
+La revue 0.6.11.1 ajoute E966 et E1105 comme `VEGETARIAN`. Le lactitol est défini comme obtenu par hydrogénation du lactose et le lysozyme comme obtenu de blanc d’œuf de poule : leur origine animale est établie, mais elle correspond à la définition végétarienne existante et ne permet pas un verdict vegan. Les sources spécialisées confirment ces deux cas, tandis que la spécification UE établit l’identité de la matière première.
+
+Les additifs dont la matière première, le procédé ou le fournisseur peut varier restent `UNCERTAIN`, notamment E322, E422, E470a/E470b, E471, E472a–E472f, E570, E572, E627, E631, E635, E640 et E920. Une précision d’origine localement attachée, par exemple `lécithines (soja)`, est traitée par les règles d’origine existantes et ne reclassifie pas l’additif général. Les détails, les sources et les limites des deux revues figurent dans `ADDITIVE_ORIGIN_CLASSIFICATION_0_6_11_REPORT.md` et `ADDITIVE_ORIGIN_CLASSIFICATION_0_6_11_1_REPORT.md`.
+
+## Notes d’origines possibles 0.6.11.2
+
+Les concepts `UNCERTAIN` documentés peuvent porter une note structurée d’origines possibles. Elle est rendue dans les quatre langues de l’application et indique les alternatives attestées ainsi que la condition de variabilité. Elle informe sans modifier le statut ni le verdict. Elle n’est montrée que pour une occurrence restant incertaine : une règle locale explicite, telle que `lécithines (soja)`, garde priorité et ne reçoit donc pas la note générique. La note couvre E322, E422, E470a, E470b, E471, E572, E627, E631, E635 et E640. Les autres entrées incertaines restent sans note lorsqu’aucune origine variable assez précise n’est documentée.
+
 La prochaine étape est une classification documentée des entrées `UNCERTAIN`, avec une source d’origine, une raison et des tests adaptés à chaque décision. Elle nécessitera une revue éditoriale séparée ; aucune classification automatique ne sera déduite du numéro E, du nom réglementaire ou de la seule présence dans la liste UE.

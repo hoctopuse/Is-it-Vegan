@@ -52,5 +52,46 @@
     "title": "WebAdditifs — Additifs végétalien ou non",
     "url": "https://www.les-additifs-alimentaires.com/liste-tous-vegetalien.php",
     "use": "Research lead only. Its content is not copied or redistributed; every proposed status needs independent review."
+  },
+  {
+    "id": "eu-reg-231-2012-specifications",
+    "title": "Commission Regulation (EU) No 231/2012 — specifications for food additives",
+    "url": "https://eur-lex.europa.eu/eli/reg/2012/231/2022-09-01/eng",
+    "language": "EN",
+    "publisher": "European Commission",
+    "version": "consolidated 01.09.2022",
+    "role": "Primary legal specifications used only where the additive definition directly establishes an animal, plant or elemental identity.",
+    "limitations": "A specification identifies an additive; it is not a general vegan certification and does not resolve origin-variable additives.",
+    "use": "Evidence for E901 beeswax, E902 candelilla wax, E903 carnauba wax, E966 lactitol, E1105 lysozyme and the elemental gases E938, E941 and E948."
+  },
+  {
+    "id": "federation-vegane-e-additives",
+    "title": "Fédération végane — Liste des additifs alimentaires (E)",
+    "url": "https://www.federationvegane.fr/guide-conso/aide-conso/liste-e/",
+    "language": "FR",
+    "publisher": "Fédération végane",
+    "role": "Specialist vegan guidance used to corroborate directly documented animal-origin cases and to identify origin-variable cases requiring caution.",
+    "limitations": "Non-regulatory overview; it is not exhaustive and does not establish a manufacturer-specific origin or vegan certification.",
+    "use": "Corroboration for the E966 and E1105 decisions; research guidance for the uncertain candidate review."
+  },
+  {
+    "id": "vegan-easy-food-additives",
+    "title": "Vegan Easy — Food additives",
+    "url": "https://www.veganeasy.org/food/food-additives/",
+    "language": "EN",
+    "publisher": "Vegan Easy",
+    "role": "Specialist vegan guidance that records known animal sources and manufacturer-dependent alternatives.",
+    "limitations": "Non-regulatory consumer guidance; a listed general origin cannot resolve an individual product without an explicit qualifier.",
+    "use": "Corroboration for the E966 and E1105 decisions; evidence to retain origin-variable candidates as UNCERTAIN."
+  },
+  {
+    "id": "les-additifs-alimentaires-vegetarien",
+    "title": "Les Additifs Alimentaires — Liste de tous les additifs végétariens",
+    "url": "https://www.les-additifs-alimentaires.com/liste-tous-vegetarien.php",
+    "language": "FR",
+    "publisher": "Les Additifs Alimentaires",
+    "role": "Secondary specialist comparison source used only to detect agreement or disagreement during the audit.",
+    "limitations": "Secondary, undated consumer material; it is never sufficient by itself for a global classification.",
+    "use": "Cross-check only for the 0.6.11.1 audit; no status is based solely on this source."
   }
 ]

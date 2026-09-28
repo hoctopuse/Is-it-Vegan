@@ -79,4 +79,16 @@
     <string name="declared_presence_format">Présence réelle déclarée : %1$s</string>
     <string name="detailed_classification_title">Classification détaillée :</string>
     <string name="analysis_declared_notice">Analyse fondée sur les informations déclarées sur l’étiquette.</string>
+    <string name="possible_origin_note">Origines possibles : %1$s. %2$s.</string>
+    <string name="possible_origin_separator">, </string>
+    <string name="possible_origin_plant">végétale</string>
+    <string name="possible_origin_animal">animale</string>
+    <string name="possible_origin_egg">œuf</string>
+    <string name="possible_origin_synthetic">synthétique</string>
+    <string name="possible_origin_microbial">fermentaire</string>
+    <string name="possible_origin_marine">marine</string>
+    <string name="possible_origin_raw_material_and_process">Selon la matière première et le procédé de fabrication</string>
+    <string name="possible_origin_production_method">Selon le procédé de fabrication</string>
+    <string name="possible_origin_manufacturer">Selon le fabricant</string>
+    <string name="possible_origin_prevents_vegan">Cet élément empêche de confirmer que le produit est vegan.</string>
 </resources>

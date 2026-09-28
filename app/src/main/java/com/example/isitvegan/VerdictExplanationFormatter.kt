@@ -86,7 +86,7 @@ internal object VerdictExplanationFormatter {
                     resources.getString(
                         R.string.uncertain_ingredient_item,
                         it.path.joinToString(" → ").displayText()
-                    )
+                    ) + renderPossibleOriginNote(resources, it.possibleOriginNote)
                 }
         }
         val showsUnknownIngredients = result.verdict in setOf(
@@ -126,6 +126,31 @@ internal object VerdictExplanationFormatter {
         }
         return "\n\n" + resources.getString(R.string.traces_title) + "\n" + items +
             "\n\n" + resources.getString(R.string.traces_excluded_notice)
+    }
+
+    private fun renderPossibleOriginNote(resources: Resources, note: PossibleOriginNote?): String {
+        if (note == null) return ""
+        val origins = note.origins.joinToString(resources.getString(R.string.possible_origin_separator)) {
+            resources.getString(
+                when (it) {
+                    PossibleOrigin.PLANT -> R.string.possible_origin_plant
+                    PossibleOrigin.ANIMAL -> R.string.possible_origin_animal
+                    PossibleOrigin.EGG -> R.string.possible_origin_egg
+                    PossibleOrigin.SYNTHETIC -> R.string.possible_origin_synthetic
+                    PossibleOrigin.MICROBIAL -> R.string.possible_origin_microbial
+                    PossibleOrigin.MARINE -> R.string.possible_origin_marine
+                }
+            )
+        }
+        val variability = resources.getString(
+            when (note.variability) {
+                OriginVariability.RAW_MATERIAL_AND_PROCESS -> R.string.possible_origin_raw_material_and_process
+                OriginVariability.PRODUCTION_METHOD -> R.string.possible_origin_production_method
+                OriginVariability.MANUFACTURER -> R.string.possible_origin_manufacturer
+            }
+        )
+        return "\n   " + resources.getString(R.string.possible_origin_note, origins, variability) +
+            "\n   " + resources.getString(R.string.possible_origin_prevents_vegan)
     }
 
     private fun veganAssessment(resources: Resources, assessment: VeganAssessment): String =

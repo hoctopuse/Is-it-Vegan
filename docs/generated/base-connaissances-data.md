@@ -200,12 +200,12 @@
 | e575 | Glucono-delta-lactone | UNCERTAIN | E575 | — | eu-additives |
 | e620 | Acide glutamique | UNCERTAIN | E620 | — | eu-additives |
 | e622 | Glutamate monopotassique | UNCERTAIN | E622 | — | eu-additives |
-| e901 | Cire d’abeille | UNCERTAIN | E901 | — | eu-additives |
-| e903 | Cire de carnauba | UNCERTAIN | E903 | — | eu-additives |
+| e901 | Cire d’abeille | NON_VEGAN | E901 | — | eu-additives, eu-reg-231-2012-specifications |
+| e903 | Cire de carnauba | VEGAN | E903 | — | eu-additives, eu-reg-231-2012-specifications |
 | e920 | L-cystéine | UNCERTAIN | E920 | — | eu-additives |
-| e938 | Argon | UNCERTAIN | E938 | — | eu-additives |
-| e941 | Azote | UNCERTAIN | E941 | — | eu-additives |
-| e948 | Oxygène | UNCERTAIN | E948 | — | eu-additives |
+| e938 | Argon | VEGAN | E938 | — | eu-additives, eu-reg-231-2012-specifications |
+| e941 | Azote | VEGAN | E941 | — | eu-additives, eu-reg-231-2012-specifications |
+| e948 | Oxygène | VEGAN | E948 | — | eu-additives, eu-reg-231-2012-specifications |
 | e102 | Tartrazine | UNCERTAIN | E102 | — | eu-additives |
 | e104 | Jaune de quinoléine | UNCERTAIN | E104 | — | eu-additives |
 | e110 | Sunset Yellow  FCF/Jaune orange S | UNCERTAIN | E110 | — | eu-additives |
@@ -394,7 +394,7 @@
 | e641 | L-leucine | UNCERTAIN | E641 | — | eu-additives |
 | e650 | Acétate de zinc | UNCERTAIN | E650 | — | eu-additives |
 | e900 | Diméthylpolysiloxane | UNCERTAIN | E900 | — | eu-additives |
-| e902 | Cire de candelilla | UNCERTAIN | E902 | — | eu-additives |
+| e902 | Cire de candelilla | VEGAN | E902 | — | eu-additives, eu-reg-231-2012-specifications |
 | e905 | Cire microcristalline | UNCERTAIN | E905 | — | eu-additives |
 | e907 | Poly-1-décène hydrogéné __________ | UNCERTAIN | E907 | — | eu-additives |
 | e914 | Cire de polyéthylène oxydée | UNCERTAIN | E914 | — | eu-additives |
@@ -420,13 +420,13 @@
 | e962 | Sel d’aspartame-acésulfame | UNCERTAIN | E962 | — | eu-additives |
 | e964 | Sirop de polyglycitol | UNCERTAIN | E964 | — | eu-additives |
 | e965 | Maltitols | UNCERTAIN | E965 | — | eu-additives |
-| e966 | Lactitol | UNCERTAIN | E966 | — | eu-additives |
+| e966 | Lactitol | VEGETARIAN | E966 | — | eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives |
 | e967 | Xylitol | UNCERTAIN | E967 | — | eu-additives |
 | e968 | Érythritol | UNCERTAIN | E968 | — | eu-additives |
 | e969 | Advantame 3. Additifs autres que les colorants et les édulcorants | UNCERTAIN | E969 | — | eu-additives |
 | e999 | Extraits de quillaia | UNCERTAIN | E999 | — | eu-additives |
 | e1103 | Invertase | UNCERTAIN | E1103 | — | eu-additives |
-| e1105 | Lysozyme | UNCERTAIN | E1105 | — | eu-additives |
+| e1105 | Lysozyme | VEGETARIAN | E1105 | — | eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives |
 | e1200 | Polydextrose | UNCERTAIN | E1200 | — | eu-additives |
 | e1201 | Polyvinylpyrrolidone | UNCERTAIN | E1201 | — | eu-additives |
 | e1202 | Polyvinylpolypyrrolidone | UNCERTAIN | E1202 | — | eu-additives |

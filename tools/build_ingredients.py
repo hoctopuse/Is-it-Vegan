@@ -10,10 +10,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "knowledge" / "ingredients.json"
+SOURCES = ROOT / "knowledge" / "sources.json"
 OUTPUT = ROOT / "app" / "src" / "main" / "assets" / "ingredients.json"
 ALIASES_SOURCE = ROOT / "knowledge" / "ingredient_aliases_multilingual.json"
 ALIASES_OUTPUT = ROOT / "app" / "src" / "main" / "assets" / "ingredient_aliases_multilingual.json"
 VALID_STATUSES = {"VEGAN", "VEGETARIAN", "NON_VEGAN", "UNCERTAIN"}
+VALID_POSSIBLE_ORIGINS = {"PLANT", "ANIMAL", "EGG", "SYNTHETIC", "MICROBIAL", "MARINE"}
+VALID_ORIGIN_VARIABILITY = {"RAW_MATERIAL_AND_PROCESS", "PRODUCTION_METHOD", "MANUFACTURER"}
 
 
 def fail(message: str) -> None:
@@ -23,6 +26,7 @@ def fail(message: str) -> None:
 
 def main() -> None:
     entries = json.loads(SOURCE.read_text(encoding="utf-8"))
+    source_ids = {item.get("id") for item in json.loads(SOURCES.read_text(encoding="utf-8")) if item.get("id")}
     ids: set[str] = set()
     aliases: dict[str, str] = {}
     exported: list[dict[str, object]] = []
@@ -39,6 +43,22 @@ def main() -> None:
             fail(f"{identifier}: invalid status")
         if not entry.get("reason") or not entry.get("sources"):
             fail(f"{identifier}: reason and sources are required")
+        note = entry.get("possibleOriginNote")
+        if note is not None:
+            if entry["status"] != "UNCERTAIN":
+                fail(f"{identifier}: possibleOriginNote is only valid for UNCERTAIN entries")
+            if not isinstance(note, dict):
+                fail(f"{identifier}: possibleOriginNote must be an object")
+            origins = note.get("origins")
+            if not isinstance(origins, list) or not origins or set(origins) - VALID_POSSIBLE_ORIGINS:
+                fail(f"{identifier}: possibleOriginNote.origins is invalid")
+            if note.get("variability") not in VALID_ORIGIN_VARIABILITY:
+                fail(f"{identifier}: possibleOriginNote.variability is invalid")
+            note_sources = note.get("sourceIds")
+            if not isinstance(note_sources, list) or not note_sources or set(note_sources) - source_ids:
+                fail(f"{identifier}: possibleOriginNote.sourceIds is invalid")
+            if not isinstance(note.get("confidence"), str) or not note["confidence"].strip():
+                fail(f"{identifier}: possibleOriginNote.confidence is required")
 
         entry_aliases = entry.get("aliases")
         if not isinstance(entry_aliases, list) or not entry_aliases:
@@ -62,6 +82,7 @@ def main() -> None:
             "status": entry["status"],
             "reason": entry["reason"],
             "source": ", ".join(entry["sources"]),
+            **({"possibleOriginNote": entry["possibleOriginNote"]} if note is not None else {}),
         })
 
     rendered = json.dumps(exported, ensure_ascii=False, indent=2) + "\n"

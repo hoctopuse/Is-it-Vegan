@@ -50,6 +50,19 @@ class EuAdditivesReference06910Test {
         }
     }
 
+    @Test fun everyEditorialIngredientSourceIsDeclaredInTheProductionKnowledge() {
+        val sourceRoot = MiniJson.parse(projectFile("knowledge/sources.json").readText()) as List<*>
+        val sourceIds = sourceRoot.map { (it as Map<*, *>)["id"] as String }.toSet()
+        val editorial = editorialDatabase()
+        assertTrue(sourceIds.containsAll(editorial.flatMap { it.sources }.toSet()))
+        listOf(
+            "eu-reg-231-2012-specifications",
+            "federation-vegane-e-additives",
+            "vegan-easy-food-additives",
+            "les-additifs-alimentaires-vegetarien"
+        ).forEach { assertTrue(it, it in sourceIds) }
+    }
+
     @Test fun officialNamesAreInTheProductionMultilingualLexiconByLanguage() {
         val aliases = multilingualAliases()
         reference.filter { it.eNumber in referenceImportableNumbers }.forEach { row ->
@@ -65,12 +78,82 @@ class EuAdditivesReference06910Test {
         assertTrue(aliases.none { it.canonicalId == "e345" || it.canonicalId == "e345(i)" })
     }
 
-    @Test fun everyNewlyImportedAdditiveIsUncertain() {
+    @Test fun everyNewlyImportedAdditiveIsUncertainUnlessItsOriginIsDocumented() {
+        val classified = mapOf(
+            "E902" to VeganStatus.VEGAN,
+            "E903" to VeganStatus.VEGAN,
+            "E938" to VeganStatus.VEGAN,
+            "E941" to VeganStatus.VEGAN,
+            "E948" to VeganStatus.VEGAN,
+            "E966" to VeganStatus.VEGETARIAN,
+            "E1105" to VeganStatus.VEGETARIAN
+        )
         val imported = database.filter { it.eNumber in referenceImportableNumbers && it.eNumber !in preImportStatuses }
         assertEquals(250, imported.size)
-        assertTrue(imported.all { it.status == VeganStatus.UNCERTAIN })
-        assertTrue(imported.all { it.source == "eu-additives" })
+        assertTrue(imported.filter { it.eNumber !in classified }.all { it.status == VeganStatus.UNCERTAIN })
+        classified.forEach { (number, status) -> assertEquals(status, byNumber.getValue(number).status) }
+        assertTrue(imported.all { it.source?.contains("eu-additives") == true })
         assertFalse(imported.any { it.status.name == "INCONCLUSIVE" })
+    }
+
+    @Test fun directlySpecifiedPlantAnimalAndElementalAdditivesHaveDocumentedStatuses() {
+        val expected = mapOf(
+            "E901" to VeganStatus.NON_VEGAN,
+            "E902" to VeganStatus.VEGAN,
+            "E903" to VeganStatus.VEGAN,
+            "E938" to VeganStatus.VEGAN,
+            "E941" to VeganStatus.VEGAN,
+            "E948" to VeganStatus.VEGAN
+        )
+        expected.forEach { (number, status) ->
+            val ingredient = byNumber.getValue(number)
+            assertEquals(number, status, ingredient.status)
+            assertTrue(number, ingredient.reason.isNotBlank())
+            assertTrue(number, ingredient.source?.isNotBlank() == true)
+        }
+        listOf("E966", "E1105").forEach { number ->
+            assertTrue(number, byNumber.getValue(number).source?.contains("eu-reg-231-2012-specifications") == true)
+        }
+        assertEquals(AnalysisVerdict.NON_VEGETARIAN, VeganAnalyzer.analyze("E901", database).verdict)
+        listOf("E902", "E903", "E938", "E941", "E948").forEach { number ->
+            assertEquals(number, AnalysisVerdict.VEGAN, VeganAnalyzer.analyze(number, database).verdict)
+        }
+    }
+
+    @Test fun originReviewKeepsVariableAdditivesUncertainAndClassifiesOnlyFixedOrigins() {
+        mapOf(
+            "E120" to VeganStatus.NON_VEGAN,
+            "E904" to VeganStatus.NON_VEGAN,
+            "E901" to VeganStatus.NON_VEGAN,
+            "E966" to VeganStatus.VEGETARIAN,
+            "E1105" to VeganStatus.VEGETARIAN,
+            "E902" to VeganStatus.VEGAN,
+            "E903" to VeganStatus.VEGAN,
+            "E938" to VeganStatus.VEGAN,
+            "E941" to VeganStatus.VEGAN,
+            "E948" to VeganStatus.VEGAN
+        ).forEach { (number, status) ->
+            val ingredient = byNumber.getValue(number)
+            assertEquals(number, status, ingredient.status)
+            assertTrue(number, ingredient.reason.isNotBlank())
+            assertTrue(number, ingredient.source?.isNotBlank() == true)
+        }
+        listOf("E966", "E1105").forEach { number ->
+            assertTrue(number, byNumber.getValue(number).source?.contains("eu-reg-231-2012-specifications") == true)
+        }
+        listOf(
+            "E322", "E422", "E470a", "E470b", "E471", "E472a", "E472f", "E473", "E474",
+            "E475", "E476", "E477", "E570", "E572", "E627", "E631", "E635", "E640", "E920"
+        ).forEach { number -> assertEquals(number, VeganStatus.UNCERTAIN, byNumber.getValue(number).status) }
+        assertNull(byNumber["E441"])
+        assertNull(byNumber["E542"])
+        assertNull(byNumber["E913"])
+        assertNull(byNumber["E963"])
+        assertNull(byNumber["E1000"])
+        assertNull(byNumber["E910"])
+        assertNull(byNumber["E921"])
+        assertEquals(AnalysisVerdict.VEGETARIAN, VeganAnalyzer.analyze("E966, E1105", database).verdict)
+        assertEquals(AnalysisVerdict.UNCERTAIN, VeganAnalyzer.analyze("E322, E470b, E572", database).verdict)
     }
 
     @Test fun allPreImportBusinessClassificationsRemainUnchanged() {
@@ -287,8 +370,10 @@ class EuAdditivesReference06910Test {
                 "E282", "E296", "E304", "E307", "E310", "E320", "E321", "E331", "E333", "E400",
                 "E401", "E405", "E407", "E407a", "E414", "E416", "E420", "E432", "E433", "E450",
                 "E452", "E460", "E466", "E476", "E481", "E501", "E504", "E572", "E575", "E620",
-                "E622", "E901", "E903", "E920", "E938", "E941", "E948"
+                "E622", "E920"
             ).forEach { put(it, VeganStatus.UNCERTAIN) }
+            put("E901", VeganStatus.NON_VEGAN)
+            listOf("E903", "E938", "E941", "E948").forEach { put(it, VeganStatus.VEGAN) }
             listOf(
                 "E300", "E330", "E170", "E406", "E418", "E410", "E412", "E415", "E440", "E500",
                 "E503", "E524", "E551", "E621", "E332", "E950", "E960", "E306", "E340", "E202",

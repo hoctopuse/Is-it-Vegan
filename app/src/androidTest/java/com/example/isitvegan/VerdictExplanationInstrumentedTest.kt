@@ -137,4 +137,41 @@ class VerdictExplanationInstrumentedTest {
         assertTrue(rendered.contains(resources.getString(R.string.established_vegan)))
         assertEquals(1, rendered.split(resources.getString(R.string.established_ingredients_notice)).size - 1)
     }
+
+    @Test fun possibleOriginNotesAreLocalizedAndOnlyShownForUncertainOccurrences() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val notedService = IngredientAnalysisService(
+            IngredientKnowledge(
+                listOf(
+                    Ingredient(
+                        "e471", "mono- et diglycérides", listOf("E471"), "E471", VeganStatus.UNCERTAIN,
+                        "origine variable",
+                        possibleOriginNote = PossibleOriginNote(
+                            listOf(PossibleOrigin.PLANT, PossibleOrigin.ANIMAL),
+                            OriginVariability.RAW_MATERIAL_AND_PROCESS,
+                            listOf("vegan-easy-food-additives"),
+                            "MODERATE"
+                        )
+                    ),
+                    Ingredient("water", "eau", listOf("eau"), null, VeganStatus.VEGAN, "plant")
+                )
+            )
+        )
+        val uncertain = notedService.analyzeWithDiagnostics("E471")
+        val vegan = notedService.analyzeWithDiagnostics("eau")
+        val expected = mapOf(
+            UiLanguage.FR to listOf("Origines possibles", "Selon la matière première", "Cet élément empêche"),
+            UiLanguage.EN to listOf("Possible origins", "Depending on the raw material", "This item prevents"),
+            UiLanguage.NL to listOf("Mogelijke oorsprongen", "Afhankelijk van de grondstof", "Dit element verhindert"),
+            UiLanguage.DE to listOf("Mögliche Ursprünge", "Abhängig vom Rohstoff", "Dieses Element verhindert")
+        )
+
+        expected.forEach { (language, terms) ->
+            val resources = localizedContext(context, language).resources
+            val uncertainRendered = VerdictExplanationFormatter.render(resources, uncertain.input, uncertain)
+            terms.forEach { term -> assertTrue("$language: $term", uncertainRendered.contains(term)) }
+            val veganRendered = VerdictExplanationFormatter.render(resources, vegan.input, vegan)
+            assertFalse("$language vegan", veganRendered.contains(resources.getString(R.string.possible_origin_note, "", "")))
+        }
+    }
 }

@@ -42,4 +42,16 @@
     <string name="declared_presence_format">Uitdrukkelijk vermelde aanwezigheid: %1$s</string>
     <string name="detailed_classification_title">Gedetailleerde classificatie:</string>
     <string name="analysis_declared_notice">Analyse gebaseerd op de informatie op het etiket.</string>
+    <string name="possible_origin_note">Mogelijke oorsprongen: %1$s. %2$s.</string>
+    <string name="possible_origin_separator">, </string>
+    <string name="possible_origin_plant">plantaardig</string>
+    <string name="possible_origin_animal">dierlijk</string>
+    <string name="possible_origin_egg">ei</string>
+    <string name="possible_origin_synthetic">synthetisch</string>
+    <string name="possible_origin_microbial">microbiële fermentatie</string>
+    <string name="possible_origin_marine">marien</string>
+    <string name="possible_origin_raw_material_and_process">Afhankelijk van de grondstof en het productieproces</string>
+    <string name="possible_origin_production_method">Afhankelijk van het productieproces</string>
+    <string name="possible_origin_manufacturer">Afhankelijk van de fabrikant</string>
+    <string name="possible_origin_prevents_vegan">Dit element verhindert de bevestiging dat het product vegan is.</string>
 </resources>

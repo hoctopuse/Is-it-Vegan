@@ -38,8 +38,9 @@ Chaque entrée de `knowledge/ingredients.json` contient :
 | `status` | enum | `VEGAN`, `VEGETARIAN`, `NON_VEGAN` ou `UNCERTAIN` |
 | `reason` | chaîne | justification affichée et diagnostique |
 | `sources` | tableau non vide | identifiants référencés dans `knowledge/sources.json` |
+| `possibleOriginNote` | objet optionnel, seulement `UNCERTAIN` | origines codées, condition de variabilité, sources et niveau de confiance ; rendu localisé au runtime |
 
-L’asset embarqué conserve `id`, `name`, `eNumber`, `aliases`, `status`, `reason` et joint les identifiants de `sources` dans le champ chaîne `source`. `AndroidIngredientKnowledgeLoader` lit les trois assets sans les transformer, puis le lecteur JSON JVM de `IngredientKnowledge.fromJson` construit les objets `Ingredient`, le lexique multilingue et les règles d’origine.
+L’asset embarqué conserve `id`, `name`, `eNumber`, `aliases`, `status`, `reason` et joint les identifiants de `sources` dans le champ chaîne `source`. Il conserve aussi `possibleOriginNote` lorsqu’elle existe. `AndroidIngredientKnowledgeLoader` lit les trois assets sans les transformer, puis le lecteur JSON JVM de `IngredientKnowledge.fromJson` construit les objets `Ingredient`, le lexique multilingue et les règles d’origine.
 
 ## Données générées
 
@@ -64,7 +65,7 @@ Les noms peuvent être trompeurs : le champ `NON_VEGAN` représente dans le verd
 
 Le référentiel réglementaire multilingue UE, sa couverture, ses exceptions et la distinction entre reconnaissance et compatibilité vegan sont détaillés dans [Référentiel des additifs UE](additifs.md) et [l’extraction de l’annexe II-B](sources/eu-additives-annex-ii-b.md). La présence d’un additif dans la liste UE ne constitue pas une preuve d’origine vegan.
 
-Les qualifications d’origine suivent leur propre source éditoriale, `knowledge/origin_qualifier_rules.json`, copiée vers les assets par `tools/build_origin_rules.py`. Son schéma versionné contient sources, règles actives ou en revue et expressions protégées.
+Les qualifications d’origine suivent leur propre source éditoriale, `knowledge/origin_qualifier_rules.json`, copiée vers les assets par `tools/build_origin_rules.py`. Son schéma versionné contient sources, règles actives ou en revue et expressions protégées. Une source réglementaire peut établir l’identité d’un additif sans certifier son caractère vegan ; les sources spécialisées servent à confirmer une origine ou à conserver l’incertitude lorsque les procédés varient. La revue 0.6.11.1 est documentée dans `ADDITIVE_ORIGIN_CLASSIFICATION_0_6_11_1_REPORT.md`.
 
 ## Modifier la base
 

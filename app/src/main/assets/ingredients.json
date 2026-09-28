@@ -1016,7 +1016,19 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Les acides gras peuvent être végétaux ou animaux selon le fabricant.",
-    "source": "eu-additives, webadditifs-lead"
+    "source": "eu-additives, webadditifs-lead",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e472",
@@ -1044,7 +1056,20 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Souvent végétale, mais peut provenir notamment de l’œuf.",
-    "source": "eu-additives, vegan-society"
+    "source": "eu-additives, vegan-society",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "EGG",
+        "ANIMAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e422",
@@ -1059,7 +1084,20 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Peut être produit à partir de matières végétales ou animales.",
-    "source": "eu-additives, webadditifs-lead"
+    "source": "eu-additives, webadditifs-lead",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "SYNTHETIC",
+        "ANIMAL"
+      ],
+      "variability": "PRODUCTION_METHOD",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e570",
@@ -1086,7 +1124,22 @@
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
-    "source": "eu-additives, webadditifs-lead"
+    "source": "eu-additives, webadditifs-lead",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "MICROBIAL",
+        "ANIMAL",
+        "MARINE"
+      ],
+      "variability": "PRODUCTION_METHOD",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives",
+        "les-additifs-alimentaires-vegetarien"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e631",
@@ -1099,7 +1152,22 @@
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
-    "source": "eu-additives, webadditifs-lead"
+    "source": "eu-additives, webadditifs-lead",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "MICROBIAL",
+        "ANIMAL",
+        "MARINE"
+      ],
+      "variability": "PRODUCTION_METHOD",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives",
+        "les-additifs-alimentaires-vegetarien"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e635",
@@ -1113,7 +1181,22 @@
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
-    "source": "eu-additives, webadditifs-lead"
+    "source": "eu-additives, webadditifs-lead",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "MICROBIAL",
+        "ANIMAL",
+        "MARINE"
+      ],
+      "variability": "PRODUCTION_METHOD",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives",
+        "les-additifs-alimentaires-vegetarien"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "natural_flavouring",
@@ -3012,7 +3095,20 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "source": "eu-additives",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "SYNTHETIC"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e575",
@@ -3075,9 +3171,9 @@
       "Beeswax, white and yellow",
       "Bienenwachs, weiß und gelb"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "NON_VEGAN",
+    "reason": "Cire obtenue des rayons construits par l’abeille mellifère ; origine animale explicite.",
+    "source": "eu-additives, eu-reg-231-2012-specifications"
   },
   {
     "id": "e903",
@@ -3092,9 +3188,9 @@
       "Carnauba wax",
       "Carnaubawachs"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGAN",
+    "reason": "Cire purifiée obtenue des feuilles et bourgeons du palmier Copernicia cerifera ; origine végétale explicitement définie.",
+    "source": "eu-additives, eu-reg-231-2012-specifications"
   },
   {
     "id": "e920",
@@ -3123,9 +3219,9 @@
       "argon",
       "argon"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGAN",
+    "reason": "Argon élémentaire spécifié comme gaz pur ; aucun constituant d’origine animale.",
+    "source": "eu-additives, eu-reg-231-2012-specifications"
   },
   {
     "id": "e941",
@@ -3140,9 +3236,9 @@
       "Nitrogen",
       "Stickstoff E-Nummer Bezeichnung"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGAN",
+    "reason": "Azote élémentaire spécifié comme gaz pur ; aucun constituant d’origine animale.",
+    "source": "eu-additives, eu-reg-231-2012-specifications"
   },
   {
     "id": "e948",
@@ -3157,9 +3253,9 @@
       "Oxygen",
       "Sauerstoff"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGAN",
+    "reason": "Oxygène élémentaire spécifié comme gaz pur ; aucun constituant d’origine animale.",
+    "source": "eu-additives, eu-reg-231-2012-specifications"
   },
   {
     "id": "e102",
@@ -4747,7 +4843,19 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "source": "eu-additives",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e470b",
@@ -4761,7 +4869,19 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "source": "eu-additives",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e472a",
@@ -5724,7 +5844,20 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "source": "eu-additives",
+    "possibleOriginNote": {
+      "origins": [
+        "SYNTHETIC",
+        "ANIMAL"
+      ],
+      "variability": "PRODUCTION_METHOD",
+      "sourceIds": [
+        "federation-vegane-e-additives",
+        "vegan-easy-food-additives",
+        "les-additifs-alimentaires-vegetarien"
+      ],
+      "confidence": "MODERATE"
+    }
   },
   {
     "id": "e641",
@@ -5776,9 +5909,9 @@
       "Candelilla wax",
       "Candelillawachs"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGAN",
+    "reason": "Cire purifiée obtenue des feuilles de la plante Euphorbia antisyphilitica ; origine végétale explicitement définie.",
+    "source": "eu-additives, eu-reg-231-2012-specifications"
   },
   {
     "id": "e905",
@@ -6120,9 +6253,9 @@
       "Lactitol",
       "Lactit"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGETARIAN",
+    "reason": "Fabriqué par hydrogénation catalytique du lactose ; origine laitière explicitement définie, compatible végétarien mais non vegan.",
+    "source": "eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives"
   },
   {
     "id": "e967",
@@ -6197,9 +6330,9 @@
       "Lysozyme",
       "Lysozym"
     ],
-    "status": "UNCERTAIN",
-    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
-    "source": "eu-additives"
+    "status": "VEGETARIAN",
+    "reason": "Lysozyme explicitement défini comme obtenu à partir du blanc d’œuf de poule ; origine œuf compatible végétarien mais non vegan.",
+    "source": "eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives"
   },
   {
     "id": "e1200",

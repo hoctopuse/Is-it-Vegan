@@ -150,7 +150,8 @@ data class IngredientKnowledge(
                         eNumber = (item["eNumber"] as? String)?.takeIf(String::isNotBlank),
                         status = VeganStatus.valueOf(item.requiredKnowledgeString("status", index)),
                         reason = item.requiredKnowledgeString("reason", index),
-                        source = (item["source"] as? String)?.takeIf(String::isNotBlank)
+                        source = (item["source"] as? String)?.takeIf(String::isNotBlank),
+                        possibleOriginNote = item.optionalPossibleOriginNote(index)
                     )
                 }
             val loadedRules = OriginQualifierRuleSet.load(originRulesJson)
@@ -165,6 +166,28 @@ data class IngredientKnowledge(
         private fun Map<*, *>.requiredKnowledgeString(key: String, index: Int): String =
             (this[key] as? String)?.takeIf(String::isNotBlank)
                 ?: throw IllegalArgumentException("ingredients[$index].$key est requis")
+
+        private fun Map<*, *>.optionalPossibleOriginNote(index: Int): PossibleOriginNote? {
+            val value = this["possibleOriginNote"] ?: return null
+            val note = value as? Map<*, *>
+                ?: throw IllegalArgumentException("ingredients[$index].possibleOriginNote doit être un objet")
+            fun strings(key: String): List<String> = (note[key] as? List<*>)?.mapIndexed { itemIndex, item ->
+                item as? String ?: throw IllegalArgumentException(
+                    "ingredients[$index].possibleOriginNote.$key[$itemIndex] doit être une chaîne"
+                )
+            }?.takeIf(List<String>::isNotEmpty)
+                ?: throw IllegalArgumentException("ingredients[$index].possibleOriginNote.$key est requis")
+            return PossibleOriginNote(
+                origins = strings("origins").map { PossibleOrigin.valueOf(it) },
+                variability = OriginVariability.valueOf(
+                    (note["variability"] as? String)?.takeIf(String::isNotBlank)
+                        ?: throw IllegalArgumentException("ingredients[$index].possibleOriginNote.variability est requis")
+                ),
+                sourceIds = strings("sourceIds"),
+                confidence = (note["confidence"] as? String)?.takeIf(String::isNotBlank)
+                    ?: throw IllegalArgumentException("ingredients[$index].possibleOriginNote.confidence est requis")
+            )
+        }
     }
 }
 
