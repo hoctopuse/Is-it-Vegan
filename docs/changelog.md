@@ -2,6 +2,10 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.12
+
+- Importe les dénominations réglementaires multilingues du miel depuis CELEX 02001L0110 ; le miel reste `VEGETARIAN` et bloque un verdict vegan.
+
 ## 0.6.11.2
 
 - Ajoute des notes localisées d’origines possibles aux additifs incertains documentés, sans modifier leurs statuts ni les verdicts ; les règles d’origine locales restent prioritaires.

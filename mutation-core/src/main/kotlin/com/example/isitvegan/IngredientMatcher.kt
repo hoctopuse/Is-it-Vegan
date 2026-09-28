@@ -77,7 +77,9 @@ class IngredientMatcher(private val database: List<Ingredient>) {
                 source.ingredient.status == VeganStatus.VEGAN && protectedPair(normalized, animal, source)
             }
         }
-        val eligible = candidates.filterNot { it in blocked }
+        val eligible = candidates.filterNot { it in blocked ||
+            (it.ingredient.id == "honey" && honeyFlavourContext.matches(normalized))
+        }
         val covered = BooleanArray(normalized.length)
         val selected = mutableListOf<Candidate>()
         eligible.forEach { candidate ->
@@ -213,6 +215,9 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             "sirop de glucose fructose",
             "glucose fructose syrup",
             "glucose fructosestroop"
+        )
+        val honeyFlavourContext = Regex(
+            "^(?:(?:arome de|gout de|gout) (?:miel|honey|honing|honig)|(?:miel|honey|honing|honig) (?:flavour|flavor|aroma))$"
         )
     }
 }

@@ -38,6 +38,7 @@ nav:
   - Référentiel des additifs UE: additifs.md
   - Sources:
     - Extraction annexe II-B UE: sources/eu-additives-annex-ii-b.md
+    - Directive UE sur le miel: sources/eu-honey-directive.md
   - Moteur de verdict: verdict.md
   - Notes de version: changelog.md
   - Tests: tests.md

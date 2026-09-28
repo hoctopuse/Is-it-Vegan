@@ -65,6 +65,8 @@ Les noms peuvent être trompeurs : le champ `NON_VEGAN` représente dans le verd
 
 Le référentiel réglementaire multilingue UE, sa couverture, ses exceptions et la distinction entre reconnaissance et compatibilité vegan sont détaillés dans [Référentiel des additifs UE](additifs.md) et [l’extraction de l’annexe II-B](sources/eu-additives-annex-ii-b.md). La présence d’un additif dans la liste UE ne constitue pas une preuve d’origine vegan.
 
+La même séparation s’applique aux normes sectorielles : la directive miel UE relie les dénominations réglementaires au concept `honey`, tandis que son statut `VEGETARIAN` est une décision éditoriale distincte. Voir [Directive UE sur le miel](sources/eu-honey-directive.md).
+
 Les qualifications d’origine suivent leur propre source éditoriale, `knowledge/origin_qualifier_rules.json`, copiée vers les assets par `tools/build_origin_rules.py`. Son schéma versionné contient sources, règles actives ou en revue et expressions protégées. Une source réglementaire peut établir l’identité d’un additif sans certifier son caractère vegan ; les sources spécialisées servent à confirmer une origine ou à conserver l’incertitude lorsque les procédés varient. La revue 0.6.11.1 est documentée dans `ADDITIVE_ORIGIN_CLASSIFICATION_0_6_11_1_REPORT.md`.
 
 ## Modifier la base

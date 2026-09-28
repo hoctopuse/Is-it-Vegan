@@ -12442,6 +12442,87 @@
         "Polyethylenglycol ( 1 ) Benzoesäure kann als Folge des Fermentationsprozesses bei Bef olgung der guten Herstellungspraxis in bestimmten fermentierten Produkten auftreten. ►M7 (  2 ) zugelassen bis zum 31. Januar 2014. ( 3 ) zugelassen bis zum 31. Mai 2013. ◄ ►M20 (  4 ) Geltungsbeginn: ab dem 6. Februar 2013. ◄"
       ],
       "ocrVariants": []
+    },
+    {
+      "canonicalId": "honey",
+      "language": "FR",
+      "aliases": [
+        "miel",
+        "miel de fleurs",
+        "miel de nectars",
+        "miel de miellat",
+        "miel en rayons",
+        "miel avec morceaux de rayons",
+        "miel égoutté",
+        "miel centrifugé",
+        "miel pressé",
+        "miel destiné à l’industrie"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "honey",
+      "language": "NL",
+      "aliases": [
+        "honing",
+        "honig",
+        "bloemenhoning",
+        "bloemenhonig",
+        "nectarhoning",
+        "nectarhonig",
+        "honingdauwhoning",
+        "honingdauwhonig",
+        "raathoning",
+        "raathonig",
+        "brokhoning",
+        "brokhonig",
+        "raatbrokken in honing/honig",
+        "lekhoning",
+        "lekhonig",
+        "slingerhoning",
+        "slingerhonig",
+        "pershoning",
+        "pershonig",
+        "bakkershoning"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "honey",
+      "language": "EN",
+      "aliases": [
+        "honey",
+        "blossom honey",
+        "nectar honey",
+        "honeydew honey",
+        "comb honey",
+        "chunk honey",
+        "cut comb in honey",
+        "drained honey",
+        "extracted honey",
+        "pressed honey",
+        "Baker's honey"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "honey",
+      "language": "DE",
+      "aliases": [
+        "Honig",
+        "Blütenhonig",
+        "Nektarhonig",
+        "Honigtauhonig",
+        "Wabenhonig",
+        "Scheibenhonig",
+        "Honig mit Wabenteilen",
+        "Wabenstücke in Honig",
+        "Tropfhonig",
+        "Schleuderhonig",
+        "Presshonig",
+        "Backhonig"
+      ],
+      "ocrVariants": []
     }
   ],
   "ocrCorrections": [

@@ -65,7 +65,7 @@
 | ricotta | Ricotta | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | cheese | Fromage | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | egg | Œuf | VEGETARIAN | — | — | vegan-society, vegetarian-society |
-| honey | Miel | VEGETARIAN | — | — | vegan-society, vegetarian-society |
+| honey | Miel | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614 |
 | beeswax | Cire d’abeille | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | meat | Viande | NON_VEGAN | — | — | vegan-society |
 | fish | Poisson | NON_VEGAN | — | — | vegan-society |
@@ -819,6 +819,7 @@
 | e999 | Extraits de quillaia | Quillaja-extract | Quillajaextrakt | Quillaia extract | — | — | — |
 | glucose_syrup | — | glucosestroop, glucose-fructosestroop | Glukosesirup | — | — | — | — |
 | hazelnut | noisettes | hazelnoten, hazelnoot | — | — | — | — | — |
+| honey | miel, miel de fleurs, miel de nectars, miel de miellat, miel en rayons, miel avec morceaux de rayons, miel égoutté, miel centrifugé, miel pressé, miel destiné à l’industrie | honing, honig, bloemenhoning, bloemenhonig, nectarhoning, nectarhonig, honingdauwhoning, honingdauwhonig, raathoning, raathonig, brokhoning, brokhonig, raatbrokken in honing/honig, lekhoning, lekhonig, slingerhoning, slingerhonig, pershoning, pershonig, bakkershoning | Honig, Blütenhonig, Nektarhonig, Honigtauhonig, Wabenhonig, Scheibenhonig, Honig mit Wabenteilen, Wabenstücke in Honig, Tropfhonig, Schleuderhonig, Presshonig, Backhonig | honey, blossom honey, nectar honey, honeydew honey, comb honey, chunk honey, cut comb in honey, drained honey, extracted honey, pressed honey, Baker's honey | — | — | — |
 | inulin | inuline | inuline | Inulin | inulin | inulina | inulina | — |
 | macadamia | noix de macadamia | macadamianoten, macadamianoot | — | — | — | — | — |
 | malt | malt, extrait de malt, flocons de céréales maltés, farine de malt d’orge, farine de malt de blé | mout, gerstermout, gerstermoutextract, gemoute gerstemeel, gemoute tarwebloem | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
