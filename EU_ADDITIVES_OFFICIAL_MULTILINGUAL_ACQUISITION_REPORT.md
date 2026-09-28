@@ -2,7 +2,7 @@
 
 Date : 2026-09-27  
 Branche : `master`  
-Source recalculée : `EU_ADDITIVES_OFFICIAL_MULTILINGUAL_REFERENCE.csv`
+Source recalculée : `reference-input/eu-food-labelling/03-food-additives/EU_ADDITIVES_OFFICIAL_MULTILINGUAL_REFERENCE.csv`
 
 ## Sources réglementaires
 

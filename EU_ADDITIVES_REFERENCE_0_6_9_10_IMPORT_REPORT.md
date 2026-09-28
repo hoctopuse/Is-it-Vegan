@@ -1,5 +1,7 @@
 # Référentiel UE multilingue des additifs — 0.6.9.10
 
+> Rapport historique du premier lot partiel de 60 entrées. Il est remplacé, pour l’état final de la version, par `EU_ADDITIVES_REFERENCE_0_6_9_10_COMPLETION_REPORT.md`.
+
 Date : 2026-09-27  
 Branche : `master`  
 Version cible : `0.6.9.10` (`versionCode 46`)

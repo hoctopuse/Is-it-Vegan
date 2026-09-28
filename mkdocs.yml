@@ -1,7 +1,9 @@
 site_name: Is It Vegan? — Documentation technique
-site_description: Fonctionnement et architecture de Is It Vegan? jusqu’à 0.6.9.8
+site_description: Fonctionnement et architecture de Is It Vegan? jusqu’à 0.6.9.10
 docs_dir: docs
 site_dir: site
+not_in_nav: |
+  generated/base-connaissances-data.md
 theme:
   name: material
   language: fr
@@ -33,6 +35,7 @@ nav:
   - Parsing des ingrédients: parsing.md
   - Matching des ingrédients: matching.md
   - Base de connaissances: base-connaissances.md
+  - Référentiel des additifs UE: additifs.md
   - Moteur de verdict: verdict.md
   - Notes de version: changelog.md
   - Tests: tests.md

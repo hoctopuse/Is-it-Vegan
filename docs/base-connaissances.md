@@ -62,6 +62,8 @@ Les noms peuvent être trompeurs : le champ `NON_VEGAN` représente dans le verd
 
 `knowledge/sources.json` décrit les identifiants cités : base des additifs de la Commission européenne, Vegan Society, Vegetarian Society et sources spécifiques. Le champ `use` précise leurs limites. Certaines références ne sont que des pistes de recherche et ne justifient pas à elles seules un statut.
 
+Le référentiel réglementaire multilingue UE introduit en 0.6.9.10, sa couverture, ses exceptions et la distinction entre reconnaissance et compatibilité vegan sont détaillés dans [Référentiel des additifs UE](additifs.md). La présence d’un additif dans la liste UE ne constitue pas une preuve d’origine vegan.
+
 Les qualifications d’origine suivent leur propre source éditoriale, `knowledge/origin_qualifier_rules.json`, copiée vers les assets par `tools/build_origin_rules.py`. Son schéma versionné contient sources, règles actives ou en revue et expressions protégées.
 
 ## Modifier la base

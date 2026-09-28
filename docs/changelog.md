@@ -4,8 +4,10 @@ Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnosti
 
 ## 0.6.9.10
 
-- Le référentiel reconnaît davantage d’additifs alimentaires autorisés dans l’Union européenne, par leur numéro E et des dénominations françaises, néerlandaises, anglaises et allemandes.
+- Le référentiel local couvre les 338 lignes importables sur 340 de la référence officielle UE acquise pour l’annexe II-B, par leur numéro E et leurs dénominations françaises, néerlandaises, anglaises et allemandes disponibles.
 - Les nouveaux additifs importés restent tous `UNCERTAIN` : l’autorisation UE et une dénomination réglementaire ne suffisent pas à conclure sur leur origine vegan.
+- E345 et E345(i) restent hors de la base applicative, car la référence les conserve comme deux clés distinctes sans démontrer leur équivalence ni fournir quatre dénominations non ambiguës.
+- E322a reste explicitement partiel (FR/NL/EN, sans nom DE officiel) ; la collision textuelle E470b/E572 est conservée avec des numéros E explicites distincts et un comportement prudent `UNCERTAIN`.
 
 ## 0.6.9.9
 

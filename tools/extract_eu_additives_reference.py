@@ -73,7 +73,7 @@ def validate(records):
     return {"records": len(records), "complete": sum(r["verification_status"] == "COMPLETE_4_LANGUAGES" for r in records), "partial_or_ambiguous": sum(r["verification_status"] != "COMPLETE_4_LANGUAGES" for r in records)}
 
 def main():
-    base = Path(__file__).resolve().parents[1] / "reference-input" / "eu-additives"
+    base = Path(__file__).resolve().parents[1] / "reference-input" / "eu-food-labelling" / "03-food-additives"
     parser = argparse.ArgumentParser(); parser.add_argument("--fr", type=Path, default=base / "CELEX_02008R1333-20260818_FR_TXT.pdf"); parser.add_argument("--nl", type=Path, default=base / "CELEX_02008R1333-20260818_NL_TXT.pdf"); parser.add_argument("--en", type=Path, default=base / "CELEX_02008R1333-20260818_EN_TXT.pdf"); parser.add_argument("--de", type=Path, default=base / "CELEX_02008R1333-20260818_DE_TXT.pdf"); parser.add_argument("--output", type=Path); parser.add_argument("--dry-run", action="store_true"); args = parser.parse_args()
     if bool(args.output) == bool(args.dry_run): parser.error("choose exactly one of --dry-run or --output")
     os.environ["PYTHONIOENCODING"] = "utf-8"; records, recovery = build({"FR": args.fr, "NL": args.nl, "EN": args.en, "DE": args.de}); summary = validate(records); summary["anomalies"] = recovery + [r["e_number"] + ": " + r["verification_note"] for r in records if r["verification_status"] != "COMPLETE_4_LANGUAGES"]

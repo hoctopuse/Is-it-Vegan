@@ -739,7 +739,11 @@
       "acide carminique",
       "carmine",
       "cochineal",
-      "karmijn"
+      "karmijn",
+      "Acide carminique, carmins",
+      "Karmijnzuur, karmijn",
+      "Carminic acid, Carmine",
+      "Echtes Karmin"
     ],
     "status": "NON_VEGAN",
     "reason": "Colorant obtenu à partir de cochenilles.",
@@ -755,7 +759,10 @@
       "shellac",
       "schellak",
       "resine de shellac",
-      "résine de shellac"
+      "résine de shellac",
+      "Shellac",
+      "Schellak",
+      "Schellack"
     ],
     "status": "NON_VEGAN",
     "reason": "Résine produite par l’insecte Kerria lacca.",
@@ -1012,7 +1019,10 @@
       "mono and diglycerides",
       "mono en diglyceriden",
       "monostéarine",
-      "monostearine"
+      "monostearine",
+      "Mono- en diglyceriden van vetzuren",
+      "Mono-and diglycerides of fatty acids",
+      "Mono- und Diglyceride von Speisefettsäuren"
     ],
     "status": "UNCERTAIN",
     "reason": "Les acides gras peuvent être végétaux ou animaux selon le fabricant.",
@@ -1040,7 +1050,10 @@
       "lécithine",
       "lecithine",
       "lecithin",
-      "lecithinen"
+      "lecithinen",
+      "Lecithinen",
+      "Lecithins",
+      "a  Haferlecithin"
     ],
     "status": "UNCERTAIN",
     "reason": "Souvent végétale, mais peut provenir notamment de l’œuf.",
@@ -1055,7 +1068,9 @@
       "glycerol",
       "glycerine",
       "glycerin",
-      "glycerol"
+      "glycerol",
+      "Glycerol",
+      "Glycerin"
     ],
     "status": "UNCERTAIN",
     "reason": "Peut être produit à partir de matières végétales ou animales.",
@@ -1068,7 +1083,10 @@
     "aliases": [
       "acides gras",
       "fatty acids",
-      "vetzuren"
+      "vetzuren",
+      "Vetzuren",
+      "Fatty acids",
+      "Speisefettsäuren"
     ],
     "status": "UNCERTAIN",
     "reason": "Peuvent provenir de matières végétales ou animales.",
@@ -1082,7 +1100,10 @@
       "guanylate de sodium",
       "guanylate disodique",
       "disodium guanylate",
-      "natriumguanylaat"
+      "natriumguanylaat",
+      "Natriumguanylaat",
+      "Disodium guanylate",
+      "Dinatriumguanylat"
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
@@ -1095,7 +1116,10 @@
     "aliases": [
       "inosinate disodique",
       "disodium inosinate",
-      "natriuminosinaat"
+      "natriuminosinaat",
+      "Dinatriuminosinaat",
+      "Disodium inosinate",
+      "Dinatriuminosinat"
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
@@ -1109,7 +1133,11 @@
       "ribonucléotides disodiques",
       "ribonucleotides disodiques",
       "disodium ribonucleotides",
-      "natriumribonucleotiden"
+      "natriumribonucleotiden",
+      "5′-ribonucléotide disodique",
+      "Dinatrium-5'-ribonucleotiden",
+      "Disodium 5′-ribonucleotides",
+      "Dinatrium-5′-ribonucleotid"
     ],
     "status": "UNCERTAIN",
     "reason": "La matière première et le procédé ne sont pas indiqués sur l’étiquette ; demander au fabricant en cas de doute.",
@@ -1154,7 +1182,10 @@
     "aliases": [
       "acide ascorbique",
       "ascorbic acid",
-      "ascorbinezuur"
+      "ascorbinezuur",
+      "Ascorbinezuur",
+      "Ascorbic acid",
+      "Ascorbinsäure"
     ],
     "status": "VEGAN",
     "reason": "Additif de synthèse ou issu de végétaux, sans origine animale attendue.",
@@ -1167,7 +1198,10 @@
     "aliases": [
       "acide citrique",
       "citric acid",
-      "citroenzuur"
+      "citroenzuur",
+      "Citroenzuur",
+      "Citric acid",
+      "Citronensäure"
     ],
     "status": "VEGAN",
     "reason": "Additif issu de fermentation ou de synthèse, sans origine animale attendue.",
@@ -1179,7 +1213,10 @@
     "eNumber": "E170",
     "aliases": [
       "carbonate de calcium",
-      "calcium carbonate"
+      "calcium carbonate",
+      "Calciumcarbonaat",
+      "Calcium carbonate",
+      "Calciumcarbonat"
     ],
     "status": "VEGAN",
     "reason": "Sel minéral de calcium, sans origine animale dans cette désignation d’additif.",
@@ -1192,7 +1229,10 @@
     "aliases": [
       "agar agar",
       "agar-agar",
-      "agar"
+      "agar",
+      "Agaragar",
+      "Agar",
+      "Agar-Agar"
     ],
     "status": "VEGAN",
     "reason": "Gélifiant issu d’algues.",
@@ -1205,7 +1245,11 @@
     "aliases": [
       "gomme gellane",
       "gellan gum",
-      "gellan"
+      "gellan",
+      "Gomme Gellane",
+      "Gellangom",
+      "Gellan gum",
+      "Gellan"
     ],
     "status": "VEGAN",
     "reason": "Gélifiant obtenu par fermentation microbienne, sans origine animale attendue.",
@@ -1218,7 +1262,11 @@
     "aliases": [
       "gomme de caroube",
       "locust bean gum",
-      "johannesbroodpitmeel"
+      "johannesbroodpitmeel",
+      "Farine de graines de caroube",
+      "Johannesbroodpitmeel",
+      "Locust bean gum",
+      "Johannisbrotkernmehl"
     ],
     "status": "VEGAN",
     "reason": "Épaississant issu de caroube.",
@@ -1231,7 +1279,10 @@
     "aliases": [
       "gomme guar",
       "guar gum",
-      "guargom"
+      "guargom",
+      "Guarpitmeel",
+      "Guar gum",
+      "Guarkernmehl"
     ],
     "status": "VEGAN",
     "reason": "Épaississant issu de guar.",
@@ -1244,7 +1295,10 @@
     "aliases": [
       "gomme xanthane",
       "xanthan gum",
-      "xanthaangom"
+      "xanthaangom",
+      "Xanthaangom",
+      "Xanthan gum",
+      "Xanthan"
     ],
     "status": "VEGAN",
     "reason": "Épaississant issu de fermentation microbienne.",
@@ -1258,7 +1312,10 @@
       "pectine",
       "pectines",
       "pectin",
-      "pectine"
+      "pectine",
+      "Pectinen",
+      "Pectins",
+      "Pektine E-Nummer Bezeichnung"
     ],
     "status": "VEGAN",
     "reason": "Gélifiant issu de végétaux.",
@@ -1272,7 +1329,10 @@
       "bicarbonate de sodium",
       "sodium bicarbonate",
       "natriumbicarbonaat",
-      "carbonates de sodium"
+      "carbonates de sodium",
+      "Natriumcarbonaten",
+      "Sodium carbonates",
+      "Natriumcarbonate"
     ],
     "status": "VEGAN",
     "reason": "Substance minérale, sans origine animale.",
@@ -1288,7 +1348,10 @@
       "carbonates d ammonium",
       "carbonates d’ammonium",
       "ammonium carbonate",
-      "ammonium carbonates"
+      "ammonium carbonates",
+      "Ammoniumcarbonaten",
+      "Ammonium carbonates",
+      "Ammoniumcarbonate"
     ],
     "status": "VEGAN",
     "reason": "Sels minéraux d’ammonium, sans origine animale dans cette désignation d’additif.",
@@ -1301,7 +1364,10 @@
     "aliases": [
       "hydroxyde de sodium",
       "sodium hydroxide",
-      "natriumhydroxide"
+      "natriumhydroxide",
+      "Natriumhydroxide",
+      "Sodium hydroxide",
+      "Natriumhydroxid E-Nummer Bezeichnung"
     ],
     "status": "VEGAN",
     "reason": "Substance minérale, sans origine animale.",
@@ -1314,7 +1380,10 @@
     "aliases": [
       "dioxyde de silicium",
       "silicon dioxide",
-      "siliciumdioxide"
+      "siliciumdioxide",
+      "Siliciumdioxide",
+      "Silicon dioxide",
+      "Siliciumdioxid"
     ],
     "status": "VEGAN",
     "reason": "Substance minérale, sans origine animale.",
@@ -1329,7 +1398,10 @@
       "monosodium glutamate",
       "msg",
       "ve tsin",
-      "natriumglutamaat"
+      "natriumglutamaat",
+      "Mononatriumglutamaat",
+      "Monosodium glutamate",
+      "Mononatriumglutamat E-Nummer Bezeichnung"
     ],
     "status": "VEGAN",
     "reason": "Produit industriel généralement obtenu par fermentation, sans origine animale attendue.",
@@ -1343,7 +1415,10 @@
       "citrate de potassium",
       "citrates de potassium",
       "potassium citrate",
-      "potassium citrates"
+      "potassium citrates",
+      "Kaliumcitraten",
+      "Potassium citrates",
+      "Kaliumcitrate"
     ],
     "status": "VEGAN",
     "reason": "Sels de l’acide citrique, sans origine animale dans cette désignation d’additif.",
@@ -1356,7 +1431,11 @@
     "aliases": [
       "acésulfame k",
       "acesulfame k",
-      "acesulfaam k"
+      "acesulfaam k",
+      "Acésulfame-K",
+      "Acesulfaam-K",
+      "Acesulfame K",
+      "Acesulfam K"
     ],
     "status": "VEGAN",
     "reason": "Édulcorant de synthèse, sans origine animale attendue.",
@@ -1810,7 +1889,10 @@
       "tocophérols",
       "tocopherols",
       "tocopherol-rich extract",
-      "extract rich in tocopherols"
+      "extract rich in tocopherols",
+      "Tocoferolrijk extract",
+      "Tocopherol-rich extract",
+      "Stark tocopherolhaltige Extrakte"
     ],
     "status": "VEGAN",
     "reason": "Lorsque la dénomination correspond clairement à l’extrait riche en tocophérols défini pour E306, l’additif est retenu comme compatible ; la formulation commerciale reste à confirmer si l’étiquette est ambiguë.",
@@ -2062,7 +2144,10 @@
       "e340",
       "phosphates de potassium",
       "potassium phosphates",
-      "kaliumfosfaten"
+      "kaliumfosfaten",
+      "Kaliumfosfaten",
+      "Potassium phosphates",
+      "Kaliumphosphate"
     ],
     "status": "VEGAN",
     "reason": "Sels minéraux de potassium utilisés comme additifs.",
@@ -2101,7 +2186,11 @@
     "aliases": [
       "e202",
       "sorbate de potassium",
-      "potassium sorbate"
+      "potassium sorbate",
+      "Sorbate de potassium __________",
+      "Kaliumsorbaat __________",
+      "Potassium sorbate __________",
+      "Kaliumsorbat __________"
     ],
     "status": "VEGAN",
     "reason": "Sel de potassium utilisé comme conservateur, sans origine animale attendue dans cette désignation.",
@@ -2116,7 +2205,11 @@
       "dioxyde de soufre",
       "anhydride sulfureux",
       "sulfur dioxide",
-      "sulphur dioxide"
+      "sulphur dioxide",
+      "Anhydride sulfureux",
+      "Zwaveldioxide",
+      "Sulphur dioxide",
+      "Schwefeldioxid"
     ],
     "status": "VEGAN",
     "reason": "Composé minéral sans origine animale.",
@@ -2130,7 +2223,10 @@
       "e262",
       "acétates de sodium",
       "acetates de sodium",
-      "sodium acetates"
+      "sodium acetates",
+      "Natriumacetaten",
+      "Sodium acetates",
+      "Natriumacetate"
     ],
     "status": "VEGAN",
     "reason": "Sels de sodium sans origine animale attendue dans cette désignation.",
@@ -2145,70 +2241,4458 @@
       "acide lactique",
       "lactic acid",
       "melkzuur",
-      "Milchsäure"
+      "Milchsäure",
+      "Melkzuur",
+      "Lactic acid"
     ],
     "status": "VEGAN",
     "reason": "Le statut par défaut de l’acide lactique est vegan ; une origine laitière explicitement attachée est traitée par la règle d’origine.",
     "source": "eu-additives"
   },
-  {"id":"e100","name":"Curcumine","eNumber":"E100","aliases":["curcumine","curcumine","curcumin","curcumin"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e101","name":"Riboflavines","eNumber":"E101","aliases":["riboflavines","riboflavinen","riboflavins","riboflavine"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e140","name":"Chlorophylles et chlorophyllines","eNumber":"E140","aliases":["chlorophylles et chlorophyllines","chlorofyllen en chlorofyllinen","chlorophylls and chlorophyllins","chlorophylle und chlorophylline"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e150a","name":"Caramel ordinaire","eNumber":"E150a","aliases":["caramel ordinaire","gewone karamel","plain caramel","zuckerkulör"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e153","name":"Charbon végétal","eNumber":"E153","aliases":["charbon végétal","plantaardige kool","vegetable carbon","pflanzenkohle"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e160a","name":"Carotènes","eNumber":"E160a","aliases":["carotènes","carotenen","carotenes","carotine"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e160b","name":"Rocou","eNumber":"E160b","aliases":["rocou","annatto","annatto","annatto"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e162","name":"Rouge de betterave","eNumber":"E162","aliases":["rouge de betterave","bietenrood","beetroot red","betanin"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e200","name":"Acide sorbique","eNumber":"E200","aliases":["acide sorbique","sorbinezuur","sorbic acid","sorbinsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e203","name":"Sorbate de calcium","eNumber":"E203","aliases":["sorbate de calcium","calciumsorbaat","calcium sorbate","calciumsorbat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e210","name":"Acide benzoïque","eNumber":"E210","aliases":["acide benzoïque","benzoëzuur","benzoic acid","benzoesäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e211","name":"Benzoate de sodium","eNumber":"E211","aliases":["benzoate de sodium","natriumbenzoaat","sodium benzoate","natriumbenzoat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e223","name":"Métabisulfite de sodium","eNumber":"E223","aliases":["métabisulfite de sodium","natriummetabisulfiet","sodium metabisulphite","natriummetabisulfit"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e224","name":"Métabisulfite de potassium","eNumber":"E224","aliases":["métabisulfite de potassium","kaliummetabisulfiet","potassium metabisulphite","kaliummetabisulfit"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e234","name":"Nisine","eNumber":"E234","aliases":["nisine","nisine","nisin","nisin"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e235","name":"Natamycine","eNumber":"E235","aliases":["natamycine","natamycine","natamycin","natamycin"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e249","name":"Nitrite de potassium","eNumber":"E249","aliases":["nitrite de potassium","kaliumnitriet","potassium nitrite","kaliumnitrit"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e250","name":"Nitrite de sodium","eNumber":"E250","aliases":["nitrite de sodium","natriumnitriet","sodium nitrite","natriumnitrit"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e251","name":"Nitrate de sodium","eNumber":"E251","aliases":["nitrate de sodium","natriumnitraat","sodium nitrate","natriumnitrat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e252","name":"Nitrate de potassium","eNumber":"E252","aliases":["nitrate de potassium","kaliumnitraat","potassium nitrate","kaliumnitrat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e260","name":"Acide acétique","eNumber":"E260","aliases":["acide acétique","azijnzuur","acetic acid","essigsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e280","name":"Acide propionique","eNumber":"E280","aliases":["acide propionique","propionzuur","propionic acid","propionsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e281","name":"Propionate de sodium","eNumber":"E281","aliases":["propionate de sodium","natriumpropionaat","sodium propionate","natriumpropionat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e282","name":"Propionate de calcium","eNumber":"E282","aliases":["propionate de calcium","calciumpropionaat","calcium propionate","calciumpropionat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e296","name":"Acide malique","eNumber":"E296","aliases":["acide malique","appelzuur","malic acid","äpfelsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e304","name":"Esters d’acides gras de l’acide ascorbique","eNumber":"E304","aliases":["esters d acides gras de l acide ascorbique","vetzuuresters van ascorbinezuur","fatty acid esters of ascorbic acid","fettsäureester der ascorbinsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e307","name":"Alpha-tocophérol","eNumber":"E307","aliases":["alpha tocophérol","alfa tocoferol","alpha tocopherol","alpha tocopherol"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e310","name":"Gallate de propyle","eNumber":"E310","aliases":["gallate de propyle","propylgallaat","propyl gallate","propylgallat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e320","name":"Butylhydroxyanisol","eNumber":"E320","aliases":["butylhydroxyanisol","butylhydroxyanisol","butylated hydroxyanisole","butylhydroxyanisol"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e321","name":"Butylhydroxytoluène","eNumber":"E321","aliases":["butylhydroxytoluène","butylhydroxytolueen","butylated hydroxytoluene","butylhydroxytoluol"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e331","name":"Citrates de sodium","eNumber":"E331","aliases":["citrates de sodium","natriumcitraten","sodium citrates","natriumcitrate"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e333","name":"Citrates de calcium","eNumber":"E333","aliases":["citrates de calcium","calciumcitraten","calcium citrates","calciumcitrate"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e400","name":"Acide alginique","eNumber":"E400","aliases":["acide alginique","alginezuur","alginic acid","alginsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e401","name":"Alginate de sodium","eNumber":"E401","aliases":["alginate de sodium","natriumalginaat","sodium alginate","natriumalginat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e405","name":"Alginate de propane-1,2-diol","eNumber":"E405","aliases":["alginate de propane 1 2 diol","propyleenglycolalginaat","propylene glycol alginate","propylenglycolalginat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e407","name":"Carraghénanes","eNumber":"E407","aliases":["carraghénanes","carrageen","carrageenan","carrageen"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e407a","name":"Algues eucheuma transformées","eNumber":"E407a","aliases":["algues eucheuma transformées","verwerkt eucheuma zeewier","processed eucheuma seaweed","verarbeitetes eucheuma seegras"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e414","name":"Gomme arabique","eNumber":"E414","aliases":["gomme arabique","arabische gom","gum arabic","gummi arabicum"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e416","name":"Gomme karaya","eNumber":"E416","aliases":["gomme karaya","karayagom","karaya gum","karaya gummi"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e420","name":"Sorbitols","eNumber":"E420","aliases":["sorbitols","sorbitolen","sorbitols","sorbit"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e432","name":"Polysorbate 20","eNumber":"E432","aliases":["polysorbate 20","polysorbaat 20","polysorbate 20","polysorbat 20"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e433","name":"Polysorbate 80","eNumber":"E433","aliases":["polysorbate 80","polysorbaat 80","polysorbate 80","polysorbat 80"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e450","name":"Diphosphates","eNumber":"E450","aliases":["diphosphates","difosfaten","diphosphates","diphosphate"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e452","name":"Polyphosphates","eNumber":"E452","aliases":["polyphosphates","polyfosfaten","polyphosphates","polyphosphate"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e460","name":"Cellulose","eNumber":"E460","aliases":["cellulose","cellulose","cellulose","zellulose"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e466","name":"Carboxyméthylcellulose","eNumber":"E466","aliases":["carboxyméthylcellulose","carboxymethylcellulose","carboxymethyl cellulose","carboxymethylcellulose"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e476","name":"Polyricinoléate de polyglycérol","eNumber":"E476","aliases":["polyricinoléate de polyglycérol","polyglycerolpolyricinoleaat","polyglycerol polyricinoleate","polyglycerin polyricinoleat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e481","name":"Stéaroyl-2-lactylate de sodium","eNumber":"E481","aliases":["stéaroyl 2 lactylate de sodium","natriumstearoyllactylaat","sodium stearoyl lactylate","natriumstearoyllactylat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e501","name":"Carbonates de potassium","eNumber":"E501","aliases":["carbonates de potassium","kaliumcarbonaten","potassium carbonates","kaliumcarbonate"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e504","name":"Carbonates de magnésium","eNumber":"E504","aliases":["carbonates de magnésium","magnesiumcarbonaten","magnesium carbonates","magnesiumcarbonate"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e572","name":"Sels de magnésium d’acides gras","eNumber":"E572","aliases":["sels de magnésium d acides gras","magnesiumzouten van vetzuren","magnesium salts of fatty acids","magnesiumsalze der speisefettsäuren"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e575","name":"Glucono-delta-lactone","eNumber":"E575","aliases":["glucono delta lactone","glucono delta lacton","glucono delta lactone","glucono delta lacton"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e620","name":"Acide glutamique","eNumber":"E620","aliases":["acide glutamique","glutaminezuur","glutamic acid","glutaminsäure"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e622","name":"Glutamate monopotassique","eNumber":"E622","aliases":["glutamate monopotassique","monokaliumglutamaat","monopotassium glutamate","monokaliumglutamat"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e901","name":"Cire d’abeille","eNumber":"E901","aliases":["cire d abeille","bijenwas","beeswax","bienenwachs"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e903","name":"Cire de carnauba","eNumber":"E903","aliases":["cire de carnauba","carnaubawas","carnauba wax","carnaubawachs"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e920","name":"L-cystéine","eNumber":"E920","aliases":["l cystéine","l cysteïne","l cysteine","l cystein"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e938","name":"Argon","eNumber":"E938","aliases":["argon","argon","argon","argon"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e941","name":"Azote","eNumber":"E941","aliases":["azote","stikstof","nitrogen","stickstoff"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"},
-  {"id":"e948","name":"Oxygène","eNumber":"E948","aliases":["oxygène","zuurstof","oxygen","sauerstoff"],"status":"UNCERTAIN","reason":"Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.","source":"eu-additives"}
+  {
+    "id": "e100",
+    "name": "Curcumine",
+    "eNumber": "E100",
+    "aliases": [
+      "curcumine",
+      "curcumine",
+      "curcumin",
+      "curcumin",
+      "Curcumin",
+      "Kurkumin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e101",
+    "name": "Riboflavines",
+    "eNumber": "E101",
+    "aliases": [
+      "riboflavines",
+      "riboflavinen",
+      "riboflavins",
+      "riboflavine",
+      "Riboflavinen",
+      "Riboflavins",
+      "Riboflavine"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e140",
+    "name": "Chlorophylles et chlorophyllines",
+    "eNumber": "E140",
+    "aliases": [
+      "chlorophylles et chlorophyllines",
+      "chlorofyllen en chlorofyllinen",
+      "chlorophylls and chlorophyllins",
+      "chlorophylle und chlorophylline",
+      "Chlorofylen en chlorofylinen",
+      "Chlorophylls and chlorophyllins",
+      "Chlorophylle und Chlorophylline"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e150a",
+    "name": "Caramel ordinaire",
+    "eNumber": "E150a",
+    "aliases": [
+      "caramel ordinaire",
+      "gewone karamel",
+      "plain caramel",
+      "zuckerkulör",
+      "Caramel ordinaire (  1 )",
+      "Karamel (  1 )",
+      "Plain caramel (  1 )",
+      "Zuckerkulör (  1 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e153",
+    "name": "Charbon végétal",
+    "eNumber": "E153",
+    "aliases": [
+      "charbon végétal",
+      "plantaardige kool",
+      "vegetable carbon",
+      "pflanzenkohle",
+      "Charbon végétal médicinal",
+      "Plantaardige koolstof",
+      "Vegetable carbon",
+      "Pflanzenkohle"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160a",
+    "name": "Carotènes",
+    "eNumber": "E160a",
+    "aliases": [
+      "carotènes",
+      "carotenen",
+      "carotenes",
+      "carotine",
+      "Caroténoïdes",
+      "Carotenen",
+      "Carotenes",
+      "Carotin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160b",
+    "name": "Rocou",
+    "eNumber": "E160b",
+    "aliases": [
+      "rocou",
+      "annatto",
+      "annatto",
+      "annatto"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e162",
+    "name": "Rouge de betterave",
+    "eNumber": "E162",
+    "aliases": [
+      "rouge de betterave",
+      "bietenrood",
+      "beetroot red",
+      "betanin",
+      "Rouge de betterave, bétanine",
+      "Bietenrood, betanine",
+      "Beetroot Red, betanin",
+      "Betanin (Betenrot)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e200",
+    "name": "Acide sorbique",
+    "eNumber": "E200",
+    "aliases": [
+      "acide sorbique",
+      "sorbinezuur",
+      "sorbic acid",
+      "sorbinsäure",
+      "Sorbinezuur",
+      "Sorbic acid",
+      "Sorbinsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e203",
+    "name": "Sorbate de calcium",
+    "eNumber": "E203",
+    "aliases": [
+      "sorbate de calcium",
+      "calciumsorbaat",
+      "calcium sorbate",
+      "calciumsorbat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e210",
+    "name": "Acide benzoïque",
+    "eNumber": "E210",
+    "aliases": [
+      "acide benzoïque",
+      "benzoëzuur",
+      "benzoic acid",
+      "benzoesäure",
+      "Acide benzoïque (  1 )",
+      "Benzoëzuur (  1 )",
+      "Benzoic acid (  1 )",
+      "Benzoesäure (  1 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e211",
+    "name": "Benzoate de sodium",
+    "eNumber": "E211",
+    "aliases": [
+      "benzoate de sodium",
+      "natriumbenzoaat",
+      "sodium benzoate",
+      "natriumbenzoat",
+      "Benzoate de sodium (  1 )",
+      "Natriumbenzoaat (  1 )",
+      "Sodium benzoate (  1 )",
+      "Natriumbenzoat (  1 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e223",
+    "name": "Métabisulfite de sodium",
+    "eNumber": "E223",
+    "aliases": [
+      "métabisulfite de sodium",
+      "natriummetabisulfiet",
+      "sodium metabisulphite",
+      "natriummetabisulfit",
+      "Disulfite de sodium",
+      "Natriumdisulfiet",
+      "Sodium metabisulphite",
+      "Natriummetabisulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e224",
+    "name": "Métabisulfite de potassium",
+    "eNumber": "E224",
+    "aliases": [
+      "métabisulfite de potassium",
+      "kaliummetabisulfiet",
+      "potassium metabisulphite",
+      "kaliummetabisulfit",
+      "Disulfite de potassium",
+      "Kaliumdisulfiet",
+      "Potassium metabisulphite",
+      "Kaliummetabisulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e234",
+    "name": "Nisine",
+    "eNumber": "E234",
+    "aliases": [
+      "nisine",
+      "nisine",
+      "nisin",
+      "nisin",
+      "Nisin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e235",
+    "name": "Natamycine",
+    "eNumber": "E235",
+    "aliases": [
+      "natamycine",
+      "natamycine",
+      "natamycin",
+      "natamycin",
+      "Natamycin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e249",
+    "name": "Nitrite de potassium",
+    "eNumber": "E249",
+    "aliases": [
+      "nitrite de potassium",
+      "kaliumnitriet",
+      "potassium nitrite",
+      "kaliumnitrit",
+      "Kaliumnitriet",
+      "Potassium nitrite",
+      "Kaliumnitrit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e250",
+    "name": "Nitrite de sodium",
+    "eNumber": "E250",
+    "aliases": [
+      "nitrite de sodium",
+      "natriumnitriet",
+      "sodium nitrite",
+      "natriumnitrit",
+      "Natriumnitriet",
+      "Sodium nitrite",
+      "Natriumnitrit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e251",
+    "name": "Nitrate de sodium",
+    "eNumber": "E251",
+    "aliases": [
+      "nitrate de sodium",
+      "natriumnitraat",
+      "sodium nitrate",
+      "natriumnitrat",
+      "Natriumnitraat",
+      "Sodium nitrate",
+      "Natriumnitrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e252",
+    "name": "Nitrate de potassium",
+    "eNumber": "E252",
+    "aliases": [
+      "nitrate de potassium",
+      "kaliumnitraat",
+      "potassium nitrate",
+      "kaliumnitrat",
+      "Kaliumnitraat",
+      "Potassium nitrate",
+      "Kaliumnitrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e260",
+    "name": "Acide acétique",
+    "eNumber": "E260",
+    "aliases": [
+      "acide acétique",
+      "azijnzuur",
+      "acetic acid",
+      "essigsäure",
+      "Azijnzuur",
+      "Acetic acid",
+      "Essigsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e280",
+    "name": "Acide propionique",
+    "eNumber": "E280",
+    "aliases": [
+      "acide propionique",
+      "propionzuur",
+      "propionic acid",
+      "propionsäure",
+      "Propionzuur",
+      "Propionic acid",
+      "Propionsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e281",
+    "name": "Propionate de sodium",
+    "eNumber": "E281",
+    "aliases": [
+      "propionate de sodium",
+      "natriumpropionaat",
+      "sodium propionate",
+      "natriumpropionat",
+      "Natriumpropionaat",
+      "Sodium propionate",
+      "Natriumpropionat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e282",
+    "name": "Propionate de calcium",
+    "eNumber": "E282",
+    "aliases": [
+      "propionate de calcium",
+      "calciumpropionaat",
+      "calcium propionate",
+      "calciumpropionat",
+      "Calciumpropionaat",
+      "Calcium propionate",
+      "Calciumpropionat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e296",
+    "name": "Acide malique",
+    "eNumber": "E296",
+    "aliases": [
+      "acide malique",
+      "appelzuur",
+      "malic acid",
+      "äpfelsäure",
+      "Appelzuur",
+      "Malic acid",
+      "Äpfelsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e304",
+    "name": "Esters d’acides gras de l’acide ascorbique",
+    "eNumber": "E304",
+    "aliases": [
+      "esters d acides gras de l acide ascorbique",
+      "vetzuuresters van ascorbinezuur",
+      "fatty acid esters of ascorbic acid",
+      "fettsäureester der ascorbinsäure",
+      "Vetzuuresters van ascorbinezuur",
+      "Fatty acid esters of ascorbic acid",
+      "Fettsäureester der Ascorbinsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e307",
+    "name": "Alpha-tocophérol",
+    "eNumber": "E307",
+    "aliases": [
+      "alpha tocophérol",
+      "alfa tocoferol",
+      "alpha tocopherol",
+      "alpha tocopherol",
+      "Alfa-tocoferol",
+      "Alpha-tocopherol",
+      "Alpha-Tocopherol"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e310",
+    "name": "Gallate de propyle",
+    "eNumber": "E310",
+    "aliases": [
+      "gallate de propyle",
+      "propylgallaat",
+      "propyl gallate",
+      "propylgallat",
+      "Gallate de propyle __________",
+      "Propylgallaat __________",
+      "Propyl gallate __________",
+      "Propylgallat __________"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e320",
+    "name": "Butylhydroxyanisol",
+    "eNumber": "E320",
+    "aliases": [
+      "butylhydroxyanisol",
+      "butylhydroxyanisol",
+      "butylated hydroxyanisole",
+      "butylhydroxyanisol",
+      "Butylhydroxy-anisol (BHA)",
+      "Butylhydroxyanisool (BHA)",
+      "Butylated hydroxyanisole (BHA)",
+      "Butylhydroxyanisol (BHA)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e321",
+    "name": "Butylhydroxytoluène",
+    "eNumber": "E321",
+    "aliases": [
+      "butylhydroxytoluène",
+      "butylhydroxytolueen",
+      "butylated hydroxytoluene",
+      "butylhydroxytoluol",
+      "Butylhydroxy-toluène (BHT)",
+      "Butylhydroxytolueen (BHT)",
+      "Butylated hydroxytoluene (BHT)",
+      "Butylhydroxytoluen (BHT)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e331",
+    "name": "Citrates de sodium",
+    "eNumber": "E331",
+    "aliases": [
+      "citrates de sodium",
+      "natriumcitraten",
+      "sodium citrates",
+      "natriumcitrate",
+      "Natriumcitraten",
+      "Sodium citrates",
+      "Natriumcitrate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e333",
+    "name": "Citrates de calcium",
+    "eNumber": "E333",
+    "aliases": [
+      "citrates de calcium",
+      "calciumcitraten",
+      "calcium citrates",
+      "calciumcitrate",
+      "Calciumcitraten",
+      "Calcium citrates",
+      "Calciumcitrate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e400",
+    "name": "Acide alginique",
+    "eNumber": "E400",
+    "aliases": [
+      "acide alginique",
+      "alginezuur",
+      "alginic acid",
+      "alginsäure",
+      "Alginezuur",
+      "Alginic acid",
+      "Alginsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e401",
+    "name": "Alginate de sodium",
+    "eNumber": "E401",
+    "aliases": [
+      "alginate de sodium",
+      "natriumalginaat",
+      "sodium alginate",
+      "natriumalginat",
+      "Natriumalginaat",
+      "Sodium alginate",
+      "Natriumalginat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e405",
+    "name": "Alginate de propane-1,2-diol",
+    "eNumber": "E405",
+    "aliases": [
+      "alginate de propane 1 2 diol",
+      "propyleenglycolalginaat",
+      "propylene glycol alginate",
+      "propylenglycolalginat",
+      "Propyleenglycolalginaat",
+      "Propane-1, 2-diol alginate",
+      "Propylenglycolalginat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e407",
+    "name": "Carraghénanes",
+    "eNumber": "E407",
+    "aliases": [
+      "carraghénanes",
+      "carrageen",
+      "carrageenan",
+      "carrageen",
+      "Carrageen",
+      "Carrageenan"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e407a",
+    "name": "Algues eucheuma transformées",
+    "eNumber": "E407a",
+    "aliases": [
+      "algues eucheuma transformées",
+      "verwerkt eucheuma zeewier",
+      "processed eucheuma seaweed",
+      "verarbeitetes eucheuma seegras",
+      "Algues  Euchema  transformées",
+      "Verwerkt Eucheuma-wier",
+      "Processed euchema seaweed",
+      "Verarbeitete Euchema-Algen"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e414",
+    "name": "Gomme arabique",
+    "eNumber": "E414",
+    "aliases": [
+      "gomme arabique",
+      "arabische gom",
+      "gum arabic",
+      "gummi arabicum",
+      "Gomme arabique ou gomme d’acacia",
+      "Arabische gom",
+      "Gum arabic (acacia gum)",
+      "Gummi arabicum"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e416",
+    "name": "Gomme karaya",
+    "eNumber": "E416",
+    "aliases": [
+      "gomme karaya",
+      "karayagom",
+      "karaya gum",
+      "karaya gummi",
+      "Gomme Karaya",
+      "Karayagom",
+      "Karaya gum",
+      "Karayagummi"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e420",
+    "name": "Sorbitols",
+    "eNumber": "E420",
+    "aliases": [
+      "sorbitols",
+      "sorbitolen",
+      "sorbitols",
+      "sorbit",
+      "Sorbitolen",
+      "Sorbit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e432",
+    "name": "Polysorbate 20",
+    "eNumber": "E432",
+    "aliases": [
+      "polysorbate 20",
+      "polysorbaat 20",
+      "polysorbate 20",
+      "polysorbat 20",
+      "Monolaurate de polyoxyéthylène de sorbitane (polysorbate 20)",
+      "Polyoxyethyleensorbitaanmonolauraat (polysorbaat 20)",
+      "Polyoxyethylene sorbitan monolaurate (polysorbate 20)",
+      "Polyoxyethylensorbitanmonolaurat (Polysorbat 20)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e433",
+    "name": "Polysorbate 80",
+    "eNumber": "E433",
+    "aliases": [
+      "polysorbate 80",
+      "polysorbaat 80",
+      "polysorbate 80",
+      "polysorbat 80",
+      "Monooléate de polyoxyéthylène de sorbitane (polysorbate 80)",
+      "Polyoxyethyleensorbitaanmonoöleaat (polysorbaat 80)",
+      "Polyoxyethylene sorbitan monooleate (polysorbate 80)",
+      "Polyoxyethylensorbitanmonooleat (Polysorbat 80)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e450",
+    "name": "Diphosphates",
+    "eNumber": "E450",
+    "aliases": [
+      "diphosphates",
+      "difosfaten",
+      "diphosphates",
+      "diphosphate",
+      "Difosfaten",
+      "Diphosphate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e452",
+    "name": "Polyphosphates",
+    "eNumber": "E452",
+    "aliases": [
+      "polyphosphates",
+      "polyfosfaten",
+      "polyphosphates",
+      "polyphosphate",
+      "Polyfosfaten",
+      "Polyphosphate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e460",
+    "name": "Cellulose",
+    "eNumber": "E460",
+    "aliases": [
+      "cellulose",
+      "cellulose",
+      "cellulose",
+      "zellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e466",
+    "name": "Carboxyméthylcellulose",
+    "eNumber": "E466",
+    "aliases": [
+      "carboxyméthylcellulose",
+      "carboxymethylcellulose",
+      "carboxymethyl cellulose",
+      "carboxymethylcellulose",
+      "Carboxyméthyl-cellulose sodique, gomme cellulosique",
+      "Natriumcarboxymethylcellulose, cellulosegom",
+      "Sodium carboxy methyl cellulose, Cellulose gum",
+      "Natrium-Carboxymethylcellulose, Cellulosegummi"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e476",
+    "name": "Polyricinoléate de polyglycérol",
+    "eNumber": "E476",
+    "aliases": [
+      "polyricinoléate de polyglycérol",
+      "polyglycerolpolyricinoleaat",
+      "polyglycerol polyricinoleate",
+      "polyglycerin polyricinoleat",
+      "Polyglycerolpolyricinoleaat",
+      "Polyglycerol polyricinoleate",
+      "Polyglycerin-Polyricinoleat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e481",
+    "name": "Stéaroyl-2-lactylate de sodium",
+    "eNumber": "E481",
+    "aliases": [
+      "stéaroyl 2 lactylate de sodium",
+      "natriumstearoyllactylaat",
+      "sodium stearoyl lactylate",
+      "natriumstearoyllactylat",
+      "Natriumstearoyl-2-lactylaat",
+      "Sodium stearoyl-2-lactylate",
+      "Natriumstearoyl-2-lactylat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e501",
+    "name": "Carbonates de potassium",
+    "eNumber": "E501",
+    "aliases": [
+      "carbonates de potassium",
+      "kaliumcarbonaten",
+      "potassium carbonates",
+      "kaliumcarbonate",
+      "Kaliumcarbonaten",
+      "Potassium carbonates",
+      "Kaliumcarbonate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e504",
+    "name": "Carbonates de magnésium",
+    "eNumber": "E504",
+    "aliases": [
+      "carbonates de magnésium",
+      "magnesiumcarbonaten",
+      "magnesium carbonates",
+      "magnesiumcarbonate",
+      "Magnesiumcarbonaten",
+      "Magnesium carbonates",
+      "Magnesiumcarbonate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e572",
+    "name": "Sels de magnésium d’acides gras",
+    "eNumber": "E572",
+    "aliases": [
+      "sels de magnésium d acides gras",
+      "magnesiumzouten van vetzuren",
+      "magnesium salts of fatty acids",
+      "magnesiumsalze der speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e575",
+    "name": "Glucono-delta-lactone",
+    "eNumber": "E575",
+    "aliases": [
+      "glucono delta lactone",
+      "glucono delta lacton",
+      "glucono delta lactone",
+      "glucono delta lacton",
+      "Glucono-delta-lacton",
+      "Glucono-delta-Lacton"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e620",
+    "name": "Acide glutamique",
+    "eNumber": "E620",
+    "aliases": [
+      "acide glutamique",
+      "glutaminezuur",
+      "glutamic acid",
+      "glutaminsäure",
+      "Glutaminezuur",
+      "Glutamic acid",
+      "Glutaminsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e622",
+    "name": "Glutamate monopotassique",
+    "eNumber": "E622",
+    "aliases": [
+      "glutamate monopotassique",
+      "monokaliumglutamaat",
+      "monopotassium glutamate",
+      "monokaliumglutamat",
+      "Monokaliumglutamaat",
+      "Monopotassium glutamate",
+      "Monokaliumglutamat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e901",
+    "name": "Cire d’abeille",
+    "eNumber": "E901",
+    "aliases": [
+      "cire d abeille",
+      "bijenwas",
+      "beeswax",
+      "bienenwachs",
+      "Cire d’abeille blanche et jaune",
+      "Bijenwas, wit en geel",
+      "Beeswax, white and yellow",
+      "Bienenwachs, weiß und gelb"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e903",
+    "name": "Cire de carnauba",
+    "eNumber": "E903",
+    "aliases": [
+      "cire de carnauba",
+      "carnaubawas",
+      "carnauba wax",
+      "carnaubawachs",
+      "Carnaubawas",
+      "Carnauba wax",
+      "Carnaubawachs"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e920",
+    "name": "L-cystéine",
+    "eNumber": "E920",
+    "aliases": [
+      "l cystéine",
+      "l cysteïne",
+      "l cysteine",
+      "l cystein",
+      "L-Cysteïne",
+      "L-cysteine",
+      "L-Cystein"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e938",
+    "name": "Argon",
+    "eNumber": "E938",
+    "aliases": [
+      "argon",
+      "argon",
+      "argon",
+      "argon"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e941",
+    "name": "Azote",
+    "eNumber": "E941",
+    "aliases": [
+      "azote",
+      "stikstof",
+      "nitrogen",
+      "stickstoff",
+      "Stikstof",
+      "Nitrogen",
+      "Stickstoff E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e948",
+    "name": "Oxygène",
+    "eNumber": "E948",
+    "aliases": [
+      "oxygène",
+      "zuurstof",
+      "oxygen",
+      "sauerstoff",
+      "Zuurstof",
+      "Oxygen",
+      "Sauerstoff"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e102",
+    "name": "Tartrazine",
+    "eNumber": "E102",
+    "aliases": [
+      "Tartrazine",
+      "Tartrazin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e104",
+    "name": "Jaune de quinoléine",
+    "eNumber": "E104",
+    "aliases": [
+      "Jaune de quinoléine",
+      "Chinolinegeel",
+      "Quinoline Yellow",
+      "Chinolingelb"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e110",
+    "name": "Sunset Yellow  FCF/Jaune orange S",
+    "eNumber": "E110",
+    "aliases": [
+      "Sunset Yellow  FCF/Jaune orange S",
+      "Zonnegeel FCF/oranjegeel S",
+      "Sunset Yellow FCF/Orange Yellow S",
+      "Gelborange S"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e122",
+    "name": "Azorubine, carmoisine",
+    "eNumber": "E122",
+    "aliases": [
+      "Azorubine, carmoisine",
+      "Azorubine, karmozijn",
+      "Azorubine, Carmoisine",
+      "Azorubin (Carmoisin)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e123",
+    "name": "Amarante",
+    "eNumber": "E123",
+    "aliases": [
+      "Amarante",
+      "Amarant",
+      "Amaranth"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e124",
+    "name": "Ponceau 4R, rouge cochenille A",
+    "eNumber": "E124",
+    "aliases": [
+      "Ponceau 4R, rouge cochenille A",
+      "Ponceau 4R, cochenillerood A",
+      "Ponceau 4R, Cochineal Red A",
+      "Cochenillerot A (Ponceau 4R)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e127",
+    "name": "Erythrosine",
+    "eNumber": "E127",
+    "aliases": [
+      "Erythrosine",
+      "Erytrosine",
+      "Erythrosin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e129",
+    "name": "Rouge allura AC",
+    "eNumber": "E129",
+    "aliases": [
+      "Rouge allura AC",
+      "Allurarood AC",
+      "Allura Red AC",
+      "Allurarot AC"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e131",
+    "name": "Bleu patenté V",
+    "eNumber": "E131",
+    "aliases": [
+      "Bleu patenté V",
+      "Patentblauw V",
+      "Patent Blue V",
+      "Patentblau V"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e132",
+    "name": "Indigotine, carmin d’indigo",
+    "eNumber": "E132",
+    "aliases": [
+      "Indigotine, carmin d’indigo",
+      "Indigotine, indigokarmijn",
+      "Indigotine, Indigo carmine",
+      "Indigotin (Indigokarmin)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e133",
+    "name": "Bleu brillant FCF",
+    "eNumber": "E133",
+    "aliases": [
+      "Bleu brillant FCF",
+      "Briljantblauw FCF",
+      "Brilliant Blue FCF",
+      "Brillantblau FCF"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e141",
+    "name": "Complexes cuivre-chlorophylles et cuivre-chlorophyllines",
+    "eNumber": "E141",
+    "aliases": [
+      "Complexes cuivre-chlorophylles et cuivre-chlorophyllines",
+      "Kopercomplexen van chlorofylen en chlorofylinen",
+      "Copper complexes of chlorophylls, chlorophyllins",
+      "Kupferkomplexe der Chlorophylle und Chlorophylline"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e142",
+    "name": "Vert S",
+    "eNumber": "E142",
+    "aliases": [
+      "Vert S",
+      "Groen S",
+      "Green S",
+      "Grün S"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e150b",
+    "name": "Caramel de sulfite caustique",
+    "eNumber": "E150b",
+    "aliases": [
+      "Caramel de sulfite caustique",
+      "Alkali-sulfietkaramel",
+      "Caustic sulphite caramel",
+      "Sulfitlaugen-Zuckerkulör"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e150c",
+    "name": "Caramel ammoniacal",
+    "eNumber": "E150c",
+    "aliases": [
+      "Caramel ammoniacal",
+      "Ammoniakkaramel",
+      "Ammonia caramel",
+      "Ammoniak-Zuckerkulör"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e150d",
+    "name": "Caramel au sulfite d’ammonium",
+    "eNumber": "E150d",
+    "aliases": [
+      "Caramel au sulfite d’ammonium",
+      "Sulfiet-ammoniakkaramel",
+      "Sulphite ammonia caramel",
+      "Ammonsulfit-Zuckerkulör"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e151",
+    "name": "Noir brillant PN",
+    "eNumber": "E151",
+    "aliases": [
+      "Noir brillant PN",
+      "Briljantzwart PN",
+      "Brilliant Black PN",
+      "Brillantschwarz PN"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e155",
+    "name": "Brun HT",
+    "eNumber": "E155",
+    "aliases": [
+      "Brun HT",
+      "Bruin HT",
+      "Brown HT",
+      "Braun HT"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160b(i)",
+    "name": "Bixine de rocou",
+    "eNumber": "E160b(i)",
+    "aliases": [
+      "Bixine de rocou",
+      "Annatto bixine",
+      "Annatto bixin",
+      "Annatto Bixin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160b(ii)",
+    "name": "Norbixine de rocou",
+    "eNumber": "E160b(ii)",
+    "aliases": [
+      "Norbixine de rocou",
+      "Annatto norbixine",
+      "Annatto norbixin",
+      "Annatto Norbixin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160c",
+    "name": "Extrait de paprika, capsanthine, capsorubine",
+    "eNumber": "E160c",
+    "aliases": [
+      "Extrait de paprika, capsanthine, capsorubine",
+      "Paprika-extract, capsanthine, capsorubine",
+      "Paprika extract, capsanthin, capsorubin",
+      "Paprikaextrakt (Capsanthin, Capsorubin)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160d",
+    "name": "Lycopène",
+    "eNumber": "E160d",
+    "aliases": [
+      "Lycopène",
+      "Lycopeen",
+      "Lycopene",
+      "Lycopin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e160e",
+    "name": "β-apocaroténal-8' (C 30)",
+    "eNumber": "E160e",
+    "aliases": [
+      "β-apocaroténal-8' (C 30)",
+      "Bèta-apo-8'-carotenal (C30)",
+      "Beta-apo-8′-carotenal (C 30)",
+      "Beta-apo-8′-Carotinal (C 30)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e161b",
+    "name": "Lutéine",
+    "eNumber": "E161b",
+    "aliases": [
+      "Lutéine",
+      "Luteïne",
+      "Lutein",
+      "Lutein E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e161g",
+    "name": "Canthaxanthine (*)",
+    "eNumber": "E161g",
+    "aliases": [
+      "Canthaxanthine (*)",
+      "Canthaxanthin (*)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e163",
+    "name": "Anthocyanes",
+    "eNumber": "E163",
+    "aliases": [
+      "Anthocyanes",
+      "Anthocyanen",
+      "Anthocyanins",
+      "Anthocyane"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e171",
+    "name": "Dioxyde de titane (**)",
+    "eNumber": "E171",
+    "aliases": [
+      "Dioxyde de titane (**)",
+      "Titaandioxide (**)",
+      "Titanium dioxide (**)",
+      "Titandioxid (**)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e172",
+    "name": "Oxydes et hydroxydes de fer",
+    "eNumber": "E172",
+    "aliases": [
+      "Oxydes et hydroxydes de fer",
+      "IJzeroxiden en ijzerhydroxiden",
+      "Iron oxides and hydroxides",
+      "Eisenoxide und -hydroxide"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e173",
+    "name": "Aluminium",
+    "eNumber": "E173",
+    "aliases": [
+      "Aluminium"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e174",
+    "name": "Argent",
+    "eNumber": "E174",
+    "aliases": [
+      "Argent",
+      "Zilver",
+      "Silver",
+      "Silber"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e175",
+    "name": "O r",
+    "eNumber": "E175",
+    "aliases": [
+      "O r",
+      "Goud",
+      "Gold"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e180",
+    "name": "Lithol-rubine BK ( 1 ) Le terme «caramel» se réfère à des produits de couleur brune plus ou moins intense, destinés à la coloration. Il ne s’agit pas du produit aromatique sucré obtenu  en chauffant des sucres et destiné à aromatiser des aliments (confiserie, pâtisserie, boissons alcoo lisées). (*) La canthaxanthine n’est pas autorisée dans les catégories d e denrées alimentaires énumérées dans les parties D et E. Cette substance figure sur la liste B1 car elle  est utilisée dans des médicaments conformément à la directive 2009/35/CE du Parlement européen et  du Conseil (JO L 109 du 30.4.2009, p. 10). ►M98 (**) Le dioxyde de titane n’est pas autorisé dans les catégori es de denrées alimentaires énumérées dans les parties D et E. Cette substance figure sur la liste B1  car elle est utilisée dans des médicaments conformément à la directive 2009/35/CE du Parlement  européen et du Conseil (JO L 109 du 30.4.2009, p. 10). ◄ 2. Édulcorants",
+    "eNumber": "E180",
+    "aliases": [
+      "Lithol-rubine BK ( 1 ) Le terme «caramel» se réfère à des produits de couleur brune plus ou moins intense, destinés à la coloration. Il ne s’agit pas du produit aromatique sucré obtenu  en chauffant des sucres et destiné à aromatiser des aliments (confiserie, pâtisserie, boissons alcoo lisées). (*) La canthaxanthine n’est pas autorisée dans les catégories d e denrées alimentaires énumérées dans les parties D et E. Cette substance figure sur la liste B1 car elle  est utilisée dans des médicaments conformément à la directive 2009/35/CE du Parlement européen et  du Conseil (JO L 109 du 30.4.2009, p. 10). ►M98 (**) Le dioxyde de titane n’est pas autorisé dans les catégori es de denrées alimentaires énumérées dans les parties D et E. Cette substance figure sur la liste B1  car elle est utilisée dans des médicaments conformément à la directive 2009/35/CE du Parlement  européen et du Conseil (JO L 109 du 30.4.2009, p. 10). ◄ 2. Édulcorants",
+      "Litholrubine BK ( 1 ) Met „karamel” worden bedoeld producten van min of meer bruine  kleur, bestemd voor kleuring. Deze naam komt niet overeen met het zoete aromatische product dat wo rdt verkregen door verhitting van suiker en als aroma voor levensmiddelen (bv. suikerwerk, gebak,  alcoholhoudende dranken) wordt gebruikt. (*) Canthaxanthine is niet toegestaan in de levensmiddelencateg orieën van de delen D en E. De stof is in lijst B1 opgenomen omdat zij in geneesmiddelen wordt gebruikt o vereenkomstig Richtlijn 2009/35/EG van het Europees Parlement en de Raad (PB L 109 van 30.4.2009, blz. 10). ►M98 (**) Titaandioxide is niet toegestaan in de levensmiddelencate gorieën van de delen D en E. De stof is in lijst B1 opgenomen omdat zij in geneesmiddelen wordt gebr uikt overeenkomstig Richt­ lijn 2009/35/EG van het Europees Parlement en de Raad (PB L 109  van 30.4.2009, blz. 10). ◄ 2. Zoetstoffen",
+      "Litholrubine BK ( 1 ) The term caramel relates to products of a more or less intens e brown colour which are intended for colouring. It does not correspond to the sugary aromatic produc t obtained from heating sugars and which is used for flavouring food (e.g. confectionery, pastry, alcoholic drinks). (*) Canthaxanthin is not authorised in the food categories list ed in Part D and E. The substance is in list B1 because it is used in medicinal products in accordance with Dir ective 2009/35/EC of the European Parliament and of the Council (OJ L 109, 30.4.2009, p. 10). ►M98 (**) Titanium dioxide is not authorised in the food categories  listed in Part D and E. The substance is in list B1 because it is used in medicinal products in accor dance with Directive 2009/35/EC of the European Parliament and of the Council (OJ L 109, 30.4.2 009, p. 10). ◄ 2. Sweeteners",
+      "Litholrubin BK ( 1 ) Als Zuckerkulör werden mehr oder weniger braune Produkte beze ichnet, die als Farbstoffe verwendet werden. Es ist nicht zu verwechseln mit dem süßen und angenehm duftenden Karamell, das sich bildet, wenn Zucker allein erhitzt wird, und das Lebensmitteln (Süßware n, Gebäck, alkoholische Getränke) zur Geschmacksgebung zugesetzt wird. (*) Canthaxanthin ist in den Lebensmittelkategorien in Teil D b zw. E nicht zugelassen. Der Stoff ist in der Liste B.1 aufgeführt, da er in Übereinstimmung mit der Richtlin ie 2009/35/EG des Europäischen Parlaments und des Rates (ABl. L 109 vom 30.4.2009, S. 10) in A rzneimitteln verwendet wird. ►M98 (**) Titandioxid ist in den Lebensmittelkategorien in Teil D b zw. E nicht zugelassen. Der Stoff ist in der Liste B.1 aufgeführt, da er in Übereinstimmung mit der R ichtlinie 2009/35/EG des Europäischen Parlaments und des Rates (ABl. L 109 vom 30.4.2009 , S. 10) in Arzneimitteln verwendet wird. ◄ 2. Süßungsmittel E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e212",
+    "name": "Benzoate de potassium (  1 )",
+    "eNumber": "E212",
+    "aliases": [
+      "Benzoate de potassium (  1 )",
+      "Kaliumbenzoaat (  1 )",
+      "Potassium benzoate (  1 )",
+      "Kaliumbenzoat (  1 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e213",
+    "name": "Benzoate de calcium (  1 )",
+    "eNumber": "E213",
+    "aliases": [
+      "Benzoate de calcium (  1 )",
+      "Calciumbenzoaat (  1 )",
+      "Calcium benzoate (  1 )",
+      "Calciumbenzoat (  1 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e214",
+    "name": "P-hydroxybenzoate d’éthyle",
+    "eNumber": "E214",
+    "aliases": [
+      "P-hydroxybenzoate d’éthyle",
+      "Ethyl-p-hydroxybenzoaat",
+      "Ethyl-p-hydroxybenzoate",
+      "PHB-Ester (Ethyl-p-hydroxybenzoat)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e215",
+    "name": "Dérivé sodique de l’ester éthylique de l’acide p-hydroxybenzoï que",
+    "eNumber": "E215",
+    "aliases": [
+      "Dérivé sodique de l’ester éthylique de l’acide p-hydroxybenzoï que",
+      "Ethyl-p-hydroxybenzoaat, natriumzout",
+      "Sodium ethyl p-hydroxybenzoate",
+      "PHB-Ethylester-Natriumsalz (Natriumethyl-p-hydroxybenzoat)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e218",
+    "name": "P-hydroxybenzoate de méthyle",
+    "eNumber": "E218",
+    "aliases": [
+      "P-hydroxybenzoate de méthyle",
+      "Methyl-p-hydroxybenzoaat",
+      "Methyl p-hydroxybenzoate",
+      "PHB-Methylester (Methyl-p-hydroxybenzoat)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e219",
+    "name": "Dérivé sodique de l’ester méthylique de l’acide p-hydroxybenzo ïque",
+    "eNumber": "E219",
+    "aliases": [
+      "Dérivé sodique de l’ester méthylique de l’acide p-hydroxybenzo ïque",
+      "Methyl-p-hydroxybenzoaat, natriumzout",
+      "Sodium methyl p-hydroxybenzoate",
+      "PHB-Methylester-Natriumsalz (Natriummethyl-p-hydroxybenzoat)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e221",
+    "name": "Sulfite de sodium",
+    "eNumber": "E221",
+    "aliases": [
+      "Sulfite de sodium",
+      "Natriumsulfiet",
+      "Sodium sulphite",
+      "Natriumsulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e222",
+    "name": "Sulfite acide de sodium",
+    "eNumber": "E222",
+    "aliases": [
+      "Sulfite acide de sodium",
+      "Natriumwaterstofsulfiet",
+      "Sodium hydrogen sulphite",
+      "Natriumhydrogensulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e226",
+    "name": "Sulfite de calcium",
+    "eNumber": "E226",
+    "aliases": [
+      "Sulfite de calcium",
+      "Calciumsulfiet",
+      "Calcium sulphite",
+      "Calciumsulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e227",
+    "name": "Sulfite acide de calcium",
+    "eNumber": "E227",
+    "aliases": [
+      "Sulfite acide de calcium",
+      "Calciumwaterstofsulfiet",
+      "Calcium hydrogen sulphite",
+      "Calciumhydrogensulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e228",
+    "name": "Sulfite acide de potassium",
+    "eNumber": "E228",
+    "aliases": [
+      "Sulfite acide de potassium",
+      "Kaliumwaterstofsulfiet",
+      "Potassium hydrogen sulphite",
+      "Kaliumhydrogensulfit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e239",
+    "name": "Hexaméthylènetétramine",
+    "eNumber": "E239",
+    "aliases": [
+      "Hexaméthylènetétramine",
+      "Hexamethyleentetramine",
+      "Hexamethylene tetramine",
+      "Hexamethylentetramin E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e242",
+    "name": "Dicarbonate de diméthyle",
+    "eNumber": "E242",
+    "aliases": [
+      "Dicarbonate de diméthyle",
+      "Dimethyldicarbonaat",
+      "Dimethyl dicarbonate",
+      "Dimethyldicarbonat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e243",
+    "name": "Éthyl Lauroyl Arginate",
+    "eNumber": "E243",
+    "aliases": [
+      "Éthyl Lauroyl Arginate",
+      "Ethyllauroylarginaat",
+      "Ethyl lauroyl arginate",
+      "Ethyllaurylarginat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e246",
+    "name": "Glycolipides",
+    "eNumber": "E246",
+    "aliases": [
+      "Glycolipides",
+      "Glycolipiden",
+      "Glycolipids",
+      "Glykolipide"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e261",
+    "name": "Acétates de potassium (  4 )",
+    "eNumber": "E261",
+    "aliases": [
+      "Acétates de potassium (  4 )",
+      "Kaliumacetaten (  4 )",
+      "Potassium acetates (  4 )",
+      "Kaliumacetate (  4 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e263",
+    "name": "Acétate de calcium",
+    "eNumber": "E263",
+    "aliases": [
+      "Acétate de calcium",
+      "Calciumacetaat",
+      "Calcium acetate",
+      "Calciumacetat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e267",
+    "name": "Vinaigre tamponné",
+    "eNumber": "E267",
+    "aliases": [
+      "Vinaigre tamponné",
+      "Gebufferde azijn",
+      "Buffered vinegar",
+      "Gepufferter Essig"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e283",
+    "name": "Propionate de potassium",
+    "eNumber": "E283",
+    "aliases": [
+      "Propionate de potassium",
+      "Kaliumpropionaat",
+      "Potassium propionate",
+      "Kaliumpropionat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e284",
+    "name": "Acide borique",
+    "eNumber": "E284",
+    "aliases": [
+      "Acide borique",
+      "Boorzuur",
+      "Boric acid",
+      "Borsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e285",
+    "name": "Tétraborate de sodium (borax)",
+    "eNumber": "E285",
+    "aliases": [
+      "Tétraborate de sodium (borax)",
+      "Natriumtetraboraat (borax)",
+      "Sodium tetraborate (borax)",
+      "Natriumtetraborat (Borax)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e290",
+    "name": "Dioxyde de carbone",
+    "eNumber": "E290",
+    "aliases": [
+      "Dioxyde de carbone",
+      "Koolstofdioxide",
+      "Carbon dioxide",
+      "Kohlendioxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e297",
+    "name": "Acide fumarique",
+    "eNumber": "E297",
+    "aliases": [
+      "Acide fumarique",
+      "Fumaarzuur",
+      "Fumaric acid",
+      "Fumarsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e301",
+    "name": "Ascorbate de sodium",
+    "eNumber": "E301",
+    "aliases": [
+      "Ascorbate de sodium",
+      "Natriumascorbaat",
+      "Sodium ascorbate",
+      "Natriumascorbat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e302",
+    "name": "Ascorbate de calcium",
+    "eNumber": "E302",
+    "aliases": [
+      "Ascorbate de calcium",
+      "Calciumascorbaat",
+      "Calcium ascorbate",
+      "Calciumascorbat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e308",
+    "name": "Gamma-tocophérol",
+    "eNumber": "E308",
+    "aliases": [
+      "Gamma-tocophérol",
+      "Gamma-tocoferol",
+      "Gamma-tocopherol",
+      "Gamma-Tocopherol"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e309",
+    "name": "Delta-tocophérol",
+    "eNumber": "E309",
+    "aliases": [
+      "Delta-tocophérol",
+      "Delta-tocoferol",
+      "Delta-tocopherol",
+      "Delta-Tocopherol"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e315",
+    "name": "Acide érythorbique",
+    "eNumber": "E315",
+    "aliases": [
+      "Acide érythorbique",
+      "Erythorbinezuur",
+      "Erythorbic acid",
+      "Isoascorbinsäure (Erythorbinsäure)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e316",
+    "name": "Érythorbate de sodium",
+    "eNumber": "E316",
+    "aliases": [
+      "Érythorbate de sodium",
+      "Natriumerythorbaat",
+      "Sodium erythorbate",
+      "Natriumisoascorbat E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e319",
+    "name": "Butylhydro-quinone tertiaire (BHQT)",
+    "eNumber": "E319",
+    "aliases": [
+      "Butylhydro-quinone tertiaire (BHQT)",
+      "tert-Butylhydrochinon (TBHQ)",
+      "Tertiary-butyl hydroquinone (TBHQ)",
+      "Tertiär-Butylhydrochinon (TBHQ)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e322a",
+    "name": "Lécithine d’avoine",
+    "eNumber": "E322a",
+    "aliases": [
+      "Lécithine d’avoine",
+      "Haverlecithine",
+      "Oat lecithin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e325",
+    "name": "Lactate de sodium",
+    "eNumber": "E325",
+    "aliases": [
+      "Lactate de sodium",
+      "Natriumlactaat",
+      "Sodium lactate",
+      "Natriumlactat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e326",
+    "name": "Lactate de potassium",
+    "eNumber": "E326",
+    "aliases": [
+      "Lactate de potassium",
+      "Kaliumlactaat",
+      "Potassium lactate",
+      "Kaliumlactat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e327",
+    "name": "Lactate de calcium",
+    "eNumber": "E327",
+    "aliases": [
+      "Lactate de calcium",
+      "Calciumlactaat",
+      "Calcium lactate",
+      "Calciumlactat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e334",
+    "name": "Acide tartrique [L (+)]",
+    "eNumber": "E334",
+    "aliases": [
+      "Acide tartrique [L (+)]",
+      "L(+)-Wijnsteenzuur",
+      "Tartaric acid (L(+)-)",
+      "Weinsäure (L+)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e335",
+    "name": "Tartrates de sodium",
+    "eNumber": "E335",
+    "aliases": [
+      "Tartrates de sodium",
+      "Natriumtartraten",
+      "Sodium tartrates",
+      "Natriumtartrate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e336",
+    "name": "Tartrates de potassium",
+    "eNumber": "E336",
+    "aliases": [
+      "Tartrates de potassium",
+      "Kaliumtartraten",
+      "Potassium tartrates",
+      "Kaliumtartrate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e337",
+    "name": "Tartrate double de sodium et de potassium",
+    "eNumber": "E337",
+    "aliases": [
+      "Tartrate double de sodium et de potassium",
+      "Kaliumnatriumtartraat",
+      "Sodium potassium tartrate",
+      "Natrium-Kaliumtartrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e338",
+    "name": "Acide phosphorique",
+    "eNumber": "E338",
+    "aliases": [
+      "Acide phosphorique",
+      "Fosforzuur",
+      "Phosphoric acid",
+      "Phosphorsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e339",
+    "name": "Phosphates de sodium",
+    "eNumber": "E339",
+    "aliases": [
+      "Phosphates de sodium",
+      "Natriumfosfaten",
+      "Sodium phosphates",
+      "Natriumphosphate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e341",
+    "name": "Phosphates de calcium",
+    "eNumber": "E341",
+    "aliases": [
+      "Phosphates de calcium",
+      "Calciumfosfaten",
+      "Calcium phosphates",
+      "Calciumphosphate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e343",
+    "name": "Phosphates de magnésium",
+    "eNumber": "E343",
+    "aliases": [
+      "Phosphates de magnésium",
+      "Magnesiumfosfaten",
+      "Magnesium phosphates",
+      "Magnesiumphosphate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e350",
+    "name": "Malates de sodium",
+    "eNumber": "E350",
+    "aliases": [
+      "Malates de sodium",
+      "Natriummalaten",
+      "Sodium malates",
+      "Natriummalate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e351",
+    "name": "Malate de potassium",
+    "eNumber": "E351",
+    "aliases": [
+      "Malate de potassium",
+      "Kaliummalaat",
+      "Potassium malate",
+      "Kaliummalat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e352",
+    "name": "Malates de calcium",
+    "eNumber": "E352",
+    "aliases": [
+      "Malates de calcium",
+      "Calciummalaten",
+      "Calcium malates",
+      "Calciummalate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e353",
+    "name": "Acide métatartrique",
+    "eNumber": "E353",
+    "aliases": [
+      "Acide métatartrique",
+      "Metawijnsteenzuur",
+      "Metatartaric acid",
+      "Metaweinsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e354",
+    "name": "Tartrate de calcium",
+    "eNumber": "E354",
+    "aliases": [
+      "Tartrate de calcium",
+      "Calciumtartraat",
+      "Calcium tartrate",
+      "Calciumtartrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e355",
+    "name": "Acide adipique",
+    "eNumber": "E355",
+    "aliases": [
+      "Acide adipique",
+      "Adipinezuur",
+      "Adipic acid",
+      "Adipinsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e356",
+    "name": "Adipate de sodium",
+    "eNumber": "E356",
+    "aliases": [
+      "Adipate de sodium",
+      "Natriumadipaat",
+      "Sodium adipate",
+      "Natriumadipat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e357",
+    "name": "Adipate de potassium",
+    "eNumber": "E357",
+    "aliases": [
+      "Adipate de potassium",
+      "Kaliumadipaat",
+      "Potassium adipate",
+      "Kaliumadipat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e363",
+    "name": "Acide succinique",
+    "eNumber": "E363",
+    "aliases": [
+      "Acide succinique",
+      "Barnsteenzuur",
+      "Succinic acid",
+      "Bernsteinsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e380",
+    "name": "Citrate de triammonium",
+    "eNumber": "E380",
+    "aliases": [
+      "Citrate de triammonium",
+      "Triammoniumcitraat",
+      "Triammonium citrate",
+      "Triammoniumcitrat E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e385",
+    "name": "Éthylène-diamine-tétra-acétate de calcium disodium (calcium di sodium EDTA)",
+    "eNumber": "E385",
+    "aliases": [
+      "Éthylène-diamine-tétra-acétate de calcium disodium (calcium di sodium EDTA)",
+      "Calciumdinatrium-ethyleendiaminetetraäcetaat (calciumdinatrium -EDTA)",
+      "Calcium disodium ethylene diamine tetra-acetate (Calcium disod ium EDTA)",
+      "Calcium-Dinatrium-Ethylendiamintetraacetat (Calcium-Dinatrium- EDTA)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e392",
+    "name": "Extraits de romarin",
+    "eNumber": "E392",
+    "aliases": [
+      "Extraits de romarin",
+      "Extracten van rozemarijn",
+      "Extracts of rosemary",
+      "Extrakt aus Rosmarin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e402",
+    "name": "Alginate de potassium",
+    "eNumber": "E402",
+    "aliases": [
+      "Alginate de potassium",
+      "Kaliumalginaat",
+      "Potassium alginate",
+      "Kaliumalginat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e403",
+    "name": "Alginate d’ammonium",
+    "eNumber": "E403",
+    "aliases": [
+      "Alginate d’ammonium",
+      "Ammoniumalginaat",
+      "Ammonium alginate",
+      "Ammoniumalginat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e404",
+    "name": "Alginate de calcium",
+    "eNumber": "E404",
+    "aliases": [
+      "Alginate de calcium",
+      "Calciumalginaat",
+      "Calcium alginate",
+      "Calciumalginat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e413",
+    "name": "Gomme adragante",
+    "eNumber": "E413",
+    "aliases": [
+      "Gomme adragante",
+      "Tragant",
+      "Tragacanth",
+      "Traganth"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e417",
+    "name": "Gomme Tara",
+    "eNumber": "E417",
+    "aliases": [
+      "Gomme Tara",
+      "Taragom",
+      "Tara gum",
+      "Tarakernmehl"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e421",
+    "name": "Mannitol",
+    "eNumber": "E421",
+    "aliases": [
+      "Mannitol",
+      "Mannit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e423",
+    "name": "Gomme arabique modifiée à l’acide octénylsuccinique (OSA)",
+    "eNumber": "E423",
+    "aliases": [
+      "Gomme arabique modifiée à l’acide octénylsuccinique (OSA)",
+      "Octenylbarnsteenzuurgemodificeerde Arabische gom",
+      "Octenyl succinic acid modified gum arabic",
+      "Octenylbernsteinsäuremodifiziertes Gummi arabicum"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e425",
+    "name": "Konjac",
+    "eNumber": "E425",
+    "aliases": [
+      "Konjac",
+      "Konjak"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e426",
+    "name": "Hémicellulose de soja",
+    "eNumber": "E426",
+    "aliases": [
+      "Hémicellulose de soja",
+      "Hemicellulose van soja",
+      "Soybean hemicellulose",
+      "Sojabohnen-Polyose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e427",
+    "name": "Gomme cassia",
+    "eNumber": "E427",
+    "aliases": [
+      "Gomme cassia",
+      "Cassiagom",
+      "Cassia gum",
+      "Cassia-Gummi"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e431",
+    "name": "Stéarate de polyoxyéthylène (40)",
+    "eNumber": "E431",
+    "aliases": [
+      "Stéarate de polyoxyéthylène (40)",
+      "Polyoxyethyleen(40)stearaat",
+      "Polyoxyethylene (40) stearate",
+      "Polyoxyethylen(40)stearat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e434",
+    "name": "Monopalmitate de polyoxyéthylène de sorbitane (polysorbate 40)",
+    "eNumber": "E434",
+    "aliases": [
+      "Monopalmitate de polyoxyéthylène de sorbitane (polysorbate 40)",
+      "Polyoxyethyleensorbitaanmonopalmitaat (polysorbaat 40)",
+      "Polyoxyethylene sorbitan monopalmitate (polysorbate 40)",
+      "Polyoxyethylensorbitanmonopalmitat (Polysorbat 40)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e435",
+    "name": "Monostéarate de polyoxyéthylène de sorbitane (polysorbate 60)",
+    "eNumber": "E435",
+    "aliases": [
+      "Monostéarate de polyoxyéthylène de sorbitane (polysorbate 60)",
+      "Polyoxyethyleensorbitaanmonostearaat (polysorbaat 60)",
+      "Polyoxyethylene sorbitan monostearate (polysorbate 60)",
+      "Polyoxyethylensorbitanmonostearat (Polysorbat 60)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e436",
+    "name": "Tristéarate de polyoxyéthylène de sorbitane (polysorbate 65)",
+    "eNumber": "E436",
+    "aliases": [
+      "Tristéarate de polyoxyéthylène de sorbitane (polysorbate 65)",
+      "Polyoxyethyleensorbitaantristearaat (polysorbaat 65)",
+      "Polyoxyethylene sorbitan tristearate (polysorbate 65)",
+      "Polyoxyethylensorbitantristearat (Polysorbat 65)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e442",
+    "name": "Phosphatides d’ammonium",
+    "eNumber": "E442",
+    "aliases": [
+      "Phosphatides d’ammonium",
+      "Ammoniumfosfatiden",
+      "Ammonium phosphatides",
+      "Ammoniumphosphatide"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e444",
+    "name": "Acétate isobutyrate de saccharose",
+    "eNumber": "E444",
+    "aliases": [
+      "Acétate isobutyrate de saccharose",
+      "Sucroseacetaatisobutyraat",
+      "Sucrose acetate isobutyrate",
+      "Saccharoseacetatisobutyrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e445",
+    "name": "Esters glycériques de résine de bois",
+    "eNumber": "E445",
+    "aliases": [
+      "Esters glycériques de résine de bois",
+      "Glycerolesters van houthars",
+      "Glycerol esters of wood rosins",
+      "Glycerinester aus Wurzelharz"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e451",
+    "name": "Triphosphates",
+    "eNumber": "E451",
+    "aliases": [
+      "Triphosphates",
+      "Trifosfaten",
+      "Triphosphate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e456",
+    "name": "Polyaspartate de potassium",
+    "eNumber": "E456",
+    "aliases": [
+      "Polyaspartate de potassium",
+      "Kaliumpolyaspartaat",
+      "Potassium polyaspartate",
+      "Kaliumpolyaspartat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e459",
+    "name": "Bêta-cyclodextrine",
+    "eNumber": "E459",
+    "aliases": [
+      "Bêta-cyclodextrine",
+      "Bèta-cyclodextrine",
+      "Beta-cyclodextrin",
+      "Beta-Cyclodextrin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e461",
+    "name": "Méthylcellulose",
+    "eNumber": "E461",
+    "aliases": [
+      "Méthylcellulose",
+      "Methylcellulose",
+      "Methyl cellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e462",
+    "name": "Éthylcellulose",
+    "eNumber": "E462",
+    "aliases": [
+      "Éthylcellulose",
+      "Ethylcellulose",
+      "Ethyl cellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e463",
+    "name": "Hydroxypropylcellulose",
+    "eNumber": "E463",
+    "aliases": [
+      "Hydroxypropylcellulose",
+      "Hydroxypropyl cellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e463a",
+    "name": "Hydroxypropylcellulose faiblement substituée (L-HPC)",
+    "eNumber": "E463a",
+    "aliases": [
+      "Hydroxypropylcellulose faiblement substituée (L-HPC)",
+      "Licht gesubstitueerde hydroxypropylcellulose (L-HPC)",
+      "Low-substituted hydroxypropyl cellulose (L-HPC)",
+      "Niedrig substituierte Hydroxypropylcellulose (L-HPC)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e464",
+    "name": "Hydroxypropylméthylcellulose",
+    "eNumber": "E464",
+    "aliases": [
+      "Hydroxypropylméthylcellulose",
+      "Hydroxypropylmethylcellulose",
+      "Hydroxypropyl methyl cellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e465",
+    "name": "Méthyléthylcellulose",
+    "eNumber": "E465",
+    "aliases": [
+      "Méthyléthylcellulose",
+      "Ethylmethylcellulose",
+      "Ethyl methyl cellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e468",
+    "name": "Carboxyméthylcellulose de sodium réticulée, gomme de cellulose  réticulée",
+    "eNumber": "E468",
+    "aliases": [
+      "Carboxyméthylcellulose de sodium réticulée, gomme de cellulose  réticulée",
+      "Vernette natriumcarboxymethylcellulose, vernette cellulosegom",
+      "Cross-linked sodium carboxy methyl cellulose, cross linked cel lulose gum",
+      "Vernetzte Carboxymethylcellulose (modifizierter Cellulosegummi )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e469",
+    "name": "Carboxyméthylcellulose hydrolysée de manière enzymatique, gomm e de cellulose hydrolysée de manière enzymatique",
+    "eNumber": "E469",
+    "aliases": [
+      "Carboxyméthylcellulose hydrolysée de manière enzymatique, gomm e de cellulose hydrolysée de manière enzymatique",
+      "Enzymatisch gehydrolyseerde carboxymethylcellulose, enzymatisc h gehydro­ lyseerde cellulosegom",
+      "Enzymatically hydrolysed carboxy methyl cellulose, Enzymatical ly hydrolysed cellulose gum",
+      "Enzymatisch hydrolysierte Carboxymethylcellulose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e470a",
+    "name": "Sels de sodium, de potassium et de calcium d’acides gras",
+    "eNumber": "E470a",
+    "aliases": [
+      "Sels de sodium, de potassium et de calcium d’acides gras",
+      "Natrium-, kalium- en calciumzouten van vetzuren",
+      "Sodium, potassium and calcium salts of fatty acids",
+      "Natrium-, Kalium- und Calciumsalze der Speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e470b",
+    "name": "Sels de magnésium d’acides gras",
+    "eNumber": "E470b",
+    "aliases": [
+      "Sels de magnésium d’acides gras",
+      "Magnesiumzouten van vetzuren",
+      "Magnesium salts of fatty acids",
+      "Magnesiumsalze der Speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e472a",
+    "name": "Esters acétiques des mono- et diglycérides d’acides gras",
+    "eNumber": "E472a",
+    "aliases": [
+      "Esters acétiques des mono- et diglycérides d’acides gras",
+      "Mono- en diglyceriden van vetzuren, veresterd met azijnzuur",
+      "Acetic acid esters of mono- and diglycerides of fatty acids",
+      "Essigsäureester von Mono- und Diglyceriden von Speisefettsäure n"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e472b",
+    "name": "Esters lactiques des mono- et diglycérides d’acides gras",
+    "eNumber": "E472b",
+    "aliases": [
+      "Esters lactiques des mono- et diglycérides d’acides gras",
+      "Mono- en diglyceriden van vetzuren, veresterd met melkzuur",
+      "Lactic acid esters of mono- and diglycerides of fatty acids",
+      "Milchsäureester von Mono- und Diglyceriden von Speisefettsäure n"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e472c",
+    "name": "Esters citriques des mono- et diglycérides d’acides gras",
+    "eNumber": "E472c",
+    "aliases": [
+      "Esters citriques des mono- et diglycérides d’acides gras",
+      "Mono- en diglyceriden van vetzuren, veresterd met citroenzuur",
+      "Citric acid esters of mono- and diglycerides of fatty acids",
+      "Citronensäureester von Mono- und Diglyceriden von Speisefettsä uren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e472d",
+    "name": "Esters tartriques des mono- et diglycérides d’acides gras",
+    "eNumber": "E472d",
+    "aliases": [
+      "Esters tartriques des mono- et diglycérides d’acides gras",
+      "Mono- en diglyceriden van vetzuren, veresterd met wijnsteenzuu r",
+      "Tartaric acid esters of mono- and diglycerides of fatty acids",
+      "Weinsäureester von Mono- und Diglyceriden von Speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e472e",
+    "name": "Esters monoacétyltartriques et diacétyltartriques des mono- et  diglycérides d’acides gras",
+    "eNumber": "E472e",
+    "aliases": [
+      "Esters monoacétyltartriques et diacétyltartriques des mono- et  diglycérides d’acides gras",
+      "Mono- en diglyceriden van vetzuren, veresterd met monoacetyl- en diacetyl­ wijnsteenzuur",
+      "Mono- and diacetyl tartaric acid esters of mono- and diglyceri des of fatty acids",
+      "Mono- und Diacetylweinsäureester von Mono- und Diglyceriden vo n Speise­ fettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e472f",
+    "name": "Esters mixtes acétiques et tartriques des mono- et diglycéride s d’acides gras",
+    "eNumber": "E472f",
+    "aliases": [
+      "Esters mixtes acétiques et tartriques des mono- et diglycéride s d’acides gras",
+      "Mono- en diglyceriden van vetzuren, veresterd met een mengsel van azijn­ zuur en wijnsteenzuur",
+      "Mixed acetic and tartaric acid esters of mono- and diglyceride s of fatty acids",
+      "Gemischte Essig- und Weinsäureester von Mono- und Diglyceriden  von Speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e473",
+    "name": "Sucroesters d’acides gras",
+    "eNumber": "E473",
+    "aliases": [
+      "Sucroesters d’acides gras",
+      "Sucrose-esters van vetzuren",
+      "Sucrose esters of fatty acids",
+      "Zuckerester von Speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e474",
+    "name": "Sucroglycérides",
+    "eNumber": "E474",
+    "aliases": [
+      "Sucroglycérides",
+      "Sucroglyceriden",
+      "Sucroglycerides",
+      "Zuckerglyceride"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e475",
+    "name": "Esters polyglycériques d’acides gras",
+    "eNumber": "E475",
+    "aliases": [
+      "Esters polyglycériques d’acides gras",
+      "Polyglycerolesters van vetzuren",
+      "Polyglycerol esters of fatty acids",
+      "Polyglycerinester von Speisefettsäuren E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e477",
+    "name": "Esters de propane-1,2-diol d’acides gras",
+    "eNumber": "E477",
+    "aliases": [
+      "Esters de propane-1,2-diol d’acides gras",
+      "Esters van propaan-1,2-diol met vetzuren",
+      "Propane-1,2-diol esters of fatty acids",
+      "Propylenglycolester von Speisefettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e479b",
+    "name": "Huile de soja oxydée par chauffage ayant réagi avec des mono- et diglycé­ rides d’acides gras",
+    "eNumber": "E479b",
+    "aliases": [
+      "Huile de soja oxydée par chauffage ayant réagi avec des mono- et diglycé­ rides d’acides gras",
+      "Thermisch geoxideerde sojaolie, na reactie met mono- en diglyc eriden van vetzuren",
+      "Thermally oxidised soya bean oil interacted with mono- and dig lycerides of fatty acids",
+      "Thermooxidiertes Sojaöl verestert mit Mono- und Diglyceriden v on Speise­ fettsäuren"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e482",
+    "name": "Stéaroyl-2-lactylate de calcium __________",
+    "eNumber": "E482",
+    "aliases": [
+      "Stéaroyl-2-lactylate de calcium __________",
+      "Calciumstearoyl-2-lactylaat __________",
+      "Calcium stearoyl-2-lactylate __________",
+      "Calciumstearoyl-2-lactylat __________"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e491",
+    "name": "Monostéarate de sorbitane",
+    "eNumber": "E491",
+    "aliases": [
+      "Monostéarate de sorbitane",
+      "Sorbitaanmonostearaat",
+      "Sorbitan monostearate",
+      "Sorbitanmonostearat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e492",
+    "name": "Tristéarate de sorbitane",
+    "eNumber": "E492",
+    "aliases": [
+      "Tristéarate de sorbitane",
+      "Sorbitaantristearaat",
+      "Sorbitan tristearate",
+      "Sorbitantristearat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e493",
+    "name": "Monolaurate de sorbitane",
+    "eNumber": "E493",
+    "aliases": [
+      "Monolaurate de sorbitane",
+      "Sorbitaanmonolauraat",
+      "Sorbitan monolaurate",
+      "Sorbitanmonolaurat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e494",
+    "name": "Monooléate de sorbitane",
+    "eNumber": "E494",
+    "aliases": [
+      "Monooléate de sorbitane",
+      "Sorbitaanmonoöleaat",
+      "Sorbitan monooleate",
+      "Sorbitanmonooleat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e495",
+    "name": "Monopalmitate de sorbitane",
+    "eNumber": "E495",
+    "aliases": [
+      "Monopalmitate de sorbitane",
+      "Sorbitaanmonopalmitaat",
+      "Sorbitan monopalmitate",
+      "Sorbitanmonopalmitat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e499",
+    "name": "Phytostérols riches en stigmastérol",
+    "eNumber": "E499",
+    "aliases": [
+      "Phytostérols riches en stigmastérol",
+      "Plantensterolen die rijk zijn aan stigmasterol",
+      "Stigmasterol-rich plant sterols",
+      "Stigmasterinreiche Phytosterine"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e507",
+    "name": "Acide chlorhydrique",
+    "eNumber": "E507",
+    "aliases": [
+      "Acide chlorhydrique",
+      "Zoutzuur",
+      "Hydrochloric acid",
+      "Salzsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e508",
+    "name": "Chlorure de potassium",
+    "eNumber": "E508",
+    "aliases": [
+      "Chlorure de potassium",
+      "Kaliumchloride",
+      "Potassium chloride",
+      "Kaliumchlorid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e509",
+    "name": "Chlorure de calcium",
+    "eNumber": "E509",
+    "aliases": [
+      "Chlorure de calcium",
+      "Calciumchloride",
+      "Calcium chloride",
+      "Calciumchlorid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e511",
+    "name": "Chlorure de magnésium",
+    "eNumber": "E511",
+    "aliases": [
+      "Chlorure de magnésium",
+      "Magnesiumchloride",
+      "Magnesium chloride",
+      "Magnesiumchlorid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e512",
+    "name": "Chlorure d’étain",
+    "eNumber": "E512",
+    "aliases": [
+      "Chlorure d’étain",
+      "Tin(II)chloride",
+      "Stannous chloride",
+      "Zinn(II)-chlorid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e513",
+    "name": "Acide sulfurique",
+    "eNumber": "E513",
+    "aliases": [
+      "Acide sulfurique",
+      "Zwavelzuur",
+      "Sulphuric acid",
+      "Schwefelsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e514",
+    "name": "Sulfates de sodium",
+    "eNumber": "E514",
+    "aliases": [
+      "Sulfates de sodium",
+      "Natriumsulfaten",
+      "Sodium sulphates",
+      "Natriumsulfate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e515",
+    "name": "Sulfates de potassium",
+    "eNumber": "E515",
+    "aliases": [
+      "Sulfates de potassium",
+      "Kaliumsulfaten",
+      "Potassium sulphates",
+      "Kaliumsulfate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e516",
+    "name": "Sulfate de calcium",
+    "eNumber": "E516",
+    "aliases": [
+      "Sulfate de calcium",
+      "Calciumsulfaat",
+      "Calcium sulphate",
+      "Calciumsulfat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e517",
+    "name": "Sulfate d’ammonium",
+    "eNumber": "E517",
+    "aliases": [
+      "Sulfate d’ammonium",
+      "Ammoniumsulfaat",
+      "Ammonium sulphate",
+      "Ammoniumsulfat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e520",
+    "name": "Sulfate d’aluminium",
+    "eNumber": "E520",
+    "aliases": [
+      "Sulfate d’aluminium",
+      "Aluminiumsulfaat",
+      "Aluminium sulphate",
+      "Aluminiumsulfat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e521",
+    "name": "Sulfate d’aluminium sodique",
+    "eNumber": "E521",
+    "aliases": [
+      "Sulfate d’aluminium sodique",
+      "Aluminiumnatriumsulfaat",
+      "Aluminium sodium sulphate",
+      "Aluminiumnatriumsulfat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e522",
+    "name": "Sulfate d’aluminium potassique",
+    "eNumber": "E522",
+    "aliases": [
+      "Sulfate d’aluminium potassique",
+      "Aluminiumkaliumsulfaat",
+      "Aluminium potassium sulphate",
+      "Aluminiumkaliumsulfat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e523",
+    "name": "Sulfate d’aluminium ammonique",
+    "eNumber": "E523",
+    "aliases": [
+      "Sulfate d’aluminium ammonique",
+      "Aluminiumammoniumsulfaat",
+      "Aluminium ammonium sulphate",
+      "Aluminiumammoniumsulfat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e525",
+    "name": "Hydroxyde de potassium",
+    "eNumber": "E525",
+    "aliases": [
+      "Hydroxyde de potassium",
+      "Kaliumhydroxide",
+      "Potassium hydroxide",
+      "Kaliumhydroxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e526",
+    "name": "Hydroxyde de calcium",
+    "eNumber": "E526",
+    "aliases": [
+      "Hydroxyde de calcium",
+      "Calciumhydroxide",
+      "Calcium hydroxide",
+      "Calciumhydroxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e527",
+    "name": "Hydroxyde d’ammonium",
+    "eNumber": "E527",
+    "aliases": [
+      "Hydroxyde d’ammonium",
+      "Ammoniumhydroxide",
+      "Ammonium hydroxide",
+      "Ammoniumhydroxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e528",
+    "name": "Hydroxyde de magnésium",
+    "eNumber": "E528",
+    "aliases": [
+      "Hydroxyde de magnésium",
+      "Magnesiumhydroxide",
+      "Magnesium hydroxide",
+      "Magnesiumhydroxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e529",
+    "name": "Oxyde de calcium",
+    "eNumber": "E529",
+    "aliases": [
+      "Oxyde de calcium",
+      "Calciumoxide",
+      "Calcium oxide",
+      "Calciumoxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e530",
+    "name": "Oxyde de magnésium",
+    "eNumber": "E530",
+    "aliases": [
+      "Oxyde de magnésium",
+      "Magnesiumoxide",
+      "Magnesium oxide",
+      "Magnesiumoxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e534",
+    "name": "Tartrate de fer",
+    "eNumber": "E534",
+    "aliases": [
+      "Tartrate de fer",
+      "IJzertartraat",
+      "Iron tartrate",
+      "Eisentartrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e535",
+    "name": "Ferrocyanure de sodium",
+    "eNumber": "E535",
+    "aliases": [
+      "Ferrocyanure de sodium",
+      "Natriumhexacyanoferraat(II)",
+      "Sodium ferrocyanide",
+      "Natriumferrocyanid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e536",
+    "name": "Ferrocyanure de potassium",
+    "eNumber": "E536",
+    "aliases": [
+      "Ferrocyanure de potassium",
+      "Kaliumhexacyanoferraat(II)",
+      "Potassium ferrocyanide",
+      "Kaliumferrocyanid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e538",
+    "name": "Ferrocyanure de calcium",
+    "eNumber": "E538",
+    "aliases": [
+      "Ferrocyanure de calcium",
+      "Calciumhexacyanoferraat(II)",
+      "Calcium ferrocyanide",
+      "Calciumferrocyanid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e541",
+    "name": "Phosphate d’aluminium sodique acide",
+    "eNumber": "E541",
+    "aliases": [
+      "Phosphate d’aluminium sodique acide",
+      "Natriumaluminiumfosfaat, zuur",
+      "Sodium aluminium phosphate acidic",
+      "Saures Natriumaluminiumphosphat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e552",
+    "name": "Silicate de calcium",
+    "eNumber": "E552",
+    "aliases": [
+      "Silicate de calcium",
+      "Calciumsilicaat",
+      "Calcium silicate",
+      "Calciumsilicat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e553a",
+    "name": "Silicate de magnésium",
+    "eNumber": "E553a",
+    "aliases": [
+      "Silicate de magnésium",
+      "Magnesiumsilicaat",
+      "Magnesium silicate",
+      "Magnesiumsilicate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e553b",
+    "name": "Talc",
+    "eNumber": "E553b",
+    "aliases": [
+      "Talc",
+      "Talk",
+      "Talkum"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e554",
+    "name": "Silicate alumino-sodique",
+    "eNumber": "E554",
+    "aliases": [
+      "Silicate alumino-sodique",
+      "Natriumaluminiumsilicaat",
+      "Sodium aluminium silicate",
+      "Natriumaluminiumsilicat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e555",
+    "name": "Silicate alumino-potassique",
+    "eNumber": "E555",
+    "aliases": [
+      "Silicate alumino-potassique",
+      "Kaliumaluminiumsilicaat",
+      "Potassium aluminium silicate",
+      "Kaliumaluminiumsilicat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e556",
+    "name": "Silicate alumino-calcique (  2 )",
+    "eNumber": "E556",
+    "aliases": [
+      "Silicate alumino-calcique (  2 )",
+      "Calciumaluminiumsilicaat (  2 )",
+      "Calcium aluminium silicate (  2 )",
+      "Calciumaluminiumsilicat (  2 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e558",
+    "name": "Bentonite (  3 )",
+    "eNumber": "E558",
+    "aliases": [
+      "Bentonite (  3 )",
+      "Bentoniet (  3 )",
+      "Bentonit (  3 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e559",
+    "name": "Silicate d’aluminium (kaolin) (  2 )",
+    "eNumber": "E559",
+    "aliases": [
+      "Silicate d’aluminium (kaolin) (  2 )",
+      "Aluminiumsilicaat (kaolien) (  2 )",
+      "Aluminium silicate (Kaolin) (  2 )",
+      "Aluminiumsilicat (Kaolin) (  2 )"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e574",
+    "name": "Acide gluconique",
+    "eNumber": "E574",
+    "aliases": [
+      "Acide gluconique",
+      "Gluconzuur",
+      "Gluconic acid",
+      "Gluconsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e576",
+    "name": "Gluconate de sodium",
+    "eNumber": "E576",
+    "aliases": [
+      "Gluconate de sodium",
+      "Natriumgluconaat",
+      "Sodium gluconate",
+      "Natriumgluconat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e577",
+    "name": "Gluconate de potassium",
+    "eNumber": "E577",
+    "aliases": [
+      "Gluconate de potassium",
+      "Kaliumgluconaat",
+      "Potassium gluconate",
+      "Kaliumgluconat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e578",
+    "name": "Gluconate de calcium",
+    "eNumber": "E578",
+    "aliases": [
+      "Gluconate de calcium",
+      "Calciumgluconaat",
+      "Calcium gluconate",
+      "Calciumgluconat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e579",
+    "name": "Gluconate ferreux",
+    "eNumber": "E579",
+    "aliases": [
+      "Gluconate ferreux",
+      "IJzer(II)gluconaat",
+      "Ferrous gluconate",
+      "Eisen(II)-gluconat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e585",
+    "name": "Lactate ferreux",
+    "eNumber": "E585",
+    "aliases": [
+      "Lactate ferreux",
+      "IJzer(II)lactaat",
+      "Ferrous lactate",
+      "Eisen(II)-lactat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e586",
+    "name": "4-Hexylrésorcinol",
+    "eNumber": "E586",
+    "aliases": [
+      "4-Hexylrésorcinol",
+      "4-Hexylresorcinol",
+      "4-Hexylresorcin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e623",
+    "name": "Diglutamate de calcium",
+    "eNumber": "E623",
+    "aliases": [
+      "Diglutamate de calcium",
+      "Calciumdiglutamaat",
+      "Calcium diglutamate",
+      "Calciumdiglutamat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e624",
+    "name": "Glutamate d’ammonium",
+    "eNumber": "E624",
+    "aliases": [
+      "Glutamate d’ammonium",
+      "Monoammoniumglutamaat",
+      "Monoammonium glutamate",
+      "Monoammoniumglutamat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e625",
+    "name": "Diglutamate de magnésium",
+    "eNumber": "E625",
+    "aliases": [
+      "Diglutamate de magnésium",
+      "Magnesiumdiglutamaat",
+      "Magnesium diglutamate",
+      "Magnesiumdiglutamat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e626",
+    "name": "Acide guanylique",
+    "eNumber": "E626",
+    "aliases": [
+      "Acide guanylique",
+      "Guanylzuur",
+      "Guanylic acid",
+      "Guanylsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e628",
+    "name": "Guanylate dipotassique",
+    "eNumber": "E628",
+    "aliases": [
+      "Guanylate dipotassique",
+      "Kaliumguanylaat",
+      "Dipotassium guanylate",
+      "Dikaliumguanylat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e629",
+    "name": "Guanylate de calcium",
+    "eNumber": "E629",
+    "aliases": [
+      "Guanylate de calcium",
+      "Calciumguanylaat",
+      "Calcium guanylate",
+      "Calciumguanylat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e630",
+    "name": "Acide inosinique",
+    "eNumber": "E630",
+    "aliases": [
+      "Acide inosinique",
+      "Inosinezuur",
+      "Inosinic acid",
+      "Inosinsäure"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e632",
+    "name": "Inosinate dipotassique",
+    "eNumber": "E632",
+    "aliases": [
+      "Inosinate dipotassique",
+      "Dikaliuminosinaat",
+      "Dipotassium inosinate",
+      "Dikaliuminosinat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e633",
+    "name": "Inosinate de calcium",
+    "eNumber": "E633",
+    "aliases": [
+      "Inosinate de calcium",
+      "Calciuminosinaat",
+      "Calcium inosinate",
+      "Calciuminosinat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e634",
+    "name": "5′-ribonucléotide calcique",
+    "eNumber": "E634",
+    "aliases": [
+      "5′-ribonucléotide calcique",
+      "Calcium-5'-ribonucleotiden",
+      "Calcium 5′-ribonucleotides",
+      "Calcium-5′-ribonucleotid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e640",
+    "name": "Glycine et son sel de sodium",
+    "eNumber": "E640",
+    "aliases": [
+      "Glycine et son sel de sodium",
+      "Glycine en natriumglycinaat",
+      "Glycine and its sodium salt",
+      "Glycin und seine Natriumsalze"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e641",
+    "name": "L-leucine",
+    "eNumber": "E641",
+    "aliases": [
+      "L-leucine",
+      "L-Leucin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e650",
+    "name": "Acétate de zinc",
+    "eNumber": "E650",
+    "aliases": [
+      "Acétate de zinc",
+      "Zinkacetaat",
+      "Zinc acetate",
+      "Zinkacetat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e900",
+    "name": "Diméthylpolysiloxane",
+    "eNumber": "E900",
+    "aliases": [
+      "Diméthylpolysiloxane",
+      "Dimethylpolysiloxaan",
+      "Dimethyl polysiloxane",
+      "Dimethylpolysiloxan"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e902",
+    "name": "Cire de candelilla",
+    "eNumber": "E902",
+    "aliases": [
+      "Cire de candelilla",
+      "Candelillawas",
+      "Candelilla wax",
+      "Candelillawachs"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e905",
+    "name": "Cire microcristalline",
+    "eNumber": "E905",
+    "aliases": [
+      "Cire microcristalline",
+      "Microkristallijne was",
+      "Microcrystalline wax",
+      "Mikrokristallines Wachs"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e907",
+    "name": "Poly-1-décène hydrogéné __________",
+    "eNumber": "E907",
+    "aliases": [
+      "Poly-1-décène hydrogéné __________",
+      "Gehydrogeneerd poly-1-deceen __________",
+      "Hydrogenated poly-1-decene __________",
+      "Hydriertes Poly-1-decen __________"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e914",
+    "name": "Cire de polyéthylène oxydée",
+    "eNumber": "E914",
+    "aliases": [
+      "Cire de polyéthylène oxydée",
+      "Geoxideerde polyethyleenwas",
+      "Oxidised polyethylene wax",
+      "Polyethylenwachsoxidate"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e927b",
+    "name": "Carbamide",
+    "eNumber": "E927b",
+    "aliases": [
+      "Carbamide",
+      "Carbamid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e939",
+    "name": "Hélium",
+    "eNumber": "E939",
+    "aliases": [
+      "Hélium",
+      "Helium"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e942",
+    "name": "Protoxyde d’azote",
+    "eNumber": "E942",
+    "aliases": [
+      "Protoxyde d’azote",
+      "Distikstofoxide",
+      "Nitrous oxide",
+      "Distickstoffoxid"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e943a",
+    "name": "Butane",
+    "eNumber": "E943a",
+    "aliases": [
+      "Butane",
+      "Butaan",
+      "Butan"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e943b",
+    "name": "Isobutane",
+    "eNumber": "E943b",
+    "aliases": [
+      "Isobutane",
+      "Isobutaan",
+      "Isobutan"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e944",
+    "name": "Propane",
+    "eNumber": "E944",
+    "aliases": [
+      "Propane",
+      "Propaan",
+      "Propan"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e949",
+    "name": "Hydrogène",
+    "eNumber": "E949",
+    "aliases": [
+      "Hydrogène",
+      "Waterstof",
+      "Hydrogen",
+      "Wasserstoff"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e951",
+    "name": "Aspartame",
+    "eNumber": "E951",
+    "aliases": [
+      "Aspartame",
+      "Aspartaam",
+      "Aspartam"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e952",
+    "name": "Cyclamates",
+    "eNumber": "E952",
+    "aliases": [
+      "Cyclamates",
+      "Cyclamaten",
+      "Cyclamat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e953",
+    "name": "Isomalt",
+    "eNumber": "E953",
+    "aliases": [
+      "Isomalt"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e954",
+    "name": "Saccharines",
+    "eNumber": "E954",
+    "aliases": [
+      "Saccharines",
+      "Sacharinen",
+      "Saccharins",
+      "Saccharin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e955",
+    "name": "Sucralose",
+    "eNumber": "E955",
+    "aliases": [
+      "Sucralose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e957",
+    "name": "Thaumatine",
+    "eNumber": "E957",
+    "aliases": [
+      "Thaumatine",
+      "Thaumatin"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e959",
+    "name": "Néohespéridine DC",
+    "eNumber": "E959",
+    "aliases": [
+      "Néohespéridine DC",
+      "Neohesperidine-DC",
+      "Neohesperidine DC",
+      "Neohesperidin DC"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e960a",
+    "name": "Glycosides de stéviol issus de  Stevia",
+    "eNumber": "E960a",
+    "aliases": [
+      "Glycosides de stéviol issus de  Stevia",
+      "Steviolglycosiden uit Stevia",
+      "Steviol glycosides from Stevia",
+      "Steviolglycoside aus Stevia"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e960b",
+    "name": "Glycosides de stéviol produits par fermentation",
+    "eNumber": "E960b",
+    "aliases": [
+      "Glycosides de stéviol produits par fermentation",
+      "Steviolglycosiden uit fermentatie",
+      "Steviol glycosides from fermentation",
+      "Steviolglycoside aus Fermentation"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e960c",
+    "name": "Glycosides de stéviol produits par voie enzymatique",
+    "eNumber": "E960c",
+    "aliases": [
+      "Glycosides de stéviol produits par voie enzymatique",
+      "Enzymatisch geproduceerde steviolglycosiden",
+      "Enzymatically produced steviol glycosides",
+      "Enzymatisch hergestellte Steviolglycoside"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e960d",
+    "name": "►C5 Glycosides de stéviol glucosylés ◄",
+    "eNumber": "E960d",
+    "aliases": [
+      "►C5 Glycosides de stéviol glucosylés ◄",
+      "Geglucosyleerde steviolglycosiden",
+      "Glucosylated steviol glycosides",
+      "Glycosylierte Steviolglycoside"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e961",
+    "name": "Néotame",
+    "eNumber": "E961",
+    "aliases": [
+      "Néotame",
+      "Neotaam",
+      "Neotame",
+      "Neotam"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e962",
+    "name": "Sel d’aspartame-acésulfame",
+    "eNumber": "E962",
+    "aliases": [
+      "Sel d’aspartame-acésulfame",
+      "Aspartaam-acesulfaamzout",
+      "Salt of aspartame-acesulfame",
+      "Aspartam-Acesulfamsalz"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e964",
+    "name": "Sirop de polyglycitol",
+    "eNumber": "E964",
+    "aliases": [
+      "Sirop de polyglycitol",
+      "Polyglycitolstroop",
+      "Polyglycitol syrup",
+      "Polyglycitolsirup"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e965",
+    "name": "Maltitols",
+    "eNumber": "E965",
+    "aliases": [
+      "Maltitols",
+      "Maltitolen",
+      "Maltit E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e966",
+    "name": "Lactitol",
+    "eNumber": "E966",
+    "aliases": [
+      "Lactitol",
+      "Lactit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e967",
+    "name": "Xylitol",
+    "eNumber": "E967",
+    "aliases": [
+      "Xylitol",
+      "Xylit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e968",
+    "name": "Érythritol",
+    "eNumber": "E968",
+    "aliases": [
+      "Érythritol",
+      "Erytritol",
+      "Erythritol",
+      "Erythrit"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e969",
+    "name": "Advantame 3. Additifs autres que les colorants et les édulcorants",
+    "eNumber": "E969",
+    "aliases": [
+      "Advantame 3. Additifs autres que les colorants et les édulcorants",
+      "Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen",
+      "Advantame 3. Additives other than colours and sweeteners",
+      "Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e999",
+    "name": "Extraits de quillaia",
+    "eNumber": "E999",
+    "aliases": [
+      "Extraits de quillaia",
+      "Quillaja-extract",
+      "Quillaia extract",
+      "Quillajaextrakt"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1103",
+    "name": "Invertase",
+    "eNumber": "E1103",
+    "aliases": [
+      "Invertase"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1105",
+    "name": "Lysozyme",
+    "eNumber": "E1105",
+    "aliases": [
+      "Lysozyme",
+      "Lysozym"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1200",
+    "name": "Polydextrose",
+    "eNumber": "E1200",
+    "aliases": [
+      "Polydextrose"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1201",
+    "name": "Polyvinylpyrrolidone",
+    "eNumber": "E1201",
+    "aliases": [
+      "Polyvinylpyrrolidone",
+      "Polyvinylpyrrolidon"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1202",
+    "name": "Polyvinylpolypyrrolidone",
+    "eNumber": "E1202",
+    "aliases": [
+      "Polyvinylpolypyrrolidone",
+      "Polyvinylpolypyrrolidon"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1203",
+    "name": "Alcool polyvinylique (APV)",
+    "eNumber": "E1203",
+    "aliases": [
+      "Alcool polyvinylique (APV)",
+      "Polyvinylalcohol (PVA)",
+      "Polyvinyl alcohol (PVA)",
+      "Polyvinylalkohol (PVA)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1204",
+    "name": "Pullulan",
+    "eNumber": "E1204",
+    "aliases": [
+      "Pullulan"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1205",
+    "name": "Copolymère méthacrylate basique",
+    "eNumber": "E1205",
+    "aliases": [
+      "Copolymère méthacrylate basique",
+      "Basisch methacrylaatcopolymeer",
+      "Basic methacrylate copolymer",
+      "Basisches Methacrylat-Copolymer"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1206",
+    "name": "Copolymère de méthacrylate neutre",
+    "eNumber": "E1206",
+    "aliases": [
+      "Copolymère de méthacrylate neutre",
+      "Neutraal methacrylaatcopolymeer",
+      "Neutral methacrylate copolymer",
+      "Neutrales Methacrylat-Copolymer"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1207",
+    "name": "Copolymère de méthacrylate anionique",
+    "eNumber": "E1207",
+    "aliases": [
+      "Copolymère de méthacrylate anionique",
+      "Anionisch methacrylaatcopolymeer",
+      "Anionic methacrylate copolymer",
+      "Anionisches Methacrylat-Copolymer"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1208",
+    "name": "Copolymère d’acétate de vinyle et de polyvinylpyrrolidone",
+    "eNumber": "E1208",
+    "aliases": [
+      "Copolymère d’acétate de vinyle et de polyvinylpyrrolidone",
+      "Polyvinylpyrrolidon-vinylacetaatcopolymeer",
+      "Polyvinylpyrrolidone-vinyl acetate copolymer",
+      "Polyvinylpyrrolidon-Vinylacetat-Copolymer"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1209",
+    "name": "Copolymère  greffé  d'alcool polyvinylique et de polyéthylèneglycol",
+    "eNumber": "E1209",
+    "aliases": [
+      "Copolymère  greffé  d'alcool polyvinylique et de polyéthylèneglycol",
+      "Polyvinylalcohol-polyethyleenglycol-entcopolymeer",
+      "Polyvinyl alcohol-polyethylene glycol- graft-co-polymer"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1210",
+    "name": "Carbomère",
+    "eNumber": "E1210",
+    "aliases": [
+      "Carbomère",
+      "Carbomer"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1404",
+    "name": "Amidon oxydé",
+    "eNumber": "E1404",
+    "aliases": [
+      "Amidon oxydé",
+      "Geoxideerd zetmeel",
+      "Oxidised starch",
+      "Oxidierte Stärke"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1410",
+    "name": "Phosphate de monoamidon",
+    "eNumber": "E1410",
+    "aliases": [
+      "Phosphate de monoamidon",
+      "Monozetmeelfosfaat",
+      "Monostarch phosphate",
+      "Monostärkephosphat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1412",
+    "name": "Phosphate de diamidon",
+    "eNumber": "E1412",
+    "aliases": [
+      "Phosphate de diamidon",
+      "Dizetmeelfosfaat",
+      "Distarch phosphate",
+      "Distärkephosphat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1413",
+    "name": "Phosphate de diamidon phosphaté",
+    "eNumber": "E1413",
+    "aliases": [
+      "Phosphate de diamidon phosphaté",
+      "Gefosfateerd dizetmeelfosfaat",
+      "Phosphated distarch phosphate",
+      "Phosphatiertes Distärkephosphat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1414",
+    "name": "Phosphate de diamidon acétylé",
+    "eNumber": "E1414",
+    "aliases": [
+      "Phosphate de diamidon acétylé",
+      "Geacetyleerd dizetmeelfosfaat",
+      "Acetylated distarch phosphate",
+      "Acetyliertes Distärkephosphat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1420",
+    "name": "Amidon acétylé",
+    "eNumber": "E1420",
+    "aliases": [
+      "Amidon acétylé",
+      "Geacetyleerd zetmeel",
+      "Acetylated starch",
+      "Acetylierte Stärke"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1422",
+    "name": "Adipate de diamidon acétylé",
+    "eNumber": "E1422",
+    "aliases": [
+      "Adipate de diamidon acétylé",
+      "Geacetyleerd dizetmeeladipaat",
+      "Acetylated distarch adipate",
+      "Acetyliertes Distärkeadipat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1440",
+    "name": "Amidon hydroxypropylé",
+    "eNumber": "E1440",
+    "aliases": [
+      "Amidon hydroxypropylé",
+      "Hydroxypropylzetmeel",
+      "Hydroxy propyl starch",
+      "Hydroxypropylstärke"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1442",
+    "name": "Phosphate de diamidon hydroxypropylé",
+    "eNumber": "E1442",
+    "aliases": [
+      "Phosphate de diamidon hydroxypropylé",
+      "Hydroxypropyldizetmeelfosfaat",
+      "Hydroxy propyl distarch phosphate",
+      "Hydroxypropyldistärkephosphat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1450",
+    "name": "Octényle succinate d’amidon sodique",
+    "eNumber": "E1450",
+    "aliases": [
+      "Octényle succinate d’amidon sodique",
+      "Zetmeelnatriumoctenylsuccinaat",
+      "Starch sodium octenyl succinate",
+      "Stärkenatriumoctenylsuccinat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1451",
+    "name": "Amidon oxydé acétylé",
+    "eNumber": "E1451",
+    "aliases": [
+      "Amidon oxydé acétylé",
+      "Geacetyleerd geoxideerd zetmeel",
+      "Acetylated oxidised starch",
+      "Acetylierte oxidierte Stärke"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1452",
+    "name": "Octényl succinate d’amidon d’aluminium",
+    "eNumber": "E1452",
+    "aliases": [
+      "Octényl succinate d’amidon d’aluminium",
+      "Zetmeelaluminiumoctenylsuccinaat",
+      "Starch aluminium octenyl succinate",
+      "Stärkealuminiumoctenylsuccinat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1505",
+    "name": "Citrate de triéthyle",
+    "eNumber": "E1505",
+    "aliases": [
+      "Citrate de triéthyle",
+      "Triëthylcitraat",
+      "Triethyl citrate",
+      "Triethylcitrat"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1517",
+    "name": "Diacétate de glycéryle (diacétine)",
+    "eNumber": "E1517",
+    "aliases": [
+      "Diacétate de glycéryle (diacétine)",
+      "Glyceryldiacetaat (diacetine)",
+      "Glyceryl diacetate (diacetin)",
+      "Glycerindiacetat (Diacetin)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1518",
+    "name": "Triacétate de glycéryle (triacétine)",
+    "eNumber": "E1518",
+    "aliases": [
+      "Triacétate de glycéryle (triacétine)",
+      "Glyceryltriacetaat (triacetine)",
+      "Glyceryl triacetate (triacetin)",
+      "Glycerintriacetat (Triacetin) E-Nummer Bezeichnung"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1519",
+    "name": "Alcool benzylique",
+    "eNumber": "E1519",
+    "aliases": [
+      "Alcool benzylique",
+      "Benzylalcohol",
+      "Benzyl alcohol",
+      "Benzylalkohol"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1520",
+    "name": "Propanediol-1,2 (propylène glycol)",
+    "eNumber": "E1520",
+    "aliases": [
+      "Propanediol-1,2 (propylène glycol)",
+      "Propaan-1,2-diol (propyleenglycol)",
+      "Propane-1, 2-diol (propylene glycol)",
+      "Propylenglycol (1,2-Propandiol)"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  },
+  {
+    "id": "e1521",
+    "name": "Polyéthylène glycol ( 1 ) La présence d’acide benzoïque est admise dans certains produi ts fermentés obtenus par un processus de fermentation conforme aux bonnes pratiques de fabrication. ►M7 (  2 ) autorisé jusqu’au 31 janvier 2014. ( 3 ) autorisée jusqu’au 31 mai 2013. ◄ ►M20 (  4 ) Période d’application: à partir du 6 février 2013. ◄",
+    "eNumber": "E1521",
+    "aliases": [
+      "Polyéthylène glycol ( 1 ) La présence d’acide benzoïque est admise dans certains produi ts fermentés obtenus par un processus de fermentation conforme aux bonnes pratiques de fabrication. ►M7 (  2 ) autorisé jusqu’au 31 janvier 2014. ( 3 ) autorisée jusqu’au 31 mai 2013. ◄ ►M20 (  4 ) Période d’application: à partir du 6 février 2013. ◄",
+      "Polyethyleenglycol ( 1 ) Benzoëzuur mag voorkomen in bepaalde gefermenteerde producten  die worden verkregen met fermen­ tatieprocessen waarbij goede fabricagepraktijken worden toegepa st. ►M7 (  2 ) toegestaan tot en met 31 januari 2014 ( 3 ) toegestaan tot en met 31 mei 2013 ◄ ►M20 (  4 ) Toepassingsperiode: met ingang van 6 februari 2013. ◄",
+      "Polyethylene glycol ( 1 ) Benzoic acid may be present in certain fermented products res ulting from the fermentation process following good manufacturing practice. ►M7 (  2 ) authorised until 31 January 2014. ( 3 ) authorised until 31 May 2013. ◄ ►M20 (  4 ) Period of application: From 6 February 2013. ◄",
+      "Polyethylenglycol ( 1 ) Benzoesäure kann als Folge des Fermentationsprozesses bei Bef olgung der guten Herstellungspraxis in bestimmten fermentierten Produkten auftreten. ►M7 (  2 ) zugelassen bis zum 31. Januar 2014. ( 3 ) zugelassen bis zum 31. Mai 2013. ◄ ►M20 (  4 ) Geltungsbeginn: ab dem 6. Februar 2013. ◄"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Additif autorisé dans l’Union européenne ; son autorisation ne documente pas son origine ni son procédé de fabrication.",
+    "source": "eu-additives"
+  }
 ]

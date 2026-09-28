@@ -7,10 +7,10 @@ Depuis PowerShell :
 ```powershell
 $env:PYTHONIOENCODING = 'utf-8'
 .\.venv\Scripts\python.exe tools\extract_eu_additives_reference.py --dry-run
-.\.venv\Scripts\python.exe tools\extract_eu_additives_reference.py --output EU_ADDITIVES_OFFICIAL_MULTILINGUAL_REFERENCE.csv
+.\.venv\Scripts\python.exe tools\extract_eu_additives_reference.py --output reference-input\eu-food-labelling\03-food-additives\EU_ADDITIVES_OFFICIAL_MULTILINGUAL_REFERENCE.csv
 ```
 
-Les quatre PDF sous `reference-input/eu-additives/` sont les valeurs par défaut. Les options `--fr`, `--nl`, `--en` et `--de` acceptent d’autres chemins.
+Les quatre PDF sous `reference-input/eu-food-labelling/03-food-additives/` sont les valeurs par défaut. Les options `--fr`, `--nl`, `--en` et `--de` acceptent d’autres chemins.
 
 Le CSV est UTF-8 et contient les 16 colonnes documentées dans son en-tête, avec les noms officiels FR/NL/EN/DE, le numéro E exact, le statut de vérification et la note associée. Les suffixes sont des clés distinctes : `E160b(i)`, `E160b(ii)` et `E960b` ne sont pas fusionnés.
 
