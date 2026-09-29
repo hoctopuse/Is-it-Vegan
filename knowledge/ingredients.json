@@ -7735,5 +7735,64 @@
     "sources": [
       "eu-additives"
     ]
+  },
+  {
+    "id": "fruit_juice",
+    "name": "Jus de fruits",
+    "aliases": [
+      "jus de fruits",
+      "jus de fruits à base de concentré",
+      "jus de fruits concentré",
+      "jus de fruits obtenu par extraction hydrique",
+      "jus de fruits déshydraté/en poudre",
+      "vruchtensap",
+      "vruchtensap uit concentraat",
+      "geconcentreerd vruchtensap",
+      "fruit juice",
+      "fruit juice from concentrate",
+      "concentrated fruit juice",
+      "water extracted fruit juice",
+      "dehydrated/powdered fruit juice",
+      "Fruchtsaft",
+      "Fruchtsaft aus Fruchtsaftkonzentrat",
+      "Fruchtsaftkonzentrat"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit réglementaire obtenu à partir de parties comestibles de fruits : vegan.",
+    "sources": [
+      "eu-fruit-juice-directive-2001-112-20260614"
+    ]
+  },
+  {
+    "id": "fruit_puree",
+    "name": "Purée de fruits",
+    "aliases": [
+      "purée de fruits",
+      "purée de fruits concentrée",
+      "vruchtenpuree",
+      "fruit purée",
+      "concentrated fruit purée",
+      "Fruchtmark"
+    ],
+    "status": "VEGAN",
+    "reason": "Produit végétal obtenu à partir de parties comestibles de fruits : vegan.",
+    "sources": [
+      "eu-fruit-juice-directive-2001-112-20260614"
+    ]
+  },
+  {
+    "id": "fruit_nectar",
+    "name": "Nectar de fruits",
+    "aliases": [
+      "nectar de fruits",
+      "vruchtennectar",
+      "fruit nectar",
+      "Fruchtnektar"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Peut légalement contenir du miel, des sucres ou des édulcorants : la dénomination seule ne confirme pas un produit vegan.",
+    "sources": [
+      "eu-fruit-juice-directive-2001-112-20260614"
+    ]
   }
 ]

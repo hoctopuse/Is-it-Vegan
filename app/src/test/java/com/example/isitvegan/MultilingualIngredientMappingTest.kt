@@ -20,13 +20,19 @@ class MultilingualIngredientMappingTest {
         val root = MiniJson.parse(source.toString(Charsets.UTF_8)) as Map<*, *>
         val known = knowledge.ingredients.map { it.id }.toSet()
         val mappings = root["mappings"] as List<*>
-        assertEquals(1808, mappings.size)
+        assertEquals(1834, mappings.size)
+        assertTrue(mappings.size >= 1800)
         mappings.map { it as Map<*, *> }.forEach { mapping ->
             assertTrue(mapping["conceptId"] in known)
             assertTrue(mapping["language"] in setOf("FR", "NL", "EN", "DE", "IT", "ES", "PL"))
             assertTrue((mapping["surfaceForm"] as String).isNotBlank())
             assertTrue((mapping["normalizedForm"] as String).isNotBlank())
             assertTrue((mapping["source"] as String).isNotBlank())
+        }
+        val mappingRows = mappings.map { it as Map<*, *> }
+        assertEquals(mappingRows.size, mappingRows.map { listOf(it["conceptId"], it["language"], it["normalizedForm"], it["relation"]) }.distinct().size)
+        setOf("fruit_juice", "fruit_puree", "fruit_nectar").forEach { id ->
+            assertEquals(setOf("FR", "NL", "EN", "DE"), mappingRows.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
         }
         val owners = mutableMapOf<Pair<String, String>, String>()
         (root["aliases"] as List<*>).map { it as Map<*, *> }.forEach { entry ->
@@ -44,7 +50,14 @@ class MultilingualIngredientMappingTest {
             assertTrue(text, IngredientMatcher(knowledge.ingredients).match(IngredientToken(text, 0, 0)).ingredients.isNotEmpty())
         }
         assertTrue(knowledge.ingredients.filter { it.possibleOriginNote != null }.all { it.id in known })
+        val process = ProcessBuilder("python", "tools/build_multilingual_ingredient_mapping.py", "--check")
+            .directory(projectRoot()).redirectErrorStream(true).start()
+        val output = process.inputStream.bufferedReader().readText()
+        assertEquals(output, 0, process.waitFor())
     }
 
-    private fun file(path: String): File = File(path).takeIf { it.isFile } ?: File("..", path)
+    private fun projectRoot(): File = generateSequence(File(System.getProperty("user.dir") ?: error("System property user.dir is unavailable")).canonicalFile) { it.parentFile }
+        .firstOrNull { File(it, "settings.gradle.kts").isFile }
+        ?: error("Project root containing settings.gradle.kts not found")
+    private fun file(path: String): File = File(projectRoot(), path).also { require(it.isFile) { "Missing project file: ${it.absolutePath}" } }
 }

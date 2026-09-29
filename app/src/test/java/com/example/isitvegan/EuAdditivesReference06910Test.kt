@@ -25,15 +25,20 @@ class EuAdditivesReference06910Test {
         assertEquals(2, reference.count { it.verificationStatus == "AMBIGUOUS_GROUP_OR_RANGE" })
         assertEquals(338, referenceImportableNumbers.size)
         assertEquals(referenceImportableNumbers, referenceImportableNumbers.mapNotNull { byNumber[it]?.eNumber }.toSet())
-        assertEquals(452, database.size)
         assertEquals(342, byNumber.size)
+        assertEquals(byNumber.size, database.filter { !it.eNumber.isNullOrBlank() }.map { it.eNumber }.distinct().size)
+        assertEquals(
+            mapOf("fruit_juice" to VeganStatus.VEGAN, "fruit_puree" to VeganStatus.VEGAN, "fruit_nectar" to VeganStatus.UNCERTAIN),
+            database.filter { it.id in setOf("fruit_juice", "fruit_puree", "fruit_nectar") }.associate { it.id to it.status }
+        )
 
     }
 
     @Test fun editorialSourceGeneratesTheProductionAssetForAllImportableRows() {
         val editorial = editorialDatabase()
         val editorialByNumber = editorial.filter { !it.eNumber.isNullOrBlank() }.associateBy { it.eNumber!! }
-        assertEquals(452, editorial.size)
+        assertEquals(342, editorialByNumber.size)
+        assertEquals(editorial.size, editorial.map { it.id }.distinct().size)
         assertEquals(referenceImportableNumbers, referenceImportableNumbers.mapNotNull { editorialByNumber[it]?.eNumber }.toSet())
         assertNull(editorialByNumber["E345"])
         assertNull(editorialByNumber["E345(i)"])

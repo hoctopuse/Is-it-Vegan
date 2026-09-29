@@ -365,6 +365,9 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | e968 | UNCERTAIN | Érythritol | Erytritol | Erythritol | Erythrit | eu-additives | — |
 | e969 | UNCERTAIN | Advantame 3. Additifs autres que les colorants et les édulcorants | Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen | Advantame 3. Additives other than colours and sweeteners | Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung | eu-additives | — |
 | e999 | UNCERTAIN | Extraits de quillaia | Quillaja-extract | Quillaia extract | Quillajaextrakt | eu-additives | — |
+| fruit_juice | VEGAN | jus de fruits; jus de fruits à base de concentré; jus de fruits concentré; jus de fruits obtenu par extraction hydrique; jus de fruits déshydraté/en poudre | vruchtensap; vruchtensap uit concentraat; geconcentreerd vruchtensap | fruit juice; fruit juice from concentrate; concentrated fruit juice; water extracted fruit juice; dehydrated/powdered fruit juice | Fruchtsaft; Fruchtsaft aus Fruchtsaftkonzentrat; Fruchtsaftkonzentrat | eu-fruit-juice-directive-2001-112-20260614 | — |
+| fruit_nectar | UNCERTAIN | nectar de fruits | vruchtennectar | fruit nectar | Fruchtnektar | eu-fruit-juice-directive-2001-112-20260614 | — |
+| fruit_puree | VEGAN | purée de fruits; purée de fruits concentrée | vruchtenpuree | fruit purée; concentrated fruit purée | Fruchtmark | eu-fruit-juice-directive-2001-112-20260614 | — |
 | glucose_syrup | VEGAN | — | glucosestroop; glucose-fructosestroop | — | Glukosesirup | vegan-society | — |
 | hazelnut | VEGAN | noisettes | hazelnoten; hazelnoot | — | — | vegan-society | — |
 | honey | VEGETARIAN | miel; miel de fleurs; miel de nectars; miel de miellat; miel en rayons; miel avec morceaux de rayons; miel égoutté; miel centrifugé; miel pressé; miel destiné à l’industrie | honing; honig; bloemenhoning; bloemenhonig; nectarhoning; nectarhonig; honingdauwhoning; honingdauwhonig; raathoning; raathonig; brokhoning; brokhonig; raatbrokken in honing/honig; lekhoning; lekhonig; slingerhoning; slingerhonig; pershoning; pershonig; bakkershoning | honey; blossom honey; nectar honey; honeydew honey; comb honey; chunk honey; cut comb in honey; drained honey; extracted honey; pressed honey; Baker's honey | Honig; Blütenhonig; Nektarhonig; Honigtauhonig; Wabenhonig; Scheibenhonig; Honig mit Wabenteilen; Wabenstücke in Honig; Tropfhonig; Schleuderhonig; Presshonig; Backhonig | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614 | — |
@@ -410,8 +413,8 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 
 ## Concept : almond
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `almond`
 
 ### FR
@@ -438,8 +441,8 @@ Mapping group : `almond`
 
 ## Concept : banana
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `banana`
 
 ### FR
@@ -456,8 +459,8 @@ Mapping group : `banana`
 
 ## Concept : barley
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `barley`
 
 ### FR
@@ -481,8 +484,8 @@ Mapping group : `barley`
 
 ## Concept : bell_pepper
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `bell_pepper`
 
 ### FR
@@ -506,8 +509,8 @@ Mapping group : `bell_pepper`
 
 ## Concept : black_olive
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `black_olive`
 
 ### FR
@@ -529,8 +532,8 @@ Mapping group : `black_olive`
 
 ## Concept : blackberry
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `blackberry`
 
 ### FR
@@ -557,8 +560,8 @@ Mapping group : `blackberry`
 
 ## Concept : blueberry
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `blueberry`
 
 ### FR
@@ -586,8 +589,8 @@ Mapping group : `blueberry`
 
 ## Concept : brazil_nut
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `brazil_nut`
 
 ### FR
@@ -605,8 +608,8 @@ Mapping group : `brazil_nut`
 
 ## Concept : butter
 
-Statut : `VEGETARIAN`  
-Sources : vegan-society, vegetarian-society  
+Statut : `VEGETARIAN`<br>
+Sources : vegan-society, vegetarian-society<br>
 Mapping group : `butter`
 
 ### FR
@@ -623,8 +626,8 @@ Mapping group : `butter`
 
 ## Concept : cashew
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `cashew`
 
 ### FR
@@ -643,8 +646,8 @@ Mapping group : `cashew`
 
 ## Concept : cocoa
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `cocoa`
 
 ### FR
@@ -666,8 +669,8 @@ Mapping group : `cocoa`
 
 ## Concept : coconut
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `coconut`
 
 ### FR
@@ -686,8 +689,8 @@ Mapping group : `coconut`
 
 ## Concept : coconut_fat
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `coconut_fat`
 
 ### FR
@@ -711,8 +714,8 @@ Mapping group : `coconut_fat`
 
 ## Concept : corn
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `corn`
 
 ### FR
@@ -733,8 +736,8 @@ Mapping group : `corn`
 
 ## Concept : cottonseed_oil
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `cottonseed_oil`
 
 ### FR
@@ -752,8 +755,8 @@ Mapping group : `cottonseed_oil`
 
 ## Concept : cranberry
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `cranberry`
 
 ### FR
@@ -771,8 +774,8 @@ Mapping group : `cranberry`
 
 ## Concept : cream
 
-Statut : `VEGETARIAN`  
-Sources : vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614  
+Statut : `VEGETARIAN`<br>
+Sources : vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614<br>
 Mapping group : `preserved-milk-cream`
 
 ### FR
@@ -790,8 +793,8 @@ Mapping group : `preserved-milk-cream`
 
 ## Concept : date
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `date`
 
 ### FR
@@ -809,8 +812,8 @@ Mapping group : `date`
 
 ## Concept : e100
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -827,8 +830,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e101
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -845,8 +848,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e102
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -863,8 +866,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e104
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -881,8 +884,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e110
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -899,8 +902,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1103
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -917,8 +920,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1105
 
-Statut : `VEGETARIAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives  
+Statut : `VEGETARIAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -935,8 +938,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e120
 
-Statut : `NON_VEGAN`  
-Sources : eu-additives, vegan-society  
+Statut : `NON_VEGAN`<br>
+Sources : eu-additives, vegan-society<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -953,8 +956,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1200
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -971,8 +974,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1201
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -989,8 +992,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1202
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1007,8 +1010,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1203
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1025,8 +1028,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1204
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1043,8 +1046,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1205
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1061,8 +1064,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1206
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1079,8 +1082,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1207
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1097,8 +1100,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1208
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1115,8 +1118,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1209
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1133,8 +1136,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1210
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1151,8 +1154,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e122
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1169,8 +1172,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e123
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1187,8 +1190,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e124
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1205,8 +1208,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e127
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1223,8 +1226,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e129
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1241,8 +1244,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e131
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1259,8 +1262,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e132
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1277,8 +1280,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e133
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1295,8 +1298,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e140
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1313,8 +1316,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1404
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1331,8 +1334,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e141
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1349,8 +1352,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1410
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1367,8 +1370,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1412
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1385,8 +1388,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1413
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1403,8 +1406,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1414
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1421,8 +1424,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e142
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1439,8 +1442,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1420
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1457,8 +1460,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1422
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1475,8 +1478,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1440
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1493,8 +1496,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1442
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1511,8 +1514,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1450
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1529,8 +1532,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1451
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1547,8 +1550,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1452
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1565,8 +1568,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1505
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1583,8 +1586,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e150a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1601,8 +1604,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e150b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1619,8 +1622,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e150c
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1637,8 +1640,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e150d
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1655,8 +1658,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e151
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1673,8 +1676,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1517
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1691,8 +1694,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1518
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1709,8 +1712,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1519
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1727,8 +1730,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1520
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1745,8 +1748,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e1521
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1763,8 +1766,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e153
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1781,8 +1784,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e155
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1799,8 +1802,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e160a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1817,8 +1820,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e160b(i)
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1835,8 +1838,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e160b(ii)
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1853,8 +1856,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e160c
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1871,8 +1874,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e160d
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1889,8 +1892,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e160e
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1907,8 +1910,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e161b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1925,8 +1928,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e161g
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1943,8 +1946,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e162
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1961,8 +1964,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e163
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -1979,8 +1982,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e170
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2001,8 +2004,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e171
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2019,8 +2022,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e172
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2037,8 +2040,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e173
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2055,8 +2058,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e174
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2073,8 +2076,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e175
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2091,8 +2094,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e180
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2109,8 +2112,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e200
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2127,8 +2130,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e202
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2145,8 +2148,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e210
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2163,8 +2166,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e211
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2181,8 +2184,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e212
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2199,8 +2202,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e213
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2217,8 +2220,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e214
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2235,8 +2238,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e215
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2253,8 +2256,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e218
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2271,8 +2274,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e219
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2289,8 +2292,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e220
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2308,8 +2311,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e221
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2326,8 +2329,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e222
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2344,8 +2347,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e223
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2362,8 +2365,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e224
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2380,8 +2383,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e226
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2398,8 +2401,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e227
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2416,8 +2419,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e228
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2434,8 +2437,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e234
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2452,8 +2455,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e235
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2470,8 +2473,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e239
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2488,8 +2491,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e242
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2506,8 +2509,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e243
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2524,8 +2527,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e246
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2542,8 +2545,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e249
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2560,8 +2563,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e250
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2578,8 +2581,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e251
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2596,8 +2599,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e252
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2614,8 +2617,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e260
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2632,8 +2635,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e261
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2650,8 +2653,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e262
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2668,8 +2671,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e263
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2686,8 +2689,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e267
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2704,8 +2707,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e270
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2722,8 +2725,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e280
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2740,8 +2743,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e281
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2758,8 +2761,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e282
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2776,8 +2779,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e283
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2794,8 +2797,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e284
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2812,8 +2815,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e285
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2830,8 +2833,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e290
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2848,8 +2851,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e296
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2866,8 +2869,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e297
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2884,8 +2887,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e300
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2902,8 +2905,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e301
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2920,8 +2923,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e302
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2938,8 +2941,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e304
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -2956,8 +2959,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e306
 
-Statut : `VEGAN`  
-Sources : ec-e306-additive-detail, eur-lex-231-2012, ec-additives-re-evaluation  
+Statut : `VEGAN`<br>
+Sources : ec-e306-additive-detail, eur-lex-231-2012, ec-additives-re-evaluation<br>
 Mapping group : `e306`
 
 ### FR
@@ -2985,8 +2988,8 @@ Mapping group : `e306`
 
 ## Concept : e307
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3003,8 +3006,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e308
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3021,8 +3024,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e309
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3039,8 +3042,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e310
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3057,8 +3060,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e315
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3075,8 +3078,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e316
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3093,8 +3096,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e319
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3111,8 +3114,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e320
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3129,8 +3132,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e321
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3147,8 +3150,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e322
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, vegan-society  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, vegan-society<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3175,8 +3178,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e322a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3193,8 +3196,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e325
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3211,8 +3214,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e326
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3229,8 +3232,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e327
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3247,8 +3250,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e330
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3265,8 +3268,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e331
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3283,8 +3286,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e332
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3305,8 +3308,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e333
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3323,8 +3326,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e334
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3341,8 +3344,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e335
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3359,8 +3362,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e336
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3377,8 +3380,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e337
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3395,8 +3398,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e338
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3413,8 +3416,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e339
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3431,8 +3434,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e340
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3449,8 +3452,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e341
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3467,8 +3470,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e343
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3485,8 +3488,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e350
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3503,8 +3506,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e351
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3521,8 +3524,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e352
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3539,8 +3542,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e353
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3557,8 +3560,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e354
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3575,8 +3578,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e355
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3593,8 +3596,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e356
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3611,8 +3614,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e357
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3629,8 +3632,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e363
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3647,8 +3650,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e380
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3665,8 +3668,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e385
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3683,8 +3686,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e392
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3701,8 +3704,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e400
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3719,8 +3722,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e401
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3737,8 +3740,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e402
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3755,8 +3758,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e403
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3773,8 +3776,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e404
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3791,8 +3794,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e405
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3809,8 +3812,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e406
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3827,8 +3830,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e407
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3845,8 +3848,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e407a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3863,8 +3866,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e410
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3881,8 +3884,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e412
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3899,8 +3902,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e413
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3917,8 +3920,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e414
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3935,8 +3938,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e415
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3953,8 +3956,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e416
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3971,8 +3974,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e417
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -3989,8 +3992,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e418
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4011,8 +4014,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e420
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4029,8 +4032,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e421
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4047,8 +4050,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e422
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, webadditifs-lead  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, webadditifs-lead<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4065,8 +4068,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e423
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4083,8 +4086,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e425
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4101,8 +4104,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e426
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4119,8 +4122,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e427
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4137,8 +4140,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e431
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4155,8 +4158,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e432
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4173,8 +4176,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e433
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4191,8 +4194,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e434
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4209,8 +4212,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e435
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4227,8 +4230,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e436
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4245,8 +4248,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e440
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4269,8 +4272,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e442
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4287,8 +4290,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e444
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4305,8 +4308,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e445
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4323,8 +4326,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e450
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4341,8 +4344,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e451
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4359,8 +4362,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e452
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4377,8 +4380,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e456
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4395,8 +4398,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e459
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4413,8 +4416,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e460
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4431,8 +4434,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e461
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4449,8 +4452,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e462
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4467,8 +4470,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e463
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4485,8 +4488,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e463a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4503,8 +4506,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e464
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4521,8 +4524,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e465
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4539,8 +4542,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e466
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4557,8 +4560,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e468
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4575,8 +4578,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e469
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4593,8 +4596,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e470a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4611,8 +4614,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e470b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4629,8 +4632,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e471
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, webadditifs-lead  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, webadditifs-lead<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4647,8 +4650,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e472a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4665,8 +4668,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e472b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4683,8 +4686,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e472c
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4701,8 +4704,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e472d
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4719,8 +4722,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e472e
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4737,8 +4740,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e472f
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4755,8 +4758,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e473
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4773,8 +4776,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e474
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4791,8 +4794,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e475
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4809,8 +4812,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e476
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4827,8 +4830,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e477
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4845,8 +4848,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e479b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4863,8 +4866,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e481
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4881,8 +4884,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e482
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4899,8 +4902,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e491
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4917,8 +4920,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e492
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4935,8 +4938,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e493
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4953,8 +4956,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e494
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4971,8 +4974,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e495
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -4989,8 +4992,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e499
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5007,8 +5010,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e500
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5025,8 +5028,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e501
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5043,8 +5046,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e503
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5065,8 +5068,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e504
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5083,8 +5086,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e507
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5101,8 +5104,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e508
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5119,8 +5122,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e509
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5137,8 +5140,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e511
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5155,8 +5158,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e512
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5173,8 +5176,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e513
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5191,8 +5194,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e514
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5209,8 +5212,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e515
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5227,8 +5230,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e516
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5245,8 +5248,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e517
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5263,8 +5266,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e520
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5281,8 +5284,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e521
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5299,8 +5302,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e522
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5317,8 +5320,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e523
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5335,8 +5338,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e524
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5353,8 +5356,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e525
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5371,8 +5374,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e526
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5389,8 +5392,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e527
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5407,8 +5410,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e528
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5425,8 +5428,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e529
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5443,8 +5446,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e530
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5461,8 +5464,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e534
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5479,8 +5482,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e535
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5497,8 +5500,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e536
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5515,8 +5518,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e538
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5533,8 +5536,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e541
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5551,8 +5554,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e551
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5569,8 +5572,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e552
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5587,8 +5590,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e553a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5605,8 +5608,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e553b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5623,8 +5626,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e554
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5641,8 +5644,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e555
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5659,8 +5662,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e556
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5677,8 +5680,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e558
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5695,8 +5698,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e559
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5713,8 +5716,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e570
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, webadditifs-lead  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, webadditifs-lead<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5731,8 +5734,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e572
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5752,8 +5755,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e574
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5770,8 +5773,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e575
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5788,8 +5791,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e576
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5806,8 +5809,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e577
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5824,8 +5827,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e578
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5842,8 +5845,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e579
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5860,8 +5863,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e585
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5878,8 +5881,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e586
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5896,8 +5899,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e620
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5914,8 +5917,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e621
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5932,8 +5935,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e622
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5950,8 +5953,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e623
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5968,8 +5971,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e624
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -5986,8 +5989,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e625
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6004,8 +6007,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e626
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6022,8 +6025,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e627
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, webadditifs-lead  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, webadditifs-lead<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6040,8 +6043,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e628
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6058,8 +6061,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e629
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6076,8 +6079,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e630
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6094,8 +6097,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e631
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, webadditifs-lead  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, webadditifs-lead<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6112,8 +6115,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e632
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6130,8 +6133,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e633
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6148,8 +6151,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e634
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6166,8 +6169,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e635
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives, webadditifs-lead  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives, webadditifs-lead<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6184,8 +6187,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e640
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6202,8 +6205,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e641
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6220,8 +6223,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e650
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6238,8 +6241,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e900
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6256,8 +6259,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e901
 
-Statut : `NON_VEGAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications  
+Statut : `NON_VEGAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6274,8 +6277,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e902
 
-Statut : `VEGAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications  
+Statut : `VEGAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6292,8 +6295,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e903
 
-Statut : `VEGAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications  
+Statut : `VEGAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6310,8 +6313,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e904
 
-Statut : `NON_VEGAN`  
-Sources : eu-additives, vegan-society  
+Statut : `NON_VEGAN`<br>
+Sources : eu-additives, vegan-society<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6328,8 +6331,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e905
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6346,8 +6349,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e907
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6364,8 +6367,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e914
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6382,8 +6385,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e920
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6400,8 +6403,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e927b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6418,8 +6421,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e938
 
-Statut : `VEGAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications  
+Statut : `VEGAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6436,8 +6439,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e939
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6454,8 +6457,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e941
 
-Statut : `VEGAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications  
+Statut : `VEGAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6472,8 +6475,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e942
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6490,8 +6493,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e943a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6508,8 +6511,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e943b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6526,8 +6529,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e944
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6544,8 +6547,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e948
 
-Statut : `VEGAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications  
+Statut : `VEGAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6562,8 +6565,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e949
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6580,8 +6583,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e950
 
-Statut : `VEGAN`  
-Sources : eu-additives  
+Statut : `VEGAN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6598,8 +6601,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e951
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6616,8 +6619,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e952
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6634,8 +6637,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e953
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6652,8 +6655,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e954
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6670,8 +6673,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e955
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6688,8 +6691,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e957
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6706,8 +6709,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e959
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6724,8 +6727,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e960a
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6742,8 +6745,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e960b
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6760,8 +6763,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e960c
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6778,8 +6781,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e960d
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6796,8 +6799,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e961
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6814,8 +6817,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e962
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6832,8 +6835,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e964
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6850,8 +6853,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e965
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6868,8 +6871,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e966
 
-Statut : `VEGETARIAN`  
-Sources : eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives  
+Statut : `VEGETARIAN`<br>
+Sources : eu-additives, eu-reg-231-2012-specifications, federation-vegane-e-additives, vegan-easy-food-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6886,8 +6889,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e967
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6904,8 +6907,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e968
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6922,8 +6925,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e969
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6940,8 +6943,8 @@ Mapping group : `eu-additives`
 
 ## Concept : e999
 
-Statut : `UNCERTAIN`  
-Sources : eu-additives  
+Statut : `UNCERTAIN`<br>
+Sources : eu-additives<br>
 Mapping group : `eu-additives`
 
 ### FR
@@ -6956,10 +6959,78 @@ Mapping group : `eu-additives`
 ### DE
 - `Quillajaextrakt` — REGULATORY_ALIAS; normalise: `quillajaextrakt`; confiance: `REVIEWED`; source: eu-additives
 
+## Concept : fruit_juice
+
+Statut : `VEGAN`<br>
+Sources : eu-fruit-juice-directive-2001-112-20260614<br>
+Mapping group : `fruit_juice`
+
+### FR
+- `jus de fruits` — COMMON_LABEL_NAME; normalise: `jus de fruits`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `jus de fruits à base de concentré` — COMMON_LABEL_NAME; normalise: `jus de fruits a base de concentre`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `jus de fruits concentré` — COMMON_LABEL_NAME; normalise: `jus de fruits concentre`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `jus de fruits obtenu par extraction hydrique` — COMMON_LABEL_NAME; normalise: `jus de fruits obtenu par extraction hydrique`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `jus de fruits déshydraté/en poudre` — COMMON_LABEL_NAME; normalise: `jus de fruits deshydrate en poudre`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### NL
+- `vruchtensap` — COMMON_LABEL_NAME; normalise: `vruchtensap`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `vruchtensap uit concentraat` — COMMON_LABEL_NAME; normalise: `vruchtensap uit concentraat`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `geconcentreerd vruchtensap` — COMMON_LABEL_NAME; normalise: `geconcentreerd vruchtensap`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### EN
+- `fruit juice` — COMMON_LABEL_NAME; normalise: `fruit juice`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `fruit juice from concentrate` — COMMON_LABEL_NAME; normalise: `fruit juice from concentrate`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `concentrated fruit juice` — COMMON_LABEL_NAME; normalise: `concentrated fruit juice`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `water extracted fruit juice` — COMMON_LABEL_NAME; normalise: `water extracted fruit juice`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `dehydrated/powdered fruit juice` — COMMON_LABEL_NAME; normalise: `dehydrated powdered fruit juice`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### DE
+- `Fruchtsaft` — COMMON_LABEL_NAME; normalise: `fruchtsaft`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `Fruchtsaft aus Fruchtsaftkonzentrat` — COMMON_LABEL_NAME; normalise: `fruchtsaft aus fruchtsaftkonzentrat`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `Fruchtsaftkonzentrat` — COMMON_LABEL_NAME; normalise: `fruchtsaftkonzentrat`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+## Concept : fruit_nectar
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-fruit-juice-directive-2001-112-20260614<br>
+Mapping group : `fruit_nectar`
+
+### FR
+- `nectar de fruits` — COMMON_LABEL_NAME; normalise: `nectar de fruits`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### NL
+- `vruchtennectar` — COMMON_LABEL_NAME; normalise: `vruchtennectar`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### EN
+- `fruit nectar` — COMMON_LABEL_NAME; normalise: `fruit nectar`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### DE
+- `Fruchtnektar` — COMMON_LABEL_NAME; normalise: `fruchtnektar`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+## Concept : fruit_puree
+
+Statut : `VEGAN`<br>
+Sources : eu-fruit-juice-directive-2001-112-20260614<br>
+Mapping group : `fruit_puree`
+
+### FR
+- `purée de fruits` — COMMON_LABEL_NAME; normalise: `puree de fruits`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `purée de fruits concentrée` — COMMON_LABEL_NAME; normalise: `puree de fruits concentree`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### NL
+- `vruchtenpuree` — COMMON_LABEL_NAME; normalise: `vruchtenpuree`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### EN
+- `fruit purée` — COMMON_LABEL_NAME; normalise: `fruit puree`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+- `concentrated fruit purée` — COMMON_LABEL_NAME; normalise: `concentrated fruit puree`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
+### DE
+- `Fruchtmark` — COMMON_LABEL_NAME; normalise: `fruchtmark`; confiance: `REVIEWED`; source: eu-fruit-juice-directive-2001-112-20260614
+
 ## Concept : glucose_syrup
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `glucose_syrup`
 
 ### FR
@@ -6977,8 +7048,8 @@ Mapping group : `glucose_syrup`
 
 ## Concept : hazelnut
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `hazelnut`
 
 ### FR
@@ -6996,8 +7067,8 @@ Mapping group : `hazelnut`
 
 ## Concept : honey
 
-Statut : `VEGETARIAN`  
-Sources : vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614  
+Statut : `VEGETARIAN`<br>
+Sources : vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614<br>
 Mapping group : `honey-regulatory`
 
 ### FR
@@ -7066,8 +7137,8 @@ Mapping group : `honey-regulatory`
 
 ## Concept : inulin
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `inulin`
 
 ### FR
@@ -7088,8 +7159,8 @@ Mapping group : `inulin`
 
 ## Concept : macadamia
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `macadamia`
 
 ### FR
@@ -7107,8 +7178,8 @@ Mapping group : `macadamia`
 
 ## Concept : malt
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `malt`
 
 ### FR
@@ -7139,8 +7210,8 @@ Mapping group : `malt`
 
 ## Concept : milk
 
-Statut : `VEGETARIAN`  
-Sources : vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614  
+Statut : `VEGETARIAN`<br>
+Sources : vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614<br>
 Mapping group : `preserved-milk`
 
 ### FR
@@ -7241,8 +7312,8 @@ Mapping group : `preserved-milk`
 
 ## Concept : natural_flavouring
 
-Statut : `UNCERTAIN`  
-Sources : vegan-society  
+Statut : `UNCERTAIN`<br>
+Sources : vegan-society<br>
 Mapping group : `natural_flavouring`
 
 ### FR
@@ -7259,8 +7330,8 @@ Mapping group : `natural_flavouring`
 
 ## Concept : oats
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `oats`
 
 ### FR
@@ -7287,8 +7358,8 @@ Mapping group : `oats`
 
 ## Concept : olive_oil
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `olive_oil`
 
 ### FR
@@ -7305,8 +7376,8 @@ Mapping group : `olive_oil`
 
 ## Concept : palm_kernel
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `palm_kernel`
 
 ### FR
@@ -7335,8 +7406,8 @@ Mapping group : `palm_kernel`
 
 ## Concept : palm_oil
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `palm_oil`
 
 ### FR
@@ -7362,8 +7433,8 @@ Mapping group : `palm_oil`
 
 ## Concept : papaya
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `papaya`
 
 ### FR
@@ -7381,8 +7452,8 @@ Mapping group : `papaya`
 
 ## Concept : peanut
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `peanut`
 
 ### FR
@@ -7400,8 +7471,8 @@ Mapping group : `peanut`
 
 ## Concept : peas
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `peas`
 
 ### FR
@@ -7418,8 +7489,8 @@ Mapping group : `peas`
 
 ## Concept : pecan
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `pecan`
 
 ### FR
@@ -7437,8 +7508,8 @@ Mapping group : `pecan`
 
 ## Concept : pineapple
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `pineapple`
 
 ### FR
@@ -7456,8 +7527,8 @@ Mapping group : `pineapple`
 
 ## Concept : pistachio
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `pistachio`
 
 ### FR
@@ -7475,8 +7546,8 @@ Mapping group : `pistachio`
 
 ## Concept : pumpkin_seed
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `pumpkin_seed`
 
 ### FR
@@ -7493,8 +7564,8 @@ Mapping group : `pumpkin_seed`
 
 ## Concept : raisin
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `raisin`
 
 ### FR
@@ -7511,8 +7582,8 @@ Mapping group : `raisin`
 
 ## Concept : rapeseed_oil
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `rapeseed_oil`
 
 ### FR
@@ -7533,8 +7604,8 @@ Mapping group : `rapeseed_oil`
 
 ## Concept : rice
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `rice`
 
 ### FR
@@ -7556,8 +7627,8 @@ Mapping group : `rice`
 
 ## Concept : rye
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `rye`
 
 ### FR
@@ -7579,8 +7650,8 @@ Mapping group : `rye`
 
 ## Concept : salt
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `salt`
 
 ### FR
@@ -7603,8 +7674,8 @@ Mapping group : `salt`
 
 ## Concept : sour_cherry
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `sour_cherry`
 
 ### FR
@@ -7622,8 +7693,8 @@ Mapping group : `sour_cherry`
 
 ## Concept : starch
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `starch`
 
 ### FR
@@ -7640,8 +7711,8 @@ Mapping group : `starch`
 
 ## Concept : sugar
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `sugar`
 
 ### FR
@@ -7663,8 +7734,8 @@ Mapping group : `sugar`
 
 ## Concept : sultana
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `sultana`
 
 ### FR
@@ -7681,8 +7752,8 @@ Mapping group : `sultana`
 
 ## Concept : sunflower_oil
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `sunflower_oil`
 
 ### FR
@@ -7705,8 +7776,8 @@ Mapping group : `sunflower_oil`
 
 ## Concept : vinegar
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `vinegar`
 
 ### FR
@@ -7723,8 +7794,8 @@ Mapping group : `vinegar`
 
 ## Concept : vitamin_b12
 
-Statut : `UNCERTAIN`  
-Sources : vegan-society  
+Statut : `UNCERTAIN`<br>
+Sources : vegan-society<br>
 Mapping group : `vitamin_b12`
 
 ### FR
@@ -7741,8 +7812,8 @@ Mapping group : `vitamin_b12`
 
 ## Concept : walnut
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `walnut`
 
 ### FR
@@ -7759,8 +7830,8 @@ Mapping group : `walnut`
 
 ## Concept : wheat
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `wheat`
 
 ### FR
@@ -7783,8 +7854,8 @@ Mapping group : `wheat`
 
 ## Concept : wheat_flour
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `wheat_flour`
 
 ### FR
@@ -7807,8 +7878,8 @@ Mapping group : `wheat_flour`
 
 ## Concept : wheat_syrup
 
-Statut : `VEGAN`  
-Sources : vegan-society  
+Statut : `VEGAN`<br>
+Sources : vegan-society<br>
 Mapping group : `wheat_syrup`
 
 ### FR
@@ -7832,8 +7903,8 @@ Mapping group : `wheat_syrup`
 
 ## Concept : whey
 
-Statut : `VEGETARIAN`  
-Sources : vegan-society, vegetarian-society  
+Statut : `VEGETARIAN`<br>
+Sources : vegan-society, vegetarian-society<br>
 Mapping group : `whey`
 
 ### FR

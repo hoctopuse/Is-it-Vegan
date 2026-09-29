@@ -124,7 +124,7 @@ def build() -> tuple[str, dict]:
             values = [record["surfaceForm"] for record in languages.get(language, [])]
             cells.append("; ".join(dict.fromkeys(values)) or "—")
         synthesis.append([concept_id, concept["status"], *cells, ", ".join(concept.get("sources", [])) or "—", "; ".join(alerts[concept_id]) or "—"])
-        details.extend([f"## Concept : {concept_id}", "", f"Statut : `{concept['status']}`  ", f"Sources : {', '.join(concept.get('sources', [])) or '—'}  ", f"Mapping group : `{mapping_group(concept)}`", ""])
+        details.extend([f"## Concept : {concept_id}", "", f"Statut : `{concept['status']}`<br>", f"Sources : {', '.join(concept.get('sources', [])) or '—'}<br>", f"Mapping group : `{mapping_group(concept)}`", ""])
         for language in TARGET_LANGUAGES:
             details.append(f"### {language}")
             values = languages.get(language, [])
