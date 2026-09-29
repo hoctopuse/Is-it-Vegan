@@ -2,6 +2,10 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.13.1
+
+- Adds generated multilingual ingredient mapping audit and source-to-asset parity checks.
+
 ## 0.6.13
 
 - Importe les dénominations réglementaires multilingues des laits conservés, concentrés, évaporés et en poudre depuis CELEX 02001L0114. Les concepts laitiers concernés restent `VEGETARIAN` et bloquent un verdict vegan.

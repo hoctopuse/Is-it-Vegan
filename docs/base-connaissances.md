@@ -48,6 +48,10 @@ Les sections suivantes sont générées par `python tools/build_knowledge_docs.p
 
 --8<-- "generated/base-connaissances-data.md"
 
+## Mapping multilingue verifiable
+
+Le mapping generated source -> asset -> runtime est disponible dans [Mapping multilingue des ingredients](generated/multilingual-ingredient-mapping.md). Il liste les formes originales, la normalisation, le groupe de mapping, la relation, la source du concept et les alertes; le lexique JSON reste l unique source editoriale.
+
 ## Signification des statuts
 
 | Statut | Sens dans le moteur |
