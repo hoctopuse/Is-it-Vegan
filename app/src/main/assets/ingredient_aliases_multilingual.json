@@ -12755,6 +12755,148 @@
         "Fruchtnektar"
       ],
       "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jam",
+      "language": "FR",
+      "aliases": [
+        "confiture",
+        "confiture extra"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jam",
+      "language": "NL",
+      "aliases": [
+        "jam",
+        "confituur",
+        "extra jam",
+        "extra confituur"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jam",
+      "language": "EN",
+      "aliases": [
+        "jam",
+        "extra jam"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jam",
+      "language": "DE",
+      "aliases": [
+        "Konfitüre",
+        "Konfitüre extra"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jelly",
+      "language": "FR",
+      "aliases": [
+        "gelée",
+        "gelée extra"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jelly",
+      "language": "NL",
+      "aliases": [
+        "gelei",
+        "extra gelei"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jelly",
+      "language": "EN",
+      "aliases": [
+        "jelly",
+        "extra jelly"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "fruit_jelly",
+      "language": "DE",
+      "aliases": [
+        "Gelee",
+        "Gelee extra"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "citrus_marmalade",
+      "language": "FR",
+      "aliases": [
+        "marmelade d’agrumes",
+        "marmelade-gelée"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "citrus_marmalade",
+      "language": "NL",
+      "aliases": [
+        "citrusmarmelade",
+        "geleimarmelade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "citrus_marmalade",
+      "language": "EN",
+      "aliases": [
+        "citrus marmalade",
+        "jelly marmalade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "citrus_marmalade",
+      "language": "DE",
+      "aliases": [
+        "Zitrusmarmelade",
+        "Gelee-Marmelade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "sweetened_chestnut_puree",
+      "language": "FR",
+      "aliases": [
+        "crème de marrons"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "sweetened_chestnut_puree",
+      "language": "NL",
+      "aliases": [
+        "kastanjepasta"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "sweetened_chestnut_puree",
+      "language": "EN",
+      "aliases": [
+        "sweetened chestnut purée"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "sweetened_chestnut_puree",
+      "language": "DE",
+      "aliases": [
+        "Maronenkrem"
+      ],
+      "ocrVariants": []
     }
   ],
   "ocrCorrections": [
@@ -31193,6 +31335,306 @@
       "relation": "REGULATORY_ALIAS",
       "normalizedForm": "fruchtnektar",
       "source": "eu-fruit-juice-directive-2001-112-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "confiture",
+      "language": "FR",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "confiture",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "confiture extra",
+      "language": "FR",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "confiture extra",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "jam",
+      "language": "NL",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "jam",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "confituur",
+      "language": "NL",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "confituur",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "extra jam",
+      "language": "NL",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "extra jam",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "extra confituur",
+      "language": "NL",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "extra confituur",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "jam",
+      "language": "EN",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "jam",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "extra jam",
+      "language": "EN",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "extra jam",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Konfitüre",
+      "language": "DE",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "konfiture",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Konfitüre extra",
+      "language": "DE",
+      "conceptId": "fruit_jam",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "konfiture extra",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "gelée",
+      "language": "FR",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "gelée extra",
+      "language": "FR",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee extra",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "gelei",
+      "language": "NL",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelei",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "extra gelei",
+      "language": "NL",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "extra gelei",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "jelly",
+      "language": "EN",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "jelly",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "extra jelly",
+      "language": "EN",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "extra jelly",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Gelee",
+      "language": "DE",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Gelee extra",
+      "language": "DE",
+      "conceptId": "fruit_jelly",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee extra",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "marmelade d’agrumes",
+      "language": "FR",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "marmelade d agrumes",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "marmelade-gelée",
+      "language": "FR",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "marmelade gelee",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "citrusmarmelade",
+      "language": "NL",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "citrusmarmelade",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "geleimarmelade",
+      "language": "NL",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geleimarmelade",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "citrus marmalade",
+      "language": "EN",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "citrus marmalade",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "jelly marmalade",
+      "language": "EN",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "jelly marmalade",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Zitrusmarmelade",
+      "language": "DE",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "zitrusmarmelade",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Gelee-Marmelade",
+      "language": "DE",
+      "conceptId": "citrus_marmalade",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee marmelade",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "crème de marrons",
+      "language": "FR",
+      "conceptId": "sweetened_chestnut_puree",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "creme de marrons",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "kastanjepasta",
+      "language": "NL",
+      "conceptId": "sweetened_chestnut_puree",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "kastanjepasta",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "sweetened chestnut purée",
+      "language": "EN",
+      "conceptId": "sweetened_chestnut_puree",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "sweetened chestnut puree",
+      "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Maronenkrem",
+      "language": "DE",
+      "conceptId": "sweetened_chestnut_puree",
+      "mappingGroup": "fruit-jams-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "maronenkrem",
+      "source": "eu-jams-directive-2001-113-20260614",
       "confidence": "REVIEWED"
     }
   ],

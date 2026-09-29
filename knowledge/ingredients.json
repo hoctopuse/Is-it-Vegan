@@ -7794,5 +7794,77 @@
     "sources": [
       "eu-fruit-juice-directive-2001-112-20260614"
     ]
+  },
+  {
+    "id": "fruit_jam",
+    "name": "Confiture de fruits",
+    "aliases": [
+      "confiture",
+      "confiture extra",
+      "jam",
+      "confituur",
+      "extra jam",
+      "extra confituur",
+      "Konfitüre",
+      "Konfitüre extra"
+    ],
+    "status": "VEGAN",
+    "reason": "Catégorie réglementaire composée de sucres, de pulpe et/ou de purée de fruits et d’eau : vegan selon cette définition.",
+    "sources": [
+      "eu-jams-directive-2001-113-20260614"
+    ]
+  },
+  {
+    "id": "fruit_jelly",
+    "name": "Gelée de fruits",
+    "aliases": [
+      "gelée",
+      "gelée extra",
+      "gelei",
+      "extra gelei",
+      "jelly",
+      "extra jelly",
+      "Gelee",
+      "Gelee extra"
+    ],
+    "status": "VEGAN",
+    "reason": "Catégorie réglementaire composée de sucres, de jus et/ou d’extraits aqueux de fruits : vegan selon cette définition.",
+    "sources": [
+      "eu-jams-directive-2001-113-20260614"
+    ]
+  },
+  {
+    "id": "citrus_marmalade",
+    "name": "Marmelade d’agrumes",
+    "aliases": [
+      "marmelade d’agrumes",
+      "marmelade-gelée",
+      "citrusmarmelade",
+      "geleimarmelade",
+      "citrus marmalade",
+      "jelly marmalade",
+      "Zitrusmarmelade",
+      "Gelee-Marmelade"
+    ],
+    "status": "VEGAN",
+    "reason": "Catégorie réglementaire composée d’eau, de sucres et de produits issus d’agrumes : vegan selon cette définition.",
+    "sources": [
+      "eu-jams-directive-2001-113-20260614"
+    ]
+  },
+  {
+    "id": "sweetened_chestnut_puree",
+    "name": "Crème de marrons",
+    "aliases": [
+      "crème de marrons",
+      "kastanjepasta",
+      "sweetened chestnut purée",
+      "Maronenkrem"
+    ],
+    "status": "VEGAN",
+    "reason": "Catégorie réglementaire composée d’eau, de sucre et de purée de châtaignes : vegan selon cette définition.",
+    "sources": [
+      "eu-jams-directive-2001-113-20260614"
+    ]
   }
 ]

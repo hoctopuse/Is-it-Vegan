@@ -18,6 +18,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | brazil_nut | VEGAN | noix du Brésil | paranoten; paranoot | — | — | vegan-society | — |
 | butter | VEGETARIAN | — | — | — | Butterreinfett | vegan-society, vegetarian-society | — |
 | cashew | VEGAN | noix de cajou; noix de cajou grillées | cashewnoten; cashewnoot | — | — | vegan-society | — |
+| citrus_marmalade | VEGAN | marmelade d’agrumes; marmelade-gelée | citrusmarmelade; geleimarmelade | citrus marmalade; jelly marmalade | Zitrusmarmelade; Gelee-Marmelade | eu-jams-directive-2001-113-20260614 | — |
 | cocoa | VEGAN | cacao maigre en poudre | cacaopoeder; cacaomassa; cacaoboter | — | Kakaopulver; Kakaomasse; Kakaobutter; Kakaopulvert | vegan-society | — |
 | coconut | VEGAN | coco; noix de coco; chips de coco grillées | kokosnoot | coconut | Kokosnuss | vegan-society | — |
 | coconut_fat | VEGAN | graisse de coco; matière grasse de coco | kokosvet; kokosnootvet | coconut fat | Kokosfett; Kokosnussfett | vegan-society | — |
@@ -365,6 +366,8 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | e968 | UNCERTAIN | Érythritol | Erytritol | Erythritol | Erythrit | eu-additives | — |
 | e969 | UNCERTAIN | Advantame 3. Additifs autres que les colorants et les édulcorants | Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen | Advantame 3. Additives other than colours and sweeteners | Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung | eu-additives | — |
 | e999 | UNCERTAIN | Extraits de quillaia | Quillaja-extract | Quillaia extract | Quillajaextrakt | eu-additives | — |
+| fruit_jam | VEGAN | confiture; confiture extra | jam; confituur; extra jam; extra confituur | jam; extra jam | Konfitüre; Konfitüre extra | eu-jams-directive-2001-113-20260614 | — |
+| fruit_jelly | VEGAN | gelée; gelée extra | gelei; extra gelei | jelly; extra jelly | Gelee; Gelee extra | eu-jams-directive-2001-113-20260614 | — |
 | fruit_juice | VEGAN | jus de fruits; jus de fruits à base de concentré; jus de fruits concentré; jus de fruits obtenu par extraction hydrique; jus de fruits déshydraté/en poudre | vruchtensap; vruchtensap uit concentraat; geconcentreerd vruchtensap | fruit juice; fruit juice from concentrate; concentrated fruit juice; water extracted fruit juice; dehydrated/powdered fruit juice | Fruchtsaft; Fruchtsaft aus Fruchtsaftkonzentrat; Fruchtsaftkonzentrat | eu-fruit-juice-directive-2001-112-20260614 | — |
 | fruit_nectar | UNCERTAIN | nectar de fruits | vruchtennectar | fruit nectar | Fruchtnektar | eu-fruit-juice-directive-2001-112-20260614 | — |
 | fruit_puree | VEGAN | purée de fruits; purée de fruits concentrée | vruchtenpuree | fruit purée; concentrated fruit purée | Fruchtmark | eu-fruit-juice-directive-2001-112-20260614 | — |
@@ -397,6 +400,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | sugar | VEGAN | sirop de sucre caramélisé | suiker; gekarameliseerde suikersiroop | — | Zucker | vegan-society | — |
 | sultana | VEGAN | raisins sultanines | sultanarozijnen | — | — | vegan-society | — |
 | sunflower_oil | VEGAN | — | zonnebloemolie; zonnebloemole; zonnebloem olie | — | Sonnenblumenöl | vegan-society | — |
+| sweetened_chestnut_puree | VEGAN | crème de marrons | kastanjepasta | sweetened chestnut purée | Maronenkrem | eu-jams-directive-2001-113-20260614 | — |
 | vinegar | VEGAN | — | azijn | — | Essig | vegan-society | — |
 | vitamin_b12 | UNCERTAIN | vitamine B12 | vitamine B12 | — | — | vegan-society | — |
 | walnut | VEGAN | — | walnoot | — | — | vegan-society | — |
@@ -643,6 +647,28 @@ Mapping group : `cashew`
 
 ### DE
 - —
+
+## Concept : citrus_marmalade
+
+Statut : `VEGAN`<br>
+Sources : eu-jams-directive-2001-113-20260614<br>
+Mapping group : `fruit-jams-directive`
+
+### FR
+- `marmelade d’agrumes` — REGULATORY_ALIAS; normalise: `marmelade d agrumes`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `marmelade-gelée` — REGULATORY_ALIAS; normalise: `marmelade gelee`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### NL
+- `citrusmarmelade` — REGULATORY_ALIAS; normalise: `citrusmarmelade`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `geleimarmelade` — REGULATORY_ALIAS; normalise: `geleimarmelade`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### EN
+- `citrus marmalade` — REGULATORY_ALIAS; normalise: `citrus marmalade`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `jelly marmalade` — REGULATORY_ALIAS; normalise: `jelly marmalade`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### DE
+- `Zitrusmarmelade` — REGULATORY_ALIAS; normalise: `zitrusmarmelade`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `Gelee-Marmelade` — REGULATORY_ALIAS; normalise: `gelee marmelade`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
 
 ## Concept : cocoa
 
@@ -6959,6 +6985,52 @@ Mapping group : `eu-additives`
 ### DE
 - `Quillajaextrakt` — REGULATORY_ALIAS; normalise: `quillajaextrakt`; confiance: `REVIEWED`; source: eu-additives
 
+## Concept : fruit_jam
+
+Statut : `VEGAN`<br>
+Sources : eu-jams-directive-2001-113-20260614<br>
+Mapping group : `fruit-jams-directive`
+
+### FR
+- `confiture` — REGULATORY_ALIAS; normalise: `confiture`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `confiture extra` — REGULATORY_ALIAS; normalise: `confiture extra`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### NL
+- `jam` — REGULATORY_ALIAS; normalise: `jam`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `confituur` — REGULATORY_ALIAS; normalise: `confituur`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `extra jam` — REGULATORY_ALIAS; normalise: `extra jam`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `extra confituur` — REGULATORY_ALIAS; normalise: `extra confituur`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### EN
+- `jam` — REGULATORY_ALIAS; normalise: `jam`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `extra jam` — REGULATORY_ALIAS; normalise: `extra jam`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### DE
+- `Konfitüre` — REGULATORY_ALIAS; normalise: `konfiture`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `Konfitüre extra` — REGULATORY_ALIAS; normalise: `konfiture extra`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+## Concept : fruit_jelly
+
+Statut : `VEGAN`<br>
+Sources : eu-jams-directive-2001-113-20260614<br>
+Mapping group : `fruit-jams-directive`
+
+### FR
+- `gelée` — REGULATORY_ALIAS; normalise: `gelee`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `gelée extra` — REGULATORY_ALIAS; normalise: `gelee extra`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### NL
+- `gelei` — REGULATORY_ALIAS; normalise: `gelei`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `extra gelei` — REGULATORY_ALIAS; normalise: `extra gelei`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### EN
+- `jelly` — REGULATORY_ALIAS; normalise: `jelly`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `extra jelly` — REGULATORY_ALIAS; normalise: `extra jelly`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### DE
+- `Gelee` — REGULATORY_ALIAS; normalise: `gelee`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+- `Gelee extra` — REGULATORY_ALIAS; normalise: `gelee extra`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
 ## Concept : fruit_juice
 
 Statut : `VEGAN`<br>
@@ -7773,6 +7845,24 @@ Mapping group : `sunflower_oil`
 ### Alias supplementaires
 - IT: olio di girasole
 - ES: aceite de girasol
+
+## Concept : sweetened_chestnut_puree
+
+Statut : `VEGAN`<br>
+Sources : eu-jams-directive-2001-113-20260614<br>
+Mapping group : `fruit-jams-directive`
+
+### FR
+- `crème de marrons` — REGULATORY_ALIAS; normalise: `creme de marrons`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### NL
+- `kastanjepasta` — REGULATORY_ALIAS; normalise: `kastanjepasta`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### EN
+- `sweetened chestnut purée` — REGULATORY_ALIAS; normalise: `sweetened chestnut puree`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+### DE
+- `Maronenkrem` — REGULATORY_ALIAS; normalise: `maronenkrem`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
 
 ## Concept : vinegar
 

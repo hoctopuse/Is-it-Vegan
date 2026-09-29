@@ -456,6 +456,13 @@
 | e1519 | Alcool benzylique | UNCERTAIN | E1519 | — | eu-additives |
 | e1520 | Propanediol-1,2 (propylène glycol) | UNCERTAIN | E1520 | — | eu-additives |
 | e1521 | Polyéthylène glycol ( 1 ) La présence d’acide benzoïque est admise dans certains produi ts fermentés obtenus par un processus de fermentation conforme aux bonnes pratiques de fabrication. ►M7 (  2 ) autorisé jusqu’au 31 janvier 2014. ( 3 ) autorisée jusqu’au 31 mai 2013. ◄ ►M20 (  4 ) Période d’application: à partir du 6 février 2013. ◄ | UNCERTAIN | E1521 | — | eu-additives |
+| fruit_juice | Jus de fruits | VEGAN | — | — | eu-fruit-juice-directive-2001-112-20260614 |
+| fruit_puree | Purée de fruits | VEGAN | — | — | eu-fruit-juice-directive-2001-112-20260614 |
+| fruit_nectar | Nectar de fruits | UNCERTAIN | — | — | eu-fruit-juice-directive-2001-112-20260614 |
+| fruit_jam | Confiture de fruits | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
+| fruit_jelly | Gelée de fruits | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
+| citrus_marmalade | Marmelade d’agrumes | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
+| sweetened_chestnut_puree | Crème de marrons | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
 
 ### Alias multilingues
 
@@ -472,6 +479,7 @@
 | butter | — | — | Butterreinfett | — | — | — | — |
 | cashew | noix de cajou, noix de cajou grillées | cashewnoten, cashewnoot | — | — | — | — | — |
 | cereals | — | granen | — | — | — | — | — |
+| citrus_marmalade | marmelade d’agrumes, marmelade-gelée | citrusmarmelade, geleimarmelade | Zitrusmarmelade, Gelee-Marmelade | citrus marmalade, jelly marmalade | — | — | — |
 | cocoa | cacao maigre en poudre | cacaopoeder, cacaomassa, cacaoboter | Kakaopulver, Kakaomasse, Kakaobutter, Kakaopulvert | — | — | — | — |
 | coconut | coco, noix de coco, chips de coco grillées | kokosnoot | Kokosnuss | coconut | — | — | — |
 | coconut_fat | graisse de coco, matière grasse de coco | kokosvet, kokosnootvet | Kokosfett, Kokosnussfett | coconut fat | grasso di cocco | grasa de coco | — |
@@ -818,6 +826,11 @@
 | e968 | Érythritol | Erytritol | Erythrit | Erythritol | — | — | — |
 | e969 | Advantame 3. Additifs autres que les colorants et les édulcorants | Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen | Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung | Advantame 3. Additives other than colours and sweeteners | — | — | — |
 | e999 | Extraits de quillaia | Quillaja-extract | Quillajaextrakt | Quillaia extract | — | — | — |
+| fruit_jam | confiture, confiture extra | jam, confituur, extra jam, extra confituur | Konfitüre, Konfitüre extra | jam, extra jam | — | — | — |
+| fruit_jelly | gelée, gelée extra | gelei, extra gelei | Gelee, Gelee extra | jelly, extra jelly | — | — | — |
+| fruit_juice | jus de fruits, jus de fruits à base de concentré, jus de fruits concentré, jus de fruits obtenu par extraction hydrique, jus de fruits déshydraté/en poudre | vruchtensap, vruchtensap uit concentraat, geconcentreerd vruchtensap | Fruchtsaft, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaftkonzentrat | fruit juice, fruit juice from concentrate, concentrated fruit juice, water extracted fruit juice, dehydrated/powdered fruit juice | — | — | — |
+| fruit_nectar | nectar de fruits | vruchtennectar | Fruchtnektar | fruit nectar | — | — | — |
+| fruit_puree | purée de fruits, purée de fruits concentrée | vruchtenpuree | Fruchtmark | fruit purée, concentrated fruit purée | — | — | — |
 | glucose_syrup | — | glucosestroop, glucose-fructosestroop | Glukosesirup | — | — | — | — |
 | hazelnut | noisettes | hazelnoten, hazelnoot | — | — | — | — | — |
 | honey | miel, miel de fleurs, miel de nectars, miel de miellat, miel en rayons, miel avec morceaux de rayons, miel égoutté, miel centrifugé, miel pressé, miel destiné à l’industrie | honing, honig, bloemenhoning, bloemenhonig, nectarhoning, nectarhonig, honingdauwhoning, honingdauwhonig, raathoning, raathonig, brokhoning, brokhonig, raatbrokken in honing/honig, lekhoning, lekhonig, slingerhoning, slingerhonig, pershoning, pershonig, bakkershoning | Honig, Blütenhonig, Nektarhonig, Honigtauhonig, Wabenhonig, Scheibenhonig, Honig mit Wabenteilen, Wabenstücke in Honig, Tropfhonig, Schleuderhonig, Presshonig, Backhonig | honey, blossom honey, nectar honey, honeydew honey, comb honey, chunk honey, cut comb in honey, drained honey, extracted honey, pressed honey, Baker's honey | — | — | — |
@@ -847,6 +860,7 @@
 | sugar | sirop de sucre caramélisé | suiker, gekarameliseerde suikersiroop | Zucker | — | zucchero | azúcar | — |
 | sultana | raisins sultanines | sultanarozijnen | — | — | — | — | — |
 | sunflower_oil | — | zonnebloemolie, zonnebloemole, zonnebloem olie | Sonnenblumenöl | — | olio di girasole | aceite de girasol | — |
+| sweetened_chestnut_puree | crème de marrons | kastanjepasta | Maronenkrem | sweetened chestnut purée | — | — | — |
 | vinegar | — | azijn | Essig | — | — | — | — |
 | vitamin_b12 | vitamine B12 | vitamine B12 | — | — | — | — | — |
 | walnut | — | walnoot | — | — | — | — | — |
