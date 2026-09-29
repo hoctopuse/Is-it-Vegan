@@ -12897,6 +12897,258 @@
         "Maronenkrem"
       ],
       "ocrVariants": []
+    },
+    {
+      "canonicalId": "meat",
+      "language": "FR",
+      "aliases": [
+        "viande bovine",
+        "viande de porc",
+        "viandes ovine et caprine",
+        "viande de volaille"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "meat",
+      "language": "NL",
+      "aliases": [
+        "rundvlees",
+        "varkensvlees",
+        "schapen- en geitenvlees",
+        "pluimveevlees"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "meat",
+      "language": "EN",
+      "aliases": [
+        "beef and veal",
+        "pigmeat",
+        "sheepmeat and goatmeat",
+        "poultrymeat"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "meat",
+      "language": "DE",
+      "aliases": [
+        "Rindfleisch",
+        "Schweinefleisch",
+        "Schaf- und Ziegenfleisch",
+        "Geflügelfleisch"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "edible_offal",
+      "language": "FR",
+      "aliases": [
+        "abats comestibles des animaux de l'espèce bovine"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "edible_offal",
+      "language": "NL",
+      "aliases": [
+        "eetbare slachtafvallen van runderen"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "edible_offal",
+      "language": "EN",
+      "aliases": [
+        "edible offal of bovine animals"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "edible_offal",
+      "language": "DE",
+      "aliases": [
+        "Genießbare Schlachtnebenerzeugnisse von Rindern"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "animal_fat",
+      "language": "FR",
+      "aliases": [
+        "graisses de porc (y compris le saindoux)"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "animal_fat",
+      "language": "NL",
+      "aliases": [
+        "varkensvet (reuzel daaronder begrepen)"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "animal_fat",
+      "language": "EN",
+      "aliases": [
+        "pig fat (including lard)"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "animal_fat",
+      "language": "DE",
+      "aliases": [
+        "Schweinefett (einschließlich Schweineschmalz)"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "poultry_meat_preparation",
+      "language": "FR",
+      "aliases": [
+        "préparation à base de viande de volaille"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "poultry_meat_preparation",
+      "language": "NL",
+      "aliases": [
+        "bereiding op basis van pluimveevlees"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "poultry_meat_preparation",
+      "language": "EN",
+      "aliases": [
+        "poultrymeat preparation"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "poultry_meat_preparation",
+      "language": "DE",
+      "aliases": [
+        "Geflügelfleischzubereitungen"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "processed_fruit_vegetable_product",
+      "language": "FR",
+      "aliases": [
+        "produits transformés à base de fruits et légumes"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "processed_fruit_vegetable_product",
+      "language": "NL",
+      "aliases": [
+        "verwerkte groenten en fruit"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "processed_fruit_vegetable_product",
+      "language": "EN",
+      "aliases": [
+        "processed fruit and vegetable products"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "processed_fruit_vegetable_product",
+      "language": "DE",
+      "aliases": [
+        "Verarbeitungserzeugnisse aus Obst und Gemüse"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "spreadable_fat",
+      "language": "FR",
+      "aliases": [
+        "matières grasses tartinables"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "spreadable_fat",
+      "language": "NL",
+      "aliases": [
+        "smeerbare vetten"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "spreadable_fat",
+      "language": "EN",
+      "aliases": [
+        "spreadable fats"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "spreadable_fat",
+      "language": "DE",
+      "aliases": [
+        "Streichfette"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "egg",
+      "language": "FR",
+      "aliases": [
+        "œufs de volailles de basse-cour, en coquille"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "egg",
+      "language": "NL",
+      "aliases": [
+        "eieren van pluimvee in de schaal"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "egg",
+      "language": "EN",
+      "aliases": [
+        "poultry eggs, in shell"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "egg",
+      "language": "DE",
+      "aliases": [
+        "Eier von Hausgeflügel in der Schale"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "olive_oil",
+      "language": "FR",
+      "aliases": [
+        "huile d'olive"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "olive_oil",
+      "language": "EN",
+      "aliases": [
+        "olive oil"
+      ],
+      "ocrVariants": []
     }
   ],
   "ocrCorrections": [
@@ -31635,6 +31887,426 @@
       "relation": "REGULATORY_ALIAS",
       "normalizedForm": "maronenkrem",
       "source": "eu-jams-directive-2001-113-20260614",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "viande bovine",
+      "language": "FR",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viande bovine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "viande de porc",
+      "language": "FR",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viande de porc",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "viandes ovine et caprine",
+      "language": "FR",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viandes ovine et caprine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "viande de volaille",
+      "language": "FR",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viande de volaille",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "rundvlees",
+      "language": "NL",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "rundvlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "varkensvlees",
+      "language": "NL",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "varkensvlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "schapen- en geitenvlees",
+      "language": "NL",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schapen en geitenvlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "pluimveevlees",
+      "language": "NL",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "pluimveevlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "beef and veal",
+      "language": "EN",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "beef and veal",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "pigmeat",
+      "language": "EN",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "pigmeat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "sheepmeat and goatmeat",
+      "language": "EN",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "sheepmeat and goatmeat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "poultrymeat",
+      "language": "EN",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "poultrymeat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Rindfleisch",
+      "language": "DE",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "rindfleisch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schweinefleisch",
+      "language": "DE",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schweinefleisch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schaf- und Ziegenfleisch",
+      "language": "DE",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schaf und ziegenfleisch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Geflügelfleisch",
+      "language": "DE",
+      "conceptId": "meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geflugelfleisch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "abats comestibles des animaux de l'espèce bovine",
+      "language": "FR",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "abats comestibles des animaux de l espece bovine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "eetbare slachtafvallen van runderen",
+      "language": "NL",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "eetbare slachtafvallen van runderen",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "edible offal of bovine animals",
+      "language": "EN",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "edible offal of bovine animals",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Genießbare Schlachtnebenerzeugnisse von Rindern",
+      "language": "DE",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geniessbare schlachtnebenerzeugnisse von rindern",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "graisses de porc (y compris le saindoux)",
+      "language": "FR",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "graisses de porc y compris le saindoux",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "varkensvet (reuzel daaronder begrepen)",
+      "language": "NL",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "varkensvet reuzel daaronder begrepen",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "pig fat (including lard)",
+      "language": "EN",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "pig fat including lard",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schweinefett (einschließlich Schweineschmalz)",
+      "language": "DE",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schweinefett einschliesslich schweineschmalz",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "préparation à base de viande de volaille",
+      "language": "FR",
+      "conceptId": "poultry_meat_preparation",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "preparation a base de viande de volaille",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "bereiding op basis van pluimveevlees",
+      "language": "NL",
+      "conceptId": "poultry_meat_preparation",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "bereiding op basis van pluimveevlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "poultrymeat preparation",
+      "language": "EN",
+      "conceptId": "poultry_meat_preparation",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "poultrymeat preparation",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Geflügelfleischzubereitungen",
+      "language": "DE",
+      "conceptId": "poultry_meat_preparation",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geflugelfleischzubereitungen",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "produits transformés à base de fruits et légumes",
+      "language": "FR",
+      "conceptId": "processed_fruit_vegetable_product",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "produits transformes a base de fruits et legumes",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "verwerkte groenten en fruit",
+      "language": "NL",
+      "conceptId": "processed_fruit_vegetable_product",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "verwerkte groenten en fruit",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "processed fruit and vegetable products",
+      "language": "EN",
+      "conceptId": "processed_fruit_vegetable_product",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "processed fruit and vegetable products",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Verarbeitungserzeugnisse aus Obst und Gemüse",
+      "language": "DE",
+      "conceptId": "processed_fruit_vegetable_product",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "verarbeitungserzeugnisse aus obst und gemuse",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "matières grasses tartinables",
+      "language": "FR",
+      "conceptId": "spreadable_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "matieres grasses tartinables",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "smeerbare vetten",
+      "language": "NL",
+      "conceptId": "spreadable_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "smeerbare vetten",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "spreadable fats",
+      "language": "EN",
+      "conceptId": "spreadable_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "spreadable fats",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Streichfette",
+      "language": "DE",
+      "conceptId": "spreadable_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "streichfette",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "œufs de volailles de basse-cour, en coquille",
+      "language": "FR",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "ufs de volailles de basse cour en coquille",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "eieren van pluimvee in de schaal",
+      "language": "NL",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "eieren van pluimvee in de schaal",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "poultry eggs, in shell",
+      "language": "EN",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "poultry eggs in shell",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Eier von Hausgeflügel in der Schale",
+      "language": "DE",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "eier von hausgeflugel in der schale",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "huile d'olive",
+      "language": "FR",
+      "conceptId": "olive_oil",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "huile d olive",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "olive oil",
+      "language": "EN",
+      "conceptId": "olive_oil",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "olive oil",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
       "confidence": "REVIEWED"
     }
   ],

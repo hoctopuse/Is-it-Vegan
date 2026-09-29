@@ -20,8 +20,8 @@ class MultilingualIngredientMappingTest {
         val root = MiniJson.parse(source.toString(Charsets.UTF_8)) as Map<*, *>
         val known = knowledge.ingredients.map { it.id }.toSet()
         val mappings = root["mappings"] as List<*>
-        assertEquals(1864, mappings.size)
-        assertTrue(mappings.size >= 1834)
+        assertEquals(1906, mappings.size)
+        assertTrue(mappings.size >= 1864)
         mappings.map { it as Map<*, *> }.forEach { mapping ->
             assertTrue(mapping["conceptId"] in known)
             assertTrue(mapping["language"] in setOf("FR", "NL", "EN", "DE", "IT", "ES", "PL"))

@@ -2,6 +2,10 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.13.4
+
+- Importe 44 dénominations FR/NL/EN/DE vérifiées dans CELEX 02013R1308 pour les viandes, abats, graisses animales, préparations de volaille et catégories agricoles variables. La pêche et l’aquaculture restent explicitement hors de cette source.
+
 ## 0.6.13.3
 
 - Importe depuis CELEX 02001L0113 les dénominations réglementaires multilingues des confitures, gelées, marmelades d’agrumes et crèmes de marrons sucrées. Les quatre concepts sont distincts des jus, purées, nectars, fruits et arômes ; ils sont `VEGAN` uniquement dans le cadre des définitions précises de l’annexe I.

@@ -39,6 +39,8 @@ def mapping_group(concept: dict) -> str:
         return "preserved-milk-cream"
     if "eu-jams-directive-2001-113-20260614" in concept.get("sources", []):
         return "fruit-jams-directive"
+    if "eu-agricultural-products-regulation-1308-2013-20260818" in concept.get("sources", []):
+        return "agricultural-products-regulation"
     if concept.get("eNumber") and "eu-additives" in concept.get("sources", []):
         return "eu-additives"
     if "possibleOriginNote" in concept:
@@ -51,7 +53,7 @@ def relation(concept: dict, ocr: bool) -> str:
         return "OCR_VARIANT"
     if concept["id"] in {"honey", "milk", "cream"} or (
         concept.get("eNumber") and "eu-additives" in concept.get("sources", [])
-    ) or "eu-jams-directive-2001-113-20260614" in concept.get("sources", []):
+    ) or "eu-jams-directive-2001-113-20260614" in concept.get("sources", []) or "eu-agricultural-products-regulation-1308-2013-20260818" in concept.get("sources", []):
         return "REGULATORY_ALIAS"
     return "COMMON_LABEL_NAME"
 

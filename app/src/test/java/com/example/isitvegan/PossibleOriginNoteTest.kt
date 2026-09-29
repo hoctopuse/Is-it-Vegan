@@ -71,7 +71,10 @@ class PossibleOriginNoteTest {
     @Test fun generatedAssetKeepsAllEditorialNotesAndOnlyUncertainConceptsHaveThem() {
         val noted = knowledge.ingredients.filter { it.possibleOriginNote != null }
         assertEquals(
-            setOf("e322", "e422", "e470a", "e470b", "e471", "e572", "e627", "e631", "e635", "e640"),
+            setOf(
+                "e322", "e422", "e470a", "e470b", "e471", "e572", "e627", "e631", "e635", "e640",
+                "processed_fruit_vegetable_product", "spreadable_fat"
+            ),
             noted.map { it.id }.toSet()
         )
         assertTrue(noted.all { it.status == VeganStatus.UNCERTAIN })

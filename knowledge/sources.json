@@ -164,5 +164,22 @@
     "role": "Primary local regulatory source for Annex I multilingual names and definitions of jams, jellies, citrus marmalade and sweetened chestnut purée.",
     "limitations": "The directive defines regulated categories. It does not classify a product merely marketed with a fruit-related name, nor replace its declared ingredient list when it is outside those definitions.",
     "use": "Evidence for the CELEX 02001L0113 aliases and their narrowly defined product concepts."
+  },
+  {
+    "id": "eu-agricultural-products-regulation-1308-2013-20260818",
+    "title": "Regulation (EU) No 1308/2013 — common organisation of the markets in agricultural products",
+    "celex": "02013R1308",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02013R1308-20260818",
+    "language": "FR, NL, EN, DE",
+    "institution": "European Parliament and Council of the European Union",
+    "consolidationDate": "2026-08-18",
+    "localPdfPaths": [
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02013R1308-20260818_FR_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02013R1308-20260818_NL_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02013R1308-20260818_EN_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02013R1308-20260818_DE_TXT.pdf"
+    ],
+    "role": "Primary local source for Annex I agricultural sector names and Annex VII product definitions.",
+    "limitations": "Article 1 excludes fishery and aquaculture products. Regulatory sectors identify agricultural goods but do not establish the composition of a general commercial preparation."
   }
 ]

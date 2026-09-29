@@ -78,6 +78,8 @@ gelée, marmelade d’agrumes et crème de marrons sucrée. Ces catégories rest
 distinctes de `fruit_juice`, `fruit_puree`, `fruit_nectar`, des fruits frais,
 des arômes et des préparations commerciales générales. Voir [Directive UE sur les confitures](sources/eu-jams-directive.md).
 
+Le [règlement UE sur les produits agricoles](sources/eu-agricultural-products-regulation.md) ajoute des dénominations réglementaires pour les viandes, abats, graisses animales, œufs, huiles et catégories transformées. Les produits de la pêche et de l’aquaculture sont hors de son champ.
+
 Les qualifications d’origine suivent leur propre source éditoriale, `knowledge/origin_qualifier_rules.json`, copiée vers les assets par `tools/build_origin_rules.py`. Son schéma versionné contient sources, règles actives ou en revue et expressions protégées. Une source réglementaire peut établir l’identité d’un additif sans certifier son caractère vegan ; les sources spécialisées servent à confirmer une origine ou à conserver l’incertitude lorsque les procédés varient. La revue 0.6.11.1 est documentée dans `ADDITIVE_ORIGIN_CLASSIFICATION_0_6_11_1_REPORT.md`.
 
 ## Modifier la base

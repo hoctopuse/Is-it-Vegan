@@ -330,11 +330,13 @@
       "huile d olive",
       "huile d’olive",
       "olive oil",
-      "olijfolie"
+      "olijfolie",
+      "huile d'olive",
+      "Olivenöl"
     ],
     "status": "VEGAN",
     "reason": "Huile végétale.",
-    "source": "vegan-society"
+    "source": "vegan-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "palm_oil",
@@ -891,7 +893,7 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Produit laitier d’origine animale : végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614"
+    "source": "vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "lactose",
@@ -902,7 +904,7 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Sucre du lait : végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society"
+    "source": "vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "whey",
@@ -918,7 +920,7 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Issu du lait : végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society"
+    "source": "vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "casein",
@@ -935,7 +937,7 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Protéine du lait : végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society"
+    "source": "vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "butter",
@@ -948,7 +950,7 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Matière grasse laitière : végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society"
+    "source": "vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "cream",
@@ -969,7 +971,7 @@
     ],
     "status": "VEGETARIAN",
     "reason": "Issue du lait : végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614"
+    "source": "vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "ricotta",
@@ -995,7 +997,7 @@
     ],
     "status": "UNCERTAIN",
     "reason": "Le fromage est non vegan ; sa présure peut être animale, donc son caractère végétarien dépend du fabricant.",
-    "source": "vegan-society, vegetarian-society"
+    "source": "vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "egg",
@@ -1014,11 +1016,15 @@
       "blanc d’œuf",
       "albumine d oeuf",
       "albumine d’œuf",
-      "jaune d’œuf"
+      "jaune d’œuf",
+      "œufs de volailles de basse-cour, en coquille",
+      "eieren van pluimvee in de schaal",
+      "poultry eggs, in shell",
+      "Eier von Hausgeflügel in der Schale"
     ],
     "status": "VEGETARIAN",
     "reason": "Œuf : végétarien mais non vegan (sans préjuger des conditions d'élevage).",
-    "source": "vegan-society, vegetarian-society"
+    "source": "vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "honey",
@@ -1116,11 +1122,26 @@
       "veau",
       "veal",
       "agneau",
-      "lamb"
+      "lamb",
+      "viande bovine",
+      "viandes ovine et caprine",
+      "viande de volaille",
+      "rundvlees",
+      "varkensvlees",
+      "schapen- en geitenvlees",
+      "pluimveevlees",
+      "beef and veal",
+      "pigmeat",
+      "sheepmeat and goatmeat",
+      "poultrymeat",
+      "Rindfleisch",
+      "Schweinefleisch",
+      "Schaf- und Ziegenfleisch",
+      "Geflügelfleisch"
     ],
     "status": "NON_VEGAN",
     "reason": "Chair d’animaux.",
-    "source": "vegan-society"
+    "source": "vegan-society, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "fish",
@@ -6986,5 +7007,97 @@
     "status": "VEGAN",
     "reason": "Catégorie réglementaire composée d’eau, de sucre et de purée de châtaignes : vegan selon cette définition.",
     "source": "eu-jams-directive-2001-113-20260614"
+  },
+  {
+    "id": "edible_offal",
+    "name": "Abats comestibles",
+    "eNumber": "",
+    "aliases": [
+      "abats comestibles des animaux de l'espèce bovine",
+      "eetbare slachtafvallen van runderen",
+      "edible offal of bovine animals",
+      "Genießbare Schlachtnebenerzeugnisse von Rindern"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Parties comestibles d’animaux : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "animal_fat",
+    "name": "Graisse animale",
+    "eNumber": "",
+    "aliases": [
+      "graisses de porc (y compris le saindoux)",
+      "varkensvet (reuzel daaronder begrepen)",
+      "pig fat (including lard)",
+      "Schweinefett (einschließlich Schweineschmalz)"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Graisse explicitement issue d’animaux : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "poultry_meat_preparation",
+    "name": "Préparation de viande de volaille",
+    "eNumber": "",
+    "aliases": [
+      "préparation à base de viande de volaille",
+      "bereiding op basis van pluimveevlees",
+      "poultrymeat preparation",
+      "Geflügelfleischzubereitungen"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Préparation explicitement à base de viande de volaille : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "processed_fruit_vegetable_product",
+    "name": "Produit transformé à base de fruits et légumes",
+    "eNumber": "",
+    "aliases": [
+      "produits transformés à base de fruits et légumes",
+      "verwerkte groenten en fruit",
+      "processed fruit and vegetable products",
+      "Verarbeitungserzeugnisse aus Obst und Gemüse"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Catégorie réglementaire de produit transformé : lire la liste complète des ingrédients.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL"
+      ],
+      "variability": "MANUFACTURER",
+      "sourceIds": [
+        "eu-agricultural-products-regulation-1308-2013-20260818"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "spreadable_fat",
+    "name": "Matière grasse tartinable",
+    "eNumber": "",
+    "aliases": [
+      "matières grasses tartinables",
+      "smeerbare vetten",
+      "spreadable fats",
+      "Streichfette"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "Peut être végétale, animale ou mélangée selon la composition.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL"
+      ],
+      "variability": "MANUFACTURER",
+      "sourceIds": [
+        "eu-agricultural-products-regulation-1308-2013-20260818"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
   }
 ]
