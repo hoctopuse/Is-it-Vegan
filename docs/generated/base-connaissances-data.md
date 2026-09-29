@@ -25,7 +25,7 @@
 | starch | Amidon | VEGAN | — | — | vegan-society |
 | rapeseed_oil | Huile de colza | VEGAN | — | — | vegan-society |
 | sunflower_oil | Huile de tournesol | VEGAN | — | — | vegan-society |
-| olive_oil | Huile d’olive | VEGAN | — | — | vegan-society |
+| olive_oil | Huile d’olive | VEGAN | — | — | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 |
 | palm_oil | Huile de palme | VEGAN | — | — | vegan-society |
 | palm_kernel | Palmiste | VEGAN | — | — | vegan-society |
 | coconut_oil | Huile de coco | VEGAN | — | — | vegan-society |
@@ -37,7 +37,7 @@
 | beans | Haricots | VEGAN | — | — | vegan-society |
 | peas | Pois | VEGAN | — | — | vegan-society |
 | spinach | Épinards | VEGAN | — | — | vegan-society |
-| cocoa | Cacao | VEGAN | — | — | vegan-society |
+| cocoa | Cacao | VEGAN | — | — | vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118 |
 | coffee | Café | VEGAN | — | — | vegan-society |
 | yeast | Levure | VEGAN | — | — | vegan-society |
 | baking_powder | Poudre à lever | VEGAN | — | — | vegan-society |
@@ -56,18 +56,18 @@
 | e904 | Gomme-laque | NON_VEGAN | E904 | — | eu-additives, vegan-society |
 | gelatin | Gélatine | NON_VEGAN | — | — | vegan-society |
 | grana_padano | Grana Padano AOP | NON_VEGAN | — | — | grana-padano-ingredients |
-| milk | Lait animal | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614 |
-| lactose | Lactose | VEGETARIAN | — | — | vegan-society, vegetarian-society |
-| whey | Lactosérum | VEGETARIAN | — | — | vegan-society, vegetarian-society |
-| casein | Caséine | VEGETARIAN | — | — | vegan-society, vegetarian-society |
-| butter | Beurre laitier | VEGETARIAN | — | — | vegan-society, vegetarian-society |
-| cream | Crème laitière | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614 |
+| milk | Lait animal | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 |
+| lactose | Lactose | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
+| whey | Lactosérum | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
+| casein | Caséine | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
+| butter | Beurre laitier | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
+| cream | Crème laitière | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 |
 | ricotta | Ricotta | UNCERTAIN | — | — | vegan-society, vegetarian-society |
-| cheese | Fromage | UNCERTAIN | — | — | vegan-society, vegetarian-society |
-| egg | Œuf | VEGETARIAN | — | — | vegan-society, vegetarian-society |
+| cheese | Fromage | UNCERTAIN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
+| egg | Œuf | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
 | honey | Miel | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614 |
 | beeswax | Cire d’abeille | UNCERTAIN | — | — | vegan-society, vegetarian-society |
-| meat | Viande | NON_VEGAN | — | — | vegan-society |
+| meat | Viande | NON_VEGAN | — | — | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 |
 | fish | Poisson | NON_VEGAN | — | — | vegan-society |
 | e471 | Mono- et diglycérides d’acides gras | UNCERTAIN | E471 | mono-diglycerides-e471 | eu-additives, webadditifs-lead |
 | e472 | Esters de mono- et diglycérides | UNCERTAIN | — | — | eu-additives, webadditifs-lead |
@@ -463,12 +463,25 @@
 | fruit_jelly | Gelée de fruits | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
 | citrus_marmalade | Marmelade d’agrumes | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
 | sweetened_chestnut_puree | Crème de marrons | VEGAN | — | — | eu-jams-directive-2001-113-20260614 |
+| edible_offal | Abats comestibles | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| animal_fat | Graisse animale | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| poultry_meat_preparation | Préparation de viande de volaille | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| processed_fruit_vegetable_product | Produit transformé à base de fruits et légumes | UNCERTAIN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| spreadable_fat | Matière grasse tartinable | UNCERTAIN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| cocoa_butter | Beurre de cacao | VEGAN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| powdered_chocolate | Chocolat en poudre | VEGAN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| chocolate | Chocolat | UNCERTAIN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| milk_chocolate | Chocolat au lait | VEGETARIAN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| white_chocolate | Chocolat blanc | VEGETARIAN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| filled_chocolate | Chocolat fourré | UNCERTAIN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| chocolate_confection | Bonbon de chocolat ou praline | UNCERTAIN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
 
 ### Alias multilingues
 
 | Concept | FR | NL | DE | EN | IT | ES | PL |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | almond | amande, amandes, amandes moulues | amandel, amandelen, gemalen amandelen | Mandel, Mandeln | almond, almonds | mandorla, mandorle | almendra, almendras | — |
+| animal_fat | graisses de porc (y compris le saindoux) | varkensvet (reuzel daaronder begrepen) | Schweinefett (einschließlich Schweineschmalz) | pig fat (including lard) | — | — | — |
 | banana | chips de banane | — | — | — | — | — | — |
 | barley | orge, flocons d’orge complets, orge complète | gerst, volkoren gerst | Gerste | barley | orzo | cebada | — |
 | bell_pepper | poivron, piment doux, poivron jaune, poivron vert, powron | zoete paprika, gele paprika, groene paprika | gelbe Paprika, grüne Paprika | — | — | — | — |
@@ -479,8 +492,11 @@
 | butter | — | — | Butterreinfett | — | — | — | — |
 | cashew | noix de cajou, noix de cajou grillées | cashewnoten, cashewnoot | — | — | — | — | — |
 | cereals | — | granen | — | — | — | — | — |
+| chocolate | chocolat, chocolat de couverture | chocolade, chocoladecouverture | Schokolade, Schokoladenkuvertüre | chocolate, couverture chocolate | — | — | — |
+| chocolate_confection | bonbon de chocolat, praline | chocoladebonbon, praline | Praline, Schokoladebonbon | praline | — | — | — |
 | citrus_marmalade | marmelade d’agrumes, marmelade-gelée | citrusmarmelade, geleimarmelade | Zitrusmarmelade, Gelee-Marmelade | citrus marmalade, jelly marmalade | — | — | — |
-| cocoa | cacao maigre en poudre | cacaopoeder, cacaomassa, cacaoboter | Kakaopulver, Kakaomasse, Kakaobutter, Kakaopulvert | — | — | — | — |
+| cocoa | cacao maigre en poudre, cacao en poudre, cacao | cacaopoeder, cacaomassa, cacao, mager cacaopoeder | Kakaopulver, Kakaomasse, Kakao, mageres Kakaopulver, Kakaopulvert | cocoa powder, cocoa, fat-reduced cocoa powder | — | — | — |
+| cocoa_butter | beurre de cacao | cacaoboter | Kakaobutter | cocoa butter | — | — | — |
 | coconut | coco, noix de coco, chips de coco grillées | kokosnoot | Kokosnuss | coconut | — | — | — |
 | coconut_fat | graisse de coco, matière grasse de coco | kokosvet, kokosnootvet | Kokosfett, Kokosnussfett | coconut fat | grasso di cocco | grasa de coco | — |
 | corn | — | maïsmeel | — | — | mais | maíz | — |
@@ -826,6 +842,9 @@
 | e968 | Érythritol | Erytritol | Erythrit | Erythritol | — | — | — |
 | e969 | Advantame 3. Additifs autres que les colorants et les édulcorants | Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen | Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung | Advantame 3. Additives other than colours and sweeteners | — | — | — |
 | e999 | Extraits de quillaia | Quillaja-extract | Quillajaextrakt | Quillaia extract | — | — | — |
+| edible_offal | abats comestibles des animaux de l'espèce bovine | eetbare slachtafvallen van runderen | Genießbare Schlachtnebenerzeugnisse von Rindern | edible offal of bovine animals | — | — | — |
+| egg | œufs de volailles de basse-cour, en coquille | eieren van pluimvee in de schaal | Eier von Hausgeflügel in der Schale | poultry eggs, in shell | — | — | — |
+| filled_chocolate | chocolat fourré | gevulde chocolade | Gefüllte Schokolade | filled chocolate | — | — | — |
 | fruit_jam | confiture, confiture extra | jam, confituur, extra jam, extra confituur | Konfitüre, Konfitüre extra | jam, extra jam | — | — | — |
 | fruit_jelly | gelée, gelée extra | gelei, extra gelei | Gelee, Gelee extra | jelly, extra jelly | — | — | — |
 | fruit_juice | jus de fruits, jus de fruits à base de concentré, jus de fruits concentré, jus de fruits obtenu par extraction hydrique, jus de fruits déshydraté/en poudre | vruchtensap, vruchtensap uit concentraat, geconcentreerd vruchtensap | Fruchtsaft, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaftkonzentrat | fruit juice, fruit juice from concentrate, concentrated fruit juice, water extracted fruit juice, dehydrated/powdered fruit juice | — | — | — |
@@ -837,10 +856,12 @@
 | inulin | inuline | inuline | Inulin | inulin | inulina | inulina | — |
 | macadamia | noix de macadamia | macadamianoten, macadamianoot | — | — | — | — | — |
 | malt | malt, extrait de malt, flocons de céréales maltés, farine de malt d’orge, farine de malt de blé | mout, gerstermout, gerstermoutextract, gemoute gerstemeel, gemoute tarwebloem | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
+| meat | viande bovine, viande de porc, viandes ovine et caprine, viande de volaille | rundvlees, varkensvlees, schapen- en geitenvlees, pluimveevlees | Rindfleisch, Schweinefleisch, Schaf- und Ziegenfleisch, Geflügelfleisch | beef and veal, pigmeat, sheepmeat and goatmeat, poultrymeat | — | — | — |
 | milk | lait, lait partiellement déshydraté, lait concentré riche en matières grasses, lait concentré, lait concentré partiellement écrémé, lait concentré écrémé, lait concentré sucré, lait concentré sucré partiellement écrémé, lait concentré sucré écrémé, lait totalement déshydraté, lait en poudre riche en matières grasses, poudre de lait riche en matières grasses, lait en poudre entier, poudre de lait entier, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé, lait en poudre écrémé, poudre de lait écrémé, lait demi-écrémé concentré, lait de mi-écrémé concentré non sucré, lait demi-écrémé concentré sucré, lait demi-écrémé en poudre | magere melkpoeder, melk, gedeeltelijk gedehydrateerde melk, geëvaporeerde melk met hoog vetgehalte, geëvaporeerde volle melk, geëvaporeerde gedeeltelijk afgeroomde melk, geëvaporeerde magere melk, gecondenseerde volle melk met suiker, gecondenseerde gedeeltelijk afgeroomde melk met suiker, gecondenseerde magere melk met suiker, geheel gedehydrateerde melk, melkpoeder, melkpoeder met hoog vetgehalte, volle melkpoeder, melkpoeder van gedeeltelijk afgeroomde melk, geëvaporeerde halfvolle melk, halfvolle koffiemelk, halfvolle melkpoeder, koffiemelk | Magermilchpulver, Milch, Eingedickte Milch, Kondensmilch mit hohem Fettgehalt, Kondensmilch, kondensierte Vollmilch, Teilentrahmte Kondensmilch, Kondensmagermilch, kondensierte Magermilch, Gezuckerte Kondensmilch, gezuckerte kondensierte Vollmilch, Gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte kondensierte Milch, Gezuckerte Kondensmagermilch, gezuckerte kondensierte Magermilch, Trockenmilch, Milchpulver, Milchpulver mit hohem Fettgehalt, Vollmilchpulver, Teilentrahmtes Milchpulver, kondensierte Kaffeesahne | milk, partly dehydrated milk, condensed high-fat milk, condensed milk, condensed, partly skimmed milk, condensed skimmed milk, sweetened condensed milk, sweetened condensed, partly skimmed milk, sweetened condensed skimmed milk, totally dehydrated milk, milk powder, dried high-fat milk, high-fat milk powder, dried whole milk, whole milk powder, dried partly skimmed milk, partly skimmed-milk powder, dried skimmed milk, skimmed-milk powder, evaporated milk, evaporated semi-skimmed milk, semi-skimmed milk powder, dried semi-skimmed milk | — | — | — |
+| milk_chocolate | chocolat au lait, chocolat de ménage au lait | melkchocolade, huishoudmelkchocolade | Milchschokolade, Haushaltsmilchschokolade | milk chocolate, family milk chocolate | — | — | — |
 | natural_flavouring | — | natuurlijk aardbeienaroma | natürliches Aroma | — | — | — | — |
 | oats | flocons d’avoine complets, flocons d’avoine complète, avoine fermentée | haver, havervlokken, volkoren havervlokken, gefermenteerde haver | Hafer, Haferflocken | — | avena | avena | — |
-| olive_oil | — | olijfolie | Olivenöl | — | — | — | — |
+| olive_oil | huile d'olive | olijfolie | Olivenöl | olive oil | — | — | — |
 | palm_kernel | palmiste, huile de palmiste, graisse de palmiste | palmpit, palmpitolie, palmpitvet | Palmkern, Palmkernöl, Palmkernfett | palm kernel, palm kernel oil, palm kernel fat | palmisto, olio di palmisto | palmiste, aceite de palmiste | — |
 | palm_oil | huile de palme, graisse de palme | palmolie, palmvet | Palmöl, Palmfett, Ölpalme | palm oil, palm fat | olio di palma | aceite de palma | — |
 | papaya | papaye, papaye confite | papaja | — | — | — | — | — |
@@ -849,6 +870,9 @@
 | pecan | noix de pécan | pecannoten, pecannoot | — | — | — | — | — |
 | pineapple | ananas, ananas confits | ananas | — | — | — | — | — |
 | pistachio | — | pistachenoten, pisaehenoten | — | — | — | — | — |
+| poultry_meat_preparation | préparation à base de viande de volaille | bereiding op basis van pluimveevlees | Geflügelfleischzubereitungen | poultrymeat preparation | — | — | — |
+| powdered_chocolate | chocolat en poudre, cacao sucré | chocoladepoeder, gesuikerd cacaopoeder | Schokoladenpulver, gezuckerter Kakao | powdered chocolate, sweetened cocoa powder | — | — | — |
+| processed_fruit_vegetable_product | produits transformés à base de fruits et légumes | verwerkte groenten en fruit | Verarbeitungserzeugnisse aus Obst und Gemüse | processed fruit and vegetable products | — | — | — |
 | pumpkin_seed | graines de courge | pompoenpitten | — | — | — | — | — |
 | raisin | raisins secs | rozijnen | — | — | — | — | — |
 | rapeseed_oil | — | koolzaadolie | Rapsöl | — | olio di colza | aceite de colza | — |
@@ -856,6 +880,7 @@
 | rye | seigle | rogge, volkoren roggevlokken | Roggen | rye | segale | centeno | — |
 | salt | sel marin | zout, zeezout | Salz, Speisesalz | — | sale | sal | — |
 | sour_cherry | griottes, griottes séchées et sucrées | zure kersen | — | — | — | — | — |
+| spreadable_fat | matières grasses tartinables | smeerbare vetten | Streichfette | spreadable fats | — | — | — |
 | starch | — | tarwezetmeel | Weizenstärke | — | — | — | — |
 | sugar | sirop de sucre caramélisé | suiker, gekarameliseerde suikersiroop | Zucker | — | zucchero | azúcar | — |
 | sultana | raisins sultanines | sultanarozijnen | — | — | — | — | — |
@@ -868,6 +893,7 @@
 | wheat_flour | — | tarwebloem, tarwemeel | Weizenmehl, Weizenmell | — | farina, farina di frumento | harina, harina de trigo | — |
 | wheat_syrup | sirop de blé, sirop de blé liquide et déshydraté | tarwesiroop, tarwesiroop vloeibaar, tarwesiroop gedehydrateerd | Weizensirup | wheat syrup | sciroppo di frumento | jarabe de trigo | — |
 | whey | — | weipoeder van melk | Molkenpulver aus Milch | — | — | — | — |
+| white_chocolate | chocolat blanc | witte chocolade | Weiße Schokolade | white chocolate | — | — | — |
 
 ### Concepts reconnus mais absents
 

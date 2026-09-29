@@ -181,5 +181,23 @@
     ],
     "role": "Primary local source for Annex I agricultural sector names and Annex VII product definitions.",
     "limitations": "Article 1 excludes fishery and aquaculture products. Regulatory sectors identify agricultural goods but do not establish the composition of a general commercial preparation."
+  },
+  {
+    "id": "eu-cocoa-chocolate-directive-2000-36-20131118",
+    "title": "Directive 2000/36/EC — cocoa and chocolate products intended for human consumption",
+    "celex": "02000L0036",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02000L0036-20131118",
+    "language": "FR, NL, EN, DE",
+    "institution": "European Parliament and Council of the European Union",
+    "consolidationDate": "2013-11-18",
+    "localPdfPaths": [
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02000L0036-20131118_FR_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02000L0036-20131118_NL_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02000L0036-20131118_EN_TXT.pdf",
+      "reference-input/eu-food-labelling/02-sector-product-standards/CELEX_02000L0036-20131118_DE_TXT.pdf"
+    ],
+    "role": "Primary local regulatory source for Annex I cocoa and chocolate sales names and definitions.",
+    "limitations": "The directive defines categories and does not make generic chocolate or a filled product vegan; recipes and fillings can contain milk or other animal ingredients.",
+    "use": "Evidence for reviewed CELEX 02000L0036 aliases only; no translation is inferred."
   }
 ]

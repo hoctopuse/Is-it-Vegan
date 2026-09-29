@@ -55,6 +55,8 @@ Un alias court possédant une variante liée plus longue est refusé devant cert
 
 Quelques formes contrôlées peuvent être couvertes : qualificatifs de préparation (`non hydrogénée`, `en poudre`, `fumé`, etc.), préfixes de dérivation et arôme naturel qualifié. Les formes exactes de « sirop de glucose-fructose » sont également reliées à `glucose_syrup`.
 
+Les marqueurs immédiats d’arôme ou de goût protègent aussi la famille chocolat : `arôme chocolat`, `chocolate flavour`, `chocoladearoma` et `Schokoladenaroma` ne sont pas assimilés au chocolat réel. Cette protection contextuelle conserve les dénominations réelles telles que `chocolat noir`, `dark chocolate`, `pure chocolade` et `Bitterschokolade`.
+
 La protection interne de `butter`, `milk` et `cream` évite les conflits lorsque leur alias apparaît dans une expression végétale connue telle que beurre de cacao ou lait de coco. Cette protection dépend toujours d’une autre correspondance vegan précise ; elle n’est pas une règle générale de suppression.
 
 ## Qualifications d’origine

@@ -73,7 +73,7 @@ class PossibleOriginNoteTest {
         assertEquals(
             setOf(
                 "e322", "e422", "e470a", "e470b", "e471", "e572", "e627", "e631", "e635", "e640",
-                "processed_fruit_vegetable_product", "spreadable_fat"
+                "processed_fruit_vegetable_product", "spreadable_fat", "chocolate", "filled_chocolate", "chocolate_confection"
             ),
             noted.map { it.id }.toSet()
         )

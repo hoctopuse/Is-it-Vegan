@@ -42,6 +42,7 @@ nav:
     - Directive UE sur les laits conserv?s: sources/eu-preserved-milk-directive.md
     - Directive UE sur les confitures: sources/eu-jams-directive.md
     - Règlement UE sur les produits agricoles: sources/eu-agricultural-products-regulation.md
+    - Directive UE cacao et chocolat: sources/eu-cocoa-chocolate-directive.md
   - Moteur de verdict: verdict.md
   - Notes de version: changelog.md
   - Tests: tests.md

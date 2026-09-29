@@ -2,6 +2,10 @@
 
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
+## 0.6.13.6
+
+- Distingue les arômes et goûts de chocolat du chocolat réel, tout en conservant les formes FR/NL/EN/DE du cacao, du chocolat, du chocolat au lait et du chocolat blanc importées depuis CELEX 02000L0036.
+
 ## 0.6.13.4
 
 - Importe 44 dénominations FR/NL/EN/DE vérifiées dans CELEX 02013R1308 pour les viandes, abats, graisses animales, préparations de volaille et catégories agricoles variables. La pêche et l’aquaculture restent explicitement hors de cette source.

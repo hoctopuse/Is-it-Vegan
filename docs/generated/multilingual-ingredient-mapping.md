@@ -19,8 +19,11 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | brazil_nut | VEGAN | noix du Brésil | paranoten; paranoot | — | — | vegan-society | — |
 | butter | VEGETARIAN | — | — | — | Butterreinfett | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | cashew | VEGAN | noix de cajou; noix de cajou grillées | cashewnoten; cashewnoot | — | — | vegan-society | — |
+| chocolate | UNCERTAIN | chocolat; chocolat de couverture | chocolade; chocoladecouverture | chocolate; couverture chocolate | Schokolade; Schokoladenkuvertüre | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
+| chocolate_confection | UNCERTAIN | bonbon de chocolat; praline | chocoladebonbon; praline | praline | Praline; Schokoladebonbon | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | citrus_marmalade | VEGAN | marmelade d’agrumes; marmelade-gelée | citrusmarmelade; geleimarmelade | citrus marmalade; jelly marmalade | Zitrusmarmelade; Gelee-Marmelade | eu-jams-directive-2001-113-20260614 | — |
-| cocoa | VEGAN | cacao maigre en poudre | cacaopoeder; cacaomassa; cacaoboter | — | Kakaopulver; Kakaomasse; Kakaobutter; Kakaopulvert | vegan-society | — |
+| cocoa | VEGAN | cacao maigre en poudre; cacao en poudre; cacao | cacaopoeder; cacaomassa; cacao; mager cacaopoeder | cocoa powder; cocoa; fat-reduced cocoa powder | Kakaopulver; Kakaomasse; Kakao; mageres Kakaopulver; Kakaopulvert | vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118 | — |
+| cocoa_butter | VEGAN | beurre de cacao | cacaoboter | cocoa butter | Kakaobutter | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | coconut | VEGAN | coco; noix de coco; chips de coco grillées | kokosnoot | coconut | Kokosnuss | vegan-society | — |
 | coconut_fat | VEGAN | graisse de coco; matière grasse de coco | kokosvet; kokosnootvet | coconut fat | Kokosfett; Kokosnussfett | vegan-society | — |
 | corn | VEGAN | — | maïsmeel | — | — | vegan-society | — |
@@ -369,6 +372,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | e999 | UNCERTAIN | Extraits de quillaia | Quillaja-extract | Quillaia extract | Quillajaextrakt | eu-additives | — |
 | edible_offal | NON_VEGAN | abats comestibles des animaux de l'espèce bovine | eetbare slachtafvallen van runderen | edible offal of bovine animals | Genießbare Schlachtnebenerzeugnisse von Rindern | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | egg | VEGETARIAN | œufs de volailles de basse-cour, en coquille | eieren van pluimvee in de schaal | poultry eggs, in shell | Eier von Hausgeflügel in der Schale | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| filled_chocolate | UNCERTAIN | chocolat fourré | gevulde chocolade | filled chocolate | Gefüllte Schokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | fruit_jam | VEGAN | confiture; confiture extra | jam; confituur; extra jam; extra confituur | jam; extra jam | Konfitüre; Konfitüre extra | eu-jams-directive-2001-113-20260614 | — |
 | fruit_jelly | VEGAN | gelée; gelée extra | gelei; extra gelei | jelly; extra jelly | Gelee; Gelee extra | eu-jams-directive-2001-113-20260614 | — |
 | fruit_juice | VEGAN | jus de fruits; jus de fruits à base de concentré; jus de fruits concentré; jus de fruits obtenu par extraction hydrique; jus de fruits déshydraté/en poudre | vruchtensap; vruchtensap uit concentraat; geconcentreerd vruchtensap | fruit juice; fruit juice from concentrate; concentrated fruit juice; water extracted fruit juice; dehydrated/powdered fruit juice | Fruchtsaft; Fruchtsaft aus Fruchtsaftkonzentrat; Fruchtsaftkonzentrat | eu-fruit-juice-directive-2001-112-20260614 | — |
@@ -382,6 +386,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | malt | VEGAN | malt; extrait de malt; flocons de céréales maltés; farine de malt d’orge; farine de malt de blé | mout; gerstermout; gerstermoutextract; gemoute gerstemeel; gemoute tarwebloem | malt; barley malt extract | Gerstenmalz; Gerstenmalzextrakt | vegan-society | — |
 | meat | NON_VEGAN | viande bovine; viande de porc; viandes ovine et caprine; viande de volaille | rundvlees; varkensvlees; schapen- en geitenvlees; pluimveevlees | beef and veal; pigmeat; sheepmeat and goatmeat; poultrymeat | Rindfleisch; Schweinefleisch; Schaf- und Ziegenfleisch; Geflügelfleisch | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | milk | VEGETARIAN | lait; lait partiellement déshydraté; lait concentré riche en matières grasses; lait concentré; lait concentré partiellement écrémé; lait concentré écrémé; lait concentré sucré; lait concentré sucré partiellement écrémé; lait concentré sucré écrémé; lait totalement déshydraté; lait en poudre riche en matières grasses; poudre de lait riche en matières grasses; lait en poudre entier; poudre de lait entier; lait en poudre partiellement écrémé; poudre de lait partiellement écrémé; lait en poudre écrémé; poudre de lait écrémé; lait demi-écrémé concentré; lait de mi-écrémé concentré non sucré; lait demi-écrémé concentré sucré; lait demi-écrémé en poudre | magere melkpoeder; melk; gedeeltelijk gedehydrateerde melk; geëvaporeerde melk met hoog vetgehalte; geëvaporeerde volle melk; geëvaporeerde gedeeltelijk afgeroomde melk; geëvaporeerde magere melk; gecondenseerde volle melk met suiker; gecondenseerde gedeeltelijk afgeroomde melk met suiker; gecondenseerde magere melk met suiker; geheel gedehydrateerde melk; melkpoeder; melkpoeder met hoog vetgehalte; volle melkpoeder; melkpoeder van gedeeltelijk afgeroomde melk; geëvaporeerde halfvolle melk; halfvolle koffiemelk; halfvolle melkpoeder; koffiemelk | milk; partly dehydrated milk; condensed high-fat milk; condensed milk; condensed, partly skimmed milk; condensed skimmed milk; sweetened condensed milk; sweetened condensed, partly skimmed milk; sweetened condensed skimmed milk; totally dehydrated milk; milk powder; dried high-fat milk; high-fat milk powder; dried whole milk; whole milk powder; dried partly skimmed milk; partly skimmed-milk powder; dried skimmed milk; skimmed-milk powder; evaporated milk; evaporated semi-skimmed milk; semi-skimmed milk powder; dried semi-skimmed milk | Magermilchpulver; Milch; Eingedickte Milch; Kondensmilch mit hohem Fettgehalt; Kondensmilch; kondensierte Vollmilch; Teilentrahmte Kondensmilch; Kondensmagermilch; kondensierte Magermilch; Gezuckerte Kondensmilch; gezuckerte kondensierte Vollmilch; Gezuckerte teilentrahmte Kondensmilch; gezuckerte teilentrahmte kondensierte Milch; Gezuckerte Kondensmagermilch; gezuckerte kondensierte Magermilch; Trockenmilch; Milchpulver; Milchpulver mit hohem Fettgehalt; Vollmilchpulver; Teilentrahmtes Milchpulver; kondensierte Kaffeesahne | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| milk_chocolate | VEGETARIAN | chocolat au lait; chocolat de ménage au lait | melkchocolade; huishoudmelkchocolade | milk chocolate; family milk chocolate | Milchschokolade; Haushaltsmilchschokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | natural_flavouring | UNCERTAIN | — | natuurlijk aardbeienaroma | — | natürliches Aroma | vegan-society | — |
 | oats | VEGAN | flocons d’avoine complets; flocons d’avoine complète; avoine fermentée | haver; havervlokken; volkoren havervlokken; gefermenteerde haver | — | Hafer; Haferflocken | vegan-society | — |
 | olive_oil | VEGAN | huile d'olive | olijfolie | olive oil | Olivenöl | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
@@ -394,6 +399,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | pineapple | VEGAN | ananas; ananas confits | ananas | — | — | vegan-society | — |
 | pistachio | VEGAN | — | pistachenoten; pisaehenoten | — | — | vegan-society | — |
 | poultry_meat_preparation | NON_VEGAN | préparation à base de viande de volaille | bereiding op basis van pluimveevlees | poultrymeat preparation | Geflügelfleischzubereitungen | eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| powdered_chocolate | VEGAN | chocolat en poudre; cacao sucré | chocoladepoeder; gesuikerd cacaopoeder | powdered chocolate; sweetened cocoa powder | Schokoladenpulver; gezuckerter Kakao | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | processed_fruit_vegetable_product | UNCERTAIN | produits transformés à base de fruits et légumes | verwerkte groenten en fruit | processed fruit and vegetable products | Verarbeitungserzeugnisse aus Obst und Gemüse | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | pumpkin_seed | VEGAN | graines de courge | pompoenpitten | — | — | vegan-society | — |
 | raisin | VEGAN | raisins secs | rozijnen | — | — | vegan-society | — |
@@ -415,6 +421,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | wheat_flour | VEGAN | — | tarwebloem; tarwemeel | — | Weizenmehl; Weizenmell | vegan-society | — |
 | wheat_syrup | VEGAN | sirop de blé; sirop de blé liquide et déshydraté | tarwesiroop; tarwesiroop vloeibaar; tarwesiroop gedehydrateerd | wheat syrup | Weizensirup | vegan-society | — |
 | whey | VEGETARIAN | — | weipoeder van melk | — | Molkenpulver aus Milch | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| white_chocolate | VEGETARIAN | chocolat blanc | witte chocolade | white chocolate | Weiße Schokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 
 ## Alias non importes
 
@@ -673,6 +680,49 @@ Mapping group : `cashew`
 ### DE
 - —
 
+## Concept : chocolate
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `chocolat` — REGULATORY_ALIAS; normalise: `chocolat`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `chocolat de couverture` — REGULATORY_ALIAS; normalise: `chocolat de couverture`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `chocolade` — REGULATORY_ALIAS; normalise: `chocolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `chocoladecouverture` — REGULATORY_ALIAS; normalise: `chocoladecouverture`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `chocolate` — REGULATORY_ALIAS; normalise: `chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `couverture chocolate` — REGULATORY_ALIAS; normalise: `couverture chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Schokolade` — REGULATORY_ALIAS; normalise: `schokolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `Schokoladenkuvertüre` — REGULATORY_ALIAS; normalise: `schokoladenkuverture`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+## Concept : chocolate_confection
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `bonbon de chocolat` — REGULATORY_ALIAS; normalise: `bonbon de chocolat`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `praline` — REGULATORY_ALIAS; normalise: `praline`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `chocoladebonbon` — REGULATORY_ALIAS; normalise: `chocoladebonbon`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `praline` — REGULATORY_ALIAS; normalise: `praline`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `praline` — REGULATORY_ALIAS; normalise: `praline`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Praline` — REGULATORY_ALIAS; normalise: `praline`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `Schokoladebonbon` — REGULATORY_ALIAS; normalise: `schokoladebonbon`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
 ## Concept : citrus_marmalade
 
 Statut : `VEGAN`<br>
@@ -698,25 +748,49 @@ Mapping group : `fruit-jams-directive`
 ## Concept : cocoa
 
 Statut : `VEGAN`<br>
-Sources : vegan-society<br>
-Mapping group : `cocoa`
+Sources : vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
 
 ### FR
-- `cacao maigre en poudre` — COMMON_LABEL_NAME; normalise: `cacao maigre en poudre`; confiance: `REVIEWED`; source: vegan-society
+- `cacao maigre en poudre` — REGULATORY_ALIAS; normalise: `cacao maigre en poudre`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `cacao en poudre` — REGULATORY_ALIAS; normalise: `cacao en poudre`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `cacao` — REGULATORY_ALIAS; normalise: `cacao`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
 
 ### NL
-- `cacaopoeder` — COMMON_LABEL_NAME; normalise: `cacaopoeder`; confiance: `REVIEWED`; source: vegan-society
-- `cacaomassa` — COMMON_LABEL_NAME; normalise: `cacaomassa`; confiance: `REVIEWED`; source: vegan-society
-- `cacaoboter` — COMMON_LABEL_NAME; normalise: `cacaoboter`; confiance: `REVIEWED`; source: vegan-society
+- `cacaopoeder` — REGULATORY_ALIAS; normalise: `cacaopoeder`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `cacaomassa` — REGULATORY_ALIAS; normalise: `cacaomassa`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `cacao` — REGULATORY_ALIAS; normalise: `cacao`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `mager cacaopoeder` — REGULATORY_ALIAS; normalise: `mager cacaopoeder`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
 
 ### EN
-- —
+- `cocoa powder` — REGULATORY_ALIAS; normalise: `cocoa powder`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `cocoa` — REGULATORY_ALIAS; normalise: `cocoa`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `fat-reduced cocoa powder` — REGULATORY_ALIAS; normalise: `fat reduced cocoa powder`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
 
 ### DE
-- `Kakaopulver` — COMMON_LABEL_NAME; normalise: `kakaopulver`; confiance: `REVIEWED`; source: vegan-society
-- `Kakaomasse` — COMMON_LABEL_NAME; normalise: `kakaomasse`; confiance: `REVIEWED`; source: vegan-society
-- `Kakaobutter` — COMMON_LABEL_NAME; normalise: `kakaobutter`; confiance: `REVIEWED`; source: vegan-society
-- `Kakaopulvert` — OCR_VARIANT; normalise: `kakaopulvert`; confiance: `OCR_REVIEWED`; source: vegan-society
+- `Kakaopulver` — REGULATORY_ALIAS; normalise: `kakaopulver`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `Kakaomasse` — REGULATORY_ALIAS; normalise: `kakaomasse`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `Kakao` — REGULATORY_ALIAS; normalise: `kakao`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `mageres Kakaopulver` — REGULATORY_ALIAS; normalise: `mageres kakaopulver`; confiance: `REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+- `Kakaopulvert` — OCR_VARIANT; normalise: `kakaopulvert`; confiance: `OCR_REVIEWED`; source: vegan-society, eu-cocoa-chocolate-directive-2000-36-20131118
+
+## Concept : cocoa_butter
+
+Statut : `VEGAN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `beurre de cacao` — REGULATORY_ALIAS; normalise: `beurre de cacao`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `cacaoboter` — REGULATORY_ALIAS; normalise: `cacaoboter`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `cocoa butter` — REGULATORY_ALIAS; normalise: `cocoa butter`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Kakaobutter` — REGULATORY_ALIAS; normalise: `kakaobutter`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
 
 ## Concept : coconut
 
@@ -7046,6 +7120,24 @@ Mapping group : `agricultural-products-regulation`
 ### DE
 - `Eier von Hausgeflügel in der Schale` — REGULATORY_ALIAS; normalise: `eier von hausgeflugel in der schale`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
+## Concept : filled_chocolate
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `chocolat fourré` — REGULATORY_ALIAS; normalise: `chocolat fourre`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `gevulde chocolade` — REGULATORY_ALIAS; normalise: `gevulde chocolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `filled chocolate` — REGULATORY_ALIAS; normalise: `filled chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Gefüllte Schokolade` — REGULATORY_ALIAS; normalise: `gefullte schokolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
 ## Concept : fruit_jam
 
 Statut : `VEGAN`<br>
@@ -7473,6 +7565,28 @@ Mapping group : `preserved-milk`
 ### Contextes exclus
 - arome de lait; gout de lait; milk flavour; milk flavor; plant milk; lait vegetal
 
+## Concept : milk_chocolate
+
+Statut : `VEGETARIAN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `chocolat au lait` — REGULATORY_ALIAS; normalise: `chocolat au lait`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `chocolat de ménage au lait` — REGULATORY_ALIAS; normalise: `chocolat de menage au lait`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `melkchocolade` — REGULATORY_ALIAS; normalise: `melkchocolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `huishoudmelkchocolade` — REGULATORY_ALIAS; normalise: `huishoudmelkchocolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `milk chocolate` — REGULATORY_ALIAS; normalise: `milk chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `family milk chocolate` — REGULATORY_ALIAS; normalise: `family milk chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Milchschokolade` — REGULATORY_ALIAS; normalise: `milchschokolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `Haushaltsmilchschokolade` — REGULATORY_ALIAS; normalise: `haushaltsmilchschokolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
 ## Concept : natural_flavouring
 
 Statut : `UNCERTAIN`<br>
@@ -7724,6 +7838,28 @@ Mapping group : `agricultural-products-regulation`
 
 ### DE
 - `Geflügelfleischzubereitungen` — REGULATORY_ALIAS; normalise: `geflugelfleischzubereitungen`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+## Concept : powdered_chocolate
+
+Statut : `VEGAN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `chocolat en poudre` — REGULATORY_ALIAS; normalise: `chocolat en poudre`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `cacao sucré` — REGULATORY_ALIAS; normalise: `cacao sucre`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `chocoladepoeder` — REGULATORY_ALIAS; normalise: `chocoladepoeder`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `gesuikerd cacaopoeder` — REGULATORY_ALIAS; normalise: `gesuikerd cacaopoeder`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `powdered chocolate` — REGULATORY_ALIAS; normalise: `powdered chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `sweetened cocoa powder` — REGULATORY_ALIAS; normalise: `sweetened cocoa powder`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Schokoladenpulver` — REGULATORY_ALIAS; normalise: `schokoladenpulver`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+- `gezuckerter Kakao` — REGULATORY_ALIAS; normalise: `gezuckerter kakao`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
 
 ## Concept : processed_fruit_vegetable_product
 
@@ -8153,4 +8289,22 @@ Mapping group : `agricultural-products-regulation`
 
 ### DE
 - `Molkenpulver aus Milch` — REGULATORY_ALIAS; normalise: `molkenpulver aus milch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+## Concept : white_chocolate
+
+Statut : `VEGETARIAN`<br>
+Sources : eu-cocoa-chocolate-directive-2000-36-20131118<br>
+Mapping group : `cocoa-chocolate-directive`
+
+### FR
+- `chocolat blanc` — REGULATORY_ALIAS; normalise: `chocolat blanc`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### NL
+- `witte chocolade` — REGULATORY_ALIAS; normalise: `witte chocolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### EN
+- `white chocolate` — REGULATORY_ALIAS; normalise: `white chocolate`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
+
+### DE
+- `Weiße Schokolade` — REGULATORY_ALIAS; normalise: `weisse schokolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
 

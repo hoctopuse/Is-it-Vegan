@@ -52,7 +52,8 @@ class IngredientMatcher(private val database: List<Ingredient>) {
     }.sortedByDescending { it.value.length }
 
     fun match(token: IngredientToken): IngredientMatch {
-        val normalized = TextNormalizer.normalize(token.text)
+        val rawNormalized = TextNormalizer.normalize(token.text)
+        val normalized = knownIngredientCompounds[rawNormalized] ?: rawNormalized
         coveredGlucoseFructose(token, normalized)?.let { return it }
         val candidates = buildList {
             aliases.forEach { alias ->
@@ -80,7 +81,8 @@ class IngredientMatcher(private val database: List<Ingredient>) {
         val eligible = candidates.filterNot { it in blocked ||
             (it.ingredient.id == "honey" && honeyFlavourContext.matches(normalized)) ||
             (it.ingredient.id == "milk" && milkNonIngredientContext.matches(normalized)) ||
-            (it.ingredient.id == "apple" && fruitFlavourContext.matches(normalized))
+            (it.ingredient.id == "apple" && fruitFlavourContext.matches(normalized)) ||
+            (it.ingredient.id in chocolateConceptIds && isFlavourContext(normalized, it))
         }
         val covered = BooleanArray(normalized.length)
         val selected = mutableListOf<Candidate>()
@@ -133,6 +135,12 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             return normalized.substring(animal.endExclusive, source.start).trim() in sourceConnectors
         }
         return false
+    }
+
+    private fun isFlavourContext(normalized: String, candidate: Candidate): Boolean {
+        val prefix = normalized.substring(0, candidate.start).trim()
+        val suffix = normalized.substring(candidate.endExclusive).trim()
+        return flavourPrefixes.matches(prefix) || flavourSuffixes.matches(suffix)
     }
 
     private fun hasNoSemanticRemainder(
@@ -228,5 +236,14 @@ class IngredientMatcher(private val database: List<Ingredient>) {
                 "(?:contient(?: du)? lait|contains milk|bevat melk|enthalt milch))$"
         )
         val fruitFlavourContext = Regex("^(?:arome de|gout de) pomme$")
+        val chocolateConceptIds = setOf(
+            "chocolate", "milk_chocolate", "white_chocolate", "filled_chocolate",
+            "chocolate_confection", "powdered_chocolate"
+        )
+        val flavourPrefixes = Regex(
+            "^(?:arome(?: naturel)?(?: de)?|arome gout|gout(?: de)?)$"
+        )
+        val flavourSuffixes = Regex("^(?:flavour|flavor|aroma)$")
+        val knownIngredientCompounds = mapOf("bitterschokolade" to "bitter schokolade")
     }
 }

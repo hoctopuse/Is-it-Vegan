@@ -82,6 +82,8 @@ Le [règlement UE sur les produits agricoles](sources/eu-agricultural-products-r
 
 Les qualifications d’origine suivent leur propre source éditoriale, `knowledge/origin_qualifier_rules.json`, copiée vers les assets par `tools/build_origin_rules.py`. Son schéma versionné contient sources, règles actives ou en revue et expressions protégées. Une source réglementaire peut établir l’identité d’un additif sans certifier son caractère vegan ; les sources spécialisées servent à confirmer une origine ou à conserver l’incertitude lorsque les procédés varient. La revue 0.6.11.1 est documentée dans `ADDITIVE_ORIGIN_CLASSIFICATION_0_6_11_1_REPORT.md`.
 
+La [directive UE cacao et chocolat](sources/eu-cocoa-chocolate-directive.md) distingue le cacao, le beurre de cacao et les catégories de chocolat. Elle établit des dénominations et une composition réglementaire ; elle ne confirme pas qu’une recette commerciale de chocolat ou de praline soit vegan.
+
 ## Modifier la base
 
 1. Modifier uniquement `knowledge/ingredients.json`.

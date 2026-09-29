@@ -42,7 +42,7 @@ class AgriculturalProductsRegulationImportTest {
         assertTrue(source.readBytes().contentEquals(aliasesAsset.readBytes()))
         val parsed = MiniJson.parse(source.readText()) as Map<*, *>
         val mappings = (parsed["mappings"] as List<*>).map { it as Map<*, *> }
-        assertEquals(1906, mappings.size)
+        assertEquals(1956, mappings.size)
         assertEquals(mappings.size, mappings.map { listOf(it["conceptId"],it["language"],it["normalizedForm"]) }.distinct().size)
         setOf("edible_offal","animal_fat","poultry_meat_preparation","processed_fruit_vegetable_product","spreadable_fat").forEach { id ->
             assertEquals(setOf("FR","NL","EN","DE"), mappings.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
@@ -52,6 +52,6 @@ class AgriculturalProductsRegulationImportTest {
     }
 
     private fun Ingredient.sources() = source.orEmpty()
-    private fun projectRoot(): File = generateSequence(File(System.getProperty("user.dir")).canonicalFile) { it.parentFile }.first { File(it,"settings.gradle.kts").isFile }
+    private fun projectRoot(): File = generateSequence(File(requireNotNull(System.getProperty("user.dir"))).canonicalFile) { it.parentFile }.first { File(it,"settings.gradle.kts").isFile }
     private companion object { const val sourceId = "eu-agricultural-products-regulation-1308-2013-20260818" }
 }

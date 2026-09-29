@@ -20,7 +20,7 @@ class MultilingualIngredientMappingTest {
         val root = MiniJson.parse(source.toString(Charsets.UTF_8)) as Map<*, *>
         val known = knowledge.ingredients.map { it.id }.toSet()
         val mappings = root["mappings"] as List<*>
-        assertEquals(1906, mappings.size)
+        assertEquals(1956, mappings.size)
         assertTrue(mappings.size >= 1864)
         mappings.map { it as Map<*, *> }.forEach { mapping ->
             assertTrue(mapping["conceptId"] in known)
@@ -32,6 +32,9 @@ class MultilingualIngredientMappingTest {
         val mappingRows = mappings.map { it as Map<*, *> }
         assertEquals(mappingRows.size, mappingRows.map { listOf(it["conceptId"], it["language"], it["normalizedForm"], it["relation"]) }.distinct().size)
         setOf("fruit_juice", "fruit_puree", "fruit_nectar").forEach { id ->
+            assertEquals(setOf("FR", "NL", "EN", "DE"), mappingRows.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
+        }
+        setOf("cocoa", "cocoa_butter", "powdered_chocolate", "chocolate", "milk_chocolate", "white_chocolate", "filled_chocolate", "chocolate_confection").forEach { id ->
             assertEquals(setOf("FR", "NL", "EN", "DE"), mappingRows.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
         }
         setOf("fruit_jam", "fruit_jelly", "citrus_marmalade", "sweetened_chestnut_puree").forEach { id ->

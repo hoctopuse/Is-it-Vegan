@@ -685,7 +685,8 @@
       "aliases": [
         "cacaopoeder",
         "cacaomassa",
-        "cacaoboter"
+        "cacao",
+        "mager cacaopoeder"
       ],
       "ocrVariants": []
     },
@@ -1168,7 +1169,8 @@
       "aliases": [
         "Kakaopulver",
         "Kakaomasse",
-        "Kakaobutter"
+        "Kakao",
+        "mageres Kakaopulver"
       ],
       "ocrVariants": [
         "Kakaopulvert"
@@ -1939,7 +1941,9 @@
       "canonicalId": "cocoa",
       "language": "FR",
       "aliases": [
-        "cacao maigre en poudre"
+        "cacao maigre en poudre",
+        "cacao en poudre",
+        "cacao"
       ],
       "ocrVariants": []
     },
@@ -13149,6 +13153,255 @@
         "olive oil"
       ],
       "ocrVariants": []
+    },
+    {
+      "canonicalId": "cocoa_butter",
+      "language": "NL",
+      "aliases": [
+        "cacaoboter"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "cocoa_butter",
+      "language": "DE",
+      "aliases": [
+        "Kakaobutter"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "cocoa",
+      "language": "EN",
+      "aliases": [
+        "cocoa powder",
+        "cocoa",
+        "fat-reduced cocoa powder"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "cocoa_butter",
+      "language": "FR",
+      "aliases": [
+        "beurre de cacao"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "cocoa_butter",
+      "language": "EN",
+      "aliases": [
+        "cocoa butter"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "powdered_chocolate",
+      "language": "FR",
+      "aliases": [
+        "chocolat en poudre",
+        "cacao sucré"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "powdered_chocolate",
+      "language": "NL",
+      "aliases": [
+        "chocoladepoeder",
+        "gesuikerd cacaopoeder"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "powdered_chocolate",
+      "language": "EN",
+      "aliases": [
+        "powdered chocolate",
+        "sweetened cocoa powder"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "powdered_chocolate",
+      "language": "DE",
+      "aliases": [
+        "Schokoladenpulver",
+        "gezuckerter Kakao"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate",
+      "language": "FR",
+      "aliases": [
+        "chocolat",
+        "chocolat de couverture"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate",
+      "language": "NL",
+      "aliases": [
+        "chocolade",
+        "chocoladecouverture"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate",
+      "language": "EN",
+      "aliases": [
+        "chocolate",
+        "couverture chocolate"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate",
+      "language": "DE",
+      "aliases": [
+        "Schokolade",
+        "Schokoladenkuvertüre"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "milk_chocolate",
+      "language": "FR",
+      "aliases": [
+        "chocolat au lait",
+        "chocolat de ménage au lait"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "milk_chocolate",
+      "language": "NL",
+      "aliases": [
+        "melkchocolade",
+        "huishoudmelkchocolade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "milk_chocolate",
+      "language": "EN",
+      "aliases": [
+        "milk chocolate",
+        "family milk chocolate"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "milk_chocolate",
+      "language": "DE",
+      "aliases": [
+        "Milchschokolade",
+        "Haushaltsmilchschokolade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "white_chocolate",
+      "language": "FR",
+      "aliases": [
+        "chocolat blanc"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "white_chocolate",
+      "language": "NL",
+      "aliases": [
+        "witte chocolade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "white_chocolate",
+      "language": "EN",
+      "aliases": [
+        "white chocolate"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "white_chocolate",
+      "language": "DE",
+      "aliases": [
+        "Weiße Schokolade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "filled_chocolate",
+      "language": "FR",
+      "aliases": [
+        "chocolat fourré"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "filled_chocolate",
+      "language": "NL",
+      "aliases": [
+        "gevulde chocolade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "filled_chocolate",
+      "language": "EN",
+      "aliases": [
+        "filled chocolate"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "filled_chocolate",
+      "language": "DE",
+      "aliases": [
+        "Gefüllte Schokolade"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate_confection",
+      "language": "FR",
+      "aliases": [
+        "bonbon de chocolat",
+        "praline"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate_confection",
+      "language": "NL",
+      "aliases": [
+        "chocoladebonbon",
+        "praline"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate_confection",
+      "language": "EN",
+      "aliases": [
+        "praline"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "chocolate_confection",
+      "language": "DE",
+      "aliases": [
+        "Praline",
+        "Schokoladebonbon"
+      ],
+      "ocrVariants": []
     }
   ],
   "ocrCorrections": [
@@ -14682,11 +14935,11 @@
     {
       "surfaceForm": "cacaoboter",
       "language": "NL",
-      "conceptId": "cocoa",
-      "mappingGroup": "cocoa",
-      "relation": "COMMON_LABEL_NAME",
+      "conceptId": "cocoa_butter",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
       "normalizedForm": "cacaoboter",
-      "source": "vegan-society",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
       "confidence": "REVIEWED"
     },
     {
@@ -15722,11 +15975,11 @@
     {
       "surfaceForm": "Kakaobutter",
       "language": "DE",
-      "conceptId": "cocoa",
-      "mappingGroup": "cocoa",
-      "relation": "COMMON_LABEL_NAME",
+      "conceptId": "cocoa_butter",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
       "normalizedForm": "kakaobutter",
-      "source": "vegan-society",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
       "confidence": "REVIEWED"
     },
     {
@@ -32307,6 +32560,506 @@
       "relation": "REGULATORY_ALIAS",
       "normalizedForm": "olive oil",
       "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cacao en poudre",
+      "language": "FR",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cacao en poudre",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cacao",
+      "language": "FR",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cacao",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cacao",
+      "language": "NL",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cacao",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "mager cacaopoeder",
+      "language": "NL",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "mager cacaopoeder",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cocoa powder",
+      "language": "EN",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cocoa powder",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cocoa",
+      "language": "EN",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cocoa",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "fat-reduced cocoa powder",
+      "language": "EN",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fat reduced cocoa powder",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Kakao",
+      "language": "DE",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "kakao",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "mageres Kakaopulver",
+      "language": "DE",
+      "conceptId": "cocoa",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "mageres kakaopulver",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "beurre de cacao",
+      "language": "FR",
+      "conceptId": "cocoa_butter",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "beurre de cacao",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cocoa butter",
+      "language": "EN",
+      "conceptId": "cocoa_butter",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cocoa butter",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat en poudre",
+      "language": "FR",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat en poudre",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "cacao sucré",
+      "language": "FR",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "cacao sucre",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocoladepoeder",
+      "language": "NL",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocoladepoeder",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "gesuikerd cacaopoeder",
+      "language": "NL",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gesuikerd cacaopoeder",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "powdered chocolate",
+      "language": "EN",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "powdered chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "sweetened cocoa powder",
+      "language": "EN",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "sweetened cocoa powder",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schokoladenpulver",
+      "language": "DE",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schokoladenpulver",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "gezuckerter Kakao",
+      "language": "DE",
+      "conceptId": "powdered_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gezuckerter kakao",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat",
+      "language": "FR",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat de couverture",
+      "language": "FR",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat de couverture",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolade",
+      "language": "NL",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocoladecouverture",
+      "language": "NL",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocoladecouverture",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolate",
+      "language": "EN",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "couverture chocolate",
+      "language": "EN",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "couverture chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schokolade",
+      "language": "DE",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schokolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schokoladenkuvertüre",
+      "language": "DE",
+      "conceptId": "chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schokoladenkuverture",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat au lait",
+      "language": "FR",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat au lait",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat de ménage au lait",
+      "language": "FR",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat de menage au lait",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "melkchocolade",
+      "language": "NL",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "melkchocolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "huishoudmelkchocolade",
+      "language": "NL",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "huishoudmelkchocolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "milk chocolate",
+      "language": "EN",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "milk chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "family milk chocolate",
+      "language": "EN",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "family milk chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Milchschokolade",
+      "language": "DE",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "milchschokolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Haushaltsmilchschokolade",
+      "language": "DE",
+      "conceptId": "milk_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "haushaltsmilchschokolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat blanc",
+      "language": "FR",
+      "conceptId": "white_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat blanc",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "witte chocolade",
+      "language": "NL",
+      "conceptId": "white_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "witte chocolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "white chocolate",
+      "language": "EN",
+      "conceptId": "white_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "white chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Weiße Schokolade",
+      "language": "DE",
+      "conceptId": "white_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "weisse schokolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocolat fourré",
+      "language": "FR",
+      "conceptId": "filled_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocolat fourre",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "gevulde chocolade",
+      "language": "NL",
+      "conceptId": "filled_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gevulde chocolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "filled chocolate",
+      "language": "EN",
+      "conceptId": "filled_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "filled chocolate",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Gefüllte Schokolade",
+      "language": "DE",
+      "conceptId": "filled_chocolate",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gefullte schokolade",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "bonbon de chocolat",
+      "language": "FR",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "bonbon de chocolat",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "praline",
+      "language": "FR",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "praline",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "chocoladebonbon",
+      "language": "NL",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "chocoladebonbon",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "praline",
+      "language": "NL",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "praline",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "praline",
+      "language": "EN",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "praline",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Praline",
+      "language": "DE",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "praline",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Schokoladebonbon",
+      "language": "DE",
+      "conceptId": "chocolate_confection",
+      "mappingGroup": "cocoa-chocolate-directive",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schokoladebonbon",
+      "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
       "confidence": "REVIEWED"
     }
   ],
