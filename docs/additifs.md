@@ -1,6 +1,6 @@
 # Référentiel des additifs UE
 
-La version 0.6.9.10 complète la base applicative avec une référence réglementaire multilingue acquise localement. Elle améliore la reconnaissance des numéros E et des dénominations présentes sur les étiquettes ; elle ne transforme pas une autorisation réglementaire en preuve de compatibilité vegan.
+Le lot historique 0.6.9.10 a complété la base applicative avec une référence réglementaire multilingue acquise localement. L’état courant de l’application est `0.6.13.7`. Le référentiel améliore la reconnaissance des numéros E et des dénominations présentes sur les étiquettes ; il ne transforme pas une autorisation réglementaire en preuve de compatibilité vegan.
 
 ## Sources de référence
 

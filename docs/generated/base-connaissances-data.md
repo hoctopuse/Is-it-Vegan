@@ -77,7 +77,7 @@
 | e627 | Guanylate disodique | UNCERTAIN | E627 | inosinates-e626-e629-e630-e635 | eu-additives, webadditifs-lead |
 | e631 | Inosinate disodique | UNCERTAIN | E631 | inosinates-e626-e629-e630-e635 | eu-additives, webadditifs-lead |
 | e635 | Ribonucléotides disodiques | UNCERTAIN | E635 | inosinates-e626-e629-e630-e635 | eu-additives, webadditifs-lead |
-| natural_flavouring | Arôme naturel | UNCERTAIN | — | — | vegan-society |
+| natural_flavouring | Arôme naturel | UNCERTAIN | — | — | vegan-society, eu-flavourings-regulation-1334-2008-20260216 |
 | vitamin_d | Vitamine D | UNCERTAIN | — | — | vegan-society |
 | e300 | Acide ascorbique | VEGAN | E300 | — | eu-additives |
 | e330 | Acide citrique | VEGAN | E330 | — | eu-additives |
@@ -475,6 +475,14 @@
 | white_chocolate | Chocolat blanc | VEGETARIAN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
 | filled_chocolate | Chocolat fourré | UNCERTAIN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
 | chocolate_confection | Bonbon de chocolat ou praline | UNCERTAIN | — | — | eu-cocoa-chocolate-directive-2000-36-20131118 |
+| flavouring | Arôme | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| flavouring_substance | Substance aromatisante | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| flavouring_preparation | Préparation aromatisante | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| thermal_process_flavouring | Arôme obtenu par traitement thermique | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| smoke_flavouring | Arôme de fumée | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| flavour_precursor | Précurseur d’arôme | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| other_flavouring | Autre arôme | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| food_ingredient_with_flavouring_properties | Ingrédient alimentaire aux propriétés aromatisantes | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
 
 ### Alias multilingues
 
@@ -845,6 +853,11 @@
 | edible_offal | abats comestibles des animaux de l'espèce bovine | eetbare slachtafvallen van runderen | Genießbare Schlachtnebenerzeugnisse von Rindern | edible offal of bovine animals | — | — | — |
 | egg | œufs de volailles de basse-cour, en coquille | eieren van pluimvee in de schaal | Eier von Hausgeflügel in der Schale | poultry eggs, in shell | — | — | — |
 | filled_chocolate | chocolat fourré | gevulde chocolade | Gefüllte Schokolade | filled chocolate | — | — | — |
+| flavour_precursor | précurseur d'arôme | aromaprecursor | Aromavorstufe | flavour precursor | — | — | — |
+| flavouring | arôme, arômes | aroma, aroma's | Aroma, Aromen | flavouring, flavourings | — | — | — |
+| flavouring_preparation | préparation aromatisante | aromatiserend preparaat | Aromaextrakt | flavouring preparation | — | — | — |
+| flavouring_substance | substance aromatisante | aromastof | Aromastoff | flavouring substance | — | — | — |
+| food_ingredient_with_flavouring_properties | ingrédient alimentaire possédant des propriétés aromatisantes | voedselingrediënt met aromatiserende eigenschappen | Lebensmittelzutat mit Aromaeigenschaften | food ingredient with flavouring properties | — | — | — |
 | fruit_jam | confiture, confiture extra | jam, confituur, extra jam, extra confituur | Konfitüre, Konfitüre extra | jam, extra jam | — | — | — |
 | fruit_jelly | gelée, gelée extra | gelei, extra gelei | Gelee, Gelee extra | jelly, extra jelly | — | — | — |
 | fruit_juice | jus de fruits, jus de fruits à base de concentré, jus de fruits concentré, jus de fruits obtenu par extraction hydrique, jus de fruits déshydraté/en poudre | vruchtensap, vruchtensap uit concentraat, geconcentreerd vruchtensap | Fruchtsaft, Fruchtsaft aus Fruchtsaftkonzentrat, Fruchtsaftkonzentrat | fruit juice, fruit juice from concentrate, concentrated fruit juice, water extracted fruit juice, dehydrated/powdered fruit juice | — | — | — |
@@ -859,9 +872,10 @@
 | meat | viande bovine, viande de porc, viandes ovine et caprine, viande de volaille | rundvlees, varkensvlees, schapen- en geitenvlees, pluimveevlees | Rindfleisch, Schweinefleisch, Schaf- und Ziegenfleisch, Geflügelfleisch | beef and veal, pigmeat, sheepmeat and goatmeat, poultrymeat | — | — | — |
 | milk | lait, lait partiellement déshydraté, lait concentré riche en matières grasses, lait concentré, lait concentré partiellement écrémé, lait concentré écrémé, lait concentré sucré, lait concentré sucré partiellement écrémé, lait concentré sucré écrémé, lait totalement déshydraté, lait en poudre riche en matières grasses, poudre de lait riche en matières grasses, lait en poudre entier, poudre de lait entier, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé, lait en poudre écrémé, poudre de lait écrémé, lait demi-écrémé concentré, lait de mi-écrémé concentré non sucré, lait demi-écrémé concentré sucré, lait demi-écrémé en poudre | magere melkpoeder, melk, gedeeltelijk gedehydrateerde melk, geëvaporeerde melk met hoog vetgehalte, geëvaporeerde volle melk, geëvaporeerde gedeeltelijk afgeroomde melk, geëvaporeerde magere melk, gecondenseerde volle melk met suiker, gecondenseerde gedeeltelijk afgeroomde melk met suiker, gecondenseerde magere melk met suiker, geheel gedehydrateerde melk, melkpoeder, melkpoeder met hoog vetgehalte, volle melkpoeder, melkpoeder van gedeeltelijk afgeroomde melk, geëvaporeerde halfvolle melk, halfvolle koffiemelk, halfvolle melkpoeder, koffiemelk | Magermilchpulver, Milch, Eingedickte Milch, Kondensmilch mit hohem Fettgehalt, Kondensmilch, kondensierte Vollmilch, Teilentrahmte Kondensmilch, Kondensmagermilch, kondensierte Magermilch, Gezuckerte Kondensmilch, gezuckerte kondensierte Vollmilch, Gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte kondensierte Milch, Gezuckerte Kondensmagermilch, gezuckerte kondensierte Magermilch, Trockenmilch, Milchpulver, Milchpulver mit hohem Fettgehalt, Vollmilchpulver, Teilentrahmtes Milchpulver, kondensierte Kaffeesahne | milk, partly dehydrated milk, condensed high-fat milk, condensed milk, condensed, partly skimmed milk, condensed skimmed milk, sweetened condensed milk, sweetened condensed, partly skimmed milk, sweetened condensed skimmed milk, totally dehydrated milk, milk powder, dried high-fat milk, high-fat milk powder, dried whole milk, whole milk powder, dried partly skimmed milk, partly skimmed-milk powder, dried skimmed milk, skimmed-milk powder, evaporated milk, evaporated semi-skimmed milk, semi-skimmed milk powder, dried semi-skimmed milk | — | — | — |
 | milk_chocolate | chocolat au lait, chocolat de ménage au lait | melkchocolade, huishoudmelkchocolade | Milchschokolade, Haushaltsmilchschokolade | milk chocolate, family milk chocolate | — | — | — |
-| natural_flavouring | — | natuurlijk aardbeienaroma | natürliches Aroma | — | — | — | — |
+| natural_flavouring | substance aromatisante naturelle | natuurlijk aardbeienaroma, natuurlijke aromastof | natürliches Aroma, natürlicher Aromastoff | natural flavouring substance | — | — | — |
 | oats | flocons d’avoine complets, flocons d’avoine complète, avoine fermentée | haver, havervlokken, volkoren havervlokken, gefermenteerde haver | Hafer, Haferflocken | — | avena | avena | — |
 | olive_oil | huile d'olive | olijfolie | Olivenöl | olive oil | — | — | — |
+| other_flavouring | autre arôme | overig aroma | sonstiges Aroma | other flavouring | — | — | — |
 | palm_kernel | palmiste, huile de palmiste, graisse de palmiste | palmpit, palmpitolie, palmpitvet | Palmkern, Palmkernöl, Palmkernfett | palm kernel, palm kernel oil, palm kernel fat | palmisto, olio di palmisto | palmiste, aceite de palmiste | — |
 | palm_oil | huile de palme, graisse de palme | palmolie, palmvet | Palmöl, Palmfett, Ölpalme | palm oil, palm fat | olio di palma | aceite de palma | — |
 | papaya | papaye, papaye confite | papaja | — | — | — | — | — |
@@ -879,6 +893,7 @@
 | rice | pétales de riz | rijstmeel, rijstvlokken | — | — | riso | arroz | — |
 | rye | seigle | rogge, volkoren roggevlokken | Roggen | rye | segale | centeno | — |
 | salt | sel marin | zout, zeezout | Salz, Speisesalz | — | sale | sal | — |
+| smoke_flavouring | arôme de fumée | rookaroma | Raucharoma | smoke flavouring | — | — | — |
 | sour_cherry | griottes, griottes séchées et sucrées | zure kersen | — | — | — | — | — |
 | spreadable_fat | matières grasses tartinables | smeerbare vetten | Streichfette | spreadable fats | — | — | — |
 | starch | — | tarwezetmeel | Weizenstärke | — | — | — | — |
@@ -886,6 +901,7 @@
 | sultana | raisins sultanines | sultanarozijnen | — | — | — | — | — |
 | sunflower_oil | — | zonnebloemolie, zonnebloemole, zonnebloem olie | Sonnenblumenöl | — | olio di girasole | aceite de girasol | — |
 | sweetened_chestnut_puree | crème de marrons | kastanjepasta | Maronenkrem | sweetened chestnut purée | — | — | — |
+| thermal_process_flavouring | arôme obtenu par traitement thermique | via een thermisch procedé verkregen aroma | thermisch gewonnenes Reaktionsaroma | thermal process flavouring | — | — | — |
 | vinegar | — | azijn | Essig | — | — | — | — |
 | vitamin_b12 | vitamine B12 | vitamine B12 | — | — | — | — | — |
 | walnut | — | walnoot | — | — | — | — | — |
