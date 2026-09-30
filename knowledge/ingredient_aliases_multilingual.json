@@ -838,7 +838,8 @@
       "canonicalId": "natural_flavouring",
       "language": "NL",
       "aliases": [
-        "natuurlijk aardbeienaroma"
+        "natuurlijk aardbeienaroma",
+        "natuurlijke aromastof"
       ],
       "ocrVariants": []
     },
@@ -1400,7 +1401,8 @@
       "canonicalId": "natural_flavouring",
       "language": "DE",
       "aliases": [
-        "natürliches Aroma"
+        "natürliches Aroma",
+        "natürlicher Aromastoff"
       ],
       "ocrVariants": []
     },
@@ -13400,6 +13402,282 @@
       "aliases": [
         "Praline",
         "Schokoladebonbon"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring",
+      "language": "FR",
+      "aliases": [
+        "arôme",
+        "arômes"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring",
+      "language": "NL",
+      "aliases": [
+        "aroma",
+        "aroma's"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring",
+      "language": "EN",
+      "aliases": [
+        "flavouring",
+        "flavourings"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring",
+      "language": "DE",
+      "aliases": [
+        "Aroma",
+        "Aromen"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_substance",
+      "language": "FR",
+      "aliases": [
+        "substance aromatisante"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_substance",
+      "language": "NL",
+      "aliases": [
+        "aromastof"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_substance",
+      "language": "EN",
+      "aliases": [
+        "flavouring substance"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_substance",
+      "language": "DE",
+      "aliases": [
+        "Aromastoff"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "natural_flavouring",
+      "language": "FR",
+      "aliases": [
+        "substance aromatisante naturelle"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "natural_flavouring",
+      "language": "EN",
+      "aliases": [
+        "natural flavouring substance"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_preparation",
+      "language": "FR",
+      "aliases": [
+        "préparation aromatisante"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_preparation",
+      "language": "NL",
+      "aliases": [
+        "aromatiserend preparaat"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_preparation",
+      "language": "EN",
+      "aliases": [
+        "flavouring preparation"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavouring_preparation",
+      "language": "DE",
+      "aliases": [
+        "Aromaextrakt"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "thermal_process_flavouring",
+      "language": "FR",
+      "aliases": [
+        "arôme obtenu par traitement thermique"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "thermal_process_flavouring",
+      "language": "NL",
+      "aliases": [
+        "via een thermisch procedé verkregen aroma"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "thermal_process_flavouring",
+      "language": "EN",
+      "aliases": [
+        "thermal process flavouring"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "thermal_process_flavouring",
+      "language": "DE",
+      "aliases": [
+        "thermisch gewonnenes Reaktionsaroma"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "smoke_flavouring",
+      "language": "FR",
+      "aliases": [
+        "arôme de fumée"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "smoke_flavouring",
+      "language": "NL",
+      "aliases": [
+        "rookaroma"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "smoke_flavouring",
+      "language": "EN",
+      "aliases": [
+        "smoke flavouring"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "smoke_flavouring",
+      "language": "DE",
+      "aliases": [
+        "Raucharoma"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavour_precursor",
+      "language": "FR",
+      "aliases": [
+        "précurseur d'arôme"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavour_precursor",
+      "language": "NL",
+      "aliases": [
+        "aromaprecursor"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavour_precursor",
+      "language": "EN",
+      "aliases": [
+        "flavour precursor"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "flavour_precursor",
+      "language": "DE",
+      "aliases": [
+        "Aromavorstufe"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "other_flavouring",
+      "language": "FR",
+      "aliases": [
+        "autre arôme"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "other_flavouring",
+      "language": "NL",
+      "aliases": [
+        "overig aroma"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "other_flavouring",
+      "language": "EN",
+      "aliases": [
+        "other flavouring"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "other_flavouring",
+      "language": "DE",
+      "aliases": [
+        "sonstiges Aroma"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "food_ingredient_with_flavouring_properties",
+      "language": "FR",
+      "aliases": [
+        "ingrédient alimentaire possédant des propriétés aromatisantes"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "food_ingredient_with_flavouring_properties",
+      "language": "NL",
+      "aliases": [
+        "voedselingrediënt met aromatiserende eigenschappen"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "food_ingredient_with_flavouring_properties",
+      "language": "EN",
+      "aliases": [
+        "food ingredient with flavouring properties"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "food_ingredient_with_flavouring_properties",
+      "language": "DE",
+      "aliases": [
+        "Lebensmittelzutat mit Aromaeigenschaften"
       ],
       "ocrVariants": []
     }
@@ -33060,6 +33338,406 @@
       "relation": "REGULATORY_ALIAS",
       "normalizedForm": "schokoladebonbon",
       "source": "eu-cocoa-chocolate-directive-2000-36-20131118",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "arôme",
+      "language": "FR",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "arome",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "arômes",
+      "language": "FR",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromes",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "aroma",
+      "language": "NL",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "aroma's",
+      "language": "NL",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aroma s",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "flavouring",
+      "language": "EN",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "flavouring",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "flavourings",
+      "language": "EN",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "flavourings",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Aroma",
+      "language": "DE",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Aromen",
+      "language": "DE",
+      "conceptId": "flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromen",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "substance aromatisante",
+      "language": "FR",
+      "conceptId": "flavouring_substance",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "substance aromatisante",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "aromastof",
+      "language": "NL",
+      "conceptId": "flavouring_substance",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromastof",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "flavouring substance",
+      "language": "EN",
+      "conceptId": "flavouring_substance",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "flavouring substance",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Aromastoff",
+      "language": "DE",
+      "conceptId": "flavouring_substance",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromastoff",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "substance aromatisante naturelle",
+      "language": "FR",
+      "conceptId": "natural_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "substance aromatisante naturelle",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "natuurlijke aromastof",
+      "language": "NL",
+      "conceptId": "natural_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "natuurlijke aromastof",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "natural flavouring substance",
+      "language": "EN",
+      "conceptId": "natural_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "natural flavouring substance",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "natürlicher Aromastoff",
+      "language": "DE",
+      "conceptId": "natural_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "naturlicher aromastoff",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "préparation aromatisante",
+      "language": "FR",
+      "conceptId": "flavouring_preparation",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "preparation aromatisante",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "aromatiserend preparaat",
+      "language": "NL",
+      "conceptId": "flavouring_preparation",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromatiserend preparaat",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "flavouring preparation",
+      "language": "EN",
+      "conceptId": "flavouring_preparation",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "flavouring preparation",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Aromaextrakt",
+      "language": "DE",
+      "conceptId": "flavouring_preparation",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromaextrakt",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "arôme obtenu par traitement thermique",
+      "language": "FR",
+      "conceptId": "thermal_process_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "arome obtenu par traitement thermique",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "via een thermisch procedé verkregen aroma",
+      "language": "NL",
+      "conceptId": "thermal_process_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "via een thermisch procede verkregen aroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "thermal process flavouring",
+      "language": "EN",
+      "conceptId": "thermal_process_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "thermal process flavouring",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "thermisch gewonnenes Reaktionsaroma",
+      "language": "DE",
+      "conceptId": "thermal_process_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "thermisch gewonnenes reaktionsaroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "arôme de fumée",
+      "language": "FR",
+      "conceptId": "smoke_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "arome de fumee",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "rookaroma",
+      "language": "NL",
+      "conceptId": "smoke_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "rookaroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "smoke flavouring",
+      "language": "EN",
+      "conceptId": "smoke_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "smoke flavouring",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Raucharoma",
+      "language": "DE",
+      "conceptId": "smoke_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "raucharoma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "précurseur d'arôme",
+      "language": "FR",
+      "conceptId": "flavour_precursor",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "precurseur d arome",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "aromaprecursor",
+      "language": "NL",
+      "conceptId": "flavour_precursor",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromaprecursor",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "flavour precursor",
+      "language": "EN",
+      "conceptId": "flavour_precursor",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "flavour precursor",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Aromavorstufe",
+      "language": "DE",
+      "conceptId": "flavour_precursor",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "aromavorstufe",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "autre arôme",
+      "language": "FR",
+      "conceptId": "other_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "autre arome",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "overig aroma",
+      "language": "NL",
+      "conceptId": "other_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "overig aroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "other flavouring",
+      "language": "EN",
+      "conceptId": "other_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "other flavouring",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "sonstiges Aroma",
+      "language": "DE",
+      "conceptId": "other_flavouring",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "sonstiges aroma",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "ingrédient alimentaire possédant des propriétés aromatisantes",
+      "language": "FR",
+      "conceptId": "food_ingredient_with_flavouring_properties",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "ingredient alimentaire possedant des proprietes aromatisantes",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "voedselingrediënt met aromatiserende eigenschappen",
+      "language": "NL",
+      "conceptId": "food_ingredient_with_flavouring_properties",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "voedselingredient met aromatiserende eigenschappen",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "food ingredient with flavouring properties",
+      "language": "EN",
+      "conceptId": "food_ingredient_with_flavouring_properties",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "food ingredient with flavouring properties",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
+      "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "Lebensmittelzutat mit Aromaeigenschaften",
+      "language": "DE",
+      "conceptId": "food_ingredient_with_flavouring_properties",
+      "mappingGroup": "eu-flavourings-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lebensmittelzutat mit aromaeigenschaften",
+      "source": "eu-flavourings-regulation-1334-2008-20260216",
       "confidence": "REVIEWED"
     }
   ],

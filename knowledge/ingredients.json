@@ -1489,13 +1489,30 @@
       "aromes naturels",
       "natural flavouring",
       "natural flavoring",
-      "natuurlijk aroma"
+      "natuurlijk aroma",
+      "substance aromatisante naturelle",
+      "natuurlijke aromastof",
+      "natural flavouring substance",
+      "natürlicher Aromastoff"
     ],
     "status": "UNCERTAIN",
     "reason": "Le libellé ne précise pas l’origine de tous les composants.",
     "sources": [
-      "vegan-society"
-    ]
+      "vegan-society",
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
   },
   {
     "id": "vitamin_d",
@@ -8153,6 +8170,226 @@
       "variability": "RAW_MATERIAL_AND_PROCESS",
       "sourceIds": [
         "eu-cocoa-chocolate-directive-2000-36-20131118"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "flavouring",
+    "name": "Arôme",
+    "aliases": [
+      "arôme",
+      "arômes",
+      "aroma",
+      "aroma's",
+      "flavouring",
+      "flavourings",
+      "Aroma",
+      "Aromen"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "flavouring_substance",
+    "name": "Substance aromatisante",
+    "aliases": [
+      "substance aromatisante",
+      "aromastof",
+      "flavouring substance",
+      "Aromastoff"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "flavouring_preparation",
+    "name": "Préparation aromatisante",
+    "aliases": [
+      "préparation aromatisante",
+      "aromatiserend preparaat",
+      "flavouring preparation",
+      "Aromaextrakt"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "thermal_process_flavouring",
+    "name": "Arôme obtenu par traitement thermique",
+    "aliases": [
+      "arôme obtenu par traitement thermique",
+      "via een thermisch procedé verkregen aroma",
+      "thermal process flavouring",
+      "thermisch gewonnenes Reaktionsaroma"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "smoke_flavouring",
+    "name": "Arôme de fumée",
+    "aliases": [
+      "arôme de fumée",
+      "rookaroma",
+      "smoke flavouring",
+      "Raucharoma"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "flavour_precursor",
+    "name": "Précurseur d’arôme",
+    "aliases": [
+      "précurseur d'arôme",
+      "aromaprecursor",
+      "flavour precursor",
+      "Aromavorstufe"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "other_flavouring",
+    "name": "Autre arôme",
+    "aliases": [
+      "autre arôme",
+      "overig aroma",
+      "other flavouring",
+      "sonstiges Aroma"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
+      ],
+      "confidence": "REGULATORY_CATEGORY"
+    }
+  },
+  {
+    "id": "food_ingredient_with_flavouring_properties",
+    "name": "Ingrédient alimentaire aux propriétés aromatisantes",
+    "aliases": [
+      "ingrédient alimentaire possédant des propriétés aromatisantes",
+      "voedselingrediënt met aromatiserende eigenschappen",
+      "food ingredient with flavouring properties",
+      "Lebensmittelzutat mit Aromaeigenschaften"
+    ],
+    "status": "UNCERTAIN",
+    "reason": "La catégorie réglementaire peut provenir de matières végétales, animales ou microbiologiques et ne prouve pas la présence de l’aliment dont elle évoque le goût.",
+    "sources": [
+      "eu-flavourings-regulation-1334-2008-20260216"
+    ],
+    "possibleOriginNote": {
+      "origins": [
+        "PLANT",
+        "ANIMAL",
+        "MICROBIAL"
+      ],
+      "variability": "RAW_MATERIAL_AND_PROCESS",
+      "sourceIds": [
+        "eu-flavourings-regulation-1334-2008-20260216"
       ],
       "confidence": "REGULATORY_CATEGORY"
     }

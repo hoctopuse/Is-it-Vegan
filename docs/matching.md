@@ -57,6 +57,8 @@ Quelques formes contrôlées peuvent être couvertes : qualificatifs de prépara
 
 Les marqueurs immédiats d’arôme ou de goût protègent aussi la famille chocolat : `arôme chocolat`, `chocolate flavour`, `chocoladearoma` et `Schokoladenaroma` ne sont pas assimilés au chocolat réel. Cette protection contextuelle conserve les dénominations réelles telles que `chocolat noir`, `dark chocolate`, `pure chocolade` et `Bitterschokolade`.
 
+Le règlement CELEX 02008R1334 étend cette prudence aux catégories d’arômes : `arôme fraise` ne vaut pas fraise et `extrait de café` ne vaut pas café. Ces expressions peuvent conserver la catégorie `flavouring` lorsqu’elle est explicitement reconnue, mais elles ne prouvent jamais la présence ou l’origine de l’aliment évoqué.
+
 La protection interne de `butter`, `milk` et `cream` évite les conflits lorsque leur alias apparaît dans une expression végétale connue telle que beurre de cacao ou lait de coco. Cette protection dépend toujours d’une autre correspondance vegan précise ; elle n’est pas une règle générale de suppression.
 
 ## Qualifications d’origine

@@ -199,5 +199,23 @@
     "role": "Primary local regulatory source for Annex I cocoa and chocolate sales names and definitions.",
     "limitations": "The directive defines categories and does not make generic chocolate or a filled product vegan; recipes and fillings can contain milk or other animal ingredients.",
     "use": "Evidence for reviewed CELEX 02000L0036 aliases only; no translation is inferred."
+  },
+  {
+    "id": "eu-flavourings-regulation-1334-2008-20260216",
+    "title": "Regulation (EC) No 1334/2008 — flavourings and certain food ingredients with flavouring properties",
+    "celex": "02008R1334",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02008R1334-20260216",
+    "language": "FR, NL, EN, DE",
+    "institution": "European Parliament and Council of the European Union",
+    "consolidationDate": "2026-02-16",
+    "localPdfPaths": [
+      "reference-input/eu-food-labelling/01-core-labelling-terms/CELEX_02008R1334-20260216_FR_TXT.pdf",
+      "reference-input/eu-food-labelling/01-core-labelling-terms/CELEX_02008R1334-20260216_NL_TXT.pdf",
+      "reference-input/eu-food-labelling/01-core-labelling-terms/CELEX_02008R1334-20260216_EN_TXT.pdf",
+      "reference-input/eu-food-labelling/01-core-labelling-terms/CELEX_02008R1334-20260216_DE_TXT.pdf"
+    ],
+    "role": "Primary local regulatory source for Article 3 flavouring category names and definitions.",
+    "limitations": "The regulation defines categories and possible source materials; it does not establish vegan suitability or prove that a named food is present in an aroma.",
+    "use": "Evidence for reviewed CELEX 02008R1334 category aliases only; no translation or formulation-specific origin is inferred."
   }
 ]

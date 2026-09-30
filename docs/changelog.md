@@ -1,5 +1,10 @@
 # Notes de version
 
+## 0.6.13.7
+
+- Importe les catégories réglementaires d’arômes de l’article 3 du règlement CELEX 02008R1334 dans les quatre langues, avec notes d’origine prudentes et mapping multilingue généré.
+- Distingue les contextes arôme, goût et extrait des ingrédients réels afin que `arôme fraise` ou `extrait de café` ne prouvent pas la présence de fraise ou de café.
+
 Ces notes résument les capacités livrées. Elles ne remplacent ni le diagnostic d’une étiquette, ni les rapports d’audit et de correction à la racine du dépôt.
 
 ## 0.6.13.6

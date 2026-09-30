@@ -73,7 +73,10 @@ class PossibleOriginNoteTest {
         assertEquals(
             setOf(
                 "e322", "e422", "e470a", "e470b", "e471", "e572", "e627", "e631", "e635", "e640",
-                "processed_fruit_vegetable_product", "spreadable_fat", "chocolate", "filled_chocolate", "chocolate_confection"
+                "processed_fruit_vegetable_product", "spreadable_fat", "chocolate", "filled_chocolate", "chocolate_confection",
+                "flavouring", "flavouring_substance", "natural_flavouring", "flavouring_preparation",
+                "thermal_process_flavouring", "smoke_flavouring", "flavour_precursor", "other_flavouring",
+                "food_ingredient_with_flavouring_properties"
             ),
             noted.map { it.id }.toSet()
         )

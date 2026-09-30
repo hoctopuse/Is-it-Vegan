@@ -42,7 +42,7 @@ class AgriculturalProductsRegulationImportTest {
         assertTrue(source.readBytes().contentEquals(aliasesAsset.readBytes()))
         val parsed = MiniJson.parse(source.readText()) as Map<*, *>
         val mappings = (parsed["mappings"] as List<*>).map { it as Map<*, *> }
-        assertEquals(1956, mappings.size)
+        assertEquals(1996, mappings.size)
         assertEquals(mappings.size, mappings.map { listOf(it["conceptId"],it["language"],it["normalizedForm"]) }.distinct().size)
         setOf("edible_offal","animal_fat","poultry_meat_preparation","processed_fruit_vegetable_product","spreadable_fat").forEach { id ->
             assertEquals(setOf("FR","NL","EN","DE"), mappings.filter { it["conceptId"] == id }.map { it["language"] }.toSet())

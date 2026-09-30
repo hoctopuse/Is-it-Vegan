@@ -373,6 +373,11 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | edible_offal | NON_VEGAN | abats comestibles des animaux de l'espèce bovine | eetbare slachtafvallen van runderen | edible offal of bovine animals | Genießbare Schlachtnebenerzeugnisse von Rindern | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | egg | VEGETARIAN | œufs de volailles de basse-cour, en coquille | eieren van pluimvee in de schaal | poultry eggs, in shell | Eier von Hausgeflügel in der Schale | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | filled_chocolate | UNCERTAIN | chocolat fourré | gevulde chocolade | filled chocolate | Gefüllte Schokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
+| flavour_precursor | UNCERTAIN | précurseur d'arôme | aromaprecursor | flavour precursor | Aromavorstufe | eu-flavourings-regulation-1334-2008-20260216 | — |
+| flavouring | UNCERTAIN | arôme; arômes | aroma; aroma's | flavouring; flavourings | Aroma; Aromen | eu-flavourings-regulation-1334-2008-20260216 | — |
+| flavouring_preparation | UNCERTAIN | préparation aromatisante | aromatiserend preparaat | flavouring preparation | Aromaextrakt | eu-flavourings-regulation-1334-2008-20260216 | — |
+| flavouring_substance | UNCERTAIN | substance aromatisante | aromastof | flavouring substance | Aromastoff | eu-flavourings-regulation-1334-2008-20260216 | — |
+| food_ingredient_with_flavouring_properties | UNCERTAIN | ingrédient alimentaire possédant des propriétés aromatisantes | voedselingrediënt met aromatiserende eigenschappen | food ingredient with flavouring properties | Lebensmittelzutat mit Aromaeigenschaften | eu-flavourings-regulation-1334-2008-20260216 | — |
 | fruit_jam | VEGAN | confiture; confiture extra | jam; confituur; extra jam; extra confituur | jam; extra jam | Konfitüre; Konfitüre extra | eu-jams-directive-2001-113-20260614 | — |
 | fruit_jelly | VEGAN | gelée; gelée extra | gelei; extra gelei | jelly; extra jelly | Gelee; Gelee extra | eu-jams-directive-2001-113-20260614 | — |
 | fruit_juice | VEGAN | jus de fruits; jus de fruits à base de concentré; jus de fruits concentré; jus de fruits obtenu par extraction hydrique; jus de fruits déshydraté/en poudre | vruchtensap; vruchtensap uit concentraat; geconcentreerd vruchtensap | fruit juice; fruit juice from concentrate; concentrated fruit juice; water extracted fruit juice; dehydrated/powdered fruit juice | Fruchtsaft; Fruchtsaft aus Fruchtsaftkonzentrat; Fruchtsaftkonzentrat | eu-fruit-juice-directive-2001-112-20260614 | — |
@@ -387,9 +392,10 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | meat | NON_VEGAN | viande bovine; viande de porc; viandes ovine et caprine; viande de volaille | rundvlees; varkensvlees; schapen- en geitenvlees; pluimveevlees | beef and veal; pigmeat; sheepmeat and goatmeat; poultrymeat | Rindfleisch; Schweinefleisch; Schaf- und Ziegenfleisch; Geflügelfleisch | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | milk | VEGETARIAN | lait; lait partiellement déshydraté; lait concentré riche en matières grasses; lait concentré; lait concentré partiellement écrémé; lait concentré écrémé; lait concentré sucré; lait concentré sucré partiellement écrémé; lait concentré sucré écrémé; lait totalement déshydraté; lait en poudre riche en matières grasses; poudre de lait riche en matières grasses; lait en poudre entier; poudre de lait entier; lait en poudre partiellement écrémé; poudre de lait partiellement écrémé; lait en poudre écrémé; poudre de lait écrémé; lait demi-écrémé concentré; lait de mi-écrémé concentré non sucré; lait demi-écrémé concentré sucré; lait demi-écrémé en poudre | magere melkpoeder; melk; gedeeltelijk gedehydrateerde melk; geëvaporeerde melk met hoog vetgehalte; geëvaporeerde volle melk; geëvaporeerde gedeeltelijk afgeroomde melk; geëvaporeerde magere melk; gecondenseerde volle melk met suiker; gecondenseerde gedeeltelijk afgeroomde melk met suiker; gecondenseerde magere melk met suiker; geheel gedehydrateerde melk; melkpoeder; melkpoeder met hoog vetgehalte; volle melkpoeder; melkpoeder van gedeeltelijk afgeroomde melk; geëvaporeerde halfvolle melk; halfvolle koffiemelk; halfvolle melkpoeder; koffiemelk | milk; partly dehydrated milk; condensed high-fat milk; condensed milk; condensed, partly skimmed milk; condensed skimmed milk; sweetened condensed milk; sweetened condensed, partly skimmed milk; sweetened condensed skimmed milk; totally dehydrated milk; milk powder; dried high-fat milk; high-fat milk powder; dried whole milk; whole milk powder; dried partly skimmed milk; partly skimmed-milk powder; dried skimmed milk; skimmed-milk powder; evaporated milk; evaporated semi-skimmed milk; semi-skimmed milk powder; dried semi-skimmed milk | Magermilchpulver; Milch; Eingedickte Milch; Kondensmilch mit hohem Fettgehalt; Kondensmilch; kondensierte Vollmilch; Teilentrahmte Kondensmilch; Kondensmagermilch; kondensierte Magermilch; Gezuckerte Kondensmilch; gezuckerte kondensierte Vollmilch; Gezuckerte teilentrahmte Kondensmilch; gezuckerte teilentrahmte kondensierte Milch; Gezuckerte Kondensmagermilch; gezuckerte kondensierte Magermilch; Trockenmilch; Milchpulver; Milchpulver mit hohem Fettgehalt; Vollmilchpulver; Teilentrahmtes Milchpulver; kondensierte Kaffeesahne | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | milk_chocolate | VEGETARIAN | chocolat au lait; chocolat de ménage au lait | melkchocolade; huishoudmelkchocolade | milk chocolate; family milk chocolate | Milchschokolade; Haushaltsmilchschokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
-| natural_flavouring | UNCERTAIN | — | natuurlijk aardbeienaroma | — | natürliches Aroma | vegan-society | — |
+| natural_flavouring | UNCERTAIN | substance aromatisante naturelle | natuurlijk aardbeienaroma; natuurlijke aromastof | natural flavouring substance | natürliches Aroma; natürlicher Aromastoff | vegan-society, eu-flavourings-regulation-1334-2008-20260216 | — |
 | oats | VEGAN | flocons d’avoine complets; flocons d’avoine complète; avoine fermentée | haver; havervlokken; volkoren havervlokken; gefermenteerde haver | — | Hafer; Haferflocken | vegan-society | — |
 | olive_oil | VEGAN | huile d'olive | olijfolie | olive oil | Olivenöl | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| other_flavouring | UNCERTAIN | autre arôme | overig aroma | other flavouring | sonstiges Aroma | eu-flavourings-regulation-1334-2008-20260216 | — |
 | palm_kernel | VEGAN | palmiste; huile de palmiste; graisse de palmiste | palmpit; palmpitolie; palmpitvet | palm kernel; palm kernel oil; palm kernel fat | Palmkern; Palmkernöl; Palmkernfett | vegan-society | — |
 | palm_oil | VEGAN | huile de palme; graisse de palme | palmolie; palmvet | palm oil; palm fat | Palmöl; Palmfett; Ölpalme | vegan-society | — |
 | papaya | VEGAN | papaye; papaye confite | papaja | — | — | vegan-society | — |
@@ -407,6 +413,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | rice | VEGAN | pétales de riz | rijstmeel; rijstvlokken | — | — | vegan-society | — |
 | rye | VEGAN | seigle | rogge; volkoren roggevlokken | rye | Roggen | vegan-society | — |
 | salt | VEGAN | sel marin | zout; zeezout | — | Salz; Speisesalz | vegan-society | — |
+| smoke_flavouring | UNCERTAIN | arôme de fumée | rookaroma | smoke flavouring | Raucharoma | eu-flavourings-regulation-1334-2008-20260216 | — |
 | sour_cherry | VEGAN | griottes; griottes séchées et sucrées | zure kersen | — | — | vegan-society | — |
 | spreadable_fat | UNCERTAIN | matières grasses tartinables | smeerbare vetten | spreadable fats | Streichfette | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | starch | VEGAN | — | tarwezetmeel | — | Weizenstärke | vegan-society | — |
@@ -414,6 +421,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | sultana | VEGAN | raisins sultanines | sultanarozijnen | — | — | vegan-society | — |
 | sunflower_oil | VEGAN | — | zonnebloemolie; zonnebloemole; zonnebloem olie | — | Sonnenblumenöl | vegan-society | — |
 | sweetened_chestnut_puree | VEGAN | crème de marrons | kastanjepasta | sweetened chestnut purée | Maronenkrem | eu-jams-directive-2001-113-20260614 | — |
+| thermal_process_flavouring | UNCERTAIN | arôme obtenu par traitement thermique | via een thermisch procedé verkregen aroma | thermal process flavouring | thermisch gewonnenes Reaktionsaroma | eu-flavourings-regulation-1334-2008-20260216 | — |
 | vinegar | VEGAN | — | azijn | — | Essig | vegan-society | — |
 | vitamin_b12 | UNCERTAIN | vitamine B12 | vitamine B12 | — | — | vegan-society | — |
 | walnut | VEGAN | — | walnoot | — | — | vegan-society | — |
@@ -7138,6 +7146,100 @@ Mapping group : `cocoa-chocolate-directive`
 ### DE
 - `Gefüllte Schokolade` — REGULATORY_ALIAS; normalise: `gefullte schokolade`; confiance: `REVIEWED`; source: eu-cocoa-chocolate-directive-2000-36-20131118
 
+## Concept : flavour_precursor
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `précurseur d'arôme` — COMMON_LABEL_NAME; normalise: `precurseur d arome`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `aromaprecursor` — COMMON_LABEL_NAME; normalise: `aromaprecursor`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `flavour precursor` — COMMON_LABEL_NAME; normalise: `flavour precursor`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `Aromavorstufe` — COMMON_LABEL_NAME; normalise: `aromavorstufe`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+## Concept : flavouring
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `arôme` — COMMON_LABEL_NAME; normalise: `arome`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+- `arômes` — COMMON_LABEL_NAME; normalise: `aromes`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `aroma` — COMMON_LABEL_NAME; normalise: `aroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+- `aroma's` — COMMON_LABEL_NAME; normalise: `aroma s`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `flavouring` — COMMON_LABEL_NAME; normalise: `flavouring`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+- `flavourings` — COMMON_LABEL_NAME; normalise: `flavourings`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `Aroma` — COMMON_LABEL_NAME; normalise: `aroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+- `Aromen` — COMMON_LABEL_NAME; normalise: `aromen`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+## Concept : flavouring_preparation
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `préparation aromatisante` — COMMON_LABEL_NAME; normalise: `preparation aromatisante`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `aromatiserend preparaat` — COMMON_LABEL_NAME; normalise: `aromatiserend preparaat`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `flavouring preparation` — COMMON_LABEL_NAME; normalise: `flavouring preparation`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `Aromaextrakt` — COMMON_LABEL_NAME; normalise: `aromaextrakt`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+## Concept : flavouring_substance
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `substance aromatisante` — COMMON_LABEL_NAME; normalise: `substance aromatisante`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `aromastof` — COMMON_LABEL_NAME; normalise: `aromastof`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `flavouring substance` — COMMON_LABEL_NAME; normalise: `flavouring substance`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `Aromastoff` — COMMON_LABEL_NAME; normalise: `aromastoff`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+## Concept : food_ingredient_with_flavouring_properties
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `ingrédient alimentaire possédant des propriétés aromatisantes` — COMMON_LABEL_NAME; normalise: `ingredient alimentaire possedant des proprietes aromatisantes`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `voedselingrediënt met aromatiserende eigenschappen` — COMMON_LABEL_NAME; normalise: `voedselingredient met aromatiserende eigenschappen`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `food ingredient with flavouring properties` — COMMON_LABEL_NAME; normalise: `food ingredient with flavouring properties`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `Lebensmittelzutat mit Aromaeigenschaften` — COMMON_LABEL_NAME; normalise: `lebensmittelzutat mit aromaeigenschaften`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
 ## Concept : fruit_jam
 
 Statut : `VEGAN`<br>
@@ -7590,20 +7692,22 @@ Mapping group : `cocoa-chocolate-directive`
 ## Concept : natural_flavouring
 
 Statut : `UNCERTAIN`<br>
-Sources : vegan-society<br>
-Mapping group : `natural_flavouring`
+Sources : vegan-society, eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
 
 ### FR
-- —
+- `substance aromatisante naturelle` — COMMON_LABEL_NAME; normalise: `substance aromatisante naturelle`; confiance: `REVIEWED`; source: vegan-society, eu-flavourings-regulation-1334-2008-20260216
 
 ### NL
-- `natuurlijk aardbeienaroma` — COMMON_LABEL_NAME; normalise: `natuurlijk aardbeienaroma`; confiance: `REVIEWED`; source: vegan-society
+- `natuurlijk aardbeienaroma` — COMMON_LABEL_NAME; normalise: `natuurlijk aardbeienaroma`; confiance: `REVIEWED`; source: vegan-society, eu-flavourings-regulation-1334-2008-20260216
+- `natuurlijke aromastof` — COMMON_LABEL_NAME; normalise: `natuurlijke aromastof`; confiance: `REVIEWED`; source: vegan-society, eu-flavourings-regulation-1334-2008-20260216
 
 ### EN
-- —
+- `natural flavouring substance` — COMMON_LABEL_NAME; normalise: `natural flavouring substance`; confiance: `REVIEWED`; source: vegan-society, eu-flavourings-regulation-1334-2008-20260216
 
 ### DE
-- `natürliches Aroma` — COMMON_LABEL_NAME; normalise: `naturliches aroma`; confiance: `REVIEWED`; source: vegan-society
+- `natürliches Aroma` — COMMON_LABEL_NAME; normalise: `naturliches aroma`; confiance: `REVIEWED`; source: vegan-society, eu-flavourings-regulation-1334-2008-20260216
+- `natürlicher Aromastoff` — COMMON_LABEL_NAME; normalise: `naturlicher aromastoff`; confiance: `REVIEWED`; source: vegan-society, eu-flavourings-regulation-1334-2008-20260216
 
 ## Concept : oats
 
@@ -7650,6 +7754,24 @@ Mapping group : `agricultural-products-regulation`
 
 ### DE
 - `Olivenöl` — REGULATORY_ALIAS; normalise: `olivenol`; confiance: `REVIEWED`; source: vegan-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+## Concept : other_flavouring
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `autre arôme` — COMMON_LABEL_NAME; normalise: `autre arome`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `overig aroma` — COMMON_LABEL_NAME; normalise: `overig aroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `other flavouring` — COMMON_LABEL_NAME; normalise: `other flavouring`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `sonstiges Aroma` — COMMON_LABEL_NAME; normalise: `sonstiges aroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
 
 ## Concept : palm_kernel
 
@@ -8007,6 +8129,24 @@ Mapping group : `salt`
 - IT: sale
 - ES: sal
 
+## Concept : smoke_flavouring
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `arôme de fumée` — COMMON_LABEL_NAME; normalise: `arome de fumee`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `rookaroma` — COMMON_LABEL_NAME; normalise: `rookaroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `smoke flavouring` — COMMON_LABEL_NAME; normalise: `smoke flavouring`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `Raucharoma` — COMMON_LABEL_NAME; normalise: `raucharoma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
 ## Concept : sour_cherry
 
 Statut : `VEGAN`<br>
@@ -8144,6 +8284,24 @@ Mapping group : `fruit-jams-directive`
 
 ### DE
 - `Maronenkrem` — REGULATORY_ALIAS; normalise: `maronenkrem`; confiance: `REVIEWED`; source: eu-jams-directive-2001-113-20260614
+
+## Concept : thermal_process_flavouring
+
+Statut : `UNCERTAIN`<br>
+Sources : eu-flavourings-regulation-1334-2008-20260216<br>
+Mapping group : `possible-origin-notes`
+
+### FR
+- `arôme obtenu par traitement thermique` — COMMON_LABEL_NAME; normalise: `arome obtenu par traitement thermique`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### NL
+- `via een thermisch procedé verkregen aroma` — COMMON_LABEL_NAME; normalise: `via een thermisch procede verkregen aroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### EN
+- `thermal process flavouring` — COMMON_LABEL_NAME; normalise: `thermal process flavouring`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
+
+### DE
+- `thermisch gewonnenes Reaktionsaroma` — COMMON_LABEL_NAME; normalise: `thermisch gewonnenes reaktionsaroma`; confiance: `REVIEWED`; source: eu-flavourings-regulation-1334-2008-20260216
 
 ## Concept : vinegar
 
