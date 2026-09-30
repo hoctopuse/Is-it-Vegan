@@ -10,8 +10,108 @@ data class IngredientMatch(
     val blockedIngredientIds: List<String> = emptyList()
 )
 
+/** Optional, test-facing measurements. It has no logging and is inactive by default. */
+data class MatcherProfileSnapshot(
+    val normalizationPreparationNanos: Long,
+    val aliasPreparationNanos: Long,
+    val regexPreparationNanos: Long,
+    val longerLinkedAliasCheckNanos: Long,
+    val matcherConstructionNanos: Long,
+    val matchNormalizationNanos: Long,
+    val candidateSearchNanos: Long,
+    val contextFilteringNanos: Long,
+    val selectionAndResolutionNanos: Long,
+    val aliasEntries: Int,
+    val normalizedAliasCount: Int,
+    val regexTests: Long,
+    val candidatesFound: Long,
+    val candidatesBlocked: Long,
+    val candidatesSelected: Long,
+    val matchCalls: Long
+)
+
+class MatcherProfileCollector {
+    private var normalizationPreparationNanos = 0L
+    private var aliasPreparationNanos = 0L
+    private var regexPreparationNanos = 0L
+    private var longerLinkedAliasCheckNanos = 0L
+    private var matcherConstructionNanos = 0L
+    private var matchNormalizationNanos = 0L
+    private var candidateSearchNanos = 0L
+    private var contextFilteringNanos = 0L
+    private var selectionAndResolutionNanos = 0L
+    private var aliasEntries = 0
+    private var normalizedAliasCount = 0
+    private var regexTests = 0L
+    private var candidatesFound = 0L
+    private var candidatesBlocked = 0L
+    private var candidatesSelected = 0L
+    private var matchCalls = 0L
+
+    internal fun recordConstruction(
+        normalizationNanos: Long,
+        aliasNanos: Long,
+        regexNanos: Long,
+        linkedAliasNanos: Long,
+        totalNanos: Long,
+        entryCount: Int,
+        normalizedCount: Int
+    ) {
+        normalizationPreparationNanos += normalizationNanos
+        aliasPreparationNanos += aliasNanos
+        regexPreparationNanos += regexNanos
+        longerLinkedAliasCheckNanos += linkedAliasNanos
+        matcherConstructionNanos += totalNanos
+        aliasEntries += entryCount
+        normalizedAliasCount += normalizedCount
+    }
+
+    internal fun recordMatch(
+        normalizationNanos: Long,
+        searchNanos: Long,
+        contextNanos: Long,
+        selectionNanos: Long,
+        testedRegexes: Int,
+        foundCandidates: Int,
+        blockedCandidates: Int,
+        selectedCandidates: Int
+    ) {
+        matchNormalizationNanos += normalizationNanos
+        candidateSearchNanos += searchNanos
+        contextFilteringNanos += contextNanos
+        selectionAndResolutionNanos += selectionNanos
+        regexTests += testedRegexes
+        candidatesFound += foundCandidates
+        candidatesBlocked += blockedCandidates
+        candidatesSelected += selectedCandidates
+        matchCalls++
+    }
+
+    fun snapshot(): MatcherProfileSnapshot = MatcherProfileSnapshot(
+        normalizationPreparationNanos,
+        aliasPreparationNanos,
+        regexPreparationNanos,
+        longerLinkedAliasCheckNanos,
+        matcherConstructionNanos,
+        matchNormalizationNanos,
+        candidateSearchNanos,
+        contextFilteringNanos,
+        selectionAndResolutionNanos,
+        aliasEntries,
+        normalizedAliasCount,
+        regexTests,
+        candidatesFound,
+        candidatesBlocked,
+        candidatesSelected,
+        matchCalls
+    )
+}
+
 /** Matches the longest aliases first so a precise phrase masks shorter overlapping aliases. */
-class IngredientMatcher(private val database: List<Ingredient>) {
+class IngredientMatcher(
+    private val database: List<Ingredient>,
+    private val profileCollector: MatcherProfileCollector? = null
+) {
     private data class AliasEntry(
         val ingredient: Ingredient,
         val value: String,
@@ -26,35 +126,60 @@ class IngredientMatcher(private val database: List<Ingredient>) {
         val aliasLength: Int
     )
 
-    private val normalizedAliases = database.flatMap { ingredient ->
-        listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber)
-    }.map(TextNormalizer::normalize).filter(String::isNotBlank).distinct()
+    private val normalizedAliases: List<String>
+    private val aliases: List<AliasEntry>
 
-    private val aliases: List<AliasEntry> = database.flatMap { ingredient ->
-        (listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber))
-            .map { TextNormalizer.normalize(it) }
-            .filter { it.isNotBlank() }
-            .distinct()
-            .map { normalizedAlias ->
-                AliasEntry(
-                    ingredient = ingredient,
-                    value = normalizedAlias,
-                    pattern = Regex(
+    init {
+        val collector = profileCollector
+        val constructionStarted = if (collector != null) System.nanoTime() else 0L
+        val normalizationStarted = if (collector != null) System.nanoTime() else 0L
+        normalizedAliases = database.flatMap { ingredient ->
+            listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber)
+        }.map(TextNormalizer::normalize).filter(String::isNotBlank).distinct()
+        val normalizationNanos = if (collector != null) System.nanoTime() - normalizationStarted else 0L
+        val longerLinkedAliasBases = longerLinkedAliasBases(normalizedAliases)
+        var regexNanos = 0L
+        var linkedAliasNanos = 0L
+        val aliasStarted = if (collector != null) System.nanoTime() else 0L
+        aliases = database.flatMap { ingredient ->
+            (listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber))
+                .map { TextNormalizer.normalize(it) }
+                .filter { it.isNotBlank() }
+                .distinct()
+                .map { normalizedAlias ->
+                    val regexStarted = if (collector != null) System.nanoTime() else 0L
+                    val pattern = Regex(
                         "(?<![a-z0-9])${Regex.escape(normalizedAlias)}(?![a-z0-9])"
-                    ),
-                    hasLongerLinkedAlias = normalizedAliases.any {
-                        it.length > normalizedAlias.length &&
-                            it.startsWith("$normalizedAlias ") &&
-                            linkedSuffix.matches(it.removePrefix("$normalizedAlias "))
-                    }
-                )
-            }
-    }.sortedByDescending { it.value.length }
+                    )
+                    if (collector != null) regexNanos += System.nanoTime() - regexStarted
+                    val linkedAliasStarted = if (collector != null) System.nanoTime() else 0L
+                    val hasLongerLinkedAlias = normalizedAlias in longerLinkedAliasBases
+                    if (collector != null) linkedAliasNanos += System.nanoTime() - linkedAliasStarted
+                    AliasEntry(ingredient, normalizedAlias, pattern, hasLongerLinkedAlias)
+                }
+        }.sortedByDescending { it.value.length }
+        collector?.recordConstruction(
+            normalizationNanos = normalizationNanos,
+            aliasNanos = System.nanoTime() - aliasStarted,
+            regexNanos = regexNanos,
+            linkedAliasNanos = linkedAliasNanos,
+            totalNanos = System.nanoTime() - constructionStarted,
+            entryCount = aliases.size,
+            normalizedCount = normalizedAliases.size
+        )
+    }
 
     fun match(token: IngredientToken): IngredientMatch {
+        val collector = profileCollector
+        val normalizationStarted = if (collector != null) System.nanoTime() else 0L
         val rawNormalized = TextNormalizer.normalize(token.text)
         val normalized = knownIngredientCompounds[rawNormalized] ?: rawNormalized
-        coveredGlucoseFructose(token, normalized)?.let { return it }
+        val normalizationNanos = if (collector != null) System.nanoTime() - normalizationStarted else 0L
+        coveredGlucoseFructose(token, normalized)?.let {
+            collector?.recordMatch(normalizationNanos, 0L, 0L, 0L, 0, 0, 0, 1)
+            return it
+        }
+        val searchStarted = if (collector != null) System.nanoTime() else 0L
         val candidates = buildList {
             aliases.forEach { alias ->
                 alias.pattern.findAll(normalized).forEach { occurrence ->
@@ -72,7 +197,9 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             compareByDescending<Candidate> { it.aliasLength }
                 .thenBy { it.start }
         )
+        val searchNanos = if (collector != null) System.nanoTime() - searchStarted else 0L
 
+        val contextStarted = if (collector != null) System.nanoTime() else 0L
         val blocked = candidates.filter { animal ->
             animal.ingredient.id in protectedAnimalIds && candidates.any { source ->
                 source.ingredient.status == VeganStatus.VEGAN && protectedPair(normalized, animal, source)
@@ -85,6 +212,8 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             (it.ingredient.id in flavourQualifiedIngredientIds && isFlavourContext(normalized, it)) ||
             (it.ingredient.id == "coffee" && isExtractContext(normalized, it))
         }
+        val contextNanos = if (collector != null) System.nanoTime() - contextStarted else 0L
+        val selectionStarted = if (collector != null) System.nanoTime() else 0L
         val covered = BooleanArray(normalized.length)
         val selected = mutableListOf<Candidate>()
         eligible.forEach { candidate ->
@@ -119,13 +248,24 @@ class IngredientMatcher(private val database: List<Ingredient>) {
             blocked.isNotEmpty() -> MatchResolution.BLOCKED_CONFLICT
             else -> MatchResolution.PARTIAL_CONTEXTUAL
         }
-        return IngredientMatch(
+        val result = IngredientMatch(
             token,
             ingredients.values.toList(),
             residual,
             resolution,
             blocked.map { it.ingredient.id }.distinct()
         )
+        collector?.recordMatch(
+            normalizationNanos,
+            searchNanos,
+            contextNanos,
+            System.nanoTime() - selectionStarted,
+            aliases.size,
+            candidates.size,
+            blocked.size,
+            selected.size
+        )
+        return result
     }
 
     private fun protectedPair(normalized: String, animal: Candidate, source: Candidate): Boolean {
@@ -206,7 +346,24 @@ class IngredientMatcher(private val database: List<Ingredient>) {
         return false
     }
 
-    private companion object {
+    companion object {
+        /**
+         * Precomputes the exact bases that the former pairwise search identified.
+         * Kept internal so JVM tests can compare it with the former predicate over every alias.
+         */
+        internal fun longerLinkedAliasBases(normalizedAliases: Collection<String>): Set<String> = buildSet {
+            val aliases = normalizedAliases.toHashSet()
+            normalizedAliases.forEach { longerAlias ->
+                var separator = longerAlias.indexOf(' ')
+                while (separator >= 0) {
+                    val base = longerAlias.substring(0, separator)
+                    val suffix = longerAlias.substring(separator + 1)
+                    if (base in aliases && linkedSuffix.matches(suffix)) add(base)
+                    separator = longerAlias.indexOf(' ', separator + 1)
+                }
+            }
+        }
+
         val linkedSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
         val protectedAnimalIds = setOf("butter", "milk", "cream")
         val sourceConnectors = setOf("de", "d", "van", "of")

@@ -20,9 +20,29 @@ data class MultilingualLexiconValidation(
     val isValid: Boolean get() = errors.isEmpty()
 }
 
+/** Structured mapping metadata kept separate from the classification database. */
+data class MultilingualIngredientMapping(
+    val surfaceForm: String,
+    val normalizedForm: String,
+    val language: LabelLanguage,
+    val canonicalId: String,
+    val mappingGroup: String? = null,
+    val relation: String? = null,
+    val source: String? = null,
+    val confidence: String? = null
+)
+
+data class LegacyMultilingualEntry(
+    val canonicalId: String,
+    val language: LabelLanguage,
+    val aliases: List<String>,
+    val ocrVariants: List<String>
+)
+
 class MultilingualIngredientLexicon private constructor(
     private val entries: List<Entry>,
-    private val corrections: List<Correction>
+    private val corrections: List<Correction>,
+    private val structuredMappings: List<MultilingualIngredientMapping>
 ) {
     private data class Entry(
         val canonicalId: String,
@@ -82,8 +102,16 @@ class MultilingualIngredientLexicon private constructor(
         )
     }
 
+    /** Snapshot used by the experimental v0.7 runtime index; resolution remains unchanged. */
+    fun runtimeMappings(): List<MultilingualIngredientMapping> = structuredMappings.toList()
+
+    /** Snapshot of the historical alias path used by the current resolver. */
+    fun runtimeLegacyEntries(): List<LegacyMultilingualEntry> = entries.map {
+        LegacyMultilingualEntry(it.canonicalId, it.language, it.aliases.toList(), it.ocrVariants.toList())
+    }
+
     companion object {
-        fun empty() = MultilingualIngredientLexicon(emptyList(), emptyList())
+        fun empty() = MultilingualIngredientLexicon(emptyList(), emptyList(), emptyList())
 
         fun load(json: String): MultilingualIngredientLexicon {
             val root = MiniJson.parse(json) as? Map<*, *>
@@ -93,9 +121,10 @@ class MultilingualIngredientLexicon private constructor(
             }
             val aliases = (root["aliases"] as? List<*>).orEmpty().toEntries()
             val corrections = (root["ocrCorrections"] as? List<*>).orEmpty().toCorrections()
+            val mappings = (root["mappings"] as? List<*>).orEmpty().toMappings()
             val errors = structuralErrors(aliases, corrections)
             require(errors.isEmpty()) { errors.joinToString("; ") }
-            return MultilingualIngredientLexicon(aliases, corrections)
+            return MultilingualIngredientLexicon(aliases, corrections, mappings)
         }
 
         private fun List<*>.toEntries(): List<Entry> = mapIndexed { index, value ->
@@ -118,6 +147,29 @@ class MultilingualIngredientLexicon private constructor(
             val from = item["from"] as? String ?: ""
             val to = item["to"] as? String ?: ""
             Correction(language, from, to)
+        }
+
+        private fun List<*>.toMappings(): List<MultilingualIngredientMapping> = mapIndexed { index, value ->
+            val item = value as? Map<*, *>
+                ?: throw IllegalArgumentException("mappings[$index] doit être un objet")
+            val surfaceForm = item["surfaceForm"] as? String
+                ?: throw IllegalArgumentException("mappings[$index].surfaceForm est requis")
+            val language = labelLanguage(item["language"] as? String)
+            require(language != LabelLanguage.UNKNOWN) { "mappings[$index].language est invalide" }
+            val canonicalId = item["conceptId"] as? String
+                ?: throw IllegalArgumentException("mappings[$index].conceptId est requis")
+            MultilingualIngredientMapping(
+                surfaceForm = surfaceForm,
+                normalizedForm = (item["normalizedForm"] as? String)
+                    ?.takeIf(String::isNotBlank)
+                    ?: TextNormalizer.normalize(surfaceForm),
+                language = language,
+                canonicalId = canonicalId,
+                mappingGroup = item["mappingGroup"] as? String,
+                relation = item["relation"] as? String,
+                source = item["source"] as? String,
+                confidence = item["confidence"] as? String
+            )
         }
 
         private fun List<*>?.strings(): List<String> = this.orEmpty().filterIsInstance<String>()
