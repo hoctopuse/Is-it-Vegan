@@ -2,6 +2,8 @@ package com.example.isitvegan
 
 enum class MatchResolution { NONE, EXACT, COVERED, PARTIAL_CONTEXTUAL, BLOCKED_CONFLICT }
 
+private val linkedAliasSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
+
 data class IngredientMatch(
     val token: IngredientToken,
     val ingredients: List<Ingredient>,
@@ -184,7 +186,7 @@ class IngredientMatcher(
             aliases.forEach { alias ->
                 alias.pattern.findAll(normalized).forEach { occurrence ->
                     val suffix = normalized.substring(occurrence.range.last + 1).trimStart()
-                    if (alias.hasLongerLinkedAlias && linkedSuffix.matches(suffix)) return@forEach
+                    if (alias.hasLongerLinkedAlias && linkedAliasSuffix.matches(suffix)) return@forEach
                     add(Candidate(
                         ingredient = alias.ingredient,
                         start = occurrence.range.first,
@@ -346,25 +348,7 @@ class IngredientMatcher(
         return false
     }
 
-    companion object {
-        /**
-         * Precomputes the exact bases that the former pairwise search identified.
-         * Kept internal so JVM tests can compare it with the former predicate over every alias.
-         */
-        internal fun longerLinkedAliasBases(normalizedAliases: Collection<String>): Set<String> = buildSet {
-            val aliases = normalizedAliases.toHashSet()
-            normalizedAliases.forEach { longerAlias ->
-                var separator = longerAlias.indexOf(' ')
-                while (separator >= 0) {
-                    val base = longerAlias.substring(0, separator)
-                    val suffix = longerAlias.substring(separator + 1)
-                    if (base in aliases && linkedSuffix.matches(suffix)) add(base)
-                    separator = longerAlias.indexOf(' ', separator + 1)
-                }
-            }
-        }
-
-        val linkedSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
+    private companion object {
         val protectedAnimalIds = setOf("butter", "milk", "cream")
         val sourceConnectors = setOf("de", "d", "van", "of")
         val punctuation = setOf('(', ')', '[', ']', ',', ';', ':', '.', '-')
@@ -408,5 +392,22 @@ class IngredientMatcher(
         val extractPrefixes = Regex("^(?:extrait de|extract of|extract van|extrakt aus)$")
         val flavourQualifiedIngredientIds = chocolateConceptIds + setOf("strawberry", "coffee")
         val knownIngredientCompounds = mapOf("bitterschokolade" to "bitter schokolade")
+    }
+}
+
+/**
+ * Precomputes the exact bases that the former pairwise search identified.
+ * It is internal so JVM tests can compare it against the historical predicate.
+ */
+internal fun longerLinkedAliasBases(normalizedAliases: Collection<String>): Set<String> = buildSet {
+    val aliases = normalizedAliases.toHashSet()
+    normalizedAliases.forEach { longerAlias ->
+        var separator = longerAlias.indexOf(' ')
+        while (separator >= 0) {
+            val base = longerAlias.substring(0, separator)
+            val suffix = longerAlias.substring(separator + 1)
+            if (base in aliases && linkedAliasSuffix.matches(suffix)) add(base)
+            separator = longerAlias.indexOf(' ', separator + 1)
+        }
     }
 }

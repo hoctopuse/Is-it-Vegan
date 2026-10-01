@@ -4,6 +4,7 @@ import java.nio.file.Files
 import java.nio.file.Path
 import kotlin.math.roundToLong
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -113,25 +114,130 @@ class Phase4MatcherProfileTest {
         val aliases = knowledge.ingredients.flatMap { ingredient ->
             listOf(ingredient.name) + ingredient.aliases + listOfNotNull(ingredient.eNumber)
         }.map(TextNormalizer::normalize).filter(String::isNotBlank).distinct()
-        val legacyBases = aliases.filter { alias ->
-            aliases.any { longer ->
-                longer.length > alias.length &&
-                    longer.startsWith("$alias ") &&
-                    Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
-                        .matches(longer.removePrefix("$alias "))
-            }
-        }.toSet()
+        assertEquals(2485, aliases.size)
+        val legacyBases = historicalLinkedAliasBases(aliases)
 
-        assertEquals(legacyBases, IngredientMatcher.longerLinkedAliasBases(aliases))
+        assertEquals(legacyBases, longerLinkedAliasBases(aliases))
+
+        val legacyTiming = measure { historicalLinkedAliasBases(aliases) }
+        val optimizedTiming = measure { longerLinkedAliasBases(aliases) }
+        println("PHASE4_LINKED_ALIAS_BASELINE|historical-pairwise|${legacyTiming.render()}")
+        println("PHASE4_LINKED_ALIAS_AFTER|prepared-prefixes|${optimizedTiming.render()}")
+    }
+
+    @Test
+    fun linkedAliasPrecomputationKeepsHistoricalConnectorsAndRejectsFalsePrefixes() {
+        val historicalSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
+        val aliases = listOf(
+            "huile", "huile de colza", "beurre", "beurre de cacao", "lait", "lait en poudre",
+            "arome", "arome naturel", "extrait", "extrait de vanille", "gout", "gout au citron",
+            "milk", "milk of oat", "melk", "melk van haver", "milch", "milch aus hafer",
+            "cacao", "cacaoter", "huile colza", "lait vegetal", "arome chocolat", "gout citron"
+        )
+        val legacyBases = historicalLinkedAliasBases(aliases, historicalSuffix)
+
+        assertEquals(legacyBases, longerLinkedAliasBases(aliases))
+        assertEquals(
+            setOf("huile", "beurre", "extrait", "gout"),
+            longerLinkedAliasBases(aliases)
+        )
+        assertTrue("false prefixes must remain absent", "cacao" !in longerLinkedAliasBases(aliases))
+        assertTrue("non-linked suffixes must remain absent", "lait" !in longerLinkedAliasBases(aliases))
+        assertTrue("historical English preposition must remain absent", "milk" !in longerLinkedAliasBases(aliases))
+    }
+
+    @Test
+    fun everyHistoricalLinkedConnectorHasPositiveBoundaryAndNegativePrefixCases() {
+        data class ConnectorCase(val connector: String, val suffix: String)
+        val cases = listOf(
+            ConnectorCase("de", "colza"), ConnectorCase("d", "olive"),
+            ConnectorCase("du", "cacao"), ConnectorCase("des", "amandes"),
+            ConnectorCase("a", "la vanille"), ConnectorCase("au", "citron")
+        )
+        val historicalSuffix = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
+
+        cases.forEach { (connector, suffix) ->
+            val short = "base-$connector"
+            val positive = "$short $connector $suffix"
+            val invalidSuffix = "$short naturel"
+            val falsePrefix = "base-$connector-plus $connector $suffix"
+            val normalized = listOf(short, positive, invalidSuffix, falsePrefix)
+
+            assertTrue("$connector positive", short in historicalLinkedAliasBases(normalized, historicalSuffix))
+            assertTrue("$connector optimized positive", short in longerLinkedAliasBases(normalized))
+            assertTrue("$connector false prefix", "base-$connector-plus" !in longerLinkedAliasBases(normalized))
+            assertTrue("$connector invalid suffix", "base-$connector" !in longerLinkedAliasBases(listOf(short, invalidSuffix)))
+        }
+    }
+
+    @Test
+    fun normalizationKeepsCaseSpacesNumbersPunctuationAndProtectedContextsOutsideThePredicate() {
+        val normalized = listOf(
+            "E471", "e 471", "e-471", "(E471)", "arôme chocolat", "goût chocolat",
+            "extrait de café", "lait végétal", "CHOCOLAT", "chocolat  de cacao"
+        ).map(TextNormalizer::normalize).filter(String::isNotBlank).distinct()
+
+        assertTrue(normalized.contains("e471"))
+        assertTrue(normalized.any { it.replace(" ", "") == "e471" })
+        assertTrue(normalized.any { it.contains("arome chocolat") })
+        assertTrue(normalized.any { it.contains("extrait de cafe") })
+        assertEquals(
+            historicalLinkedAliasBases(normalized),
+            longerLinkedAliasBases(normalized)
+        )
+    }
+
+    @Test
+    fun linkedAliasConnectorsRequireTheirExactBoundaryAndARealShortAlias() {
+        listOf("de", "d", "du", "des", "a", "au").forEach { connector ->
+            assertTrue(
+                "positive connector: $connector",
+                "base" in longerLinkedAliasBases(listOf("base", "base $connector ingredient"))
+            )
+            assertTrue(
+                "connector at end boundary: $connector",
+                "base" in longerLinkedAliasBases(listOf("base", "base $connector"))
+            )
+            assertFalse(
+                "invalid connector suffix: $connector",
+                "base" in longerLinkedAliasBases(listOf("base", "base ${connector}x ingredient"))
+            )
+            assertFalse(
+                "false prefix: $connector",
+                "base" in longerLinkedAliasBases(listOf("base $connector ingredient"))
+            )
+            assertFalse(
+                "short alias must be complete: $connector",
+                "ba" in longerLinkedAliasBases(listOf("ba", "base $connector ingredient"))
+            )
+        }
+    }
+
+    @Test
+    fun matcherParityCoversFrenchDutchEnglishGermanCaseAndNormalizedSpaces() {
+        val matcher = IngredientMatcher(knowledge.ingredients)
+        listOf(
+            "eau" to "water",
+            "melk" to "milk",
+            "milk" to "milk",
+            "Schokolade" to "chocolate",
+            "  E 471  " to "e471"
+        ).forEach { (text, expectedId) ->
+            val result = matcher.match(IngredientToken(text, depth = 0, order = 0))
+            assertTrue("$text should match $expectedId", result.ingredients.any { it.id == expectedId })
+        }
     }
 
     private fun corpus() = listOf(
-        Case("water", "eau"), Case("sugar", "sucre"), Case("milk", "lait"),
+        Case("water", "eau"), Case("water-en", "water"), Case("water-nl", "water"),
+        Case("sugar", "sucre"), Case("milk", "lait"),
         Case("gelatin", "gélatine"), Case("honey", "miel"), Case("coffee", "café"),
-        Case("e471", "E471"), Case("e471-spaced", "E 471"), Case("e471-bare", "471"),
+        Case("e471", "E471"), Case("e471-lower", "e471"), Case("e471-spaced", "E 471"),
+        Case("e471-hyphen", "E-471"), Case("e471-parenthesized", "(E 471)"), Case("e471-bare", "471"),
         Case("flavour", "arôme chocolat"), Case("flavour-de", "arôme de chocolat"),
         Case("extract", "extrait de café"), Case("taste", "goût fraise"),
-        Case("plant-milk", "lait végétal"), Case("german", "Schokolade"),
+        Case("plant-milk", "lait végétal"), Case("dutch", "chocolade"),
+        Case("english", "chocolate"), Case("german", "Schokolade"),
         Case("collision-e470b", "E470b"), Case("collision-e572", "E572"),
         Case("unknown", "ingrédient inconnu"),
         Case("nested-child", "chocolat", depth = 2), Case("repeat-one", "eau"), Case("repeat-two", "eau")
@@ -142,6 +248,16 @@ class Phase4MatcherProfileTest {
         "extrait de café", "E471", "E470b", "E572", "chocolade", "Schokolade",
         "ingredient totalement inconnu", "miel", "gélatine", "fraise", "café"
     ).joinToString(", ")
+
+    private fun historicalLinkedAliasBases(
+        aliases: Collection<String>,
+        suffix: Regex = Regex("^(?:de|d|du|des|a|au)(?:\\s|$).*")
+    ): Set<String> = aliases.filter { alias ->
+        aliases.any { longer ->
+            longer.length > alias.length && longer.startsWith("$alias ") &&
+                suffix.matches(longer.removePrefix("$alias "))
+        }
+    }.toSet()
 
     private fun loadKnowledge(): IngredientKnowledge {
         val root = generateSequence(Path.of(System.getProperty("user.dir"))) { it.parent }
