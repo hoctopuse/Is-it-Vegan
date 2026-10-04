@@ -67,6 +67,8 @@ The reported median is specifically the lower median for ten samples, not the ar
 
 When comparing against that baseline, preserve this method unless the task explicitly introduces a new protocol.
 
+For a direct device-to-device baseline comparison, prefer the same physical handset used by the reference baseline, not merely another device of the same model.
+
 If the protocol changes, create a new baseline rather than pretending that the measurements are directly equivalent.
 
 ## Android preconditions
