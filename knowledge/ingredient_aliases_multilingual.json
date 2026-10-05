@@ -712,7 +712,11 @@
         "geëvaporeerde halfvolle melk",
         "halfvolle koffiemelk",
         "halfvolle melkpoeder",
-        "koffiemelk"
+        "koffiemelk",
+        "rauwe melk",
+        "volle melk",
+        "halfvolle melk",
+        "magere melk"
       ],
       "ocrVariants": []
     },
@@ -720,7 +724,8 @@
       "canonicalId": "whey",
       "language": "NL",
       "aliases": [
-        "weipoeder van melk"
+        "weipoeder van melk",
+        "wei"
       ],
       "ocrVariants": []
     },
@@ -1201,7 +1206,13 @@
         "Milchpulver mit hohem Fettgehalt",
         "Vollmilchpulver",
         "Teilentrahmtes Milchpulver",
-        "kondensierte Kaffeesahne"
+        "kondensierte Kaffeesahne",
+        "Rohmilch",
+        "Vollmilch",
+        "teilentrahmte Milch",
+        "fettarme Milch",
+        "entrahmte Milch",
+        "Magermilch"
       ],
       "ocrVariants": []
     },
@@ -1209,7 +1220,8 @@
       "canonicalId": "whey",
       "language": "DE",
       "aliases": [
-        "Molkenpulver aus Milch"
+        "Molkenpulver aus Milch",
+        "Molke"
       ],
       "ocrVariants": []
     },
@@ -12500,7 +12512,8 @@
         "miel égoutté",
         "miel centrifugé",
         "miel pressé",
-        "miel destiné à l’industrie"
+        "miel destiné à l’industrie",
+        "Miel naturel"
       ],
       "ocrVariants": []
     },
@@ -12527,7 +12540,8 @@
         "slingerhonig",
         "pershoning",
         "pershonig",
-        "bakkershoning"
+        "bakkershoning",
+        "Natuurhoning"
       ],
       "ocrVariants": []
     },
@@ -12545,7 +12559,8 @@
         "drained honey",
         "extracted honey",
         "pressed honey",
-        "Baker's honey"
+        "Baker's honey",
+        "Natural honey"
       ],
       "ocrVariants": []
     },
@@ -12564,7 +12579,8 @@
         "Tropfhonig",
         "Schleuderhonig",
         "Presshonig",
-        "Backhonig"
+        "Backhonig",
+        "Natürlicher Honig"
       ],
       "ocrVariants": []
     },
@@ -12593,7 +12609,11 @@
         "lait demi-écrémé concentré",
         "lait de mi-écrémé concentré non sucré",
         "lait demi-écrémé concentré sucré",
-        "lait demi-écrémé en poudre"
+        "lait demi-écrémé en poudre",
+        "lait cru",
+        "lait entier",
+        "lait demi-écrémé",
+        "lait écrémé"
       ],
       "ocrVariants": []
     },
@@ -12623,7 +12643,11 @@
         "evaporated milk",
         "evaporated semi-skimmed milk",
         "semi-skimmed milk powder",
-        "dried semi-skimmed milk"
+        "dried semi-skimmed milk",
+        "raw milk",
+        "whole milk",
+        "semi-skimmed milk",
+        "skimmed-milk"
       ],
       "ocrVariants": []
     },
@@ -12952,7 +12976,9 @@
       "canonicalId": "edible_offal",
       "language": "FR",
       "aliases": [
-        "abats comestibles des animaux de l'espèce bovine"
+        "abats comestibles des animaux de l'espèce bovine",
+        "Abats comestibles",
+        "Foies de volailles"
       ],
       "ocrVariants": []
     },
@@ -12960,7 +12986,9 @@
       "canonicalId": "edible_offal",
       "language": "NL",
       "aliases": [
-        "eetbare slachtafvallen van runderen"
+        "eetbare slachtafvallen van runderen",
+        "Eetbare slachtafvallen",
+        "Levers van pluimvee"
       ],
       "ocrVariants": []
     },
@@ -12968,7 +12996,9 @@
       "canonicalId": "edible_offal",
       "language": "EN",
       "aliases": [
-        "edible offal of bovine animals"
+        "edible offal of bovine animals",
+        "Edible offal",
+        "Poultry livers"
       ],
       "ocrVariants": []
     },
@@ -12976,7 +13006,10 @@
       "canonicalId": "edible_offal",
       "language": "DE",
       "aliases": [
-        "Genießbare Schlachtnebenerzeugnisse von Rindern"
+        "Genießbare Schlachtnebenerzeugnisse von Rindern",
+        "Genießbare Schlachtnebenerzeugnisse",
+        "Geflügelleber",
+        "Geflügellebern"
       ],
       "ocrVariants": []
     },
@@ -12984,7 +13017,12 @@
       "canonicalId": "animal_fat",
       "language": "FR",
       "aliases": [
-        "graisses de porc (y compris le saindoux)"
+        "graisses de porc (y compris le saindoux)",
+        "graisse de porc",
+        "saindoux",
+        "Graisses de volaille",
+        "Graisses des animaux de l'espèce bovine",
+        "Graisse des animaux des espèces ovine et caprine"
       ],
       "ocrVariants": []
     },
@@ -12992,7 +13030,12 @@
       "canonicalId": "animal_fat",
       "language": "NL",
       "aliases": [
-        "varkensvet (reuzel daaronder begrepen)"
+        "varkensvet (reuzel daaronder begrepen)",
+        "Varkensvet",
+        "reuzel",
+        "Vet van gevogelte",
+        "Rundervet",
+        "Schapen- of geitenvet"
       ],
       "ocrVariants": []
     },
@@ -13000,7 +13043,12 @@
       "canonicalId": "animal_fat",
       "language": "EN",
       "aliases": [
-        "pig fat (including lard)"
+        "pig fat (including lard)",
+        "Pig fat",
+        "lard",
+        "Poultry fat",
+        "Fats of bovine animals",
+        "Fats of sheep or goats"
       ],
       "ocrVariants": []
     },
@@ -13008,7 +13056,12 @@
       "canonicalId": "animal_fat",
       "language": "DE",
       "aliases": [
-        "Schweinefett (einschließlich Schweineschmalz)"
+        "Schweinefett (einschließlich Schweineschmalz)",
+        "Schweinefett",
+        "Schweineschmalz",
+        "Geflügelfett",
+        "Fett von Rindern",
+        "Fett von Schafen oder Ziegen"
       ],
       "ocrVariants": []
     },
@@ -13112,7 +13165,8 @@
       "canonicalId": "egg",
       "language": "FR",
       "aliases": [
-        "œufs de volailles de basse-cour, en coquille"
+        "œufs de volailles de basse-cour, en coquille",
+        "jaunes d'œufs"
       ],
       "ocrVariants": []
     },
@@ -13120,7 +13174,8 @@
       "canonicalId": "egg",
       "language": "NL",
       "aliases": [
-        "eieren van pluimvee in de schaal"
+        "eieren van pluimvee in de schaal",
+        "eigeel"
       ],
       "ocrVariants": []
     },
@@ -13128,7 +13183,8 @@
       "canonicalId": "egg",
       "language": "EN",
       "aliases": [
-        "poultry eggs, in shell"
+        "poultry eggs, in shell",
+        "egg yolks"
       ],
       "ocrVariants": []
     },
@@ -13136,7 +13192,8 @@
       "canonicalId": "egg",
       "language": "DE",
       "aliases": [
-        "Eier von Hausgeflügel in der Schale"
+        "Eier von Hausgeflügel in der Schale",
+        "Eigelb"
       ],
       "ocrVariants": []
     },
@@ -13678,6 +13735,151 @@
       "language": "DE",
       "aliases": [
         "Lebensmittelzutat mit Aromaeigenschaften"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "whey",
+      "language": "FR",
+      "aliases": [
+        "lactosérum"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "whey",
+      "language": "EN",
+      "aliases": [
+        "whey"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "buttermilk",
+      "language": "FR",
+      "aliases": [
+        "babeurre"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "buttermilk",
+      "language": "NL",
+      "aliases": [
+        "karnemelk",
+        "botermelk"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "buttermilk",
+      "language": "EN",
+      "aliases": [
+        "buttermilk"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "buttermilk",
+      "language": "DE",
+      "aliases": [
+        "Buttermilch"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "casein",
+      "language": "FR",
+      "aliases": [
+        "caséines"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "casein",
+      "language": "NL",
+      "aliases": [
+        "caseïne"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "casein",
+      "language": "EN",
+      "aliases": [
+        "caseins"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "casein",
+      "language": "DE",
+      "aliases": [
+        "Kaseine"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "royal_jelly",
+      "language": "FR",
+      "aliases": [
+        "Gelée royale"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "royal_jelly",
+      "language": "NL",
+      "aliases": [
+        "koninginnengelei"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "royal_jelly",
+      "language": "EN",
+      "aliases": [
+        "Royal jelly"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "royal_jelly",
+      "language": "DE",
+      "aliases": [
+        "Gelée Royale"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "propolis",
+      "language": "FR",
+      "aliases": [
+        "propolis"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "propolis",
+      "language": "NL",
+      "aliases": [
+        "propolis"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "propolis",
+      "language": "EN",
+      "aliases": [
+        "propolis"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "propolis",
+      "language": "DE",
+      "aliases": [
+        "Kittharz"
       ],
       "ocrVariants": []
     }
@@ -33739,6 +33941,1611 @@
       "normalizedForm": "lebensmittelzutat mit aromaeigenschaften",
       "source": "eu-flavourings-regulation-1334-2008-20260216",
       "confidence": "REVIEWED"
+    },
+    {
+      "surfaceForm": "lactosérum",
+      "language": "FR",
+      "conceptId": "whey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lactoserum",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(i)",
+          "sourceOffset": 1392,
+          "surfaceForm": "lactosérum",
+          "reviewId": "A289e9d1a136f",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "wei",
+      "language": "NL",
+      "conceptId": "whey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "wei",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(i)",
+          "sourceOffset": 1495,
+          "surfaceForm": "wei",
+          "reviewId": "A183557fc283e",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "whey",
+      "language": "EN",
+      "conceptId": "whey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "whey",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(i)",
+          "sourceOffset": 1167,
+          "surfaceForm": "whey",
+          "reviewId": "A60e5ccf268ea",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Molke",
+      "language": "DE",
+      "conceptId": "whey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "molke",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(i)",
+          "sourceOffset": 1396,
+          "surfaceForm": "Molke",
+          "reviewId": "A72019b963880",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "babeurre",
+      "language": "FR",
+      "conceptId": "buttermilk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "babeurre",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(iv)",
+          "sourceOffset": 1438,
+          "surfaceForm": "babeurre",
+          "reviewId": "Ada8f271ba175",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "karnemelk",
+      "language": "NL",
+      "conceptId": "buttermilk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "karnemelk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(iv)",
+          "sourceOffset": 1532,
+          "surfaceForm": "karnemelk",
+          "reviewId": "Aa529996c2e06",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "botermelk",
+      "language": "NL",
+      "conceptId": "buttermilk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "botermelk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(iv)",
+          "sourceOffset": 1545,
+          "surfaceForm": "botermelk",
+          "reviewId": "A4ff2656fc5da",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "buttermilk",
+      "language": "EN",
+      "conceptId": "buttermilk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "buttermilk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(iv)",
+          "sourceOffset": 1210,
+          "surfaceForm": "buttermilk",
+          "reviewId": "Ae657dd855555",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Buttermilch",
+      "language": "DE",
+      "conceptId": "buttermilk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "buttermilch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(iv)",
+          "sourceOffset": 1436,
+          "surfaceForm": "Buttermilch",
+          "reviewId": "A18f0b1e574d3",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "caséines",
+      "language": "FR",
+      "conceptId": "casein",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "caseines",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(vi)",
+          "sourceOffset": 1470,
+          "surfaceForm": "caséines",
+          "reviewId": "A85544edb0b1f",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "caseïne",
+      "language": "NL",
+      "conceptId": "casein",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "caseine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(vi)",
+          "sourceOffset": 1578,
+          "surfaceForm": "caseïne",
+          "reviewId": "A02f451e82730",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "caseins",
+      "language": "EN",
+      "conceptId": "casein",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "caseins",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(vi)",
+          "sourceOffset": 1246,
+          "surfaceForm": "caseins",
+          "reviewId": "A6c531a4d338a",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Kaseine",
+      "language": "DE",
+      "conceptId": "casein",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "kaseine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 182,
+          "legalLocation": "Annex VII / Part III / 2(a)(vi)",
+          "sourceOffset": 1471,
+          "surfaceForm": "Kaseine",
+          "reviewId": "A4df9d493272a",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "lait cru",
+      "language": "FR",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lait cru",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(a)",
+          "sourceOffset": 151,
+          "surfaceForm": "lait cru",
+          "reviewId": "Adc4bb6fba6d2",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "rauwe melk",
+      "language": "NL",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "rauwe melk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(a)",
+          "sourceOffset": 137,
+          "surfaceForm": "rauwe melk",
+          "reviewId": "Ac2ef1da4816c",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "raw milk",
+      "language": "EN",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "raw milk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(a)",
+          "sourceOffset": 143,
+          "surfaceForm": "raw milk",
+          "reviewId": "A51f27fce353d",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Rohmilch",
+      "language": "DE",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "rohmilch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(a)",
+          "sourceOffset": 121,
+          "surfaceForm": "Rohmilch",
+          "reviewId": "A39397e566562",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "lait entier",
+      "language": "FR",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lait entier",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(b)",
+          "sourceOffset": 263,
+          "surfaceForm": "lait entier",
+          "reviewId": "Af1b905bf492b",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "volle melk",
+      "language": "NL",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "volle melk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(b)",
+          "sourceOffset": 275,
+          "surfaceForm": "volle melk",
+          "reviewId": "A2173a9aeb1c6",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "whole milk",
+      "language": "EN",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "whole milk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(b)",
+          "sourceOffset": 257,
+          "surfaceForm": "whole milk",
+          "reviewId": "Ac0cbaec6a68d",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Vollmilch",
+      "language": "DE",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "vollmilch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(b)",
+          "sourceOffset": 241,
+          "surfaceForm": "Vollmilch",
+          "reviewId": "Ab6dc3e75fb82",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "lait demi-écrémé",
+      "language": "FR",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lait demi ecreme",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(c)",
+          "sourceOffset": 1039,
+          "surfaceForm": "lait demi-écrémé",
+          "reviewId": "A7134bf4c221f",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "halfvolle melk",
+      "language": "NL",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "halfvolle melk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(c)",
+          "sourceOffset": 902,
+          "surfaceForm": "halfvolle melk",
+          "reviewId": "A8e8310a736ba",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "semi-skimmed milk",
+      "language": "EN",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "semi skimmed milk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(c)",
+          "sourceOffset": 874,
+          "surfaceForm": "semi-skimmed milk",
+          "reviewId": "Ab4009a89bc12",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "teilentrahmte Milch",
+      "language": "DE",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "teilentrahmte milch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(c)",
+          "sourceOffset": 879,
+          "surfaceForm": "teilentrahmte Milch",
+          "reviewId": "A8bb6aad63967",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "fettarme Milch",
+      "language": "DE",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fettarme milch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(c)",
+          "sourceOffset": 900,
+          "surfaceForm": "fettarme Milch",
+          "reviewId": "Ab493a2dc8414",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "lait écrémé",
+      "language": "FR",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lait ecreme",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(d)",
+          "sourceOffset": 1220,
+          "surfaceForm": "lait écrémé",
+          "reviewId": "A388133501653",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "magere melk",
+      "language": "NL",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "magere melk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(d)",
+          "sourceOffset": 1038,
+          "surfaceForm": "magere melk",
+          "reviewId": "A418fce16500c",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "skimmed-milk",
+      "language": "EN",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "skimmed milk",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(d)",
+          "sourceOffset": 1004,
+          "surfaceForm": "skimmed-milk",
+          "reviewId": "A20bb306b20e5",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        },
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(d)",
+          "sourceOffset": 879,
+          "surfaceForm": "skimmed milk",
+          "reviewId": "A6b449c759611",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "entrahmte Milch",
+      "language": "DE",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "entrahmte milch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(d)",
+          "sourceOffset": 883,
+          "surfaceForm": "entrahmte Milch",
+          "reviewId": "A69b7a95c50ab",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Magermilch",
+      "language": "DE",
+      "conceptId": "milk",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "magermilch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 184,
+          "legalLocation": "Annex VII / Part IV / III.1(d)",
+          "sourceOffset": 1083,
+          "surfaceForm": "Magermilch",
+          "reviewId": "A67abd3e7fd64",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Miel naturel",
+      "language": "FR",
+      "conceptId": "honey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "miel naturel",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0409",
+          "sourceOffset": 1397,
+          "surfaceForm": "Miel naturel",
+          "reviewId": "A2caa79f5e553",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Natuurhoning",
+      "language": "NL",
+      "conceptId": "honey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "natuurhoning",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0409",
+          "sourceOffset": 1426,
+          "surfaceForm": "Natuurhoning",
+          "reviewId": "A35a54cfde886",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Natural honey",
+      "language": "EN",
+      "conceptId": "honey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "natural honey",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0409",
+          "sourceOffset": 1346,
+          "surfaceForm": "Natural honey",
+          "reviewId": "Af1c92aa49e3d",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Natürlicher Honig",
+      "language": "DE",
+      "conceptId": "honey",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "naturlicher honig",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0409",
+          "sourceOffset": 1483,
+          "surfaceForm": "Natürlicher Honig",
+          "reviewId": "Aae782f0a7271",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Gelée royale",
+      "language": "FR",
+      "conceptId": "royal_jelly",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee royale",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1426,
+          "surfaceForm": "Gelée royale",
+          "reviewId": "A7da6efb7062f",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "koninginnengelei",
+      "language": "NL",
+      "conceptId": "royal_jelly",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "koninginnengelei",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1463,
+          "surfaceForm": "koninginnengelei",
+          "reviewId": "Abd979b4c4478",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Royal jelly",
+      "language": "EN",
+      "conceptId": "royal_jelly",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "royal jelly",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1376,
+          "surfaceForm": "Royal jelly",
+          "reviewId": "Abba71bd99577",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Gelée Royale",
+      "language": "DE",
+      "conceptId": "royal_jelly",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "gelee royale",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1517,
+          "surfaceForm": "Gelée Royale",
+          "reviewId": "Ab1ad9606ca9c",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "propolis",
+      "language": "FR",
+      "conceptId": "propolis",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "propolis",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1442,
+          "surfaceForm": "propolis",
+          "reviewId": "A692ddafa9421",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "propolis",
+      "language": "NL",
+      "conceptId": "propolis",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "propolis",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1483,
+          "surfaceForm": "propolis",
+          "reviewId": "Aed2bcffb78e9",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "propolis",
+      "language": "EN",
+      "conceptId": "propolis",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "propolis",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1392,
+          "surfaceForm": "propolis",
+          "reviewId": "Aee51efe73b00",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Kittharz",
+      "language": "DE",
+      "conceptId": "propolis",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "kittharz",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 147,
+          "legalLocation": "Annex I / Part XXII / NC 0410 (edible)",
+          "sourceOffset": 1534,
+          "surfaceForm": "Kittharz",
+          "reviewId": "Af1c9d73d9d15",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "jaunes d'œufs",
+      "language": "FR",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "jaunes d ufs",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XIX / NC 0408 (edible)",
+          "sourceOffset": 927,
+          "surfaceForm": "jaunes d'œufs",
+          "reviewId": "Adafa81bdcc53",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "eigeel",
+      "language": "NL",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "eigeel",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XIX / NC 0408 (edible)",
+          "sourceOffset": 882,
+          "surfaceForm": "eigeel",
+          "reviewId": "Adac7f8cc8e7c",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "egg yolks",
+      "language": "EN",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "egg yolks",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XIX / NC 0408 (edible)",
+          "sourceOffset": 772,
+          "surfaceForm": "egg yolks",
+          "reviewId": "A75570ef55abd",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Eigelb",
+      "language": "DE",
+      "conceptId": "egg",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "eigelb",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XIX / NC 0408 (edible)",
+          "sourceOffset": 947,
+          "surfaceForm": "Eigelb",
+          "reviewId": "Af7431c6960d8",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Abats comestibles",
+      "language": "FR",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "abats comestibles",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annex I / Part XV / NC 0206 (edible)",
+          "sourceOffset": 1861,
+          "surfaceForm": "Abats comestibles",
+          "reviewId": "Ad22b3d3ef8fc",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Eetbare slachtafvallen",
+      "language": "NL",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "eetbare slachtafvallen",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annex I / Part XV / NC 0206 (edible)",
+          "sourceOffset": 1803,
+          "surfaceForm": "Eetbare slachtafvallen",
+          "reviewId": "A5a5ad06deef7",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Edible offal",
+      "language": "EN",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "edible offal",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annex I / Part XV / NC 0206 (edible)",
+          "sourceOffset": 1714,
+          "surfaceForm": "Edible offal",
+          "reviewId": "A4363d135d25c",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Genießbare Schlachtnebenerzeugnisse",
+      "language": "DE",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geniessbare schlachtnebenerzeugnisse",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annex I / Part XV / NC 0206 (edible)",
+          "sourceOffset": 1940,
+          "surfaceForm": "Genießbare Schlachtnebenerzeugnisse",
+          "reviewId": "A58c0f3cbbc8f",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Foies de volailles",
+      "language": "FR",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "foies de volailles",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (c)",
+          "sourceOffset": 1635,
+          "surfaceForm": "Foies de volailles",
+          "reviewId": "Ab1dacfa67c8b",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Levers van pluimvee",
+      "language": "NL",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "levers van pluimvee",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (c)",
+          "sourceOffset": 1589,
+          "surfaceForm": "Levers van pluimvee",
+          "reviewId": "Af3a74cd38474",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Poultry livers",
+      "language": "EN",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "poultry livers",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (c)",
+          "sourceOffset": 1544,
+          "surfaceForm": "Poultry livers",
+          "reviewId": "A1cc3515d0fe8",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Geflügelleber",
+      "language": "DE",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geflugelleber",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (c)",
+          "sourceOffset": 1651,
+          "surfaceForm": "Geflügelleber",
+          "reviewId": "A86b4de7910a1",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Geflügellebern",
+      "language": "DE",
+      "conceptId": "edible_offal",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geflugellebern",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (c)",
+          "sourceOffset": 1722,
+          "surfaceForm": "Geflügellebern",
+          "reviewId": "A87d7c7e923ef",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "graisse de porc",
+      "language": "FR",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "graisse de porc",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 0209 and 1501",
+          "sourceOffset": 581,
+          "surfaceForm": "graisse de porc",
+          "reviewId": "A29ea7e973802",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Varkensvet",
+      "language": "NL",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "varkensvet",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 0209 and 1501",
+          "sourceOffset": 787,
+          "surfaceForm": "Varkensvet",
+          "reviewId": "A7c22426e62af",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Pig fat",
+      "language": "EN",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "pig fat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 0209 and 1501",
+          "sourceOffset": 456,
+          "surfaceForm": "Pig fat",
+          "reviewId": "A98b06cb91547",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Schweinefett",
+      "language": "DE",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schweinefett",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 0209 and 1501",
+          "sourceOffset": 534,
+          "surfaceForm": "Schweinefett",
+          "reviewId": "Af7702e07a8fb",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "saindoux",
+      "language": "FR",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "saindoux",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 1501",
+          "sourceOffset": 869,
+          "surfaceForm": "saindoux",
+          "reviewId": "A77ca12c2e0cc",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "reuzel",
+      "language": "NL",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "reuzel",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 1501",
+          "sourceOffset": 799,
+          "surfaceForm": "reuzel",
+          "reviewId": "A9c922c0af2bb",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "lard",
+      "language": "EN",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "lard",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 1501",
+          "sourceOffset": 711,
+          "surfaceForm": "lard",
+          "reviewId": "A0cdd43811cdf",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Schweineschmalz",
+      "language": "DE",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schweineschmalz",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annex I / Part XVII / NC 1501",
+          "sourceOffset": 852,
+          "surfaceForm": "Schweineschmalz",
+          "reviewId": "Ac0bf87a8f6bc",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Graisses de volaille",
+      "language": "FR",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "graisses de volaille",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (e) / NC 1501",
+          "sourceOffset": 1930,
+          "surfaceForm": "Graisses de volaille",
+          "reviewId": "Abf8d004ce576",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Vet van gevogelte",
+      "language": "NL",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "vet van gevogelte",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (e) / NC 1501",
+          "sourceOffset": 1737,
+          "surfaceForm": "Vet van gevogelte",
+          "reviewId": "Ae13338bfb26d",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Poultry fat",
+      "language": "EN",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "poultry fat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (e) / NC 1501",
+          "sourceOffset": 1611,
+          "surfaceForm": "Poultry fat",
+          "reviewId": "Ac71bfbed5422",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Geflügelfett",
+      "language": "DE",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geflugelfett",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XX / (e) / NC 1501",
+          "sourceOffset": 1804,
+          "surfaceForm": "Geflügelfett",
+          "reviewId": "Aea78fce14025",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Graisses des animaux de l'espèce bovine",
+      "language": "FR",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "graisses des animaux de l espece bovine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 144,
+          "legalLocation": "Annex I / Part XV / NC 1502",
+          "sourceOffset": 217,
+          "surfaceForm": "Graisses des animaux de l'espèce bovine",
+          "reviewId": "Adba12345da26",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Rundervet",
+      "language": "NL",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "rundervet",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 144,
+          "legalLocation": "Annex I / Part XV / NC 1502",
+          "sourceOffset": 213,
+          "surfaceForm": "Rundervet",
+          "reviewId": "A6df3fba4a0e7",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Fats of bovine animals",
+      "language": "EN",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fats of bovine animals",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 144,
+          "legalLocation": "Annex I / Part XV / NC 1502",
+          "sourceOffset": 210,
+          "surfaceForm": "Fats of bovine animals",
+          "reviewId": "A617e8de7ce15",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Fett von Rindern",
+      "language": "DE",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fett von rindern",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 144,
+          "legalLocation": "Annex I / Part XV / NC 1502",
+          "sourceOffset": 265,
+          "surfaceForm": "Fett von Rindern",
+          "reviewId": "A4bfa1ef450fc",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Graisse des animaux des espèces ovine et caprine",
+      "language": "FR",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "graisse des animaux des especes ovine et caprine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XVIII / NC 1502",
+          "sourceOffset": 351,
+          "surfaceForm": "Graisse des animaux des espèces ovine et caprine",
+          "reviewId": "Aa7cc4fa90db1",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Schapen- of geitenvet",
+      "language": "NL",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schapen of geitenvet",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XVIII / NC 1502",
+          "sourceOffset": 335,
+          "surfaceForm": "Schapen- of geitenvet",
+          "reviewId": "A96ad2cedeb95",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Fats of sheep or goats",
+      "language": "EN",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fats of sheep or goats",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XVIII / NC 1502",
+          "sourceOffset": 278,
+          "surfaceForm": "Fats of sheep or goats",
+          "reviewId": "A6dae67671904",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Fett von Schafen oder Ziegen",
+      "language": "DE",
+      "conceptId": "animal_fat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fett von schafen oder ziegen",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 146,
+          "legalLocation": "Annex I / Part XVIII / NC 1502",
+          "sourceOffset": 367,
+          "surfaceForm": "Fett von Schafen oder Ziegen",
+          "reviewId": "A5bf94d849f1b",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
     }
   ],
   "mappingPurpose": "Reviewed structured provenance for regulatory multilingual aliases; runtime continues to use aliases and ocrVariants."

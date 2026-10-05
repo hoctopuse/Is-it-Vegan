@@ -9,7 +9,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | Concept | Statut | FR | NL | EN | DE | Sources | Alertes |
 |---|---|---|---|---|---|---|---|
 | almond | VEGAN | amande; amandes; amandes moulues | amandel; amandelen; gemalen amandelen | almond; almonds | Mandel; Mandeln | vegan-society | — |
-| animal_fat | NON_VEGAN | graisses de porc (y compris le saindoux) | varkensvet (reuzel daaronder begrepen) | pig fat (including lard) | Schweinefett (einschließlich Schweineschmalz) | eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| animal_fat | NON_VEGAN | graisses de porc (y compris le saindoux); graisse de porc; saindoux; Graisses de volaille; Graisses des animaux de l'espèce bovine; Graisse des animaux des espèces ovine et caprine | varkensvet (reuzel daaronder begrepen); Varkensvet; reuzel; Vet van gevogelte; Rundervet; Schapen- of geitenvet | pig fat (including lard); Pig fat; lard; Poultry fat; Fats of bovine animals; Fats of sheep or goats | Schweinefett (einschließlich Schweineschmalz); Schweinefett; Schweineschmalz; Geflügelfett; Fett von Rindern; Fett von Schafen oder Ziegen | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | banana | VEGAN | chips de banane | — | — | — | vegan-society | — |
 | barley | VEGAN | orge; flocons d’orge complets; orge complète | gerst; volkoren gerst | barley | Gerste | vegan-society | — |
 | bell_pepper | VEGAN | poivron; piment doux; poivron jaune; poivron vert; powron | zoete paprika; gele paprika; groene paprika | — | gelbe Paprika; grüne Paprika | vegan-society | — |
@@ -18,6 +18,8 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | blueberry | VEGAN | myrtille; myrtilles | bosbes; bosbessen; gevriesdroogde bosbessen; gedroogde blauwe bessen | blueberry; blueberries; freeze-dried blueberries | Heidelbeere; Heidelbeeren | vegan-society | — |
 | brazil_nut | VEGAN | noix du Brésil | paranoten; paranoot | — | — | vegan-society | — |
 | butter | VEGETARIAN | — | — | — | Butterreinfett | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| buttermilk | VEGETARIAN | babeurre | karnemelk; botermelk | buttermilk | Buttermilch | eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| casein | VEGETARIAN | caséines | caseïne | caseins | Kaseine | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | cashew | VEGAN | noix de cajou; noix de cajou grillées | cashewnoten; cashewnoot | — | — | vegan-society | — |
 | chocolate | UNCERTAIN | chocolat; chocolat de couverture | chocolade; chocoladecouverture | chocolate; couverture chocolate | Schokolade; Schokoladenkuvertüre | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | chocolate_confection | UNCERTAIN | bonbon de chocolat; praline | chocoladebonbon; praline | praline | Praline; Schokoladebonbon | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
@@ -370,8 +372,8 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | e968 | UNCERTAIN | Érythritol | Erytritol | Erythritol | Erythrit | eu-additives | — |
 | e969 | UNCERTAIN | Advantame 3. Additifs autres que les colorants et les édulcorants | Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen | Advantame 3. Additives other than colours and sweeteners | Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung | eu-additives | — |
 | e999 | UNCERTAIN | Extraits de quillaia | Quillaja-extract | Quillaia extract | Quillajaextrakt | eu-additives | — |
-| edible_offal | NON_VEGAN | abats comestibles des animaux de l'espèce bovine | eetbare slachtafvallen van runderen | edible offal of bovine animals | Genießbare Schlachtnebenerzeugnisse von Rindern | eu-agricultural-products-regulation-1308-2013-20260818 | — |
-| egg | VEGETARIAN | œufs de volailles de basse-cour, en coquille | eieren van pluimvee in de schaal | poultry eggs, in shell | Eier von Hausgeflügel in der Schale | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| edible_offal | NON_VEGAN | abats comestibles des animaux de l'espèce bovine; Abats comestibles; Foies de volailles | eetbare slachtafvallen van runderen; Eetbare slachtafvallen; Levers van pluimvee | edible offal of bovine animals; Edible offal; Poultry livers | Genießbare Schlachtnebenerzeugnisse von Rindern; Genießbare Schlachtnebenerzeugnisse; Geflügelleber; Geflügellebern | eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| egg | VEGETARIAN | œufs de volailles de basse-cour, en coquille; jaunes d'œufs | eieren van pluimvee in de schaal; eigeel | poultry eggs, in shell; egg yolks | Eier von Hausgeflügel in der Schale; Eigelb | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | filled_chocolate | UNCERTAIN | chocolat fourré | gevulde chocolade | filled chocolate | Gefüllte Schokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | flavour_precursor | UNCERTAIN | précurseur d'arôme | aromaprecursor | flavour precursor | Aromavorstufe | eu-flavourings-regulation-1334-2008-20260216 | — |
 | flavouring | UNCERTAIN | arôme; arômes | aroma; aroma's | flavouring; flavourings | Aroma; Aromen | eu-flavourings-regulation-1334-2008-20260216 | — |
@@ -385,12 +387,12 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | fruit_puree | VEGAN | purée de fruits; purée de fruits concentrée | vruchtenpuree | fruit purée; concentrated fruit purée | Fruchtmark | eu-fruit-juice-directive-2001-112-20260614 | — |
 | glucose_syrup | VEGAN | — | glucosestroop; glucose-fructosestroop | — | Glukosesirup | vegan-society | — |
 | hazelnut | VEGAN | noisettes | hazelnoten; hazelnoot | — | — | vegan-society | — |
-| honey | VEGETARIAN | miel; miel de fleurs; miel de nectars; miel de miellat; miel en rayons; miel avec morceaux de rayons; miel égoutté; miel centrifugé; miel pressé; miel destiné à l’industrie | honing; honig; bloemenhoning; bloemenhonig; nectarhoning; nectarhonig; honingdauwhoning; honingdauwhonig; raathoning; raathonig; brokhoning; brokhonig; raatbrokken in honing/honig; lekhoning; lekhonig; slingerhoning; slingerhonig; pershoning; pershonig; bakkershoning | honey; blossom honey; nectar honey; honeydew honey; comb honey; chunk honey; cut comb in honey; drained honey; extracted honey; pressed honey; Baker's honey | Honig; Blütenhonig; Nektarhonig; Honigtauhonig; Wabenhonig; Scheibenhonig; Honig mit Wabenteilen; Wabenstücke in Honig; Tropfhonig; Schleuderhonig; Presshonig; Backhonig | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614 | — |
+| honey | VEGETARIAN | miel; miel de fleurs; miel de nectars; miel de miellat; miel en rayons; miel avec morceaux de rayons; miel égoutté; miel centrifugé; miel pressé; miel destiné à l’industrie; Miel naturel | honing; honig; bloemenhoning; bloemenhonig; nectarhoning; nectarhonig; honingdauwhoning; honingdauwhonig; raathoning; raathonig; brokhoning; brokhonig; raatbrokken in honing/honig; lekhoning; lekhonig; slingerhoning; slingerhonig; pershoning; pershonig; bakkershoning; Natuurhoning | honey; blossom honey; nectar honey; honeydew honey; comb honey; chunk honey; cut comb in honey; drained honey; extracted honey; pressed honey; Baker's honey; Natural honey | Honig; Blütenhonig; Nektarhonig; Honigtauhonig; Wabenhonig; Scheibenhonig; Honig mit Wabenteilen; Wabenstücke in Honig; Tropfhonig; Schleuderhonig; Presshonig; Backhonig; Natürlicher Honig | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | inulin | VEGAN | inuline | inuline | inulin | Inulin | vegan-society | — |
 | macadamia | VEGAN | noix de macadamia | macadamianoten; macadamianoot | — | — | vegan-society | — |
 | malt | VEGAN | malt; extrait de malt; flocons de céréales maltés; farine de malt d’orge; farine de malt de blé | mout; gerstermout; gerstermoutextract; gemoute gerstemeel; gemoute tarwebloem | malt; barley malt extract | Gerstenmalz; Gerstenmalzextrakt | vegan-society | — |
 | meat | NON_VEGAN | viande bovine; viande de porc; viandes ovine et caprine; viande de volaille | rundvlees; varkensvlees; schapen- en geitenvlees; pluimveevlees | beef and veal; pigmeat; sheepmeat and goatmeat; poultrymeat | Rindfleisch; Schweinefleisch; Schaf- und Ziegenfleisch; Geflügelfleisch | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
-| milk | VEGETARIAN | lait; lait partiellement déshydraté; lait concentré riche en matières grasses; lait concentré; lait concentré partiellement écrémé; lait concentré écrémé; lait concentré sucré; lait concentré sucré partiellement écrémé; lait concentré sucré écrémé; lait totalement déshydraté; lait en poudre riche en matières grasses; poudre de lait riche en matières grasses; lait en poudre entier; poudre de lait entier; lait en poudre partiellement écrémé; poudre de lait partiellement écrémé; lait en poudre écrémé; poudre de lait écrémé; lait demi-écrémé concentré; lait de mi-écrémé concentré non sucré; lait demi-écrémé concentré sucré; lait demi-écrémé en poudre | magere melkpoeder; melk; gedeeltelijk gedehydrateerde melk; geëvaporeerde melk met hoog vetgehalte; geëvaporeerde volle melk; geëvaporeerde gedeeltelijk afgeroomde melk; geëvaporeerde magere melk; gecondenseerde volle melk met suiker; gecondenseerde gedeeltelijk afgeroomde melk met suiker; gecondenseerde magere melk met suiker; geheel gedehydrateerde melk; melkpoeder; melkpoeder met hoog vetgehalte; volle melkpoeder; melkpoeder van gedeeltelijk afgeroomde melk; geëvaporeerde halfvolle melk; halfvolle koffiemelk; halfvolle melkpoeder; koffiemelk | milk; partly dehydrated milk; condensed high-fat milk; condensed milk; condensed, partly skimmed milk; condensed skimmed milk; sweetened condensed milk; sweetened condensed, partly skimmed milk; sweetened condensed skimmed milk; totally dehydrated milk; milk powder; dried high-fat milk; high-fat milk powder; dried whole milk; whole milk powder; dried partly skimmed milk; partly skimmed-milk powder; dried skimmed milk; skimmed-milk powder; evaporated milk; evaporated semi-skimmed milk; semi-skimmed milk powder; dried semi-skimmed milk | Magermilchpulver; Milch; Eingedickte Milch; Kondensmilch mit hohem Fettgehalt; Kondensmilch; kondensierte Vollmilch; Teilentrahmte Kondensmilch; Kondensmagermilch; kondensierte Magermilch; Gezuckerte Kondensmilch; gezuckerte kondensierte Vollmilch; Gezuckerte teilentrahmte Kondensmilch; gezuckerte teilentrahmte kondensierte Milch; Gezuckerte Kondensmagermilch; gezuckerte kondensierte Magermilch; Trockenmilch; Milchpulver; Milchpulver mit hohem Fettgehalt; Vollmilchpulver; Teilentrahmtes Milchpulver; kondensierte Kaffeesahne | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| milk | VEGETARIAN | lait; lait partiellement déshydraté; lait concentré riche en matières grasses; lait concentré; lait concentré partiellement écrémé; lait concentré écrémé; lait concentré sucré; lait concentré sucré partiellement écrémé; lait concentré sucré écrémé; lait totalement déshydraté; lait en poudre riche en matières grasses; poudre de lait riche en matières grasses; lait en poudre entier; poudre de lait entier; lait en poudre partiellement écrémé; poudre de lait partiellement écrémé; lait en poudre écrémé; poudre de lait écrémé; lait demi-écrémé concentré; lait de mi-écrémé concentré non sucré; lait demi-écrémé concentré sucré; lait demi-écrémé en poudre; lait cru; lait entier; lait demi-écrémé; lait écrémé | magere melkpoeder; melk; gedeeltelijk gedehydrateerde melk; geëvaporeerde melk met hoog vetgehalte; geëvaporeerde volle melk; geëvaporeerde gedeeltelijk afgeroomde melk; geëvaporeerde magere melk; gecondenseerde volle melk met suiker; gecondenseerde gedeeltelijk afgeroomde melk met suiker; gecondenseerde magere melk met suiker; geheel gedehydrateerde melk; melkpoeder; melkpoeder met hoog vetgehalte; volle melkpoeder; melkpoeder van gedeeltelijk afgeroomde melk; geëvaporeerde halfvolle melk; halfvolle koffiemelk; halfvolle melkpoeder; koffiemelk; rauwe melk; volle melk; halfvolle melk; magere melk | milk; partly dehydrated milk; condensed high-fat milk; condensed milk; condensed, partly skimmed milk; condensed skimmed milk; sweetened condensed milk; sweetened condensed, partly skimmed milk; sweetened condensed skimmed milk; totally dehydrated milk; milk powder; dried high-fat milk; high-fat milk powder; dried whole milk; whole milk powder; dried partly skimmed milk; partly skimmed-milk powder; dried skimmed milk; skimmed-milk powder; evaporated milk; evaporated semi-skimmed milk; semi-skimmed milk powder; dried semi-skimmed milk; raw milk; whole milk; semi-skimmed milk; skimmed-milk | Magermilchpulver; Milch; Eingedickte Milch; Kondensmilch mit hohem Fettgehalt; Kondensmilch; kondensierte Vollmilch; Teilentrahmte Kondensmilch; Kondensmagermilch; kondensierte Magermilch; Gezuckerte Kondensmilch; gezuckerte kondensierte Vollmilch; Gezuckerte teilentrahmte Kondensmilch; gezuckerte teilentrahmte kondensierte Milch; Gezuckerte Kondensmagermilch; gezuckerte kondensierte Magermilch; Trockenmilch; Milchpulver; Milchpulver mit hohem Fettgehalt; Vollmilchpulver; Teilentrahmtes Milchpulver; kondensierte Kaffeesahne; Rohmilch; Vollmilch; teilentrahmte Milch; fettarme Milch; entrahmte Milch; Magermilch | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | milk_chocolate | VEGETARIAN | chocolat au lait; chocolat de ménage au lait | melkchocolade; huishoudmelkchocolade | milk chocolate; family milk chocolate | Milchschokolade; Haushaltsmilchschokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | natural_flavouring | UNCERTAIN | substance aromatisante naturelle | natuurlijk aardbeienaroma; natuurlijke aromastof | natural flavouring substance | natürliches Aroma; natürlicher Aromastoff | vegan-society, eu-flavourings-regulation-1334-2008-20260216 | — |
 | oats | VEGAN | flocons d’avoine complets; flocons d’avoine complète; avoine fermentée | haver; havervlokken; volkoren havervlokken; gefermenteerde haver | — | Hafer; Haferflocken | vegan-society | — |
@@ -407,10 +409,12 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | poultry_meat_preparation | NON_VEGAN | préparation à base de viande de volaille | bereiding op basis van pluimveevlees | poultrymeat preparation | Geflügelfleischzubereitungen | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | powdered_chocolate | VEGAN | chocolat en poudre; cacao sucré | chocoladepoeder; gesuikerd cacaopoeder | powdered chocolate; sweetened cocoa powder | Schokoladenpulver; gezuckerter Kakao | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | processed_fruit_vegetable_product | UNCERTAIN | produits transformés à base de fruits et légumes | verwerkte groenten en fruit | processed fruit and vegetable products | Verarbeitungserzeugnisse aus Obst und Gemüse | eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| propolis | VEGETARIAN | propolis | propolis | propolis | Kittharz | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 | — |
 | pumpkin_seed | VEGAN | graines de courge | pompoenpitten | — | — | vegan-society | — |
 | raisin | VEGAN | raisins secs | rozijnen | — | — | vegan-society | — |
 | rapeseed_oil | VEGAN | — | koolzaadolie | — | Rapsöl | vegan-society | — |
 | rice | VEGAN | pétales de riz | rijstmeel; rijstvlokken | — | — | vegan-society | — |
+| royal_jelly | VEGETARIAN | Gelée royale | koninginnengelei | Royal jelly | Gelée Royale | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 | — |
 | rye | VEGAN | seigle | rogge; volkoren roggevlokken | rye | Roggen | vegan-society | — |
 | salt | VEGAN | sel marin | zout; zeezout | — | Salz; Speisesalz | vegan-society | — |
 | smoke_flavouring | UNCERTAIN | arôme de fumée | rookaroma | smoke flavouring | Raucharoma | eu-flavourings-regulation-1334-2008-20260216 | — |
@@ -428,7 +432,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | wheat | VEGAN | blé complet | tarwe; volkoren tarwe | — | Weizen; Vollkornweizen | vegan-society | — |
 | wheat_flour | VEGAN | — | tarwebloem; tarwemeel | — | Weizenmehl; Weizenmell | vegan-society | — |
 | wheat_syrup | VEGAN | sirop de blé; sirop de blé liquide et déshydraté | tarwesiroop; tarwesiroop vloeibaar; tarwesiroop gedehydrateerd | wheat syrup | Weizensirup | vegan-society | — |
-| whey | VEGETARIAN | — | weipoeder van melk | — | Molkenpulver aus Milch | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| whey | VEGETARIAN | lactosérum | weipoeder van melk; wei | whey | Molkenpulver aus Milch; Molke | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | white_chocolate | VEGETARIAN | chocolat blanc | witte chocolade | white chocolate | Weiße Schokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 
 ## Alias non importes
@@ -473,15 +477,35 @@ Mapping group : `agricultural-products-regulation`
 
 ### FR
 - `graisses de porc (y compris le saindoux)` — REGULATORY_ALIAS; normalise: `graisses de porc y compris le saindoux`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `graisse de porc` — REGULATORY_ALIAS; normalise: `graisse de porc`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `saindoux` — REGULATORY_ALIAS; normalise: `saindoux`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Graisses de volaille` — REGULATORY_ALIAS; normalise: `graisses de volaille`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Graisses des animaux de l'espèce bovine` — REGULATORY_ALIAS; normalise: `graisses des animaux de l espece bovine`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Graisse des animaux des espèces ovine et caprine` — REGULATORY_ALIAS; normalise: `graisse des animaux des especes ovine et caprine`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ### NL
 - `varkensvet (reuzel daaronder begrepen)` — REGULATORY_ALIAS; normalise: `varkensvet reuzel daaronder begrepen`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Varkensvet` — REGULATORY_ALIAS; normalise: `varkensvet`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `reuzel` — REGULATORY_ALIAS; normalise: `reuzel`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Vet van gevogelte` — REGULATORY_ALIAS; normalise: `vet van gevogelte`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Rundervet` — REGULATORY_ALIAS; normalise: `rundervet`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Schapen- of geitenvet` — REGULATORY_ALIAS; normalise: `schapen of geitenvet`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ### EN
 - `pig fat (including lard)` — REGULATORY_ALIAS; normalise: `pig fat including lard`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Pig fat` — REGULATORY_ALIAS; normalise: `pig fat`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `lard` — REGULATORY_ALIAS; normalise: `lard`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Poultry fat` — REGULATORY_ALIAS; normalise: `poultry fat`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Fats of bovine animals` — REGULATORY_ALIAS; normalise: `fats of bovine animals`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Fats of sheep or goats` — REGULATORY_ALIAS; normalise: `fats of sheep or goats`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ### DE
 - `Schweinefett (einschließlich Schweineschmalz)` — REGULATORY_ALIAS; normalise: `schweinefett einschliesslich schweineschmalz`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Schweinefett` — REGULATORY_ALIAS; normalise: `schweinefett`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Schweineschmalz` — REGULATORY_ALIAS; normalise: `schweineschmalz`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Geflügelfett` — REGULATORY_ALIAS; normalise: `geflugelfett`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Fett von Rindern` — REGULATORY_ALIAS; normalise: `fett von rindern`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Fett von Schafen oder Ziegen` — REGULATORY_ALIAS; normalise: `fett von schafen oder ziegen`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : banana
 
@@ -667,6 +691,43 @@ Mapping group : `agricultural-products-regulation`
 
 ### DE
 - `Butterreinfett` — REGULATORY_ALIAS; normalise: `butterreinfett`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+## Concept : buttermilk
+
+Statut : `VEGETARIAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `babeurre` — REGULATORY_ALIAS; normalise: `babeurre`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### NL
+- `karnemelk` — REGULATORY_ALIAS; normalise: `karnemelk`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `botermelk` — REGULATORY_ALIAS; normalise: `botermelk`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `buttermilk` — REGULATORY_ALIAS; normalise: `buttermilk`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- `Buttermilch` — REGULATORY_ALIAS; normalise: `buttermilch`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+## Concept : casein
+
+Statut : `VEGETARIAN`<br>
+Sources : vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `caséines` — REGULATORY_ALIAS; normalise: `caseines`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+### NL
+- `caseïne` — REGULATORY_ALIAS; normalise: `caseine`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `caseins` — REGULATORY_ALIAS; normalise: `caseins`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- `Kaseine` — REGULATORY_ALIAS; normalise: `kaseine`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : cashew
 
@@ -7100,15 +7161,24 @@ Mapping group : `agricultural-products-regulation`
 
 ### FR
 - `abats comestibles des animaux de l'espèce bovine` — REGULATORY_ALIAS; normalise: `abats comestibles des animaux de l espece bovine`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Abats comestibles` — REGULATORY_ALIAS; normalise: `abats comestibles`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Foies de volailles` — REGULATORY_ALIAS; normalise: `foies de volailles`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ### NL
 - `eetbare slachtafvallen van runderen` — REGULATORY_ALIAS; normalise: `eetbare slachtafvallen van runderen`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Eetbare slachtafvallen` — REGULATORY_ALIAS; normalise: `eetbare slachtafvallen`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Levers van pluimvee` — REGULATORY_ALIAS; normalise: `levers van pluimvee`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ### EN
 - `edible offal of bovine animals` — REGULATORY_ALIAS; normalise: `edible offal of bovine animals`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Edible offal` — REGULATORY_ALIAS; normalise: `edible offal`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Poultry livers` — REGULATORY_ALIAS; normalise: `poultry livers`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ### DE
 - `Genießbare Schlachtnebenerzeugnisse von Rindern` — REGULATORY_ALIAS; normalise: `geniessbare schlachtnebenerzeugnisse von rindern`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Genießbare Schlachtnebenerzeugnisse` — REGULATORY_ALIAS; normalise: `geniessbare schlachtnebenerzeugnisse`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Geflügelleber` — REGULATORY_ALIAS; normalise: `geflugelleber`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Geflügellebern` — REGULATORY_ALIAS; normalise: `geflugellebern`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : egg
 
@@ -7118,15 +7188,19 @@ Mapping group : `agricultural-products-regulation`
 
 ### FR
 - `œufs de volailles de basse-cour, en coquille` — REGULATORY_ALIAS; normalise: `ufs de volailles de basse cour en coquille`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+- `jaunes d'œufs` — REGULATORY_ALIAS; normalise: `jaunes d ufs`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### NL
 - `eieren van pluimvee in de schaal` — REGULATORY_ALIAS; normalise: `eieren van pluimvee in de schaal`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+- `eigeel` — REGULATORY_ALIAS; normalise: `eigeel`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### EN
 - `poultry eggs, in shell` — REGULATORY_ALIAS; normalise: `poultry eggs in shell`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+- `egg yolks` — REGULATORY_ALIAS; normalise: `egg yolks`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### DE
 - `Eier von Hausgeflügel in der Schale` — REGULATORY_ALIAS; normalise: `eier von hausgeflugel in der schale`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+- `Eigelb` — REGULATORY_ALIAS; normalise: `eigelb`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : filled_chocolate
 
@@ -7395,69 +7469,73 @@ Mapping group : `hazelnut`
 ## Concept : honey
 
 Statut : `VEGETARIAN`<br>
-Sources : vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614<br>
+Sources : vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818<br>
 Mapping group : `honey-regulatory`
 
 ### FR
-- `miel` — REGULATORY_ALIAS; normalise: `miel`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel de fleurs` — REGULATORY_ALIAS; normalise: `miel de fleurs`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel de nectars` — REGULATORY_ALIAS; normalise: `miel de nectars`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel de miellat` — REGULATORY_ALIAS; normalise: `miel de miellat`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel en rayons` — REGULATORY_ALIAS; normalise: `miel en rayons`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel avec morceaux de rayons` — REGULATORY_ALIAS; normalise: `miel avec morceaux de rayons`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel égoutté` — REGULATORY_ALIAS; normalise: `miel egoutte`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel centrifugé` — REGULATORY_ALIAS; normalise: `miel centrifuge`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel pressé` — REGULATORY_ALIAS; normalise: `miel presse`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `miel destiné à l’industrie` — REGULATORY_ALIAS; normalise: `miel destine a l industrie`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
+- `miel` — REGULATORY_ALIAS; normalise: `miel`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel de fleurs` — REGULATORY_ALIAS; normalise: `miel de fleurs`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel de nectars` — REGULATORY_ALIAS; normalise: `miel de nectars`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel de miellat` — REGULATORY_ALIAS; normalise: `miel de miellat`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel en rayons` — REGULATORY_ALIAS; normalise: `miel en rayons`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel avec morceaux de rayons` — REGULATORY_ALIAS; normalise: `miel avec morceaux de rayons`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel égoutté` — REGULATORY_ALIAS; normalise: `miel egoutte`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel centrifugé` — REGULATORY_ALIAS; normalise: `miel centrifuge`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel pressé` — REGULATORY_ALIAS; normalise: `miel presse`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `miel destiné à l’industrie` — REGULATORY_ALIAS; normalise: `miel destine a l industrie`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Miel naturel` — REGULATORY_ALIAS; normalise: `miel naturel`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### NL
-- `honing` — REGULATORY_ALIAS; normalise: `honing`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `honig` — REGULATORY_ALIAS; normalise: `honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `bloemenhoning` — REGULATORY_ALIAS; normalise: `bloemenhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `bloemenhonig` — REGULATORY_ALIAS; normalise: `bloemenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `nectarhoning` — REGULATORY_ALIAS; normalise: `nectarhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `nectarhonig` — REGULATORY_ALIAS; normalise: `nectarhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `honingdauwhoning` — REGULATORY_ALIAS; normalise: `honingdauwhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `honingdauwhonig` — REGULATORY_ALIAS; normalise: `honingdauwhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `raathoning` — REGULATORY_ALIAS; normalise: `raathoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `raathonig` — REGULATORY_ALIAS; normalise: `raathonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `brokhoning` — REGULATORY_ALIAS; normalise: `brokhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `brokhonig` — REGULATORY_ALIAS; normalise: `brokhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `raatbrokken in honing/honig` — REGULATORY_ALIAS; normalise: `raatbrokken in honing honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `lekhoning` — REGULATORY_ALIAS; normalise: `lekhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `lekhonig` — REGULATORY_ALIAS; normalise: `lekhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `slingerhoning` — REGULATORY_ALIAS; normalise: `slingerhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `slingerhonig` — REGULATORY_ALIAS; normalise: `slingerhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `pershoning` — REGULATORY_ALIAS; normalise: `pershoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `pershonig` — REGULATORY_ALIAS; normalise: `pershonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `bakkershoning` — REGULATORY_ALIAS; normalise: `bakkershoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
+- `honing` — REGULATORY_ALIAS; normalise: `honing`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `honig` — REGULATORY_ALIAS; normalise: `honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `bloemenhoning` — REGULATORY_ALIAS; normalise: `bloemenhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `bloemenhonig` — REGULATORY_ALIAS; normalise: `bloemenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `nectarhoning` — REGULATORY_ALIAS; normalise: `nectarhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `nectarhonig` — REGULATORY_ALIAS; normalise: `nectarhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `honingdauwhoning` — REGULATORY_ALIAS; normalise: `honingdauwhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `honingdauwhonig` — REGULATORY_ALIAS; normalise: `honingdauwhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `raathoning` — REGULATORY_ALIAS; normalise: `raathoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `raathonig` — REGULATORY_ALIAS; normalise: `raathonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `brokhoning` — REGULATORY_ALIAS; normalise: `brokhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `brokhonig` — REGULATORY_ALIAS; normalise: `brokhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `raatbrokken in honing/honig` — REGULATORY_ALIAS; normalise: `raatbrokken in honing honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `lekhoning` — REGULATORY_ALIAS; normalise: `lekhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `lekhonig` — REGULATORY_ALIAS; normalise: `lekhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `slingerhoning` — REGULATORY_ALIAS; normalise: `slingerhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `slingerhonig` — REGULATORY_ALIAS; normalise: `slingerhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `pershoning` — REGULATORY_ALIAS; normalise: `pershoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `pershonig` — REGULATORY_ALIAS; normalise: `pershonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `bakkershoning` — REGULATORY_ALIAS; normalise: `bakkershoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Natuurhoning` — REGULATORY_ALIAS; normalise: `natuurhoning`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### EN
-- `honey` — REGULATORY_ALIAS; normalise: `honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `blossom honey` — REGULATORY_ALIAS; normalise: `blossom honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `nectar honey` — REGULATORY_ALIAS; normalise: `nectar honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `honeydew honey` — REGULATORY_ALIAS; normalise: `honeydew honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `comb honey` — REGULATORY_ALIAS; normalise: `comb honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `chunk honey` — REGULATORY_ALIAS; normalise: `chunk honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `cut comb in honey` — REGULATORY_ALIAS; normalise: `cut comb in honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `drained honey` — REGULATORY_ALIAS; normalise: `drained honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `extracted honey` — REGULATORY_ALIAS; normalise: `extracted honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `pressed honey` — REGULATORY_ALIAS; normalise: `pressed honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Baker's honey` — REGULATORY_ALIAS; normalise: `baker s honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
+- `honey` — REGULATORY_ALIAS; normalise: `honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `blossom honey` — REGULATORY_ALIAS; normalise: `blossom honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `nectar honey` — REGULATORY_ALIAS; normalise: `nectar honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `honeydew honey` — REGULATORY_ALIAS; normalise: `honeydew honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `comb honey` — REGULATORY_ALIAS; normalise: `comb honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `chunk honey` — REGULATORY_ALIAS; normalise: `chunk honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `cut comb in honey` — REGULATORY_ALIAS; normalise: `cut comb in honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `drained honey` — REGULATORY_ALIAS; normalise: `drained honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `extracted honey` — REGULATORY_ALIAS; normalise: `extracted honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `pressed honey` — REGULATORY_ALIAS; normalise: `pressed honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Baker's honey` — REGULATORY_ALIAS; normalise: `baker s honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Natural honey` — REGULATORY_ALIAS; normalise: `natural honey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### DE
-- `Honig` — REGULATORY_ALIAS; normalise: `honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Blütenhonig` — REGULATORY_ALIAS; normalise: `blutenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Nektarhonig` — REGULATORY_ALIAS; normalise: `nektarhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Honigtauhonig` — REGULATORY_ALIAS; normalise: `honigtauhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Wabenhonig` — REGULATORY_ALIAS; normalise: `wabenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Scheibenhonig` — REGULATORY_ALIAS; normalise: `scheibenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Honig mit Wabenteilen` — REGULATORY_ALIAS; normalise: `honig mit wabenteilen`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Wabenstücke in Honig` — REGULATORY_ALIAS; normalise: `wabenstucke in honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Tropfhonig` — REGULATORY_ALIAS; normalise: `tropfhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Schleuderhonig` — REGULATORY_ALIAS; normalise: `schleuderhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Presshonig` — REGULATORY_ALIAS; normalise: `presshonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
-- `Backhonig` — REGULATORY_ALIAS; normalise: `backhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614
+- `Honig` — REGULATORY_ALIAS; normalise: `honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Blütenhonig` — REGULATORY_ALIAS; normalise: `blutenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Nektarhonig` — REGULATORY_ALIAS; normalise: `nektarhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Honigtauhonig` — REGULATORY_ALIAS; normalise: `honigtauhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Wabenhonig` — REGULATORY_ALIAS; normalise: `wabenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Scheibenhonig` — REGULATORY_ALIAS; normalise: `scheibenhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Honig mit Wabenteilen` — REGULATORY_ALIAS; normalise: `honig mit wabenteilen`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Wabenstücke in Honig` — REGULATORY_ALIAS; normalise: `wabenstucke in honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Tropfhonig` — REGULATORY_ALIAS; normalise: `tropfhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Schleuderhonig` — REGULATORY_ALIAS; normalise: `schleuderhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Presshonig` — REGULATORY_ALIAS; normalise: `presshonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Backhonig` — REGULATORY_ALIAS; normalise: `backhonig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Natürlicher Honig` — REGULATORY_ALIAS; normalise: `naturlicher honig`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### Contextes exclus
 - arome de miel; gout de miel; honey flavour; honey flavor
@@ -7594,6 +7672,10 @@ Mapping group : `preserved-milk`
 - `lait de mi-écrémé concentré non sucré` — REGULATORY_ALIAS; normalise: `lait de mi ecreme concentre non sucre`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `lait demi-écrémé concentré sucré` — REGULATORY_ALIAS; normalise: `lait demi ecreme concentre sucre`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `lait demi-écrémé en poudre` — REGULATORY_ALIAS; normalise: `lait demi ecreme en poudre`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `lait cru` — REGULATORY_ALIAS; normalise: `lait cru`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `lait entier` — REGULATORY_ALIAS; normalise: `lait entier`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `lait demi-écrémé` — REGULATORY_ALIAS; normalise: `lait demi ecreme`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `lait écrémé` — REGULATORY_ALIAS; normalise: `lait ecreme`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### NL
 - `magere melkpoeder` — REGULATORY_ALIAS; normalise: `magere melkpoeder`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
@@ -7615,6 +7697,10 @@ Mapping group : `preserved-milk`
 - `halfvolle koffiemelk` — REGULATORY_ALIAS; normalise: `halfvolle koffiemelk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `halfvolle melkpoeder` — REGULATORY_ALIAS; normalise: `halfvolle melkpoeder`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `koffiemelk` — REGULATORY_ALIAS; normalise: `koffiemelk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `rauwe melk` — REGULATORY_ALIAS; normalise: `rauwe melk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `volle melk` — REGULATORY_ALIAS; normalise: `volle melk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `halfvolle melk` — REGULATORY_ALIAS; normalise: `halfvolle melk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `magere melk` — REGULATORY_ALIAS; normalise: `magere melk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### EN
 - `milk` — REGULATORY_ALIAS; normalise: `milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
@@ -7640,6 +7726,10 @@ Mapping group : `preserved-milk`
 - `evaporated semi-skimmed milk` — REGULATORY_ALIAS; normalise: `evaporated semi skimmed milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `semi-skimmed milk powder` — REGULATORY_ALIAS; normalise: `semi skimmed milk powder`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `dried semi-skimmed milk` — REGULATORY_ALIAS; normalise: `dried semi skimmed milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `raw milk` — REGULATORY_ALIAS; normalise: `raw milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `whole milk` — REGULATORY_ALIAS; normalise: `whole milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `semi-skimmed milk` — REGULATORY_ALIAS; normalise: `semi skimmed milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `skimmed-milk` — REGULATORY_ALIAS; normalise: `skimmed milk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### DE
 - `Magermilchpulver` — REGULATORY_ALIAS; normalise: `magermilchpulver`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
@@ -7663,6 +7753,12 @@ Mapping group : `preserved-milk`
 - `Vollmilchpulver` — REGULATORY_ALIAS; normalise: `vollmilchpulver`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `Teilentrahmtes Milchpulver` — REGULATORY_ALIAS; normalise: `teilentrahmtes milchpulver`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 - `kondensierte Kaffeesahne` — REGULATORY_ALIAS; normalise: `kondensierte kaffeesahne`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Rohmilch` — REGULATORY_ALIAS; normalise: `rohmilch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Vollmilch` — REGULATORY_ALIAS; normalise: `vollmilch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `teilentrahmte Milch` — REGULATORY_ALIAS; normalise: `teilentrahmte milch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `fettarme Milch` — REGULATORY_ALIAS; normalise: `fettarme milch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `entrahmte Milch` — REGULATORY_ALIAS; normalise: `entrahmte milch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
+- `Magermilch` — REGULATORY_ALIAS; normalise: `magermilch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### Contextes exclus
 - arome de lait; gout de lait; milk flavour; milk flavor; plant milk; lait vegetal
@@ -8001,6 +8097,24 @@ Mapping group : `agricultural-products-regulation`
 ### DE
 - `Verarbeitungserzeugnisse aus Obst und Gemüse` — REGULATORY_ALIAS; normalise: `verarbeitungserzeugnisse aus obst und gemuse`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
+## Concept : propolis
+
+Statut : `VEGETARIAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `propolis` — REGULATORY_ALIAS; normalise: `propolis`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
+### NL
+- `propolis` — REGULATORY_ALIAS; normalise: `propolis`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
+### EN
+- `propolis` — REGULATORY_ALIAS; normalise: `propolis`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
+### DE
+- `Kittharz` — REGULATORY_ALIAS; normalise: `kittharz`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
 ## Concept : pumpkin_seed
 
 Statut : `VEGAN`<br>
@@ -8081,6 +8195,24 @@ Mapping group : `rice`
 ### Alias supplementaires
 - IT: riso
 - ES: arroz
+
+## Concept : royal_jelly
+
+Statut : `VEGETARIAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `Gelée royale` — REGULATORY_ALIAS; normalise: `gelee royale`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
+### NL
+- `koninginnengelei` — REGULATORY_ALIAS; normalise: `koninginnengelei`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
+### EN
+- `Royal jelly` — REGULATORY_ALIAS; normalise: `royal jelly`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
+
+### DE
+- `Gelée Royale` — REGULATORY_ALIAS; normalise: `gelee royale`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7
 
 ## Concept : rye
 
@@ -8437,16 +8569,18 @@ Sources : vegan-society, vegetarian-society, eu-agricultural-products-regulation
 Mapping group : `agricultural-products-regulation`
 
 ### FR
-- —
+- `lactosérum` — REGULATORY_ALIAS; normalise: `lactoserum`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### NL
 - `weipoeder van melk` — REGULATORY_ALIAS; normalise: `weipoeder van melk`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+- `wei` — REGULATORY_ALIAS; normalise: `wei`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### EN
-- —
+- `whey` — REGULATORY_ALIAS; normalise: `whey`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ### DE
 - `Molkenpulver aus Milch` — REGULATORY_ALIAS; normalise: `molkenpulver aus milch`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
+- `Molke` — REGULATORY_ALIAS; normalise: `molke`; confiance: `REVIEWED`; source: vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : white_chocolate
 

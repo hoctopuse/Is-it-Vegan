@@ -1,0 +1,1081 @@
+review_id,family,proposed_alias,language,decision,proposed_concept,existing_related_concept,current_global_owners,current_language_owners,new_global_form,new_language_form,source_celex,consolidation_date,pdf_file,pdf_page,legal_location,source_surface,source_offset,context_excerpt,prior_candidate_ids,justification,review_status,applied,runtime_normalized_form,runtime_canonical_exact_owners,runtime_canonical_subterm_owners,runtime_language_subterm_owners,application_validation,scope_note,source_sha256
+A289e9d1a136f,whey,lactosérum,FR,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,whey,whey,whey,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(i),lactosérum,1392,"minations suivantes utilisées à tous les stades de l a commerciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumi",Cfb9c3a633cb180,Dénomination réservée à un dérivé exclusivement laitier ; concept existant.,REVIEW_REQUIRED,NO,lactoserum,whey,whey,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A183557fc283e,whey,wei,NL,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,whey,whey,whey,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(i),wei,1495,"ikt: 
+a) de volgende benamingen, die in alle handelsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) vii",C8c2df4573cb223,Dénomination réservée à un dérivé exclusivement laitier ; concept existant.,REVIEW_REQUIRED,NO,wei,whey,whey,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A60e5ccf268ea,whey,whey,EN,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,whey,whey,whey,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(i),whey,1167,"milk products.  
+(a) the following names used at all stages of marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss, ",Cb2202bb5bc44c9,Dénomination réservée à un dérivé exclusivement laitier ; concept existant.,REVIEW_REQUIRED,NO,whey,whey,whey,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A72019b963880,whey,Molke,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,whey,whey,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(i),Molke,1396,"sen vo rbehalten: 
+a) auf allen Vermarktungsstufen folgende Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil",C6cdc4e4d59eeb9,Dénomination réservée à un dérivé exclusivement laitier ; concept existant.,REVIEW_REQUIRED,NO,molke,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A4b25edc44640,cream,crème,FR,CONTEXT_REVIEW,cream,cream,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(ii),crème,1410,"s utilisées à tous les stades de l a commerciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) vii",C1a424c70d7f79a,Produit laitier dans cette définition ; les mots génériques crème/room/Rahm doivent préserver les préparations végétales et contextes aromatiques.,REVIEW_REQUIRED,NO,creme,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Ad6cbafa523d7,cream,room,NL,CONTEXT_REVIEW,cream,cream,cream,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(ii),room,1506," volgende benamingen, die in alle handelsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xi",C5c12e945fbce7b,Produit laitier dans cette définition ; les mots génériques crème/room/Rahm doivent préserver les préparations végétales et contextes aromatiques.,REVIEW_REQUIRED,NO,room,cream,cream,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Ae974089bd75a,cream,cream,EN,CONTEXT_REVIEW,cream,cream,cream,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(ii),cream,1180,".  
+(a) the following names used at all stages of marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/",C9c923dd7489996,Produit laitier dans cette définition ; les mots génériques crème/room/Rahm doivent préserver les préparations végétales et contextes aromatiques.,REVIEW_REQUIRED,NO,cream,cream,cream,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A796d2f5d6d2d,cream,Rahm,DE,CONTEXT_REVIEW,cream,cream,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(ii),Rahm,1409,"ten: 
+a) auf allen Vermarktungsstufen folgende Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) sm",Ccb0fbbeef2d9ef,Produit laitier dans cette définition ; les mots génériques crème/room/Rahm doivent préserver les préparations végétales et contextes aromatiques.,REVIEW_REQUIRED,NO,rahm,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Ad741189d111a,butter,beurre,FR,CONTEXT_REVIEW,butter,butter,butter,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(iii),beurre,1424,"tous les stades de l a commerciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii)",C59ce5ebf98061d,Beurre laitier dans la source ; un alias générique supplémentaire doit respecter les beurres végétaux protégés.,REVIEW_REQUIRED,NO,beurre,butter,butter,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Aca19b77d8868,butter,boter,NL,CONTEXT_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(iii),boter,1519,"amingen, die in alle handelsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  ",C1e2998689d147b,Beurre laitier dans la source ; un alias générique supplémentaire doit respecter les beurres végétaux protégés.,REVIEW_REQUIRED,NO,boter,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A341822d34288,butter,butter,EN,CONTEXT_REVIEW,butter,butter,butter,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(iii),butter,1195,"lowing names used at all stages of marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) sm",C6f0fb6d6a322b3,Beurre laitier dans la source ; un alias générique supplémentaire doit respecter les beurres végétaux protégés.,REVIEW_REQUIRED,NO,butter,butter,butter,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Ae9273bf785c1,butter,Butter,DE,CONTEXT_REVIEW,butter,butter,butter,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(iii),Butter,1422,"allen Vermarktungsstufen folgende Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) f",Ce4e3069513aae9,Beurre laitier dans la source ; un alias générique supplémentaire doit respecter les beurres végétaux protégés.,REVIEW_REQUIRED,NO,butter,butter,butter,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Ada8f271ba175,buttermilk,babeurre,FR,NEW_CONCEPT_REVIEW,buttermilk,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),babeurre,1438,"s de l a commerciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv)",Cf9a614584c0a37,"Produit laitier distinct explicitement nommé ; aucune identité canonique correspondante trouvée, ne pas assimiler au lait générique.",REVIEW_REQUIRED,NO,babeurre,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Aa529996c2e06,buttermilk,karnemelk,NL,NEW_CONCEPT_REVIEW,buttermilk,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),karnemelk,1532,"in alle handelsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) ",C58e31d23f06e35,"Produit laitier distinct explicitement nommé ; aucune identité canonique correspondante trouvée, ne pas assimiler au lait générique.",REVIEW_REQUIRED,NO,karnemelk,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A4ff2656fc5da,buttermilk,botermelk,NL,NEW_CONCEPT_REVIEW,buttermilk,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),botermelk,1545,"lsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+x",Cabe6daa9920f53,"Produit laitier distinct explicitement nommé ; aucune identité canonique correspondante trouvée, ne pas assimiler au lait générique.",REVIEW_REQUIRED,NO,botermelk,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Ae657dd855555,buttermilk,buttermilk,EN,NEW_CONCEPT_REVIEW,buttermilk,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),buttermilk,1210,"ed at all stages of marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) smetana,  
+(xiv) fil;",C76a66397497a52,"Produit laitier distinct explicitement nommé ; aucune identité canonique correspondante trouvée, ne pas assimiler au lait générique.",REVIEW_REQUIRED,NO,buttermilk,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A18f0b1e574d3,buttermilk,Buttermilch,DE,NEW_CONCEPT_REVIEW,buttermilk,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),Buttermilch,1436,"ungsstufen folgende Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,",C3eb128a7a39c97,"Produit laitier distinct explicitement nommé ; aucune identité canonique correspondante trouvée, ne pas assimiler au lait générique.",REVIEW_REQUIRED,NO,buttermilch,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Aa453e2515bc2,butteroil,butteroil,FR,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(v),butteroil,1453,"ciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaž",C8d9c109ec095d4,Nom laitier distinct ; butter possède déjà Butterreinfett dans le lexique DE. Déterminer la portée du concept avant de créer un doublon ou un alias.,REVIEW_REQUIRED,NO,butteroil,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A2c107826672d,butteroil,boterolie,NL,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(v),boterolie,1561,"geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens; ",C14beb74aa09549,Nom laitier distinct ; butter possède déjà Butterreinfett dans le lexique DE. Déterminer la portée du concept avant de créer un doublon ou un alias.,REVIEW_REQUIRED,NO,boterolie,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A8fc350edc8b7,butteroil,butteroil,EN,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(v),butteroil,1228,"f marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) smetana,  
+(xiv) fil;  
+(xv) rjaženka,",C3e3a74d0b2e974,Nom laitier distinct ; butter possède déjà Butterreinfett dans le lexique DE. Déterminer la portée du concept avant de créer un doublon ou un alias.,REVIEW_REQUIRED,NO,butteroil,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Ae132a1518d8a,butteroil,Butteroil,DE,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(v),Butteroil,1454,"e Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpie",Cdb30776bc636aa,Nom laitier distinct ; butter possède déjà Butterreinfett dans le lexique DE. Déterminer la portée du concept avant de créer un doublon ou un alias.,REVIEW_REQUIRED,NO,butteroil,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A85544edb0b1f,casein,caséines,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,casein,casein,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),caséines,1470,") lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūg",C5ee8f78b937146,Protéine laitière ; concept caséine et alias de caséinates déjà présents ; ne pas créer un concept pour le pluriel.,REVIEW_REQUIRED,NO,caseines,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A02f451e82730,casein,caseïne,NL,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,casein,casein,casein,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),caseïne,1578,",  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+b) benamingen",C6755972c3a04c8,Protéine laitière ; concept caséine et alias de caséinates déjà présents ; ne pas créer un concept pour le pluriel.,REVIEW_REQUIRED,NO,caseine,casein,casein,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A6c531a4d338a,casein,caseins,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,casein,casein,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),caseins,1246," whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) smetana,  
+(xiv) fil;  
+(xv) rjaženka,  
+(xvi) rūgušpi",C0860b502232c96,Protéine laitière ; concept caséine et alias de caséinates déjà présents ; ne pas créer un concept pour le pluriel.,REVIEW_REQUIRED,NO,caseins,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A4df9d493272a,casein,Kaseine,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,casein,casein,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),Kaseine,1471," 
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+▼C3 
+b) d",Ce2268a6d1e9f5e,Protéine laitière ; concept caséine et alias de caséinates déjà présents ; ne pas créer un concept pour le pluriel.,REVIEW_REQUIRED,NO,kaseine,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Ad2ced4c4518e,anhydrous_milk_fat,matière grasse laitière anhydre,FR,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(vii),matière grasse laitière anhydre,1487,"i) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+b) les dénominations au sens ",C5f26ca8b209a49,"Produit laitier nommé séparément de butteroil ; rapprochement à butter seulement connexe, pas une synonymie validée.",REVIEW_REQUIRED,NO,matiere grasse laitiere anhydre,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Afb4461f03e87,anhydrous_milk_fat,watervrij melkvet,NL,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(vii),watervrij melkvet,1594,"iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+b) benamingen in de zin van artikel 5 v",C7ebbcaa47ba2eb,"Produit laitier nommé séparément de butteroil ; rapprochement à butter seulement connexe, pas une synonymie validée.",REVIEW_REQUIRED,NO,watervrij melkvet,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A7e8a46fc719c,anhydrous_milk_fat,anhydrous milk fat,EN,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(vii),anhydrous milk fat,1263,"am,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) smetana,  
+(xiv) fil;  
+(xv) rjaženka,  
+(xvi) rūgušpiens;  
+(b) names within the ",C8ecbf7b574b019,"Produit laitier nommé séparément de butteroil ; rapprochement à butter seulement connexe, pas une synonymie validée.",REVIEW_REQUIRED,NO,anhydrous milk fat,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Aa7a9b26e30bb,anhydrous_milk_fat,wasserfreies Milchfett,DE,CONCEPT_BOUNDARY_REVIEW,butter,butter,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(vii),wasserfreies Milchfett,1487,") Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+▼C3 
+b) die tatsächlich für Milcherzeugn",Cbf5396f3bcb99a,"Produit laitier nommé séparément de butteroil ; rapprochement à butter seulement connexe, pas une synonymie validée.",REVIEW_REQUIRED,NO,wasserfreies milchfett,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Adc4bb6fba6d2,raw_milk,lait cru,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(a),lait cru,151,"ion  
+1. Les produits suivants sont considérés comme lait de consomma tion: 
+a) lait cru: un lait n'ayant pas été chauffé au-delà de 40 °C n i soumis à 
+un traitement d'effet équivalent;  
+b) lait entier: un lait traité thermiquement qui, en ce qui con cerne sa 
+teneu",Cba688fa4eca515,"Même produit animal, traitement thermique spécifié ; variantes de milk, sans nouveau concept.",REVIEW_REQUIRED,NO,lait cru,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Ac2ef1da4816c,raw_milk,rauwe melk,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(a),rauwe melk,137,"umptiemelk  
+1. De volgende producten worden als consumptiemelk beschouwd:  
+a) rauwe melk: melk die niet is verwarmd tot boven 40 °C en die  
+evenmin een behandeling met een gelijkwaardig effect heeft 
+ondergaan; 
+b) volle melk: warmtebehandelde melk die, wat het vetge",C4545972f49b50e,"Même produit animal, traitement thermique spécifié ; variantes de milk, sans nouveau concept.",REVIEW_REQUIRED,NO,rauwe melk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A51f27fce353d,raw_milk,raw milk,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(a),raw milk,143,"milk  
+1. The following products shall be considered to be drinking mi lk: 
+(a) raw milk: milk which has not been heated above 40  o C or subjected 
+to treatment having equivalent effect;  
+(b) whole milk: heat-treated milk which, with respect to fat co ntent, 
+meets ",C6f30d815f4e853,"Même produit animal, traitement thermique spécifié ; variantes de milk, sans nouveau concept.",REVIEW_REQUIRED,NO,raw milk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A39397e566562,raw_milk,Rohmilch,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(a),Rohmilch,121,"— 184  
+III. Konsummilch  
+1. Folgende Erzeugnisse gelten als Konsummilch:  
+a) Rohmilch: Milch, die nicht über 40° C erhitzt und keiner Beh andlung 
+mit entsprechender Wirkung unterzogen wurde;  
+b) Vollmilch: wärmebehandelte Milch, die hinsichtlich ihres Fet tgehalt",C748d23b0db93cb,"Même produit animal, traitement thermique spécifié ; variantes de milk, sans nouveau concept.",REVIEW_REQUIRED,NO,rohmilch,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Af1b905bf492b,whole_milk,lait entier,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(b),lait entier,263,"é chauffé au-delà de 40 °C n i soumis à 
+un traitement d'effet équivalent;  
+b) lait entier: un lait traité thermiquement qui, en ce qui con cerne sa 
+teneur en matière grasse, répond à l'une des formules suivantes : 
+i) lait entier normalisé: un lait dont la teneur en m",C922a1df1f52f67;Cb951e3b85833a0;Cd0e3858a579bd7,Variante de teneur du lait animal défini en partie III ; pas de concept supplémentaire.,REVIEW_REQUIRED,NO,lait entier,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A2173a9aeb1c6,whole_milk,volle melk,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(b),volle melk,275,"ie  
+evenmin een behandeling met een gelijkwaardig effect heeft 
+ondergaan; 
+b) volle melk: warmtebehandelde melk die, wat het vetgehalte be treft, 
+aan één van de volgende eisen voldoet:  
+i) gestandaardiseerde volle melk: melk met een vetgehalte van t en 
+minste 3,50 ",C43527d1943d384,Variante de teneur du lait animal défini en partie III ; pas de concept supplémentaire.,REVIEW_REQUIRED,NO,volle melk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Ac0cbaec6a68d,whole_milk,whole milk,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(b),whole milk,257,"heated above 40  o C or subjected 
+to treatment having equivalent effect;  
+(b) whole milk: heat-treated milk which, with respect to fat co ntent, 
+meets one of the following requirements:  
+(i) standardised whole milk: milk with a fat content of at leas t 
+3,50 % (m/m)",C36de5f747a6bb8,Variante de teneur du lait animal défini en partie III ; pas de concept supplémentaire.,REVIEW_REQUIRED,NO,whole milk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Ab6dc3e75fb82,whole_milk,Vollmilch,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(b),Vollmilch,241,"hitzt und keiner Beh andlung 
+mit entsprechender Wirkung unterzogen wurde;  
+b) Vollmilch: wärmebehandelte Milch, die hinsichtlich ihres Fet tgehalts 
+einer der folgenden Formeln entspricht:  
+i) standardisierte Vollmilch: Milch, deren Fettgehalt mindesten s 3,50 
+% (m",C29eb03abb14565,Variante de teneur du lait animal défini en partie III ; pas de concept supplémentaire.,REVIEW_REQUIRED,NO,vollmilch,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A7134bf4c221f,semi_skimmed_milk,lait demi-écrémé,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(c),lait demi-écrémé,1039,"fois, la teneur en matière grasse ne peut être inférieure à 
+3,50 % (m/m);  
+c) lait demi-écrémé: un lait traité thermiquement dont la teneu r en 
+matière grasse a été ramenée à un taux qui s'élève à 1,50 % (m/ m) 
+au minimum et à 1,80 % (m/m) au maximum;  
+d) lait écrémé: un",C5ea0f9ebc9440a,"Teneur en graisse standardisée ; alias de milk uniquement, sans altérer sa classification.",REVIEW_REQUIRED,NO,lait demi ecreme,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A8e8310a736ba,semi_skimmed_milk,halfvolle melk,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(c),halfvolle melk,902,"gewijzigd. Het vetgehalte mag eve n­
+wel niet lager zijn dan 3,50 % (m/m);  
+c) halfvolle melk: warmtebehandelde melk waarvan het vetgehalte  op 
+ten minste 1,50 % (m/m) en ten hoogste 1,80 % (m/m) is gebracht ; 
+d) magere melk: warmtebehandelde melk waarvan het vetgehalte ",Ce2eda617367d21,"Teneur en graisse standardisée ; alias de milk uniquement, sans altérer sa classification.",REVIEW_REQUIRED,NO,halfvolle melk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Ab4009a89bc12,semi_skimmed_milk,semi-skimmed milk,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(c),semi-skimmed milk,874,"een altered. However, the fat content 
+may not be less than 3,50 % (m/m);  
+(c) semi-skimmed milk: heat-treated milk whose fat content has been 
+reduced to at least 1,50 % (m/m) and at most 1,80 % (m/m);  
+(d) skimmed-milk: heat-treated milk whose fat content has been reduced ",Cd401a6ac32529f,"Teneur en graisse standardisée ; alias de milk uniquement, sans altérer sa classification.",REVIEW_REQUIRED,NO,semi skimmed milk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A8bb6aad63967,semi_skimmed_milk,teilentrahmte Milch,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(c),teilentrahmte Milch,879," worden ist. Der Fettgehalt darf je­
+doch nicht unter 3,50 % (m/m) liegen;  
+c) teilentrahmte Milch (fettarme Milch): wärmebehandelte Milch,  deren 
+Fettgehalt auf einen Satz gebracht worden ist, der mindestens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Mi",Cccab40a755606d,"Teneur en graisse standardisée ; alias de milk uniquement, sans altérer sa classification.",REVIEW_REQUIRED,NO,teilentrahmte milch,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Ab493a2dc8414,semi_skimmed_milk,fettarme Milch,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(c),fettarme Milch,900,"gehalt darf je­
+doch nicht unter 3,50 % (m/m) liegen;  
+c) teilentrahmte Milch (fettarme Milch): wärmebehandelte Milch,  deren 
+Fettgehalt auf einen Satz gebracht worden ist, der mindestens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Milch (Magermilch)",Cfeab7b2c775a81,"Teneur en graisse standardisée ; alias de milk uniquement, sans altérer sa classification.",REVIEW_REQUIRED,NO,fettarme milch,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A388133501653,skimmed_milk,lait écrémé,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(d),lait écrémé,1220,"taux qui s'élève à 1,50 % (m/ m) 
+au minimum et à 1,80 % (m/m) au maximum;  
+d) lait écrémé: un lait traité thermiquement dont la teneur en matière 
+grasse a été ramenée à un taux qui s'élève à 0,50 % (m/m) au 
+maximum. 
+Les laits traités thermiquement qui ne satisfont p",C99cf4cfcede410,Lait animal écrémé ; formes présentes dans la définition et ses répétitions.,REVIEW_REQUIRED,NO,lait ecreme,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A418fce16500c,skimmed_milk,magere melk,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(d),magere melk,1038,"alte  op 
+ten minste 1,50 % (m/m) en ten hoogste 1,80 % (m/m) is gebracht ; 
+d) magere melk: warmtebehandelde melk waarvan het vetgehalte op  ten 
+hoogste 0,50 % (m/m) is gebracht.  
+Warmtebehandelde melk die niet voldoet aan de in de eerste alin ea, 
+punten b), c) en d)",C35973709dcf43c,Lait animal écrémé ; formes présentes dans la définition et ses répétitions.,REVIEW_REQUIRED,NO,magere melk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A20bb306b20e5,skimmed_milk,skimmed-milk,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(d),skimmed-milk,1004,"tent has been 
+reduced to at least 1,50 % (m/m) and at most 1,80 % (m/m);  
+(d) skimmed-milk: heat-treated milk whose fat content has been reduced 
+to not more than 0,50 % (m/m).  
+Heat-treated milk not complying with the fat content requiremen ts laid 
+down in points (b)",C0bd43149707f39;Cd5d4d0247e8a9f,Lait animal écrémé ; formes présentes dans la définition et ses répétitions.,REVIEW_REQUIRED,NO,skimmed milk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A6b449c759611,skimmed_milk,skimmed milk,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(d),skimmed milk,879,"ltered. However, the fat content 
+may not be less than 3,50 % (m/m);  
+(c) semi-skimmed milk: heat-treated milk whose fat content has been 
+reduced to at least 1,50 % (m/m) and at most 1,80 % (m/m);  
+(d) skimmed-milk: heat-treated milk whose fat content has been reduced ",C0bd43149707f39;Cd5d4d0247e8a9f,Lait animal écrémé ; formes présentes dans la définition et ses répétitions.,REVIEW_REQUIRED,NO,skimmed milk,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A69b7a95c50ab,skimmed_milk,entrahmte Milch,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(d),entrahmte Milch,883,"den ist. Der Fettgehalt darf je­
+doch nicht unter 3,50 % (m/m) liegen;  
+c) teilentrahmte Milch (fettarme Milch): wärmebehandelte Milch,  deren 
+Fettgehalt auf einen Satz gebracht worden ist, der mindestens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Mi",C6f54194361fa8d,Lait animal écrémé ; formes présentes dans la définition et ses répétitions.,REVIEW_REQUIRED,NO,entrahmte milch,,milk,milk,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A67abd3e7fd64,skimmed_milk,Magermilch,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,milk,milk,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(d),Magermilch,1083,"estens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Milch (Magermilch): wärmebehandelte Milch, deren F ett­
+gehalt auf einen Satz gebracht worden ist, der höchstens 0,50 %  
+(m/m) beträgt.  
+Wärmebehandelte Milch, deren Fettgehalt nicht den Anforder",Ca958f4ee0cfa59;Ccf12b555e1cc9c,Lait animal écrémé ; formes présentes dans la définition et ses répétitions.,REVIEW_REQUIRED,NO,magermilch,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A2caa79f5e553,natural_honey,Miel naturel,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,honey,honey,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 0409,Miel naturel,1397," produits énumérés dans le  tableau suivant:  
+Code NC Description  
+0409 00 00 Miel naturel  
+ex 0410 00 00 Gelée royale et propolis, comestibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  ",C34f236fc91f312,Dénomination alimentaire simple dans une ligne NC ; ne pas importer la ligne/code. honey existe déjà avec 53 noms réglementaires.,REVIEW_REQUIRED,NO,miel naturel,,honey,honey,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A35a54cfde886,natural_honey,Natuurhoning,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,honey,honey,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 0409,Natuurhoning,1426,"oducten vallen onder de  sector 
+bijenteelt. 
+GN-code Omschrijving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderup",C1cc65326a60c66,Dénomination alimentaire simple dans une ligne NC ; ne pas importer la ligne/code. honey existe déjà avec 53 noms réglementaires.,REVIEW_REQUIRED,NO,natuurhoning,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Af1c92aa49e3d,natural_honey,Natural honey,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,honey,honey,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 0409,Natural honey,1346,"the products listed in the fo llowing table:  
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The sil",Cab7faf92441402,Dénomination alimentaire simple dans une ligne NC ; ne pas importer la ligne/code. honey existe déjà avec 53 noms réglementaires.,REVIEW_REQUIRED,NO,natural honey,,honey,honey,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Aae782f0a7271,natural_honey,Natürlicher Honig,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,honey,honey,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 0409,Natürlicher Honig,1483,"der Tabelle aufg eführten Er­
+zeugnisse: 
+KN-Code Warenbezeichnung  
+0409 00 00 Natürlicher Honig  
+ex 0410 00 00 Gelée Royale und Kittharz, genießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Se",C9cebd03fb30865,Dénomination alimentaire simple dans une ligne NC ; ne pas importer la ligne/code. honey existe déjà avec 53 noms réglementaires.,REVIEW_REQUIRED,NO,naturlicher honig,,honey,honey,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Aa6962469db64,beeswax,Cire d'abeille,FR,OWNER_COLLISION_REVIEW,beeswax,beeswax,beeswax;e901,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 1521,Cire d'abeille,1558,"5 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des vers à soie couvre les vers à soie relevant du c ode NC 
+ex 0106 90 00 et les graines de vers à soie du code NC ex 0511 99 85. 
+PARTI",C4d5a1c1b610246,Concept déjà présent avec incertitude conservée. Cette table ne démontre pas la qualité alimentaire ni un nouveau statut.,REVIEW_REQUIRED,NO,cire d abeille,beeswax;e901,beeswax;e901,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète. beeswax et e901 coexistent avec statuts différents ; ne pas réassigner ni ajouter la qualité alimentaire depuis NC 1521.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Aacc001271ea8,beeswax,Bijenwas,NL,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,beeswax,beeswax,beeswax,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 1521,Bijenwas,1586,"5 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 00 en eieren van zijderupsen  van GN-code 
+ex 0511 99 85 vallen onder de sector zijderupsen.  
+DEEL XXIV  
+Andere pr",Ca198ffc706b322,Concept déjà présent avec incertitude conservée. Cette table ne démontre pas la qualité alimentaire ni un nouveau statut.,REVIEW_REQUIRED,NO,bijenwas,beeswax,beeswax,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète. beeswax et e901 coexistent avec statuts différents ; ne pas réassigner ni ajouter la qualité alimentaire depuis NC 1521.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Adc0dee5205eb,beeswax,Beeswax,EN,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,beeswax,beeswax,beeswax,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 1521,Beeswax,1498," 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover silkworms falling within CN cod e ex 0106 90 00 
+and silkworm eggs falling within CN code ex 0511 99 85.  
+PART XXIV  
+Ot",C8c55eb4f290899,Concept déjà présent avec incertitude conservée. Cette table ne démontre pas la qualité alimentaire ni un nouveau statut.,REVIEW_REQUIRED,NO,beeswax,beeswax,beeswax,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète. beeswax et e901 coexistent avec statuts différents ; ne pas réassigner ni ajouter la qualité alimentaire depuis NC 1521.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Aea8fb45acf06,beeswax,Bienenwachs,DE,OWNER_COLLISION_REVIEW,beeswax,beeswax,e901,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 1521,Bienenwachs,1651,"elée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Seidenraupen 
+Der Seidenraupensektor umfasst Seidenraupen des KN-Codes ex 010 6 90 00 und 
+Eier des Seidenspinners des KN-Codes ex 0511 99 85.  
+TEIL XXIV  
+Sonstig",C7cfd67eabae767,Concept déjà présent avec incertitude conservée. Cette table ne démontre pas la qualité alimentaire ni un nouveau statut.,REVIEW_REQUIRED,NO,bienenwachs,e901,e901,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète. beeswax et e901 coexistent avec statuts différents ; ne pas réassigner ni ajouter la qualité alimentaire depuis NC 1521.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A7da6efb7062f,royal_jelly,Gelée royale,FR,NEW_CLASSIFICATION_REVIEW,royal_jelly,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),Gelée royale,1426,"ableau suivant:  
+Code NC Description  
+0409 00 00 Miel naturel  
+ex 0410 00 00 Gelée royale et propolis, comestibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des",C5a5d6ddd884bee,"Sous-terme de la ligne explicitement comestible ; exclure NC 0511 non comestible. Dénomination nouvelle, régime végétarien non établi par ce règlement.",REVIEW_REQUIRED,NO,gelee royale,,fruit_jelly,fruit_jelly,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Abd979b4c4478,royal_jelly,koninginnengelei,NL,NEW_CLASSIFICATION_REVIEW,royal_jelly,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),koninginnengelei,1463,"nteelt. 
+GN-code Omschrijving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 0",C2e681c6bf76514,"Sous-terme de la ligne explicitement comestible ; exclure NC 0511 non comestible. Dénomination nouvelle, régime végétarien non établi par ce règlement.",REVIEW_REQUIRED,NO,koninginnengelei,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Abba71bd99577,royal_jelly,Royal jelly,EN,NEW_CLASSIFICATION_REVIEW,royal_jelly,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),Royal jelly,1376,"llowing table:  
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover sil",C5ae50731e7724b,"Sous-terme de la ligne explicitement comestible ; exclure NC 0511 non comestible. Dénomination nouvelle, régime végétarien non établi par ce règlement.",REVIEW_REQUIRED,NO,royal jelly,,fruit_jelly,fruit_jelly,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Ab1ad9606ca9c,royal_jelly,Gelée Royale,DE,NEW_CLASSIFICATION_REVIEW,royal_jelly,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),Gelée Royale,1517,"nisse: 
+KN-Code Warenbezeichnung  
+0409 00 00 Natürlicher Honig  
+ex 0410 00 00 Gelée Royale und Kittharz, genießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Seidenraupen 
+Der Seidenraupens",Cbece1ece81a8a8,"Sous-terme de la ligne explicitement comestible ; exclure NC 0511 non comestible. Dénomination nouvelle, régime végétarien non établi par ce règlement.",REVIEW_REQUIRED,NO,gelee royale,,fruit_jelly,fruit_jelly,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A692ddafa9421,propolis,propolis,FR,NEW_CLASSIFICATION_REVIEW,propolis,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),propolis,1442," 
+Code NC Description  
+0409 00 00 Miel naturel  
+ex 0410 00 00 Gelée royale et propolis, comestibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des vers à soie",C77d9b1e02a2531,Propolis comestible dans cette ligne ; définition II IX confirme la correspondance allemande. Pas de classification déduite de la seule apiculture.,REVIEW_REQUIRED,NO,propolis,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Aed2bcffb78e9,propolis,propolis,NL,NEW_CLASSIFICATION_REVIEW,propolis,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),propolis,1483,"chrijving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 00 en eieren ",Cfe952911fa53ac,Propolis comestible dans cette ligne ; définition II IX confirme la correspondance allemande. Pas de classification déduite de la seule apiculture.,REVIEW_REQUIRED,NO,propolis,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Aee51efe73b00,propolis,propolis,EN,NEW_CLASSIFICATION_REVIEW,propolis,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),propolis,1392,"
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover silkworms fallin",C1929e773800df1,Propolis comestible dans cette ligne ; définition II IX confirme la correspondance allemande. Pas de classification déduite de la seule apiculture.,REVIEW_REQUIRED,NO,propolis,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Af1c9d73d9d15,propolis,Kittharz,DE,NEW_CLASSIFICATION_REVIEW,propolis,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),Kittharz,1534,"arenbezeichnung  
+0409 00 00 Natürlicher Honig  
+ex 0410 00 00 Gelée Royale und Kittharz, genießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Seidenraupen 
+Der Seidenraupensektor umfasst",Cf21fd4dfe3e76e,Propolis comestible dans cette ligne ; définition II IX confirme la correspondance allemande. Pas de classification déduite de la seule apiculture.,REVIEW_REQUIRED,NO,kittharz,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A92c8cb255d7f,pollen,Pollen,FR,ORIGIN_SCOPE_REVIEW,pollen,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 1212,Pollen,1538,"ibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des vers à soie couvre les vers à soie relevant du c ode NC 
+ex 0106 90 00 et les graines de vers à soie du c",C10f57d6506c19f,Contexte apicole ; le mot nu ne distingue pas pollen récolté par abeilles et pollen végétal. Pas de bee pollen inventé ni de statut animal générique.,REVIEW_REQUIRED,NO,pollen,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A960aa0fa8ddd,pollen,Pollen,NL,ORIGIN_SCOPE_REVIEW,pollen,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 1212,Pollen,1566,"polis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 00 en eieren van zijderupsen  van GN-code 
+ex 0511 99 85 vallen onder de sector zijderupsen.  ",C7d814f0922f410,Contexte apicole ; le mot nu ne distingue pas pollen récolté par abeilles et pollen végétal. Pas de bee pollen inventé ni de statut animal générique.,REVIEW_REQUIRED,NO,pollen,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A1bb45e6999f4,pollen,Pollen,EN,ORIGIN_SCOPE_REVIEW,pollen,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 1212,Pollen,1478,"is, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover silkworms falling within CN cod e ex 0106 90 00 
+and silkworm eggs falling within CN code ex 0511 99",Cd08fea746eb67a,Contexte apicole ; le mot nu ne distingue pas pollen récolté par abeilles et pollen végétal. Pas de bee pollen inventé ni de statut animal générique.,REVIEW_REQUIRED,NO,pollen,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Ab34482496c8f,pollen,Blütenpollen,DE,ORIGIN_SCOPE_REVIEW,pollen,,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 1212,Blütenpollen,1625,"enießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Seidenraupen 
+Der Seidenraupensektor umfasst Seidenraupen des KN-Codes ex 010 6 90 00 und 
+Eier des Seidenspinners des KN-Codes ex 0511 99 ",C165d1e3b6795f8,Contexte apicole ; le mot nu ne distingue pas pollen récolté par abeilles et pollen végétal. Pas de bee pollen inventé ni de statut animal générique.,REVIEW_REQUIRED,NO,blutenpollen,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Adafa81bdcc53,egg_yolk,jaunes d'œufs,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,egg,egg,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),jaunes d'œufs,927," 19 89 
+0408 91 80 
+0408 99 80 
+Œufs d'oiseaux, dépourvus de leurs coquilles et jaunes d'œufs, frais, séchés, cuits à l'eau ou à 
+la vapeur, moulés, congelés ou autrement conservés, même additi onnés de sucre ou d'autres 
+édulcorants, autres qu'impropres à des usages alime",Cc8567eb4c6cfb9,"Partie de l’œuf ; egg possède déjà le jaune singulier FR. Utiliser le contexte alimentaire de XIX, pas les sous-positions impropres à l’alimentation p.150.",REVIEW_REQUIRED,NO,jaunes d oeufs,,egg,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Adac7f8cc8e7c,egg_yolk,eigeel,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,egg,egg,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),eigeel,882,"19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Andere eieren uit de schaal en ander eigeel, vers, gedroogd, ge stoomd of in water gekookt, 
+in een bepaalde vorm gebracht, bevroren of op andere wijze verd uurzaamd, ook indien met 
+toegevoegde suiker of andere zoetstoffen",Ca80e3471d14588,"Partie de l’œuf ; egg possède déjà le jaune singulier FR. Utiliser le contexte alimentaire de XIX, pas les sous-positions impropres à l’alimentation p.150.",REVIEW_REQUIRED,NO,eigeel,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A75570ef55abd,egg_yolk,egg yolks,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,egg,egg,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),egg yolks,772,"
+0408 19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Bird's eggs, not in shell, and egg yolks, fresh, dried, cooked by steaming or by boiling in 
+water, moulded, frozen or otherwise preserved, whether or not c ontaining added sugar or 
+other sweetening matter, other than u",C838f4b3e593c63,"Partie de l’œuf ; egg possède déjà le jaune singulier FR. Utiliser le contexte alimentaire de XIX, pas les sous-positions impropres à l’alimentation p.150.",REVIEW_REQUIRED,NO,egg yolks,,egg,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Af7431c6960d8,egg_yolk,Eigelb,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,egg,egg,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),Eigelb,947," 19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Vogeleier, nicht in der Schale, und Eigelb, frisch, getrocknet,  in Wasser oder Dampf ge­
+kocht, geformt, gefroren oder anders haltbar gemacht, auch mit Zusatz von Zucker oder 
+anderen Süßmitteln, andere als ungenießbar od",Cb564aea54fdee2,"Partie de l’œuf ; egg possède déjà le jaune singulier FR. Utiliser le contexte alimentaire de XIX, pas les sous-positions impropres à l’alimentation p.150.",REVIEW_REQUIRED,NO,eigelb,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Ad22b3d3ef8fc,edible_offal,Abats comestibles,FR,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,edible_offal,edible_offal,edible_offal,,False,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),Abats comestibles,1861,"20 
+Animaux vivants de l'espèce bovine, reproducteurs de race pure  
+0206 10 98 Abats comestibles des animaux de l'espèce bovine, à l'exclusion des onglets et hampes, frais 
+ou réfrigérés, autres que destinés à la fabrication de produits  pharmaceutiques  
+0206 21 00 
+0206 22 ",,Noyau lexical alimentaire ; pas de catégorie commerciale complète ni de sous-position pharmaceutique.,REVIEW_REQUIRED,NO,abats comestibles,edible_offal,edible_offal,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A5a5ad06deef7,edible_offal,Eetbare slachtafvallen,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),Eetbare slachtafvallen,1803,"2 31 00 en 
+0102 90 20 
+Levende runderen, fokdieren van zuiver ras  
+0206 10 98 Eetbare slachtafvallen van runderen, zonder longhaas jes en omlopen vers of gekoeld, andere 
+dan bestemd voor de vervaardiging van farmaceutische producten  
+0206 21 00 
+0206 22 00 
+0206 29 99 
+Eetbare ",,Noyau lexical alimentaire ; pas de catégorie commerciale complète ni de sous-position pharmaceutique.,REVIEW_REQUIRED,NO,eetbare slachtafvallen,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A4363d135d25c,edible_offal,Edible offal,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),Edible offal,1714,"0102 31 00 and 
+0102 90 20 
+Live bovine pure-bred breeding animals  
+0206 10 98 Edible offal of bovine animals excluding thick skirt  and thin skirt, fresh or chilled, other than 
+for the manufacture of pharmaceutical products  
+0206 21 00 
+0206 22 00 
+0206 29 99 
+Edible ",,Noyau lexical alimentaire ; pas de catégorie commerciale complète ni de sous-position pharmaceutique.,REVIEW_REQUIRED,NO,edible offal,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A58c0f3cbbc8f,edible_offal,Genießbare Schlachtnebenerzeugnisse,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),Genießbare Schlachtnebenerzeugnisse,1940,"0102 31 00 und 
+0102 90 20 
+Rinder, lebend, reinrassige Zuchttiere  
+0206 10 98 Genießbare Schlachtnebenerzeugnisse von Rindern, aus genommen Zwerchfellpfeiler (Nie­
+renzapfen) und Saumfleisch, frisch oder gekühlt, ausgenommen zu m Herstellen von phar­
+mazeutischen Erzeugnissen  
+0206 21 00 
+02",,Noyau lexical alimentaire ; pas de catégorie commerciale complète ni de sous-position pharmaceutique.,REVIEW_REQUIRED,NO,genie bare schlachtnebenerzeugnisse,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Ab1dacfa67c8b,poultry_liver,Foies de volailles,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XX / (c),Foies de volailles,1635," 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Foies de volailles, frais, réfrigérés, congelés  
+0210 99 71 
+0210 99 79 
+Foies de volailles, salés, en saumure, séchés ou fumés  
+d) 0209 90 00 Graisse de volailles non fondue ou extraite d'une  au",C2a90a68f3bdfdf,"Partie comestible de volaille, alias plus spécifique du concept d’abats existant ; pas besoin de créer un concept de foie.",REVIEW_REQUIRED,NO,foies de volailles,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Af3a74cd38474,poultry_liver,Levers van pluimvee,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XX / (c),Levers van pluimvee,1589," 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Levers van pluimvee, vers, gekoeld, bevroren  
+0210 99 71 
+0210 99 79 
+Levers van pluimvee, gezouten, gepekeld, gedroogd of gerookt  
+d) 0209 90 00 Vet van gevogelte (niet gesmolten of anderszins g e",,"Partie comestible de volaille, alias plus spécifique du concept d’abats existant ; pas besoin de créer un concept de foie.",REVIEW_REQUIRED,NO,levers van pluimvee,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A1cc3515d0fe8,poultry_liver,Poultry livers,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XX / (c),Poultry livers,1544," 
+0207 45 95 
+Poultry liver, fresh, chilled or frozen  
+0210 99 71 
+0210 99 79 
+Poultry livers, salted, in brine, dried or smoked  
+(d) 0209 90 00 Poultry fat, not rendered or otherwise extracted , fresh, chilled, frozen, salted, in brine, dried 
+or smoked  
+(e) 1501 90 00 ",,"Partie comestible de volaille, alias plus spécifique du concept d’abats existant ; pas besoin de créer un concept de foie.",REVIEW_REQUIRED,NO,poultry livers,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A86b4de7910a1,poultry_liver,Geflügelleber,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XX / (c),Geflügelleber,1651," 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Geflügelleber, frisch, gekühlt oder gefroren  
+0210 99 71 
+0210 99 79 
+Geflügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch ",,"Partie comestible de volaille, alias plus spécifique du concept d’abats existant ; pas besoin de créer un concept de foie.",REVIEW_REQUIRED,NO,geflugelleber,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A87d7c7e923ef,poultry_liver,Geflügellebern,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,edible_offal,edible_offal,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XX / (c),Geflügellebern,1722,"7 45 95 
+Geflügelleber, frisch, gekühlt oder gefroren  
+0210 99 71 
+0210 99 79 
+Geflügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch anders au sgezogen, frisch, gekühlt, gefroren, ge­
+salzen, in Salzlake, ",,"Partie comestible de volaille, alias plus spécifique du concept d’abats existant ; pas besoin de créer un concept de foie.",REVIEW_REQUIRED,NO,geflugellebern,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A29ea7e973802,pig_fat,graisse de porc,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,graisse de porc,581,"ceutiques, frais, réfrigérés ou congelés  
+0209 10 Lard sans parties maigres et graisse de porc non fondue  ou extraite d'une autre manière, 
+frais, réfrigérés, congelés, salés ou en saumure, séchés ou fum és 
+ex 0210 Viandes et abats comestibles de l'espèce porcine domest i",,"Graisse explicitement porcine ; sous-terme lexical, pas une description douanière entière.",REVIEW_REQUIRED,NO,graisse de porc,,meat,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A7c22426e62af,pig_fat,Varkensvet,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,Varkensvet,787,"kens (huisdieren ), gezouten, gepekeld, gedroogd of 
+gerookt 
+1501 10 
+1501 20 
+Varkensvet (reuzel daaronder begrepen)  
+c) 1601 00 Worst van alle soorten, van vlees, van slachtafvalle n of van bloed; bereidingen van deze 
+producten, voor menselijke consumptie  
+1602 10",C2cc995878e08de;C587fcc9f138883,"Graisse explicitement porcine ; sous-terme lexical, pas une description douanière entière.",REVIEW_REQUIRED,NO,varkensvet,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A98b06cb91547,pig_fat,Pig fat,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,Pig fat,456,"he manu facture of pharmaceutical products, 
+fresh, chilled or frozen  
+0209 10 Pig fat, free of lean meat, not rendered or otherwise e xtracted, fresh, chilled, frozen, salted, 
+in brine, dried or smoked  
+ex 0210 Meat and edible meat offal of domestic swine, salted",Cfe9e1be51efbb4,"Graisse explicitement porcine ; sous-terme lexical, pas une description douanière entière.",REVIEW_REQUIRED,NO,pig fat,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Af7702e07a8fb,pig_fat,Schweinefett,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,Schweinefett,534,"issen, frisch, gekühlt oder gefroren  
+0209 10 Schweinespeck ohne magere Teile, Schweinefett, weder au sgeschmolzen noch anders aus­
+gezogen, frisch, gekühlt, gefroren, gesalzen, in Salzlake, getr ocknet oder geräuchert  
+ex 0210 Fleisch und genießbare Schlachtnebenerzeug",Cb6fa4940c8dd9b,"Graisse explicitement porcine ; sous-terme lexical, pas une description douanière entière.",REVIEW_REQUIRED,NO,schweinefett,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+A77ca12c2e0cc,lard,saindoux,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,145,Annex I / Part XVII / NC 1501,saindoux,869," en saumure, séchés ou 
+fumés 
+1501 10 
+1501 20 
+Graisses de porc (y compris le saindoux), autres  
+c) 1601 00 Saucisses, saucissons et produits similaires, de via nde, d'abats ou de sang; préparations 
+alimentaires à base de ces produits  
+1602 10 00 Préparations hom",C560a1ee0f4d877,Graisse porcine nommée dans les parenthèses ; le mot français lard désigne une autre présentation et n’est pas ajouté comme équivalent.,REVIEW_REQUIRED,NO,saindoux,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A9c922c0af2bb,lard,reuzel,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,145,Annex I / Part XVII / NC 1501,reuzel,799,"eren ), gezouten, gepekeld, gedroogd of 
+gerookt 
+1501 10 
+1501 20 
+Varkensvet (reuzel daaronder begrepen)  
+c) 1601 00 Worst van alle soorten, van vlees, van slachtafvalle n of van bloed; bereidingen van deze 
+producten, voor menselijke consumptie  
+1602 10 00 Geho",C67593f76a404ed,Graisse porcine nommée dans les parenthèses ; le mot français lard désigne une autre présentation et n’est pas ajouté comme équivalent.,REVIEW_REQUIRED,NO,reuzel,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A0cdd43811cdf,lard,lard,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,145,Annex I / Part XVII / NC 1501,lard,711,"wine, salted, i n brine, dried or smoked  
+1501 10 
+1501 20 
+Pig fat (including lard)  
+(c) 1601 00 Sausages and similar products, of meat, meat offal or blood; food preparations based on 
+these products  
+1602 10 00 Homogenised preparations of meat, meat offal or",C080063aba84de2,Graisse porcine nommée dans les parenthèses ; le mot français lard désigne une autre présentation et n’est pas ajouté comme équivalent.,REVIEW_REQUIRED,NO,lard,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Ac0bf87a8f6bc,lard,Schweineschmalz,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,145,Annex I / Part XVII / NC 1501,Schweineschmalz,852,"e, 
+getrocknet oder geräuchert  
+1501 10 
+1501 20 
+Schweinefett (einschließlich Schweineschmalz)  
+c) 1601 00 Würste und ähnliche Erzeugnisse, aus Fleisch, Schlac htnebenerzeugnissen oder Blut; Le­
+bensmittelzubereitungen auf der Grundlage dieser Erzeugnisse  
+1602 10 00 Hom",C29dcffb0570596,Graisse porcine nommée dans les parenthèses ; le mot français lard désigne une autre présentation et n’est pas ajouté comme équivalent.,REVIEW_REQUIRED,NO,schweineschmalz,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Abf8d004ce576,poultry_fat,Graisses de volaille,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,Graisses de volaille,1930,"che, réfrigérée, congelée, 
+salée ou en saumure séchée ou fumée  
+e) 1501 90 00 Graisses de volaille  
+▼B",Cf4c3e8d317e540,Graisse explicitement de volaille ; concept générique animal_fat existant.,REVIEW_REQUIRED,NO,graisses de volaille,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Ae13338bfb26d,poultry_fat,Vet van gevogelte,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,Vet van gevogelte,1737,"9 
+Levers van pluimvee, gezouten, gepekeld, gedroogd of gerookt  
+d) 0209 90 00 Vet van gevogelte (niet gesmolten of anderszins g eëxtraheerd), vers, gekoeld, bevroren, 
+gezouten, gepekeld, gedroogd of gerookt  
+e) 1501 90 00 Vet van gevogelte  
+▼B",,Graisse explicitement de volaille ; concept générique animal_fat existant.,REVIEW_REQUIRED,NO,vet van gevogelte,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+Ac71bfbed5422,poultry_fat,Poultry fat,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,Poultry fat,1611,"
+0210 99 79 
+Poultry livers, salted, in brine, dried or smoked  
+(d) 0209 90 00 Poultry fat, not rendered or otherwise extracted , fresh, chilled, frozen, salted, in brine, dried 
+or smoked  
+(e) 1501 90 00 Poultry fat  
+▼B",C500f8f437e4f9d,Graisse explicitement de volaille ; concept générique animal_fat existant.,REVIEW_REQUIRED,NO,poultry fat,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Aea78fce14025,poultry_fat,Geflügelfett,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,Geflügelfett,1804,"flügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch anders au sgezogen, frisch, gekühlt, gefroren, ge­
+salzen, in Salzlake, getrocknet oder geräuchert  
+e) 1501 90 00 Geflügelfett  
+▼B",Caf498c1061358d,Graisse explicitement de volaille ; concept générique animal_fat existant.,REVIEW_REQUIRED,NO,geflugelfett,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Adba12345da26,bovine_fat,Graisses des animaux de l'espèce bovine,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,144,Annex I / Part XV / NC 1502,Graisses des animaux de l'espèce bovine,217,"s ou en saumure, séchés ou fumés, 
+autres que onglets et hampes  
+ex 1502 10 90 Graisses des animaux de l'espèce bovine, autres q ue celles de la position 1503  
+1602 50 31 et 
+1602 50 95 
+Autres préparations et conserves de viande ou d'abats de l'espè ce bovine, autres que non 
+cuits et mélanges d",C08b6a25de1020f,Nom de matière animale ; exclusion commerciale suivant le nom n’est pas importée comme alias.,REVIEW_REQUIRED,NO,graisses des animaux de l espece bovine,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A6df3fba4a0e7,bovine_fat,Rundervet,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,144,Annex I / Part XV / NC 1502,Rundervet,213,"ek eld, gedroogd of gerookt, andere dan 
+longhaasjes en omlopen  
+ex 1502 10 90 Rundervet, ander dan dat bedoeld bij post 1503  
+1602 50 31 en 
+1602 50 95 
+Andere bereidingen en conserven, van vlees of van slachtafvalle n van runderen, andere dan 
+niet-gekookt en niet-",C203ea1eb6736b9,Nom de matière animale ; exclusion commerciale suivant le nom n’est pas importée comme alias.,REVIEW_REQUIRED,NO,rundervet,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A617e8de7ce15,bovine_fat,Fats of bovine animals,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,144,Annex I / Part XV / NC 1502,Fats of bovine animals,210,"brin e, dried or smoked, other than thick skirt 
+and thin skirt  
+ex 1502 10 90 Fats of bovine animals other than those of headin g 1503  
+1602 50 31 and 
+1602 50 95 
+Other prepared or preserved meat or meat offal, of bovine anima ls, other than uncooked 
+meat or meat offal and mix",C6d242159079df4,Nom de matière animale ; exclusion commerciale suivant le nom n’est pas importée comme alias.,REVIEW_REQUIRED,NO,fats of bovine animals,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A4bfa1ef450fc,bovine_fat,Fett von Rindern,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,144,Annex I / Part XV / NC 1502,Fett von Rindern,265,"rt, andere als Zwerchfellpfeiler (Nierenzapfen) und Sau mfleisch 
+ex 1502 10 90 Fett von Rindern, ausgenommen solches der Positio n 1503  
+1602 50 31 und 
+1602 50 95 
+Fleisch und Schlachtnebenerzeugnisse von Rindern, anders zubere itet oder haltbar gemacht, 
+ausgenommen nicht",C3e160801611bf8,Nom de matière animale ; exclusion commerciale suivant le nom n’est pas importée comme alias.,REVIEW_REQUIRED,NO,fett von rindern,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Aa7cc4fa90db1,sheep_goat_fat,Graisse des animaux des espèces ovine et caprine,FR,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XVIII / NC 1502,Graisse des animaux des espèces ovine et caprine,351,"espèces ovine et c aprine, salés ou en saumure, séchés ou 
+fumés 
+ex 1502 90 90 Graisse des animaux des espèces ovine et caprine,  autres que celles de la position 1503  
+c) 1602 90 91 Autres préparations et conserves de viandes ou d' abats d'ovins ou de caprins  
+1602 90 95 
+PARTIE XIX  
+Œufs  
+Le secteur ",Cb21592100dc3cf,Forme collective attestée ; ne pas fabriquer des formes séparées à partir de la coordination.,REVIEW_REQUIRED,NO,graisse des animaux des especes ovine et caprine,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+A96ad2cedeb95,sheep_goat_fat,Schapen- of geitenvet,NL,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XVIII / NC 1502,Schapen- of geitenvet,335,"schapen en van geiten, ge zouten, gepekeld, gedroogd of gerookt  
+ex 1502 90 90 Schapen- of geitenvet, ander dan dat bedoeld bij post 1503  
+c) 1602 90 91 Andere bereidingen en conserven, van vlees of van  vleesafvallen, van schapen of van geiten;  
+1602 90 95 
+DEEL XIX  
+Eieren 
+",Cd67c90f7f9f7a9,Forme collective attestée ; ne pas fabriquer des formes séparées à partir de la coordination.,REVIEW_REQUIRED,NO,schapen of geitenvet,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+A6dae67671904,sheep_goat_fat,Fats of sheep or goats,EN,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XVIII / NC 1502,Fats of sheep or goats,278,"le offal of sheep and goats, salted, in brine, d ried or smoked  
+ex 1502 90 90 Fats of sheep or goats, other than those of headi ng 1503  
+(c) 1602 90 91 Other prepared or preserved meat or meat offal o f sheep or goats;  
+1602 90 95 
+PART XIX  
+Eggs 
+The eggs sector shall cover t",C4897b491a304bc,Forme collective attestée ; ne pas fabriquer des formes séparées à partir de la coordination.,REVIEW_REQUIRED,NO,fats of sheep or goats,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+A5bf94d849f1b,sheep_goat_fat,Fett von Schafen oder Ziegen,DE,PROPOSED_ALIAS_EXISTING_CONCEPT,animal_fat,animal_fat,,,True,True,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XVIII / NC 1502,Fett von Schafen oder Ziegen,367,"er  Ziegen, gesalzen, in Salzlake, ge­
+trocknet oder geräuchert  
+ex 1502 90 90 Fett von Schafen oder Ziegen, ausgenommen solches  der Position 1503  
+c) 1602 90 91 Fleisch oder Schlachtnebenerzeugnisse von Schafen  oder Ziegen, anders zubereitet oder 
+haltbar gemacht;  
+1602 90 95 
+TEIL",C6127ce892f45eb,Forme collective attestée ; ne pas fabriquer des formes séparées à partir de la coordination.,REVIEW_REQUIRED,NO,fett von schafen oder ziegen,,,,NOT_EXECUTED_NO_IMPORT,Un sous-terme présent n’est pas un test du verdict ni une preuve de couverture de l’expression complète.,64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda
+Xde2d349f3c7b,carcass,,FR,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,166,Annex IV,CARCASSE,116,"R — 18.08.2026 — 013.001 — 166  
+ANNEXE IV  
+GRILLES UTILISÉES DANS L'UNION POUR LE CLASSEMENT DES 
+CARCASSES VISÉES À L'ARTICLE 10  
+A. Grille utilisée dans l'Union pour le classement des carcasses de bovins 
+âgés de huit mois ou plus  
+I. Définitions  
+On entend par:  
+1. «carcasse», le corps entier de l'animal abattu tel qu",,"Présentation de classement des carcasses, exclue du premier lot d’ingrédients.",EXCLUDED_FROM_PROPOSAL,NO,,,,,,,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Xfd83b66c35eb,half_carcass,,FR,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,166,Annex IV,demi-carcasse,436,"u tel qu'il se présente après les 
+opérations de saignée, d'éviscération et de dépouillement;  
+2. «demi-carcasse», le produit obtenu par séparation de la carc asse visée au 
+point 1 selon un plan de symétrie passant par le milieu de chaq ue vertèbre 
+cervicale, dorsale, lombaire et sacrée, par le milieu du sternu m et de la 
+symph",,"Présentation commerciale, pas de concept d’ingrédient utile pour ce lot.",EXCLUDED_FROM_PROPOSAL,NO,,,,,,,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+X54301c556c52,royal_jelly_non_edible,,NL,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Parts XVI–XXIV,Niet-eetbare koninginnengelei en propolis,1508,"ving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 00 en eieren van zijderupsen  van GN-code 
+ex 0511 99 85 vallen onder de sector zijderupsen.  
+DEEL XXIV  
+Ande",,NC 0511 non comestible ; ne pas utiliser cette ligne comme preuve alimentaire.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74
+X2907061defa6,egg_yolk_non_edible,,FR,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,150,Annex I / Parts XVI–XXIV,impropres à des usages alimentaires,1233,"s de sucre ou 
+d'autres édulcorants:  
+– Jaunes d'œufs:  
+ex 0408 11 – – séchés:  
+0408 11 20 – – – impropres à des usages alimentaires (  δ ) 
+ex 0408 19 – – autres:  
+0408 19 20 – – – impropres à des usages alimentaires (  δ ) 
+– autres:  
+ex 0408 91 – – séchés:  
+0408 91 20 – – – impropres à des usages alimentaires (  δ ) 
+ex 0408 99 – – autres:  
+04",,Sous-position non comestible : jaunes d’œufs de XXIV ; source alimentaire retenue en XIX p.146.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Xa7bad858e44b,pharmaceutical_offal,,FR,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,149,Annex I / Parts XVI–XXIV,Destinés à la fabrication de produits pharmaceutiques,421,"produits pharmaceut iques ( γ ) 
+– de l'espèce bovine, congelés:  
+ex 0206 22 00 – – Foies:  
+– – – Destinés à la fabrication de produits pharmaceutiques (  γ ) 
+ex 0206 29 – – autres:  
+0206 29 10 – – – Destinés à la fabrication de produits pharmace utiques ( γ ) 
+ex 0206 30 00 – de l'espèce porcine, frais ou réfrigérés:  
+– – Destinés à la fabrication de produits pharm",,"Sous-positions pharmaceutiques, pas une preuve d’usage alimentaire.",EXCLUDED_FROM_PROPOSAL,NO,,,,,,,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Xc281867c24ea,silkworm,,FR,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Parts XVI–XXIV,Vers à soie,1590,"le et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des vers à soie couvre les vers à soie relevant du c ode NC 
+ex 0106 90 00 et les graines de vers à soie du code NC ex 0511 99 85. 
+PARTIE XXIV  
+Autres produits  
+On entend par «autres produits» tous les p",,Secteur de production et élevage de soie ; pas de preuve de produit comestible dans cette ligne.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+Xbbf043804e8b,pet_food,,FR,OUT_OF_SCOPE,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,144,Annex I / Parts XVI–XXIV,Aliments pour chiens ou chats,2117,"o rants 
+i) ex 2309 Préparations des types utilisés pour l'alimentation des animaux:  
+ex 2309 10 – Aliments pour chiens ou chats, conditionnés pour l a vente au détail:  
+2309 10 15 
+2309 10 19 
+2309 10 39 
+2309 10 59 
+2309 10 70 
+– – contenant de l'amidon ou de la fécule, du glucose ou du sir op de glucose, de la 
+maltodextrine ou du sirop de ma",,Alimentation animale ; exclue du corpus humain proposé.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c
+X30b72fba835c,combined_apiculture_category,,EN,REGULATORY_CATEGORY_EXCLUDED,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Parts XVI–XXIV,Royal jelly and propolis,1376,"ts listed in the fo llowing table:  
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover silkworms falling within CN cod e ex 0106 90 00 
+and sil",,Coordination de deux matières distinctes ; sous-termes individuels retenus uniquement dans la ligne comestible.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+X3b0b21684eb6,cn_egg_description,,EN,REGULATORY_CATEGORY_EXCLUDED,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Parts XVI–XXIV,"Bird's eggs, not in shell, and egg yolks",741,"shell, fresh, preserved or cooked  
+(b) 0408 11 80 
+0408 19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Bird's eggs, not in shell, and egg yolks, fresh, dried, cooked by steaming or by boiling in 
+water, moulded, frozen or otherwise preserved, whether or not c ontaining added sugar or 
+other sweetening matter, other than unfit for human consumption  
+PART XX  
+P",,Description collective NC ; ne pas créer un concept commercial pour cette chaîne.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11
+Xbfffe8540be0,royal_jelly_hyphen,,NL,ARTIFACT_EXTRACTION,,,,,,,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,163,Annex II / Part IX,"konin­
+ginnengelei",565," soorten honing betreft.  
+2. Onder ""producten van de bijenteelt"" wordt verstaan honing, b ijenwas, konin­
+ginnengelei, propolis of pollen.  
+▼B 
+( 1 ) Richtlĳn 2001/110/EG van de Raad van 20 december 2001 inzake honing (PB L 10 van 
+12.1.2002, blz. 47).",,Césure de couche texte ; forme continue attestée séparément p.147.,EXCLUDED_FROM_PROPOSAL,NO,,,,,,,99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74

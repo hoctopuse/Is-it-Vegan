@@ -1,0 +1,672 @@
+review_id,family,concept_id,language,source_form,pdf_file,pdf_page,legal_location,source_offset,context_excerpt,pdf_sha256,previous_decision,previous_review_status,authorization_basis,imported_surface_form,mapping_normalized_form,mapping_relation,canonical_alias_storage,language_alias_storage,import_result,effective_status
+A289e9d1a136f,whey,whey,FR,lactosérum,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(i),1392,"minations suivantes utilisées à tous les stades de l a commerciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumi",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,lactosérum,lactoserum,REGULATORY_ALIAS,PREEXISTING_CANONICAL_RECOGNITION,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A183557fc283e,whey,whey,NL,wei,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(i),1495,"ikt: 
+a) de volgende benamingen, die in alle handelsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) vii",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,wei,wei,REGULATORY_ALIAS,PREEXISTING_CANONICAL_RECOGNITION,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A60e5ccf268ea,whey,whey,EN,whey,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(i),1167,"milk products.  
+(a) the following names used at all stages of marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss, ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,whey,whey,REGULATORY_ALIAS,PREEXISTING_CANONICAL_RECOGNITION,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A72019b963880,whey,whey,DE,Molke,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(i),1396,"sen vo rbehalten: 
+a) auf allen Vermarktungsstufen folgende Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Molke,molke,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ada8f271ba175,buttermilk,buttermilk,FR,babeurre,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),1438,"s de l a commerciali­
+sation. 
+i) lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv)",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,NEW_CONCEPT_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,babeurre,babeurre,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Aa529996c2e06,buttermilk,buttermilk,NL,karnemelk,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),1532,"in alle handelsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,NEW_CONCEPT_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,karnemelk,karnemelk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A4ff2656fc5da,buttermilk,buttermilk,NL,botermelk,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),1545,"lsstadia worden geb ruikt 
+i) wei,  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+x",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,NEW_CONCEPT_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,botermelk,botermelk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ae657dd855555,buttermilk,buttermilk,EN,buttermilk,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),1210,"ed at all stages of marketing:  
+(i) whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) smetana,  
+(xiv) fil;",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,NEW_CONCEPT_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,buttermilk,buttermilk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A18f0b1e574d3,buttermilk,buttermilk,DE,Buttermilch,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(iv),1436,"ungsstufen folgende Bezeichnungen:  
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,NEW_CONCEPT_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Buttermilch,buttermilch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A85544edb0b1f,casein,casein,FR,caséines,CELEX_02013R1308-20260818_FR_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),1470,") lactosérum,  
+ii) crème,  
+iii) beurre,  
+iv) babeurre,  
+v) butteroil,  
+vi) caséines,  
+vii) matière grasse laitière anhydre (MGLA),  
+viii) fromage,  
+ix) yoghourt,  
+x) kéfir,  
+xi) kumis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūg",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,caséines,caseines,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A02f451e82730,casein,casein,NL,caseïne,CELEX_02013R1308-20260818_NL_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),1578,",  
+ii) room,  
+iii) boter,  
+iv) karnemelk of botermelk,  
+v) boterolie,  
+vi) caseïne,  
+vii) watervrij melkvet,  
+viii) kaas,  
+ix) yoghurt,  
+x) kefir,  
+xi) koemis,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+b) benamingen",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,caseïne,caseine,REGULATORY_ALIAS,PREEXISTING_CANONICAL_RECOGNITION,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A6c531a4d338a,casein,casein,EN,caseins,CELEX_02013R1308-20260818_EN_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),1246," whey,  
+(ii) cream,  
+(iii) butter,  
+(iv) buttermilk,  
+(v) butteroil,  
+(vi) caseins,  
+(vii) anhydrous milk fat (AMF),  
+(viii) cheese,  
+(ix) yogurt,  
+(x) kephir,  
+(xi) koumiss,  
+(xii) viili/fil,  
+(xiii) smetana,  
+(xiv) fil;  
+(xv) rjaženka,  
+(xvi) rūgušpi",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,caseins,caseins,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A4df9d493272a,casein,casein,DE,Kaseine,CELEX_02013R1308-20260818_DE_TXT.pdf,182,Annex VII / Part III / 2(a)(vi),1471," 
+i) Molke,  
+ii) Rahm,  
+iii) Butter,  
+iv) Buttermilch,  
+v) Butteroil,  
+vi) Kaseine,  
+vii) wasserfreies Milchfett,  
+viii) Käse,  
+ix) Joghurt,  
+x) Kefir,  
+xi) Kumys,  
+xii) viili/fil,  
+xiii) smetana,  
+xiv) fil,  
+xv) rjaženka,  
+xvi) rūgušpiens;  
+▼C3 
+b) d",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Kaseine,kaseine,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Adc4bb6fba6d2,raw_milk,milk,FR,lait cru,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(a),151,"ion  
+1. Les produits suivants sont considérés comme lait de consomma tion: 
+a) lait cru: un lait n'ayant pas été chauffé au-delà de 40 °C n i soumis à 
+un traitement d'effet équivalent;  
+b) lait entier: un lait traité thermiquement qui, en ce qui con cerne sa 
+teneu",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,lait cru,lait cru,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ac2ef1da4816c,raw_milk,milk,NL,rauwe melk,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(a),137,"umptiemelk  
+1. De volgende producten worden als consumptiemelk beschouwd:  
+a) rauwe melk: melk die niet is verwarmd tot boven 40 °C en die  
+evenmin een behandeling met een gelijkwaardig effect heeft 
+ondergaan; 
+b) volle melk: warmtebehandelde melk die, wat het vetge",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,rauwe melk,rauwe melk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A51f27fce353d,raw_milk,milk,EN,raw milk,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(a),143,"milk  
+1. The following products shall be considered to be drinking mi lk: 
+(a) raw milk: milk which has not been heated above 40  o C or subjected 
+to treatment having equivalent effect;  
+(b) whole milk: heat-treated milk which, with respect to fat co ntent, 
+meets ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,raw milk,raw milk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A39397e566562,raw_milk,milk,DE,Rohmilch,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(a),121,"— 184  
+III. Konsummilch  
+1. Folgende Erzeugnisse gelten als Konsummilch:  
+a) Rohmilch: Milch, die nicht über 40° C erhitzt und keiner Beh andlung 
+mit entsprechender Wirkung unterzogen wurde;  
+b) Vollmilch: wärmebehandelte Milch, die hinsichtlich ihres Fet tgehalt",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Rohmilch,rohmilch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Af1b905bf492b,whole_milk,milk,FR,lait entier,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(b),263,"é chauffé au-delà de 40 °C n i soumis à 
+un traitement d'effet équivalent;  
+b) lait entier: un lait traité thermiquement qui, en ce qui con cerne sa 
+teneur en matière grasse, répond à l'une des formules suivantes : 
+i) lait entier normalisé: un lait dont la teneur en m",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,lait entier,lait entier,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A2173a9aeb1c6,whole_milk,milk,NL,volle melk,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(b),275,"ie  
+evenmin een behandeling met een gelijkwaardig effect heeft 
+ondergaan; 
+b) volle melk: warmtebehandelde melk die, wat het vetgehalte be treft, 
+aan één van de volgende eisen voldoet:  
+i) gestandaardiseerde volle melk: melk met een vetgehalte van t en 
+minste 3,50 ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,volle melk,volle melk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ac0cbaec6a68d,whole_milk,milk,EN,whole milk,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(b),257,"heated above 40  o C or subjected 
+to treatment having equivalent effect;  
+(b) whole milk: heat-treated milk which, with respect to fat co ntent, 
+meets one of the following requirements:  
+(i) standardised whole milk: milk with a fat content of at leas t 
+3,50 % (m/m)",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,whole milk,whole milk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ab6dc3e75fb82,whole_milk,milk,DE,Vollmilch,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(b),241,"hitzt und keiner Beh andlung 
+mit entsprechender Wirkung unterzogen wurde;  
+b) Vollmilch: wärmebehandelte Milch, die hinsichtlich ihres Fet tgehalts 
+einer der folgenden Formeln entspricht:  
+i) standardisierte Vollmilch: Milch, deren Fettgehalt mindesten s 3,50 
+% (m",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Vollmilch,vollmilch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A7134bf4c221f,semi_skimmed_milk,milk,FR,lait demi-écrémé,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(c),1039,"fois, la teneur en matière grasse ne peut être inférieure à 
+3,50 % (m/m);  
+c) lait demi-écrémé: un lait traité thermiquement dont la teneu r en 
+matière grasse a été ramenée à un taux qui s'élève à 1,50 % (m/ m) 
+au minimum et à 1,80 % (m/m) au maximum;  
+d) lait écrémé: un",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,lait demi-écrémé,lait demi ecreme,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A8e8310a736ba,semi_skimmed_milk,milk,NL,halfvolle melk,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(c),902,"gewijzigd. Het vetgehalte mag eve n­
+wel niet lager zijn dan 3,50 % (m/m);  
+c) halfvolle melk: warmtebehandelde melk waarvan het vetgehalte  op 
+ten minste 1,50 % (m/m) en ten hoogste 1,80 % (m/m) is gebracht ; 
+d) magere melk: warmtebehandelde melk waarvan het vetgehalte ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,halfvolle melk,halfvolle melk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ab4009a89bc12,semi_skimmed_milk,milk,EN,semi-skimmed milk,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(c),874,"een altered. However, the fat content 
+may not be less than 3,50 % (m/m);  
+(c) semi-skimmed milk: heat-treated milk whose fat content has been 
+reduced to at least 1,50 % (m/m) and at most 1,80 % (m/m);  
+(d) skimmed-milk: heat-treated milk whose fat content has been reduced ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,semi-skimmed milk,semi skimmed milk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A8bb6aad63967,semi_skimmed_milk,milk,DE,teilentrahmte Milch,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(c),879," worden ist. Der Fettgehalt darf je­
+doch nicht unter 3,50 % (m/m) liegen;  
+c) teilentrahmte Milch (fettarme Milch): wärmebehandelte Milch,  deren 
+Fettgehalt auf einen Satz gebracht worden ist, der mindestens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Mi",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,teilentrahmte Milch,teilentrahmte milch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ab493a2dc8414,semi_skimmed_milk,milk,DE,fettarme Milch,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(c),900,"gehalt darf je­
+doch nicht unter 3,50 % (m/m) liegen;  
+c) teilentrahmte Milch (fettarme Milch): wärmebehandelte Milch,  deren 
+Fettgehalt auf einen Satz gebracht worden ist, der mindestens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Milch (Magermilch)",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,fettarme Milch,fettarme milch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A388133501653,skimmed_milk,milk,FR,lait écrémé,CELEX_02013R1308-20260818_FR_TXT.pdf,184,Annex VII / Part IV / III.1(d),1220,"taux qui s'élève à 1,50 % (m/ m) 
+au minimum et à 1,80 % (m/m) au maximum;  
+d) lait écrémé: un lait traité thermiquement dont la teneur en matière 
+grasse a été ramenée à un taux qui s'élève à 0,50 % (m/m) au 
+maximum. 
+Les laits traités thermiquement qui ne satisfont p",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,lait écrémé,lait ecreme,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A418fce16500c,skimmed_milk,milk,NL,magere melk,CELEX_02013R1308-20260818_NL_TXT.pdf,184,Annex VII / Part IV / III.1(d),1038,"alte  op 
+ten minste 1,50 % (m/m) en ten hoogste 1,80 % (m/m) is gebracht ; 
+d) magere melk: warmtebehandelde melk waarvan het vetgehalte op  ten 
+hoogste 0,50 % (m/m) is gebracht.  
+Warmtebehandelde melk die niet voldoet aan de in de eerste alin ea, 
+punten b), c) en d)",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,magere melk,magere melk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A20bb306b20e5,skimmed_milk,milk,EN,skimmed-milk,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(d),1004,"tent has been 
+reduced to at least 1,50 % (m/m) and at most 1,80 % (m/m);  
+(d) skimmed-milk: heat-treated milk whose fat content has been reduced 
+to not more than 0,50 % (m/m).  
+Heat-treated milk not complying with the fat content requiremen ts laid 
+down in points (b)",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,skimmed-milk,skimmed milk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A6b449c759611,skimmed_milk,milk,EN,skimmed milk,CELEX_02013R1308-20260818_EN_TXT.pdf,184,Annex VII / Part IV / III.1(d),879,"ltered. However, the fat content 
+may not be less than 3,50 % (m/m);  
+(c) semi-skimmed milk: heat-treated milk whose fat content has been 
+reduced to at least 1,50 % (m/m) and at most 1,80 % (m/m);  
+(d) skimmed-milk: heat-treated milk whose fat content has been reduced ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,skimmed-milk,skimmed milk,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,COVERED_NORMALIZED_VARIANT_WITH_SOURCE_EVIDENCE,VEGETARIAN
+A69b7a95c50ab,skimmed_milk,milk,DE,entrahmte Milch,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(d),883,"den ist. Der Fettgehalt darf je­
+doch nicht unter 3,50 % (m/m) liegen;  
+c) teilentrahmte Milch (fettarme Milch): wärmebehandelte Milch,  deren 
+Fettgehalt auf einen Satz gebracht worden ist, der mindestens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Mi",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,entrahmte Milch,entrahmte milch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A67abd3e7fd64,skimmed_milk,milk,DE,Magermilch,CELEX_02013R1308-20260818_DE_TXT.pdf,184,Annex VII / Part IV / III.1(d),1083,"estens 1 ,50 % 
+(m/m) und höchstens 1,80 % (m/m) beträgt;  
+d) entrahmte Milch (Magermilch): wärmebehandelte Milch, deren F ett­
+gehalt auf einen Satz gebracht worden ist, der höchstens 0,50 %  
+(m/m) beträgt.  
+Wärmebehandelte Milch, deren Fettgehalt nicht den Anforder",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Magermilch,magermilch,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A2caa79f5e553,natural_honey,honey,FR,Miel naturel,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 0409,1397," produits énumérés dans le  tableau suivant:  
+Code NC Description  
+0409 00 00 Miel naturel  
+ex 0410 00 00 Gelée royale et propolis, comestibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Miel naturel,miel naturel,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A35a54cfde886,natural_honey,honey,NL,Natuurhoning,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 0409,1426,"oducten vallen onder de  sector 
+bijenteelt. 
+GN-code Omschrijving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderup",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Natuurhoning,natuurhoning,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Af1c92aa49e3d,natural_honey,honey,EN,Natural honey,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 0409,1346,"the products listed in the fo llowing table:  
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The sil",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Natural honey,natural honey,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Aae782f0a7271,natural_honey,honey,DE,Natürlicher Honig,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 0409,1483,"der Tabelle aufg eführten Er­
+zeugnisse: 
+KN-Code Warenbezeichnung  
+0409 00 00 Natürlicher Honig  
+ex 0410 00 00 Gelée Royale und Kittharz, genießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Se",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Natürlicher Honig,naturlicher honig,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A7da6efb7062f,royal_jelly,royal_jelly,FR,Gelée royale,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1426,"ableau suivant:  
+Code NC Description  
+0409 00 00 Miel naturel  
+ex 0410 00 00 Gelée royale et propolis, comestibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Gelée royale,gelee royale,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Abd979b4c4478,royal_jelly,royal_jelly,NL,koninginnengelei,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1463,"nteelt. 
+GN-code Omschrijving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 0",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,koninginnengelei,koninginnengelei,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Abba71bd99577,royal_jelly,royal_jelly,EN,Royal jelly,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1376,"llowing table:  
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover sil",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Royal jelly,royal jelly,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ab1ad9606ca9c,royal_jelly,royal_jelly,DE,Gelée Royale,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1517,"nisse: 
+KN-Code Warenbezeichnung  
+0409 00 00 Natürlicher Honig  
+ex 0410 00 00 Gelée Royale und Kittharz, genießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Seidenraupen 
+Der Seidenraupens",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Gelée Royale,gelee royale,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A692ddafa9421,propolis,propolis,FR,propolis,CELEX_02013R1308-20260818_FR_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1442," 
+Code NC Description  
+0409 00 00 Miel naturel  
+ex 0410 00 00 Gelée royale et propolis, comestibles  
+ex 0511 99 85 Gelée royale et propolis, non comestibles  
+ex 1212 99 95 Pollen  
+ex 1521 90 Cire d'abeille  
+PARTIE XXIII  
+Vers à soie  
+Le secteur des vers à soie",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,propolis,propolis,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Aed2bcffb78e9,propolis,propolis,NL,propolis,CELEX_02013R1308-20260818_NL_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1483,"chrijving  
+0409 00 00 Natuurhoning  
+ex 0410 00 00 Eetbare koninginnengelei en propolis  
+ex 0511 99 85 Niet-eetbare koninginnengelei en propolis  
+ex 1212 99 95 Pollen  
+ex 1521 90 Bijenwas  
+DEEL XXIII  
+Zijderupsen 
+Zijderupsen van GN-code ex 0106 90 00 en eieren ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,propolis,propolis,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Aee51efe73b00,propolis,propolis,EN,propolis,CELEX_02013R1308-20260818_EN_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1392,"
+CN code Description  
+0409 00 00 Natural honey  
+ex 0410 00 00 Royal jelly and propolis, edible  
+ex 0511 99 85 Royal jelly and propolis, non-edible  
+ex 1212 99 95 Pollen  
+ex 1521 90 Beeswax  
+PART XXIII  
+Silkworms 
+The silkworm sector shall cover silkworms fallin",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,propolis,propolis,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Af1c9d73d9d15,propolis,propolis,DE,Kittharz,CELEX_02013R1308-20260818_DE_TXT.pdf,147,Annex I / Part XXII / NC 0410 (edible),1534,"arenbezeichnung  
+0409 00 00 Natürlicher Honig  
+ex 0410 00 00 Gelée Royale und Kittharz, genießbar  
+ex 0511 99 85 Gelée Royale und Kittharz, ungenießbar  
+ex 1212 99 95 Blütenpollen  
+ex 1521 90 Bienenwachs  
+TEIL XXIII  
+Seidenraupen 
+Der Seidenraupensektor umfasst",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,NEW_CLASSIFICATION_REVIEW,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Kittharz,kittharz,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Adafa81bdcc53,egg_yolk,egg,FR,jaunes d'œufs,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),927," 19 89 
+0408 91 80 
+0408 99 80 
+Œufs d'oiseaux, dépourvus de leurs coquilles et jaunes d'œufs, frais, séchés, cuits à l'eau ou à 
+la vapeur, moulés, congelés ou autrement conservés, même additi onnés de sucre ou d'autres 
+édulcorants, autres qu'impropres à des usages alime",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,jaunes d'œufs,jaunes d ufs,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Adac7f8cc8e7c,egg_yolk,egg,NL,eigeel,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),882,"19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Andere eieren uit de schaal en ander eigeel, vers, gedroogd, ge stoomd of in water gekookt, 
+in een bepaalde vorm gebracht, bevroren of op andere wijze verd uurzaamd, ook indien met 
+toegevoegde suiker of andere zoetstoffen",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,eigeel,eigeel,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+A75570ef55abd,egg_yolk,egg,EN,egg yolks,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),772,"
+0408 19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Bird's eggs, not in shell, and egg yolks, fresh, dried, cooked by steaming or by boiling in 
+water, moulded, frozen or otherwise preserved, whether or not c ontaining added sugar or 
+other sweetening matter, other than u",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,egg yolks,egg yolks,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Af7431c6960d8,egg_yolk,egg,DE,Eigelb,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XIX / NC 0408 (edible),947," 19 81 
+0408 19 89 
+0408 91 80 
+0408 99 80 
+Vogeleier, nicht in der Schale, und Eigelb, frisch, getrocknet,  in Wasser oder Dampf ge­
+kocht, geformt, gefroren oder anders haltbar gemacht, auch mit Zusatz von Zucker oder 
+anderen Süßmitteln, andere als ungenießbar od",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Eigelb,eigelb,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,VEGETARIAN
+Ad22b3d3ef8fc,edible_offal,edible_offal,FR,Abats comestibles,CELEX_02013R1308-20260818_FR_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),1861,"20 
+Animaux vivants de l'espèce bovine, reproducteurs de race pure  
+0206 10 98 Abats comestibles des animaux de l'espèce bovine, à l'exclusion des onglets et hampes, frais 
+ou réfrigérés, autres que destinés à la fabrication de produits  pharmaceutiques  
+0206 21 00 
+0206 22 ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,LANGUAGE_METADATA_MISSING_CANONICAL_PRESENT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Abats comestibles,abats comestibles,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A5a5ad06deef7,edible_offal,edible_offal,NL,Eetbare slachtafvallen,CELEX_02013R1308-20260818_NL_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),1803,"2 31 00 en 
+0102 90 20 
+Levende runderen, fokdieren van zuiver ras  
+0206 10 98 Eetbare slachtafvallen van runderen, zonder longhaas jes en omlopen vers of gekoeld, andere 
+dan bestemd voor de vervaardiging van farmaceutische producten  
+0206 21 00 
+0206 22 00 
+0206 29 99 
+Eetbare ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Eetbare slachtafvallen,eetbare slachtafvallen,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A4363d135d25c,edible_offal,edible_offal,EN,Edible offal,CELEX_02013R1308-20260818_EN_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),1714,"0102 31 00 and 
+0102 90 20 
+Live bovine pure-bred breeding animals  
+0206 10 98 Edible offal of bovine animals excluding thick skirt  and thin skirt, fresh or chilled, other than 
+for the manufacture of pharmaceutical products  
+0206 21 00 
+0206 22 00 
+0206 29 99 
+Edible ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Edible offal,edible offal,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A58c0f3cbbc8f,edible_offal,edible_offal,DE,Genießbare Schlachtnebenerzeugnisse,CELEX_02013R1308-20260818_DE_TXT.pdf,143,Annex I / Part XV / NC 0206 (edible),1940,"0102 31 00 und 
+0102 90 20 
+Rinder, lebend, reinrassige Zuchttiere  
+0206 10 98 Genießbare Schlachtnebenerzeugnisse von Rindern, aus genommen Zwerchfellpfeiler (Nie­
+renzapfen) und Saumfleisch, frisch oder gekühlt, ausgenommen zu m Herstellen von phar­
+mazeutischen Erzeugnissen  
+0206 21 00 
+02",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Genießbare Schlachtnebenerzeugnisse,geniessbare schlachtnebenerzeugnisse,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Ab1dacfa67c8b,poultry_liver,edible_offal,FR,Foies de volailles,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XX / (c),1635," 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Foies de volailles, frais, réfrigérés, congelés  
+0210 99 71 
+0210 99 79 
+Foies de volailles, salés, en saumure, séchés ou fumés  
+d) 0209 90 00 Graisse de volailles non fondue ou extraite d'une  au",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Foies de volailles,foies de volailles,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Af3a74cd38474,poultry_liver,edible_offal,NL,Levers van pluimvee,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XX / (c),1589," 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Levers van pluimvee, vers, gekoeld, bevroren  
+0210 99 71 
+0210 99 79 
+Levers van pluimvee, gezouten, gepekeld, gedroogd of gerookt  
+d) 0209 90 00 Vet van gevogelte (niet gesmolten of anderszins g e",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Levers van pluimvee,levers van pluimvee,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A1cc3515d0fe8,poultry_liver,edible_offal,EN,Poultry livers,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XX / (c),1544," 
+0207 45 95 
+Poultry liver, fresh, chilled or frozen  
+0210 99 71 
+0210 99 79 
+Poultry livers, salted, in brine, dried or smoked  
+(d) 0209 90 00 Poultry fat, not rendered or otherwise extracted , fresh, chilled, frozen, salted, in brine, dried 
+or smoked  
+(e) 1501 90 00 ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Poultry livers,poultry livers,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A86b4de7910a1,poultry_liver,edible_offal,DE,Geflügelleber,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XX / (c),1651," 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Geflügelleber, frisch, gekühlt oder gefroren  
+0210 99 71 
+0210 99 79 
+Geflügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch ",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Geflügelleber,geflugelleber,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A87d7c7e923ef,poultry_liver,edible_offal,DE,Geflügellebern,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XX / (c),1722,"7 45 95 
+Geflügelleber, frisch, gekühlt oder gefroren  
+0210 99 71 
+0210 99 79 
+Geflügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch anders au sgezogen, frisch, gekühlt, gefroren, ge­
+salzen, in Salzlake, ",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Geflügellebern,geflugellebern,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A29ea7e973802,pig_fat,animal_fat,FR,graisse de porc,CELEX_02013R1308-20260818_FR_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,581,"ceutiques, frais, réfrigérés ou congelés  
+0209 10 Lard sans parties maigres et graisse de porc non fondue  ou extraite d'une autre manière, 
+frais, réfrigérés, congelés, salés ou en saumure, séchés ou fum és 
+ex 0210 Viandes et abats comestibles de l'espèce porcine domest i",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,graisse de porc,graisse de porc,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A7c22426e62af,pig_fat,animal_fat,NL,Varkensvet,CELEX_02013R1308-20260818_NL_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,787,"kens (huisdieren ), gezouten, gepekeld, gedroogd of 
+gerookt 
+1501 10 
+1501 20 
+Varkensvet (reuzel daaronder begrepen)  
+c) 1601 00 Worst van alle soorten, van vlees, van slachtafvalle n of van bloed; bereidingen van deze 
+producten, voor menselijke consumptie  
+1602 10",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Varkensvet,varkensvet,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A98b06cb91547,pig_fat,animal_fat,EN,Pig fat,CELEX_02013R1308-20260818_EN_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,456,"he manu facture of pharmaceutical products, 
+fresh, chilled or frozen  
+0209 10 Pig fat, free of lean meat, not rendered or otherwise e xtracted, fresh, chilled, frozen, salted, 
+in brine, dried or smoked  
+ex 0210 Meat and edible meat offal of domestic swine, salted",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Pig fat,pig fat,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Af7702e07a8fb,pig_fat,animal_fat,DE,Schweinefett,CELEX_02013R1308-20260818_DE_TXT.pdf,145,Annex I / Part XVII / NC 0209 and 1501,534,"issen, frisch, gekühlt oder gefroren  
+0209 10 Schweinespeck ohne magere Teile, Schweinefett, weder au sgeschmolzen noch anders aus­
+gezogen, frisch, gekühlt, gefroren, gesalzen, in Salzlake, getr ocknet oder geräuchert  
+ex 0210 Fleisch und genießbare Schlachtnebenerzeug",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Schweinefett,schweinefett,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A77ca12c2e0cc,lard,animal_fat,FR,saindoux,CELEX_02013R1308-20260818_FR_TXT.pdf,145,Annex I / Part XVII / NC 1501,869," en saumure, séchés ou 
+fumés 
+1501 10 
+1501 20 
+Graisses de porc (y compris le saindoux), autres  
+c) 1601 00 Saucisses, saucissons et produits similaires, de via nde, d'abats ou de sang; préparations 
+alimentaires à base de ces produits  
+1602 10 00 Préparations hom",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,saindoux,saindoux,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A9c922c0af2bb,lard,animal_fat,NL,reuzel,CELEX_02013R1308-20260818_NL_TXT.pdf,145,Annex I / Part XVII / NC 1501,799,"eren ), gezouten, gepekeld, gedroogd of 
+gerookt 
+1501 10 
+1501 20 
+Varkensvet (reuzel daaronder begrepen)  
+c) 1601 00 Worst van alle soorten, van vlees, van slachtafvalle n of van bloed; bereidingen van deze 
+producten, voor menselijke consumptie  
+1602 10 00 Geho",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,reuzel,reuzel,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A0cdd43811cdf,lard,animal_fat,EN,lard,CELEX_02013R1308-20260818_EN_TXT.pdf,145,Annex I / Part XVII / NC 1501,711,"wine, salted, i n brine, dried or smoked  
+1501 10 
+1501 20 
+Pig fat (including lard)  
+(c) 1601 00 Sausages and similar products, of meat, meat offal or blood; food preparations based on 
+these products  
+1602 10 00 Homogenised preparations of meat, meat offal or",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,lard,lard,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Ac0bf87a8f6bc,lard,animal_fat,DE,Schweineschmalz,CELEX_02013R1308-20260818_DE_TXT.pdf,145,Annex I / Part XVII / NC 1501,852,"e, 
+getrocknet oder geräuchert  
+1501 10 
+1501 20 
+Schweinefett (einschließlich Schweineschmalz)  
+c) 1601 00 Würste und ähnliche Erzeugnisse, aus Fleisch, Schlac htnebenerzeugnissen oder Blut; Le­
+bensmittelzubereitungen auf der Grundlage dieser Erzeugnisse  
+1602 10 00 Hom",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Schweineschmalz,schweineschmalz,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Abf8d004ce576,poultry_fat,animal_fat,FR,Graisses de volaille,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,1930,"che, réfrigérée, congelée, 
+salée ou en saumure séchée ou fumée  
+e) 1501 90 00 Graisses de volaille  
+▼B",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Graisses de volaille,graisses de volaille,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Ae13338bfb26d,poultry_fat,animal_fat,NL,Vet van gevogelte,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,1737,"9 
+Levers van pluimvee, gezouten, gepekeld, gedroogd of gerookt  
+d) 0209 90 00 Vet van gevogelte (niet gesmolten of anderszins g eëxtraheerd), vers, gekoeld, bevroren, 
+gezouten, gepekeld, gedroogd of gerookt  
+e) 1501 90 00 Vet van gevogelte  
+▼B",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Vet van gevogelte,vet van gevogelte,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Ac71bfbed5422,poultry_fat,animal_fat,EN,Poultry fat,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,1611,"
+0210 99 79 
+Poultry livers, salted, in brine, dried or smoked  
+(d) 0209 90 00 Poultry fat, not rendered or otherwise extracted , fresh, chilled, frozen, salted, in brine, dried 
+or smoked  
+(e) 1501 90 00 Poultry fat  
+▼B",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Poultry fat,poultry fat,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Aea78fce14025,poultry_fat,animal_fat,DE,Geflügelfett,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XX / (e) / NC 1501,1804,"flügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch anders au sgezogen, frisch, gekühlt, gefroren, ge­
+salzen, in Salzlake, getrocknet oder geräuchert  
+e) 1501 90 00 Geflügelfett  
+▼B",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Geflügelfett,geflugelfett,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Adba12345da26,bovine_fat,animal_fat,FR,Graisses des animaux de l'espèce bovine,CELEX_02013R1308-20260818_FR_TXT.pdf,144,Annex I / Part XV / NC 1502,217,"s ou en saumure, séchés ou fumés, 
+autres que onglets et hampes  
+ex 1502 10 90 Graisses des animaux de l'espèce bovine, autres q ue celles de la position 1503  
+1602 50 31 et 
+1602 50 95 
+Autres préparations et conserves de viande ou d'abats de l'espè ce bovine, autres que non 
+cuits et mélanges d",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Graisses des animaux de l'espèce bovine,graisses des animaux de l espece bovine,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A6df3fba4a0e7,bovine_fat,animal_fat,NL,Rundervet,CELEX_02013R1308-20260818_NL_TXT.pdf,144,Annex I / Part XV / NC 1502,213,"ek eld, gedroogd of gerookt, andere dan 
+longhaasjes en omlopen  
+ex 1502 10 90 Rundervet, ander dan dat bedoeld bij post 1503  
+1602 50 31 en 
+1602 50 95 
+Andere bereidingen en conserven, van vlees of van slachtafvalle n van runderen, andere dan 
+niet-gekookt en niet-",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Rundervet,rundervet,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A617e8de7ce15,bovine_fat,animal_fat,EN,Fats of bovine animals,CELEX_02013R1308-20260818_EN_TXT.pdf,144,Annex I / Part XV / NC 1502,210,"brin e, dried or smoked, other than thick skirt 
+and thin skirt  
+ex 1502 10 90 Fats of bovine animals other than those of headin g 1503  
+1602 50 31 and 
+1602 50 95 
+Other prepared or preserved meat or meat offal, of bovine anima ls, other than uncooked 
+meat or meat offal and mix",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Fats of bovine animals,fats of bovine animals,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A4bfa1ef450fc,bovine_fat,animal_fat,DE,Fett von Rindern,CELEX_02013R1308-20260818_DE_TXT.pdf,144,Annex I / Part XV / NC 1502,265,"rt, andere als Zwerchfellpfeiler (Nierenzapfen) und Sau mfleisch 
+ex 1502 10 90 Fett von Rindern, ausgenommen solches der Positio n 1503  
+1602 50 31 und 
+1602 50 95 
+Fleisch und Schlachtnebenerzeugnisse von Rindern, anders zubere itet oder haltbar gemacht, 
+ausgenommen nicht",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Fett von Rindern,fett von rindern,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+Aa7cc4fa90db1,sheep_goat_fat,animal_fat,FR,Graisse des animaux des espèces ovine et caprine,CELEX_02013R1308-20260818_FR_TXT.pdf,146,Annex I / Part XVIII / NC 1502,351,"espèces ovine et c aprine, salés ou en saumure, séchés ou 
+fumés 
+ex 1502 90 90 Graisse des animaux des espèces ovine et caprine,  autres que celles de la position 1503  
+c) 1602 90 91 Autres préparations et conserves de viandes ou d' abats d'ovins ou de caprins  
+1602 90 95 
+PARTIE XIX  
+Œufs  
+Le secteur ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Graisse des animaux des espèces ovine et caprine,graisse des animaux des especes ovine et caprine,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A96ad2cedeb95,sheep_goat_fat,animal_fat,NL,Schapen- of geitenvet,CELEX_02013R1308-20260818_NL_TXT.pdf,146,Annex I / Part XVIII / NC 1502,335,"schapen en van geiten, ge zouten, gepekeld, gedroogd of gerookt  
+ex 1502 90 90 Schapen- of geitenvet, ander dan dat bedoeld bij post 1503  
+c) 1602 90 91 Andere bereidingen en conserven, van vlees of van  vleesafvallen, van schapen of van geiten;  
+1602 90 95 
+DEEL XIX  
+Eieren 
+",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Schapen- of geitenvet,schapen of geitenvet,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A6dae67671904,sheep_goat_fat,animal_fat,EN,Fats of sheep or goats,CELEX_02013R1308-20260818_EN_TXT.pdf,146,Annex I / Part XVIII / NC 1502,278,"le offal of sheep and goats, salted, in brine, d ried or smoked  
+ex 1502 90 90 Fats of sheep or goats, other than those of headi ng 1503  
+(c) 1602 90 91 Other prepared or preserved meat or meat offal o f sheep or goats;  
+1602 90 95 
+PART XIX  
+Eggs 
+The eggs sector shall cover t",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Fats of sheep or goats,fats of sheep or goats,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN
+A5bf94d849f1b,sheep_goat_fat,animal_fat,DE,Fett von Schafen oder Ziegen,CELEX_02013R1308-20260818_DE_TXT.pdf,146,Annex I / Part XVIII / NC 1502,367,"er  Ziegen, gesalzen, in Salzlake, ge­
+trocknet oder geräuchert  
+ex 1502 90 90 Fett von Schafen oder Ziegen, ausgenommen solches  der Position 1503  
+c) 1602 90 91 Fleisch oder Schlachtnebenerzeugnisse von Schafen  oder Ziegen, anders zubereitet oder 
+haltbar gemacht;  
+1602 90 95 
+TEIL",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,PROPOSED_ALIAS_EXISTING_CONCEPT,REVIEW_REQUIRED,USER_AUTHORIZED_V0_7_SCOPE,Fett von Schafen oder Ziegen,fett von schafen oder ziegen,REGULATORY_ALIAS,NEW_CANONICAL_ALIAS_SHARED_ACROSS_LANGUAGES,NEW_LANGUAGE_ALIAS,IMPORTED,NON_VEGAN

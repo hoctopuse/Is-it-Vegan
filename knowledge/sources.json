@@ -217,5 +217,14 @@
     "role": "Primary local regulatory source for Article 3 flavouring category names and definitions.",
     "limitations": "The regulation defines categories and possible source materials; it does not establish vegan suitability or prove that a named food is present in an aroma.",
     "use": "Evidence for reviewed CELEX 02008R1334 category aliases only; no translation or formulation-specific origin is inferred."
+  },
+  {
+    "id": "isitvegan-animal-products-convention-v0-7",
+    "title": "Is It Vegan? v0.7 — convention éditoriale pour gelée royale et propolis",
+    "institution": "Is It Vegan? project",
+    "revision": "0.7",
+    "localDocumentationPath": "reports/0.7/eu-pdf/EU_1308_2013_ANIMAL_AUTHORIZED_IMPORT_REPORT.md",
+    "role": "Explicit application convention: royal_jelly and propolis are VEGETARIAN, hence not vegan.",
+    "limitations": "Application convention, not a universal vegetarian certification rule; the regulation is evidence for names and apiculture context, not this classification."
   }
 ]

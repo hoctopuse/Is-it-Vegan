@@ -896,7 +896,25 @@
       "Vollmilchpulver",
       "Teilentrahmtes Milchpulver",
       "Magermilchpulver",
-      "kondensierte Kaffeesahne"
+      "kondensierte Kaffeesahne",
+      "lait cru",
+      "rauwe melk",
+      "raw milk",
+      "Rohmilch",
+      "lait entier",
+      "volle melk",
+      "whole milk",
+      "Vollmilch",
+      "lait demi-écrémé",
+      "halfvolle melk",
+      "semi-skimmed milk",
+      "teilentrahmte Milch",
+      "fettarme Milch",
+      "lait écrémé",
+      "magere melk",
+      "skimmed-milk",
+      "entrahmte Milch",
+      "Magermilch"
     ],
     "status": "VEGETARIAN",
     "reason": "Produit laitier d’origine animale : végétarien mais non vegan.",
@@ -923,7 +941,8 @@
       "petit lait",
       "whey",
       "wei",
-      "weipoeder"
+      "weipoeder",
+      "Molke"
     ],
     "status": "VEGETARIAN",
     "reason": "Issu du lait : végétarien mais non vegan.",
@@ -940,7 +959,10 @@
       "caseïne",
       "caséinates",
       "caseinates",
-      "caseinaten"
+      "caseinaten",
+      "caséines",
+      "caseins",
+      "Kaseine"
     ],
     "status": "VEGETARIAN",
     "reason": "Protéine du lait : végétarien mais non vegan.",
@@ -1027,7 +1049,11 @@
       "œufs de volailles de basse-cour, en coquille",
       "eieren van pluimvee in de schaal",
       "poultry eggs, in shell",
-      "Eier von Hausgeflügel in der Schale"
+      "Eier von Hausgeflügel in der Schale",
+      "jaunes d'œufs",
+      "eigeel",
+      "egg yolks",
+      "Eigelb"
     ],
     "status": "VEGETARIAN",
     "reason": "Œuf : végétarien mais non vegan (sans préjuger des conditions d'élevage).",
@@ -1090,11 +1116,15 @@
       "Tropfhonig",
       "Schleuderhonig",
       "Presshonig",
-      "Backhonig"
+      "Backhonig",
+      "Miel naturel",
+      "Natuurhoning",
+      "Natural honey",
+      "Natürlicher Honig"
     ],
     "status": "VEGETARIAN",
     "reason": "Produit et transformé par les abeilles ; origine animale au sens du projet, végétarien mais non vegan.",
-    "source": "vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614"
+    "source": "vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818"
   },
   {
     "id": "beeswax",
@@ -7039,7 +7069,16 @@
       "abats comestibles des animaux de l'espèce bovine",
       "eetbare slachtafvallen van runderen",
       "edible offal of bovine animals",
-      "Genießbare Schlachtnebenerzeugnisse von Rindern"
+      "Genießbare Schlachtnebenerzeugnisse von Rindern",
+      "Abats comestibles",
+      "Eetbare slachtafvallen",
+      "Edible offal",
+      "Genießbare Schlachtnebenerzeugnisse",
+      "Foies de volailles",
+      "Levers van pluimvee",
+      "Poultry livers",
+      "Geflügelleber",
+      "Geflügellebern"
     ],
     "status": "NON_VEGAN",
     "reason": "Parties comestibles d’animaux : non vegan.",
@@ -7053,7 +7092,27 @@
       "graisses de porc (y compris le saindoux)",
       "varkensvet (reuzel daaronder begrepen)",
       "pig fat (including lard)",
-      "Schweinefett (einschließlich Schweineschmalz)"
+      "Schweinefett (einschließlich Schweineschmalz)",
+      "graisse de porc",
+      "Varkensvet",
+      "Pig fat",
+      "Schweinefett",
+      "saindoux",
+      "reuzel",
+      "lard",
+      "Schweineschmalz",
+      "Graisses de volaille",
+      "Vet van gevogelte",
+      "Poultry fat",
+      "Geflügelfett",
+      "Graisses des animaux de l'espèce bovine",
+      "Rundervet",
+      "Fats of bovine animals",
+      "Fett von Rindern",
+      "Graisse des animaux des espèces ovine et caprine",
+      "Schapen- of geitenvet",
+      "Fats of sheep or goats",
+      "Fett von Schafen oder Ziegen"
     ],
     "status": "NON_VEGAN",
     "reason": "Graisse explicitement issue d’animaux : non vegan.",
@@ -7481,5 +7540,45 @@
       ],
       "confidence": "REGULATORY_CATEGORY"
     }
+  },
+  {
+    "id": "buttermilk",
+    "name": "Babeurre",
+    "eNumber": "",
+    "aliases": [
+      "babeurre",
+      "karnemelk",
+      "botermelk",
+      "buttermilk",
+      "Buttermilch"
+    ],
+    "status": "VEGETARIAN",
+    "reason": "Produit exclusivement laitier : végétarien mais non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "royal_jelly",
+    "name": "Gelée royale",
+    "eNumber": "",
+    "aliases": [
+      "Gelée royale",
+      "koninginnengelei",
+      "Royal jelly"
+    ],
+    "status": "VEGETARIAN",
+    "reason": "Convention de l’application Is It Vegan? : produit apicole considéré végétarien, mais non vegan. Ce choix ne constitue pas une règle universelle de certification.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7"
+  },
+  {
+    "id": "propolis",
+    "name": "Propolis",
+    "eNumber": "",
+    "aliases": [
+      "propolis",
+      "Kittharz"
+    ],
+    "status": "VEGETARIAN",
+    "reason": "Convention de l’application Is It Vegan? : produit apicole considéré végétarien, mais non vegan. Ce choix ne constitue pas une règle universelle de certification.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7"
   }
 ]

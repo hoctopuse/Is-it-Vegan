@@ -13,11 +13,11 @@ class KnowledgeIndexTest {
 
     @Test
     fun currentJsonConvertsAllConceptsAndMappingsWithoutChangingIdentity() {
-        assertEquals(479, knowledge.ingredients.size)
-        assertEquals(479, index.metrics.conceptCount)
+        assertEquals(482, knowledge.ingredients.size)
+        assertEquals(482, index.metrics.conceptCount)
         assertEquals(knowledge.ingredients.map { it.id }, index.concepts.map { it.id })
         assertEquals(knowledge.ingredients.map { it.status }, index.concepts.map { it.status })
-        assertEquals(1996, knowledge.multilingualLexicon.runtimeMappings().size)
+        assertEquals(2072, knowledge.multilingualLexicon.runtimeMappings().size)
         assertEquals(listOf("cereals"), index.invalidCanonicalIds)
     }
 

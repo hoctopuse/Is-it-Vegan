@@ -42,13 +42,155 @@ class AgriculturalProductsRegulationImportTest {
         assertTrue(source.readBytes().contentEquals(aliasesAsset.readBytes()))
         val parsed = MiniJson.parse(source.readText()) as Map<*, *>
         val mappings = (parsed["mappings"] as List<*>).map { it as Map<*, *> }
-        assertEquals(1996, mappings.size)
+        assertEquals(2072, mappings.size)
         assertEquals(mappings.size, mappings.map { listOf(it["conceptId"],it["language"],it["normalizedForm"]) }.distinct().size)
         setOf("edible_offal","animal_fat","poultry_meat_preparation","processed_fruit_vegetable_product","spreadable_fat").forEach { id ->
             assertEquals(setOf("FR","NL","EN","DE"), mappings.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
         }
-        val process = ProcessBuilder("python","tools/import_eu_agricultural_products_regulation.py","--check").directory(root).redirectErrorStream(true).start()
+        val process = ProcessBuilder("python","tools/import_eu_agricultural_products_regulation.py","--animal-enrichment","--check").directory(root).redirectErrorStream(true).start()
         val output = process.inputStream.bufferedReader().readText(); assertEquals(output,0,process.waitFor()); assertTrue(output,output.contains("changes=0"))
+    }
+
+
+    @Test fun authorizedAnimalAliasesRemainReachableWithoutChangingTheMatcher() {
+        val cases = listOf(
+            Triple("whey", "lactosérum", LabelLanguage.FRENCH),
+            Triple("whey", "wei", LabelLanguage.DUTCH),
+            Triple("whey", "whey", LabelLanguage.ENGLISH),
+            Triple("whey", "Molke", LabelLanguage.GERMAN),
+            Triple("buttermilk", "babeurre", LabelLanguage.FRENCH),
+            Triple("buttermilk", "karnemelk", LabelLanguage.DUTCH),
+            Triple("buttermilk", "botermelk", LabelLanguage.DUTCH),
+            Triple("buttermilk", "buttermilk", LabelLanguage.ENGLISH),
+            Triple("buttermilk", "Buttermilch", LabelLanguage.GERMAN),
+            Triple("casein", "caséines", LabelLanguage.FRENCH),
+            Triple("casein", "caseïne", LabelLanguage.DUTCH),
+            Triple("casein", "caseins", LabelLanguage.ENGLISH),
+            Triple("casein", "Kaseine", LabelLanguage.GERMAN),
+            Triple("milk", "lait cru", LabelLanguage.FRENCH),
+            Triple("milk", "rauwe melk", LabelLanguage.DUTCH),
+            Triple("milk", "raw milk", LabelLanguage.ENGLISH),
+            Triple("milk", "Rohmilch", LabelLanguage.GERMAN),
+            Triple("milk", "lait entier", LabelLanguage.FRENCH),
+            Triple("milk", "volle melk", LabelLanguage.DUTCH),
+            Triple("milk", "whole milk", LabelLanguage.ENGLISH),
+            Triple("milk", "Vollmilch", LabelLanguage.GERMAN),
+            Triple("milk", "lait demi-écrémé", LabelLanguage.FRENCH),
+            Triple("milk", "halfvolle melk", LabelLanguage.DUTCH),
+            Triple("milk", "semi-skimmed milk", LabelLanguage.ENGLISH),
+            Triple("milk", "teilentrahmte Milch", LabelLanguage.GERMAN),
+            Triple("milk", "fettarme Milch", LabelLanguage.GERMAN),
+            Triple("milk", "lait écrémé", LabelLanguage.FRENCH),
+            Triple("milk", "magere melk", LabelLanguage.DUTCH),
+            Triple("milk", "skimmed-milk", LabelLanguage.ENGLISH),
+            Triple("milk", "skimmed milk", LabelLanguage.ENGLISH),
+            Triple("milk", "entrahmte Milch", LabelLanguage.GERMAN),
+            Triple("milk", "Magermilch", LabelLanguage.GERMAN),
+            Triple("honey", "Miel naturel", LabelLanguage.FRENCH),
+            Triple("honey", "Natuurhoning", LabelLanguage.DUTCH),
+            Triple("honey", "Natural honey", LabelLanguage.ENGLISH),
+            Triple("honey", "Natürlicher Honig", LabelLanguage.GERMAN),
+            Triple("royal_jelly", "Gelée royale", LabelLanguage.FRENCH),
+            Triple("royal_jelly", "koninginnengelei", LabelLanguage.DUTCH),
+            Triple("royal_jelly", "Royal jelly", LabelLanguage.ENGLISH),
+            Triple("royal_jelly", "Gelée Royale", LabelLanguage.GERMAN),
+            Triple("propolis", "propolis", LabelLanguage.FRENCH),
+            Triple("propolis", "propolis", LabelLanguage.DUTCH),
+            Triple("propolis", "propolis", LabelLanguage.ENGLISH),
+            Triple("propolis", "Kittharz", LabelLanguage.GERMAN),
+            Triple("egg", "jaunes d'œufs", LabelLanguage.FRENCH),
+            Triple("egg", "eigeel", LabelLanguage.DUTCH),
+            Triple("egg", "egg yolks", LabelLanguage.ENGLISH),
+            Triple("egg", "Eigelb", LabelLanguage.GERMAN),
+            Triple("edible_offal", "Abats comestibles", LabelLanguage.FRENCH),
+            Triple("edible_offal", "Eetbare slachtafvallen", LabelLanguage.DUTCH),
+            Triple("edible_offal", "Edible offal", LabelLanguage.ENGLISH),
+            Triple("edible_offal", "Genießbare Schlachtnebenerzeugnisse", LabelLanguage.GERMAN),
+            Triple("edible_offal", "Foies de volailles", LabelLanguage.FRENCH),
+            Triple("edible_offal", "Levers van pluimvee", LabelLanguage.DUTCH),
+            Triple("edible_offal", "Poultry livers", LabelLanguage.ENGLISH),
+            Triple("edible_offal", "Geflügelleber", LabelLanguage.GERMAN),
+            Triple("edible_offal", "Geflügellebern", LabelLanguage.GERMAN),
+            Triple("animal_fat", "graisse de porc", LabelLanguage.FRENCH),
+            Triple("animal_fat", "Varkensvet", LabelLanguage.DUTCH),
+            Triple("animal_fat", "Pig fat", LabelLanguage.ENGLISH),
+            Triple("animal_fat", "Schweinefett", LabelLanguage.GERMAN),
+            Triple("animal_fat", "saindoux", LabelLanguage.FRENCH),
+            Triple("animal_fat", "reuzel", LabelLanguage.DUTCH),
+            Triple("animal_fat", "lard", LabelLanguage.ENGLISH),
+            Triple("animal_fat", "Schweineschmalz", LabelLanguage.GERMAN),
+            Triple("animal_fat", "Graisses de volaille", LabelLanguage.FRENCH),
+            Triple("animal_fat", "Vet van gevogelte", LabelLanguage.DUTCH),
+            Triple("animal_fat", "Poultry fat", LabelLanguage.ENGLISH),
+            Triple("animal_fat", "Geflügelfett", LabelLanguage.GERMAN),
+            Triple("animal_fat", "Graisses des animaux de l'espèce bovine", LabelLanguage.FRENCH),
+            Triple("animal_fat", "Rundervet", LabelLanguage.DUTCH),
+            Triple("animal_fat", "Fats of bovine animals", LabelLanguage.ENGLISH),
+            Triple("animal_fat", "Fett von Rindern", LabelLanguage.GERMAN),
+            Triple("animal_fat", "Graisse des animaux des espèces ovine et caprine", LabelLanguage.FRENCH),
+            Triple("animal_fat", "Schapen- of geitenvet", LabelLanguage.DUTCH),
+            Triple("animal_fat", "Fats of sheep or goats", LabelLanguage.ENGLISH),
+            Triple("animal_fat", "Fett von Schafen oder Ziegen", LabelLanguage.GERMAN)
+        )
+        cases.forEach { (id, surface, language) ->
+            val resolution = knowledge.multilingualLexicon.resolve(surface, language, knowledge.ingredients)
+            assertEquals("$language/$surface", id, resolution.canonicalId)
+            assertTrue("$language/$surface", resolution.canonicalAvailable == true)
+            assertTrue("$surface -> $id", service.analyze(surface, InputMode.MANUAL_INGREDIENT_LIST)
+                .matched.any { it.id == id })
+        }
+    }
+
+    @Test fun applicationConventionIsExplicitAndNeverAPositiveVeganVerdict() {
+        listOf("buttermilk", "royal_jelly", "propolis").forEach { id ->
+            val ingredient = knowledge.ingredients.single { it.id == id }
+            assertEquals(id, VeganStatus.VEGETARIAN, ingredient.status)
+            ingredient.aliases.forEach { surface ->
+                val result = VeganAnalyzer.analyzeWithDiagnostics(
+                    surface, knowledge.ingredients, InputMode.MANUAL_INGREDIENT_LIST
+                ).result
+                assertEquals(surface, VeganAssessment.NOT_VEGAN, result.veganAssessment)
+            }
+        }
+        listOf("royal_jelly", "propolis").forEach { id ->
+            val ingredient = knowledge.ingredients.single { it.id == id }
+            assertTrue(ingredient.reason.contains("Convention de l’application"))
+            assertTrue(ingredient.reason.contains("règle universelle de certification"))
+            assertTrue(ingredient.sources().contains("isitvegan-animal-products-convention-v0-7"))
+        }
+        assertEquals(VeganStatus.UNCERTAIN, knowledge.ingredients.single { it.id == "beeswax" }.status)
+        assertEquals(VeganStatus.NON_VEGAN, knowledge.ingredients.single { it.id == "e901" }.status)
+        assertFalse(knowledge.ingredients.any { it.id == "pollen" })
+    }
+
+    @Test fun enrichmentKeepsTracesAndProtectedPlantContextsSeparate() {
+        listOf(
+            "Ingrédients : eau." to "Peut contenir : gelée royale.",
+            "Ingrediënten: water." to "Kan sporen van propolis bevatten.",
+            "Ingredients: water." to "May contain royal jelly.",
+            "Zutaten: Wasser." to "Kann Spuren von Kittharz enthalten."
+        ).forEach { (prefix, trace) ->
+            val text = "$prefix $trace"
+            val baseline = VeganAnalyzer.analyzeWithDiagnostics(
+                prefix, knowledge.ingredients, InputMode.FULL_LABEL
+            ).result
+            val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
+                text, knowledge.ingredients, InputMode.FULL_LABEL
+            )
+            assertEquals(text, baseline.veganAssessment, diagnostics.result.veganAssessment)
+            assertEquals(text, baseline.veganBlockers, diagnostics.result.veganBlockers)
+            assertEquals(text, baseline.unknown, diagnostics.result.unknown)
+            assertTrue(text, diagnostics.crossContactWarnings.isNotEmpty())
+        }
+        listOf("lait végétal", "plant milk", "plantaardige melk", "pflanzliche Milch",
+            "beurre de cacao", "crème de coco", "honey flavour", "arôme de miel").forEach { text ->
+            assertFalse(text, service.analyze(text, InputMode.MANUAL_INGREDIENT_LIST)
+                .matched.any { it.id in setOf("milk", "cream", "butter", "honey") })
+        }
+        val actual = VeganAnalyzer.analyzeWithDiagnostics(
+            "Ingrédients : eau, babeurre.", knowledge.ingredients, InputMode.FULL_LABEL
+        )
+        assertEquals(VeganAssessment.NOT_VEGAN, actual.result.veganAssessment)
     }
 
     private fun Ingredient.sources() = source.orEmpty()

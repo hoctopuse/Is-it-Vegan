@@ -65,7 +65,7 @@
 | ricotta | Ricotta | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | cheese | Fromage | UNCERTAIN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
 | egg | Œuf | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 |
-| honey | Miel | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614 |
+| honey | Miel | VEGETARIAN | — | — | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818 |
 | beeswax | Cire d’abeille | UNCERTAIN | — | — | vegan-society, vegetarian-society |
 | meat | Viande | NON_VEGAN | — | — | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 |
 | fish | Poisson | NON_VEGAN | — | — | vegan-society |
@@ -483,13 +483,16 @@
 | flavour_precursor | Précurseur d’arôme | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
 | other_flavouring | Autre arôme | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
 | food_ingredient_with_flavouring_properties | Ingrédient alimentaire aux propriétés aromatisantes | UNCERTAIN | — | — | eu-flavourings-regulation-1334-2008-20260216 |
+| buttermilk | Babeurre | VEGETARIAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| royal_jelly | Gelée royale | VEGETARIAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 |
+| propolis | Propolis | VEGETARIAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 |
 
 ### Alias multilingues
 
 | Concept | FR | NL | DE | EN | IT | ES | PL |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | almond | amande, amandes, amandes moulues | amandel, amandelen, gemalen amandelen | Mandel, Mandeln | almond, almonds | mandorla, mandorle | almendra, almendras | — |
-| animal_fat | graisses de porc (y compris le saindoux) | varkensvet (reuzel daaronder begrepen) | Schweinefett (einschließlich Schweineschmalz) | pig fat (including lard) | — | — | — |
+| animal_fat | graisses de porc (y compris le saindoux), graisse de porc, saindoux, Graisses de volaille, Graisses des animaux de l'espèce bovine, Graisse des animaux des espèces ovine et caprine | varkensvet (reuzel daaronder begrepen), Varkensvet, reuzel, Vet van gevogelte, Rundervet, Schapen- of geitenvet | Schweinefett (einschließlich Schweineschmalz), Schweinefett, Schweineschmalz, Geflügelfett, Fett von Rindern, Fett von Schafen oder Ziegen | pig fat (including lard), Pig fat, lard, Poultry fat, Fats of bovine animals, Fats of sheep or goats | — | — | — |
 | banana | chips de banane | — | — | — | — | — | — |
 | barley | orge, flocons d’orge complets, orge complète | gerst, volkoren gerst | Gerste | barley | orzo | cebada | — |
 | bell_pepper | poivron, piment doux, poivron jaune, poivron vert, powron | zoete paprika, gele paprika, groene paprika | gelbe Paprika, grüne Paprika | — | — | — | — |
@@ -498,6 +501,8 @@
 | blueberry | myrtille, myrtilles | bosbes, bosbessen, gevriesdroogde bosbessen, gedroogde blauwe bessen | Heidelbeere, Heidelbeeren | blueberry, blueberries, freeze-dried blueberries | mirtillo, mirtilli | arándano, arándanos | — |
 | brazil_nut | noix du Brésil | paranoten, paranoot | — | — | — | — | — |
 | butter | — | — | Butterreinfett | — | — | — | — |
+| buttermilk | babeurre | karnemelk, botermelk | Buttermilch | buttermilk | — | — | — |
+| casein | caséines | caseïne | Kaseine | caseins | — | — | — |
 | cashew | noix de cajou, noix de cajou grillées | cashewnoten, cashewnoot | — | — | — | — | — |
 | cereals | — | granen | — | — | — | — | — |
 | chocolate | chocolat, chocolat de couverture | chocolade, chocoladecouverture | Schokolade, Schokoladenkuvertüre | chocolate, couverture chocolate | — | — | — |
@@ -850,8 +855,8 @@
 | e968 | Érythritol | Erytritol | Erythrit | Erythritol | — | — | — |
 | e969 | Advantame 3. Additifs autres que les colorants et les édulcorants | Advantaam 3. Andere additieven dan kleurstoffen en zoetstoffen | Advantam 3. Andere Zusatzstoffe als Farbstoffe und Süßungsmittel E-Nummer Bezeichnung | Advantame 3. Additives other than colours and sweeteners | — | — | — |
 | e999 | Extraits de quillaia | Quillaja-extract | Quillajaextrakt | Quillaia extract | — | — | — |
-| edible_offal | abats comestibles des animaux de l'espèce bovine | eetbare slachtafvallen van runderen | Genießbare Schlachtnebenerzeugnisse von Rindern | edible offal of bovine animals | — | — | — |
-| egg | œufs de volailles de basse-cour, en coquille | eieren van pluimvee in de schaal | Eier von Hausgeflügel in der Schale | poultry eggs, in shell | — | — | — |
+| edible_offal | abats comestibles des animaux de l'espèce bovine, Abats comestibles, Foies de volailles | eetbare slachtafvallen van runderen, Eetbare slachtafvallen, Levers van pluimvee | Genießbare Schlachtnebenerzeugnisse von Rindern, Genießbare Schlachtnebenerzeugnisse, Geflügelleber, Geflügellebern | edible offal of bovine animals, Edible offal, Poultry livers | — | — | — |
+| egg | œufs de volailles de basse-cour, en coquille, jaunes d'œufs | eieren van pluimvee in de schaal, eigeel | Eier von Hausgeflügel in der Schale, Eigelb | poultry eggs, in shell, egg yolks | — | — | — |
 | filled_chocolate | chocolat fourré | gevulde chocolade | Gefüllte Schokolade | filled chocolate | — | — | — |
 | flavour_precursor | précurseur d'arôme | aromaprecursor | Aromavorstufe | flavour precursor | — | — | — |
 | flavouring | arôme, arômes | aroma, aroma's | Aroma, Aromen | flavouring, flavourings | — | — | — |
@@ -865,12 +870,12 @@
 | fruit_puree | purée de fruits, purée de fruits concentrée | vruchtenpuree | Fruchtmark | fruit purée, concentrated fruit purée | — | — | — |
 | glucose_syrup | — | glucosestroop, glucose-fructosestroop | Glukosesirup | — | — | — | — |
 | hazelnut | noisettes | hazelnoten, hazelnoot | — | — | — | — | — |
-| honey | miel, miel de fleurs, miel de nectars, miel de miellat, miel en rayons, miel avec morceaux de rayons, miel égoutté, miel centrifugé, miel pressé, miel destiné à l’industrie | honing, honig, bloemenhoning, bloemenhonig, nectarhoning, nectarhonig, honingdauwhoning, honingdauwhonig, raathoning, raathonig, brokhoning, brokhonig, raatbrokken in honing/honig, lekhoning, lekhonig, slingerhoning, slingerhonig, pershoning, pershonig, bakkershoning | Honig, Blütenhonig, Nektarhonig, Honigtauhonig, Wabenhonig, Scheibenhonig, Honig mit Wabenteilen, Wabenstücke in Honig, Tropfhonig, Schleuderhonig, Presshonig, Backhonig | honey, blossom honey, nectar honey, honeydew honey, comb honey, chunk honey, cut comb in honey, drained honey, extracted honey, pressed honey, Baker's honey | — | — | — |
+| honey | miel, miel de fleurs, miel de nectars, miel de miellat, miel en rayons, miel avec morceaux de rayons, miel égoutté, miel centrifugé, miel pressé, miel destiné à l’industrie, Miel naturel | honing, honig, bloemenhoning, bloemenhonig, nectarhoning, nectarhonig, honingdauwhoning, honingdauwhonig, raathoning, raathonig, brokhoning, brokhonig, raatbrokken in honing/honig, lekhoning, lekhonig, slingerhoning, slingerhonig, pershoning, pershonig, bakkershoning, Natuurhoning | Honig, Blütenhonig, Nektarhonig, Honigtauhonig, Wabenhonig, Scheibenhonig, Honig mit Wabenteilen, Wabenstücke in Honig, Tropfhonig, Schleuderhonig, Presshonig, Backhonig, Natürlicher Honig | honey, blossom honey, nectar honey, honeydew honey, comb honey, chunk honey, cut comb in honey, drained honey, extracted honey, pressed honey, Baker's honey, Natural honey | — | — | — |
 | inulin | inuline | inuline | Inulin | inulin | inulina | inulina | — |
 | macadamia | noix de macadamia | macadamianoten, macadamianoot | — | — | — | — | — |
 | malt | malt, extrait de malt, flocons de céréales maltés, farine de malt d’orge, farine de malt de blé | mout, gerstermout, gerstermoutextract, gemoute gerstemeel, gemoute tarwebloem | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
 | meat | viande bovine, viande de porc, viandes ovine et caprine, viande de volaille | rundvlees, varkensvlees, schapen- en geitenvlees, pluimveevlees | Rindfleisch, Schweinefleisch, Schaf- und Ziegenfleisch, Geflügelfleisch | beef and veal, pigmeat, sheepmeat and goatmeat, poultrymeat | — | — | — |
-| milk | lait, lait partiellement déshydraté, lait concentré riche en matières grasses, lait concentré, lait concentré partiellement écrémé, lait concentré écrémé, lait concentré sucré, lait concentré sucré partiellement écrémé, lait concentré sucré écrémé, lait totalement déshydraté, lait en poudre riche en matières grasses, poudre de lait riche en matières grasses, lait en poudre entier, poudre de lait entier, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé, lait en poudre écrémé, poudre de lait écrémé, lait demi-écrémé concentré, lait de mi-écrémé concentré non sucré, lait demi-écrémé concentré sucré, lait demi-écrémé en poudre | magere melkpoeder, melk, gedeeltelijk gedehydrateerde melk, geëvaporeerde melk met hoog vetgehalte, geëvaporeerde volle melk, geëvaporeerde gedeeltelijk afgeroomde melk, geëvaporeerde magere melk, gecondenseerde volle melk met suiker, gecondenseerde gedeeltelijk afgeroomde melk met suiker, gecondenseerde magere melk met suiker, geheel gedehydrateerde melk, melkpoeder, melkpoeder met hoog vetgehalte, volle melkpoeder, melkpoeder van gedeeltelijk afgeroomde melk, geëvaporeerde halfvolle melk, halfvolle koffiemelk, halfvolle melkpoeder, koffiemelk | Magermilchpulver, Milch, Eingedickte Milch, Kondensmilch mit hohem Fettgehalt, Kondensmilch, kondensierte Vollmilch, Teilentrahmte Kondensmilch, Kondensmagermilch, kondensierte Magermilch, Gezuckerte Kondensmilch, gezuckerte kondensierte Vollmilch, Gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte kondensierte Milch, Gezuckerte Kondensmagermilch, gezuckerte kondensierte Magermilch, Trockenmilch, Milchpulver, Milchpulver mit hohem Fettgehalt, Vollmilchpulver, Teilentrahmtes Milchpulver, kondensierte Kaffeesahne | milk, partly dehydrated milk, condensed high-fat milk, condensed milk, condensed, partly skimmed milk, condensed skimmed milk, sweetened condensed milk, sweetened condensed, partly skimmed milk, sweetened condensed skimmed milk, totally dehydrated milk, milk powder, dried high-fat milk, high-fat milk powder, dried whole milk, whole milk powder, dried partly skimmed milk, partly skimmed-milk powder, dried skimmed milk, skimmed-milk powder, evaporated milk, evaporated semi-skimmed milk, semi-skimmed milk powder, dried semi-skimmed milk | — | — | — |
+| milk | lait, lait partiellement déshydraté, lait concentré riche en matières grasses, lait concentré, lait concentré partiellement écrémé, lait concentré écrémé, lait concentré sucré, lait concentré sucré partiellement écrémé, lait concentré sucré écrémé, lait totalement déshydraté, lait en poudre riche en matières grasses, poudre de lait riche en matières grasses, lait en poudre entier, poudre de lait entier, lait en poudre partiellement écrémé, poudre de lait partiellement écrémé, lait en poudre écrémé, poudre de lait écrémé, lait demi-écrémé concentré, lait de mi-écrémé concentré non sucré, lait demi-écrémé concentré sucré, lait demi-écrémé en poudre, lait cru, lait entier, lait demi-écrémé, lait écrémé | magere melkpoeder, melk, gedeeltelijk gedehydrateerde melk, geëvaporeerde melk met hoog vetgehalte, geëvaporeerde volle melk, geëvaporeerde gedeeltelijk afgeroomde melk, geëvaporeerde magere melk, gecondenseerde volle melk met suiker, gecondenseerde gedeeltelijk afgeroomde melk met suiker, gecondenseerde magere melk met suiker, geheel gedehydrateerde melk, melkpoeder, melkpoeder met hoog vetgehalte, volle melkpoeder, melkpoeder van gedeeltelijk afgeroomde melk, geëvaporeerde halfvolle melk, halfvolle koffiemelk, halfvolle melkpoeder, koffiemelk, rauwe melk, volle melk, halfvolle melk, magere melk | Magermilchpulver, Milch, Eingedickte Milch, Kondensmilch mit hohem Fettgehalt, Kondensmilch, kondensierte Vollmilch, Teilentrahmte Kondensmilch, Kondensmagermilch, kondensierte Magermilch, Gezuckerte Kondensmilch, gezuckerte kondensierte Vollmilch, Gezuckerte teilentrahmte Kondensmilch, gezuckerte teilentrahmte kondensierte Milch, Gezuckerte Kondensmagermilch, gezuckerte kondensierte Magermilch, Trockenmilch, Milchpulver, Milchpulver mit hohem Fettgehalt, Vollmilchpulver, Teilentrahmtes Milchpulver, kondensierte Kaffeesahne, Rohmilch, Vollmilch, teilentrahmte Milch, fettarme Milch, entrahmte Milch, Magermilch | milk, partly dehydrated milk, condensed high-fat milk, condensed milk, condensed, partly skimmed milk, condensed skimmed milk, sweetened condensed milk, sweetened condensed, partly skimmed milk, sweetened condensed skimmed milk, totally dehydrated milk, milk powder, dried high-fat milk, high-fat milk powder, dried whole milk, whole milk powder, dried partly skimmed milk, partly skimmed-milk powder, dried skimmed milk, skimmed-milk powder, evaporated milk, evaporated semi-skimmed milk, semi-skimmed milk powder, dried semi-skimmed milk, raw milk, whole milk, semi-skimmed milk, skimmed-milk | — | — | — |
 | milk_chocolate | chocolat au lait, chocolat de ménage au lait | melkchocolade, huishoudmelkchocolade | Milchschokolade, Haushaltsmilchschokolade | milk chocolate, family milk chocolate | — | — | — |
 | natural_flavouring | substance aromatisante naturelle | natuurlijk aardbeienaroma, natuurlijke aromastof | natürliches Aroma, natürlicher Aromastoff | natural flavouring substance | — | — | — |
 | oats | flocons d’avoine complets, flocons d’avoine complète, avoine fermentée | haver, havervlokken, volkoren havervlokken, gefermenteerde haver | Hafer, Haferflocken | — | avena | avena | — |
@@ -887,10 +892,12 @@
 | poultry_meat_preparation | préparation à base de viande de volaille | bereiding op basis van pluimveevlees | Geflügelfleischzubereitungen | poultrymeat preparation | — | — | — |
 | powdered_chocolate | chocolat en poudre, cacao sucré | chocoladepoeder, gesuikerd cacaopoeder | Schokoladenpulver, gezuckerter Kakao | powdered chocolate, sweetened cocoa powder | — | — | — |
 | processed_fruit_vegetable_product | produits transformés à base de fruits et légumes | verwerkte groenten en fruit | Verarbeitungserzeugnisse aus Obst und Gemüse | processed fruit and vegetable products | — | — | — |
+| propolis | propolis | propolis | Kittharz | propolis | — | — | — |
 | pumpkin_seed | graines de courge | pompoenpitten | — | — | — | — | — |
 | raisin | raisins secs | rozijnen | — | — | — | — | — |
 | rapeseed_oil | — | koolzaadolie | Rapsöl | — | olio di colza | aceite de colza | — |
 | rice | pétales de riz | rijstmeel, rijstvlokken | — | — | riso | arroz | — |
+| royal_jelly | Gelée royale | koninginnengelei | Gelée Royale | Royal jelly | — | — | — |
 | rye | seigle | rogge, volkoren roggevlokken | Roggen | rye | segale | centeno | — |
 | salt | sel marin | zout, zeezout | Salz, Speisesalz | — | sale | sal | — |
 | smoke_flavouring | arôme de fumée | rookaroma | Raucharoma | smoke flavouring | — | — | — |
@@ -908,7 +915,7 @@
 | wheat | blé complet | tarwe, volkoren tarwe | Weizen, Vollkornweizen | — | frumento | trigo | — |
 | wheat_flour | — | tarwebloem, tarwemeel | Weizenmehl, Weizenmell | — | farina, farina di frumento | harina, harina de trigo | — |
 | wheat_syrup | sirop de blé, sirop de blé liquide et déshydraté | tarwesiroop, tarwesiroop vloeibaar, tarwesiroop gedehydrateerd | Weizensirup | wheat syrup | sciroppo di frumento | jarabe de trigo | — |
-| whey | — | weipoeder van melk | Molkenpulver aus Milch | — | — | — | — |
+| whey | lactosérum | weipoeder van melk, wei | Molkenpulver aus Milch, Molke | whey | — | — | — |
 | white_chocolate | chocolat blanc | witte chocolade | Weiße Schokolade | white chocolate | — | — | — |
 
 ### Concepts reconnus mais absents
