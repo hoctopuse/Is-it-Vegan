@@ -8565,5 +8565,20 @@
     "sources": [
       "eu-agricultural-products-regulation-1308-2013-20260818"
     ]
+  },
+  {
+    "id": "mechanically_separated_meat",
+    "name": "viandes séparées mécaniquement",
+    "aliases": [
+      "separatorvlees",
+      "mechanically separated meat",
+      "Separatorenfleisch"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Viande obtenue mécaniquement à partir d’os couverts de chair ou de carcasses de volailles : matière animale non végétarienne.",
+    "sources": [
+      "eu-food-hygiene-regulation-853-2004-20260507",
+      "eu-fic-regulation-1169-2011-20250401"
+    ]
   }
 ]

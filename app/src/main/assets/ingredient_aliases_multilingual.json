@@ -14018,6 +14018,38 @@
         "Fleisch von Pferden"
       ],
       "ocrVariants": []
+    },
+    {
+      "canonicalId": "mechanically_separated_meat",
+      "language": "FR",
+      "aliases": [
+        "viandes séparées mécaniquement"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "mechanically_separated_meat",
+      "language": "NL",
+      "aliases": [
+        "separatorvlees"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "mechanically_separated_meat",
+      "language": "EN",
+      "aliases": [
+        "mechanically separated meat"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "mechanically_separated_meat",
+      "language": "DE",
+      "aliases": [
+        "Separatorenfleisch"
+      ],
+      "ocrVariants": []
     }
   ],
   "ocrCorrections": [
@@ -36037,6 +36069,126 @@
           "surfaceForm": "Fleisch von Pferden",
           "reviewId": "M0099",
           "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "viandes séparées mécaniquement",
+      "language": "FR",
+      "conceptId": "mechanically_separated_meat",
+      "mappingGroup": "food-hygiene-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viandes separees mecaniquement",
+      "source": "eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02004R0853-20260507_FR_TXT.pdf",
+          "pdfPage": 16,
+          "legalLocation": "Annex I, point 1.14",
+          "sourceOffset": 2215,
+          "surfaceForm": "viandes séparées mécaniquement",
+          "reviewId": "853-I1.14-FR-mechanically_separated_meat",
+          "sha256": "302312dbf898ef8993b11057070691801c8c374d8de13b5947ff592a2309562e"
+        },
+        {
+          "pdfFile": "CELEX_02011R1169-20250401_FR_TXT.pdf",
+          "pdfPage": 49,
+          "legalLocation": "Annex VII, Part B, point 18",
+          "sourceOffset": 1764,
+          "surfaceForm": "Viandes séparées mécaniquement",
+          "reviewId": "1169-VIIB18-FR-mechanically_separated_meat",
+          "sha256": "80fedf36e7930dddfb270871d68ff10864009fd3ac71c9d350876402c9d6a81e"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "separatorvlees",
+      "language": "NL",
+      "conceptId": "mechanically_separated_meat",
+      "mappingGroup": "food-hygiene-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "separatorvlees",
+      "source": "eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02004R0853-20260507_NL_TXT.pdf",
+          "pdfPage": 16,
+          "legalLocation": "Annex I, point 1.14",
+          "sourceOffset": 2047,
+          "surfaceForm": "Separatorvlees",
+          "reviewId": "853-I1.14-NL-mechanically_separated_meat",
+          "sha256": "30fa09a89bcede829396f29769812b5c4503f404c91a9acb2771b429a1356543"
+        },
+        {
+          "pdfFile": "CELEX_02011R1169-20250401_NL_TXT.pdf",
+          "pdfPage": 49,
+          "legalLocation": "Annex VII, Part B, point 18",
+          "sourceOffset": 1563,
+          "surfaceForm": "separatorvlees",
+          "reviewId": "1169-VIIB18-NL-mechanically_separated_meat",
+          "sha256": "36dd5f61e3e9aeb95c2e51b4ff22ba90056639f726d4b30aae97c63c653c8ef3"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "mechanically separated meat",
+      "language": "EN",
+      "conceptId": "mechanically_separated_meat",
+      "mappingGroup": "food-hygiene-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "mechanically separated meat",
+      "source": "eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02004R0853-20260507_EN_TXT.pdf",
+          "pdfPage": 16,
+          "legalLocation": "Annex I, point 1.14",
+          "sourceOffset": 1951,
+          "surfaceForm": "Mechanically separated meat",
+          "reviewId": "853-I1.14-EN-mechanically_separated_meat",
+          "sha256": "125b70e276a8e21d9af7e72c6af773d19068896b126a54b777c08bd49fb7037d"
+        },
+        {
+          "pdfFile": "CELEX_02011R1169-20250401_EN_TXT.pdf",
+          "pdfPage": 49,
+          "legalLocation": "Annex VII, Part B, point 18",
+          "sourceOffset": 1468,
+          "surfaceForm": "mechanically separated meat",
+          "reviewId": "1169-VIIB18-EN-mechanically_separated_meat",
+          "sha256": "6cdf4190d6fa4a99d2e7d3124611724ec4cf69159563f88b35dc3c50dd416c63"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Separatorenfleisch",
+      "language": "DE",
+      "conceptId": "mechanically_separated_meat",
+      "mappingGroup": "food-hygiene-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "separatorenfleisch",
+      "source": "eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02004R0853-20260507_DE_TXT.pdf",
+          "pdfPage": 16,
+          "legalLocation": "Annex I, point 1.14",
+          "sourceOffset": 2101,
+          "surfaceForm": "Separatorenfleisch",
+          "reviewId": "853-I1.14-DE-mechanically_separated_meat",
+          "sha256": "9874ff8be78fcd7d33a16d837f85cbe46ae7abcfd7d70d1c1dc9542deeb7602f"
+        },
+        {
+          "pdfFile": "CELEX_02011R1169-20250401_DE_TXT.pdf",
+          "pdfPage": 49,
+          "legalLocation": "Annex VII, Part B, point 18",
+          "sourceOffset": 1690,
+          "surfaceForm": "Separatorenfleisch",
+          "reviewId": "1169-VIIB18-DE-mechanically_separated_meat",
+          "sha256": "c2409d5cb83f784a8ac94ceeb8d4837da343189e024f5d1a58cc015f6bb62aa2"
         }
       ]
     }

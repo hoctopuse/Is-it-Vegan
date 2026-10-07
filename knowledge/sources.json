@@ -226,5 +226,41 @@
     "localDocumentationPath": "reports/0.7/eu-pdf/EU_1308_2013_ANIMAL_AUTHORIZED_IMPORT_REPORT.md",
     "role": "Explicit application convention: royal_jelly and propolis are VEGETARIAN, hence not vegan.",
     "limitations": "Application convention, not a universal vegetarian certification rule; the regulation is evidence for names and apiculture context, not this classification."
+  },
+  {
+    "id": "eu-food-hygiene-regulation-853-2004-20260507",
+    "title": "Regulation (EC) No 853/2004 — hygiene rules for food of animal origin",
+    "celex": "02004R0853",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02004R0853-20260507",
+    "language": "FR, NL, EN, DE",
+    "institution": "European Parliament and Council of the European Union",
+    "consolidationDate": "2026-05-07",
+    "localPdfPaths": [
+      "reference-input/eu-food-labelling/05-food-hygiene/CELEX_02004R0853-20260507_FR_TXT.pdf",
+      "reference-input/eu-food-labelling/05-food-hygiene/CELEX_02004R0853-20260507_NL_TXT.pdf",
+      "reference-input/eu-food-labelling/05-food-hygiene/CELEX_02004R0853-20260507_EN_TXT.pdf",
+      "reference-input/eu-food-labelling/05-food-hygiene/CELEX_02004R0853-20260507_DE_TXT.pdf"
+    ],
+    "role": "Primary definition and animal-origin evidence for mechanically separated meat.",
+    "limitations": "Only four reviewed base denominations; no species-prefixed/compound-label coverage, acronym, flexion or general context protection is implied.",
+    "use": "Source: European Union / EUR-Lex. Consolidated text reused under CC BY 4.0; https://eur-lex.europa.eu/content/legal-notice/legal-notice.html?locale=en . Only reviewed terms are selected; classification and explanations are application editorial decisions, not part of the regulation."
+  },
+  {
+    "id": "eu-fic-regulation-1169-2011-20250401",
+    "title": "Regulation (EU) No 1169/2011 — food information to consumers",
+    "celex": "02011R1169",
+    "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:02011R1169-20250401",
+    "language": "FR, NL, EN, DE",
+    "institution": "European Parliament and Council of the European Union",
+    "consolidationDate": "2025-04-01",
+    "localPdfPaths": [
+      "reference-input/eu-food-labelling/00-general-food-labelling/CELEX_02011R1169-20250401_FR_TXT.pdf",
+      "reference-input/eu-food-labelling/00-general-food-labelling/CELEX_02011R1169-20250401_NL_TXT.pdf",
+      "reference-input/eu-food-labelling/00-general-food-labelling/CELEX_02011R1169-20250401_EN_TXT.pdf",
+      "reference-input/eu-food-labelling/00-general-food-labelling/CELEX_02011R1169-20250401_DE_TXT.pdf"
+    ],
+    "role": "Complementary ingredient-designation evidence; the denomination is accompanied by animal species names.",
+    "limitations": "Only four reviewed base denominations; no species-prefixed/compound-label coverage, acronym, flexion or general context protection is implied.",
+    "use": "Source: European Union / EUR-Lex. Consolidated text reused under CC BY 4.0; https://eur-lex.europa.eu/content/legal-notice/legal-notice.html?locale=en . Only reviewed terms are selected; classification and explanations are application editorial decisions, not part of the regulation."
   }
 ]

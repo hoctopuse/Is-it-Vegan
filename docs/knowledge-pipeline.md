@@ -42,11 +42,59 @@ Les documents générés portent leur propre avertissement de ne pas être modif
 | `tools/import_eu_fruit_juice_directive.py` | CELEX `02001L0112` | `--dry-run`, `--write`, `--check` | Jus et purées vegan dans le périmètre réglementaire ; nectars incertains. |
 | `tools/import_eu_jams_directive.py` | CELEX `02001L0113` | `--dry-run`, `--write`, `--check` | Confitures, gelées, marmelades et crème de marrons réglementaires. |
 | `tools/import_eu_agricultural_products_regulation.py` | CELEX `02013R1308` | `--dry-run`, `--write`, `--check` | Produits agricoles ; pêche et aquaculture hors périmètre. |
+| `tools/import_eu_food_hygiene_regulation.py` | CELEX `02004R0853`, complément `02011R1169` | `--dry-run`, `--write`, `--check` | Uniquement les quatre dénominations longues de viande séparée mécaniquement; check exige un lot complet et conforme. |
 | `tools/import_eu_cocoa_chocolate_directive.py` | CELEX `02000L0036` | `--dry-run`, `--write`, `--check` | Cacao et chocolat ; les catégories commerciales variables restent prudentes. |
 | `tools/import_eu_flavourings_regulation.py` | CELEX `02008R1334` | `--dry-run`, `--write`, `--check` | Catégories d’arômes `UNCERTAIN` ; l’arôme n’est pas l’ingrédient évoqué. |
 | `tools/extract_fic_reference.py` | CELEX `02011R1169` | `--write`, `--check` | Extractions TXT et extraits thématiques documentaires ; aucun import applicatif. |
 
 Les options ci-dessus reflètent le code présent. Les anciens rapports peuvent décrire une commande exécutée à une date antérieure ; en cas de différence, l’interface du script courant et son contrôle non écrivant font foi.
+
+## Préservation historique et compatibilité du lot 853/2004
+
+`tools/validate_knowledge_history.py --check` contrôle en lecture seule une référence
+indépendante extraite du commit `d1f02275508c9472b1fe55ac82d792d1257f6264`, avant
+le lot 853/2004 : `tools/testdata/knowledge_history_d1f0227.json`. Son empreinte
+SHA-256 sémantique est fixée dans le validateur. Les signatures portent sur les
+surfaces lexicales (texte, langue, propriétaire, alias ou variante OCR), chaque
+objet de mapping complet, ses preuves imbriquées et les corrections OCR. Les IDs
+des 487 concepts historiques doivent rester disponibles. Le seul alias de concept
+absent admis est exactement `cereals` / NL / `granen`, sans variante OCR.
+
+La garde accepte des ajouts sans actualiser la référence; elle ne remplace pas les
+contrôles de synchronisation, de collision, de statut ou les tests métier. Elle ne
+garantit pas tous les champs des ingrédients canoniques. Les tests agricoles
+l'appellent également avec `--stdin`, sur données en mémoire, avant de compter les
+mappings. Une suppression coordonnée d'alias/mapping ne doit pas devenir acceptable
+par le simple recalcul de ce nombre.
+
+Pour une modification historique intentionnelle, faire une revue explicite du diff,
+identifier une nouvelle révision de référence, recalculer les signatures et modifier
+ensemble la référence et son empreinte fixée. Documenter ici et dans le rapport de
+migration les surfaces, propriétaires, métadonnées ou exceptions changés et leur
+raison. Ne pas actualiser automatiquement la référence depuis le corpus courant
+pour faire passer un test; un ajout seul n'exige pas cette opération.
+
+Le contrôle 853/2004 vérifie aussi la version 1 et un sous-ensemble typé prudent du
+contrat du chargeur Kotlin, les langues, doublons et corrections OCR. Une correction
+dont l'entrée normalisée est l'une des quatre dénominations ne peut pas changer sa
+surface normalisée, quelle que soit la langue sélectionnée. Les corrections
+indépendantes et celles qui conservent cette clé restent admises. Ce choix protège
+les quatre formes approuvées; il ne certifie pas une nouvelle redirection, même vers
+une autre forme du même concept. Ces redirections exigent une décision explicite.
+
+Le validateur Python refuse les structures mal typées au lieu d'imiter les
+conversions permissives de Kotlin. Par exemple, il refuse `schemaVersion: 1.9`
+même si le `toInt()` actuel du chargeur donnerait 1. Les tests ciblés
+`FoodHygieneLexiconCompatibilityTest` vérifient le chargeur/résolveur réel, les
+corrections sûres et dangereuses, et la parité de normalisation de toutes les
+surfaces actuelles. Une réussite de `--check` reste un contrôle statique du contrat
+inspecté, pas une exécution du runtime ni une preuve de sécurité sémantique de toute
+étiquette. En cas de changement de contrat Kotlin ou d'écart de normalisation,
+mettre à jour les gardes et ces tests avant de revendiquer la compatibilité.
+Les caractères non assignés par la version Unicode du Python utilisé (`Cn`) et
+les surrogates isolés (`Cs`) sont refusés avant normalisation : ne pas supposer que
+leur traitement correspond déjà à celui de la JVM. Une telle entrée exige un
+contrôle Kotlin explicite et une extension revue du profil pris en charge.
 
 ## Sources préparées mais non intégrées
 

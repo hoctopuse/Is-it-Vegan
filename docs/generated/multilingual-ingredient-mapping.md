@@ -395,6 +395,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | macadamia | VEGAN | noix de macadamia | macadamianoten; macadamianoot | — | — | vegan-society | — |
 | malt | VEGAN | malt; extrait de malt; flocons de céréales maltés; farine de malt d’orge; farine de malt de blé | mout; gerstermout; gerstermoutextract; gemoute gerstemeel; gemoute tarwebloem | malt; barley malt extract | Gerstenmalz; Gerstenmalzextrakt | vegan-society | — |
 | meat | NON_VEGAN | viande bovine; viande de porc; viandes ovine et caprine; viande de volaille | rundvlees; varkensvlees; schapen- en geitenvlees; pluimveevlees | beef and veal; pigmeat; sheepmeat and goatmeat; poultrymeat | Rindfleisch; Schweinefleisch; Schaf- und Ziegenfleisch; Geflügelfleisch | vegan-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| mechanically_separated_meat | NON_VEGAN | viandes séparées mécaniquement | separatorvlees | mechanically separated meat | Separatorenfleisch | eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401 | — |
 | milk | VEGETARIAN | lait; lait partiellement déshydraté; lait concentré riche en matières grasses; lait concentré; lait concentré partiellement écrémé; lait concentré écrémé; lait concentré sucré; lait concentré sucré partiellement écrémé; lait concentré sucré écrémé; lait totalement déshydraté; lait en poudre riche en matières grasses; poudre de lait riche en matières grasses; lait en poudre entier; poudre de lait entier; lait en poudre partiellement écrémé; poudre de lait partiellement écrémé; lait en poudre écrémé; poudre de lait écrémé; lait demi-écrémé concentré; lait de mi-écrémé concentré non sucré; lait demi-écrémé concentré sucré; lait demi-écrémé en poudre; lait cru; lait entier; lait demi-écrémé; lait écrémé | magere melkpoeder; melk; gedeeltelijk gedehydrateerde melk; geëvaporeerde melk met hoog vetgehalte; geëvaporeerde volle melk; geëvaporeerde gedeeltelijk afgeroomde melk; geëvaporeerde magere melk; gecondenseerde volle melk met suiker; gecondenseerde gedeeltelijk afgeroomde melk met suiker; gecondenseerde magere melk met suiker; geheel gedehydrateerde melk; melkpoeder; melkpoeder met hoog vetgehalte; volle melkpoeder; melkpoeder van gedeeltelijk afgeroomde melk; geëvaporeerde halfvolle melk; halfvolle koffiemelk; halfvolle melkpoeder; koffiemelk; rauwe melk; volle melk; halfvolle melk; magere melk | milk; partly dehydrated milk; condensed high-fat milk; condensed milk; condensed, partly skimmed milk; condensed skimmed milk; sweetened condensed milk; sweetened condensed, partly skimmed milk; sweetened condensed skimmed milk; totally dehydrated milk; milk powder; dried high-fat milk; high-fat milk powder; dried whole milk; whole milk powder; dried partly skimmed milk; partly skimmed-milk powder; dried skimmed milk; skimmed-milk powder; evaporated milk; evaporated semi-skimmed milk; semi-skimmed milk powder; dried semi-skimmed milk; raw milk; whole milk; semi-skimmed milk; skimmed-milk | Magermilchpulver; Milch; Eingedickte Milch; Kondensmilch mit hohem Fettgehalt; Kondensmilch; kondensierte Vollmilch; Teilentrahmte Kondensmilch; Kondensmagermilch; kondensierte Magermilch; Gezuckerte Kondensmilch; gezuckerte kondensierte Vollmilch; Gezuckerte teilentrahmte Kondensmilch; gezuckerte teilentrahmte kondensierte Milch; Gezuckerte Kondensmagermilch; gezuckerte kondensierte Magermilch; Trockenmilch; Milchpulver; Milchpulver mit hohem Fettgehalt; Vollmilchpulver; Teilentrahmtes Milchpulver; kondensierte Kaffeesahne; Rohmilch; Vollmilch; teilentrahmte Milch; fettarme Milch; entrahmte Milch; Magermilch | vegan-society, vegetarian-society, eu-preserved-milk-directive-2001-114-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | milk_chocolate | VEGETARIAN | chocolat au lait; chocolat de ménage au lait | melkchocolade; huishoudmelkchocolade | milk chocolate; family milk chocolate | Milchschokolade; Haushaltsmilchschokolade | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | natural_flavouring | UNCERTAIN | substance aromatisante naturelle | natuurlijk aardbeienaroma; natuurlijke aromastof | natural flavouring substance | natürliches Aroma; natürlicher Aromastoff | vegan-society, eu-flavourings-regulation-1334-2008-20260216 | — |
@@ -7702,6 +7703,24 @@ Mapping group : `agricultural-products-regulation`
 - `Schweinefleisch` — REGULATORY_ALIAS; normalise: `schweinefleisch`; confiance: `REVIEWED`; source: vegan-society, eu-agricultural-products-regulation-1308-2013-20260818
 - `Schaf- und Ziegenfleisch` — REGULATORY_ALIAS; normalise: `schaf und ziegenfleisch`; confiance: `REVIEWED`; source: vegan-society, eu-agricultural-products-regulation-1308-2013-20260818
 - `Geflügelfleisch` — REGULATORY_ALIAS; normalise: `geflugelfleisch`; confiance: `REVIEWED`; source: vegan-society, eu-agricultural-products-regulation-1308-2013-20260818
+
+## Concept : mechanically_separated_meat
+
+Statut : `NON_VEGAN`<br>
+Sources : eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401<br>
+Mapping group : `food-hygiene-regulation`
+
+### FR
+- `viandes séparées mécaniquement` — REGULATORY_ALIAS; normalise: `viandes separees mecaniquement`; confiance: `REVIEWED`; source: eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401
+
+### NL
+- `separatorvlees` — REGULATORY_ALIAS; normalise: `separatorvlees`; confiance: `REVIEWED`; source: eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401
+
+### EN
+- `mechanically separated meat` — REGULATORY_ALIAS; normalise: `mechanically separated meat`; confiance: `REVIEWED`; source: eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401
+
+### DE
+- `Separatorenfleisch` — REGULATORY_ALIAS; normalise: `separatorenfleisch`; confiance: `REVIEWED`; source: eu-food-hygiene-regulation-853-2004-20260507, eu-fic-regulation-1169-2011-20250401
 
 ## Concept : milk
 

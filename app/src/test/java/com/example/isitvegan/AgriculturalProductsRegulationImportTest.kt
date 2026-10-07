@@ -42,7 +42,24 @@ class AgriculturalProductsRegulationImportTest {
         assertTrue(source.readBytes().contentEquals(aliasesAsset.readBytes()))
         val parsed = MiniJson.parse(source.readText()) as Map<*, *>
         val mappings = (parsed["mappings"] as List<*>).map { it as Map<*, *> }
-        assertEquals(2089, mappings.size)
+        // Independent pinned historical reference: additions are allowed, but
+        // coordinated deletion, changed owners/metadata and missing ids fail.
+        KnowledgeValidationTestSupport.historicalCheck(root, asset.readText(), source.readText())
+        // Synchronization is separate from preservation. Only the exact
+        // cereals/NL/granen exception has already been accepted by the guard.
+        val declaredAliases = parsed["aliases"] as List<*>
+        val availableIds = knowledge.ingredients.map { it.id }.toSet()
+        val expectedMappings = declaredAliases.filter { value ->
+            val entry = value as Map<*, *>
+            if (entry["canonicalId"] == "cereals") false else {
+                assertTrue("Unexpected unavailable concept: ${entry["canonicalId"]}", entry["canonicalId"] in availableIds)
+                true
+            }
+        }.sumOf { value ->
+            val entry = value as Map<*, *>
+            (entry["aliases"] as List<*>).size + ((entry["ocrVariants"] as? List<*>)?.size ?: 0)
+        }
+        assertEquals(expectedMappings, mappings.size)
         assertEquals(mappings.size, mappings.map { listOf(it["conceptId"],it["language"],it["normalizedForm"]) }.distinct().size)
         setOf("edible_offal","animal_fat","poultry_meat_preparation","processed_fruit_vegetable_product","spreadable_fat").forEach { id ->
             assertEquals(setOf("FR","NL","EN","DE"), mappings.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
