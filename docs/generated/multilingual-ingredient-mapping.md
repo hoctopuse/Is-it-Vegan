@@ -16,6 +16,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | black_olive | VEGAN | olives noires; olive noire; olives nores | zwarte olijf; zwarte olijven | black olive; black olives | schwarze Olive; schwarze Oliven | vegan-society | — |
 | blackberry | VEGAN | mûre; mûres | braam; bramen; gevriesdroogde bramen | blackberry; blackberries; freeze-dried blackberries | Brombeere; Brombeeren | vegan-society | — |
 | blueberry | VEGAN | myrtille; myrtilles | bosbes; bosbessen; gevriesdroogde bosbessen; gedroogde blauwe bessen | blueberry; blueberries; freeze-dried blueberries | Heidelbeere; Heidelbeeren | vegan-society | — |
+| bovine_meat | NON_VEGAN | Viandes des animaux de l'espèce bovine | Vlees van runderen | Meat of bovine animals | Fleisch von Rindern | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | brazil_nut | VEGAN | noix du Brésil | paranoten; paranoot | — | — | vegan-society | — |
 | butter | VEGETARIAN | — | — | — | Butterreinfett | vegan-society, vegetarian-society, eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | buttermilk | VEGETARIAN | babeurre | karnemelk; botermelk | buttermilk | Buttermilch | eu-agricultural-products-regulation-1308-2013-20260818 | — |
@@ -386,8 +387,10 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | fruit_nectar | UNCERTAIN | nectar de fruits | vruchtennectar | fruit nectar | Fruchtnektar | eu-fruit-juice-directive-2001-112-20260614 | — |
 | fruit_puree | VEGAN | purée de fruits; purée de fruits concentrée | vruchtenpuree | fruit purée; concentrated fruit purée | Fruchtmark | eu-fruit-juice-directive-2001-112-20260614 | — |
 | glucose_syrup | VEGAN | — | glucosestroop; glucose-fructosestroop | — | Glukosesirup | vegan-society | — |
+| goat_meat | NON_VEGAN | — | geitenvlees | goatmeat | Ziegenfleisch | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | hazelnut | VEGAN | noisettes | hazelnoten; hazelnoot | — | — | vegan-society | — |
 | honey | VEGETARIAN | miel; miel de fleurs; miel de nectars; miel de miellat; miel en rayons; miel avec morceaux de rayons; miel égoutté; miel centrifugé; miel pressé; miel destiné à l’industrie; Miel naturel | honing; honig; bloemenhoning; bloemenhonig; nectarhoning; nectarhonig; honingdauwhoning; honingdauwhonig; raathoning; raathonig; brokhoning; brokhonig; raatbrokken in honing/honig; lekhoning; lekhonig; slingerhoning; slingerhonig; pershoning; pershonig; bakkershoning; Natuurhoning | honey; blossom honey; nectar honey; honeydew honey; comb honey; chunk honey; cut comb in honey; drained honey; extracted honey; pressed honey; Baker's honey; Natural honey | Honig; Blütenhonig; Nektarhonig; Honigtauhonig; Wabenhonig; Scheibenhonig; Honig mit Wabenteilen; Wabenstücke in Honig; Tropfhonig; Schleuderhonig; Presshonig; Backhonig; Natürlicher Honig | vegan-society, vegetarian-society, eu-honey-directive-2001-110-20260614, eu-agricultural-products-regulation-1308-2013-20260818 | — |
+| horse_meat | NON_VEGAN | Viandes de cheval | Vlees van paarden | Meat of horses; Horsemeat | Fleisch von Pferden | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | inulin | VEGAN | inuline | inuline | inulin | Inulin | vegan-society | — |
 | macadamia | VEGAN | noix de macadamia | macadamianoten; macadamianoot | — | — | vegan-society | — |
 | malt | VEGAN | malt; extrait de malt; flocons de céréales maltés; farine de malt d’orge; farine de malt de blé | mout; gerstermout; gerstermoutextract; gemoute gerstemeel; gemoute tarwebloem | malt; barley malt extract | Gerstenmalz; Gerstenmalzextrakt | vegan-society | — |
@@ -406,6 +409,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | pecan | VEGAN | noix de pécan | pecannoten; pecannoot | — | — | vegan-society | — |
 | pineapple | VEGAN | ananas; ananas confits | ananas | — | — | vegan-society | — |
 | pistachio | VEGAN | — | pistachenoten; pisaehenoten | — | — | vegan-society | — |
+| pork_meat | NON_VEGAN | Viandes des animaux de l'espèce porcine domestique | Vlees van varkens | Meat of domestic swine | — | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | poultry_meat_preparation | NON_VEGAN | préparation à base de viande de volaille | bereiding op basis van pluimveevlees | poultrymeat preparation | Geflügelfleischzubereitungen | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | powdered_chocolate | VEGAN | chocolat en poudre; cacao sucré | chocoladepoeder; gesuikerd cacaopoeder | powdered chocolate; sweetened cocoa powder | Schokoladenpulver; gezuckerter Kakao | eu-cocoa-chocolate-directive-2000-36-20131118 | — |
 | processed_fruit_vegetable_product | UNCERTAIN | produits transformés à base de fruits et légumes | verwerkte groenten en fruit | processed fruit and vegetable products | Verarbeitungserzeugnisse aus Obst und Gemüse | eu-agricultural-products-regulation-1308-2013-20260818 | — |
@@ -417,6 +421,7 @@ Les sources d'alias restent dans `knowledge/ingredient_aliases_multilingual.json
 | royal_jelly | VEGETARIAN | Gelée royale | koninginnengelei | Royal jelly | Gelée Royale | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 | — |
 | rye | VEGAN | seigle | rogge; volkoren roggevlokken | rye | Roggen | vegan-society | — |
 | salt | VEGAN | sel marin | zout; zeezout | — | Salz; Speisesalz | vegan-society | — |
+| sheep_meat | NON_VEGAN | — | schapenvlees | Sheepmeat | — | eu-agricultural-products-regulation-1308-2013-20260818 | — |
 | smoke_flavouring | UNCERTAIN | arôme de fumée | rookaroma | smoke flavouring | Raucharoma | eu-flavourings-regulation-1334-2008-20260216 | — |
 | sour_cherry | VEGAN | griottes; griottes séchées et sucrées | zure kersen | — | — | vegan-society | — |
 | spreadable_fat | UNCERTAIN | matières grasses tartinables | smeerbare vetten | spreadable fats | Streichfette | eu-agricultural-products-regulation-1308-2013-20260818 | — |
@@ -654,6 +659,24 @@ Mapping group : `blueberry`
 ### Alias supplementaires
 - IT: mirtillo; mirtilli
 - ES: arándano; arándanos
+
+## Concept : bovine_meat
+
+Statut : `NON_VEGAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `Viandes des animaux de l'espèce bovine` — REGULATORY_ALIAS; normalise: `viandes des animaux de l espece bovine`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### NL
+- `Vlees van runderen` — REGULATORY_ALIAS; normalise: `vlees van runderen`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `Meat of bovine animals` — REGULATORY_ALIAS; normalise: `meat of bovine animals`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- `Fleisch von Rindern` — REGULATORY_ALIAS; normalise: `fleisch von rindern`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : brazil_nut
 
@@ -7447,6 +7470,24 @@ Mapping group : `glucose_syrup`
 ### DE
 - `Glukosesirup` — COMMON_LABEL_NAME; normalise: `glukosesirup`; confiance: `REVIEWED`; source: vegan-society
 
+## Concept : goat_meat
+
+Statut : `NON_VEGAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- —
+
+### NL
+- `geitenvlees` — REGULATORY_ALIAS; normalise: `geitenvlees`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `goatmeat` — REGULATORY_ALIAS; normalise: `goatmeat`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- `Ziegenfleisch` — REGULATORY_ALIAS; normalise: `ziegenfleisch`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
 ## Concept : hazelnut
 
 Statut : `VEGAN`<br>
@@ -7539,6 +7580,25 @@ Mapping group : `honey-regulatory`
 
 ### Contextes exclus
 - arome de miel; gout de miel; honey flavour; honey flavor
+
+## Concept : horse_meat
+
+Statut : `NON_VEGAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `Viandes de cheval` — REGULATORY_ALIAS; normalise: `viandes de cheval`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### NL
+- `Vlees van paarden` — REGULATORY_ALIAS; normalise: `vlees van paarden`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `Meat of horses` — REGULATORY_ALIAS; normalise: `meat of horses`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+- `Horsemeat` — REGULATORY_ALIAS; normalise: `horsemeat`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- `Fleisch von Pferden` — REGULATORY_ALIAS; normalise: `fleisch von pferden`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
 
 ## Concept : inulin
 
@@ -8039,6 +8099,24 @@ Mapping group : `pistachio`
 ### DE
 - —
 
+## Concept : pork_meat
+
+Statut : `NON_VEGAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- `Viandes des animaux de l'espèce porcine domestique` — REGULATORY_ALIAS; normalise: `viandes des animaux de l espece porcine domestique`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### NL
+- `Vlees van varkens` — REGULATORY_ALIAS; normalise: `vlees van varkens`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `Meat of domestic swine` — REGULATORY_ALIAS; normalise: `meat of domestic swine`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- —
+
 ## Concept : poultry_meat_preparation
 
 Statut : `NON_VEGAN`<br>
@@ -8260,6 +8338,24 @@ Mapping group : `salt`
 ### Alias supplementaires
 - IT: sale
 - ES: sal
+
+## Concept : sheep_meat
+
+Statut : `NON_VEGAN`<br>
+Sources : eu-agricultural-products-regulation-1308-2013-20260818<br>
+Mapping group : `agricultural-products-regulation`
+
+### FR
+- —
+
+### NL
+- `schapenvlees` — REGULATORY_ALIAS; normalise: `schapenvlees`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### EN
+- `Sheepmeat` — REGULATORY_ALIAS; normalise: `sheepmeat`; confiance: `REVIEWED`; source: eu-agricultural-products-regulation-1308-2013-20260818
+
+### DE
+- —
 
 ## Concept : smoke_flavouring
 

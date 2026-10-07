@@ -7580,5 +7580,67 @@
     "status": "VEGETARIAN",
     "reason": "Convention de l’application Is It Vegan? : produit apicole considéré végétarien, mais non vegan. Ce choix ne constitue pas une règle universelle de certification.",
     "source": "eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7"
+  },
+  {
+    "id": "bovine_meat",
+    "name": "Meat of bovine animals",
+    "eNumber": "",
+    "aliases": [
+      "Viandes des animaux de l'espèce bovine",
+      "Vlees van runderen",
+      "Fleisch von Rindern"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair bovine explicitement identifiée : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "pork_meat",
+    "name": "Meat of domestic swine",
+    "eNumber": "",
+    "aliases": [
+      "Viandes des animaux de l'espèce porcine domestique",
+      "Vlees van varkens"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair porcine explicitement identifiée : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "sheep_meat",
+    "name": "Sheepmeat",
+    "eNumber": "",
+    "aliases": [
+      "schapenvlees"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair ovine explicitement identifiée : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "goat_meat",
+    "name": "goatmeat",
+    "eNumber": "",
+    "aliases": [
+      "geitenvlees",
+      "Ziegenfleisch"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair caprine explicitement identifiée : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
+  },
+  {
+    "id": "horse_meat",
+    "name": "Horsemeat",
+    "eNumber": "",
+    "aliases": [
+      "Viandes de cheval",
+      "Vlees van paarden",
+      "Meat of horses",
+      "Fleisch von Pferden"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair chevaline explicitement identifiée : non vegan.",
+    "source": "eu-agricultural-products-regulation-1308-2013-20260818"
   }
 ]

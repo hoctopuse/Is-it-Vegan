@@ -42,13 +42,64 @@ class AgriculturalProductsRegulationImportTest {
         assertTrue(source.readBytes().contentEquals(aliasesAsset.readBytes()))
         val parsed = MiniJson.parse(source.readText()) as Map<*, *>
         val mappings = (parsed["mappings"] as List<*>).map { it as Map<*, *> }
-        assertEquals(2072, mappings.size)
+        assertEquals(2089, mappings.size)
         assertEquals(mappings.size, mappings.map { listOf(it["conceptId"],it["language"],it["normalizedForm"]) }.distinct().size)
         setOf("edible_offal","animal_fat","poultry_meat_preparation","processed_fruit_vegetable_product","spreadable_fat").forEach { id ->
             assertEquals(setOf("FR","NL","EN","DE"), mappings.filter { it["conceptId"] == id }.map { it["language"] }.toSet())
         }
         val process = ProcessBuilder("python","tools/import_eu_agricultural_products_regulation.py","--animal-enrichment","--check").directory(root).redirectErrorStream(true).start()
         val output = process.inputStream.bufferedReader().readText(); assertEquals(output,0,process.waitFor()); assertTrue(output,output.contains("changes=0"))
+        val meatProcess = ProcessBuilder("python","tools/import_eu_agricultural_products_regulation.py","--meat-species","--check").directory(root).redirectErrorStream(true).start()
+        val meatOutput = meatProcess.inputStream.bufferedReader().readText(); assertEquals(meatOutput,0,meatProcess.waitFor()); assertTrue(meatOutput,meatOutput.contains("changes=0"))
+    }
+
+    @Test fun reviewedMeatSpeciesAliasesProduceNonVegetarianVerdicts() {
+        // Shared golden cases with the Python collision checker; exercise the
+        // real Kotlin normalizer, including a mark with combining class zero.
+        listOf("Œuf Æ" to "oeuf ae", " É-cole " to "e cole",
+            "E  120" to "e120", "x E 120" to "x e 120",
+            "GEITEN\u034fVLEES" to "geitenvlees").forEach { (raw, expected) ->
+            assertEquals(raw, expected, TextNormalizer.normalize(raw))
+        }
+        val cases = listOf(
+            Triple("bovine_meat", "Viandes des animaux de l'espèce bovine", LabelLanguage.FRENCH),
+            Triple("bovine_meat", "Vlees van runderen", LabelLanguage.DUTCH),
+            Triple("bovine_meat", "Meat of bovine animals", LabelLanguage.ENGLISH),
+            Triple("bovine_meat", "Fleisch von Rindern", LabelLanguage.GERMAN),
+            Triple("pork_meat", "Viandes des animaux de l'espèce porcine domestique", LabelLanguage.FRENCH),
+            Triple("pork_meat", "Vlees van varkens", LabelLanguage.DUTCH),
+            Triple("pork_meat", "Meat of domestic swine", LabelLanguage.ENGLISH),
+            Triple("sheep_meat", "schapenvlees", LabelLanguage.DUTCH),
+            Triple("sheep_meat", "Sheepmeat", LabelLanguage.ENGLISH),
+            Triple("goat_meat", "geitenvlees", LabelLanguage.DUTCH),
+            Triple("goat_meat", "goatmeat", LabelLanguage.ENGLISH),
+            Triple("goat_meat", "Ziegenfleisch", LabelLanguage.GERMAN),
+            Triple("horse_meat", "Viandes de cheval", LabelLanguage.FRENCH),
+            Triple("horse_meat", "Vlees van paarden", LabelLanguage.DUTCH),
+            Triple("horse_meat", "Meat of horses", LabelLanguage.ENGLISH),
+            Triple("horse_meat", "Horsemeat", LabelLanguage.ENGLISH),
+            Triple("horse_meat", "Fleisch von Pferden", LabelLanguage.GERMAN)
+        )
+        cases.forEach { (id, surface, language) ->
+            assertEquals("$language/$surface", id,
+                knowledge.multilingualLexicon.resolve(surface, language, knowledge.ingredients).canonicalId)
+            val match = IngredientMatcher(knowledge.ingredients).match(IngredientToken(surface, 0, 0))
+            assertEquals(surface, listOf(id), match.ingredients.map { it.id })
+            assertEquals(surface, MatchResolution.EXACT, match.resolution)
+            assertEquals(surface, "", match.residualNormalized)
+            val diagnostics = service.analyzeWithDiagnostics(surface, InputMode.MANUAL_INGREDIENT_LIST)
+            val result = diagnostics.result
+            assertEquals(surface, listOf(id), result.matched.map { it.id })
+            assertTrue(surface, result.unknown.isEmpty())
+            assertEquals(surface, AnalysisVerdict.NON_VEGETARIAN, result.verdict)
+            assertEquals(surface, listOf(id), diagnostics.decision.responsibleIngredientIds)
+            assertEquals(surface, listOf(id), diagnostics.verdictExplanation.knownBlockingIngredients.map { it.ingredientId })
+            assertEquals(surface, listOf(id), diagnostics.tokens.flatMap { it.matchedIngredientIds })
+            assertTrue(surface, diagnostics.tokens.all { it.unknown == null })
+        }
+        assertEquals(5, knowledge.ingredients.count { it.id in setOf(
+            "bovine_meat", "pork_meat", "sheep_meat", "goat_meat", "horse_meat"
+        ) && it.status == VeganStatus.NON_VEGAN })
     }
 
 

@@ -13882,6 +13882,142 @@
         "Kittharz"
       ],
       "ocrVariants": []
+    },
+    {
+      "canonicalId": "bovine_meat",
+      "language": "FR",
+      "aliases": [
+        "Viandes des animaux de l'espèce bovine"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "bovine_meat",
+      "language": "NL",
+      "aliases": [
+        "Vlees van runderen"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "bovine_meat",
+      "language": "EN",
+      "aliases": [
+        "Meat of bovine animals"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "bovine_meat",
+      "language": "DE",
+      "aliases": [
+        "Fleisch von Rindern"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "pork_meat",
+      "language": "FR",
+      "aliases": [
+        "Viandes des animaux de l'espèce porcine domestique"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "pork_meat",
+      "language": "NL",
+      "aliases": [
+        "Vlees van varkens"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "pork_meat",
+      "language": "EN",
+      "aliases": [
+        "Meat of domestic swine"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "sheep_meat",
+      "language": "NL",
+      "aliases": [
+        "schapenvlees"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "sheep_meat",
+      "language": "EN",
+      "aliases": [
+        "Sheepmeat"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "goat_meat",
+      "language": "NL",
+      "aliases": [
+        "geitenvlees"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "goat_meat",
+      "language": "EN",
+      "aliases": [
+        "goatmeat"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "goat_meat",
+      "language": "DE",
+      "aliases": [
+        "Ziegenfleisch"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "horse_meat",
+      "language": "FR",
+      "aliases": [
+        "Viandes de cheval"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "horse_meat",
+      "language": "NL",
+      "aliases": [
+        "Vlees van paarden"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "horse_meat",
+      "language": "EN",
+      "aliases": [
+        "Meat of horses"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "horse_meat",
+      "language": "EN",
+      "aliases": [
+        "Horsemeat"
+      ],
+      "ocrVariants": []
+    },
+    {
+      "canonicalId": "horse_meat",
+      "language": "DE",
+      "aliases": [
+        "Fleisch von Pferden"
+      ],
+      "ocrVariants": []
     }
   ],
   "ocrCorrections": [
@@ -35543,6 +35679,363 @@
           "sourceOffset": 367,
           "surfaceForm": "Fett von Schafen oder Ziegen",
           "reviewId": "A5bf94d849f1b",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Viandes des animaux de l'espèce bovine",
+      "language": "FR",
+      "conceptId": "bovine_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viandes des animaux de l espece bovine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",
+          "sourceOffset": 946,
+          "surfaceForm": "Viandes des animaux de l'espèce bovine",
+          "reviewId": "M0007",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Vlees van runderen",
+      "language": "NL",
+      "conceptId": "bovine_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "vlees van runderen",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",
+          "sourceOffset": 874,
+          "surfaceForm": "Vlees van runderen",
+          "reviewId": "M0009",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Meat of bovine animals",
+      "language": "EN",
+      "conceptId": "bovine_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "meat of bovine animals",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",
+          "sourceOffset": 929,
+          "surfaceForm": "Meat of bovine animals",
+          "reviewId": "M0011",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Fleisch von Rindern",
+      "language": "DE",
+      "conceptId": "bovine_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fleisch von rindern",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 143,
+          "legalLocation": "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",
+          "sourceOffset": 835,
+          "surfaceForm": "Fleisch von Rindern",
+          "reviewId": "M0013",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Viandes des animaux de l'espèce porcine domestique",
+      "language": "FR",
+      "conceptId": "pork_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viandes des animaux de l espece porcine domestique",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",
+          "sourceOffset": 302,
+          "surfaceForm": "Viandes des animaux de l'espèce porcine domestique",
+          "reviewId": "M0026",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Vlees van varkens",
+      "language": "NL",
+      "conceptId": "pork_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "vlees van varkens",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",
+          "sourceOffset": 277,
+          "surfaceForm": "Vlees van varkens",
+          "reviewId": "M0028",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Meat of domestic swine",
+      "language": "EN",
+      "conceptId": "pork_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "meat of domestic swine",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",
+          "sourceOffset": 268,
+          "surfaceForm": "Meat of domestic swine",
+          "reviewId": "M0030",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "schapenvlees",
+      "language": "NL",
+      "conceptId": "sheep_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "schapenvlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 13,
+          "legalLocation": "Art.18(4)(c) p.13 NL ; annexe I XVIII EN",
+          "sourceOffset": 1366,
+          "surfaceForm": "schapenvlees",
+          "reviewId": "M0042",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Sheepmeat",
+      "language": "EN",
+      "conceptId": "sheep_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "sheepmeat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Art.18(4)(c) p.13 NL ; annexe I XVIII EN",
+          "sourceOffset": 1490,
+          "surfaceForm": "Sheepmeat",
+          "reviewId": "M0043",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "geitenvlees",
+      "language": "NL",
+      "conceptId": "goat_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "geitenvlees",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annexe I XVIII, composés du titre",
+          "sourceOffset": 1742,
+          "surfaceForm": "geitenvlees",
+          "reviewId": "M0044",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "goatmeat",
+      "language": "EN",
+      "conceptId": "goat_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "goatmeat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annexe I XVIII, composés du titre",
+          "sourceOffset": 1504,
+          "surfaceForm": "goatmeat",
+          "reviewId": "M0045",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Ziegenfleisch",
+      "language": "DE",
+      "conceptId": "goat_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "ziegenfleisch",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 145,
+          "legalLocation": "Annexe I XVIII, composés du titre",
+          "sourceOffset": 1868,
+          "surfaceForm": "Ziegenfleisch",
+          "reviewId": "M0046",
+          "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Viandes de cheval",
+      "language": "FR",
+      "conceptId": "horse_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "viandes de cheval",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_FR_TXT.pdf",
+          "pdfPage": 156,
+          "legalLocation": "Annexe I XXIV section 2, NC ex0205/0210 99 10",
+          "sourceOffset": 2719,
+          "surfaceForm": "Viandes de cheval",
+          "reviewId": "M0095",
+          "sha256": "5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Vlees van paarden",
+      "language": "NL",
+      "conceptId": "horse_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "vlees van paarden",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_NL_TXT.pdf",
+          "pdfPage": 156,
+          "legalLocation": "Annexe I XXIV section 2, NC ex0205/0210 99 10",
+          "sourceOffset": 2556,
+          "surfaceForm": "Vlees van paarden",
+          "reviewId": "M0096",
+          "sha256": "99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Meat of horses",
+      "language": "EN",
+      "conceptId": "horse_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "meat of horses",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 156,
+          "legalLocation": "Annexe I XXIV section 2, NC ex0205/0210 99 10",
+          "sourceOffset": 2293,
+          "surfaceForm": "Meat of horses",
+          "reviewId": "M0097",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Horsemeat",
+      "language": "EN",
+      "conceptId": "horse_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "horsemeat",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_EN_TXT.pdf",
+          "pdfPage": 156,
+          "legalLocation": "Annexe I XXIV section 2, NC ex0205/0210 99 10",
+          "sourceOffset": 2347,
+          "surfaceForm": "Horsemeat",
+          "reviewId": "M0098",
+          "sha256": "b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11"
+        }
+      ]
+    },
+    {
+      "surfaceForm": "Fleisch von Pferden",
+      "language": "DE",
+      "conceptId": "horse_meat",
+      "mappingGroup": "agricultural-products-regulation",
+      "relation": "REGULATORY_ALIAS",
+      "normalizedForm": "fleisch von pferden",
+      "source": "eu-agricultural-products-regulation-1308-2013-20260818",
+      "confidence": "REVIEWED",
+      "sourceEvidence": [
+        {
+          "pdfFile": "CELEX_02013R1308-20260818_DE_TXT.pdf",
+          "pdfPage": 156,
+          "legalLocation": "Annexe I XXIV section 2, NC ex0205/0210 99 10",
+          "sourceOffset": 2432,
+          "surfaceForm": "Fleisch von Pferden",
+          "reviewId": "M0099",
           "sha256": "64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda"
         }
       ]

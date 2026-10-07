@@ -8498,5 +8498,72 @@
       "eu-agricultural-products-regulation-1308-2013-20260818",
       "isitvegan-animal-products-convention-v0-7"
     ]
+  },
+  {
+    "id": "bovine_meat",
+    "name": "Meat of bovine animals",
+    "aliases": [
+      "Viandes des animaux de l'espèce bovine",
+      "Vlees van runderen",
+      "Fleisch von Rindern"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair bovine explicitement identifiée : non vegan.",
+    "sources": [
+      "eu-agricultural-products-regulation-1308-2013-20260818"
+    ]
+  },
+  {
+    "id": "pork_meat",
+    "name": "Meat of domestic swine",
+    "aliases": [
+      "Viandes des animaux de l'espèce porcine domestique",
+      "Vlees van varkens"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair porcine explicitement identifiée : non vegan.",
+    "sources": [
+      "eu-agricultural-products-regulation-1308-2013-20260818"
+    ]
+  },
+  {
+    "id": "sheep_meat",
+    "name": "Sheepmeat",
+    "aliases": [
+      "schapenvlees"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair ovine explicitement identifiée : non vegan.",
+    "sources": [
+      "eu-agricultural-products-regulation-1308-2013-20260818"
+    ]
+  },
+  {
+    "id": "goat_meat",
+    "name": "goatmeat",
+    "aliases": [
+      "geitenvlees",
+      "Ziegenfleisch"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair caprine explicitement identifiée : non vegan.",
+    "sources": [
+      "eu-agricultural-products-regulation-1308-2013-20260818"
+    ]
+  },
+  {
+    "id": "horse_meat",
+    "name": "Horsemeat",
+    "aliases": [
+      "Viandes de cheval",
+      "Vlees van paarden",
+      "Meat of horses",
+      "Fleisch von Pferden"
+    ],
+    "status": "NON_VEGAN",
+    "reason": "Chair chevaline explicitement identifiée : non vegan.",
+    "sources": [
+      "eu-agricultural-products-regulation-1308-2013-20260818"
+    ]
   }
 ]

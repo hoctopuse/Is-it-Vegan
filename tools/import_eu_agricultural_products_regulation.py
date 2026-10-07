@@ -127,6 +127,35 @@ ANIMAL_CONVENTION = {
 }
 ANIMAL_EXISTING = {'whey', 'casein', 'milk', 'honey', 'egg', 'edible_offal', 'animal_fat'}
 
+# Narrow, decision-reviewed v0.7 species batch. Do not source candidates from the
+# broad proposal CSV: these exact rows and offsets are the authorized surface set.
+MEAT_SPECIES_REVIEW = [
+    ["bovine_meat", "FR", "Viandes des animaux de l'espèce bovine", 143, 946, "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)", "M0007"],
+    ["bovine_meat", "NL", "Vlees van runderen", 143, 874, "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)", "M0009"],
+    ["bovine_meat", "EN", "Meat of bovine animals", 143, 929, "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)", "M0011"],
+    ["bovine_meat", "DE", "Fleisch von Rindern", 143, 835, "Annexe I XV, titre et NC 0201 ; art. 1(2)(o)", "M0013"],
+    ["pork_meat", "FR", "Viandes des animaux de l'espèce porcine domestique", 145, 302, "Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)", "M0026"],
+    ["pork_meat", "NL", "Vlees van varkens", 145, 277, "Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)", "M0028"],
+    ["pork_meat", "EN", "Meat of domestic swine", 145, 268, "Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)", "M0030"],
+    ["sheep_meat", "NL", "schapenvlees", 13, 1366, "Art.18(4)(c) p.13 NL ; annexe I XVIII EN", "M0042"],
+    ["sheep_meat", "EN", "Sheepmeat", 145, 1490, "Art.18(4)(c) p.13 NL ; annexe I XVIII EN", "M0043"],
+    ["goat_meat", "NL", "geitenvlees", 145, 1742, "Annexe I XVIII, composés du titre", "M0044"],
+    ["goat_meat", "EN", "goatmeat", 145, 1504, "Annexe I XVIII, composés du titre", "M0045"],
+    ["goat_meat", "DE", "Ziegenfleisch", 145, 1868, "Annexe I XVIII, composés du titre", "M0046"],
+    ["horse_meat", "FR", "Viandes de cheval", 156, 2719, "Annexe I XXIV section 2, NC ex0205/0210 99 10", "M0095"],
+    ["horse_meat", "NL", "Vlees van paarden", 156, 2556, "Annexe I XXIV section 2, NC ex0205/0210 99 10", "M0096"],
+    ["horse_meat", "EN", "Meat of horses", 156, 2293, "Annexe I XXIV section 2, NC ex0205/0210 99 10", "M0097"],
+    ["horse_meat", "EN", "Horsemeat", 156, 2347, "Annexe I XXIV section 2, NC ex0205/0210 99 10", "M0098"],
+    ["horse_meat", "DE", "Fleisch von Pferden", 156, 2432, "Annexe I XXIV section 2, NC ex0205/0210 99 10", "M0099"],
+]
+MEAT_SPECIES_NEW = {
+    "bovine_meat": ("Meat of bovine animals", "Chair bovine explicitement identifiée : non vegan."),
+    "pork_meat": ("Meat of domestic swine", "Chair porcine explicitement identifiée : non vegan."),
+    "sheep_meat": ("Sheepmeat", "Chair ovine explicitement identifiée : non vegan."),
+    "goat_meat": ("goatmeat", "Chair caprine explicitement identifiée : non vegan."),
+    "horse_meat": ("Horsemeat", "Chair chevaline explicitement identifiée : non vegan."),
+}
+
 
 def runtime_normalized(value):
     value = unicodedata.normalize('NFD', value.lower().replace('œ', 'oe').replace('æ', 'ae'))
@@ -303,8 +332,212 @@ def animal_import(args):
         for path, value in ((I, db), (L, lex), (S, sources)):
             path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
 
+
+def meat_species_evidence():
+    pages = {}
+    for language, path in PDFS.items():
+        if hashlib.sha256(path.read_bytes()).hexdigest() != ANIMAL_PDF_HASHES[language]:
+            raise ValueError(f'meat source hash mismatch: {path.name}')
+        reader = PdfReader(path)
+        if len(reader.pages) != 219:
+            raise ValueError(f'meat source pagination mismatch: {path.name}')
+    grouped = {}
+    for concept, language, surface, number, offset, location, review_id in MEAT_SPECIES_REVIEW:
+        if concept not in MEAT_SPECIES_NEW:
+            raise ValueError(f'concept outside authorized meat species batch: {concept}')
+        if not surface or any(char in surface for char in ('\xad', '\n', '\r')):
+            raise ValueError(f'extraction artifact in meat alias: {surface!r}')
+        if language not in PDFS:
+            raise ValueError(f'unsupported language in meat evidence: {language}')
+        reader = PdfReader(PDFS[language])
+        page = reader.pages[number - 1].extract_text() or ''
+        if not page.strip() or '\ufffd' in page:
+            raise ValueError(f'incomplete meat extraction: {language}/{number}')
+        if not any('02013R1308' in line and '18.08.2026' in line and language in line
+                   for line in page.splitlines()):
+            raise ValueError(f'meat source identity mismatch: {language}/{number}')
+        if page[offset:offset + len(surface)] != surface:
+            raise ValueError(f'meat page wording mismatch: {language}/{number}/{surface}')
+        key = concept, language, n(surface)
+        evidence = {'pdfFile': PDFS[language].name, 'pdfPage': number,
+                    'legalLocation': location, 'sourceOffset': offset,
+                    'surfaceForm': surface, 'reviewId': review_id,
+                    'sha256': ANIMAL_PDF_HASHES[language]}
+        if key in grouped:
+            raise ValueError(f'duplicate reviewed meat alias: {concept}/{language}/{surface}')
+        grouped[key] = {'surface': surface, 'evidence': [evidence]}
+    expected_languages = {
+        'bovine_meat': {'FR', 'NL', 'EN', 'DE'},
+        'pork_meat': {'FR', 'NL', 'EN'},
+        'sheep_meat': {'NL', 'EN'},
+        'goat_meat': {'NL', 'EN', 'DE'},
+        'horse_meat': {'FR', 'NL', 'EN', 'DE'},
+    }
+    for concept, languages in expected_languages.items():
+        if {key[1] for key in grouped if key[0] == concept} != languages:
+            raise ValueError(f'missing or unexpected language for {concept}')
+    return grouped
+
+
+def meat_runtime_normalized(value):
+    """TextNormalizer.normalize: NFD, all Unicode marks, ASCII words, initial E code.
+
+    Kept separate from the historical animal helper to preserve that mode.
+    """
+    value = unicodedata.normalize('NFD', value.lower().replace('œ', 'oe').replace('æ', 'ae'))
+    value = ''.join(c for c in value if not unicodedata.category(c).startswith('M'))
+    return re.sub(r'^e\s+(?=\d)', 'e', re.sub(r'[^a-z0-9]+', ' ', value).strip())
+
+
+def meat_mapping(key, record):
+    concept, language, normalized = key
+    return {'surfaceForm': record['surface'], 'language': language, 'conceptId': concept,
+            'mappingGroup': 'agricultural-products-regulation',
+            'relation': 'REGULATORY_ALIAS', 'normalizedForm': normalized,
+            'source': SOURCE['id'], 'confidence': 'REVIEWED',
+            'sourceEvidence': record['evidence']}
+
+
+def meat_collisions(db, lex, grouped):
+    """Check batch surfaces globally, as the Kotlin lexicon does, even after import.
+
+    Canonical names/aliases/E numbers are also matcher keys. Repeated canonical
+    and lexical representations of the same owner are intentional; repeated
+    lexical (language, surface) keys are forbidden, even with the same owner.
+    """
+    owners, language_counts = {}, {}
+    # labelLanguage() accepts both codes and English language names, case-insensitively.
+    language_codes = dict(zip(('FRENCH', 'DUTCH', 'ENGLISH', 'GERMAN',
+                               'ITALIAN', 'SPANISH', 'POLISH'),
+                              ('FR', 'NL', 'EN', 'DE', 'IT', 'ES', 'PL')))
+    for entry in db:
+        for surface in [entry['name']] + entry.get('aliases', []) + [entry.get('eNumber')]:
+            if surface:
+                owners.setdefault(meat_runtime_normalized(surface), set()).add(entry['id'])
+    for entry in lex['aliases']:
+        for surface in entry.get('aliases', []) + entry.get('ocrVariants', []):
+            normalized = meat_runtime_normalized(surface)
+            owners.setdefault(normalized, set()).add(entry['canonicalId'])
+            language = entry['language'].upper()
+            key = language_codes.get(language, language), normalized
+            language_counts[key] = language_counts.get(key, 0) + 1
+    for (concept, language, _), record in grouped.items():
+        normalized = meat_runtime_normalized(record['surface'])
+        conflicting = owners.get(normalized, set()) - {concept}
+        if conflicting:
+            raise ValueError(f'meat alias collision: {concept}/{language}/{record["surface"]}; owners={sorted(conflicting)}')
+        if language_counts.get((language, normalized), 0) > 1:
+            raise ValueError(f'duplicate meat language alias: {language}/{normalized}')
+        # Also detect collisions within the proposed batch, before any mutation.
+        owners.setdefault(normalized, set()).add(concept)
+    keys = [(entry['conceptId'], entry['language'], entry['normalizedForm'])
+            for entry in lex['mappings']]
+    if len(set(keys)) != len(keys):
+        raise ValueError('pre-existing duplicate multilingual mapping keys; refusing meat species import')
+
+
+def meat_species_import(args):
+    grouped = meat_species_evidence()
+    db = json.loads(I.read_text(encoding='utf8'))
+    lex = json.loads(L.read_text(encoding='utf8'))
+    sources = json.loads(S.read_text(encoding='utf8'))
+    before = copy.deepcopy((db, lex, sources))
+    ids = {entry['id']: entry for entry in db}
+    if len(ids) != len(db):
+        raise ValueError('duplicate ingredient ids; refusing meat species import')
+    present = set(MEAT_SPECIES_NEW) & set(ids)
+    primary = [entry for entry in sources if entry.get('id') == SOURCE['id']]
+    if len(primary) != 1 or primary[0] != SOURCE:
+        raise ValueError('conflicting or missing primary 1308 source record')
+    if present and present != set(MEAT_SPECIES_NEW):
+        raise ValueError(f'partial meat species batch already present: {sorted(present)}')
+    meat_collisions(db, lex, grouped)
+    if present:
+        for concept, (name, reason) in MEAT_SPECIES_NEW.items():
+            entry = ids[concept]
+            expected_aliases = sorted(record['surface'] for (owner, _, _), record in grouped.items()
+                                      if owner == concept and n(record['surface']) != n(name))
+            if (entry.get('name') != name or entry.get('status') != 'NON_VEGAN' or
+                    entry.get('reason') != reason or entry.get('sources') != [SOURCE['id']] or
+                    sorted(entry.get('aliases', [])) != expected_aliases):
+                raise ValueError(f'imported meat concept differs from reviewed batch: {concept}')
+        existing_language = [item for item in lex['aliases'] if item.get('canonicalId') in MEAT_SPECIES_NEW]
+        expected_language = sorted((concept, language, record['surface'])
+                                   for (concept, language, _), record in grouped.items())
+        actual_language = sorted((item['canonicalId'], item['language'], surface)
+                                 for item in existing_language
+                                 for surface in item.get('aliases', []) + item.get('ocrVariants', []))
+        if actual_language != expected_language:
+            raise ValueError('imported meat language aliases differ from reviewed batch')
+        existing_mappings = [item for item in lex['mappings'] if item.get('conceptId') in MEAT_SPECIES_NEW]
+        # Compare entire objects, including nested evidence and unexpected fields:
+        # a future provenance property must never be silently ignored.
+        expected_mappings = [meat_mapping(key, record) for key, record in grouped.items()]
+        mapping_order = lambda item: (item.get('conceptId', ''), item.get('language', ''),
+                                     item.get('normalizedForm', ''))
+        actual_mappings = sorted(existing_mappings, key=mapping_order)
+        expected_mappings.sort(key=mapping_order)
+        if actual_mappings != expected_mappings:
+            raise ValueError('imported meat mappings/provenance differ from reviewed batch')
+        print('CELEX 02013R1308 meat species batch: changes=0; imported batch is current; no modification necessary')
+        return
+    if args.check:
+        raise SystemExit('meat species batch is absent; changes required')
+    db.extend({'id': concept, 'name': name, 'aliases': [], 'status': 'NON_VEGAN',
+               'reason': reason, 'sources': [SOURCE['id']]}
+              for concept, (name, reason) in MEAT_SPECIES_NEW.items())
+    ids = {entry['id']: entry for entry in db}
+
+    keys = {(entry['conceptId'], entry['language'], entry['normalizedForm']) for entry in lex['mappings']}
+
+    additions = {'concepts': list(MEAT_SPECIES_NEW), 'canonicalAliases': [],
+                 'languageAliases': [], 'mappings': [], 'sources': []}
+    for (concept, language, normalized), record in grouped.items():
+        surface = record['surface']
+        entry = ids[concept]
+        if n(surface) != n(entry['name']):
+            entry['aliases'].append(surface)
+            additions['canonicalAliases'].append({'conceptId': concept, 'surfaceForm': surface})
+        lex_entry = {'canonicalId': concept, 'language': language,
+                     'aliases': [surface], 'ocrVariants': []}
+        lex['aliases'].append(lex_entry)
+        additions['languageAliases'].append({'conceptId': concept, 'language': language,
+                                             'surfaceForm': surface})
+        key = concept, language, normalized
+        if key in keys:
+            raise ValueError(f'meat mapping already exists: {concept}/{language}/{normalized}')
+        mapping = meat_mapping((concept, language, normalized), record)
+        lex['mappings'].append(mapping)
+        keys.add(key)
+        additions['mappings'].append(mapping)
+
+    # The pre-existing source, all prior concepts/aliases and lexicon entries
+    # must remain byte-value equivalent in their original positions.
+    for old in before[0]:
+        current = ids[old['id']]
+        for key, value in old.items():
+            if current.get(key) != value:
+                raise ValueError(f'historical ingredient modified: {old["id"]}/{key}')
+    if lex['aliases'][:len(before[1]['aliases'])] != before[1]['aliases']:
+        raise ValueError('historical multilingual aliases modified')
+    if lex['mappings'][:len(before[1]['mappings'])] != before[1]['mappings']:
+        raise ValueError('historical multilingual mappings modified')
+    if sources != before[2]:
+        raise ValueError('historical source registry modified')
+    meat_collisions(db, lex, grouped)
+    print(f'CELEX 02013R1308 meat species batch: changes=1; '
+          f'additions={json.dumps({key: len(value) for key, value in additions.items()})}')
+    if args.dry_run:
+        print(json.dumps(additions, ensure_ascii=False, indent=2))
+    if args.write:
+        for path, value in ((I, db), (L, lex)):
+            path.write_text(json.dumps(value, ensure_ascii=False, indent=2) + '\n', encoding='utf8')
+
 def main():
- p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--dry-run',action='store_true');g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');p.add_argument('--animal-enrichment',action='store_true',help='Import only the authorized v0.7 animal review batch');a=p.parse_args()
+ p=argparse.ArgumentParser();g=p.add_mutually_exclusive_group(required=True);g.add_argument('--dry-run',action='store_true');g.add_argument('--write',action='store_true');g.add_argument('--check',action='store_true');p.add_argument('--animal-enrichment',action='store_true',help='Import only the authorized v0.7 animal review batch');p.add_argument('--meat-species',action='store_true',help='Import only the reviewed v0.7 bovine, pork, sheep, goat and horse meat concepts');a=p.parse_args()
+ if a.animal_enrichment and a.meat_species:p.error('choose at most one source-specific batch')
+ if a.meat_species:
+  meat_species_import(a);return
  if a.animal_enrichment:
   animal_import(a);return
  ts={lang:compact(text(path)) for lang,path in PDFS.items()}; missing=[f'{k}/{lang}/{x}' for k,v in A.items() for lang,xs in v.items() for x in xs if compact(x) not in ts[lang]]

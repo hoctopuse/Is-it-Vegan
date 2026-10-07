@@ -1,0 +1,874 @@
+﻿review_id,family,proposal_id,proposal_kind,scope_or_definition,source_celex,source_revision,pdf_file,language,exact_source_form,readable_source_form,pdf_page,legal_location,source_offset_0based,context_excerpt,pdf_sha256,current_concept_match,current_app_status,current_matcher_resolution,historical_alias_owner_collision,proposed_status,risk_and_conditions,decision,applied
+M0007,SPECIES_MEAT,bovine_meat,NEW_CONCEPT_PROPOSAL,Meat of bovine animals; exclude veal-specific trade name from alias set.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Viandes des animaux de l'espèce bovine,Viandes des animaux de l'espèce bovine,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",946," 10 et 
+0102 90 91 
+Animaux vivants de l'espèce bovine des espèces domestiques autr es que les reproducteurs de 
+race pure  
+0201 Viandes des animaux de l'espèce bovine, fraîches ou réfrig érées 
+0202 Viandes des animaux de l'espèce bovine, congelées  
+0206 10 95 Onglets et hampes, frais ou réfrigérés  
+0206 29 91 On",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0009,SPECIES_MEAT,bovine_meat,NEW_CONCEPT_PROPOSAL,Same bovine meat; full Dutch phrase.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Vlees van runderen,Vlees van runderen,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",874," 0102 29 05 t/m 
+0102 29 99, 
+0102 39 10 en 
+0102 90 91 
+Levende runderen (huisdieren), andere dan fokdieren van zuiver ras 
+0201 Vlees van runderen, vers of gekoeld  
+0202 Vlees van runderen bevroren  
+0206 10 95 Longhaasjes en omlopen, vers of gekoeld  
+0206 29 91 Longhaasjes en omlopen, bevrore",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,meat,meat:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0011,SPECIES_MEAT,bovine_meat,NEW_CONCEPT_PROPOSAL,Same bovine meat; full English phrase.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Meat of bovine animals,Meat of bovine animals,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",929,"02 29 99, 
+0102 39 10 and 
+0102 90 91 
+Live animals of the domestic bovine species, other than pure-br ed breeding animals  
+0201 Meat of bovine animals, fresh or chilled  
+0202 Meat of bovine animals, frozen  
+0206 10 95 Thick skirt and thin skirt, fresh or chilled  
+0206 29 91 Thick skirt and thin s",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0013,SPECIES_MEAT,bovine_meat,NEW_CONCEPT_PROPOSAL,Same bovine meat; full German phrase.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Fleisch von Rindern,Fleisch von Rindern,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",835,"hnung  
+a) 0102 29 05 bis 
+0102 29 99, 
+0102 39 10 und 
+0102 90 91 
+Hausrinder, lebend, ausgenommen reinrassige Zuchttiere  
+0201 Fleisch von Rindern, frisch oder gekühlt  
+0202 Fleisch von Rindern, gefroren  
+0206 10 95 Zwerchfellpfeiler (Nierenzapfen) und Saumfleisch, fr isch oder gekühlt  
+0206 ",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0016,SPECIES_MEAT,veal_meat,NEW_CONCEPT_PROPOSAL,Meat of calves; separate from general bovine meat for useful label distinction.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Kalfsvlees,Kalfsvlees,172,"Annexe VII I.III.1.A, dénominations de vente V ; p.172 France/Pays-Bas/Irlande/Allemagne",494,"tland Teļa gaļa  
+Litouwen Veršiena  
+Luxemburg veau, viande de veau/Kalbfleisch  
+Hongarije Borjúhús  
+Malta Vitella  
+Nederland Kalfsvlees  
+Oostenrijk Kalbfleisch  
+Polen Cielęcina  
+Portugal Vitela  
+Roemenië carne de viţel  
+Slovenië Teletina  
+Slowakije Teľacie mäso  
+Finland vaalea ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0018,SPECIES_MEAT,veal_meat,NEW_CONCEPT_PROPOSAL,Same veal concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Kalbfleisch,Kalbfleisch,172,"Annexe VII I.III.1.A, dénominations de vente V ; p.172 France/Pays-Bas/Irlande/Allemagne",118," 
+02013R1308 — DE — 18.08.2026 — 013.001 — 172  
+Tschechische 
+Republik 
+Telecí 
+Dänemark Lyst kalvekød  
+Deutschland Kalbfleisch  
+Estland Vasikaliha  
+Irland Veal  
+Griechenland μοσχάρι γάλακτος  
+Spanien ternera blanca, carne de ternera blanca  
+Frankreich veau, viande de vea",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0026,SPECIES_MEAT,pork_meat,NEW_CONCEPT_PROPOSAL,Meat of domestic swine.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Viandes des animaux de l'espèce porcine domestique,Viandes des animaux de l'espèce porcine domestique,145,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",302,"e NC Description  
+a) ex 0103 Animaux vivants de l'espèce porcine domestique, autr es que reproducteurs de race pure  
+b) ex 0203 Viandes des animaux de l'espèce porcine domestique, fraîches, réfrigérées ou congelées  
+ex 0206 Abats comestibles de l'espèce porcine domestique, autre s que pour la fabrication des produits 
+pharmac",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0028,SPECIES_MEAT,pork_meat,NEW_CONCEPT_PROPOSAL,Same pork meat.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Vlees van varkens,Vlees van varkens,145,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",277,"
+varkensvlees. 
+GN-code Omschrijving  
+a) ex 0103 Levende varkens (huisdieren), andere dan fokdieren v an zuiver ras  
+b) ex 0203 Vlees van varkens (huisdieren), vers, gekoeld of bev roren 
+ex 0206 Eetbare slachtafvallen van varkens (huisdieren), andere  dan voor de vervaardiging van 
+farmaceutis",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,meat,meat:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0029,SPECIES_MEAT,pork_meat,NEW_CONCEPT_PROPOSAL,Same pork meat.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,pigmeat,pigmeat,3,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",146,"N — 18.08.2026 — 013.001 — 3  
+(n) tobacco, Part XIV;  
+(o) beef and veal, Part XV;  
+(p) milk and milk products, Part XVI;  
+(q) pigmeat, Part XVII;  
+(r) sheepmeat and goatmeat, Part XVIII;  
+(s) eggs, Part XIX;  
+(t) poultrymeat, Part XX;  
+(u) ethyl alcohol of agricultural origin, P",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN,EXACT,meat,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0030,SPECIES_MEAT,pork_meat,NEW_CONCEPT_PROPOSAL,Same pork meat.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Meat of domestic swine,Meat of domestic swine,145,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",268," table:  
+CN code Description  
+(a) ex 0103 Live swine, of domestic species, other than pure-br ed breeding animals  
+(b) ex 0203 Meat of domestic swine, fresh, chilled, or frozen  
+ex 0206 Edible offal of domestic swine, other than for the manu facture of pharmaceutical products, 
+fresh, chilled or f",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,"Use only as an ingredient term; avoid animal names in descriptors, flavours, plant-based alternatives, milk/egg references. NON_VEGAN is the supported existing ingredient status; verdict is detailed NON_VEGETARIAN.",REVIEW_REQUIRED,NO
+M0241,ANIMAL_FAT,animal_fat,ALIAS_TO_EXISTING_PROPOSAL,Plural French pig fats form.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Graisses de porc,Graisses de porc,145,Annexe I XVII NC1501 10/1501 20 p.145,838,"s 
+ex 0210 Viandes et abats comestibles de l'espèce porcine domest ique, salés ou en saumure, séchés ou 
+fumés 
+1501 10 
+1501 20 
+Graisses de porc (y compris le saindoux), autres  
+c) 1601 00 Saucisses, saucissons et produits similaires, de via nde, d'abats ou de sang; préparations 
+alimentaires",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,meat,animal_fat:NON_VEGAN,PARTIAL_CONTEXTUAL,animal_fat,NON_VEGAN,"Source explicitly says pig fat; current partial recognition hits meat, not animal_fat.",REVIEW_REQUIRED,NO
+M0269,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terminology.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,huile de suif,huile de suif,153,Annexe I XXIV section 1 NC1503 00 p.153,2546," l'exclusion des graisses d'os et de déchets (  γ ) 
+1503 00 Stéarine solaire, huile de saindoux, oléostéarine, oléo margarine et huile de suif, non émul­
+sionnées, ni mélangées ni autrement préparées  
+ex 1504 Graisses et huiles et leurs fractions, de poissons ou d e mammifères marins, même ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; source does not establish common edible-label use; do not extend animal_fat until label evidence.,REVIEW_REQUIRED,NO
+M0270,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terminology.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,talkolie,talkolie,153,Annexe I XXIV section 1 NC1503 00 p.153,2421,"nsumptie, met uitzondering van beendervet en kadav ervet ( γ ) 
+1503 00 Varkensstearine, spekolie, oleostearine, oleomargarine en talkolie, niet geëmulgeerd, niet 
+vermengd, noch op andere wijze bereid  
+ex 1504 Vetten en oliën, van vis of van zeezoogdieren, alsmede fracties daarvan, ook",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; source does not establish common edible-label use; do not extend animal_fat until label evidence.,REVIEW_REQUIRED,NO
+M0271,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terminology.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,tallo w oil,tallow oil,153,Annexe I XXIV section 1 NC1503 00 p.153,2205,"uman consumption, 
+excluding fats obtained from bones and waste (  γ ) 
+1503 00 Lard stearin, lard oil, oleostearin, oleo-oil and tallo w oil, not emulsified or mixed or 
+otherwise prepared  
+ex 1504 Fats and oils and their fractions, of fish or marine ma mmals, whether or not refined, but ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; source does not establish common edible-label use; do not extend animal_fat until label evidence.,REVIEW_REQUIRED,NO
+M0272,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terminology.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Talgöl,Talgöl,153,Annexe I XXIV section 1 NC1503 00 p.153,2386,"ebe nsmitteln, ausgenom­
+men Knochenfett und Abfallfett (  γ ) 
+1503 00 Schmalzstearin, Schmalzöl, Oleostearin, Oleomargarin un d Talgöl, weder emulgiert, ver­
+mischt noch anders verarbeitet  
+ex 1504 Fette und Öle sowie deren Fraktionen, von Fischen oder Meeressäugetieren, auch raffin",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; source does not establish common edible-label use; do not extend animal_fat until label evidence.,REVIEW_REQUIRED,NO
+M0042,SPECIES_MEAT,sheep_meat,NEW_CONCEPT_PROPOSAL,Meat of sheep; no French/German independent term in evidence.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,schapenvlees,schapenvlees,13,Art.18(4)(c) p.13 NL ; annexe I XVIII EN,1366,"ende bepalingen voor de betrokken producten, ond er 
+meer inzake de bevleesdheids- en de vetbedekkingsklassen, en, i n de 
+sector schapenvlees, aanvullende bepalingen inzake gewicht, vle es­
+kleur en vetbedekking en de criteria voor de indeling van karka ssen 
+van lichte lammeren;  
+d) tot v",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,No translation invented; use ingredient context.,REVIEW_REQUIRED,NO
+M0043,SPECIES_MEAT,sheep_meat,NEW_CONCEPT_PROPOSAL,Meat of sheep; no French/German independent term in evidence.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Sheepmeat,Sheepmeat,145,Art.18(4)(c) p.13 NL ; annexe I XVIII EN,1490,"0 % by 
+weight of sausages and the like, of meat and meat offal of any kind, including fats of any 
+kind or origin  
+PART XVIII  
+Sheepmeat and goatmeat  
+The sheepmeat and goatmeat sector shall cover the products list ed in the 
+following table:  
+CN code Description  
+(a) 0104 10 30 Lam",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,No translation invented; use ingredient context.,REVIEW_REQUIRED,NO
+M0044,SPECIES_MEAT,goat_meat,NEW_CONCEPT_PROPOSAL,Meat of goats; no French standalone term in evidence.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,geitenvlees,geitenvlees,145,"Annexe I XVIII, composés du titre",1742," worst, vlees of slachtafvallen van alle so orten, met inbegrip van vet 
+van alle soorten of oorsprong  
+DEEL XVIII  
+Schapen- en geitenvlees  
+De in de onderstaande tabel opgenomen producten vallen onder de  sector 
+schapen- en geitenvlees.  
+GN-code Omschrijving  
+a) 0104 10 30 Lammeren (",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,Risk of goat milk; context must establish meat.,REVIEW_REQUIRED,NO
+M0045,SPECIES_MEAT,goat_meat,NEW_CONCEPT_PROPOSAL,Meat of goats; no French standalone term in evidence.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,goatmeat,goatmeat,145,"Annexe I XVIII, composés du titre",1504," of sausages and the like, of meat and meat offal of any kind, including fats of any 
+kind or origin  
+PART XVIII  
+Sheepmeat and goatmeat  
+The sheepmeat and goatmeat sector shall cover the products list ed in the 
+following table:  
+CN code Description  
+(a) 0104 10 30 Lambs (up to one",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,Risk of goat milk; context must establish meat.,REVIEW_REQUIRED,NO
+M0046,SPECIES_MEAT,goat_meat,NEW_CONCEPT_PROPOSAL,Meat of goats; no French standalone term in evidence.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Ziegenfleisch,Ziegenfleisch,145,"Annexe I XVIII, composés du titre",1868,"eisch und Schlachtnebenerzeugnisse jeder Art, einschließlich 
+Fette jeder Art oder Herkunft, enthaltend  
+TEIL XVIII  
+Schaf- und Ziegenfleisch  
+Der Sektor Schaf- und Ziegenfleisch umfasst die in nachstehende r Tabelle auf­
+geführten Erzeugnisse:  
+KN-Code Warenbezeichnung  
+a) 0104 10 30 Lä",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,Risk of goat milk; context must establish meat.,REVIEW_REQUIRED,NO
+M0095,SPECIES_MEAT,horse_meat,NEW_CONCEPT_PROPOSAL,Meat of horses; separate equine meat concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Viandes de cheval,Viandes de cheval,156,"Annexe I XXIV section 2, NC ex0205/0210 99 10",2719,"stinés à la boucherie (  α ) 
+ex 0205 00 Viandes des animaux de l'espèce équine, fraîches, ré frigérées ou congelées  
+0210 99 10 Viandes de cheval, salées ou en saumure ou bien séch ées 
+0511 99 10 Nerfs ou tendons; rognures et déchets similaires de peaux brutes  
+0701 Pommes de terre, à l'état ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,Avoid animal-name descriptions; ingredient context required.,REVIEW_REQUIRED,NO
+M0096,SPECIES_MEAT,horse_meat,NEW_CONCEPT_PROPOSAL,Meat of horses; separate equine meat concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Vlees van paarden,Vlees van paarden,156,"Annexe I XXIV section 2, NC ex0205/0210 99 10",2556," 
+bepalingen van de gecombineerde nomenclatuur.  
+Afdeling 2  
+GN-code Omschrijving  
+0101 29 10 Slachtpaarden (  α ) 
+ex 0205 00 Vlees van paarden, vers, gekoeld of bevroren  
+0210 99 10 Vlees van paarden, gezouten, gepekeld of gedroogd  
+0511 99 10 Pezen en zenen; snippers en dergelijk afval va",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,meat,meat:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,Avoid animal-name descriptions; ingredient context required.,REVIEW_REQUIRED,NO
+M0097,SPECIES_MEAT,horse_meat,NEW_CONCEPT_PROPOSAL,Meat of horses; separate equine meat concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Meat of horses,Meat of horses,156,"Annexe I XXIV section 2, NC ex0205/0210 99 10",2293,"ions of  the 
+Combined Nomenclature.  
+Section 2  
+CN code Description  
+0101 29 10 Live horses, for slaughter (  α ) 
+ex 0205 00 Meat of horses, fresh, chilled or frozen  
+0210 99 10 Horsemeat, salted in brine or dried  
+0511 99 10 Sinews or tendons; parings and similar wastes of raw  hides o",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,Avoid animal-name descriptions; ingredient context required.,REVIEW_REQUIRED,NO
+M0098,SPECIES_MEAT,horse_meat,NEW_CONCEPT_PROPOSAL,Meat of horses; separate equine meat concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Horsemeat,Horsemeat,156,"Annexe I XXIV section 2, NC ex0205/0210 99 10",2347,"code Description  
+0101 29 10 Live horses, for slaughter (  α ) 
+ex 0205 00 Meat of horses, fresh, chilled or frozen  
+0210 99 10 Horsemeat, salted in brine or dried  
+0511 99 10 Sinews or tendons; parings and similar wastes of raw  hides or skins  
+0701 Potatoes, fresh or chilled  
+0901 ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,Avoid animal-name descriptions; ingredient context required.,REVIEW_REQUIRED,NO
+M0099,SPECIES_MEAT,horse_meat,NEW_CONCEPT_PROPOSAL,Meat of horses; separate equine meat concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Fleisch von Pferden,Fleisch von Pferden,156,"Annexe I XXIV section 2, NC ex0205/0210 99 10",2432,"gelegten Voraussetzungen.  
+Abschnitt 2  
+KN-Code Warenbezeichnung  
+0101 29 10 Pferde, lebend, zum Schlachten (  α ) 
+ex 0205 00 Fleisch von Pferden, frisch, gekühlt oder gefroren  
+0210 99 10 Fleisch von Pferden, gesalzen, in Salzlake oder getr ocknet 
+0511 99 10 Flechsen und Sehnen; Schnitzel un",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,Avoid animal-name descriptions; ingredient context required.,REVIEW_REQUIRED,NO
+M0067,SPECIES_IN_FOOD_SCOPE,chicken_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,coqs,coqs,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1207,"ase de viandes de volailles ou d'ab ats de volailles 
+des espèces suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0068,SPECIES_IN_FOOD_SCOPE,chicken_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,poules,poules,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1215,"iandes de volailles ou d'ab ats de volailles 
+des espèces suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+saumurée c",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0069,SPECIES_IN_FOOD_SCOPE,chicken_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,hanen,hanen,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1095,"evlees, alsmede van bereidingen en producten op basis 
+van pluimveevlees of slachtafval van pluimvee, van de volgende soorten: 
+— hanen en kippen (Gallus domesticus),  
+— eenden,  
+— ganzen,  
+— kalkoenen,  
+— parelhoenders.  
+Deze bepalingen zijn ook van toepassing op gepekeld pluimv",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0070,SPECIES_IN_FOOD_SCOPE,chicken_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,kippen,kippen,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1104,"lsmede van bereidingen en producten op basis 
+van pluimveevlees of slachtafval van pluimvee, van de volgende soorten: 
+— hanen en kippen (Gallus domesticus),  
+— eenden,  
+— ganzen,  
+— kalkoenen,  
+— parelhoenders.  
+Deze bepalingen zijn ook van toepassing op gepekeld pluimveevle es v",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0071,SPECIES_IN_FOOD_SCOPE,chicken_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Gallus domesticus,Gallus domesticus,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1009,"ypes and presentations of poultr ymeat, and 
+poultrymeat or poultry offal preparations and products, of the following 
+species 
+— Gallus domesticus , 
+— ducks,  
+— geese,  
+— turkeys,  
+— guinea fowls.  
+These provisions shall also apply to poultrymeat in brine falli ng within CN 
+code 0210 99 39",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0072,SPECIES_IN_FOOD_SCOPE,chicken_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Hühner,Hühner,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1193,"ssen aus Ge flügel­
+fleisch und Schlachtnebenerzeugnissen von Geflügel; hiervon bet roffen 
+sind die folgenden Geflügelarten:  
+— Hühner,  
+— Enten,  
+— Gänse,  
+— Truthühner,  
+— Perlhühner.  
+Die vorliegenden Bestimmungen gelten auch für Geflügelfleisch i n Salzlake 
+des KN-Codes 021",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0073,SPECIES_IN_FOOD_SCOPE,duck_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,canards,canards,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1227,"lailles ou d'ab ats de volailles 
+des espèces suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+saumurée couverte par l",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0074,SPECIES_IN_FOOD_SCOPE,duck_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,eenden,eenden,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1136,"ten op basis 
+van pluimveevlees of slachtafval van pluimvee, van de volgende soorten: 
+— hanen en kippen (Gallus domesticus),  
+— eenden,  
+— ganzen,  
+— kalkoenen,  
+— parelhoenders.  
+Deze bepalingen zijn ook van toepassing op gepekeld pluimveevle es van 
+GN-code 0210 99 39.  
+II. De",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0075,SPECIES_IN_FOOD_SCOPE,duck_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,ducks,ducks,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1032,"of poultr ymeat, and 
+poultrymeat or poultry offal preparations and products, of the following 
+species 
+— Gallus domesticus , 
+— ducks,  
+— geese,  
+— turkeys,  
+— guinea fowls.  
+These provisions shall also apply to poultrymeat in brine falli ng within CN 
+code 0210 99 39.  
+II. Def",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0076,SPECIES_IN_FOOD_SCOPE,duck_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Enten,Enten,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1205,"flügel­
+fleisch und Schlachtnebenerzeugnissen von Geflügel; hiervon bet roffen 
+sind die folgenden Geflügelarten:  
+— Hühner,  
+— Enten,  
+— Gänse,  
+— Truthühner,  
+— Perlhühner.  
+Die vorliegenden Bestimmungen gelten auch für Geflügelfleisch i n Salzlake 
+des KN-Codes 0210 99 39.  
+",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0077,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,oies,oies,185,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",1240,"ab ats de volailles 
+des espèces suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+saumurée couverte par le code NC ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0078,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,oie,oie,201,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",273,"e la nomenclature 
+combinée) 
+Mention réservée facultative  
+Viande de volaille 
+(codes NC 0207 et 0210) 
+alimenté avec … % de … 
+oie nourrie à l'avoine 
+élevé à l'intérieur/système extensif 
+sortant à l'extérieur 
+fermier — élevé en plein air 
+fermier — élevé en liberté 
+âge d'abat",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0079,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,ganzen,ganzen,185,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",1148," 
+van pluimveevlees of slachtafval van pluimvee, van de volgende soorten: 
+— hanen en kippen (Gallus domesticus),  
+— eenden,  
+— ganzen,  
+— kalkoenen,  
+— parelhoenders.  
+Deze bepalingen zijn ook van toepassing op gepekeld pluimveevle es van 
+GN-code 0210 99 39.  
+II. Definities  
+(",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0080,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,gans,gans,201,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",305,"latuur) 
+Facultatieve gereserveerde vermelding  
+vlees van pluimvee 
+(GN-codes 0207 en 0210) 
+gevoerd met … % … 
+haver vetgemeste gans 
+scharrel … binnengehouden 
+scharrel … met uitloop 
+boerenscharrel … met uitloop/hoeve … 
+met uitloop 
+boerenscharrel … met vrije uitloop/ 
+hoeve … m",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0081,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,geese,geese,185,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",1043,"meat, and 
+poultrymeat or poultry offal preparations and products, of the following 
+species 
+— Gallus domesticus , 
+— ducks,  
+— geese,  
+— turkeys,  
+— guinea fowls.  
+These provisions shall also apply to poultrymeat in brine falli ng within CN 
+code 0210 99 39.  
+II. Definitions  
+",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0082,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,goose,goose,201,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",251,"bined nomenclature clas­
+sification) 
+Optional reserved term  
+poultrymeat 
+(CN codes 0207 and 0210) 
+fed with … % of … 
+oats fed goose 
+extensive indoor/barn-reared 
+free range 
+traditional free range 
+free range — total freedom 
+age at slaughter 
+length of fattening period  
+eggs 
+(",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0083,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Gänse,Gänse,185,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",1216,"isch und Schlachtnebenerzeugnissen von Geflügel; hiervon bet roffen 
+sind die folgenden Geflügelarten:  
+— Hühner,  
+— Enten,  
+— Gänse,  
+— Truthühner,  
+— Perlhühner.  
+Die vorliegenden Bestimmungen gelten auch für Geflügelfleisch i n Salzlake 
+des KN-Codes 0210 99 39.  
+II. Begriff",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0084,SPECIES_IN_FOOD_SCOPE,goose_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Hafermastgans,Hafermastgans,201,"Annexe VII V.I, liste des espèces alimentaires ; annexe IX, mention facultative oie à l’avoine p.201",283,"
+binierte Nomenklatur) 
+Fakultative vorbehaltene Angabe  
+Geflügelfleisch 
+(KN-Code 0207, KN-Code 0210) 
+gefüttert mit … % von … 
+Hafermastgans 
+extensive Bodenhaltung 
+Freilandhaltung 
+bäuerliche Freilandhaltung 
+Freilandhaltung — unbegrenzter Aus­
+lauf 
+Schlachtalter 
+Mastdauer 
+Eier 
+(KN-C",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0085,SPECIES_IN_FOOD_SCOPE,turkey_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,dindons,dindons,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1250,"volailles 
+des espèces suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+saumurée couverte par le code NC 0210 99 39.  ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0086,SPECIES_IN_FOOD_SCOPE,turkey_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,dindes,dindes,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1261,"des espèces suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+saumurée couverte par le code NC 0210 99 39.  
+II. Défin",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0087,SPECIES_IN_FOOD_SCOPE,turkey_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,kalkoenen,kalkoenen,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1160,"eevlees of slachtafval van pluimvee, van de volgende soorten: 
+— hanen en kippen (Gallus domesticus),  
+— eenden,  
+— ganzen,  
+— kalkoenen,  
+— parelhoenders.  
+Deze bepalingen zijn ook van toepassing op gepekeld pluimveevle es van 
+GN-code 0210 99 39.  
+II. Definities  
+(1) ""Pluimveevle",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0088,SPECIES_IN_FOOD_SCOPE,turkey_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,turkeys,turkeys,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1054,"poultrymeat or poultry offal preparations and products, of the following 
+species 
+— Gallus domesticus , 
+— ducks,  
+— geese,  
+— turkeys,  
+— guinea fowls.  
+These provisions shall also apply to poultrymeat in brine falli ng within CN 
+code 0210 99 39.  
+II. Definitions  
+(1) ""poultrym",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0089,SPECIES_IN_FOOD_SCOPE,turkey_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Truthühner,Truthühner,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1227,"hlachtnebenerzeugnissen von Geflügel; hiervon bet roffen 
+sind die folgenden Geflügelarten:  
+— Hühner,  
+— Enten,  
+— Gänse,  
+— Truthühner,  
+— Perlhühner.  
+Die vorliegenden Bestimmungen gelten auch für Geflügelfleisch i n Salzlake 
+des KN-Codes 0210 99 39.  
+II. Begriffsbestimmungen  
+",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0090,SPECIES_IN_FOOD_SCOPE,guinea_fowl_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,pintades,pintades,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1273,"suivantes faisant l'objet d'une profession ou d'un commerce: 
+— coqs et poules,  
+— canards,  
+— oies,  
+— dindons et dindes,  
+— pintades.  
+Les présentes dispositions s'appliquent également à la viande d e volaille 
+saumurée couverte par le code NC 0210 99 39.  
+II. Définitions  
+1) «v",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0091,SPECIES_IN_FOOD_SCOPE,guinea_fowl_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,parelhoenders,parelhoenders,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1175,"htafval van pluimvee, van de volgende soorten: 
+— hanen en kippen (Gallus domesticus),  
+— eenden,  
+— ganzen,  
+— kalkoenen,  
+— parelhoenders.  
+Deze bepalingen zijn ook van toepassing op gepekeld pluimveevle es van 
+GN-code 0210 99 39.  
+II. Definities  
+(1) ""Pluimveevlees"": het voor mense",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0092,SPECIES_IN_FOOD_SCOPE,guinea_fowl_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,guinea fowls,guinea fowls,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1067,"r poultry offal preparations and products, of the following 
+species 
+— Gallus domesticus , 
+— ducks,  
+— geese,  
+— turkeys,  
+— guinea fowls.  
+These provisions shall also apply to poultrymeat in brine falli ng within CN 
+code 0210 99 39.  
+II. Definitions  
+(1) ""poultrymeat"" means poultry",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0093,SPECIES_IN_FOOD_SCOPE,guinea_fowl_meat,NEW_CONCEPT_PROPOSAL,Species-specific poultry flesh; source lists these species in a poultry meat/preparation/product marketing rule.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Perlhühner,Perlhühner,185,"Annexe VII V.I, liste des espèces de viandes/préparations/produits destinés à la commercialisation",1243,"gnissen von Geflügel; hiervon bet roffen 
+sind die folgenden Geflügelarten:  
+— Hühner,  
+— Enten,  
+— Gänse,  
+— Truthühner,  
+— Perlhühner.  
+Die vorliegenden Bestimmungen gelten auch für Geflügelfleisch i n Salzlake 
+des KN-Codes 0210 99 39.  
+II. Begriffsbestimmungen  
+1. ""Geflügelflei",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,"Bare species can refer to eggs, milk, flavour, or vegan alternatives: context-required and benchmark-gated. Gallus domesticus is a printed Latin taxon, not an English translation.",REVIEW_REQUIRED,NO
+M0198,MEAT_PREPARATION,poultry_meat_preparation,ALIAS_TO_EXISTING_PROPOSAL,"Fresh poultry meat preparation, existing concept.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,préparation à base de viande de volaille fraîche,préparation à base de viande de volaille fraîche,186,Annexe VII V.II.5-6 p.186,388," additif s ou qui a 
+subi une transformation insuffisante pour modifier à cœur la st ructure 
+interne fibreuse des muscles;  
+6) «préparation à base de viande de volaille fraîche»: préparat ion à base de 
+viande de volaille pour laquelle a été utilisée de la «viande d e volaille 
+fraîche». 
+Toutefois, les États membres peuvent",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,poultry_meat_preparation,poultry_meat_preparation:NON_VEGAN,PARTIAL_CONTEXTUAL,poultry_meat_preparation; keep owner,NON_VEGAN,Current recognition partial/absent; only qualified full phrases.,REVIEW_REQUIRED,NO
+M0200,MEAT_PREPARATION,poultry_meat_preparation,ALIAS_TO_EXISTING_PROPOSAL,"Fresh poultry meat preparation, existing concept.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Bereiding op basis van vers pluimveevlees,Bereiding op basis van vers pluimveevlees,186,Annexe VII V.II.5-6 p.186,372,"at een verwerk ing heeft 
+ondergaan die niet volstaat om de inwendige spierweefselstructu ur van 
+het vlees te veranderen;  
+(6) ""Bereiding op basis van vers pluimveevlees"": een bereiding op basis van 
+pluimveevlees waarvoor vers vlees van pluimvee is gebruikt.  
+De lidstaten kunnen evenwel enigszins afwijkende temperat",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,meat,poultry_meat_preparation:NON_VEGAN,PARTIAL_CONTEXTUAL,poultry_meat_preparation; keep owner,NON_VEGAN,Current recognition partial/absent; only qualified full phrases.,REVIEW_REQUIRED,NO
+M0202,MEAT_PREPARATION,poultry_meat_preparation,ALIAS_TO_EXISTING_PROPOSAL,"Fresh poultry meat preparation, existing concept.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,fresh poultrymeat preparation,fresh poultrymeat preparation,186,Annexe VII V.II.5-6 p.186,335,"ves added to it or which has undergone processes insuffic ient to 
+modify the internal muscle fibre structure of the meat;  
+(6) ""fresh poultrymeat preparation"" means a poultrymeat prepara tion for 
+which fresh poultrymeat has been used.  
+However, Member States may lay down slightly different temperat ure 
+",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,poultry_meat_preparation,poultry_meat_preparation:NON_VEGAN,PARTIAL_CONTEXTUAL,poultry_meat_preparation; keep owner,NON_VEGAN,Current recognition partial/absent; only qualified full phrases.,REVIEW_REQUIRED,NO
+M0204,MEAT_PREPARATION,poultry_meat_preparation,ALIAS_TO_EXISTING_PROPOSAL,"Fresh poultry meat preparation, existing concept.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,frische Geflügelfleischzubereitung,frische Geflügelfleischzubereitung,186,Annexe VII V.II.5-6 p.186,350,"Bearbeitungsverfahren unterzogen wurde, d as 
+nicht ausreicht, die innere Muskelfaserstruktur des Fleisches z u ver­
+ändern; 
+6. ""frische Geflügelfleischzubereitung"": Geflügelfleischzuberei tung, für die 
+frisches Geflügelfleisch verwendet wurde.  
+Die Mitgliedstaaten können jedoch für den notwendigen Mindestze i",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,poultry_meat_preparation:NON_VEGAN,NONE,poultry_meat_preparation; keep owner,NON_VEGAN,Current recognition partial/absent; only qualified full phrases.,REVIEW_REQUIRED,NO
+M0205,PROCESSED_MEAT,poultry_meat_product,NEW_CONCEPT_PROPOSAL,"Poultry meat product, distinct rubric from preparation.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,produit à base de viande de volaille,produit à base de viande de volaille,186,Annexe VII V.II.7 p.186,903,"page et la manipulation réalisés dans l'usine pendant la p roduction 
+de préparations à base de viande de volaille fraîche;  
+7) «produit à base de viande de volaille»: produit à base de vi ande tel que 
+défini à l'annexe I, point 7.1, du règlement (CE) n  o 853/2004, pour 
+lequel a été utilisée de la viande de vol",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,meat,meat:NON_VEGAN|poultry_meat_preparation:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,Cross-reference to 853/2004 unverified; verify composition before import.,REVIEW_REQUIRED,NO
+M0206,PROCESSED_MEAT,poultry_meat_product,NEW_CONCEPT_PROPOSAL,"Poultry meat product, distinct rubric from preparation.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Pluimveevleesproduct,Pluimveevleesproduct,186,Annexe VII V.II.7 p.186,783,"or het behandelen en uitsnijden in de fabriek tijdens de pro­
+ductie van bereidingen op basis van vers vlees van pluimvee;  
+(7) ""Pluimveevleesproduct"": een vleesproduct als omschreven in bijlage I, 
+punt 7.1, van Verordening (EG) nr. 853/2004, waarvoor pluimveev lees 
+is gebruikt.  
+III Vlees van p",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN|poultry_meat_preparation:NON_VEGAN,NONE,,NON_VEGAN,Cross-reference to 853/2004 unverified; verify composition before import.,REVIEW_REQUIRED,NO
+M0207,PROCESSED_MEAT,poultry_meat_product,NEW_CONCEPT_PROPOSAL,"Poultry meat product, distinct rubric from preparation.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,poultrymeat product,poultrymeat product,186,Annexe VII V.II.7 p.186,748,"o facilitate the cutting and hand ling 
+performed in the factory during the production of fresh poultry meat 
+preparations; 
+(7) ""poultrymeat product"" means a meat product as defined in po int 7.1 of 
+Annex I to Regulation (EC) No 853/2004 for which poultrymeat ha s 
+been used.  
+III. Poultrymeat a",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN|poultry_meat_preparation:NON_VEGAN,PARTIAL_CONTEXTUAL,,NON_VEGAN,Cross-reference to 853/2004 unverified; verify composition before import.,REVIEW_REQUIRED,NO
+M0208,PROCESSED_MEAT,poultry_meat_product,NEW_CONCEPT_PROPOSAL,"Poultry meat product, distinct rubric from preparation.",02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Geflügelfleischerzeugnis,Geflügelfleischerzeugnis,186,Annexe VII V.II.7 p.186,792,"m Zug e 
+der Herstellung von frischen Geflügelfleischzubereitungen erfol genden 
+Zerlegung und Handhabung erforderlich ist;  
+7. ""Geflügelfleischerzeugnis"": Fleischerzeugnis nach der Begrif fsbestim­
+mung in Anhang I Nummer 7.1 der Verordnung (EG) Nr. 853/2004, 
+für das Geflügelfleisch verwendet wurde. ",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN|poultry_meat_preparation:NON_VEGAN,NONE,,NON_VEGAN,Cross-reference to 853/2004 unverified; verify composition before import.,REVIEW_REQUIRED,NO
+M0148,ANIMAL_TISSUE,animal_blood,NEW_CONCEPT_PROPOSAL,Preparations of blood of all animal species; full qualified phrases only.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,sang,sang,145,"Annexe I XVII NC 1601/1602 10/1602 90 10, denrées à base de sang",972,"sses de porc (y compris le saindoux), autres  
+c) 1601 00 Saucisses, saucissons et produits similaires, de via nde, d'abats ou de sang; préparations 
+alimentaires à base de ces produits  
+1602 10 00 Préparations homogénéisées de viandes, d'abats ou de  sang  
+1602 20 90 Préparations ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,"Bare blood ambiguous (blood orange, etc.).",REVIEW_REQUIRED,NO
+M0149,ANIMAL_TISSUE,animal_blood,NEW_CONCEPT_PROPOSAL,Preparations of blood of all animal species; full qualified phrases only.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,bloed,bloed,145,"Annexe I XVII NC 1601/1602 10/1602 90 10, denrées à base de sang",901,"01 10 
+1501 20 
+Varkensvet (reuzel daaronder begrepen)  
+c) 1601 00 Worst van alle soorten, van vlees, van slachtafvalle n of van bloed; bereidingen van deze 
+producten, voor menselijke consumptie  
+1602 10 00 Gehomogeniseerde bereidingen van vlees, van slachtaf vallen of van bloed  
+",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,"Bare blood ambiguous (blood orange, etc.).",REVIEW_REQUIRED,NO
+M0150,ANIMAL_TISSUE,animal_blood,NEW_CONCEPT_PROPOSAL,Preparations of blood of all animal species; full qualified phrases only.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,blood,blood,145,"Annexe I XVII NC 1601/1602 10/1602 90 10, denrées à base de sang",785," dried or smoked  
+1501 10 
+1501 20 
+Pig fat (including lard)  
+(c) 1601 00 Sausages and similar products, of meat, meat offal or blood; food preparations based on 
+these products  
+1602 10 00 Homogenised preparations of meat, meat offal or bloo d 
+1602 20 90 Preparations or preserves",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,"Bare blood ambiguous (blood orange, etc.).",REVIEW_REQUIRED,NO
+M0151,ANIMAL_TISSUE,animal_blood,NEW_CONCEPT_PROPOSAL,Preparations of blood of all animal species; full qualified phrases only.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Blut,Blut,145,"Annexe I XVII NC 1601/1602 10/1602 90 10, denrées à base de sang",960,"efett (einschließlich Schweineschmalz)  
+c) 1601 00 Würste und ähnliche Erzeugnisse, aus Fleisch, Schlac htnebenerzeugnissen oder Blut; Le­
+bensmittelzubereitungen auf der Grundlage dieser Erzeugnisse  
+1602 10 00 Homogenisierte Zubereitungen aus Fleisch, Schlachtne benerzeugnissen o",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,"Bare blood ambiguous (blood orange, etc.).",REVIEW_REQUIRED,NO
+M0143,PROCESSED_MEAT,meat_sausage,NEW_CONCEPT_PROPOSAL,Sausage products in meat sector context.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Saucisses,Saucisses,145,Annexe I XVII NC 1601 00,900,"mest ique, salés ou en saumure, séchés ou 
+fumés 
+1501 10 
+1501 20 
+Graisses de porc (y compris le saindoux), autres  
+c) 1601 00 Saucisses, saucissons et produits similaires, de via nde, d'abats ou de sang; préparations 
+alimentaires à base de ces produits  
+1602 10 00 Préparations homog",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,Bare sausage terms may denote plant-based products; hold active alias until context guard/benchmark.,REVIEW_REQUIRED,NO
+M0144,PROCESSED_MEAT,meat_sausage,NEW_CONCEPT_PROPOSAL,Sausage products in meat sector context.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,saucissons,saucissons,145,Annexe I XVII NC 1601 00,911,"salés ou en saumure, séchés ou 
+fumés 
+1501 10 
+1501 20 
+Graisses de porc (y compris le saindoux), autres  
+c) 1601 00 Saucisses, saucissons et produits similaires, de via nde, d'abats ou de sang; préparations 
+alimentaires à base de ces produits  
+1602 10 00 Préparations homogénéisées de ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,Bare sausage terms may denote plant-based products; hold active alias until context guard/benchmark.,REVIEW_REQUIRED,NO
+M0145,PROCESSED_MEAT,meat_sausage,NEW_CONCEPT_PROPOSAL,Sausage products in meat sector context.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Worst,Worst,145,Annexe I XVII NC 1601 00,839,"ns (huisdieren ), gezouten, gepekeld, gedroogd of 
+gerookt 
+1501 10 
+1501 20 
+Varkensvet (reuzel daaronder begrepen)  
+c) 1601 00 Worst van alle soorten, van vlees, van slachtafvalle n of van bloed; bereidingen van deze 
+producten, voor menselijke consumptie  
+1602 10 00 Gehomogenisee",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,Bare sausage terms may denote plant-based products; hold active alias until context guard/benchmark.,REVIEW_REQUIRED,NO
+M0146,PROCESSED_MEAT,meat_sausage,NEW_CONCEPT_PROPOSAL,Sausage products in meat sector context.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Sausages,Sausages,145,Annexe I XVII NC 1601 00,731,"dible meat offal of domestic swine, salted, i n brine, dried or smoked  
+1501 10 
+1501 20 
+Pig fat (including lard)  
+(c) 1601 00 Sausages and similar products, of meat, meat offal or blood; food preparations based on 
+these products  
+1602 10 00 Homogenised preparations of meat, meat of",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,Bare sausage terms may denote plant-based products; hold active alias until context guard/benchmark.,REVIEW_REQUIRED,NO
+M0147,PROCESSED_MEAT,meat_sausage,NEW_CONCEPT_PROPOSAL,Sausage products in meat sector context.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Würste,Würste,145,Annexe I XVII NC 1601 00,882,"gesalzen, in Salzlake, 
+getrocknet oder geräuchert  
+1501 10 
+1501 20 
+Schweinefett (einschließlich Schweineschmalz)  
+c) 1601 00 Würste und ähnliche Erzeugnisse, aus Fleisch, Schlac htnebenerzeugnissen oder Blut; Le­
+bensmittelzubereitungen auf der Grundlage dieser Erzeugnisse  
+1602 ",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN|edible_offal:NON_VEGAN,NONE,,NON_VEGAN,Bare sausage terms may denote plant-based products; hold active alias until context guard/benchmark.,REVIEW_REQUIRED,NO
+M0121,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Jambons,Jambons,148,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,1065,"s:  
+ex 0203 11 – – En carcasses ou demi-carcasses:  
+0203 11 90 – – – autres que de l'espèce porcine domestique  
+ex 0203 12 – – Jambons, épaules et leurs morceaux, non désossés : 
+0203 12 90 – – – autres que de l'espèce porcine domestique  
+ex 0203 19 – – autres:  
+0203 19 90 – – – au",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0122,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Jambons et morceaux de jambons,Jambons et morceaux de jambons,154,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,2139,"ile d'olive  
+ex 1602 Autres préparations et conserves de viandes, d'abats ou  de sang:  
+– de l'espèce porcine:  
+ex 1602 41 – – Jambons et morceaux de jambons:  
+1602 41 90 – – – autres que de l'espèce porcine domestique  
+ex 1602 42 – – Épaules et leurs morceaux:  
+1602 42 90 – – – autres que de l'espèce p",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0123,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Hammen,Hammen,148,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,933,"ers of gekoeld:  
+ex 0203 11 – – Hele en halve karkassen:  
+0203 11 90 – – – Andere dan van varkens (huisdieren)  
+ex 0203 12 – – Hammen, schouders en delen daarvan, met been:  
+0203 12 90 – – – Andere dan van varkens (huisdieren)  
+ex 0203 19 – – Andere:  
+0203 19 90 – – – Andere dan ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0124,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Hammen en delen daarvan,Hammen en delen daarvan,154,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,2146,"e heeft  
+ex 1602 Andere bereidingen en conserven, van vlees, van slachta fvallen of van bloed:  
+– Van varkens:  
+ex 1602 41 – – Hammen en delen daarvan:  
+1602 41 90 – – – Andere dan van varkens (huisdieren)  
+ex 1602 42 – – Schouders en delen daarvan  
+1602 42 90 – – – Andere dan van varkens (huisdi",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0125,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Hams,Hams,148,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,903,"Fresh or chilled:  
+ex 0203 11 – – Carcasses and half-carcasses:  
+0203 11 90 – – – Other than of domestic swine  
+ex 0203 12 – – Hams, shoulders and cuts thereof, with bone in:  
+0203 12 90 – – – Other than of domestic swine  
+ex 0203 19 – – Other:  
+0203 19 90 – – – Other than of d",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0126,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Hams and cuts thereof,Hams and cuts thereof,154,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,1893,"the characteristics of ol ive oil  
+ex 1602 Other prepared or preserved meat, meat offal or blood:  
+– Of swine:  
+ex 1602 41 – – Hams and cuts thereof:  
+1602 41 90 – – – Other than of domestic swine  
+ex 1602 42 – – Shoulders and cuts thereof:  
+1602 42 90 – – – Other than of domestic swine  
+ex 16",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0127,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Schinken,Schinken,148,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,941,"isch oder gekühlt:  
+ex 0203 11 – – ganze oder halbe Tierkörper:  
+0203 11 90 – – – andere als von Hausschweinen  
+ex 0203 12 – – Schinken oder Schultern und Teile davon, mit Kno chen: 
+0203 12 90 – – – andere als von Hausschweinen  
+ex 0203 19 – – andere:  
+0203 19 90 – – – andere als v",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0128,CUT_OR_PROCESSED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Schinken und Teile davon,Schinken und Teile davon,154,Annexe I XXIV section 1 : ex0203 12 p.148 ; ex0210 11 p.149 ; ex1602 41 p.154,2033,"ex 1602 Fleisch, Schlachtnebenerzeugnisse oder Blut, anders zub ereitet oder haltbar gemacht:  
+– von Schweinen:  
+ex 1602 41 – – Schinken und Teile davon:  
+1602 41 90 – – – andere als von Hausschweinen  
+ex 1602 42 – – Schultern und Teile davon:  
+1602 42 90 – – – andere als von Hausschweinen  
+ex 160",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0137,MEAT_CUT_OR_SALTED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Poitrines (entrelardées),Poitrines (entrelardées),149,"Annexe I XXIV section 1 ex0210 12, viande porcine salée/saumurée/séchée/fumée, hors porc domestique",1895,"– Jambons, épaules et leurs morceaux, non désossés : 
+0210 11 90 – – – autres que de l'espèce porcine domestique  
+ex 0210 12 – – Poitrines (entrelardées) et leurs morceaux:  
+0210 12 90 – – – autres que de l'espèce porcine domestique  
+▼B",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0138,MEAT_CUT_OR_SALTED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Buiken (buikspek),Buiken (buikspek),149,"Annexe I XXIV section 1 ex0210 12, viande porcine salée/saumurée/séchée/fumée, hors porc domestique",1951,"0210 11 – – Hammen, schouders en delen daarvan, met been:  
+0210 11 90 – – – Andere dan van varkens (huisdieren)  
+ex 0210 12 – – Buiken (buikspek) en delen daarvan:  
+0210 12 90 – – – Andere dan van varkens (huisdieren)  
+▼B",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0139,MEAT_CUT_OR_SALTED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,buikspek,buikspek,149,"Annexe I XXIV section 1 ex0210 12, viande porcine salée/saumurée/séchée/fumée, hors porc domestique",1959,"– – Hammen, schouders en delen daarvan, met been:  
+0210 11 90 – – – Andere dan van varkens (huisdieren)  
+ex 0210 12 – – Buiken (buikspek) en delen daarvan:  
+0210 12 90 – – – Andere dan van varkens (huisdieren)  
+▼B",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0140,MEAT_CUT_OR_SALTED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Bellies (streaky),Bellies (streaky),149,"Annexe I XXIV section 1 ex0210 12, viande porcine salée/saumurée/séchée/fumée, hors porc domestique",1664," 
+ex 0210 11 – – Hams, shoulders and cuts thereof, with bone in:  
+0210 11 90 – – – Other than of domestic swine  
+ex 0210 12 – – Bellies (streaky) and cuts thereof:  
+0210 12 90 – – – Other than of domestic swine  
+▼B",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0141,MEAT_CUT_OR_SALTED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Bäuche (Bauchspeck),Bäuche (Bauchspeck),149,"Annexe I XXIV section 1 ex0210 12, viande porcine salée/saumurée/séchée/fumée, hors porc domestique",1870,"210 11 – – Schinken oder Schultern und Teile davon, mit Kno chen: 
+0210 11 90 – – – andere als von Hausschweinen  
+ex 0210 12 – – Bäuche (Bauchspeck) und Teile davon:  
+0210 12 90 – – – andere als von Hausschweinen  
+▼B",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0142,MEAT_CUT_OR_SALTED_MEAT,pork_cuts,NEW_CONCEPT_PROPOSAL,Grouped pork cuts: ham and belly; no concept per cut.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Bauchspeck,Bauchspeck,149,"Annexe I XXIV section 1 ex0210 12, viande porcine salée/saumurée/séchée/fumée, hors porc domestique",1878," – Schinken oder Schultern und Teile davon, mit Kno chen: 
+0210 11 90 – – – andere als von Hausschweinen  
+ex 0210 12 – – Bäuche (Bauchspeck) und Teile davon:  
+0210 12 90 – – – andere als von Hausschweinen  
+▼B",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,meat:NON_VEGAN,NONE,,NON_VEGAN,Plant-based ham/bacon alternatives; source offers no standalone ?bacon? spelling. Context test required.,REVIEW_REQUIRED,NO
+M0162,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Foies de volailles,Foies de volailles,146,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,1635,"s foies relevant du point c)  
+c) 0207 13 91 
+0207 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Foies de volailles, frais, réfrigérés, congelés  
+0210 99 71 
+0210 99 79 
+Foies de volailles, salés, en saumure, séchés ou fumés  
+d) 0209 90 00 Graisse de volailles no",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,edible_offal,edible_offal:NON_VEGAN,EXACT,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0163,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Foies d'oie ou de canards,Foies d'oie ou de canards,147,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,85," 
+02013R1308 — FR — 18.08.2026 — 013.001 — 147  
+Code NC Description  
+f) 1602 20 10 Foies d'oie ou de canards, autrement préparés ou conservés 
+1602 31 
+1602 32 
+1602 39 
+Viandes ou abats de volailles de la position 0105, autrement pr éparés ou conservés  
+PA",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,edible_offal:NON_VEGAN,NONE,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0165,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Levers van pluimvee,Levers van pluimvee,146,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,1589,"an levers bedoeld in punt c)  
+c) 0207 13 91 
+0207 14 91 
+0207 26 91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Levers van pluimvee, vers, gekoeld, bevroren  
+0210 99 71 
+0210 99 79 
+Levers van pluimvee, gezouten, gepekeld, gedroogd of gerookt  
+d) 0209 90 00 Vet van gevogelte (ni",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,edible_offal,edible_offal:NON_VEGAN,EXACT,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0166,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,levers van ga nzen of van eenden,Levers van ganzen of van eenden,147,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,122," 
+02013R1308 — NL — 18.08.2026 — 013.001 — 147  
+GN-code Omschrijving  
+f) 1602 20 10 Andere bereidingen en conserven van levers van ga nzen of van eenden  
+1602 31 
+1602 32 
+1602 39 
+Andere bereidingen en conserven van vlees of van slachtafvallen  van pluimvee bedoeld bij 
+post 0105.  
+DEEL XXI  
+Ethyl",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,edible_offal:NON_VEGAN,NONE,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0168,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Poultry livers,Poultry livers,146,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,1544,"91 
+0207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Poultry liver, fresh, chilled or frozen  
+0210 99 71 
+0210 99 79 
+Poultry livers, salted, in brine, dried or smoked  
+(d) 0209 90 00 Poultry fat, not rendered or otherwise extracted , fresh, chilled, frozen, salted, in brine, drie",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,edible_offal,edible_offal:NON_VEGAN,EXACT,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0169,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Goose or duck livers,Goose or duck livers,147,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,86," 
+02013R1308 — EN — 18.08.2026 — 013.001 — 147  
+CN code Description  
+(f) 1602 20 10 Goose or duck livers, otherwise prepared or pres erved 
+1602 31 
+1602 32 
+1602 39 
+Meat or meat offal of poultry of heading 0105, otherwise prepar ed or preserved  
+PART ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,edible_offal:NON_VEGAN,NONE,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0171,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Geflügellebern,Geflügellebern,146,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,1722,"207 27 91 
+0207 43 00 
+0207 44 91 
+0207 45 93 
+0207 45 95 
+Geflügelleber, frisch, gekühlt oder gefroren  
+0210 99 71 
+0210 99 79 
+Geflügellebern, gesalzen, in Salzlake, getrocknet oder geräuche rt 
+d) 0209 90 00 Geflügelfett, weder ausgeschmolzen noch anders au sgezogen, frisch, gekühlt, gefro",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,edible_offal,edible_offal:NON_VEGAN,EXACT,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0172,EDIBLE_OFFAL,edible_offal,ALIAS_TO_EXISTING_PROPOSAL,Species-qualified poultry/goose/duck liver forms under existing edible offal.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Gänse- oder Entenlebern,Gänse- oder Entenlebern,147,Annexe I XVII NC1602 20 90 p.145 ; XX NC0207/0210 p.146 et NC1602 20 10 p.147,90," 
+02013R1308 — DE — 18.08.2026 — 013.001 — 147  
+KN-Code Warenbezeichnung  
+f) 1602 20 10 Gänse- oder Entenlebern, anders zubereitet oder h altbar gemacht  
+1602 31 
+1602 32 
+1602 39 
+Fleisch oder Schlachtnebenerzeugnisse von Geflügel der Position  0105, anders z",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,edible_offal:NON_VEGAN,NONE,edible_offal,NON_VEGAN,Liver oil and prepared-product ambiguity; prefer complete species-qualified phrasing.,REVIEW_REQUIRED,NO
+M0269,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terms.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,huile de suif,huile de suif,153,Annexe I XXIV section 1 NC1503 00 p.153,2546," l'exclusion des graisses d'os et de déchets (  γ ) 
+1503 00 Stéarine solaire, huile de saindoux, oléostéarine, oléo margarine et huile de suif, non émul­
+sionnées, ni mélangées ni autrement préparées  
+ex 1504 Graisses et huiles et leurs fractions, de poissons ou d e mammifères marins, même ",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; food-label use not established.,REVIEW_REQUIRED,NO
+M0270,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terms.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,talkolie,talkolie,153,Annexe I XXIV section 1 NC1503 00 p.153,2421,"nsumptie, met uitzondering van beendervet en kadav ervet ( γ ) 
+1503 00 Varkensstearine, spekolie, oleostearine, oleomargarine en talkolie, niet geëmulgeerd, niet 
+vermengd, noch op andere wijze bereid  
+ex 1504 Vetten en oliën, van vis of van zeezoogdieren, alsmede fracties daarvan, ook",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; food-label use not established.,REVIEW_REQUIRED,NO
+M0271,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terms.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,tallo w oil,tallow oil,153,Annexe I XXIV section 1 NC1503 00 p.153,2205,"uman consumption, 
+excluding fats obtained from bones and waste (  γ ) 
+1503 00 Lard stearin, lard oil, oleostearin, oleo-oil and tallo w oil, not emulsified or mixed or 
+otherwise prepared  
+ex 1504 Fats and oils and their fractions, of fish or marine ma mmals, whether or not refined, but ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; food-label use not established.,REVIEW_REQUIRED,NO
+M0272,ANIMAL_FAT_FRACTION,animal_fat,DEFERRED_ALIAS,Tallow oil/fraction terms.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Talgöl,Talgöl,153,Annexe I XXIV section 1 NC1503 00 p.153,2386,"ebe nsmitteln, ausgenom­
+men Knochenfett und Abfallfett (  γ ) 
+1503 00 Schmalzstearin, Schmalzöl, Oleostearin, Oleomargarin un d Talgöl, weder emulgiert, ver­
+mischt noch anders verarbeitet  
+ex 1504 Fette und Öle sowie deren Fraktionen, von Fischen oder Meeressäugetieren, auch raffin",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,,animal_fat:NON_VEGAN,NONE,animal_fat,,Technical tariff fraction; food-label use not established.,REVIEW_REQUIRED,NO
+M0006,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Viande bovine,Viande bovine,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",653,"c 
+Le secteur du tabac couvre les tabacs bruts ou non fabriqués et  les déchets de 
+tabac relevant du code NC 2401.  
+PARTIE XV  
+Viande bovine  
+Le secteur de la viande bovine couvre les produits énumérés dan s le tableau 
+suivant: 
+Code NC Description  
+a) 0102 29 05 à 
+0102 29 99, 
+0102 39",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0008,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Rundvlees,Rundvlees,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",623,"Tabak 
+Ruwe en niet tot verbruik bereide tabak en afvallen van tabak v an GN-code 2401 
+vallen onder de sector tabak.  
+DEEL XV  
+Rundvlees 
+De in de onderstaande tabel opgenomen producten vallen onder de  sector 
+rundvlees. 
+GN-code Omschrijving  
+a) 0102 29 05 t/m 
+0102 29 99, 
+0102 39 ",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0010,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,beef,beef,3,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",76," 
+02013R1308 — EN — 18.08.2026 — 013.001 — 3  
+(n) tobacco, Part XIV;  
+(o) beef and veal, Part XV;  
+(p) milk and milk products, Part XVI;  
+(q) pigmeat, Part XVII;  
+(r) sheepmeat and goatmeat, Part XVIII;  
+(s) eggs, Part XIX; ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0012,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Rindfleisch,Rindfleisch,143,"Annexe I XV, titre et NC 0201 ; art. 1(2)(o)",584," 
+TEIL XIV  
+Tabak 
+Der Tabaksektor umfasst Rohtabak oder unverarbeiteten Tabak und  Tabakabfälle 
+des KN-Codes 2401.  
+TEIL XV  
+Rindfleisch 
+Der Rindfleischsektor umfasst die in nachstehender Tabelle aufg eführten Erzeug­
+nisse: 
+KN-Code Warenbezeichnung  
+a) 0102 29 05 bis 
+0102 29 99, 
+",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0014,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,veau,veau,172,"Annexe VII I.III.1.A, dénominations de vente V ; p.172 France/Pays-Bas/Irlande/Allemagne",244,"lbfleisch  
+Estonie Vasikaliha  
+Irlande veal  
+Grèce μοσχάρι γάλακτος  
+Espagne ternera blanca, carne de ternera blanca  
+France veau, viande de veau  
+Croatie teletina  
+Italie vitello, carne di vitello  
+Chypre μοσχάρι γάλακτος  
+Lettonie teļa gaļa  
+Lituanie veršiena  
+Luxembourg",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0017,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_EN_TXT.pdf,EN,Veal,Veal,172,"Annexe VII I.III.1.A, dénominations de vente V ; p.172 France/Pays-Bas/Irlande/Allemagne",148,"— 18.08.2026 — 013.001 — 172  
+Czech Republic Telecí  
+Denmark Lyst kalvekød  
+Germany Kalbfleisch  
+Estonia Vasikaliha  
+Ireland Veal  
+Greece μοσχάρι γάλακτος  
+Spain Ternera blanca, carne de ternera blanca  
+France veau, viande de veau  
+Croatia teletina  
+Italy vitello, carne di ",b5cc2ea8e761cc408cca7f8930de7b2c01c2609f88dcb5a6bdbc4882e4455d11,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0025,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Viande de porc,Viande de porc,145,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",63," 
+02013R1308 — FR — 18.08.2026 — 013.001 — 145  
+PARTIE XVII  
+Viande de porc  
+Le secteur de la viande de porc couvre les produits énumérés da ns le tableau 
+suivant: 
+Code NC Description  
+a) ex 0103 Animaux vivants de l'espè",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0027,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_NL_TXT.pdf,NL,Varkensvlees,Varkensvlees,145,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",61," 
+02013R1308 — NL — 18.08.2026 — 013.001 — 145  
+DEEL XVII  
+Varkensvlees 
+De in de onderstaande tabel opgenomen producten vallen onder de  sector 
+varkensvlees. 
+GN-code Omschrijving  
+a) ex 0103 Levende varkens (huisdiere",99ee3d7c91c02249f6ca6ffca15e06cf2e9603ab9718919138dd2a981281bb74,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0031,SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_DE_TXT.pdf,DE,Schweinefleisch,Schweinefleisch,145,"Annexe I XVII, titre/NC ex0203 ; art.1(2)(q)",61," 
+02013R1308 — DE — 18.08.2026 — 013.001 — 145  
+TEIL XVII  
+Schweinefleisch 
+Der Schweinefleischsektor umfasst die in nachstehender Tabelle aufgeführten 
+Erzeugnisse: 
+KN-Code Warenbezeichnung  
+a) ex 0103 Hausschweine, leben",64a45b265e50b848f0a1ae239b94a1feef40608b69c69c9e5e14f0ffb7328dda,meat,meat:NON_VEGAN,EXACT,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO
+M0033,COLLECTIVE_SPECIES_MEAT,meat,RETAIN_HISTORICAL_OWNER,Preserve existing broad meat concept; do not transfer this alias to a species-specific concept.,02013R1308,2026-08-18,CELEX_02013R1308-20260818_FR_TXT.pdf,FR,Viandes ovines et caprines,Viandes ovines et caprines,145,"Annexe I XVIII, titre/NC 0204",1772,"sons et similaires, de viandes et d'ab ats de toutes espèces, y 
+compris les graisses de toute nature ou origine  
+PARTIE XVIII  
+Viandes ovines et caprines  
+Le secteur des viandes ovine et caprine couvre les produits énu mérés dans le 
+tableau suivant:  
+Code NC Description  
+a) 0104 10 30 Agneaux (jusq",5ea4e8f11d1ad1871ae780bbdc05ee4beff9a2283b8876be6bffaec4e73f4a4c,,meat:NON_VEGAN,NONE,meat owns this alias; keep unchanged,NON_VEGAN,"Already-recognized historical alias; preserve exactly, do not duplicate/reassign. Context risks remain unchanged.",REVIEW_REQUIRED,NO

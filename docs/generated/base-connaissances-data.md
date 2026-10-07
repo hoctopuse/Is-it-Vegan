@@ -486,6 +486,11 @@
 | buttermilk | Babeurre | VEGETARIAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
 | royal_jelly | Gelée royale | VEGETARIAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 |
 | propolis | Propolis | VEGETARIAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818, isitvegan-animal-products-convention-v0-7 |
+| bovine_meat | Meat of bovine animals | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| pork_meat | Meat of domestic swine | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| sheep_meat | Sheepmeat | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| goat_meat | goatmeat | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
+| horse_meat | Horsemeat | NON_VEGAN | — | — | eu-agricultural-products-regulation-1308-2013-20260818 |
 
 ### Alias multilingues
 
@@ -499,6 +504,7 @@
 | black_olive | olives noires, olive noire, olives nores | zwarte olijf, zwarte olijven | schwarze Olive, schwarze Oliven | black olive, black olives | — | — | — |
 | blackberry | mûre, mûres | braam, bramen, gevriesdroogde bramen | Brombeere, Brombeeren | blackberry, blackberries, freeze-dried blackberries | mora, more | mora, moras | — |
 | blueberry | myrtille, myrtilles | bosbes, bosbessen, gevriesdroogde bosbessen, gedroogde blauwe bessen | Heidelbeere, Heidelbeeren | blueberry, blueberries, freeze-dried blueberries | mirtillo, mirtilli | arándano, arándanos | — |
+| bovine_meat | Viandes des animaux de l'espèce bovine | Vlees van runderen | Fleisch von Rindern | Meat of bovine animals | — | — | — |
 | brazil_nut | noix du Brésil | paranoten, paranoot | — | — | — | — | — |
 | butter | — | — | Butterreinfett | — | — | — | — |
 | buttermilk | babeurre | karnemelk, botermelk | Buttermilch | buttermilk | — | — | — |
@@ -869,8 +875,10 @@
 | fruit_nectar | nectar de fruits | vruchtennectar | Fruchtnektar | fruit nectar | — | — | — |
 | fruit_puree | purée de fruits, purée de fruits concentrée | vruchtenpuree | Fruchtmark | fruit purée, concentrated fruit purée | — | — | — |
 | glucose_syrup | — | glucosestroop, glucose-fructosestroop | Glukosesirup | — | — | — | — |
+| goat_meat | — | geitenvlees | Ziegenfleisch | goatmeat | — | — | — |
 | hazelnut | noisettes | hazelnoten, hazelnoot | — | — | — | — | — |
 | honey | miel, miel de fleurs, miel de nectars, miel de miellat, miel en rayons, miel avec morceaux de rayons, miel égoutté, miel centrifugé, miel pressé, miel destiné à l’industrie, Miel naturel | honing, honig, bloemenhoning, bloemenhonig, nectarhoning, nectarhonig, honingdauwhoning, honingdauwhonig, raathoning, raathonig, brokhoning, brokhonig, raatbrokken in honing/honig, lekhoning, lekhonig, slingerhoning, slingerhonig, pershoning, pershonig, bakkershoning, Natuurhoning | Honig, Blütenhonig, Nektarhonig, Honigtauhonig, Wabenhonig, Scheibenhonig, Honig mit Wabenteilen, Wabenstücke in Honig, Tropfhonig, Schleuderhonig, Presshonig, Backhonig, Natürlicher Honig | honey, blossom honey, nectar honey, honeydew honey, comb honey, chunk honey, cut comb in honey, drained honey, extracted honey, pressed honey, Baker's honey, Natural honey | — | — | — |
+| horse_meat | Viandes de cheval | Vlees van paarden | Fleisch von Pferden | Meat of horses, Horsemeat | — | — | — |
 | inulin | inuline | inuline | Inulin | inulin | inulina | inulina | — |
 | macadamia | noix de macadamia | macadamianoten, macadamianoot | — | — | — | — | — |
 | malt | malt, extrait de malt, flocons de céréales maltés, farine de malt d’orge, farine de malt de blé | mout, gerstermout, gerstermoutextract, gemoute gerstemeel, gemoute tarwebloem | Gerstenmalz, Gerstenmalzextrakt | malt, barley malt extract | malto, estratto di malto | malta, extracto de malta | — |
@@ -889,6 +897,7 @@
 | pecan | noix de pécan | pecannoten, pecannoot | — | — | — | — | — |
 | pineapple | ananas, ananas confits | ananas | — | — | — | — | — |
 | pistachio | — | pistachenoten, pisaehenoten | — | — | — | — | — |
+| pork_meat | Viandes des animaux de l'espèce porcine domestique | Vlees van varkens | — | Meat of domestic swine | — | — | — |
 | poultry_meat_preparation | préparation à base de viande de volaille | bereiding op basis van pluimveevlees | Geflügelfleischzubereitungen | poultrymeat preparation | — | — | — |
 | powdered_chocolate | chocolat en poudre, cacao sucré | chocoladepoeder, gesuikerd cacaopoeder | Schokoladenpulver, gezuckerter Kakao | powdered chocolate, sweetened cocoa powder | — | — | — |
 | processed_fruit_vegetable_product | produits transformés à base de fruits et légumes | verwerkte groenten en fruit | Verarbeitungserzeugnisse aus Obst und Gemüse | processed fruit and vegetable products | — | — | — |
@@ -900,6 +909,7 @@
 | royal_jelly | Gelée royale | koninginnengelei | Gelée Royale | Royal jelly | — | — | — |
 | rye | seigle | rogge, volkoren roggevlokken | Roggen | rye | segale | centeno | — |
 | salt | sel marin | zout, zeezout | Salz, Speisesalz | — | sale | sal | — |
+| sheep_meat | — | schapenvlees | — | Sheepmeat | — | — | — |
 | smoke_flavouring | arôme de fumée | rookaroma | Raucharoma | smoke flavouring | — | — | — |
 | sour_cherry | griottes, griottes séchées et sucrées | zure kersen | — | — | — | — | — |
 | spreadable_fat | matières grasses tartinables | smeerbare vetten | Streichfette | spreadable fats | — | — | — |
