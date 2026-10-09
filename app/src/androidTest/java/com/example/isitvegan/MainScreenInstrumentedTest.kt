@@ -4,12 +4,14 @@ import android.os.ParcelFileDescriptor
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
+import androidx.compose.ui.test.performTextClearance
 import androidx.compose.ui.test.performTextInput
 import androidx.compose.ui.test.waitUntilAtLeastOneExists
 import androidx.test.platform.app.InstrumentationRegistry
@@ -56,6 +58,23 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("ANALYSER").performClick()
         composeRule.waitUntilAtLeastOneExists(hasText("✅ VEGAN", substring = true), 10_000)
         composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
+    }
+
+    @Test fun analysisClickUsesTheEditedOcrFieldValue() {
+        val initialOcrText = "INGRÉDIENTS\nZZZRAWONLYQZX"
+        val editedText = "INGRÉDIENTS\neau, sucre"
+
+        composeRule.onNodeWithText("OCR").performClick()
+        composeRule.onNodeWithText("Texte éditable à analyser").performTextInput(initialOcrText)
+        composeRule.onNodeWithText("Texte éditable à analyser").performTextClearance()
+        composeRule.onNodeWithText("Texte éditable à analyser").performTextInput(editedText)
+
+        // One real UI click; the displayed result must reflect the edited known ingredients.
+        composeRule.waitUntilAtLeastOneExists(hasText("ANALYSER").and(isEnabled()), 30_000)
+        composeRule.onNodeWithText("ANALYSER").performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("✅ VEGAN", substring = true), 30_000)
+        composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
+        composeRule.onAllNodes(hasText("ZZZRAWONLYQZX", substring = true)).assertCountEquals(0)
     }
 
     @Test fun crossContactWarningIsDisplayedAtTheEndOfTheResult() {
