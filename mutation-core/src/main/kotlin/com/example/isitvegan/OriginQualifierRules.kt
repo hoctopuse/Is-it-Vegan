@@ -88,14 +88,22 @@ class OriginQualifierRuleSet private constructor(
                 OriginQualifierExtraction(targetText, it)
             }.let(candidates::addAll)
         }
+        val normalizedTrimmed = TextNormalizer.normalize(trimmed)
         rules.forEach { rule ->
+            val directOutcomes = rule.outcomes
+                .filter { QualifierAttachmentForm.DIRECT_SUFFIX in it.attachmentForms }
+                .map { outcome ->
+                    outcome to outcome.qualifiers.map { qualifier ->
+                        qualifier to TextNormalizer.normalize(qualifier)
+                    }
+                }
             rule.targets.forEach { target ->
-                rule.outcomes.forEach { outcome ->
-                    if (QualifierAttachmentForm.DIRECT_SUFFIX !in outcome.attachmentForms) return@forEach
-                    outcome.qualifiers.forEach qualifierLoop@{ qualifier ->
-                        if (TextNormalizer.normalize(trimmed) !=
-                            "${TextNormalizer.normalize(target)} ${TextNormalizer.normalize(qualifier)}"
-                        ) return@qualifierLoop
+                val normalizedTarget = TextNormalizer.normalize(target)
+                directOutcomes.forEach { (outcome, qualifiers) ->
+                    qualifiers.forEach qualifierLoop@{ (qualifier, normalizedQualifier) ->
+                        if (normalizedTrimmed != "$normalizedTarget $normalizedQualifier") {
+                            return@qualifierLoop
+                        }
                         candidates += OriginQualifierExtraction(
                             target,
                             qualification(rule, outcome, qualifier)

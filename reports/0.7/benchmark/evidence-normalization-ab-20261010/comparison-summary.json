@@ -1,0 +1,1390 @@
+﻿[
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "asset-read-cold",
+        "rawNs":  [
+                      81364948
+                  ],
+        "minNs":  81364948,
+        "lowerMedianNs":  81364948,
+        "medianNs":  81364948,
+        "maxNs":  81364948,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "knowledge-load-cold",
+        "rawNs":  [
+                      1518769166
+                  ],
+        "minNs":  1518769166,
+        "lowerMedianNs":  1518769166,
+        "medianNs":  1518769166,
+        "maxNs":  1518769166,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "matcher-build-cold",
+        "rawNs":  [
+                      1304431926
+                  ],
+        "minNs":  1304431926,
+        "lowerMedianNs":  1304431926,
+        "medianNs":  1304431926,
+        "maxNs":  1304431926,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "knowledge-from-json",
+        "rawNs":  [
+                      1057839895,
+                      1060800989,
+                      1063712708,
+                      1060645365,
+                      1063886666,
+                      1063401979,
+                      1059324791,
+                      1055140989,
+                      1050858021,
+                      1048682187
+                  ],
+        "minNs":  1048682187,
+        "lowerMedianNs":  1059324791,
+        "medianNs":  1059985078,
+        "maxNs":  1063886666,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "matcher-build",
+        "rawNs":  [
+                      1142688749,
+                      1149602291,
+                      1140418698,
+                      1145164635,
+                      1135582656,
+                      1135111458,
+                      1136486406,
+                      1137725832,
+                      1138100625,
+                      1128640937
+                  ],
+        "minNs":  1128640937,
+        "lowerMedianNs":  1137725832,
+        "medianNs":  1137913228,
+        "maxNs":  1149602291,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "clean-flavouring-cold-first-analysis",
+        "rawNs":  [
+                      11139744892
+                  ],
+        "minNs":  11139744892,
+        "lowerMedianNs":  11139744892,
+        "medianNs":  11139744892,
+        "maxNs":  11139744892,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "clean-flavouring",
+        "rawNs":  [
+                      10677610309,
+                      10645026506,
+                      10641235985,
+                      10645267236,
+                      10648490673,
+                      10655142964,
+                      10674932496,
+                      10646861090,
+                      10664052132,
+                      10671899892
+                  ],
+        "minNs":  10641235985,
+        "lowerMedianNs":  10648490673,
+        "medianNs":  10651816818,
+        "maxNs":  10677610309,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-glucose-fructose-syna-cold-first-analysis",
+        "rawNs":  [
+                      10664547340
+                  ],
+        "minNs":  10664547340,
+        "lowerMedianNs":  10664547340,
+        "medianNs":  10664547340,
+        "maxNs":  10664547340,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-glucose-fructose-syna",
+        "rawNs":  [
+                      10664116246,
+                      10669973069,
+                      10654522964,
+                      10656629996,
+                      10654794736,
+                      10653006923,
+                      10663410100,
+                      10667524631,
+                      10672388277,
+                      10671270986
+                  ],
+        "minNs":  10653006923,
+        "lowerMedianNs":  10663410100,
+        "medianNs":  10663763173,
+        "maxNs":  10672388277,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-wheat-lour-cold-first-analysis",
+        "rawNs":  [
+                      10638269527
+                  ],
+        "minNs":  10638269527,
+        "lowerMedianNs":  10638269527,
+        "medianNs":  10638269527,
+        "maxNs":  10638269527,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-wheat-lour",
+        "rawNs":  [
+                      10651481506,
+                      10649412236,
+                      10635214527,
+                      10653554788,
+                      10645190621,
+                      10654596038,
+                      10629710309,
+                      10646445048,
+                      10641246193,
+                      10649821767
+                  ],
+        "minNs":  10629710309,
+        "lowerMedianNs":  10646445048,
+        "medianNs":  10647928642,
+        "maxNs":  10654596038,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-citric-aid-cold-first-analysis",
+        "rawNs":  [
+                      10697136142
+                  ],
+        "minNs":  10697136142,
+        "lowerMedianNs":  10697136142,
+        "medianNs":  10697136142,
+        "maxNs":  10697136142,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-citric-aid",
+        "rawNs":  [
+                      10682544006,
+                      10688850569,
+                      10698069162,
+                      10711664423,
+                      10696140621,
+                      10696670048,
+                      10681839736,
+                      10673341767,
+                      10674941559,
+                      10849104840
+                  ],
+        "minNs":  10673341767,
+        "lowerMedianNs":  10688850569,
+        "medianNs":  10692495595,
+        "maxNs":  10849104840,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-favouring-cold-first-analysis",
+        "rawNs":  [
+                      10633005256
+                  ],
+        "minNs":  10633005256,
+        "lowerMedianNs":  10633005256,
+        "medianNs":  10633005256,
+        "maxNs":  10633005256,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "ocr-favouring",
+        "rawNs":  [
+                      10616081871,
+                      10611869163,
+                      10609792340,
+                      10619196558,
+                      10612040830,
+                      10598325777,
+                      10646478537,
+                      10638231611,
+                      10634214319,
+                      10624042236
+                  ],
+        "minNs":  10598325777,
+        "lowerMedianNs":  10616081871,
+        "medianNs":  10617639214,
+        "maxNs":  10646478537,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "clean-ingredient-tree-parse-cold",
+        "rawNs":  [
+                      5665282498
+                  ],
+        "minNs":  5665282498,
+        "lowerMedianNs":  5665282498,
+        "medianNs":  5665282498,
+        "maxNs":  5665282498,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "clean-ingredient-tree-parse",
+        "rawNs":  [
+                      5649963487,
+                      5682626716,
+                      5660932445,
+                      5666257133,
+                      5653854893,
+                      5657500154,
+                      5655529945,
+                      5657347967,
+                      5647859217,
+                      6151207289
+                  ],
+        "minNs":  5647859217,
+        "lowerMedianNs":  5657347967,
+        "medianNs":  5657424060,
+        "maxNs":  6151207289,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "clean-section-extraction-cold",
+        "rawNs":  [
+                      51888177
+                  ],
+        "minNs":  51888177,
+        "lowerMedianNs":  51888177,
+        "medianNs":  51888177,
+        "maxNs":  51888177,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A1",
+        "pid":  25362,
+        "name":  "clean-section-extraction",
+        "rawNs":  [
+                      51698229,
+                      50963334,
+                      50337135,
+                      51106302,
+                      49540989,
+                      51725000,
+                      49957969,
+                      49591927,
+                      50640729,
+                      52527552
+                  ],
+        "minNs":  49540989,
+        "lowerMedianNs":  50640729,
+        "medianNs":  50802032,
+        "maxNs":  52527552,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "asset-read-cold",
+        "rawNs":  [
+                      80757031
+                  ],
+        "minNs":  80757031,
+        "lowerMedianNs":  80757031,
+        "medianNs":  80757031,
+        "maxNs":  80757031,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "knowledge-load-cold",
+        "rawNs":  [
+                      718799062
+                  ],
+        "minNs":  718799062,
+        "lowerMedianNs":  718799062,
+        "medianNs":  718799062,
+        "maxNs":  718799062,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "matcher-build-cold",
+        "rawNs":  [
+                      462962344
+                  ],
+        "minNs":  462962344,
+        "lowerMedianNs":  462962344,
+        "medianNs":  462962344,
+        "maxNs":  462962344,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "knowledge-from-json",
+        "rawNs":  [
+                      385106146,
+                      383716510,
+                      384060833,
+                      383436094,
+                      381510521,
+                      373746146,
+                      388039011,
+                      374819791,
+                      375223750,
+                      372066302
+                  ],
+        "minNs":  372066302,
+        "lowerMedianNs":  381510521,
+        "medianNs":  382473308,
+        "maxNs":  388039011,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "matcher-build",
+        "rawNs":  [
+                      327000052,
+                      331173802,
+                      322388854,
+                      341559427,
+                      316200468,
+                      316206511,
+                      319810625,
+                      316130520,
+                      318812136,
+                      314372656
+                  ],
+        "minNs":  314372656,
+        "lowerMedianNs":  318812136,
+        "medianNs":  319311380,
+        "maxNs":  341559427,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "clean-flavouring-cold-first-analysis",
+        "rawNs":  [
+                      1444583749
+                  ],
+        "minNs":  1444583749,
+        "lowerMedianNs":  1444583749,
+        "medianNs":  1444583749,
+        "maxNs":  1444583749,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "clean-flavouring",
+        "rawNs":  [
+                      1074063176,
+                      1071507604,
+                      1071290521,
+                      1066691979,
+                      1068388385,
+                      1073110312,
+                      1071161353,
+                      1069907239,
+                      1068014375,
+                      1078277552
+                  ],
+        "minNs":  1066691979,
+        "lowerMedianNs":  1071161353,
+        "medianNs":  1071225937,
+        "maxNs":  1078277552,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-glucose-fructose-syna-cold-first-analysis",
+        "rawNs":  [
+                      1087232968
+                  ],
+        "minNs":  1087232968,
+        "lowerMedianNs":  1087232968,
+        "medianNs":  1087232968,
+        "maxNs":  1087232968,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-glucose-fructose-syna",
+        "rawNs":  [
+                      1096563437,
+                      1084144948,
+                      1085189322,
+                      1086960572,
+                      1091887916,
+                      1087680989,
+                      1084537916,
+                      1090733541,
+                      1083965364,
+                      1087988645
+                  ],
+        "minNs":  1083965364,
+        "lowerMedianNs":  1086960572,
+        "medianNs":  1087320780,
+        "maxNs":  1096563437,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-wheat-lour-cold-first-analysis",
+        "rawNs":  [
+                      1078384583
+                  ],
+        "minNs":  1078384583,
+        "lowerMedianNs":  1078384583,
+        "medianNs":  1078384583,
+        "maxNs":  1078384583,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-wheat-lour",
+        "rawNs":  [
+                      1074208854,
+                      1070320208,
+                      1063550989,
+                      1062342188,
+                      1067127343,
+                      1065296250,
+                      1061929271,
+                      1063423437,
+                      1060994791,
+                      1075191042
+                  ],
+        "minNs":  1060994791,
+        "lowerMedianNs":  1063550989,
+        "medianNs":  1064423620,
+        "maxNs":  1075191042,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-citric-aid-cold-first-analysis",
+        "rawNs":  [
+                      1076632916
+                  ],
+        "minNs":  1076632916,
+        "lowerMedianNs":  1076632916,
+        "medianNs":  1076632916,
+        "maxNs":  1076632916,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-citric-aid",
+        "rawNs":  [
+                      1074867500,
+                      1083354479,
+                      1072519583,
+                      1080300729,
+                      1080899219,
+                      1070382500,
+                      1079914062,
+                      1069104114,
+                      1068064322,
+                      1078706718
+                  ],
+        "minNs":  1068064322,
+        "lowerMedianNs":  1074867500,
+        "medianNs":  1076787109,
+        "maxNs":  1083354479,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-favouring-cold-first-analysis",
+        "rawNs":  [
+                      1068445417
+                  ],
+        "minNs":  1068445417,
+        "lowerMedianNs":  1068445417,
+        "medianNs":  1068445417,
+        "maxNs":  1068445417,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "ocr-favouring",
+        "rawNs":  [
+                      1072054739,
+                      1072544323,
+                      1070348437,
+                      1059210989,
+                      1064511458,
+                      1059006666,
+                      1058717448,
+                      1068676874,
+                      1071848489,
+                      1070794219
+                  ],
+        "minNs":  1058717448,
+        "lowerMedianNs":  1068676874,
+        "medianNs":  1069512656,
+        "maxNs":  1072544323,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "clean-ingredient-tree-parse-cold",
+        "rawNs":  [
+                      121519323
+                  ],
+        "minNs":  121519323,
+        "lowerMedianNs":  121519323,
+        "medianNs":  121519323,
+        "maxNs":  121519323,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "clean-ingredient-tree-parse",
+        "rawNs":  [
+                      124007865,
+                      120753438,
+                      123175260,
+                      125075677,
+                      124348073,
+                      120585833,
+                      131933125,
+                      120361407,
+                      124729635,
+                      123222552
+                  ],
+        "minNs":  120361407,
+        "lowerMedianNs":  123222552,
+        "medianNs":  123615208,
+        "maxNs":  131933125,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "clean-section-extraction-cold",
+        "rawNs":  [
+                      52755886
+                  ],
+        "minNs":  52755886,
+        "lowerMedianNs":  52755886,
+        "medianNs":  52755886,
+        "maxNs":  52755886,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B1",
+        "pid":  27025,
+        "name":  "clean-section-extraction",
+        "rawNs":  [
+                      49103698,
+                      50115677,
+                      49263073,
+                      48728333,
+                      48947396,
+                      49315573,
+                      49151719,
+                      53039531,
+                      49320521,
+                      49120885
+                  ],
+        "minNs":  48728333,
+        "lowerMedianNs":  49151719,
+        "medianNs":  49207396,
+        "maxNs":  53039531,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "asset-read-cold",
+        "rawNs":  [
+                      43931198
+                  ],
+        "minNs":  43931198,
+        "lowerMedianNs":  43931198,
+        "medianNs":  43931198,
+        "maxNs":  43931198,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "knowledge-load-cold",
+        "rawNs":  [
+                      732292916
+                  ],
+        "minNs":  732292916,
+        "lowerMedianNs":  732292916,
+        "medianNs":  732292916,
+        "maxNs":  732292916,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "matcher-build-cold",
+        "rawNs":  [
+                      454275833
+                  ],
+        "minNs":  454275833,
+        "lowerMedianNs":  454275833,
+        "medianNs":  454275833,
+        "maxNs":  454275833,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "knowledge-from-json",
+        "rawNs":  [
+                      383303385,
+                      374031511,
+                      381509375,
+                      381378542,
+                      374862187,
+                      378458541,
+                      377766927,
+                      371872760,
+                      370480260,
+                      365771823
+                  ],
+        "minNs":  365771823,
+        "lowerMedianNs":  374862187,
+        "medianNs":  376314557,
+        "maxNs":  383303385,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "matcher-build",
+        "rawNs":  [
+                      343626562,
+                      332140365,
+                      335242292,
+                      338244688,
+                      319068281,
+                      322088542,
+                      322289635,
+                      326338229,
+                      324052865,
+                      320207604
+                  ],
+        "minNs":  319068281,
+        "lowerMedianNs":  324052865,
+        "medianNs":  325195547,
+        "maxNs":  343626562,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "clean-flavouring-cold-first-analysis",
+        "rawNs":  [
+                      1455755156
+                  ],
+        "minNs":  1455755156,
+        "lowerMedianNs":  1455755156,
+        "medianNs":  1455755156,
+        "maxNs":  1455755156,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "clean-flavouring",
+        "rawNs":  [
+                      1078423437,
+                      1077148385,
+                      1075644739,
+                      1077488801,
+                      1074691249,
+                      1067476041,
+                      1077015625,
+                      1065140521,
+                      1058145469,
+                      1052012083
+                  ],
+        "minNs":  1052012083,
+        "lowerMedianNs":  1074691249,
+        "medianNs":  1075167994,
+        "maxNs":  1078423437,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-glucose-fructose-syna-cold-first-analysis",
+        "rawNs":  [
+                      1076698698
+                  ],
+        "minNs":  1076698698,
+        "lowerMedianNs":  1076698698,
+        "medianNs":  1076698698,
+        "maxNs":  1076698698,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-glucose-fructose-syna",
+        "rawNs":  [
+                      1078724166,
+                      1075818697,
+                      1077699010,
+                      1072593854,
+                      1073077864,
+                      1077092291,
+                      1072607760,
+                      1069620781,
+                      1075508646,
+                      1125009739
+                  ],
+        "minNs":  1069620781,
+        "lowerMedianNs":  1075508646,
+        "medianNs":  1075663672,
+        "maxNs":  1125009739,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-wheat-lour-cold-first-analysis",
+        "rawNs":  [
+                      1072877916
+                  ],
+        "minNs":  1072877916,
+        "lowerMedianNs":  1072877916,
+        "medianNs":  1072877916,
+        "maxNs":  1072877916,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-wheat-lour",
+        "rawNs":  [
+                      1083381510,
+                      1070085781,
+                      1066745729,
+                      1071195885,
+                      1069738176,
+                      1062738125,
+                      1062318021,
+                      1061780781,
+                      1061784166,
+                      1068001562
+                  ],
+        "minNs":  1061780781,
+        "lowerMedianNs":  1066745729,
+        "medianNs":  1067373646,
+        "maxNs":  1083381510,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-citric-aid-cold-first-analysis",
+        "rawNs":  [
+                      1070585885
+                  ],
+        "minNs":  1070585885,
+        "lowerMedianNs":  1070585885,
+        "medianNs":  1070585885,
+        "maxNs":  1070585885,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-citric-aid",
+        "rawNs":  [
+                      1070254374,
+                      1065545989,
+                      1074973385,
+                      1078252708,
+                      1066844531,
+                      1067776614,
+                      1073843646,
+                      1078085052,
+                      1081421093,
+                      1066658802
+                  ],
+        "minNs":  1065545989,
+        "lowerMedianNs":  1070254374,
+        "medianNs":  1072049010,
+        "maxNs":  1081421093,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-favouring-cold-first-analysis",
+        "rawNs":  [
+                      1051746197
+                  ],
+        "minNs":  1051746197,
+        "lowerMedianNs":  1051746197,
+        "medianNs":  1051746197,
+        "maxNs":  1051746197,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "ocr-favouring",
+        "rawNs":  [
+                      1060904218,
+                      1075228853,
+                      1072957500,
+                      1063473749,
+                      1060749010,
+                      1069559895,
+                      1059893541,
+                      1055479688,
+                      1066287760,
+                      1071325728
+                  ],
+        "minNs":  1055479688,
+        "lowerMedianNs":  1063473749,
+        "medianNs":  1064880754,
+        "maxNs":  1075228853,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "clean-ingredient-tree-parse-cold",
+        "rawNs":  [
+                      127621979
+                  ],
+        "minNs":  127621979,
+        "lowerMedianNs":  127621979,
+        "medianNs":  127621979,
+        "maxNs":  127621979,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "clean-ingredient-tree-parse",
+        "rawNs":  [
+                      123849688,
+                      120890521,
+                      123751770,
+                      125844739,
+                      124286614,
+                      122925052,
+                      123108073,
+                      127619688,
+                      124014791,
+                      123901614
+                  ],
+        "minNs":  120890521,
+        "lowerMedianNs":  123849688,
+        "medianNs":  123875651,
+        "maxNs":  127619688,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "clean-section-extraction-cold",
+        "rawNs":  [
+                      49170104
+                  ],
+        "minNs":  49170104,
+        "lowerMedianNs":  49170104,
+        "medianNs":  49170104,
+        "maxNs":  49170104,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "B2",
+        "pid":  27134,
+        "name":  "clean-section-extraction",
+        "rawNs":  [
+                      47668854,
+                      48744948,
+                      49225000,
+                      48774062,
+                      49552760,
+                      49598489,
+                      49711303,
+                      49043020,
+                      49040937,
+                      48933125
+                  ],
+        "minNs":  47668854,
+        "lowerMedianNs":  49040937,
+        "medianNs":  49041978,
+        "maxNs":  49711303,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "asset-read-cold",
+        "rawNs":  [
+                      58815521
+                  ],
+        "minNs":  58815521,
+        "lowerMedianNs":  58815521,
+        "medianNs":  58815521,
+        "maxNs":  58815521,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "knowledge-load-cold",
+        "rawNs":  [
+                      1463915416
+                  ],
+        "minNs":  1463915416,
+        "lowerMedianNs":  1463915416,
+        "medianNs":  1463915416,
+        "maxNs":  1463915416,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "matcher-build-cold",
+        "rawNs":  [
+                      1230559739
+                  ],
+        "minNs":  1230559739,
+        "lowerMedianNs":  1230559739,
+        "medianNs":  1230559739,
+        "maxNs":  1230559739,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "knowledge-from-json",
+        "rawNs":  [
+                      1053413750,
+                      1057724530,
+                      1062043593,
+                      1054007239,
+                      1059771979,
+                      1055154010,
+                      1054243750,
+                      1051433801,
+                      1046798125,
+                      1044335781
+                  ],
+        "minNs":  1044335781,
+        "lowerMedianNs":  1054007239,
+        "medianNs":  1054125494,
+        "maxNs":  1062043593,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "matcher-build",
+        "rawNs":  [
+                      1182300312,
+                      1191076041,
+                      1181141302,
+                      1145024010,
+                      1133806979,
+                      1133573749,
+                      1130919687,
+                      1131209792,
+                      1127614270,
+                      1128184114
+                  ],
+        "minNs":  1127614270,
+        "lowerMedianNs":  1133573749,
+        "medianNs":  1133690364,
+        "maxNs":  1191076041,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "clean-flavouring-cold-first-analysis",
+        "rawNs":  [
+                      11018295308
+                  ],
+        "minNs":  11018295308,
+        "lowerMedianNs":  11018295308,
+        "medianNs":  11018295308,
+        "maxNs":  11018295308,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "clean-flavouring",
+        "rawNs":  [
+                      10577942288,
+                      10586155881,
+                      10596384006,
+                      10579242757,
+                      10599902704,
+                      10600504319,
+                      10567490464,
+                      10571148068,
+                      10557191871,
+                      10555435204
+                  ],
+        "minNs":  10555435204,
+        "lowerMedianNs":  10577942288,
+        "medianNs":  10578592522,
+        "maxNs":  10600504319,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-glucose-fructose-syna-cold-first-analysis",
+        "rawNs":  [
+                      10588638798
+                  ],
+        "minNs":  10588638798,
+        "lowerMedianNs":  10588638798,
+        "medianNs":  10588638798,
+        "maxNs":  10588638798,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-glucose-fructose-syna",
+        "rawNs":  [
+                      10594844943,
+                      10575572809,
+                      10597778694,
+                      10591312965,
+                      10590097860,
+                      10601003434,
+                      10596998381,
+                      10563319059,
+                      10720353225,
+                      10573884266
+                  ],
+        "minNs":  10563319059,
+        "lowerMedianNs":  10591312965,
+        "medianNs":  10593078954,
+        "maxNs":  10720353225,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-wheat-lour-cold-first-analysis",
+        "rawNs":  [
+                      10584436923
+                  ],
+        "minNs":  10584436923,
+        "lowerMedianNs":  10584436923,
+        "medianNs":  10584436923,
+        "maxNs":  10584436923,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-wheat-lour",
+        "rawNs":  [
+                      10592415204,
+                      10581832912,
+                      10573059267,
+                      10576011662,
+                      10578214007,
+                      10548513694,
+                      10586362131,
+                      10554586298,
+                      10555005933,
+                      10565851298
+                  ],
+        "minNs":  10548513694,
+        "lowerMedianNs":  10573059267,
+        "medianNs":  10574535464,
+        "maxNs":  10592415204,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-citric-aid-cold-first-analysis",
+        "rawNs":  [
+                      10710420257
+                  ],
+        "minNs":  10710420257,
+        "lowerMedianNs":  10710420257,
+        "medianNs":  10710420257,
+        "maxNs":  10710420257,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-citric-aid",
+        "rawNs":  [
+                      10701378798,
+                      10650257392,
+                      10634082339,
+                      10613307496,
+                      10607524944,
+                      10595628746,
+                      10602679840,
+                      10611968694,
+                      10610136767,
+                      10626251194
+                  ],
+        "minNs":  10595628746,
+        "lowerMedianNs":  10611968694,
+        "medianNs":  10612638095,
+        "maxNs":  10701378798,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-favouring-cold-first-analysis",
+        "rawNs":  [
+                      10561144319
+                  ],
+        "minNs":  10561144319,
+        "lowerMedianNs":  10561144319,
+        "medianNs":  10561144319,
+        "maxNs":  10561144319,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "ocr-favouring",
+        "rawNs":  [
+                      10563565569,
+                      10535714267,
+                      10537329527,
+                      10545424319,
+                      10558986611,
+                      10534202600,
+                      10554218069,
+                      10789639162,
+                      10569731507,
+                      10558513017
+                  ],
+        "minNs":  10534202600,
+        "lowerMedianNs":  10554218069,
+        "medianNs":  10556365543,
+        "maxNs":  10789639162,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "clean-ingredient-tree-parse-cold",
+        "rawNs":  [
+                      5612771092
+                  ],
+        "minNs":  5612771092,
+        "lowerMedianNs":  5612771092,
+        "medianNs":  5612771092,
+        "maxNs":  5612771092,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "clean-ingredient-tree-parse",
+        "rawNs":  [
+                      5613421508,
+                      5622495467,
+                      5640047602,
+                      5623281456,
+                      5630632758,
+                      5623543279,
+                      5613027029,
+                      5620238957,
+                      5627270206,
+                      5622674529
+                  ],
+        "minNs":  5613027029,
+        "lowerMedianNs":  5622674529,
+        "medianNs":  5622977992,
+        "maxNs":  5640047602,
+        "n":  10,
+        "warmups":  5
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "clean-section-extraction-cold",
+        "rawNs":  [
+                      49079687
+                  ],
+        "minNs":  49079687,
+        "lowerMedianNs":  49079687,
+        "medianNs":  49079687,
+        "maxNs":  49079687,
+        "n":  1,
+        "warmups":  0
+    },
+    {
+        "run":  "A2",
+        "pid":  27300,
+        "name":  "clean-section-extraction",
+        "rawNs":  [
+                      49212500,
+                      48991302,
+                      49710938,
+                      49979480,
+                      49158489,
+                      50789427,
+                      48973854,
+                      47765678,
+                      47770000,
+                      47705625
+                  ],
+        "minNs":  47705625,
+        "lowerMedianNs":  48991302,
+        "medianNs":  49074896,
+        "maxNs":  50789427,
+        "n":  10,
+        "warmups":  5
+    }
+]
