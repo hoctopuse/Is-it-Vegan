@@ -1,5 +1,9 @@
 # Notes de version
 
+## 0.6.13.8
+
+- Réutilise les expressions régulières de normalisation et évite des normalisations répétées dans les règles d’origine, sans modifier les résultats métier.
+
 ## 0.6.13.7
 
 - Importe les catégories réglementaires d’arômes de l’article 3 du règlement CELEX 02008R1334 dans les quatre langues, avec notes d’origine prudentes et mapping multilingue généré.
