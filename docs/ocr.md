@@ -1,5 +1,13 @@
 # Pipeline OCR
 
+## Revue multilingue expérimentale
+
+Les sections d’ingrédients titrées peuvent être comparées à partir des mappings et du matcher existants. Deux occurrences reconnues comme le même concept peuvent être présentées comme concordantes ; les conflits de statut restent distincts. Des éléments entre deux ancres communes restent des pistes ambiguës : leur position ne prouve pas qu’ils sont des traductions et aucune correction lexicale n’est générée sur cette seule base. Une traduction partielle ne prouve pas l’absence d’un ingrédient. Les blocs SV/NO détectés restent conservés sans correction lexicale, faute de mappings fiables ; leurs titres et leur sélection ne sont pas pris en charge comme pour FR/NL/EN/DE.
+
+Le modèle et l’interface prévoient une correction fondée sur une preuve explicite, mais le générateur OCR actuel n’en produit pas : il ne propose donc pas de remplacement lexical à partir de ces pistes. Si une telle proposition est fournie, elle ne peut être appliquée qu’au bloc OCR sélectionné, si le texte éditable correspond encore à l’option d’origine et si l’occurrence source est unique dans le bloc et l’option. L’utilisateur doit éditer puis accepter la proposition. Une édition manuelle invalide l’évaluation ; un changement de bloc conserve les preuves mais n’autorise une application que pour le bloc correspondant. Le texte complet ne permet pas d’appliquer une proposition. Le texte brut OCR reste disponible. Après modification du texte, le précédent verdict est masqué jusqu’à une nouvelle analyse du texte courant ; changer de bloc réinitialise le résultat affiché.
+
+Si la base n’est pas encore chargée lors de l’extraction, ou si la revue multilingue échoue, l’application le signale et l’utilisateur peut relancer l’extraction. Le même message invite à relancer l’extraction dans les deux cas ; les détails d’une erreur sont réservés aux journaux. La revue ne modifie pas directement le verdict. Après un échec de réanalyse, le message d’échec reste visible et le verdict ancien reste masqué. Le passage à la saisie manuelle réinitialise le résultat affiché.
+
 Le mode OCR est piloté par `OcrFirstScreen`. La photo reste référencée par son `Uri` pendant la composition ; les bitmaps de prévisualisation et de recadrage vivent uniquement en mémoire.
 
 ## Séquence réelle
@@ -130,7 +138,7 @@ Si le post-traitement lance une `RuntimeException`, `OcrProcessor` rend le texte
 
 Le texte OCR n’est pas une preuve autonome : il doit être relu et corrigé dans le champ éditable avant l’analyse. Une photo floue, tronquée, trop serrée, tournée, très dense ou mal éclairée peut produire une composition incomplète ou des inconnus. Lorsque la liste ne tient pas dans le cadre ou reste difficile à lire, reprendre une photo plus nette avec un cadrage plus large est la meilleure action manuelle.
 
-Une suggestion automatique de reprendre la photo plus large n’est pas livrée. La consolidation automatique de plusieurs blocs linguistiques d’une même étiquette ne l’est pas non plus : les blocs non sélectionnés sont conservés dans le diagnostic comme aide de validation.
+Une suggestion automatique de reprendre la photo plus large n’est pas livrée. La revue expérimentale ne fusionne pas plusieurs blocs linguistiques en une composition ; ses pistes ne remplacent pas la vérification humaine.
 
 - Le recognizer configuré est uniquement `TextRecognizerOptions.DEFAULT_OPTIONS`, donc le script latin.
 - Une image sans EXIF exploitable n’est pas redressée par analyse visuelle.

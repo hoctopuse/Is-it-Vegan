@@ -83,5 +83,8 @@ internal data class OcrProcessingResult(
     val fullText: String = editableText,
     val textOptions: List<OcrTextOption> = emptyList(),
     val selectedOptionLanguage: LabelLanguage? = null,
-    val selectedOptionBlockId: String? = null
+    val selectedOptionBlockId: String? = null,
+    val languageBlocks: List<LanguageBlock> = emptyList(),
+    val multilingualAlignment: MultilingualAlignmentEvaluation? = null,
+    val alignmentUnavailable: Boolean = false
 )

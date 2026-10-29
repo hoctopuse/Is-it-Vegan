@@ -193,6 +193,14 @@ data class IngredientKnowledge(
 
 class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
 
+    fun generateMultilingualAlignment(blocks: List<LanguageBlock>): MultilingualAlignmentEvaluation =
+        MultilingualIngredientAlignment.generate(
+            blocks,
+            knowledge.ingredients,
+            knowledge.multilingualLexicon,
+            knowledge.originRules
+        )
+
     fun analyze(
         text: String,
         inputMode: InputMode = InputMode.MANUAL_INGREDIENT_LIST

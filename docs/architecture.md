@@ -1,6 +1,6 @@
 # Architecture générale
 
-Le projet contient le module Android `:app` et le module Kotlin/JVM `:mutation-core`. `:app` dépend de `:mutation-core`; la dépendance inverse est interdite. Les deux modules conservent le package `com.example.isitvegan`, avec le thème Compose dans `com.example.isitvegan.ui.theme`. Il n’existe ni couche réseau métier, ni base SQL, ni service distant.
+Le projet contient le module Android `:app` et le module Kotlin/JVM `:mutation-core`. Dans `app/build.gradle.kts`, `implementation(project(":mutation-core"))` relie le cœur à l’application ; la dépendance inverse est interdite. Le générateur multilingue utilisé par l’application est défini dans `:mutation-core`, tandis que l’acquisition OCR et la revue Compose se trouvent dans `:app`. Les deux modules conservent le package `com.example.isitvegan`, avec le thème Compose dans `com.example.isitvegan.ui.theme`. Il n’existe ni couche réseau métier, ni base SQL, ni service distant.
 
 ## Flux actif
 
@@ -16,6 +16,8 @@ flowchart TD
     RECON -. comparaison .-> CLEAN
     CLEAN --> LANG[LabelLanguageSegmenter\n+ OcrBlockLanguageClassifier]
     LANG --> SELECT[OcrTextSelection]
+    LANG --> ALIGN[Revue multilingue expérimentale\nsections + mappings existants]
+    ALIGN --> SESSION
     SELECT --> SESSION[OcrSession\nbrut, éditable, options, diagnostics]
     SESSION --> ANALYZE[VeganAnalyzer adaptateur Android\nIngredientAnalysisService JVM]
     ANALYZE --> SECTIONS[LabelSectionExtractor]
@@ -30,6 +32,8 @@ flowchart TD
 ```
 
 L’analyse rappelle `LabelLanguageSegmenter` dans `IngredientAnalysisService`. `VeganAnalyzer` reste la façade Android et lui délègue. Cette seconde segmentation est volontairement indépendante de l’acquisition : les modes texte et OCR passent ainsi par le même moteur.
+
+Après segmentation OCR, `OcrProcessor` appelle la façade Android `VeganAnalyzer`, puis `IngredientAnalysisService.generateMultilingualAlignment` et le générateur pur `MultilingualIngredientAlignment` de `:mutation-core`. Celui-ci extrait et parse les sections titrées, puis réutilise les mappings et le matcher pour produire des preuves de revue, séparées du verdict. Les identifiants de concepts identiques peuvent corroborer deux occurrences ; des éléments entre deux ancres ne sont que des pistes ambiguës. Le générateur actuel ne crée pas de proposition lexicale par traduction explicite. `MultilingualAlignmentReview` affiche les preuves ; `OcrSession` vérifie le bloc, le texte et la plage avant une éventuelle acceptation explicite. L’analyse suivante utilise le texte éditable, sans appliquer silencieusement la revue.
 
 ## Responsabilités
 
@@ -53,7 +57,7 @@ Les composites restent des conteneurs syntaxiques : leur token est conservé pou
 
 `MainActivity` charge les trois assets de connaissance via `VeganAnalyzer.loadDatabase` sur `Dispatchers.IO`. `AndroidIngredientKnowledgeLoader` lit les assets avec `Context`, puis `IngredientKnowledge.fromJson` les valide et les injecte dans `IngredientAnalysisService`. Aucun accès Android n’existe dans `:mutation-core`. Le bouton d’analyse reste désactivé tant que ce chargement n’a pas réussi. `OcrFirstScreen` exécute le décodage sur `Dispatchers.IO` et l’analyse CPU sur `Dispatchers.Default`. `OcrProcessor` possède un `CoroutineScope` supervisé et restitue ses callbacks sur `Dispatchers.Main`.
 
-La session OCR est un objet immutable `OcrSession` gardé par `remember`. Elle contient le texte brut, le texte éditable, les options linguistiques, le diagnostic et les instantanés des analyses. L’URI de la photo n’appartient volontairement pas au modèle de session.
+La session OCR est un objet immutable `OcrSession` gardé par `remember`. Elle contient le texte brut, le texte éditable, les blocs et options linguistiques, l’évaluation de revue, le diagnostic et les instantanés des analyses. L’URI de la photo n’appartient volontairement pas au modèle de session. Si le service n’est pas chargé au moment de l’extraction ou si la revue échoue, l’application signale son indisponibilité ; elle ne relance pas automatiquement la revue après chargement. Les exceptions inattendues sont aussi journalisées.
 
 ## Composant hérité
 

@@ -10,9 +10,20 @@ internal data class OcrSession(
     val textOptions: List<OcrTextOption> = emptyList(),
     val selectedOptionLanguage: LabelLanguage? = null,
     val selectedOptionBlockId: String? = null,
-    val fullTextSelected: Boolean = false
+    val fullTextSelected: Boolean = false,
+    val languageBlocks: List<LanguageBlock> = emptyList(),
+    val multilingualAlignment: MultilingualAlignmentEvaluation? = null,
+    val dismissedAlignmentProposals: Set<String> = emptySet(),
+    val alignmentUnavailable: Boolean = false
 ) {
-    fun withOcrText(text: String): OcrSession = copy(rawOcrText = text, editableText = text)
+    fun withOcrText(text: String): OcrSession = copy(
+        rawOcrText = text,
+        editableText = text,
+        languageBlocks = emptyList(),
+        multilingualAlignment = null,
+        dismissedAlignmentProposals = emptySet(),
+        alignmentUnavailable = false
+    )
 
     fun withOcrResult(result: OcrProcessingResult): OcrSession = copy(
         rawOcrText = result.rawText,
@@ -22,10 +33,64 @@ internal data class OcrSession(
         textOptions = result.textOptions,
         selectedOptionLanguage = result.selectedOptionLanguage,
         selectedOptionBlockId = result.selectedOptionBlockId,
-        fullTextSelected = result.selectedOptionLanguage == null
+        fullTextSelected = result.selectedOptionLanguage == null,
+        languageBlocks = result.languageBlocks,
+        multilingualAlignment = result.multilingualAlignment,
+        dismissedAlignmentProposals = emptySet(),
+        alignmentUnavailable = result.alignmentUnavailable
     )
 
-    fun withEditableText(text: String): OcrSession = copy(editableText = text)
+    fun withEditableText(text: String): OcrSession = copy(
+        editableText = text,
+        multilingualAlignment = null,
+        dismissedAlignmentProposals = emptySet()
+    )
+
+    fun dismissAlignmentProposal(proposal: IngredientAlignmentResult): OcrSession =
+        copy(dismissedAlignmentProposals = dismissedAlignmentProposals + proposal.proposalKey)
+
+    /** Applies only a unique, explicitly accepted replacement to the editable text. */
+    fun acceptAlignmentProposal(
+        proposal: IngredientAlignmentResult,
+        replacementText: String
+    ): OcrSession? {
+        if (replacementText.isBlank()) return null
+        val source = proposal.first.rawText
+        if (source.isBlank() || source == replacementText) return null
+        val range = proposalRange(proposal) ?: return null
+        return copy(
+            editableText = editableText.replaceRange(range.first, range.last + 1, replacementText),
+            multilingualAlignment = null,
+            dismissedAlignmentProposals = emptySet()
+        )
+    }
+
+    /** Bind only to the unchanged selected OCR block and a unique source span, including overlaps. */
+    fun proposalRange(proposal: IngredientAlignmentResult): IntRange? {
+        if (proposal.kind != AlignmentKind.CORRECTION_PROPOSAL || fullTextSelected ||
+            proposal.proposalKey in dismissedAlignmentProposals ||
+            multilingualAlignment?.links?.contains(proposal) != true ||
+            multilingualAlignment.occurrences.count { it == proposal.first } != 1 ||
+            selectedOptionBlockId != proposal.first.blockId || selectedOptionLanguage != proposal.first.language
+        ) return null
+        val option = textOptions.singleOrNull { it.blockId == proposal.first.blockId && it.language == proposal.first.language } ?: return null
+        val block = languageBlocks.singleOrNull { it.id == proposal.first.blockId && it.language == proposal.first.language } ?: return null
+        if (editableText != option.text) return null
+        val source = proposal.first.rawText
+        if (source.isBlank()) return null
+        val sourceStart = block.rawText.indexOf(source)
+        if (sourceStart < 0 || block.rawText.indexOf(source, sourceStart + 1) >= 0) return null
+        val start = option.text.indexOf(source)
+        if (start < 0 || option.text.indexOf(source, start + 1) >= 0) return null
+        return start until (start + source.length)
+    }
+
+    fun visibleAlignmentProposals(): List<IngredientAlignmentResult> =
+        multilingualAlignment?.links.orEmpty().filter { proposal ->
+            proposalRange(proposal) != null
+        }
+
+    fun hasStaleResult(): Boolean = analyses.lastOrNull()?.submittedText?.let { it != editableText } == true
 
     fun selectLanguage(language: LabelLanguage): OcrSession {
         val option = textOptions.firstOrNull { it.language == language } ?: return this
@@ -60,6 +125,7 @@ internal data class OcrSession(
 
     fun addAnalysis(snapshot: AnalysisSnapshot): OcrSession =
         copy(analyses = analyses + snapshot)
+
 }
 
 data class AnalysisSnapshot(

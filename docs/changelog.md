@@ -1,5 +1,11 @@
 # Notes de version
 
+## Non publié — tranche OCR multilingue 0.7
+
+- Ajoute une revue expérimentale des sections OCR : concepts reconnus concordants, pistes ambiguës et conflits restent distincts. Deux ancres communes ne suffisent pas à proposer une correction lexicale ; le générateur actuel ne produit pas de correction fondée sur une traduction explicite.
+- Préserve le texte source et le verdict tant qu’aucune action de l’utilisateur ne modifie le texte. Après modification, le résultat précédent est masqué jusqu’à une nouvelle analyse. La sélection d’un autre bloc réinitialise le résultat affiché.
+- Ne fusionne pas les compositions des langues. SV/NO ne disposent pas de mappings lexicaux fiables pour cette revue. La validation Compose ciblée a réussi sur émulateur ; le parcours complet sur photo réelle et sur Nokia reste à vérifier.
+
 ## 0.6.13.8
 
 - Réutilise les expressions régulières de normalisation et évite des normalisations répétées dans les règles d’origine, sans modifier les résultats métier.
@@ -114,4 +120,4 @@ L’audit `COMPOSITE_STATUS_PROPAGATION_AUDIT_0_6_9_9.md`, conservé à la racin
 
 ## Non livré
 
-La consolidation de plusieurs langues d’une même étiquette, l’usage des blocs multilingues comme aide de validation enrichie et une suggestion automatique de reprendre une photo plus large restent des travaux futurs. Aucune de ces capacités n’est annoncée comme disponible.
+La fusion des compositions de plusieurs langues et une suggestion automatique de reprendre une photo plus large restent des travaux futurs. La revue expérimentale décrite en tête de cette page est limitée à des corroborations et pistes à vérifier ; elle ne constitue pas une consolidation complète.

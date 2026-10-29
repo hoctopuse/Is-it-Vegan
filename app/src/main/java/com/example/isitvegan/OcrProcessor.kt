@@ -3,6 +3,7 @@ package com.example.isitvegan
 import android.content.Context
 import android.graphics.Bitmap
 import android.net.Uri
+import android.util.Log
 import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.Text
 import com.google.mlkit.vision.text.TextRecognition
@@ -99,6 +100,11 @@ internal class OcrProcessor(context: Context) {
                         }
                         val segmentation = LabelLanguageSegmenter.segment(fullEditable, preferredLanguage)
                         val textSelection = OcrTextSelection.from(segmentation, fullEditable)
+                        val (alignment, alignmentUnavailable) = attemptMultilingualReview(
+                            VeganAnalyzer.isDatabaseLoaded(),
+                            { VeganAnalyzer.generateMultilingualAlignment(segmentation.blocks) },
+                            { error -> Log.e("OcrProcessor", "Multilingual alignment failed", error) }
+                        )
                         OcrProcessingResult(
                             rawText = recognized.text,
                             editableText = textSelection.editableText,
@@ -128,7 +134,10 @@ internal class OcrProcessor(context: Context) {
                             fullText = fullEditable,
                             textOptions = textSelection.options,
                             selectedOptionLanguage = textSelection.selectedLanguage,
-                            selectedOptionBlockId = textSelection.selectedBlockId
+                            selectedOptionBlockId = textSelection.selectedBlockId,
+                            languageBlocks = segmentation.blocks,
+                            multilingualAlignment = alignment,
+                            alignmentUnavailable = alignmentUnavailable
                         )
                     } catch (_: RuntimeException) {
                         OcrProcessingResult(
@@ -199,4 +208,18 @@ internal class OcrProcessor(context: Context) {
     }
 
     private fun android.graphics.Rect.toOcrBounds() = OcrBounds(left, top, right, bottom)
+}
+
+internal fun attemptMultilingualReview(
+    databaseLoaded: Boolean,
+    generate: () -> MultilingualAlignmentEvaluation,
+    logFailure: (Exception) -> Unit
+): Pair<MultilingualAlignmentEvaluation?, Boolean> {
+    if (!databaseLoaded) return null to true
+    return try {
+        generate() to false
+    } catch (error: Exception) {
+        logFailure(error)
+        null to true
+    }
 }

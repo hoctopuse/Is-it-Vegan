@@ -1,4 +1,20 @@
 <resources>
+    <string name="multilingual_conflict">Widersprüchliche Hinweise: Prüfen Sie die Originaltexte.</string>
+    <string name="analysis_failed">Dieser Text konnte nicht analysiert werden. Versuchen Sie einen kürzeren Abschnitt.</string>
+    <string name="multilingual_unavailable">Mehrsprachige Prüfung nicht verfügbar. Wiederholen Sie die Texterkennung.</string>
+    <string name="multilingual_stale_result">Der Text wurde seit der letzten Analyse geändert.</string>
+    <string name="multilingual_reanalyze">Starten Sie die Analyse erneut für ein Ergebnis zum aktuellen Text.</string>
+    <string name="multilingual_review_title">Mehrsprachige Lesart prüfen</string>
+    <string name="multilingual_confirmed_title">Übereinstimmende Begriffe (keine Änderung angewendet)</string>
+    <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
+    <string name="multilingual_proposal_title">Vorschlag prüfen — die aktuelle Analyse bleibt unverändert.</string>
+    <string name="multilingual_source_text">OCR-Text: %1$s</string>
+    <string name="multilingual_evidence_text">Anderer Block: %1$s (%2$s). Zugeordnetes Konzept: %3$s.</string>
+    <string name="multilingual_edit_label">Anzuwendende Korrektur (bearbeitbar)</string>
+    <string name="multilingual_accept">Korrektur übernehmen</string>
+    <string name="multilingual_dismiss">Verwerfen</string>
+    <string name="multilingual_accept_note">Die Annahme ändert nur den bearbeitbaren Text. Für ein neues Ergebnis die Analyse erneut starten.</string>
+    <string name="multilingual_ambiguous">Mehrdeutige Zuordnung: kein Korrekturvorschlag.</string>
     <string name="app_name">Is it Vegan</string>
     <string name="tagline">Fügen Sie ein Etikett oder eine Zutatenliste ein, um die Zusammensetzung offline zu prüfen.</string>
     <string name="input_mode">Eingabemodus</string>

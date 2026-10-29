@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
@@ -27,12 +28,21 @@ import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun OcrFirstScreen(analysisEnabled: Boolean = true) {
+    OcrFirstScreenContent(analysisEnabled, VeganAnalyzer::analyzeWithDiagnostics)
+}
+
+@Composable
+internal fun OcrFirstScreenContent(
+    analysisEnabled: Boolean,
+    analyzeText: (String, InputMode, UiLanguage, String?) -> AnalysisDiagnostics
+) {
     val context = LocalContext.current
     var uiLanguage by remember { mutableStateOf(UiLanguagePreferences.read(context)) }
     val localized = remember(uiLanguage) { localizedContext(context, uiLanguage) }
     fun ui(id: Int) = localized.resources.getString(id)
     var ingredients by remember { mutableStateOf("") }
     var result by remember { mutableStateOf("⚪ En attente d'analyse") }
+    var analysisError by remember { mutableStateOf<String?>(null) }
     var diagnostics by remember { mutableStateOf<AnalysisDiagnostics?>(null) }
     var inputMode by remember { mutableStateOf(InputMode.FULL_LABEL) }
     var session by remember { mutableStateOf(OcrSession()) }
@@ -94,11 +104,12 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
         val requestedBlockId = session.selectedOptionBlockId
             .takeIf { requestedMode == InputMode.OCR_LABEL && !session.fullTextSelected }
         val versionName = appVersionName(context)
+        analysisError = null
         analyzing = true
         coroutineScope.launch {
             val completed = runCatching {
                 OcrThreading.cpu {
-                    val current = VeganAnalyzer.analyzeWithDiagnostics(
+                    val current = analyzeText(
                         text, requestedMode, requestedLanguage, requestedBlockId
                     )
                     val display = OcrFirstScreenResult.render(text, current, localized.resources)
@@ -118,7 +129,10 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                     )
                 )
             }.onFailure {
-                result = "Impossible d’analyser ce texte. Réessayez avec une zone plus courte."
+                val currentText = if (inputMode == InputMode.OCR_LABEL) session.editableText else ingredients
+                if (inputMode == requestedMode && currentText == text) {
+                    analysisError = localized.resources.getString(R.string.analysis_failed)
+                }
             }
         }
     }
@@ -136,7 +150,7 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
             if (inputMode == InputMode.OCR_LABEL) {
                 Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                     Button({ picker.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text(ui(R.string.choose_photo)) }
-                    OutlinedButton({ sourceUri = null; preview = null; cropRect = null; cropPreview = null; session = OcrSession(); diagnostics = null; ocrMessage = "Saisie manuelle activée." }, Modifier.weight(1f), enabled = !extracting && !loadingPreview && !preparingCrop) { Text(ui(R.string.manual_entry)) }
+                    OutlinedButton({ sourceUri = null; preview = null; cropRect = null; cropPreview = null; session = OcrSession(); diagnostics = null; result = ui(R.string.waiting); analysisError = null; ocrMessage = "Saisie manuelle activée." }, Modifier.weight(1f).testTag("ocr-manual-entry"), enabled = !extracting && !loadingPreview && !preparingCrop) { Text(ui(R.string.manual_entry)) }
                 }
                 preview?.let { original ->
                     val displayed = cropPreview ?: original
@@ -197,7 +211,24 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                         )
                     }
                 }
-                OutlinedTextField(session.editableText, { session = session.withEditableText(it); diagnostics = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp), label = { Text(ui(R.string.editable_ocr)) }, placeholder = { Text(ui(R.string.paste_ocr)) }, supportingText = { Text(ui(R.string.check_text)) })
+                session.multilingualAlignment?.let { alignment ->
+                    MultilingualAlignmentReview(
+                        evaluation = alignment,
+                        editableText = session.editableText,
+                        dismissedProposalKeys = session.dismissedAlignmentProposals,
+                        resources = localized.resources,
+                        onAccept = { proposal, replacement ->
+                            session.acceptAlignmentProposal(proposal, replacement)?.let { accepted ->
+                                session = accepted
+                                diagnostics = null
+                            }
+                        },
+                        onDismiss = { proposal -> session = session.dismissAlignmentProposal(proposal) },
+                        applicableProposalKeys = session.visibleAlignmentProposals().map { it.proposalKey }.toSet()
+                    )
+                }
+                if (session.alignmentUnavailable) Text(ui(R.string.multilingual_unavailable), color = MaterialTheme.colorScheme.error)
+                OutlinedTextField(session.editableText, { session = session.withEditableText(it); diagnostics = null; analysisError = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp).testTag("ocr-editor"), label = { Text(ui(R.string.editable_ocr)) }, placeholder = { Text(ui(R.string.paste_ocr)) }, supportingText = { Text(ui(R.string.check_text)) })
             } else {
                 OutlinedTextField(ingredients, { ingredients = it; diagnostics = null }, Modifier.fillMaxWidth().heightIn(min = 150.dp), label = { Text(if (inputMode == InputMode.FULL_LABEL) ui(R.string.full_label_text) else ui(R.string.ingredient_list)) }, placeholder = { Text(if (inputMode == InputMode.FULL_LABEL) ui(R.string.paste_full_label) else ui(R.string.paste_ingredients)) }, supportingText = { Text(ui(R.string.local_only)) })
             }
@@ -206,12 +237,11 @@ fun OcrFirstScreen(analysisEnabled: Boolean = true) {
                 Modifier.fillMaxWidth(),
                 enabled = analysisEnabled && !analyzing
             ) { Text(if (analyzing) "ANALYSE…" else ui(R.string.analyze)) }
-            if (inputMode == InputMode.OCR_LABEL && session.analyses.any { it.submittedText != session.editableText }) Text("Le résultat affiché correspond à une version précédente du texte éditable.", color = MaterialTheme.colorScheme.tertiary)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
                 OutlinedButton({ ingredients = ""; session = OcrSession(); sourceUri = null; preview = null; cropRect = null; cropPreview = null; result = "⚪ En attente d'analyse"; diagnostics = null }, Modifier.weight(1f)) { Text(ui(R.string.clear)) }
                 OutlinedButton({ shareOcrExport(context, OcrExportReport.build(session, appVersionName(context)), appVersionName(context)) }, enabled = session.analyses.isNotEmpty() || session.rawOcrText != null, modifier = Modifier.weight(1f)) { Text(ui(R.string.export)) }
             }
-            Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) { Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { Text(ui(R.string.result), style = MaterialTheme.typography.titleLarge); HorizontalDivider(); SelectionContainer { Text(result, style = MaterialTheme.typography.bodyLarge) } } }
+            Card(Modifier.fillMaxWidth(), colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceContainer)) { Column(Modifier.padding(20.dp), verticalArrangement = Arrangement.spacedBy(12.dp)) { Text(ui(R.string.result), style = MaterialTheme.typography.titleLarge); HorizontalDivider(); analysisError?.let { Text(it, Modifier.testTag("analysis-error"), color = MaterialTheme.colorScheme.error) }; if (inputMode == InputMode.OCR_LABEL && session.hasStaleResult()) Text(ui(R.string.multilingual_stale_result), color = MaterialTheme.colorScheme.error); SelectionContainer { Text(if (inputMode == InputMode.OCR_LABEL && session.hasStaleResult()) ui(R.string.multilingual_reanalyze) else result, style = MaterialTheme.typography.bodyLarge) } } }
             Text(ui(R.string.language), style = MaterialTheme.typography.titleMedium)
             Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 UiLanguage.entries.forEach { language ->

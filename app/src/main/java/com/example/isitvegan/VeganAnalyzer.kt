@@ -27,6 +27,9 @@ object VeganAnalyzer {
         text, inputMode, preferredLanguage, selectedBlockId
     )
 
+    fun generateMultilingualAlignment(blocks: List<LanguageBlock>): MultilingualAlignmentEvaluation =
+        requireService().generateMultilingualAlignment(blocks)
+
     internal fun analyze(
         text: String,
         database: List<Ingredient>,

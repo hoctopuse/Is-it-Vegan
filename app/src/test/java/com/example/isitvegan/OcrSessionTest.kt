@@ -7,6 +7,93 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class OcrSessionTest {
+    @Test fun reviewUnavailableForUnloadedDatabaseOrGenerationFailure() {
+        var generated = false
+        var logged: Exception? = null
+        val unloaded = attemptMultilingualReview(false, {
+            generated = true
+            MultilingualAlignmentEvaluation(emptyList(), emptyList())
+        }, { logged = it })
+        assertEquals(null to true, unloaded)
+        assertFalse(generated)
+        assertEquals(null, logged)
+
+        val failure = IllegalStateException("technical detail")
+        val failed = attemptMultilingualReview(true, { throw failure }, { logged = it })
+        assertEquals(null to true, failed)
+        assertEquals(failure, logged)
+    }
+
+    @Test fun unacceptedOrRefusedProposalDoesNotChangeTextOrPriorVerdict() {
+        val proposal = proposal()
+        val oldAnalysis = AnalysisSnapshot("INGREDIENTS: WHEAT lour", "diag", "INCONCLUSIVE", 1L)
+        val initial = OcrSession().withOcrResult(
+            OcrProcessingResult(
+                "INGREDIENTS: WHEAT lour", "INGREDIENTS: WHEAT lour",
+                OcrDiagnostics(0, 2, 2, listOf("EN", "NL"), emptyList()),
+                multilingualAlignment = MultilingualAlignmentEvaluation(listOf(proposal.first, proposal.second), listOf(proposal))
+            )
+        ).addAnalysis(oldAnalysis)
+
+        val refused = initial.dismissAlignmentProposal(proposal)
+
+        assertEquals(initial.editableText, refused.editableText)
+        assertEquals(listOf(oldAnalysis), refused.analyses)
+        assertTrue(refused.visibleAlignmentProposals().isEmpty())
+    }
+
+    @Test fun acceptedCorrectionOnlyEditsTheUniqueFieldTextAndRequiresReanalysis() {
+        val proposal = proposal()
+        val oldAnalysis = AnalysisSnapshot("INGREDIENTS: WHEAT lour", "diag", "INCONCLUSIVE", 1L)
+        val initial = boundSession(proposal).addAnalysis(oldAnalysis)
+
+        val accepted = initial.acceptAlignmentProposal(proposal, "WHEAT flour")
+
+        assertEquals("INGREDIENTS: WHEAT flour", accepted?.editableText)
+        assertEquals(listOf(oldAnalysis), accepted?.analyses)
+        assertEquals("INCONCLUSIVE", accepted?.analyses?.single()?.displayResult)
+        assertTrue(accepted?.visibleAlignmentProposals().orEmpty().isEmpty())
+        assertEquals(null, initial.acceptAlignmentProposal(proposal, ""))
+        assertTrue(accepted!!.hasStaleResult())
+        val reanalyzed = accepted.addAnalysis(AnalysisSnapshot(accepted.editableText, "new", "VEGAN", 2L))
+        assertFalse(reanalyzed.hasStaleResult())
+    }
+
+    @Test fun aProposalCannotReplaceRepeatedTextOccurrences() {
+        val proposal = proposal()
+        val session = OcrSession(editableText = "WHEAT lour, WHEAT lour")
+
+        assertEquals(null, session.acceptAlignmentProposal(proposal, "WHEAT flour"))
+        assertEquals("WHEAT lour, WHEAT lour", session.editableText)
+    }
+
+    @Test fun bindingRejectsChangedBlockFullTextAndManualEdits() {
+        val proposal = proposal()
+        val initial = boundSession(proposal)
+        assertEquals("WHEAT lour", initial.editableText.substring(initial.proposalRange(proposal)!!))
+        assertEquals(null, initial.copy(selectedOptionBlockId = "other").acceptAlignmentProposal(proposal, "WHEAT flour"))
+        assertEquals(null, initial.selectFullText().acceptAlignmentProposal(proposal, "WHEAT flour"))
+        assertEquals(null, initial.withEditableText("INGREDIENTS: WHEAT lour, milk").acceptAlignmentProposal(proposal, "WHEAT flour"))
+        assertEquals(null, initial.copy(editableText = "INGREDIENTS: WHEAT lour, milk").acceptAlignmentProposal(proposal, "WHEAT flour"))
+    }
+
+    @Test fun bindingRejectsRepeatedAndOverlappingOccurrences() {
+        val original = proposal()
+        val overlapping = original.copy(first = original.first.copy(rawText = "aa"))
+        val session = boundSession(overlapping, "Ingredients: aaa")
+        assertEquals(null, session.proposalRange(overlapping))
+        assertEquals(null, session.acceptAlignmentProposal(overlapping, "other"))
+        val repeated = boundSession(original, "WHEAT lour, WHEAT lour")
+        assertEquals(null, repeated.proposalRange(original))
+    }
+
+    @Test fun acceptancePreservesQualifierOutsideTheBoundSpan() {
+        val proposal = proposal()
+        val session = boundSession(proposal, "INGREDIENTS: WHEAT lour (whole)")
+        val accepted = session.acceptAlignmentProposal(proposal, "WHEAT flour")
+        assertEquals("INGREDIENTS: WHEAT flour (whole)", accepted?.editableText)
+    }
+
     @Test fun rawTextStaysSeparateFromEditableText() {
         val original = "INGRÉDIENTS\neau, lait"
         val edited = OcrSession().withOcrText(original).withEditableText("INGRÉDIENTS\neau, sucre")
@@ -103,5 +190,27 @@ class OcrSessionTest {
         assertEquals(editable, session.analyses.single().diagnostics?.input)
         assertEquals(90, session.ocrDiagnostics?.orientationDegrees)
         assertFalse(OcrExportReport.build(session, "test").contains("data:image"))
+    }
+
+    private fun proposal(): IngredientAlignmentResult {
+        val unknown = IngredientOccurrence(
+            "en:1", "en-block", LabelLanguage.ENGLISH, "WHEAT lour", 1
+        )
+        val known = IngredientOccurrence(
+            "nl:1", "nl-block", LabelLanguage.DUTCH, "tarwebloem", 1,
+            canonicalId = "wheat_flour", status = VeganStatus.VEGAN
+        )
+        return MultilingualIngredientAlignment.evaluate(
+            listOf(unknown, known),
+            listOf(AlignmentLink(unknown.id, known.id, AlignmentBasis.EXPLICIT_TRANSLATION))
+        ).links.single()
+    }
+
+    private fun boundSession(proposal: IngredientAlignmentResult, text: String = "INGREDIENTS: WHEAT lour"): OcrSession {
+        val block = LanguageBlock(LabelLanguage.ENGLISH, emptySet(), text, 0, text.length, "EN", id = "en-block")
+        val option = OcrTextOption(LabelLanguage.ENGLISH, text, "EN", blockId = block.id, segmentId = block.segmentId)
+        return OcrSession(editableText = text, selectedOptionBlockId = block.id,
+            selectedOptionLanguage = LabelLanguage.ENGLISH, textOptions = listOf(option), languageBlocks = listOf(block),
+            multilingualAlignment = MultilingualAlignmentEvaluation(listOf(proposal.first, proposal.second), listOf(proposal)))
     }
 }

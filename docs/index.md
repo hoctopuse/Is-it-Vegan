@@ -1,6 +1,6 @@
 # Présentation
 
-Cette documentation décrit l’état livré du dépôt **Is It Vegan? jusqu’à 0.6.13.8**, avant les travaux fonctionnels 0.7. L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
+Cette documentation décrit le dépôt **Is It Vegan?**, dont la version déclarée est 0.6.13.8, ainsi qu’une tranche expérimentale de revue OCR multilingue en cours pour 0.7. L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
 
 Le produit poursuit trois objectifs techniques :
 
@@ -57,6 +57,6 @@ La reconnaissance d’un bloc allemand ou espagnol ne garantit donc pas que tous
 
 L’OCR reste sensible au flou, à l’éclairage, au recadrage, aux petits caractères, aux tableaux et aux étiquettes multilingues. Lorsque la composition est incomplète ou douteuse, l’utilisateur doit corriger le texte ou reprendre une photo plus lisible, idéalement avec un cadrage plus large. L’application ne suggère pas encore automatiquement cette reprise.
 
-La consolidation de plusieurs langues d’une même étiquette n’est pas livrée : le choix de bloc sert à sélectionner le texte à analyser, et les autres blocs multilingues restent une aide de validation dans le diagnostic. Ces sujets sont des travaux futurs, sans calendrier annoncé.
+La revue expérimentale confronte certains concepts reconnus et présente des pistes ambiguës ; elle ne fusionne pas les compositions ni ne déduit une correction lexicale de leur position entre deux ancres. Le choix de bloc reste celui du texte à analyser. Voir le [pipeline OCR](ocr.md) pour les conditions et limites.
 
 Commencer par [l’architecture générale](architecture.md), puis suivre le [pipeline OCR](ocr.md), le [pipeline d’analyse](parsing.md) ou les [notes de version](changelog.md).

@@ -40,6 +40,21 @@ Les noms historiques de certaines suites correspondent à la version où le comp
 
 `Version064LanguageTest` vérifie qu’un bloc EN complet gagne face à un bloc FR tronqué et que le mot français « de » ne devient pas un marqueur allemand.
 
+Pour la revue expérimentale, `MultilingualIngredientAlignmentTest` et `MultilingualIngredientAlignmentGenerationTest` couvrent notamment les concepts concordants, les liens incertains, les omissions, l’ordre différent, les répétitions, les parenthèses et les statuts animaux ou incertains. Le contre-exemple `sugar, gelat1n, citric acid` / `suiker, tarwebloem, citroenzuur` ne doit pas produire de correction vers la farine. `OcrSessionTest` couvre le refus, l’acceptation d’une preuve explicite simulée, le bloc, le texte, les occurrences répétées ou chevauchantes et le résultat devenu ancien.
+
+Validation locale de cette tranche : 47 tests unitaires ciblés ont réussi, ainsi que `:app:assembleDebug` et `:app:assembleDebugAndroidTest`. Sur l’émulateur `Pixel_10_Pro`, le test Compose isolé `MainScreenInstrumentedTest#multilingualCorrectionReachesTheCallerOnlyAfterExplicitAccept` a réussi après correction de son montage. Il vérifie le callback de la carte, pas le parcours complet OCR → session → nouvelle analyse. Aucun parcours complet sur la photo réelle `5087.jpg` ni validation de cette tranche sur Nokia n’a été réalisé.
+
+Le rapport historique `reports/0.7/preparation/MULTILINGUAL_ALIGNMENT_PROTOTYPE_IMPLEMENTATION_20261029.md` décrit la première version du prototype, avant les corrections de l’audit. Son affirmation selon laquelle deux ancres permettent une proposition de correction ne décrit plus le générateur actuel ; les présentes pages documentent le comportement corrigé.
+
+Exemple de relance ciblée des tests du cœur et de la session :
+
+```powershell
+.\gradlew.bat :mutation-core:test `
+  --tests com.example.isitvegan.MultilingualIngredientAlignmentTest `
+  --tests com.example.isitvegan.MultilingualIngredientAlignmentGenerationTest `
+  :app:testDebugUnitTest --tests com.example.isitvegan.OcrSessionTest
+```
+
 ### Sous-ingrédients et pourcentages
 
 `IngredientTreeParserTest` construit notamment :

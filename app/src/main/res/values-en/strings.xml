@@ -1,4 +1,20 @@
 <resources>
+    <string name="multilingual_conflict">Conflicting evidence: check the original texts.</string>
+    <string name="analysis_failed">Could not analyze this text. Try again with a shorter passage.</string>
+    <string name="multilingual_unavailable">Multilingual review unavailable. Try extracting the text again.</string>
+    <string name="multilingual_stale_result">The text has changed since the last analysis.</string>
+    <string name="multilingual_reanalyze">Run analysis again to get a result for the current text.</string>
+    <string name="multilingual_review_title">Check multilingual reading</string>
+    <string name="multilingual_confirmed_title">Matching terms (no changes applied)</string>
+    <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
+    <string name="multilingual_proposal_title">Suggestion to review — the current analysis is unchanged.</string>
+    <string name="multilingual_source_text">OCR text: %1$s</string>
+    <string name="multilingual_evidence_text">Other block: %1$s (%2$s). Matching concept: %3$s.</string>
+    <string name="multilingual_edit_label">Correction to apply (editable)</string>
+    <string name="multilingual_accept">Accept correction</string>
+    <string name="multilingual_dismiss">Dismiss</string>
+    <string name="multilingual_accept_note">Accepting changes only the editable text. Run the analysis again to get a new result.</string>
+    <string name="multilingual_ambiguous">Ambiguous alignment: no correction suggested.</string>
     <string name="app_name">Is it Vegan</string>
     <string name="tagline">Paste a label or ingredient list to check its composition offline.</string>
     <string name="input_mode">Input mode</string><string name="mode_label">Label</string><string name="mode_list">List only</string><string name="mode_ocr">OCR</string>

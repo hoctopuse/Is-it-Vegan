@@ -47,6 +47,33 @@ class OcrMultilingualSelectionTest {
             selection.options.map { it.language }.toSet())
     }
 
+    @Test fun scandinavianMarkersAreDetectedButTheirBlocksAreNotSelectableOptions() {
+        listOf(
+            "SE: Ingredienser: Socker, VETEMJOL, Dextros." to LabelLanguage.SWEDISH,
+            "NO: Ingredienser: Sukker, HVETEMEL, Dextrose." to LabelLanguage.NORWEGIAN
+        ).forEach { (text, expectedLanguage) ->
+            val segmentation = LabelLanguageSegmenter.segment(text)
+            val selection = OcrTextSelection.from(segmentation, OcrTextCleaner.clean(text))
+
+            assertEquals(expectedLanguage, segmentation.blocks.single().language)
+            assertEquals(expectedLanguage, selection.selectedLanguage)
+            assertTrue(segmentation.blocks.single().hasIngredientHeading.not())
+            assertTrue(selection.options.isEmpty())
+        }
+    }
+
+    @Test fun scandinavianCodeBeforeProductTitleDoesNotCurrentlyStartALanguageBlock() {
+        listOf(
+            "SE SMaksatt gelegodis. Ingredienser: Socker, VETEMJOL, Dextros.",
+            "NO Gelefigurer med fruktsmak. Ingredienser: Sukker, HVETEMEL, Dextrose."
+        ).forEach { text ->
+            val segmentation = LabelLanguageSegmenter.segment(text)
+
+            assertTrue(segmentation.usedFallback)
+            assertEquals(LabelLanguage.UNKNOWN, segmentation.selectedLanguage)
+        }
+    }
+
     @Test fun analysisKeepsTheContentAssignedLanguageAndSelectedSection() {
         val diagnostics = VeganAnalyzer.analyzeWithDiagnostics(
             text = fixture,

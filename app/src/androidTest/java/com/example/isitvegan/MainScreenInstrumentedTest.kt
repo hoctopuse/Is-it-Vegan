@@ -1,6 +1,7 @@
 package com.example.isitvegan
 
 import android.os.ParcelFileDescriptor
+import androidx.activity.compose.setContent
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
@@ -9,6 +10,7 @@ import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextClearance
@@ -21,6 +23,7 @@ import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 import org.junit.Rule
 import org.junit.Test
+import org.junit.Assert.assertEquals
 
 @OptIn(ExperimentalTestApi::class)
 class MainScreenInstrumentedTest {
@@ -43,6 +46,71 @@ class MainScreenInstrumentedTest {
 
     @get:Rule
     val rules: TestRule = RuleChain.outerRule(wakeDeviceRule).around(composeRule)
+
+    @Test fun multilingualCorrectionReachesTheCallerOnlyAfterExplicitAccept() {
+        val unknown = IngredientOccurrence("en:1", "en-block", LabelLanguage.ENGLISH, "WHEAT lour", 1)
+        val known = IngredientOccurrence(
+            "nl:1", "nl-block", LabelLanguage.DUTCH, "tarwebloem", 1,
+            canonicalId = "wheat_flour", status = VeganStatus.VEGAN
+        )
+        val proposal = IngredientAlignmentResult(
+            unknown, known, AlignmentKind.CORRECTION_PROPOSAL, "wheat_flour", "Farine de blé"
+        )
+        var acceptedText: String? = null
+        var dismissed = false
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent { MultilingualAlignmentReview(
+                MultilingualAlignmentEvaluation(listOf(unknown, known), listOf(proposal)),
+                "Ingredients: WHEAT lour",
+                emptySet(),
+                InstrumentationRegistry.getInstrumentation().targetContext.resources,
+                onAccept = { _, text -> acceptedText = text },
+                onDismiss = { dismissed = true },
+                applicableProposalKeys = setOf(proposal.proposalKey)
+            ) }
+        }
+
+        composeRule.onNodeWithTag("multilingual-correction-text").performTextClearance()
+        composeRule.onNodeWithTag("multilingual-correction-text").performTextInput("WHEAT flour")
+        assertEquals(null, acceptedText)
+        assertEquals(false, dismissed)
+        composeRule.onNodeWithTag("multilingual-correction-accept").performClick()
+        assertEquals("WHEAT flour", acceptedText)
+        assertEquals(false, dismissed)
+    }
+
+    @Test fun manualEntryClearsPreviousOcrVerdict() {
+        composeRule.onNodeWithText("OCR").performClick()
+        composeRule.onNodeWithTag("ocr-editor").performTextInput("INGREDIENTS: eau, sucre")
+        composeRule.waitUntilAtLeastOneExists(hasText("ANALYSER").and(isEnabled()), 30_000)
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("VEGAN", substring = true), 30_000)
+        composeRule.onNodeWithTag("ocr-manual-entry").performScrollTo().performClick()
+        composeRule.onNodeWithTag("ocr-editor").performScrollTo().performTextInput("INGREDIENTS: lait")
+        composeRule.onAllNodes(hasText("VEGAN", substring = true)).assertCountEquals(0)
+    }
+
+    @Test fun failedReanalysisShowsErrorAndHidesOldVerdict() {
+        composeRule.waitUntil(30_000) { VeganAnalyzer.isDatabaseLoaded() }
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                OcrFirstScreenContent(true) { text, mode, language, block ->
+                    if (text.contains("FAILTEST")) throw IllegalStateException("technical detail")
+                    VeganAnalyzer.analyzeWithDiagnostics(text, mode, language, block)
+                }
+            }
+        }
+        composeRule.onNodeWithText("OCR").performClick()
+        composeRule.onNodeWithTag("ocr-editor").performTextInput("INGREDIENTS: eau, sucre")
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("VEGAN", substring = true), 30_000)
+        composeRule.onNodeWithTag("ocr-editor").performScrollTo().performTextInput(", FAILTEST")
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(androidx.compose.ui.test.hasTestTag("analysis-error"), 30_000)
+        composeRule.onNodeWithTag("analysis-error").performScrollTo().assertIsDisplayed()
+        composeRule.onAllNodes(hasText("VEGAN", substring = true)).assertCountEquals(0)
+        composeRule.onAllNodes(hasText("technical detail", substring = true)).assertCountEquals(0)
+    }
 
     @Test fun pageCanScrollToItsFooter() {
         val context = InstrumentationRegistry.getInstrumentation().targetContext

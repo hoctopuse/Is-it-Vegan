@@ -1,4 +1,20 @@
 <resources>
+    <string name="multilingual_conflict">Éléments contradictoires : vérifiez les textes d’origine.</string>
+    <string name="analysis_failed">Impossible d’analyser ce texte. Réessayez avec une zone plus courte.</string>
+    <string name="multilingual_unavailable">Lecture multilingue indisponible. Réessayez l’extraction.</string>
+    <string name="multilingual_stale_result">Le texte a changé depuis la dernière analyse.</string>
+    <string name="multilingual_reanalyze">Relancez l’analyse pour obtenir un résultat correspondant au texte actuel.</string>
+    <string name="multilingual_review_title">Lecture multilingue à vérifier</string>
+    <string name="multilingual_confirmed_title">Termes concordants (aucune modification appliquée)</string>
+    <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
+    <string name="multilingual_proposal_title">Proposition à vérifier — l’analyse actuelle reste inchangée.</string>
+    <string name="multilingual_source_text">Texte OCR : %1$s</string>
+    <string name="multilingual_evidence_text">Autre bloc : %1$s (%2$s). Concept correspondant : %3$s.</string>
+    <string name="multilingual_edit_label">Correction à appliquer (modifiable)</string>
+    <string name="multilingual_accept">Accepter la correction</string>
+    <string name="multilingual_dismiss">Ignorer</string>
+    <string name="multilingual_accept_note">L’acceptation modifie seulement le texte éditable. Relancez l’analyse pour obtenir un nouveau résultat.</string>
+    <string name="multilingual_ambiguous">Alignement ambigu : aucune correction proposée.</string>
     <string name="app_name">Is it Vegan</string>
     <string name="tagline">Collez une étiquette ou une liste d’ingrédients pour vérifier sa composition hors ligne.</string>
     <string name="input_mode">Mode d’entrée</string>

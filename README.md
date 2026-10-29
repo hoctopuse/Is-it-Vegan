@@ -2,7 +2,7 @@
 
 Application Android en Kotlin et Jetpack Compose qui analyse une liste d’ingrédients à partir d’une base embarquée. Elle accepte une étiquette saisie, une liste seule ou une photo traitée par l’OCR latin de ML Kit. Le flux photo inclut l’orientation EXIF, un recadrage en mémoire, la sélection prudente d’un bloc linguistique et un texte éditable à vérifier avant analyse.
 
-La documentation couvre l’état livré jusqu’à **0.6.13.8**, avant les travaux fonctionnels 0.7. L’interface et ses explications sont disponibles en français, néerlandais, anglais et allemand. Le moteur est déterministe : il ne prend aucune décision par IA générative, cloud ou service métier distant. Le modèle OCR et les données de classification sont embarqués ; les dépendances ML Kit et le manifeste fusionné sont détaillés dans la [documentation sur la vie privée](docs/vie-privee.md).
+La version déclarée est **0.6.13.8** ; le worktree contient également une première tranche expérimentale de revue OCR multilingue pour 0.7. L’interface et ses explications sont disponibles en français, néerlandais, anglais et allemand. Le moteur est déterministe : il ne prend aucune décision par IA générative, cloud ou service métier distant. Le modèle OCR et les données de classification sont embarqués ; les dépendances ML Kit et le manifeste fusionné sont détaillés dans la [documentation sur la vie privée](docs/vie-privee.md).
 
 ## Résultat et prudence
 
@@ -16,6 +16,8 @@ Le verdict principal affiché est l’un des suivants :
 `VEGETARIAN` est une classification détaillée informative : elle décrit les ingrédients connus comme végétariens mais incompatibles vegan. Elle ne transforme jamais le verdict vegan en résultat favorable. Les traces de contamination croisée sont affichées séparément et exclues du verdict. Une déclaration de présence réelle telle que « contient : lait » suit un parcours distinct des traces.
 
 L’OCR peut mal lire une étiquette, surtout si elle est floue, tronquée, tournée, très dense ou composée de plusieurs langues. Vérifier et corriger le texte avant l’analyse reste indispensable. Si la composition n’est pas lisible dans son ensemble, reprendre une photo plus nette ou avec un cadrage plus large est la recommandation pratique ; cette aide est un conseil, pas une détection automatique livrée.
+
+La revue expérimentale peut afficher des concepts reconnus dans plusieurs blocs et des pistes ambiguës à vérifier. Elle ne déduit pas une correction de deux ancres communes, ne fusionne pas les compositions et ne change pas le verdict. Après modification du texte éditable, relancer l’analyse. Voir le [parcours OCR](docs/ocr.md).
 
 ## Documentation
 
