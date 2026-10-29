@@ -20,7 +20,9 @@ These rules are business invariants and must not be changed unless explicitly re
 - Cross-contamination traces are displayed separately and must not affect the verdict.
 - Explicit ingredient presence such as `contient : lait` is not a trace and must be treated as actual presence.
 - Unknown ingredients must remain visible to the user and must not silently become vegan.
+- Known uncertainties must remain visible to the user.
 - OCR output is fallible and must remain inspectable/editable by the user before final analysis.
+- Analysis must use the current edited text; after an edit, any result for earlier text must be identified as stale until reanalysis.
 
 Preserve deterministic behavior.
 
@@ -28,8 +30,10 @@ Preserve deterministic behavior.
 
 Main modules:
 
-- `:app` — Android application, Compose UI, OCR integration and Android-specific code.
-- `:mutation-core` — JVM-compatible business logic extracted for mutation testing and isolated validation.
+- `:app` — Android application, Compose UI, OCR integration and Android-specific code; it has a production dependency on `:mutation-core`.
+- `:mutation-core` — Android-independent JVM business logic used by the application, ordinary JVM tests and PIT mutation testing. Keep the dependency direction `:app -> :mutation-core`.
+
+PIT is a test tool for evaluating tests. For each file or change, establish its actual role: shared business code, test, PIT tooling or prototype. Temporary mutants and mutation-testing scripts, configuration, reports and helpers are not application features. Do not introduce PIT dependencies or mutation logic into the production path; after a campaign, verify that source files retain no temporary mutations. PIT results alone do not establish that a feature is connected to the UI.
 
 Important project areas:
 
@@ -37,7 +41,9 @@ Important project areas:
 - `docs/` — maintained project documentation and MkDocs content.
 - `reports/` — historical implementation, audit, benchmark and review reports.
 
-Before making structural changes, inspect the relevant existing code and documentation rather than inferring architecture from filenames alone.
+Before choosing a location or making structural changes, inspect the relevant Gradle dependencies, source and documentation. Place Android integration in `:app` and shared, Android-independent logic in the appropriate existing core layer. Trace the affected path from the application entry point through its callers to the behavior; do not infer a feature's role from a module name.
+
+Distinguish evidence that code compiles or is packaged from evidence that the user flow calls it, that the UI exposes it, and that its behavior was validated at runtime. Report only the levels established by inspection or testing.
 
 ## Working rules
 
@@ -68,7 +74,7 @@ Inspect repository state before significant modifications:
 - `git diff`
 - relevant history when needed
 
-Preserve unrelated user changes.
+Preserve pre-existing staged, unstaged and untracked changes, including unrelated files.
 
 Do not commit, amend, rebase, reset, push, force-push or modify repository history unless explicitly requested.
 
@@ -90,6 +96,7 @@ Typical commands include:
 
 Use Windows equivalents when running from PowerShell.
 For Android instrumentation tests, use the connected-device tasks when the task requires them.
+When a change affects user-visible state or a verdict, cover relevant transitions as well as isolated logic: for example edit, analyze, modify and reanalyze, including stale results and visible unknowns, uncertainty and traces where applicable. Choose a suitable state, UI or instrumented test for the risk; do not require a device for every change. Report any runtime flow that could not be verified.
 Do not paste complete build or test logs into reports or responses. Analyze them locally and report:
 - failing task/test;
 - relevant error;
@@ -121,7 +128,7 @@ Multilingual processing must remain compatible with the supported FR/NL/EN/DE wo
 ## Documentation
 
 Consult existing documentation before significant changes to architecture, OCR, parsing, verdict logic or knowledge formats.
-Update /docs when a modification changes documented behavior, architecture, workflows or data formats.
+Before publication, update `/docs` and `docs/changelog.md` as appropriate to the changes actually delivered. Distinguish shipped behavior, experimental work and behavior not yet validated; do not describe compiled or uncalled code as a delivered user feature. Update documentation when behavior, architecture, workflows or data formats change.
 Generated task reports belong under /reports, not in the repository root.
 Use the relevant version/workstream directory under /reports.
 Existing reports are historical evidence. Do not rewrite or delete them unless explicitly requested.
@@ -132,7 +139,7 @@ At the end of an implementation task, report concisely:
 - what changed;
 - important files affected;
 - tests/validation actually executed;
-- result;
+- result, including the device or emulator used for runtime validation and relevant failures resolved during validation;
 - remaining risks, limitations or unverified points.
 Distinguish clearly between verified results and assumptions.
 

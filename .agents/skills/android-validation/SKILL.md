@@ -13,8 +13,8 @@ Before running tests:
 
 1. Run `git status --short`.
 2. Inspect the relevant diff.
-3. Identify which module and behavior changed.
-4. Preserve unrelated working-tree changes.
+3. Identify the affected module, behavior and path from the app entry point through relevant callers. `:app` depends on `:mutation-core` in production; the latter also supports JVM tests and PIT.
+4. Preserve pre-existing staged, unstaged and untracked changes.
 
 Do not modify production code merely to make validation easier unless the task explicitly requires a fix.
 
@@ -49,6 +49,10 @@ Do not require connected-device tests for every change.
 Use instrumentation tests when the modified behavior depends on Android runtime behavior, Compose instrumentation, OCR/device integration, or when explicitly requested.
 
 Before running connected tests, verify that a suitable device or emulator is available.
+
+For changes to user-visible state or verdicts, select tests for the relevant transitions in addition to isolated functions. Where applicable cover analysis of edited text, editing after a result, stale-result identification and reanalysis, plus visible unknowns, uncertainty and separately displayed traces. Use state, UI or instrumentation tests according to the behavior and risk; report runtime gaps when a suitable device is unavailable.
+
+Compilation or packaging alone does not establish that a feature is called, visible or validated at runtime. Trace the path and report the evidence for each relevant level.
 
 ## 3. Escalate only when justified
 
@@ -86,6 +90,8 @@ At completion, report concisely:
 - validation commands actually executed;
 - tests/builds that passed;
 - failures, if any;
+- relevant failures resolved during validation and the successful rerun;
+- device or emulator used for runtime tests, when applicable;
 - validation that was intentionally not run;
 - remaining uncertainty or device-dependent validation.
 

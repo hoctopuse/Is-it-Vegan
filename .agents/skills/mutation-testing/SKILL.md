@@ -7,7 +7,7 @@ description: Run, inspect, or analyze PIT mutation testing for the Is It Vegan p
 
 Use this skill for mutation testing of the Is It Vegan business logic.
 
-Mutation testing belongs to the JVM module `:mutation-core`.
+PIT is a test tool that evaluates tests using mutations. `:mutation-core` also contains production business logic consumed by `:app`. Identify each file or change by its actual role: shared business code, test, PIT tooling or prototype. Temporary mutants and mutation-testing scripts, configuration, reports and helpers are not application features. A PIT result alone does not establish that a feature is connected to or visible in the UI.
 
 Do not attempt to run PIT against the Android `:app` module unless the task explicitly asks for a new compatibility experiment.
 
@@ -20,6 +20,7 @@ Read `references/pit-workflow.md` before running or modifying a mutation-testing
 - Establish a green ordinary-test baseline before interpreting mutation results.
 - Prefer small targeted mutation campaigns before broader runs.
 - Do not modify production behavior merely to improve the mutation score.
+- Do not add PIT dependencies or mutation logic to the production path.
 - Do not weaken assertions or remove valid tests to eliminate surviving mutants.
 - Distinguish valid surviving mutants from equivalent, irrelevant, unreachable, or uncovered mutants.
 - Treat mutation score as diagnostic evidence, not as a goal by itself.
@@ -69,6 +70,7 @@ Preserve unrelated working-tree changes and never use destructive Git operations
 9. Re-run the targeted ordinary tests.
 10. Re-run the relevant PIT scope.
 11. Expand the mutation scope only when justified.
+12. After the campaign, inspect the source diff against its pre-campaign state and verify that no temporary mutation remains, preserving pre-existing changes.
 
 ## Safety
 
