@@ -40,6 +40,7 @@
     <string name="established_ingredients_notice">Onzekere of niet-geïdentificeerde elementen blijven vermeld en verhinderen nog steeds een globale bevestiging.</string>
     <string name="empty_input_prompt">ℹ️ Voer eerst een ingrediëntenlijst in.</string>
     <string name="no_ingredient_list">ℹ️ GEEN INGREDIËNTENLIJST GEDETECTEERD</string>
+    <string name="ocr_ambiguous_text">De tekst bevat meerdere lijsten of een passage met een onzekere grens. Selecteer en controleer één lijst voordat u deze analyseert.</string>
     <string name="no_vegan_conclusion">Er wordt geen vegan conclusie gegeven.</string>
     <string name="analysis_not_evaluated">Analyse niet uitgevoerd: geen bruikbare ingrediëntenlijst.</string>
     <string name="verdict_non_vegan">❌ NIET VEGAN</string>

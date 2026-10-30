@@ -78,6 +78,7 @@
     <string name="established_ingredients_notice">Unsichere oder nicht identifizierte Elemente bleiben aufgeführt und verhindern weiterhin eine globale Bestätigung.</string>
     <string name="empty_input_prompt">ℹ️ Geben Sie zuerst eine Zutatenliste ein.</string>
     <string name="no_ingredient_list">ℹ️ KEINE ZUTATENLISTE ERKANNT</string>
+    <string name="ocr_ambiguous_text">Der Text enthält mehrere Listen oder einen Abschnitt mit unklarer Grenze. Wählen und prüfen Sie eine Liste, bevor Sie sie analysieren.</string>
     <string name="no_vegan_conclusion">Es wird keine vegane Schlussfolgerung ausgegeben.</string>
     <string name="analysis_not_evaluated">Analyse nicht bewertet: keine verwertbare Zutatenliste.</string>
     <string name="verdict_non_vegan">❌ NICHT VEGAN</string>

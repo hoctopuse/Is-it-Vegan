@@ -194,7 +194,8 @@ class Version067OcrStabilizationTest {
         )
         val report = DiagnosticReport.build(diagnostics, "0.6.7")
 
-        assertTrue(report.contains("Identifiant du bloc sélectionné : ${segmentation.selectedBlockId}"))
+        assertEquals(null, diagnostics.labelSections.selectedBlockId)
+        assertTrue(report.contains("Identifiant du bloc sélectionné : texte complet"))
         assertTrue(report.contains("Identifiant du segment sélectionné :"))
         assertTrue(report.contains("Raison du rejet :"))
         assertTrue(report.contains("Raison de sélection :"))

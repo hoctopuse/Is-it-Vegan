@@ -39,7 +39,7 @@ internal object VerdictExplanationFormatter {
         if (input.isBlank()) return resources.getString(R.string.empty_input_prompt)
         if (result.availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
             val sections = mutableListOf(
-                resources.getString(R.string.no_ingredient_list),
+                resources.getString(if (diagnostics.ambiguousOcrText) R.string.ocr_ambiguous_text else R.string.no_ingredient_list),
                 resources.getString(R.string.no_vegan_conclusion),
                 resources.getString(R.string.analysis_not_evaluated)
             )

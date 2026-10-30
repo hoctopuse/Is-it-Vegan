@@ -93,7 +93,8 @@ data class AnalysisDiagnostics(
     val ingredientTree: List<IngredientNode>,
     val tokens: List<TokenDiagnostic>,
     val originRuleErrors: List<String>,
-    val result: AnalysisResult
+    val result: AnalysisResult,
+    val ambiguousOcrText: Boolean = false
 ) {
     val crossContactWarnings: List<String> get() = result.crossContactWarnings
     val excludedNotes: List<String> get() = result.excludedNotes
@@ -265,12 +266,22 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
         multilingualLexicon: MultilingualIngredientLexicon = MultilingualIngredientLexicon.empty()
     ): AnalysisDiagnostics {
         val detectedSegmentation = LabelLanguageSegmenter.segment(text, preferredLanguage)
-        val languageSegmentation = detectedSegmentation.withSelectedBlockId(selectedBlockId)
-        val sections = selectSections(languageSegmentation, inputMode, preferredLanguage)
+        val ocrSections = if (inputMode == InputMode.OCR_LABEL) {
+            selectOcrSections(text, detectedSegmentation, selectedBlockId)
+        } else null
+        val ambiguousOcrText = ocrSections?.second == true
+        val languageSegmentation = if (inputMode == InputMode.OCR_LABEL) {
+            detectedSegmentation.copy(
+                selectedText = text,
+                ignoredLanguages = emptyList(),
+                selectedBlockId = ocrSections?.first?.selectedBlockId
+            )
+        } else detectedSegmentation.withSelectedBlockId(selectedBlockId)
+        val sections = ocrSections?.first ?: selectSections(languageSegmentation, inputMode, preferredLanguage)
         val explicitList = sections.hasIngredientHeading && !sections.ingredientsText.isNullOrBlank()
         val manualList = inputMode == InputMode.MANUAL_INGREDIENT_LIST &&
             !sections.ingredientsText.isNullOrBlank()
-        val canParseIngredientText = explicitList || manualList
+        val canParseIngredientText = !ambiguousOcrText && (explicitList || manualList)
         val requestedManualFallback = manualList && !sections.hasIngredientHeading
         val ingredientInput = when {
             !canParseIngredientText -> ""
@@ -278,7 +289,7 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
             else -> sections.ingredientsText
         }
         val preprocessed = LabelPreprocessor.preprocess(ingredientInput)
-        val presencePreprocessed = LabelPreprocessor.preprocess(sections.declaredContainsText.orEmpty())
+        val presencePreprocessed = LabelPreprocessor.preprocess(if (ambiguousOcrText) "" else sections.declaredContainsText.orEmpty())
         val parenthesisStructure = IngredientTreeParser.inspectParentheses(preprocessed.compositionText)
         val ingredientTree = IngredientTreeParser.parse(preprocessed.compositionText, rules)
         val availability = if (canParseIngredientText && ingredientTree.isNotEmpty()) {
@@ -289,7 +300,9 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
         val usedManualFallback = requestedManualFallback &&
             availability == AnalysisAvailability.INGREDIENT_LIST_ANALYZED
         val availabilityReason = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
-            if (inputMode == InputMode.MANUAL_INGREDIENT_LIST) {
+            if (ambiguousOcrText) {
+                "Plusieurs sections ou un préambule empêchent une analyse OCR fiable. Choisissez et vérifiez une seule liste."
+            } else if (inputMode == InputMode.MANUAL_INGREDIENT_LIST) {
                 "Aucune liste manuelle exploitable n’a été fournie."
             } else {
                 "Aucune section d’ingrédients reconnue dans l’étiquette."
@@ -467,8 +480,60 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
                     ).distinct(),
                 excludedNotes = (preprocessed.excludedNotes + presencePreprocessed.excludedNotes).distinct(),
                 originNonVeganIngredientIds = originNonVegan.toList()
-            )
+            ),
+            ambiguousOcrText = ambiguousOcrText
         )
+    }
+
+    /** OCR input is the user's chosen text, never a new automatic block selection. */
+    private fun selectOcrSections(
+        text: String,
+        segmentation: LanguageSegmentation,
+        sourceBlockId: String?
+    ): Pair<LabelSections, Boolean> {
+        val headings = LabelLexicon.findIngredientHeadings(text).sortedBy { it.range.first }
+        val prefix = headings.firstOrNull()?.let { text.substring(0, it.range.first).trim() }.orEmpty()
+        val safePrefix = prefix.isEmpty() || prefix.matches(
+            Regex("(?i)^(?:\\[?(?:FR|EN|NL|DE|IT|ES|PL)\\]?\\s*[:\\-]?)$")
+        )
+        val parts = segmentation.blocks.map { LabelSectionExtractor.extract(it) }
+        val multiple = headings.size > 1 || parts.count { it.hasIngredientHeading } > 1
+        // Neither a retained provenance ID nor an equal block/title count proves that
+        // segmentation respected the text's structure or the user's current choice.
+        val ambiguous = !safePrefix || multiple || segmentation.blocks.size > 1 ||
+            !hasBalancedOcrDelimiters(text) || hasNestedOcrLanguageMarker(text)
+        val language = if (multiple) LabelLanguage.UNKNOWN else segmentation.selectedLanguage
+        val extracted = LabelSectionExtractor.extract(language, text)
+        val exactId = sourceBlockId?.takeIf { !ambiguous && it == stableBlockId(text) }
+        val sections = extracted.copy(rawText = text, selectedBlockId = exactId)
+        return sections to ambiguous
+    }
+
+    private fun hasBalancedOcrDelimiters(text: String): Boolean {
+        val open = ArrayDeque<Char>()
+        for (char in text) when (char) {
+            '(', '[' -> open.addLast(char)
+            ')', ']' -> {
+                val expected = if (char == ')') '(' else '['
+                if (open.removeLastOrNull() != expected) return false
+            }
+        }
+        return open.isEmpty()
+    }
+
+    private fun hasNestedOcrLanguageMarker(text: String): Boolean {
+        val codes = "(?:FR|NL|EN|DE|IT|ES|PL|PT|SE|SV|DK|DA|NO|FI)"
+        val markers = Regex("(?i)(?<![\\p{L}\\d])(?:\\[$codes\\]|$codes\\s*:)")
+            .findAll(text).map { it.range.first }.toSet()
+        var depth = 0
+        for ((index, char) in text.withIndex()) {
+            if (index in markers && depth > 0) return true
+            when (char) {
+                '(', '[' -> depth++
+                ')', ']' -> depth--
+            }
+        }
+        return false
     }
 
     private fun LanguageSegmentation.withSelectedBlockId(sourceBlockId: String?): LanguageSegmentation {

@@ -28,12 +28,13 @@ import kotlin.time.Duration.Companion.milliseconds
 
 @Composable
 fun OcrFirstScreen(analysisEnabled: Boolean = true) {
-    OcrFirstScreenContent(analysisEnabled, VeganAnalyzer::analyzeWithDiagnostics)
+    OcrFirstScreenContent(analysisEnabled, analyzeText = VeganAnalyzer::analyzeWithDiagnostics)
 }
 
 @Composable
 internal fun OcrFirstScreenContent(
     analysisEnabled: Boolean,
+    initialSession: OcrSession = OcrSession(),
     analyzeText: (String, InputMode, UiLanguage, String?) -> AnalysisDiagnostics
 ) {
     val context = LocalContext.current
@@ -45,7 +46,7 @@ internal fun OcrFirstScreenContent(
     var analysisError by remember { mutableStateOf<String?>(null) }
     var diagnostics by remember { mutableStateOf<AnalysisDiagnostics?>(null) }
     var inputMode by remember { mutableStateOf(InputMode.FULL_LABEL) }
-    var session by remember { mutableStateOf(OcrSession()) }
+    var session by remember { mutableStateOf(initialSession) }
     var sourceUri by remember { mutableStateOf<Uri?>(null) }
     var preview by remember { mutableStateOf<Bitmap?>(null) }
     var cropRect by remember { mutableStateOf<OcrCropRect?>(null) }

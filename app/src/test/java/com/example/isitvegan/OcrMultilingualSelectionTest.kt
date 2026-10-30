@@ -146,7 +146,9 @@ class OcrMultilingualSelectionTest {
         assertEquals(LabelLanguage.GERMAN, result.languageSegmentation.selectedLanguage)
         assertTrue(result.languageSegmentation.selectedBlockId != "nl-untrusted")
         assertEquals(result.languageSegmentation.selectedBlockId, result.labelSections.selectedBlockId)
-        assertTrue(result.result.unknown.any { it.contains("XYZTEST", true) })
+        assertTrue(result.ambiguousOcrText)
+        assertEquals(text, result.labelSections.rawText)
+        assertEquals(null, result.result.verdict)
     }
 
     @Test fun confirmedDutchBlockTakesPrecedenceOverEarlierProbableDutchCandidate() {

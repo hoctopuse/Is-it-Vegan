@@ -45,6 +45,7 @@
     <string name="established_ingredients_notice">Uncertain or unidentified items remain listed and still prevent global confirmation.</string>
     <string name="empty_input_prompt">ℹ️ Enter an ingredient list first.</string>
     <string name="no_ingredient_list">ℹ️ NO INGREDIENT LIST DETECTED</string>
+    <string name="ocr_ambiguous_text">The text contains multiple lists or a passage with an uncertain boundary. Select and check one list before analyzing it.</string>
     <string name="no_vegan_conclusion">No vegan conclusion is produced.</string>
     <string name="analysis_not_evaluated">Analysis not evaluated: no usable ingredient list.</string>
     <string name="verdict_non_vegan">❌ NON VEGAN</string>

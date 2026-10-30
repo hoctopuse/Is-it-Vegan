@@ -2,7 +2,7 @@
 
 ## Non publié — sécurité des blocs OCR
 
-- Désactive la proposition expérimentale `NL · probable` pour un titre OCR abîmé : sa frontière et son analyse ne garantissaient pas la conservation des ingrédients. Le texte brut et l’option « Texte complet » restent disponibles. Un identifiant de bloc fourni n’est plus attribué à un autre bloc lors de la resegmentation, mais la resegmentation d’un texte édité contenant plusieurs titres reste à traiter avant toute réactivation de la piste NL ; cette correction d’identité ne garantit pas que le texte analysé corresponde au bloc choisi.
+- Maintient désactivée la proposition expérimentale `NL · probable` pour un titre OCR abîmé. L’analyse conserve le texte choisi et refuse un verdict si plusieurs listes ou segments sont détectés, si la structure est déséquilibrée ou si un marqueur de langue est imbriqué. Un ancien identifiant ne permet pas de fusionner les listes. Une liste unique éditée reste analysable et les traces restent séparées. L’identifiant du bloc n’est conservé que si le texte correspond encore à son identité normalisée et que l’analyse n’est pas ambiguë.
 - Sur l’émulateur `emulator-5554`, le rejeu 5087 après désactivation présente DE, EN et « Texte complet » ; le bloc DE analysé affiche des éléments incertains et inconnus. La consolidation multilingue reste à poursuivre.
 
 ## 0.6.13.9 — revue OCR multilingue expérimentale pour 0.7
