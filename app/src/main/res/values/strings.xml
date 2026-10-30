@@ -15,6 +15,8 @@
     <string name="multilingual_dismiss">Ignorer</string>
     <string name="multilingual_accept_note">L’acceptation modifie seulement le texte éditable. Relancez l’analyse pour obtenir un nouveau résultat.</string>
     <string name="multilingual_ambiguous">Alignement ambigu : aucune correction proposée.</string>
+    <string name="multilingual_ambiguous_show">Voir les pistes ambiguës (%1$d)</string>
+    <string name="multilingual_ambiguous_hide">Masquer les pistes ambiguës (%1$d)</string>
     <string name="app_name">Is it Vegan</string>
     <string name="tagline">Collez une étiquette ou une liste d’ingrédients pour vérifier sa composition hors ligne.</string>
     <string name="input_mode">Mode d’entrée</string>

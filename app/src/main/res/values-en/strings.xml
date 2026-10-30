@@ -15,6 +15,8 @@
     <string name="multilingual_dismiss">Dismiss</string>
     <string name="multilingual_accept_note">Accepting changes only the editable text. Run the analysis again to get a new result.</string>
     <string name="multilingual_ambiguous">Ambiguous alignment: no correction suggested.</string>
+    <string name="multilingual_ambiguous_show">Show ambiguous leads (%1$d)</string>
+    <string name="multilingual_ambiguous_hide">Hide ambiguous leads (%1$d)</string>
     <string name="app_name">Is it Vegan</string>
     <string name="tagline">Paste a label or ingredient list to check its composition offline.</string>
     <string name="input_mode">Input mode</string><string name="mode_label">Label</string><string name="mode_list">List only</string><string name="mode_ocr">OCR</string>

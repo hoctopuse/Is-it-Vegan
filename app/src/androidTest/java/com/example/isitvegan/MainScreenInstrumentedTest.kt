@@ -2,6 +2,10 @@ package com.example.isitvegan
 
 import android.os.ParcelFileDescriptor
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
@@ -77,6 +81,38 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithTag("multilingual-correction-accept").performClick()
         assertEquals("WHEAT flour", acceptedText)
         assertEquals(false, dismissed)
+    }
+
+    @Test fun ambiguousReviewIsCollapsedAndCanBeExpandedWithoutAcceptingAnything() {
+        val links = (1..30).map { index ->
+            IngredientAlignmentResult(
+                IngredientOccurrence("de:$index", "de", LabelLanguage.GERMAN, "DETERM$index", index),
+                IngredientOccurrence("en:$index", "en", LabelLanguage.ENGLISH, "ENTERM$index", index),
+                AlignmentKind.AMBIGUOUS
+            )
+        }
+        var accepted = false
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                Column(Modifier.verticalScroll(rememberScrollState())) {
+                    MultilingualAlignmentReview(
+                        MultilingualAlignmentEvaluation(links.flatMap { listOf(it.first, it.second) }, links),
+                        "texte", emptySet(), InstrumentationRegistry.getInstrumentation().targetContext.resources,
+                        onAccept = { _, _ -> accepted = true }, onDismiss = {}
+                    )
+                }
+            }
+        }
+        composeRule.waitUntilAtLeastOneExists(androidx.compose.ui.test.hasTestTag("multilingual-ambiguous-toggle"), 30_000)
+        val showLabel = InstrumentationRegistry.getInstrumentation().targetContext.resources
+            .getString(R.string.multilingual_ambiguous_show, 30)
+        composeRule.onNodeWithText(showLabel).performScrollTo().assertIsDisplayed()
+        composeRule.onAllNodes(hasText("DETERM1", substring = true)).assertCountEquals(0)
+        composeRule.onNodeWithTag("multilingual-ambiguous-toggle").performClick()
+        composeRule.onNodeWithText("DETERM1 (DE) ↔ ENTERM1 (EN)").performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithTag("multilingual-ambiguous-toggle").performScrollTo().performClick()
+        composeRule.onAllNodes(hasText("DETERM1", substring = true)).assertCountEquals(0)
+        assertEquals(false, accepted)
     }
 
     @Test fun manualEntryClearsPreviousOcrVerdict() {

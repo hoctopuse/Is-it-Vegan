@@ -15,6 +15,8 @@
     <string name="multilingual_dismiss">Verwerfen</string>
     <string name="multilingual_accept_note">Die Annahme ändert nur den bearbeitbaren Text. Für ein neues Ergebnis die Analyse erneut starten.</string>
     <string name="multilingual_ambiguous">Mehrdeutige Zuordnung: kein Korrekturvorschlag.</string>
+    <string name="multilingual_ambiguous_show">Mehrdeutige Hinweise anzeigen (%1$d)</string>
+    <string name="multilingual_ambiguous_hide">Mehrdeutige Hinweise ausblenden (%1$d)</string>
     <string name="app_name">Is it Vegan</string>
     <string name="tagline">Fügen Sie ein Etikett oder eine Zutatenliste ein, um die Zusammensetzung offline zu prüfen.</string>
     <string name="input_mode">Eingabemodus</string>

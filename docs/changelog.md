@@ -3,8 +3,9 @@
 ## Non publié — tranche OCR multilingue 0.7
 
 - Ajoute une revue expérimentale des sections OCR : concepts reconnus concordants, pistes ambiguës et conflits restent distincts. Deux ancres communes ne suffisent pas à proposer une correction lexicale ; le générateur actuel ne produit pas de correction fondée sur une traduction explicite.
+- Replie les pistes ambiguës avec leur nombre et une action pour les consulter. Préserve les préfixes en majuscules lorsqu’une frontière de produit n’est pas établie, afin de ne pas écarter un ingrédient.
 - Préserve le texte source et le verdict tant qu’aucune action de l’utilisateur ne modifie le texte. Après modification, le résultat précédent est masqué jusqu’à une nouvelle analyse. La sélection d’un autre bloc réinitialise le résultat affiché.
-- Ne fusionne pas les compositions des langues. SV/NO ne disposent pas de mappings lexicaux fiables pour cette revue. La validation Compose ciblée a réussi sur émulateur ; le parcours complet sur photo réelle et sur Nokia reste à vérifier.
+- Ne fusionne pas les compositions des langues. SV/NO ne disposent pas de mappings lexicaux fiables pour cette revue. La validation Compose ciblée est réalisée sur émulateur. Le rejeu OCR de la photo 5087, où le titre anglais figurait dans le bloc allemand, est antérieur au retrait de la règle de frontière fragile ; il ne valide pas le comportement final sur cette photo. D'autres images, appareils et le parcours complet sur téléphone restent à vérifier.
 
 ## 0.6.13.8
 

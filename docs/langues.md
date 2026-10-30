@@ -29,6 +29,8 @@ Les codes ne sont reconnus qu’en début de ligne ou après certains séparateu
 
 Tous les marqueurs et titres sont collectés, triés par position et dédupliqués lorsqu’ils se chevauchent. Chaque bloc s’étend de la fin de son marqueur jusqu’au marqueur suivant. Pour un titre d’ingrédients, le titre est conservé dans le bloc afin que l’extracteur de sections puisse le voir.
 
+Le texte précédant un titre d’ingrédients reconnu reste dans le bloc précédent, sauf frontière de produit déjà reconnue. Une ligne en majuscules suivie d’un point ne suffit pas à prouver qu’il s’agit d’un titre : elle peut contenir un ingrédient. Sur l’OCR 5087, le titre anglais reste donc à la fin du bloc allemand. Le titre néerlandais lu `INGREDIENTE.` ne possède pas le séparateur ni la forme reconnus : il ne rend pas le bloc NL sélectionnable. Ces limites demandent une vérification et, si nécessaire, une correction manuelle du texte OCR ; le texte brut reste affiché.
+
 Sans marqueur fiable, un unique bloc `UNKNOWN` contient le texte complet avec `usedFallback = true`. Aucun contenu n’est supprimé.
 
 ## Attribution par le contenu

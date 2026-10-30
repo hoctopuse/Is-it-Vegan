@@ -37,9 +37,10 @@ internal fun MultilingualAlignmentReview(
             it.proposalKey !in dismissedProposalKeys &&
             it.proposalKey in applicableProposalKeys
     }
-    val ambiguousCount = evaluation.links.count { it.kind == AlignmentKind.AMBIGUOUS }
+    val ambiguous = evaluation.links.filter { it.kind == AlignmentKind.AMBIGUOUS }
+    var showAmbiguous by remember(evaluation) { mutableStateOf(false) }
     val conflicts = evaluation.links.filter { it.kind == AlignmentKind.CONFLICT }
-    if (corroborations.isEmpty() && proposals.isEmpty() && ambiguousCount == 0 && conflicts.isEmpty()) return
+    if (corroborations.isEmpty() && proposals.isEmpty() && ambiguous.isEmpty() && conflicts.isEmpty()) return
 
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
@@ -59,9 +60,18 @@ internal fun MultilingualAlignmentReview(
             proposals.forEach { proposal ->
                 CorrectionProposalEditor(proposal, resources, onAccept, onDismiss)
             }
-            if (ambiguousCount > 0) {
+            if (ambiguous.isNotEmpty()) {
                 Text(resources.getString(R.string.multilingual_ambiguous))
-                evaluation.links.filter { it.kind == AlignmentKind.AMBIGUOUS }.forEach { link ->
+                OutlinedButton(
+                    onClick = { showAmbiguous = !showAmbiguous },
+                    modifier = Modifier.testTag("multilingual-ambiguous-toggle")
+                ) {
+                    Text(resources.getString(
+                        if (showAmbiguous) R.string.multilingual_ambiguous_hide else R.string.multilingual_ambiguous_show,
+                        ambiguous.size
+                    ))
+                }
+                if (showAmbiguous) ambiguous.forEach { link ->
                     Text(resources.getString(R.string.multilingual_confirmed_item,
                         link.first.rawText, link.first.language.displayName,
                         link.second.rawText, link.second.language.displayName),
