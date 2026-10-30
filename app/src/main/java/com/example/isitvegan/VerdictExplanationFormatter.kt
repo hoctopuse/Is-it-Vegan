@@ -89,10 +89,7 @@ internal object VerdictExplanationFormatter {
                     ) + renderPossibleOriginNote(resources, it.possibleOriginNote)
                 }
         }
-        val showsUnknownIngredients = result.verdict in setOf(
-            AnalysisVerdict.INCONCLUSIVE,
-            AnalysisVerdict.UNCERTAIN
-        ) && diagnostics.visibleUnknownIngredients.isNotEmpty()
+        val showsUnknownIngredients = diagnostics.visibleUnknownIngredients.isNotEmpty()
         if (showsUnknownIngredients) {
             sections += renderUnknownIngredients(resources, diagnostics)
         }

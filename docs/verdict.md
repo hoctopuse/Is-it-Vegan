@@ -61,6 +61,8 @@ modifient aucun des deux verdicts.
 
 `OcrFirstScreenResult.render` utilise `AnalysisResult.verdict` pour le message principal et ajoute les inconnus/raisons pertinentes. Les branches sont :
 
+Les inconnus visibles sont affichés quel que soit le verdict principal, y compris avec `NON VEGAN`. Leur présence n’efface ni ne modifie le bloqueur connu ou le verdict.
+
 - `NON_VEGETARIAN` → « NON VEGAN » ;
 - `UNCERTAIN` → « INCERTAIN » ;
 - `INCONCLUSIVE` → « INCONCLUS » ;

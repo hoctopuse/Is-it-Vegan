@@ -3,7 +3,7 @@
 ## 0.6.13.10 — texte OCR analysé (versionCode 62)
 
 - L’analyse conserve le texte OCR soumis. Elle refuse un verdict lorsque plusieurs listes ou segments sont détectés ou qu’une frontière est jugée ambiguë ; un ancien identifiant de bloc ne justifie pas la fusion de listes. Une liste unique reste éditable et réanalysable. Les traces demeurent exclues du verdict. La piste `NL · probable` reste désactivée.
-- Trois tests instrumentés ont réussi sur `Pixel_8` (`emulator-5554`). Ils ne vérifient pas visuellement l’affichage d’un ingrédient inconnu ni l’indication de résultat périmé. Le parcours photo complet reste à valider pour cette correction.
+- Trois tests instrumentés ont réussi sur `Pixel_8` (`emulator-5554`). Le parcours éditer → résultat périmé → réanalyse vérifie que le verdict précédent est masqué, que l’indication périmée apparaît et qu’un inconnu reste affiché avec le verdict NON VEGAN. Le remplacement d’un bloc par plusieurs listes vérifie aussi l’avertissement. Le parcours photo complet reste à valider pour cette correction.
 - Limites : certains textes exploitables peuvent être refusés ; tous les titres OCR abîmés ne sont pas nécessairement détectés.
 
 ## 0.6.13.9 — revue OCR multilingue expérimentale pour 0.7

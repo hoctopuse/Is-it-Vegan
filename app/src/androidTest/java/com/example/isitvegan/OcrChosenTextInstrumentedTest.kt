@@ -11,6 +11,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.compose.ui.test.performTextClearance
 import androidx.compose.ui.test.performTextInput
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.waitUntilAtLeastOneExists
 import androidx.test.platform.app.InstrumentationRegistry
 import org.junit.Assert.*
@@ -72,9 +73,19 @@ class OcrChosenTextInstrumentedTest {
         rule.waitUntilAtLeastOneExists(hasText("VEGAN", substring = true), 30_000)
         rule.onNodeWithTag("ocr-editor").performScrollTo().performTextClearance()
         rule.onNodeWithTag("ocr-editor").performTextInput("$original, MILCH, mystère")
+        rule.onAllNodes(hasText("✅ VEGAN", substring = true)).assertCountEquals(0)
+        val staleLabel = localizedContext(
+            InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR
+        ).resources
+            .getString(R.string.multilingual_stale_result)
+        rule.onNodeWithText(staleLabel).performScrollTo().assertIsDisplayed()
         rule.onNodeWithText("ANALYSER").performScrollTo().performClick()
         rule.waitUntilAtLeastOneExists(hasText("NON VEGAN", substring = true), 30_000)
         rule.onNodeWithText("NON VEGAN", substring = true).performScrollTo().assertIsDisplayed()
+        assertTrue("Unknown tokens in analysis: ${requireNotNull(received).visibleUnknownIngredients}",
+            requireNotNull(received).visibleUnknownIngredients.any { it.contains("mystère") })
+        rule.onNodeWithText("Ingrédients non identifiés :", substring = true).performScrollTo().assertIsDisplayed()
+        rule.onNodeWithText("• mystère", substring = true).performScrollTo().assertIsDisplayed()
         val result = requireNotNull(received)
         assertEquals("$original, MILCH, mystère", result.input)
         assertEquals(result.input, result.labelSections.rawText)
