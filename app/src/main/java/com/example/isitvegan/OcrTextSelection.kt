@@ -21,8 +21,12 @@ internal object OcrTextSelection {
 
     fun from(segmentation: LanguageSegmentation, fullText: String): OcrTextSelectionResult {
         val options = segmentation.blocks
-            .filter { it.hasIngredientHeading && it.language in selectableLanguages }
-            .distinctBy { it.language }
+            .filter { it.hasIngredientHeading && it.language in selectableLanguages && it.headingConfidence == HeadingConfidence.CONFIRMED }
+            .groupBy { it.language }
+            .values
+            .map { languageBlocks ->
+                languageBlocks.firstOrNull { it.headingConfidence == HeadingConfidence.CONFIRMED } ?: languageBlocks.first()
+            }
             .map { block ->
                 OcrTextOption(
                     language = block.language,
@@ -30,7 +34,8 @@ internal object OcrTextSelection {
                     marker = block.detectedMarker,
                     languageCorrectionReason = block.languageCorrectionReason,
                     blockId = block.id,
-                    segmentId = block.segmentId
+                    segmentId = block.segmentId,
+                    headingConfidence = block.headingConfidence
                 )
             }
         val editable = if (segmentation.usedFallback) {

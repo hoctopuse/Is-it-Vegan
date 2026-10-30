@@ -472,13 +472,14 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
     }
 
     private fun LanguageSegmentation.withSelectedBlockId(sourceBlockId: String?): LanguageSegmentation {
-        if (sourceBlockId == null || usedFallback || selectedBlockId == null) return this
-        val currentSelectedId = selectedBlockId
+        if (sourceBlockId == null || usedFallback) return this
+        val source = blocks.singleOrNull { it.id == sourceBlockId } ?: return this
         return copy(
-            blocks = blocks.map { block ->
-                if (block.id == currentSelectedId) block.copy(id = sourceBlockId) else block
-            },
-            selectedBlockId = sourceBlockId
+            selectedText = source.rawText,
+            selectedLanguage = source.language,
+            detectedMarker = source.detectedMarker,
+            ignoredLanguages = blocks.map { it.language }.filter { it != source.language }.distinct(),
+            selectedBlockId = source.id
         )
     }
 

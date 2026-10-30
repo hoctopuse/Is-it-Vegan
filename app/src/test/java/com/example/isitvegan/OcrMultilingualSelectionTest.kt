@@ -7,6 +7,27 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class OcrMultilingualSelectionTest {
+    @Test fun damagedHeadingCannotRemoveMilkFromConfirmedGermanAnalysis() {
+        val text = "ZUTATEN: Zucker\nMILCH. INGREDIENTE.\nSuiker, tarwebloem, fructosestroop.\nINGREDIENTS: sugar, milk"
+        val segmentation = LabelLanguageSegmenter.segment(text, UiLanguage.DE)
+        val selection = OcrTextSelection.from(segmentation, text)
+        val german = selection.options.single { it.language == LabelLanguage.GERMAN }
+        val english = selection.options.single { it.language == LabelLanguage.ENGLISH }
+        val database = listOf(
+            Ingredient("sugar", "Zucker", listOf("sugar", "sucre"), status = VeganStatus.VEGAN, reason = "test"),
+            Ingredient("milk", "MILCH", listOf("milk"), status = VeganStatus.VEGETARIAN, reason = "test")
+        )
+        val result = VeganAnalyzer.analyzeWithDiagnostics(german.text, database, InputMode.OCR_LABEL, preferredLanguage = UiLanguage.DE, selectedBlockId = german.blockId)
+        assertEquals(text, segmentation.originalText)
+        assertTrue(german.text.contains("MILCH."))
+        assertTrue(german.text.contains("INGREDIENTE."))
+        assertTrue(english.text.contains("sugar, milk"))
+        assertTrue(result.input.contains("MILCH."))
+        assertTrue(result.result.matched.any { it.id == "milk" })
+        assertEquals(VeganAssessment.NOT_VEGAN, result.result.veganAssessment)
+        assertTrue(result.result.verdict != AnalysisVerdict.VEGAN)
+    }
+
     @Test fun uppercaseMilkBeforeNextHeadingRemainsInGermanAnalysis() {
         val text = "ZUTATEN: Zucker.\nMILCH. INGREDIENTS: sugar, milk"
         val selection = OcrTextSelection.from(LabelLanguageSegmenter.segment(text), text)
@@ -29,9 +50,9 @@ class OcrMultilingualSelectionTest {
     }
 
     @Test fun observed5087HeadingLossAndAdjacentProductTitleRemainBounded() {
-        // These lines and the German paragraph are transcribed from the emulator report.
-        // The omitted Dutch/English continuation is reconstructed for a compact fixture;
-        // it is not presented as an exact ML Kit output.
+        // The report contains the first two Dutch lines ending at "Appelzuur".
+        // The next Dutch line is reconstructed; the German paragraph comes from the
+        // report's editable field and the two English lines from its raw excerpts.
         val text = """
             GEAROMATISEERD GEGELIFIEERDE SUIKERWAREN. INGREDIENTE.
             Suiker Glucose-Fructosestroop, TARWEBLOEM, Voedingszuren (Appelzuur
@@ -50,6 +71,9 @@ class OcrMultilingualSelectionTest {
         assertEquals(setOf(LabelLanguage.GERMAN, LabelLanguage.ENGLISH), selection.options.map { it.language }.toSet())
         val german = selection.options.single { it.language == LabelLanguage.GERMAN }.text
         val english = selection.options.single { it.language == LabelLanguage.ENGLISH }.text
+        assertEquals(LabelLanguage.GERMAN, segmentation.selectedLanguage)
+        assertEquals(cleaned, segmentation.originalText)
+        assertTrue(cleaned.contains("INGREDIENTE."))
         assertTrue(german.contains("Antioxidationsmittel"))
         // Without reliable title evidence, the prefix remains in the previous block.
         assertTrue(german.contains("FLAVOURED JELLY GUMS"))
@@ -66,6 +90,84 @@ class OcrMultilingualSelectionTest {
         val blocks = LabelLanguageSegmenter.segment(running).blocks
         assertTrue(blocks.first().rawText.contains("SWEET POTATO."))
         assertTrue(blocks.last().rawText.contains("INGREDIENTS:"))
+    }
+
+    @Test fun observed5087DutchExcerptRemainsAvailableWithoutAProbableOption() {
+        val observedExcerpt = """
+            GEAROMATISEERD GEGELIFIEERDE SUIKERWAREN. INGREDIENTE.
+            Suiker Glucose-Fructosestroop, TARWEBLOEM, Voedingszuren (Appelzuur
+            GUMMIBONBONS MIT FRUCHTGESCHMACK. ZUTATEN: Zucker, GlukoSe
+        """.trimIndent()
+        val segmentation = LabelLanguageSegmenter.segment(observedExcerpt, UiLanguage.DE)
+        val options = OcrTextSelection.from(segmentation, observedExcerpt).options
+        assertTrue(options.none { it.language == LabelLanguage.DUTCH })
+        assertEquals(LabelLanguage.GERMAN, segmentation.selectedLanguage)
+        assertEquals(observedExcerpt, segmentation.originalText)
+        assertTrue(segmentation.originalText.contains("TARWEBLOEM"))
+        assertTrue(observedExcerpt.contains("INGREDIENTE."))
+    }
+
+    @Test fun damagedTitleCandidatesNeedDutchListAndNeighborBoundaryEvidence() {
+        val negatives = listOf(
+            "INGREDIENTE.\nSuiker, water, olie: heerlijke reclame.\nZUTATEN: Zucker, Milch" to "tekst commercial",
+            "INGREDIENTE.\nSuiker, water, sugar, flour, milk.\nZUTATEN: Zucker, Milch" to "indices contradictoires",
+            "INGREDIENTE.\nSuiker, tarwebloem, fructosestroop,\nZUTATEN: Zucker, Milch" to "liste tronquée",
+            "INGREDIENTE.\nSuiker, tarwebloem, fructosestroop.\nConserver au sec.\nINGREDIENTS: sugar, milk" to "titre voisin d'une autre section",
+            "INGREDIENTE.\nSuiker, suiker, suiker.\nZUTATEN: Zucker, Milch" to "répétitions"
+        )
+        negatives.forEach { (text, reason) ->
+            assertTrue(reason, LabelLanguageSegmenter.segment(text).blocks.none { it.headingConfidence == HeadingConfidence.PROBABLE })
+        }
+        val missingNeighborHeading = "INGREDIENTE.\nSuiker, fructosestroop, tarwebloem, voedingszuren.\n[EN]"
+        assertFalse(LabelLanguageSegmenter.segment(missingNeighborHeading).blocks.any { it.headingConfidence == HeadingConfidence.PROBABLE })
+    }
+
+    @Test fun editedSelectedTextKeepsUnknownAndDoesNotReuseOldBlockIdentity() {
+        val full = "ZUTATEN: Zucker, MILCH.\nINGREDIENTS: sugar, milk"
+        val selection = OcrTextSelection.from(LabelLanguageSegmenter.segment(full, UiLanguage.DE), full)
+        val session = OcrSession(fullOcrText = full, textOptions = selection.options).selectLanguage(LabelLanguage.GERMAN)
+        val oldId = session.selectedOptionBlockId!!
+        val edited = session.withEditableText(session.editableText + ", XYZTEST")
+        val database = listOf(
+            Ingredient("sugar", "Zucker", listOf("sucre"), status = VeganStatus.VEGAN, reason = "test"),
+            Ingredient("milk", "MILCH", listOf("milk"), status = VeganStatus.VEGETARIAN, reason = "test")
+        )
+        val result = VeganAnalyzer.analyzeWithDiagnostics(edited.editableText, database, InputMode.OCR_LABEL, preferredLanguage = UiLanguage.DE, selectedBlockId = oldId)
+        assertEquals(edited.editableText, result.input)
+        assertTrue(result.result.unknown.any { it.contains("XYZTEST", true) })
+        assertTrue(result.result.matched.any { it.id == "milk" })
+        assertTrue(result.languageSegmentation.selectedBlockId != oldId)
+        assertEquals(result.languageSegmentation.selectedBlockId, result.labelSections.selectedBlockId)
+    }
+
+    @Test fun mismatchedNlIdentityIsNotAssignedToResegmentedGermanText() {
+        val text = "PRODUKT ZUTATEN: Zucker, MILCH. INGREDIENTE.\nSuiker, tarwebloem, fructosestroop, XYZTEST."
+        val result = VeganAnalyzer.analyzeWithDiagnostics(text, emptyList(), InputMode.OCR_LABEL, preferredLanguage = UiLanguage.DE, selectedBlockId = "nl-untrusted")
+        assertEquals(LabelLanguage.GERMAN, result.languageSegmentation.selectedLanguage)
+        assertTrue(result.languageSegmentation.selectedBlockId != "nl-untrusted")
+        assertEquals(result.languageSegmentation.selectedBlockId, result.labelSections.selectedBlockId)
+        assertTrue(result.result.unknown.any { it.contains("XYZTEST", true) })
+    }
+
+    @Test fun confirmedDutchBlockTakesPrecedenceOverEarlierProbableDutchCandidate() {
+        val text = "INGREDIENTE.\nSuiker, fructosestroop, tarwebloem.\nINGREDIENTEN: water, zout.\nZUTATEN: Zucker, Milch"
+        val segmentation = LabelLanguageSegmenter.segment(text)
+        val confirmed = segmentation.blocks.single { it.language == LabelLanguage.DUTCH }
+        val hypothetical = confirmed.copy(id = "unverified-nl", headingConfidence = HeadingConfidence.PROBABLE)
+        val dutch = OcrTextSelection.from(segmentation.copy(blocks = listOf(hypothetical) + segmentation.blocks), text)
+            .options.single { it.language == LabelLanguage.DUTCH }
+        assertEquals(HeadingConfidence.CONFIRMED, dutch.headingConfidence)
+        assertEquals(confirmed.id, dutch.blockId)
+        assertTrue(dutch.text.contains("INGREDIENTEN:"))
+    }
+
+    @Test fun probableBlocksRemainUnselectableEvenIfSuppliedByAnotherCaller() {
+        val text = "ZUTATEN: Zucker, Milch"
+        val segmentation = LabelLanguageSegmenter.segment(text)
+        val hypothetical = segmentation.blocks.single().copy(language = LabelLanguage.DUTCH, headingConfidence = HeadingConfidence.PROBABLE)
+        val selection = OcrTextSelection.from(segmentation.copy(blocks = listOf(hypothetical) + segmentation.blocks), text)
+        assertTrue(selection.options.none { it.language == LabelLanguage.DUTCH })
+        assertTrue(selection.options.any { it.language == LabelLanguage.GERMAN })
     }
 
     @Test fun ambiguousOrDamagedUppercasePrefixesStayInPreviousBlockAcrossLanguages() {

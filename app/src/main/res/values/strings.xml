@@ -54,6 +54,8 @@
     <string name="crop_reset_message">Cadre réinitialisé. L’image entière sera utilisée.</string>
     <string name="ocr_raw_kept">Le texte brut est conservé tel que fourni par ML Kit.</string>
     <string name="ocr_block_choice">Bloc OCR à analyser</string>
+    <string name="ocr_probable">probable</string>
+    <string name="ocr_probable_hint">Bloc probable d’après le titre OCR abîmé et le contenu ; vérifiez le texte avant l’analyse.</string>
     <string name="full_ocr_text">Texte complet</string>
     <string name="language_french">Français</string>
     <string name="language_english">English</string>

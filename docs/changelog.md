@@ -1,12 +1,17 @@
 # Notes de version
 
+## Non publié — sécurité des blocs OCR
+
+- Désactive la proposition expérimentale `NL · probable` pour un titre OCR abîmé : sa frontière et son analyse ne garantissaient pas la conservation des ingrédients. Le texte brut et l’option « Texte complet » restent disponibles. Un identifiant de bloc fourni n’est plus attribué à un autre bloc lors de la resegmentation, mais la resegmentation d’un texte édité contenant plusieurs titres reste à traiter avant toute réactivation de la piste NL ; cette correction d’identité ne garantit pas que le texte analysé corresponde au bloc choisi.
+- Sur l’émulateur `emulator-5554`, le rejeu 5087 après désactivation présente DE, EN et « Texte complet » ; le bloc DE analysé affiche des éléments incertains et inconnus. La consolidation multilingue reste à poursuivre.
+
 ## 0.6.13.9 — revue OCR multilingue expérimentale pour 0.7
 
 - Ajoute une revue expérimentale des sections OCR : concepts reconnus concordants, pistes ambiguës et conflits restent distincts. Deux ancres communes ne suffisent pas à proposer une correction lexicale ; le générateur actuel ne produit pas de correction fondée sur une traduction explicite.
 - Replie les pistes ambiguës avec leur nombre et une action pour les consulter. Préserve les préfixes en majuscules lorsqu’une frontière de produit n’est pas établie, afin de ne pas écarter un ingrédient.
 - Préserve le texte source et le verdict tant qu’aucune action de l’utilisateur ne modifie le texte. Après modification, le résultat précédent est masqué jusqu’à une nouvelle analyse. La sélection d’un autre bloc réinitialise le résultat affiché.
 - `INGREDIENTE.` ne déclenche pas encore le bloc NL : cette frontière de section reste à traiter.
-- Ne fusionne pas les compositions des langues. SV/NO ne disposent pas de mappings lexicaux fiables pour cette revue. Le titre anglais peut rester dans le bloc allemand. La validation Compose ciblée a été réalisée sur émulateur, mais le dernier état n’a pas été rejoué sur la photo 5087 ; la revue antérieure ne valide pas le comportement final sur cette photo. La consolidation multilingue reste expérimentale et inachevée. D’autres images, appareils et le parcours complet sur téléphone restent à vérifier.
+- Ne fusionne pas les compositions des langues. SV/NO ne disposent pas de mappings lexicaux fiables pour cette revue. Le titre anglais peut rester dans le bloc allemand. Le rejeu antérieur à la désactivation de la piste NL ne validait pas le comportement ultérieur sur la photo 5087. La consolidation multilingue reste expérimentale et inachevée. D’autres images, appareils et le parcours complet sur téléphone restent à vérifier.
 
 ## 0.6.13.8
 

@@ -54,6 +54,8 @@
     <string name="crop_reset_message">Ausschnitt zurückgesetzt. Das vollständige Bild wird verwendet.</string>
     <string name="ocr_raw_kept">Der Rohtext bleibt genau so erhalten, wie er von ML Kit geliefert wurde.</string>
     <string name="ocr_block_choice">Zu analysierender OCR-Block</string>
+    <string name="ocr_probable">wahrscheinlich</string>
+    <string name="ocr_probable_hint">Wahrscheinlicher Block anhand des beschädigten OCR-Titels und Inhalts; Text vor der Analyse prüfen.</string>
     <string name="full_ocr_text">Vollständiger Text</string>
     <string name="language_french">Français</string>
     <string name="language_english">English</string>

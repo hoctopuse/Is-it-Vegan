@@ -183,34 +183,25 @@ internal fun OcrFirstScreenContent(
                     SelectionContainer { Text(session.rawOcrText!!.ifBlank { "(aucun texte détecté)" }) }
                     Text(ui(R.string.ocr_raw_kept), style = MaterialTheme.typography.bodySmall)
                 }
-                if (session.textOptions.size > 1) {
-                    Text(ui(R.string.ocr_block_choice), style = MaterialTheme.typography.titleMedium)
-                    Row(
-                        Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
-                        horizontalArrangement = Arrangement.spacedBy(8.dp)
-                    ) {
-                        session.textOptions.forEach { option ->
-                            FilterChip(
-                                selected = !session.fullTextSelected && session.selectedOptionLanguage == option.language,
-                                onClick = {
-                                    session = session.selectLanguage(option.language)
-                                    diagnostics = null
-                                    result = ui(R.string.waiting)
-                                },
-                                label = { Text(option.language.displayName) }
-                            )
-                        }
-                        FilterChip(
-                            selected = session.fullTextSelected,
-                            onClick = {
-                                session = session.selectFullText()
-                                diagnostics = null
-                                result = ui(R.string.waiting)
-                            },
-                            label = { Text(ui(R.string.full_ocr_text)) }
-                        )
+                OcrTextBlockChoices(
+                    options = session.textOptions,
+                    selectedLanguage = session.selectedOptionLanguage,
+                    fullTextSelected = session.fullTextSelected,
+                    choiceLabel = ui(R.string.ocr_block_choice),
+                    probableLabel = ui(R.string.ocr_probable),
+                    probableHint = ui(R.string.ocr_probable_hint),
+                    fullTextLabel = ui(R.string.full_ocr_text),
+                    onSelectLanguage = { language ->
+                        session = session.selectLanguage(language)
+                        diagnostics = null
+                        result = ui(R.string.waiting)
+                    },
+                    onSelectFullText = {
+                        session = session.selectFullText()
+                        diagnostics = null
+                        result = ui(R.string.waiting)
                     }
-                }
+                )
                 session.multilingualAlignment?.let { alignment ->
                     MultilingualAlignmentReview(
                         evaluation = alignment,
@@ -307,6 +298,42 @@ internal fun OcrFirstScreenContent(
                 }
             )
         }
+    }
+}
+
+@Composable
+internal fun OcrTextBlockChoices(
+    options: List<OcrTextOption>,
+    selectedLanguage: LabelLanguage?,
+    fullTextSelected: Boolean,
+    choiceLabel: String,
+    probableLabel: String,
+    probableHint: String,
+    fullTextLabel: String,
+    onSelectLanguage: (LabelLanguage) -> Unit,
+    onSelectFullText: () -> Unit
+) {
+    if (options.size <= 1) return
+    Text(choiceLabel, style = MaterialTheme.typography.titleMedium)
+    Row(
+        Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
+        horizontalArrangement = Arrangement.spacedBy(8.dp)
+    ) {
+        options.forEach { option ->
+            FilterChip(
+                selected = !fullTextSelected && selectedLanguage == option.language,
+                onClick = { onSelectLanguage(option.language) },
+                label = {
+                    Text(if (option.headingConfidence == HeadingConfidence.PROBABLE) {
+                        "${option.language.displayName} · $probableLabel"
+                    } else option.language.displayName)
+                }
+            )
+        }
+        FilterChip(selected = fullTextSelected, onClick = onSelectFullText, label = { Text(fullTextLabel) })
+    }
+    if (options.any { it.headingConfidence == HeadingConfidence.PROBABLE }) {
+        Text(probableHint, color = MaterialTheme.colorScheme.onSurfaceVariant)
     }
 }
 

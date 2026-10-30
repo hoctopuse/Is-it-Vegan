@@ -6,9 +6,11 @@ enum class LabelLanguage(val displayName: String) {
     NORWEGIAN("NO"), FINNISH("FI"), POLISH("PL"), UNKNOWN("inconnue")
 }
 
+enum class HeadingConfidence { CONFIRMED, PROBABLE }
+
 /** Identity derives from the source text, never from offsets introduced by a later segmentation. */
 fun stableBlockId(rawText: String): String =
-    "block-" + rawText.replace(Regex("\\s*([:;,])\\s*"), "$1")
+    "block-" + rawText.replace(Regex("\\s*([:;,.])\\s*"), "$1")
         .replace(Regex("\\s+"), " ").trim().hashCode().toUInt().toString(16)
 
 data class LanguageBlock(
@@ -29,7 +31,8 @@ data class LanguageBlock(
     /** Secondary identity for the current segmentation; never replaces the source block identity. */
     val segmentId: String = "segment-$startIndex-$endIndex",
     val selectionScore: Int = 0,
-    val selectionSignals: List<String> = emptyList()
+    val selectionSignals: List<String> = emptyList(),
+    val headingConfidence: HeadingConfidence = HeadingConfidence.CONFIRMED
 )
 
 data class LanguageSegmentation(
@@ -46,7 +49,7 @@ data class LanguageSegmentation(
 )
 
 object LabelLanguageSegmenter {
-    private data class Marker(val language: LabelLanguage, val range: IntRange, val contentStart: Int, val marker: String)
+    private data class Marker(val language: LabelLanguage, val range: IntRange, val contentStart: Int, val marker: String, val confidence: HeadingConfidence = HeadingConfidence.CONFIRMED)
     private data class MarkerPattern(val language: LabelLanguage, val pattern: Regex, val keepMarkerInBlock: Boolean = false)
 
     private val markerPatterns = buildList {
@@ -85,12 +88,24 @@ object LabelLanguageSegmenter {
         if (markers.isEmpty()) return fallback(text)
         val blocks = markers.mapIndexed { index, marker ->
             val end = markers.getOrNull(index + 1)?.range?.first ?: text.length
-            LanguageBlock(marker.language, marketTags(marker.marker), text.substring(marker.contentStart, end).trim(), marker.contentStart, end, marker.marker)
+            val contentStart = marker.contentStart.coerceAtMost(end)
+            LanguageBlock(marker.language, marketTags(marker.marker), text.substring(contentStart, end).trim(), contentStart, end, marker.marker)
                 .let(OcrBlockLanguageClassifier::classify)
+                .let { block ->
+                    if (marker.confidence == HeadingConfidence.PROBABLE) block.copy(
+                        language = marker.language,
+                        headingLanguage = marker.language,
+                        languageCorrectionReason = "Langue NL probable : titre OCR abîmé, vocabulaire et structure compatibles ; vérification requise.",
+                        hasIngredientHeading = true,
+                        hasHeadingSeparator = true,
+                        headingConfidence = marker.confidence
+                    ) else block
+                }
         }.filter { it.rawText.isNotBlank() }.map(::scoreBlock)
         if (blocks.isEmpty()) return fallback(text)
-        val titledBlocks = blocks.filter { it.hasIngredientHeading }
-        val selected = preferredBlock(titledBlocks.ifEmpty { blocks }, preferredUiLanguage)
+        val titledBlocks = blocks.filter { it.hasIngredientHeading && it.headingConfidence == HeadingConfidence.CONFIRMED }
+        val defaultCandidates = blocks.filter { it.headingConfidence == HeadingConfidence.CONFIRMED }
+        val selected = preferredBlock(titledBlocks.ifEmpty { defaultCandidates.ifEmpty { blocks } }, preferredUiLanguage)
         val correctionReason = selected.languageCorrectionReason?.let { " $it" }.orEmpty()
         return LanguageSegmentation(text, blocks, selected.rawText, selected.language, selected.detectedMarker,
             blocks.map { it.language }.filter { it != selected.language }.distinct(), false,
@@ -128,10 +143,32 @@ object LabelLanguageSegmenter {
     }).sortedBy { it.range.first }.fold(mutableListOf()) { markers, candidate ->
         val previous = markers.lastOrNull()
         val overlaps = previous?.range?.contains(candidate.range.first) == true
-        val repeatedTitle = previous != null && previous.language == candidate.language &&
+        val repeatedTitle = !overlaps && previous != null && previous.language == candidate.language &&
             text.substring(previous.range.last + 1, candidate.range.first).isBlank()
         if (!overlaps && !repeatedTitle) markers += candidate
         markers
+    }
+
+    // Research only: these clues cannot establish a safe boundary or authorize analysis.
+    internal fun probableDutchHeadings(text: String): List<Pair<IntRange, String>> {
+        val heading = Regex("(?m)(?<![\\p{L}\\d])(INGREDIENTE)\\.[\\t ]*(?=\\r?$)")
+        val knownHeadings = LabelLexicon.findIngredientHeadings(text)
+        return heading.findAll(text).mapNotNull { match ->
+            val nextBoundary = knownHeadings.map { it.range.first }
+                .filter { it > match.range.last }.minOrNull() ?: return@mapNotNull null
+            if (nextBoundary - match.range.last > 1200) return@mapNotNull null
+            val content = text.substring(match.range.last + 1, nextBoundary)
+            val tokens = java.text.Normalizer.normalize(content.lowercase(), java.text.Normalizer.Form.NFD)
+                .replace(Regex("\\p{M}+"), "").split(Regex("[^\\p{L}]+"))
+            val dutchWords = setOf("suiker", "suikers", "glucose", "fructosestroop", "tarwebloem", "bloem", "voedingszuren", "appelzuur", "citroenzuur", "plantaardige", "olie", "zout", "water", "zetmeel")
+            val otherWords = setOf("zucker", "mehl", "sugar", "flour", "ingredients", "eau", "huile", "sel")
+            val dutchCount = tokens.filter(dutchWords::contains).distinct().size
+            val otherCount = tokens.filter(otherWords::contains).distinct().size
+            val listSeparators = content.count { it == ',' || it == ';' }
+            if (dutchCount < 3 || dutchCount < otherCount + 2 || listSeparators < 2) return@mapNotNull null
+            val lineStart = text.lastIndexOf('\n', match.range.first - 1).let { it + 1 }
+            (lineStart..match.range.last) to match.groupValues[1]
+        }.toList()
     }
 
     private fun preferredBlock(blocks: List<LanguageBlock>, uiLanguage: UiLanguage?): LanguageBlock {

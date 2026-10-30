@@ -72,7 +72,8 @@ internal data class OcrTextOption(
     val marker: String?,
     val languageCorrectionReason: String? = null,
     val blockId: String,
-    val segmentId: String
+    val segmentId: String,
+    val headingConfidence: HeadingConfidence = HeadingConfidence.CONFIRMED
 )
 
 internal data class OcrProcessingResult(

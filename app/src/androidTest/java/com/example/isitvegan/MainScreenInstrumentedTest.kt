@@ -51,6 +51,31 @@ class MainScreenInstrumentedTest {
     @get:Rule
     val rules: TestRule = RuleChain.outerRule(wakeDeviceRule).around(composeRule)
 
+    @Test fun damagedHeadingDoesNotOfferAProbableBlock() {
+        val text = "INGREDIENTE.\nSuiker, tarwebloem, fructosestroop.\nZUTATEN: Zucker, Milch\nINGREDIENTS: sugar, milk"
+        val options = OcrTextSelection.from(LabelLanguageSegmenter.segment(text), text).options
+        var selected: LabelLanguage? = null
+        val resources = localizedContext(
+            InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR
+        ).resources
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                OcrTextBlockChoices(
+                    options, selected, false,
+                    choiceLabel = resources.getString(R.string.ocr_block_choice),
+                    probableLabel = resources.getString(R.string.ocr_probable),
+                    probableHint = resources.getString(R.string.ocr_probable_hint),
+                    fullTextLabel = resources.getString(R.string.full_ocr_text),
+                    onSelectLanguage = { selected = it }, onSelectFullText = {}
+                )
+            }
+        }
+        composeRule.onAllNodes(hasText("NL · probable")).assertCountEquals(0)
+        composeRule.onNodeWithText("DE").assertIsDisplayed().performClick()
+        composeRule.onNodeWithText(resources.getString(R.string.full_ocr_text)).assertIsDisplayed()
+        assertEquals(LabelLanguage.GERMAN, selected)
+    }
+
     @Test fun multilingualCorrectionReachesTheCallerOnlyAfterExplicitAccept() {
         val unknown = IngredientOccurrence("en:1", "en-block", LabelLanguage.ENGLISH, "WHEAT lour", 1)
         val known = IngredientOccurrence(
