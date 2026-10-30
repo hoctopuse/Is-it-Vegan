@@ -13,8 +13,8 @@ android {
         applicationId = "com.example.isitvegan"
         minSdk = 30
         targetSdk = 37
-        versionCode = 61
-        versionName = "0.6.13.9"
+        versionCode = 62
+        versionName = "0.6.13.10"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -1,9 +1,10 @@
 # Notes de version
 
-## Non publié — sécurité des blocs OCR
+## 0.6.13.10 — texte OCR analysé (versionCode 62)
 
-- Maintient désactivée la proposition expérimentale `NL · probable` pour un titre OCR abîmé. L’analyse conserve le texte choisi et refuse un verdict si plusieurs listes ou segments sont détectés, si la structure est déséquilibrée ou si un marqueur de langue est imbriqué. Un ancien identifiant ne permet pas de fusionner les listes. Une liste unique éditée reste analysable et les traces restent séparées. L’identifiant du bloc n’est conservé que si le texte correspond encore à son identité normalisée et que l’analyse n’est pas ambiguë.
-- Sur l’émulateur `emulator-5554`, le rejeu 5087 après désactivation présente DE, EN et « Texte complet » ; le bloc DE analysé affiche des éléments incertains et inconnus. La consolidation multilingue reste à poursuivre.
+- L’analyse conserve le texte OCR soumis. Elle refuse un verdict lorsque plusieurs listes ou segments sont détectés ou qu’une frontière est jugée ambiguë ; un ancien identifiant de bloc ne justifie pas la fusion de listes. Une liste unique reste éditable et réanalysable. Les traces demeurent exclues du verdict. La piste `NL · probable` reste désactivée.
+- Trois tests instrumentés ont réussi sur `Pixel_8` (`emulator-5554`). Ils ne vérifient pas visuellement l’affichage d’un ingrédient inconnu ni l’indication de résultat périmé. Le parcours photo complet reste à valider pour cette correction.
+- Limites : certains textes exploitables peuvent être refusés ; tous les titres OCR abîmés ne sont pas nécessairement détectés.
 
 ## 0.6.13.9 — revue OCR multilingue expérimentale pour 0.7
 
