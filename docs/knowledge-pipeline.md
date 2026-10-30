@@ -1,6 +1,6 @@
 # Pipeline de connaissances et importeurs
 
-Cette page décrit le flux documentaire et les options réellement disponibles dans l’état `0.6.13.10`. Les sources éditoriales restent dans `knowledge/`. Les assets Android sont produits par les générateurs et ne doivent pas être édités directement.
+Cette page décrit le flux documentaire et les options réellement disponibles dans l’état `0.6.13.11`. Les sources éditoriales restent dans `knowledge/`. Les assets Android sont produits par les générateurs et ne doivent pas être édités directement.
 
 ## Ordre général
 

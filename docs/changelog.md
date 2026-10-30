@@ -1,5 +1,9 @@
 # Notes de version
 
+## 0.6.13.11 — inconnus visibles avec NON VEGAN (versionCode 63)
+
+- Les ingrédients inconnus issus de l’analyse restent affichés même lorsque le verdict principal est NON VEGAN. Les tests instrumentés du parcours éditer → réanalyser confirment cet affichage ; les traces restent exclues du verdict.
+
 ## 0.6.13.10 — texte OCR analysé (versionCode 62)
 
 - L’analyse conserve le texte OCR soumis. Elle refuse un verdict lorsque plusieurs listes ou segments sont détectés ou qu’une frontière est jugée ambiguë ; un ancien identifiant de bloc ne justifie pas la fusion de listes. Une liste unique reste éditable et réanalysable. Les traces demeurent exclues du verdict. La piste `NL · probable` reste désactivée.
