@@ -140,6 +140,27 @@ class MainScreenInstrumentedTest {
         assertEquals(false, accepted)
     }
 
+    @Test fun unmatchedTermsCanBeReviewedWithoutChangingText() {
+        val unknown = IngredientOccurrence("en:1", "en", LabelLanguage.ENGLISH, "mystery", 1)
+        val known = IngredientOccurrence("nl:1", "nl", LabelLanguage.DUTCH, "suiker", 1, canonicalId = "sugar")
+        var accepted = false
+        val resources = InstrumentationRegistry.getInstrumentation().targetContext.resources
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                Column(Modifier.verticalScroll(rememberScrollState())) {
+                    MultilingualAlignmentReview(MultilingualAlignmentEvaluation(listOf(unknown, known), emptyList()),
+                        "mystery", emptySet(), resources, onAccept = { _, _ -> accepted = true }, onDismiss = {})
+                }
+            }
+        }
+        composeRule.waitUntilAtLeastOneExists(androidx.compose.ui.test.hasTestTag("multilingual-unpaired-toggle"), 30_000)
+        composeRule.onAllNodes(hasText("mystery", substring = true)).assertCountEquals(0)
+        composeRule.onNodeWithTag("multilingual-unpaired-toggle").performClick()
+        composeRule.onNodeWithText(resources.getString(R.string.multilingual_unpaired_unknown, "mystery", "EN")).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithText(resources.getString(R.string.multilingual_unpaired_known, "suiker", "NL")).performScrollTo().assertIsDisplayed()
+        assertEquals(false, accepted)
+    }
+
     @Test fun manualEntryClearsPreviousOcrVerdict() {
         composeRule.onNodeWithText("OCR").performClick()
         composeRule.onNodeWithTag("ocr-editor").performTextInput("INGREDIENTS: eau, sucre")

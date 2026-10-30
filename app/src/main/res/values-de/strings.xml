@@ -5,6 +5,11 @@
     <string name="multilingual_stale_result">Der Text wurde seit der letzten Analyse geändert.</string>
     <string name="multilingual_reanalyze">Starten Sie die Analyse erneut für ein Ergebnis zum aktuellen Text.</string>
     <string name="multilingual_review_title">Mehrsprachige Lesart prüfen</string>
+    <string name="multilingual_unpaired_note">Begriffe ohne bestätigte Übereinstimmung: Eine Übersetzung kann unvollständig sein. Prüfen Sie die ursprünglichen Listen.</string>
+    <string name="multilingual_unpaired_show">Begriffe ohne Übereinstimmung anzeigen (%1$d)</string>
+    <string name="multilingual_unpaired_hide">Begriffe ohne Übereinstimmung ausblenden (%1$d)</string>
+    <string name="multilingual_unpaired_unknown">%1$s (%2$s) · nicht erkannt</string>
+    <string name="multilingual_unpaired_known">%1$s (%2$s) · erkannt, ohne Übereinstimmung</string>
     <string name="multilingual_confirmed_title">Übereinstimmende Begriffe (keine Änderung angewendet)</string>
     <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
     <string name="multilingual_proposal_title">Vorschlag prüfen — die aktuelle Analyse bleibt unverändert.</string>

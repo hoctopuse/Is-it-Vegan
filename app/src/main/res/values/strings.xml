@@ -5,6 +5,11 @@
     <string name="multilingual_stale_result">Le texte a changé depuis la dernière analyse.</string>
     <string name="multilingual_reanalyze">Relancez l’analyse pour obtenir un résultat correspondant au texte actuel.</string>
     <string name="multilingual_review_title">Lecture multilingue à vérifier</string>
+    <string name="multilingual_unpaired_note">Termes sans concordance établie : une traduction peut être partielle. Vérifiez les listes d’origine.</string>
+    <string name="multilingual_unpaired_show">Voir les termes sans concordance (%1$d)</string>
+    <string name="multilingual_unpaired_hide">Masquer les termes sans concordance (%1$d)</string>
+    <string name="multilingual_unpaired_unknown">%1$s (%2$s) · non reconnu</string>
+    <string name="multilingual_unpaired_known">%1$s (%2$s) · reconnu, sans concordance</string>
     <string name="multilingual_confirmed_title">Termes concordants (aucune modification appliquée)</string>
     <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
     <string name="multilingual_proposal_title">Proposition à vérifier — l’analyse actuelle reste inchangée.</string>

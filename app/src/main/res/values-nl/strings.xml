@@ -5,6 +5,11 @@
     <string name="multilingual_stale_result">De tekst is gewijzigd sinds de laatste analyse.</string>
     <string name="multilingual_reanalyze">Analyseer opnieuw voor een resultaat dat bij de huidige tekst hoort.</string>
     <string name="multilingual_review_title">Meertalige lezing controleren</string>
+    <string name="multilingual_unpaired_note">Termen zonder vastgestelde overeenkomst: een vertaling kan gedeeltelijk zijn. Controleer de oorspronkelijke lijsten.</string>
+    <string name="multilingual_unpaired_show">Toon termen zonder overeenkomst (%1$d)</string>
+    <string name="multilingual_unpaired_hide">Verberg termen zonder overeenkomst (%1$d)</string>
+    <string name="multilingual_unpaired_unknown">%1$s (%2$s) · niet herkend</string>
+    <string name="multilingual_unpaired_known">%1$s (%2$s) · herkend, zonder overeenkomst</string>
     <string name="multilingual_confirmed_title">Overeenkomende termen (niets gewijzigd)</string>
     <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
     <string name="multilingual_proposal_title">Voorstel controleren — de huidige analyse blijft ongewijzigd.</string>

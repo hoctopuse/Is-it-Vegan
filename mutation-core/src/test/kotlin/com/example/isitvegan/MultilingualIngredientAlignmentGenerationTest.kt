@@ -28,7 +28,8 @@ class MultilingualIngredientAlignmentGenerationTest {
             block("nl", LabelLanguage.DUTCH, "IngrediÃ«nten: suiker, tarwebloem, tarwemeel, citroenzuur")
         )
 
-        assertTrue(result.links.any { it.kind == AlignmentKind.AMBIGUOUS })
+        assertFalse(result.links.any { it.kind == AlignmentKind.AMBIGUOUS })
+        assertTrue(result.occurrences.any { it.rawText == "unknown one" && it.canonicalId == null })
         assertFalse(result.links.any { it.kind == AlignmentKind.CORRECTION_PROPOSAL })
     }
 

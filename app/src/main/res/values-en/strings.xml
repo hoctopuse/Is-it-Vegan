@@ -5,6 +5,11 @@
     <string name="multilingual_stale_result">The text has changed since the last analysis.</string>
     <string name="multilingual_reanalyze">Run analysis again to get a result for the current text.</string>
     <string name="multilingual_review_title">Check multilingual reading</string>
+    <string name="multilingual_unpaired_note">Terms without an established match: a translation may be partial. Check the original lists.</string>
+    <string name="multilingual_unpaired_show">Show unmatched terms (%1$d)</string>
+    <string name="multilingual_unpaired_hide">Hide unmatched terms (%1$d)</string>
+    <string name="multilingual_unpaired_unknown">%1$s (%2$s) · unrecognized</string>
+    <string name="multilingual_unpaired_known">%1$s (%2$s) · recognized, no established match</string>
     <string name="multilingual_confirmed_title">Matching terms (no changes applied)</string>
     <string name="multilingual_confirmed_item">%1$s (%2$s) ↔ %3$s (%4$s)</string>
     <string name="multilingual_proposal_title">Suggestion to review — the current analysis is unchanged.</string>

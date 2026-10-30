@@ -58,10 +58,7 @@ data class MultilingualAlignmentEvaluation(
     val links: List<IngredientAlignmentResult>
 )
 
-/**
- * Pure prototype for evaluating caller-supplied cross-language links. This deliberately does not
- * infer links from position or spelling and is not called by the production analysis path.
- */
+/** Builds a source-preserving review; positional links never authorize corrections. */
 object MultilingualIngredientAlignment {
     fun generate(
         blocks: List<LanguageBlock>,
@@ -117,17 +114,6 @@ object MultilingualIngredientAlignment {
                                 links += AlignmentLink(right.id, left.id, AlignmentBasis.AMBIGUOUS)
                             left.canonicalId != null && right.canonicalId != null && left.canonicalId != right.canonicalId ->
                                 links += AlignmentLink(left.id, right.id, AlignmentBasis.AMBIGUOUS)
-                        }
-                    } else if (firstWindow.isNotEmpty() && secondWindow.isNotEmpty()) {
-                        firstWindow.filter { it.canonicalId == null }.forEach { unknown ->
-                            secondWindow.filter { it.canonicalId != null }.forEach { candidate ->
-                                links += AlignmentLink(unknown.id, candidate.id, AlignmentBasis.AMBIGUOUS)
-                            }
-                        }
-                        secondWindow.filter { it.canonicalId == null }.forEach { unknown ->
-                            firstWindow.filter { it.canonicalId != null }.forEach { candidate ->
-                                links += AlignmentLink(unknown.id, candidate.id, AlignmentBasis.AMBIGUOUS)
-                            }
                         }
                     }
                 }

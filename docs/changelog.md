@@ -1,5 +1,10 @@
 # Notes de version
 
+## En cours — revue OCR multilingue
+
+- La revue évite les associations multiples fondées uniquement sur la position et permet de consulter les termes sans concordance établie, reconnus ou non, avec leur langue. Une traduction partielle ne prouve pas une absence.
+- La proposition NL pour `INGREDIENTE.` reste désactivée : ses frontières demandent encore des preuves suffisantes. Aucune correction lexicale n’est produite à partir des seules ancres.
+
 ## 0.6.13.11 — inconnus visibles avec NON VEGAN (versionCode 63)
 
 - Les ingrédients inconnus issus de l’analyse restent affichés même lorsque le verdict principal est NON VEGAN. Les tests instrumentés du parcours éditer → réanalyser confirment cet affichage ; les traces restent exclues du verdict.

@@ -40,11 +40,15 @@ internal fun MultilingualAlignmentReview(
     val ambiguous = evaluation.links.filter { it.kind == AlignmentKind.AMBIGUOUS }
     var showAmbiguous by remember(evaluation) { mutableStateOf(false) }
     val conflicts = evaluation.links.filter { it.kind == AlignmentKind.CONFLICT }
-    if (corroborations.isEmpty() && proposals.isEmpty() && ambiguous.isEmpty() && conflicts.isEmpty()) return
+    val matchedIds = (corroborations + conflicts).flatMap { listOf(it.first.id, it.second.id) }.toSet()
+    val unpaired = evaluation.occurrences.filter { it.id !in matchedIds }
+    var showUnpaired by remember(evaluation) { mutableStateOf(false) }
+    if (corroborations.isEmpty() && proposals.isEmpty() && ambiguous.isEmpty() && conflicts.isEmpty() && unpaired.isEmpty()) return
 
     Card(Modifier.fillMaxWidth()) {
         Column(Modifier.padding(16.dp), verticalArrangement = Arrangement.spacedBy(10.dp)) {
             Text(resources.getString(R.string.multilingual_review_title), style = MaterialTheme.typography.titleMedium)
+            if (corroborations.isNotEmpty()) Text(resources.getString(R.string.multilingual_confirmed_title))
             corroborations.forEach { link ->
                 Text(
                     resources.getString(
@@ -84,6 +88,16 @@ internal fun MultilingualAlignmentReview(
                     Text(resources.getString(R.string.multilingual_confirmed_item,
                         link.first.rawText, link.first.language.displayName,
                         link.second.rawText, link.second.language.displayName))
+                }
+            }
+            if (unpaired.isNotEmpty()) {
+                Text(resources.getString(R.string.multilingual_unpaired_note), style = MaterialTheme.typography.bodySmall)
+                OutlinedButton(onClick = { showUnpaired = !showUnpaired }, modifier = Modifier.testTag("multilingual-unpaired-toggle")) {
+                    Text(resources.getString(if (showUnpaired) R.string.multilingual_unpaired_hide else R.string.multilingual_unpaired_show, unpaired.size))
+                }
+                if (showUnpaired) unpaired.forEach { occurrence ->
+                    Text(resources.getString(if (occurrence.canonicalId == null) R.string.multilingual_unpaired_unknown else R.string.multilingual_unpaired_known,
+                        occurrence.rawText, occurrence.language.displayName), style = MaterialTheme.typography.bodySmall)
                 }
             }
         }
