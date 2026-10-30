@@ -2,7 +2,7 @@
 
 Application Android en Kotlin et Jetpack Compose qui analyse une liste d’ingrédients à partir d’une base embarquée. Elle accepte une étiquette saisie, une liste seule ou une photo traitée par l’OCR latin de ML Kit. Le flux photo inclut l’orientation EXIF, un recadrage en mémoire, la sélection prudente d’un bloc linguistique et un texte éditable à vérifier avant analyse.
 
-La version déclarée est **0.6.13.8** ; le worktree contient également une première tranche expérimentale de revue OCR multilingue pour 0.7. L’interface et ses explications sont disponibles en français, néerlandais, anglais et allemand. Le moteur est déterministe : il ne prend aucune décision par IA générative, cloud ou service métier distant. Le modèle OCR et les données de classification sont embarqués ; les dépendances ML Kit et le manifeste fusionné sont détaillés dans la [documentation sur la vie privée](docs/vie-privee.md).
+La version déclarée est **0.6.13.9** ; le worktree contient également une première tranche expérimentale de revue OCR multilingue pour 0.7. L’interface et ses explications sont disponibles en français, néerlandais, anglais et allemand. Le moteur est déterministe : il ne prend aucune décision par IA générative, cloud ou service métier distant. Le modèle OCR et les données de classification sont embarqués ; les dépendances ML Kit et le manifeste fusionné sont détaillés dans la [documentation sur la vie privée](docs/vie-privee.md).
 
 ## Résultat et prudence
 

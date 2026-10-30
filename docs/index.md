@@ -1,6 +1,6 @@
 # Présentation
 
-Cette documentation décrit le dépôt **Is It Vegan?**, dont la version déclarée est 0.6.13.8, ainsi qu’une tranche expérimentale de revue OCR multilingue en cours pour 0.7. L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
+Cette documentation décrit le dépôt **Is It Vegan?**, dont la version déclarée est 0.6.13.9, ainsi qu’une tranche expérimentale de revue OCR multilingue en cours pour 0.7. L’application Android aide à lire une étiquette alimentaire et à évaluer les ingrédients déclarés. Elle propose trois modes d’entrée : étiquette complète, liste d’ingrédients seule et photo avec OCR.
 
 Le produit poursuit trois objectifs techniques :
 
