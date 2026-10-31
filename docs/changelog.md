@@ -8,6 +8,13 @@
 - La revue évite les associations multiples fondées uniquement sur la position et permet de consulter les termes sans concordance établie, reconnus ou non, avec leur langue. Une traduction partielle ne prouve pas une absence.
 - La proposition NL pour `INGREDIENTE.` reste désactivée : ses frontières demandent encore des preuves suffisantes. Aucune correction lexicale n’est produite à partir des seules ancres.
 
+## 0.6.13.12 — sécurisation des résultats et sessions (versionCode 64)
+
+- Après modification d’un texte manuel ou OCR, le verdict précédent est masqué ou signalé comme périmé jusqu’à une nouvelle analyse. Restaurer le texte initial ne réactive pas un résultat ancien.
+- Les retours tardifs d’analyse, d’OCR et de recadrage invalidés par l’effacement, une nouvelle session ou un changement de langue/bloc ne sont pas publiés. Les messages de progression invalidés disparaissent sans masquer ceux d’une opération plus récente.
+- Les résidus inconnus qui contribuent à un verdict inconclusif sont expliqués à l’utilisateur sans exposer les traces ni modifier le verdict. Les inconnus restent visibles avec un verdict NON VEGAN.
+- Une nouvelle sélection de la même URI recharge l’aperçu afin que les commandes photo restent disponibles.
+
 ## 0.6.13.11 — inconnus visibles avec NON VEGAN (versionCode 63)
 
 - Les ingrédients inconnus issus de l’analyse restent affichés même lorsque le verdict principal est NON VEGAN. Les tests instrumentés du parcours éditer → réanalyser confirment cet affichage ; les traces restent exclues du verdict.
