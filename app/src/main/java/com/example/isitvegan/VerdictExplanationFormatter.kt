@@ -49,6 +49,9 @@ internal object VerdictExplanationFormatter {
                     result.declaredPresenceIngredientIds.joinToString("\n") { it.displayText() }
                 )
             }
+            if (diagnostics.visibleUnknownIngredients.isNotEmpty()) {
+                sections += renderUnknownIngredients(resources, diagnostics)
+            }
             return sections.joinToString("\n\n")
         }
 

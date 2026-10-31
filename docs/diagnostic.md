@@ -30,7 +30,7 @@ Le modèle `AnalysisDiagnostics` fournit aussi une représentation structurée d
 
 Le moteur conserve seulement les feuilles inconnues. Depuis 0.6.9.8, le formatter peut toutefois reconstruire leur chemin parent → enfant depuis `parentOrder` et les tokens de diagnostic afin de rendre le contexte d’une occurrence imbriquée. Les parents ajoutés au rendu ne deviennent ni des inconnus, ni des ingrédients classés, ni des éléments responsables du verdict. Les pourcentages, l’ordre et les occurrences restent ceux des nœuds d’origine.
 
-Cette séparation est importante avec les vues d’inconnus : `AnalysisResult.unknown` reste la donnée brute du moteur, tandis que `visibleUnknownTokens` et les agrégats structurés servent la présentation. Une correspondance contextuelle effectivement vegan peut être retirée de cette dernière vue, mais pas de la trace détaillée ni du raisonnement qui protège un vrai inconnu.
+Cette séparation est importante avec les vues d’inconnus : `AnalysisResult.unknown` reste la donnée brute du moteur, tandis que `visibleUnknownTokens` et les agrégats structurés servent la présentation. Lorsqu’une correspondance partielle reconnaît un ingrédient vegan sans couvrir toute la désignation, le fragment non résolu normalisé reste visible ; le token détaillé conserve la désignation complète. Les inconnus de présence déclarée sont également affichés, même sans liste exploitable ; dans ce cas aucune conclusion n’est produite. Les traces restent séparées. Cette projection ne change pas le verdict.
 
 Ces propriétés sont dérivées de l’analyse existante et ne rappellent ni le parseur ni le matcher.
 Il n’existe pas de second moteur de verdict divergent : certaines propriétés calculées, dont

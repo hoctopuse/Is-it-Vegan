@@ -76,7 +76,9 @@ data class TokenDiagnostic(
     val matchedIngredientIds: List<String>,
     val blockedIngredientIds: List<String>,
     val matchKind: MatchKind,
-    val unknown: String?
+    val unknown: String?,
+    /** Unmatched normalized fragment, retained separately from the full diagnostic token. */
+    val unresolvedText: String? = null
 )
 
 data class AnalysisDiagnostics(
@@ -451,7 +453,8 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
                 matchedIngredientIds = match.ingredients.map { it.id },
                 blockedIngredientIds = match.blockedIngredientIds,
                 matchKind = assessment.matchKind,
-                unknown = tokenUnknown
+                unknown = tokenUnknown,
+                unresolvedText = match.residualNormalized.takeIf { tokenUnknown != null && it.isNotBlank() }
             )
         }
         return AnalysisDiagnostics(

@@ -7,6 +7,15 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class OcrSessionTest {
+    @Test fun revertingAnOcrEditStillRequiresReanalysis() {
+        val text = "Ingrédients: eau"
+        val initial = OcrSession(editableText = text).addAnalysis(AnalysisSnapshot(text, "diag", "VEGAN", 1L))
+        val reverted = initial.withEditableText("$text, lait").withEditableText(text)
+        assertTrue(reverted.hasStaleResult())
+        assertTrue(OcrExportReport.build(reverted, "test").contains("ancienne version"))
+        assertFalse(reverted.addAnalysis(AnalysisSnapshot(text, "new", "VEGAN", 2L)).hasStaleResult())
+    }
+
     @Test fun reviewUnavailableForUnloadedDatabaseOrGenerationFailure() {
         var generated = false
         var logged: Exception? = null

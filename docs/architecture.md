@@ -59,6 +59,10 @@ Les composites restent des conteneurs syntaxiques : leur token est conservé pou
 
 La session OCR est un objet immutable `OcrSession` gardé par `remember`. Elle contient le texte brut, le texte éditable, les blocs et options linguistiques, l’évaluation de revue, le diagnostic et les instantanés des analyses. L’URI de la photo n’appartient volontairement pas au modèle de session. Si le service n’est pas chargé au moment de l’extraction ou si la revue échoue, l’application signale son indisponibilité ; elle ne relance pas automatiquement la revue après chargement. Les exceptions inattendues sont aussi journalisées.
 
+L’écran associe une génération aux demandes d’analyse, d’OCR et de préparation du recadrage. Une édition, un changement de mode, langue ou bloc, une nouvelle acquisition ou un effacement invalide les retours antérieurs ; leur arrivée tardive ne modifie plus la session courante. Une édition manuelle masque le résultat précédent, tandis que l’édition OCR garde l’indication de résultat périmé jusqu’à réanalyse, même si le texte d’origine est rétabli. Ces garde-fous ne restaurent pas la session après destruction du processus et n’annulent pas nécessairement le calcul sous-jacent.
+
+Le message de progression est associé à l’opération qui l’a affiché : invalider une extraction ou un recadrage efface son ancien message sans effacer celui d’une opération plus récente. Chaque sélection de photo relance le chargement de l’aperçu, y compris lorsque son URI est identique à la précédente ; le chargement précédent est annulé par la composition.
+
 ## Composant hérité
 
 `MainActivity.kt` contient encore le composable public `IsItVeganScreen`. Aucune référence du dépôt ne l’appelle : `MainActivity.onCreate` affiche `OcrFirstScreen`. Cette ancienne UI ne doit pas être utilisée comme description du chemin de production actuel, même si ses branches restent couvertes indirectement par le même moteur.

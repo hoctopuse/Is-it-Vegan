@@ -2,6 +2,9 @@
 
 ## En cours — revue OCR multilingue
 
+- Les messages d’extraction et de recadrage invalidés disparaissent sans masquer la progression d’une nouvelle opération. Sélectionner deux fois la même photo recharge son aperçu et laisse les commandes utilisables.
+- L’édition d’un texte manuel masque le verdict précédent ; en OCR, le résultat reste périmé jusqu’à réanalyse même si le texte initial est rétabli. Les retours tardifs d’analyse, d’OCR et de recadrage invalidés par un changement de session ou de contexte ne sont plus publiés.
+- Les fragments non reconnus d’une correspondance partielle et les inconnus de présence déclarée restent visibles dans l’explication, même en l’absence de liste exploitable ; les verdicts et la séparation des traces sont conservés.
 - La revue évite les associations multiples fondées uniquement sur la position et permet de consulter les termes sans concordance établie, reconnus ou non, avec leur langue. Une traduction partielle ne prouve pas une absence.
 - La proposition NL pour `INGREDIENTE.` reste désactivée : ses frontières demandent encore des preuves suffisantes. Aucune correction lexicale n’est produite à partir des seules ancres.
 

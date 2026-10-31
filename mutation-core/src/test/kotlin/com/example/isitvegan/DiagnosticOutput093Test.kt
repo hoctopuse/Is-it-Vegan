@@ -33,16 +33,18 @@ class DiagnosticOutput093Test {
         assertEquals(AnalysisVerdict.INCONCLUSIVE, diagnostics.result.verdict)
     }
 
-    @Test fun effectiveVeganContextualMatchIsExcludedFromAggregatedUnknownLists() {
+    @Test fun effectiveVeganContextualMatchKeepsItsUnresolvedFragmentInUnknownLists() {
         val diagnostics = analyze("tomate inhabituelle, mystère")
         val report = DiagnosticReport.build(diagnostics, "0.6.9.7")
 
         assertTrue(diagnostics.result.unknown.any { it.equals("tomate inhabituelle", true) })
         assertTrue(diagnostics.tokens.first { it.text.equals("tomate inhabituelle", true) }
             .effectiveStatuses.let { statuses -> statuses.isNotEmpty() && statuses.all { it == VeganStatus.VEGAN } })
-        assertEquals(listOf("mystère"), diagnostics.visibleUnknownIngredients)
-        assertEquals(listOf("mystère"), diagnostics.ingredientGroups.unknownIngredients)
-        assertEquals(listOf("mystère"), diagnostics.decision.unknownIngredients)
+        assertEquals(listOf("inhabituelle", "mystère"), diagnostics.visibleUnknownIngredients)
+        assertEquals(listOf("inhabituelle", "mystère"), diagnostics.ingredientGroups.unknownIngredients)
+        assertEquals(listOf("inhabituelle", "mystère"), diagnostics.decision.unknownIngredients)
+        assertTrue(report.substringAfter("Inconnus :").substringBefore("Éléments responsables")
+            .contains("inhabituelle", true))
         assertFalse(report.substringAfter("Inconnus :").substringBefore("Éléments responsables")
             .contains("tomate inhabituelle", true))
     }

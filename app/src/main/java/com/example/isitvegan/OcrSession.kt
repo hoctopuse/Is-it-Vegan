@@ -14,7 +14,8 @@ internal data class OcrSession(
     val languageBlocks: List<LanguageBlock> = emptyList(),
     val multilingualAlignment: MultilingualAlignmentEvaluation? = null,
     val dismissedAlignmentProposals: Set<String> = emptySet(),
-    val alignmentUnavailable: Boolean = false
+    val alignmentUnavailable: Boolean = false,
+    val resultStale: Boolean = false
 ) {
     fun withOcrText(text: String): OcrSession = copy(
         rawOcrText = text,
@@ -22,7 +23,8 @@ internal data class OcrSession(
         languageBlocks = emptyList(),
         multilingualAlignment = null,
         dismissedAlignmentProposals = emptySet(),
-        alignmentUnavailable = false
+        alignmentUnavailable = false,
+        resultStale = analyses.isNotEmpty()
     )
 
     fun withOcrResult(result: OcrProcessingResult): OcrSession = copy(
@@ -37,13 +39,15 @@ internal data class OcrSession(
         languageBlocks = result.languageBlocks,
         multilingualAlignment = result.multilingualAlignment,
         dismissedAlignmentProposals = emptySet(),
-        alignmentUnavailable = result.alignmentUnavailable
+        alignmentUnavailable = result.alignmentUnavailable,
+        resultStale = analyses.isNotEmpty()
     )
 
     fun withEditableText(text: String): OcrSession = copy(
         editableText = text,
         multilingualAlignment = null,
-        dismissedAlignmentProposals = emptySet()
+        dismissedAlignmentProposals = emptySet(),
+        resultStale = resultStale || (text != editableText && analyses.isNotEmpty())
     )
 
     fun dismissAlignmentProposal(proposal: IngredientAlignmentResult): OcrSession =
@@ -61,7 +65,8 @@ internal data class OcrSession(
         return copy(
             editableText = editableText.replaceRange(range.first, range.last + 1, replacementText),
             multilingualAlignment = null,
-            dismissedAlignmentProposals = emptySet()
+            dismissedAlignmentProposals = emptySet(),
+            resultStale = resultStale || analyses.isNotEmpty()
         )
     }
 
@@ -90,13 +95,15 @@ internal data class OcrSession(
             proposalRange(proposal) != null
         }
 
-    fun hasStaleResult(): Boolean = analyses.lastOrNull()?.submittedText?.let { it != editableText } == true
+    fun hasStaleResult(): Boolean = analyses.isNotEmpty() &&
+        (resultStale || analyses.last().submittedText != editableText)
 
     fun selectLanguage(language: LabelLanguage): OcrSession {
         val option = textOptions.firstOrNull { it.language == language } ?: return this
         return copy(
             editableText = option.text,
             analyses = emptyList(),
+            resultStale = false,
             selectedOptionLanguage = language,
             selectedOptionBlockId = option.blockId,
             ocrDiagnostics = ocrDiagnostics?.copy(
@@ -112,6 +119,7 @@ internal data class OcrSession(
     fun selectFullText(): OcrSession = copy(
         editableText = fullOcrText,
         analyses = emptyList(),
+        resultStale = false,
         selectedOptionLanguage = null,
         selectedOptionBlockId = null,
         ocrDiagnostics = ocrDiagnostics?.copy(
@@ -124,7 +132,7 @@ internal data class OcrSession(
     )
 
     fun addAnalysis(snapshot: AnalysisSnapshot): OcrSession =
-        copy(analyses = analyses + snapshot)
+        copy(analyses = analyses + snapshot, resultStale = false)
 
 }
 
@@ -186,7 +194,7 @@ internal object OcrExportReport {
                 if (index < session.analyses.lastIndex) appendLine()
             }
         }
-        if (session.analyses.any { it.submittedText != session.editableText }) {
+        if (session.hasStaleResult() || session.analyses.any { it.submittedText != session.editableText }) {
             appendLine()
             appendLine("ÉTAT")
             appendLine("Au moins un résultat correspond à une ancienne version du texte éditable.")

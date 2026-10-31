@@ -88,20 +88,14 @@ internal fun AnalysisDiagnostics.deriveInputWarnings(): List<DiagnosticInputWarn
     if (!parenthesisStructure.balanced) add(DiagnosticInputWarning.UNBALANCED_STRUCTURE)
 }
 
-/** UI/report aggregation: a token effectively classified as vegan is not an unknown. */
+/** Keep every unresolved token visible, including the residual of a partial vegan match. */
 val AnalysisDiagnostics.visibleUnknownTokens: List<TokenDiagnostic>
     get() = tokens.mapNotNull { token ->
         val unknown = token.unknown ?: return@mapNotNull null
-        if (token.isDeclaredPresence) return@mapNotNull null
         val effectivelyVegan = token.effectiveStatuses.isNotEmpty() &&
             token.effectiveStatuses.all { it == VeganStatus.VEGAN }
         if (!effectivelyVegan) return@mapNotNull token
-
-        // OCR may prepend a standalone number to an otherwise recognized ingredient.
-        // Keep that unmatched fragment visible without presenting the recognized phrase as unknown.
-        Regex("^\\s*(\\d+)\\s+").find(unknown)?.groupValues?.getOrNull(1)?.let { number ->
-            token.copy(unknown = number)
-        }
+        token.copy(unknown = token.unresolvedText ?: unknown)
     }
 
 val AnalysisDiagnostics.visibleUnknownIngredients: List<String>
