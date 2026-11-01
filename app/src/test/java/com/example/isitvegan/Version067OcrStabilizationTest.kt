@@ -195,10 +195,10 @@ class Version067OcrStabilizationTest {
         val report = DiagnosticReport.build(diagnostics, "0.6.7")
 
         assertEquals(null, diagnostics.labelSections.selectedBlockId)
-        assertTrue(report.contains("Identifiant du bloc sélectionné : texte complet"))
+        assertTrue(report.contains("Identifiant du bloc sélectionné : non établi pour le texte soumis"))
         assertTrue(report.contains("Identifiant du segment sélectionné :"))
         assertTrue(report.contains("Raison du rejet :"))
-        assertTrue(report.contains("Raison de sélection :"))
+        assertTrue(report.contains("Raison de sélection automatique avant contrôle de structure :"))
     }
 
     private fun ingredient(id: String, alias: String) = Ingredient(

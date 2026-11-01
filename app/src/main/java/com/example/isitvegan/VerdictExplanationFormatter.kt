@@ -41,7 +41,7 @@ internal object VerdictExplanationFormatter {
             val sections = mutableListOf(
                 resources.getString(if (diagnostics.ambiguousOcrText) R.string.ocr_ambiguous_text else R.string.no_ingredient_list),
                 resources.getString(R.string.no_vegan_conclusion),
-                resources.getString(R.string.analysis_not_evaluated)
+                resources.getString(if (diagnostics.ambiguousOcrText) R.string.analysis_not_evaluated_ambiguous else R.string.analysis_not_evaluated)
             )
             if (result.declaredPresenceIngredientIds.isNotEmpty()) {
                 sections += resources.getString(

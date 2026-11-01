@@ -7,6 +7,125 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class OcrMultilingualSelectionTest {
+    @Test fun identicalInitialSelectionUsesTheTransmittedSegmentRatherThanFirstContentMatch() {
+        val text = "FR Ingrédients: eau, sucre\nFR Ingrédients: eau, sucre"
+        val original = LabelLanguageSegmenter.segment(text, UiLanguage.FR)
+        assertEquals(original.blocks.first().segmentId, original.selectedSegmentId)
+        val second = original.blocks.last()
+        // Exercise the selection boundary independently of the current first-on-tie ranking.
+        val segmentation = original.copy(selectedSegmentId = second.segmentId, selectedText = second.rawText)
+        val selection = OcrTextSelection.from(segmentation, text)
+        assertEquals(second.segmentId, selection.selectedSegmentId)
+        assertEquals(OcrTextCleaner.cleanSelectedBlock(second.rawText), selection.editableText)
+    }
+
+    @Test fun countersDistinguishFilteredSegmentFromSelectableOptionsAndFullText() {
+        for ((text, options) in listOf(
+            "[FR] eau, sucre\n[NL] water, suiker" to 0,
+            "FR Ingrédients: eau, sucre\n[NL] water, suiker" to 1,
+            "FR Ingrédients: eau, sucre\nFR Ingrédients: eau, sucre" to 2
+        )) {
+            val segmentation = LabelLanguageSegmenter.segment(text, UiLanguage.FR)
+            val selection = OcrTextSelection.from(segmentation, text)
+            val diagnostic = selection.updateDiagnostics(OcrDiagnostics(0, 1, 2, emptyList(), emptyList(),
+                languageSegmentCount = segmentation.blocks.size))
+            assertEquals(options, diagnostic.selectableBlockCount)
+            assertEquals(1, diagnostic.selectedBlockCount)
+            assertEquals(segmentation.blocks.size - 1, diagnostic.rejectedBlockCount)
+            assertEquals(segmentation.selectedSegmentId, diagnostic.selectedSegmentId)
+            val analysis = VeganAnalyzer.analyzeWithDiagnostics(selection.editableText, emptyList(), InputMode.OCR_LABEL)
+            if (options == 0) {
+                assertEquals(AnalysisAvailability.NO_INGREDIENT_LIST, analysis.result.availability)
+            } else {
+                assertFalse(analysis.ambiguousOcrText)
+                assertFalse(analysis.result.availability == AnalysisAvailability.NO_INGREDIENT_LIST)
+            }
+            val session = OcrSession(rawOcrText = text, fullOcrText = text, editableText = selection.editableText,
+                textOptions = selection.options, ocrDiagnostics = diagnostic)
+            val full = session.selectFullText()
+            assertEquals(0, full.ocrDiagnostics?.selectedBlockCount)
+            assertEquals(0, full.ocrDiagnostics?.rejectedBlockCount)
+            selection.options.forEach { option ->
+                val selected = full.selectOption(option.segmentId)
+                assertEquals(option.text, selected.editableText)
+                assertEquals(option.segmentId, selected.ocrDiagnostics?.selectedSegmentId)
+                assertEquals(segmentation.blocks.size - 1, selected.ocrDiagnostics?.rejectedBlockCount)
+            }
+        }
+        val fallback = OcrTextSelection.from(LabelLanguageSegmenter.segment("eau, sucre"), "eau, sucre")
+            .updateDiagnostics(OcrDiagnostics(0, 1, 1, emptyList(), emptyList(), languageSegmentCount = 1))
+        assertEquals(0, fallback.selectedBlockCount)
+        assertEquals(0, fallback.rejectedBlockCount)
+    }
+
+    @Test fun emptyOrMissingFullTextCannotEraseAnEditedSession() {
+        for (session in listOf(OcrSession(), OcrSession(rawOcrText = ""), OcrSession(rawOcrText = "", fullOcrText = "  "))) {
+            val edited = session.withEditableText("Ingrédients: lait")
+            assertEquals(edited, edited.selectFullText())
+            assertFalse(edited.hasFullTextChoice())
+        }
+    }
+
+    @Test fun repeatedLanguageOptionsIncludeTheInitiallySelectedOccurrence() {
+        val text = "FR Ingrédients: eau\nFR Ingrédients: eau, sucre, sel, tomate, farine de blé."
+        val segmentation = LabelLanguageSegmenter.segment(text, UiLanguage.FR)
+        val selection = OcrTextSelection.from(segmentation, text)
+        val selectedBlock = segmentation.blocks.single { it.id == segmentation.selectedBlockId }
+
+        assertEquals(2, selection.options.size)
+        assertEquals(segmentation.blocks.map { it.segmentId }.toSet(), selection.options.map { it.segmentId }.toSet())
+        assertTrue(selection.options.any { it.segmentId == selectedBlock.segmentId })
+        assertEquals(selectedBlock.id, selection.selectedBlockId)
+        assertEquals(selectedBlock.segmentId, selection.selectedSegmentId)
+        assertEquals(selection.options.single { it.segmentId == selectedBlock.segmentId }.text, selection.editableText)
+    }
+
+    @Test fun sessionSelectsAnOccurrenceAndFullTextStillInvalidatesAnalysis() {
+        val text = "FR Ingrédients: eau\nFR Ingrédients: eau, sucre, sel, tomate, farine de blé."
+        val selection = OcrTextSelection.from(LabelLanguageSegmenter.segment(text, UiLanguage.FR), text)
+        val processing = OcrProcessingResult(
+            rawText = text,
+            editableText = selection.editableText,
+            diagnostics = OcrDiagnostics(0, 2, 2, listOf("FR"), emptyList()),
+            fullText = text,
+            textOptions = selection.options,
+            selectedOptionLanguage = selection.selectedLanguage,
+            selectedOptionBlockId = selection.selectedBlockId,
+            selectedOptionSegmentId = selection.selectedSegmentId
+        )
+        val initial = OcrSession().withOcrResult(processing)
+        val second = selection.options.last()
+        val selected = initial.addAnalysis(AnalysisSnapshot(initial.editableText, "diag", "VEGAN", 1L))
+            .selectOption(second.segmentId)
+
+        assertEquals(second.text, selected.editableText)
+        assertEquals(second.segmentId, selected.selectedOptionSegmentId)
+        assertTrue(selected.analyses.isEmpty())
+        assertFalse(selected.fullTextSelected)
+
+        val complete = selected.selectFullText()
+        assertEquals(text, complete.editableText)
+        assertTrue(complete.fullTextSelected)
+        assertEquals(null, complete.selectedOptionSegmentId)
+        assertTrue(complete.analyses.isEmpty())
+    }
+
+    @Test fun identicalSameLanguageBlocksRemainSeparateSelectableOccurrences() {
+        val text = "FR Ingrédients: eau, sucre\nFR Ingrédients: eau, sucre\nNL Ingrediënten: water, suiker"
+        val segmentation = LabelLanguageSegmenter.segment(text, UiLanguage.FR)
+        val selection = OcrTextSelection.from(segmentation, text)
+        val repeated = selection.options.filter { it.language == LabelLanguage.FRENCH }
+
+        assertEquals(2, repeated.size)
+        assertEquals(1, repeated.map { it.blockId }.distinct().size)
+        assertEquals(2, repeated.map { it.segmentId }.distinct().size)
+        val session = OcrSession(fullOcrText = text, textOptions = selection.options)
+        assertEquals(session, session.selectLanguage(LabelLanguage.FRENCH))
+        val second = session.selectOption(repeated.last().segmentId)
+        assertEquals(repeated.last().segmentId, second.selectedOptionSegmentId)
+        assertEquals(repeated.last().text, second.editableText)
+    }
+
     @Test fun damagedHeadingCannotRemoveMilkFromConfirmedGermanAnalysis() {
         val text = "ZUTATEN: Zucker\nMILCH. INGREDIENTE.\nSuiker, tarwebloem, fructosestroop.\nINGREDIENTS: sugar, milk"
         val segmentation = LabelLanguageSegmenter.segment(text, UiLanguage.DE)

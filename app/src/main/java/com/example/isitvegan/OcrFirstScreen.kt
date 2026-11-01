@@ -246,17 +246,17 @@ internal fun OcrFirstScreenContent(
                     SelectionContainer { Text(session.rawOcrText!!.ifBlank { "(aucun texte détecté)" }) }
                     Text(ui(R.string.ocr_raw_kept), style = MaterialTheme.typography.bodySmall)
                 }
-                OcrTextBlockChoices(
+                if (session.hasFullTextChoice()) OcrTextBlockChoices(
                     options = session.textOptions,
-                    selectedLanguage = session.selectedOptionLanguage,
+                    selectedOptionSegmentId = session.selectedOptionSegmentId,
                     fullTextSelected = session.fullTextSelected,
                     choiceLabel = ui(R.string.ocr_block_choice),
                     probableLabel = ui(R.string.ocr_probable),
                     probableHint = ui(R.string.ocr_probable_hint),
                     fullTextLabel = ui(R.string.full_ocr_text),
-                    onSelectLanguage = { language ->
+                    onSelectOption = { segmentId ->
                         invalidateRequests()
-                        session = session.selectLanguage(language)
+                        session = session.selectOption(segmentId)
                         diagnostics = null
                         result = ui(R.string.waiting)
                     },
@@ -383,30 +383,33 @@ internal fun OcrFirstScreenContent(
 @Composable
 internal fun OcrTextBlockChoices(
     options: List<OcrTextOption>,
-    selectedLanguage: LabelLanguage?,
+    selectedOptionSegmentId: String?,
     fullTextSelected: Boolean,
     choiceLabel: String,
     probableLabel: String,
     probableHint: String,
     fullTextLabel: String,
-    onSelectLanguage: (LabelLanguage) -> Unit,
+    onSelectOption: (String) -> Unit,
     onSelectFullText: () -> Unit
 ) {
-    if (options.size <= 1) return
     Text(choiceLabel, style = MaterialTheme.typography.titleMedium)
     Row(
         Modifier.fillMaxWidth().horizontalScroll(rememberScrollState()),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
+        val languageCounts = options.groupingBy { it.language }.eachCount()
+        val languageOccurrences = mutableMapOf<LabelLanguage, Int>()
         options.forEach { option ->
+            val occurrence = languageOccurrences.merge(option.language, 1, Int::plus) ?: 1
+            val label = buildString {
+                append(option.language.displayName)
+                if (languageCounts.getValue(option.language) > 1) append(" · $occurrence")
+                if (option.headingConfidence == HeadingConfidence.PROBABLE) append(" · $probableLabel")
+            }
             FilterChip(
-                selected = !fullTextSelected && selectedLanguage == option.language,
-                onClick = { onSelectLanguage(option.language) },
-                label = {
-                    Text(if (option.headingConfidence == HeadingConfidence.PROBABLE) {
-                        "${option.language.displayName} · $probableLabel"
-                    } else option.language.displayName)
-                }
+                selected = !fullTextSelected && selectedOptionSegmentId == option.segmentId,
+                onClick = { onSelectOption(option.segmentId) },
+                label = { Text(label) }
             )
         }
         FilterChip(selected = fullTextSelected, onClick = onSelectFullText, label = { Text(fullTextLabel) })

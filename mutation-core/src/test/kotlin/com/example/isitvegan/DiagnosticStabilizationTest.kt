@@ -1,10 +1,55 @@
 package com.example.isitvegan
 
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class DiagnosticStabilizationTest {
+    @Test fun ambiguousDetectedListIsReportedAsNotEvaluatedRatherThanAbsent() {
+        val diagnostics = service.analyzeWithDiagnostics("Ingrédients: eau (sucre", InputMode.OCR_LABEL)
+        assertTrue(diagnostics.labelSections.hasIngredientHeading)
+        assertTrue(diagnostics.ambiguousOcrText)
+        val report = DiagnosticReport.build(diagnostics, "test")
+        assertTrue(report.contains("Disponibilité : analyse non évaluée (structure ambiguë)"))
+        assertTrue(report.contains("Raison de décision : analyse non évaluée (structure ambiguë)"))
+        assertFalse(report.contains("Disponibilité : aucune liste d’ingrédients"))
+        assertTrue(report.contains("Identifiant du bloc sélectionné : non établi pour le texte soumis"))
+        val absent = DiagnosticReport.build(service.analyzeWithDiagnostics("Texte sans composition", InputMode.OCR_LABEL), "test")
+        assertTrue(absent.contains("Disponibilité : aucune liste d’ingrédients"))
+    }
+
+    @Test fun identicalContentReportsOnlyTheSelectedLocalOccurrence() {
+        val text = "FR Ingrédients: eau, sucre\nFR Ingrédients: eau, sucre"
+        val diagnostics = analyze(text)
+        val segmentation = diagnostics.languageSegmentation
+        assertEquals(2, segmentation.blocks.size)
+        assertEquals(1, segmentation.blocks.map { it.id }.distinct().size)
+        assertEquals(segmentation.blocks.first().segmentId, segmentation.selectedSegmentId)
+        val report = DiagnosticReport.build(diagnostics, "test")
+        assertEquals(1, report.lines().count { it.startsWith("Bloc ") && it.contains(") retenu :") })
+        assertEquals(1, report.lines().count { it.startsWith("Bloc ") && it.contains(") non retenu :") })
+        assertTrue(report.contains("Nombre de blocs sélectionnés : 1"))
+        assertTrue(report.contains("Nombre de blocs rejetés : 1"))
+        val second = segmentation.blocks.last()
+        val secondReport = DiagnosticReport.build(diagnostics.copy(
+            languageSegmentation = segmentation.copy(selectedSegmentId = second.segmentId)
+        ), "test")
+        assertTrue(secondReport.contains("${second.id}, ${second.segmentId}) retenu :"))
+        assertEquals(1, secondReport.lines().count { it.startsWith("Bloc ") && it.contains(") retenu :") })
+    }
+
+    @Test fun refusedRepeatedOcrListsDoNotReportAnySelectedOccurrence() {
+        val text = "FR Ingrédients: eau, sucre\nFR Ingrédients: eau, sucre"
+        val diagnostics = service.analyzeWithDiagnostics(text, InputMode.OCR_LABEL)
+        assertTrue(diagnostics.ambiguousOcrText)
+        assertEquals(null, diagnostics.languageSegmentation.selectedSegmentId)
+        val report = DiagnosticReport.build(diagnostics, "test")
+        assertEquals(0, report.lines().count { it.startsWith("Bloc ") && it.contains(") retenu :") })
+        assertTrue(report.contains("Nombre de blocs sélectionnés : 0"))
+        assertTrue(report.contains("Nombre de blocs rejetés : 2"))
+    }
+
     private val service = IngredientAnalysisService(
         IngredientKnowledge(
             listOf(

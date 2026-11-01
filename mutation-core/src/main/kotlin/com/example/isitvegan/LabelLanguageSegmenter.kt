@@ -45,7 +45,9 @@ data class LanguageSegmentation(
     val usedFallback: Boolean,
     val selectionReason: String = "",
     val rejectedUntitledLanguages: List<LabelLanguage> = emptyList(),
-    val selectedBlockId: String? = null
+    val selectedBlockId: String? = null,
+    /** Occurrence within this segmentation only; not an image or durable identity. */
+    val selectedSegmentId: String? = null
 )
 
 object LabelLanguageSegmenter {
@@ -122,7 +124,8 @@ object LabelLanguageSegmenter {
             rejectedUntitledLanguages = if (titledBlocks.isNotEmpty()) {
                 blocks.filterNot { it.hasIngredientHeading }.map { it.language }.distinct()
             } else emptyList(),
-            selectedBlockId = selected.id
+            selectedBlockId = selected.id,
+            selectedSegmentId = selected.segmentId
         )
     }
 

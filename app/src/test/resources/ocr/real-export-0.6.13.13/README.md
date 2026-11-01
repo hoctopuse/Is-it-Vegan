@@ -1,0 +1,11 @@
+Source : export OCR réel de l'application Is It Vegan? 0.6.13.13, fourni par l'utilisateur pour l'investigation B2.
+
+Les fichiers conservent les deux textes exacts soumis, leurs erreurs OCR et leurs sauts de ligne. Le saut de ligne final du fichier est un délimiteur de stockage, retiré par le test. La photo et une transcription de référence ne sont pas fournies. Aucune transcription n'est reconstruite depuis les autres langues.
+
+Attention : le passage de l'analyse 1 à l'analyse 2 remplace `(arine de blé` par `farine de blé` ; la différence exacte est le remplacement du caractère `(` par `f`, et pas seulement la suppression d'une parenthèse. Les deux textes ont 681 caractères. Le texte éditable actuel de l'export correspond à l'analyse 2.
+
+La session OCR initiale annonce 9 blocs géométriques, 5 segments linguistiques, 5 blocs sélectionnables, 1 sélectionné et 4 rejetés (NL/FR/DE/ES/IT), bloc FR `block-613b6729`, segment `segment-654-1336`. Ces compteurs concernent la session image originale ; ils ne doivent pas être comparés comme s'ils portaient sur les textes soumis à l'analyse, qui ne contiennent qu'une liste FR et le titre commercial DE final.
+
+Export historique : analyse 1 non évaluée (structure ambiguë/bloc tronqué), traces conservées. Analyse 2 UNCERTAIN, inconnus visibles, arôme naturel incertain, traces séparées. Son diagnostic masque le conditionnel en raison des inconnus, alors que le rendu exporté annonce « Selon les ingrédients au statut établi : VEGAN ». Les tests vérifient la version courante, sans prétendre reproduire l'acquisition ML Kit sans photo.
+
+`raw-ocr.txt` conserve également le texte brut original fourni. Le test applique seulement la chaîne textuelle `OcrTextCleaner.clean` → segmentation → sélection : cinq options sont reproduites, avec choix automatique IT (score 88). Un choix explicite FR ultérieur met à jour le texte et les identifiants courants, tout en conservant le motif automatique initial mentionnant IT. Cette transition démontre une coexistence possible des valeurs de l'export ; elle ne prouve pas les gestes effectués durant la session réelle. Les nombres de blocs géométriques, la rotation, le recadrage et l'acquisition ML Kit ne sont pas validés.

@@ -7,6 +7,40 @@ import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class OcrSessionTest {
+    @Test fun restoringEditedFullTextPreservesExactSourceAndClearsEveryOldAnalysis() {
+        val source = "[FR] eau, sucre\n[NL] water, suiker\n"
+        val editedText = "INGREDIENTS: lait"
+        val edited = OcrSession(rawOcrText = source, fullOcrText = source,
+            editableText = source, fullTextSelected = true)
+            .addAnalysis(AnalysisSnapshot(source, "source report", "old result", 1L))
+            .withEditableText(editedText)
+            .addAnalysis(AnalysisSnapshot(editedText, "edited report", "VÉGÉTARIEN", 2L))
+        assertEquals(2, edited.analyses.size)
+        assertTrue(edited.hasFullTextChoice())
+        val restored = edited.selectFullText()
+        assertEquals(source, restored.editableText)
+        assertEquals(source, restored.fullOcrText)
+        assertEquals(source, restored.rawOcrText)
+        assertTrue(restored.fullTextSelected)
+        assertTrue(restored.analyses.isEmpty())
+        assertFalse(restored.hasStaleResult())
+    }
+
+    @Test fun exportDoesNotInferFullTextFromMissingAnalysisIdentityOrCurrentChoiceFromInitialReason() {
+        val text = "Ingrédients: eau"
+        val option = OcrTextOption(LabelLanguage.FRENCH, text, "FR", blockId = "fr-content", segmentId = "fr-local")
+        val session = OcrSession(rawOcrText = text, fullOcrText = text, textOptions = listOf(option),
+            ocrDiagnostics = OcrDiagnostics(0, 1, 1, emptyList(), emptyList(),
+                selectedLanguage = "IT", selectionReason = "motif automatique IT", languageSegmentCount = 2))
+            .selectOption(option.segmentId)
+            .addAnalysis(AnalysisSnapshot(text, "rapport", "résultat", 1L))
+        val report = OcrExportReport.build(session, "test")
+        assertTrue(report.contains("Langue sélectionnée : FR"))
+        assertTrue(report.contains("Raison du choix automatique initial : motif automatique IT"))
+        assertTrue(report.contains("Identifiant du bloc analysé : non établi pour le texte soumis"))
+        assertFalse(report.contains("Identifiant du bloc analysé : texte complet"))
+    }
+
     @Test fun revertingAnOcrEditStillRequiresReanalysis() {
         val text = "Ingrédients: eau"
         val initial = OcrSession(editableText = text).addAnalysis(AnalysisSnapshot(text, "diag", "VEGAN", 1L))
@@ -218,7 +252,7 @@ class OcrSessionTest {
     private fun boundSession(proposal: IngredientAlignmentResult, text: String = "INGREDIENTS: WHEAT lour"): OcrSession {
         val block = LanguageBlock(LabelLanguage.ENGLISH, emptySet(), text, 0, text.length, "EN", id = "en-block")
         val option = OcrTextOption(LabelLanguage.ENGLISH, text, "EN", blockId = block.id, segmentId = block.segmentId)
-        return OcrSession(editableText = text, selectedOptionBlockId = block.id,
+        return OcrSession(rawOcrText = text, fullOcrText = text, editableText = text, selectedOptionBlockId = block.id,
             selectedOptionLanguage = LabelLanguage.ENGLISH, textOptions = listOf(option), languageBlocks = listOf(block),
             multilingualAlignment = MultilingualAlignmentEvaluation(listOf(proposal.first, proposal.second), listOf(proposal)))
     }

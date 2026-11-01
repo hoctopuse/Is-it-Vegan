@@ -48,6 +48,7 @@
     <string name="ocr_ambiguous_text">De tekst bevat meerdere lijsten of een passage met een onzekere grens. Selecteer en controleer één lijst voordat u deze analyseert.</string>
     <string name="no_vegan_conclusion">Er wordt geen vegan conclusie gegeven.</string>
     <string name="analysis_not_evaluated">Analyse niet uitgevoerd: geen bruikbare ingrediëntenlijst.</string>
+    <string name="analysis_not_evaluated_ambiguous">Analyse niet uitgevoerd: de tekststructuur moet worden gecontroleerd.</string>
     <string name="verdict_non_vegan">❌ NIET VEGAN</string>
     <string name="verdict_inconclusive">⚠️ GEEN CONCLUSIE</string>
     <string name="verdict_vegetarian">🥕 VEGETARISCH</string>

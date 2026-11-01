@@ -3,11 +3,12 @@ package com.example.isitvegan
 object DiagnosticReport {
     fun build(diagnostics: AnalysisDiagnostics, versionName: String): String {
         val result = diagnostics.result
+        val ambiguousNotEvaluated = result.availability == AnalysisAvailability.NO_INGREDIENT_LIST && diagnostics.ambiguousOcrText
         return buildString {
             appendLine("Is It Vegan? — rapport de diagnostic")
             appendLine("Version : $versionName")
             appendLine("Mode d’entrée : ${diagnostics.inputMode.displayName}")
-            appendLine("Disponibilité : ${diagnostics.result.availability.displayName}")
+            appendLine("Disponibilité : ${if (ambiguousNotEvaluated) "analyse non évaluée (structure ambiguë)" else result.availability.displayName}")
             appendLine(
                 "Fallback manuel : ${if (diagnostics.usedManualFallback) "oui" else "non"}"
             )
@@ -23,21 +24,22 @@ object DiagnosticReport {
             appendLine()
             appendLine("LANGUE / BLOC SÉLECTIONNÉ")
             appendLine("Langue sélectionnée : ${diagnostics.labelSections.language.displayName}")
-            appendLine("Identifiant du bloc sélectionné : ${diagnostics.labelSections.selectedBlockId ?: "texte complet"}")
+            appendLine("Identifiant du bloc sélectionné : ${diagnostics.labelSections.selectedBlockId ?: "non établi pour le texte soumis"}")
             val selectedBlock = diagnostics.languageSegmentation.blocks
-                .firstOrNull { it.id == diagnostics.languageSegmentation.selectedBlockId }
-            appendLine("Identifiant du segment sélectionné : ${selectedBlock?.segmentId ?: "texte complet"}")
+                .singleOrNull { it.segmentId == diagnostics.languageSegmentation.selectedSegmentId }
+            appendLine("Identifiant du segment sélectionné : ${selectedBlock?.segmentId ?: "aucun (texte complet ou structure refusée)"}")
             val detectedLanguages = diagnostics.languageSegmentation.blocks
                 .map { it.language.displayName }.distinct().structuredList()
             appendLine("Blocs détectés : $detectedLanguages")
             appendLine("Segments détectés dans le texte soumis : $detectedLanguages")
             appendLine("Nombre de segments détectés dans le texte soumis : ${diagnostics.languageSegmentation.blocks.size}")
-            appendLine("Nombre de blocs sélectionnables : ${diagnostics.languageSegmentation.blocks.size}")
-            appendLine("Nombre de blocs sélectionnés : ${if (diagnostics.languageSegmentation.selectedBlockId == null) 0 else 1}")
-            appendLine("Nombre de blocs rejetés : ${diagnostics.languageSegmentation.blocks.count { it.id != diagnostics.languageSegmentation.selectedBlockId }}")
+            appendLine("Nombre de blocs candidats avec titre confirmé : ${diagnostics.languageSegmentation.blocks.count { it.hasIngredientHeading && it.headingConfidence == HeadingConfidence.CONFIRMED }}")
+            appendLine("Ces candidats ne représentent pas les options de l’écran OCR ni une garantie d’analyse.")
+            appendLine("Nombre de blocs sélectionnés : ${if (selectedBlock == null) 0 else 1}")
+            appendLine("Nombre de blocs rejetés : ${diagnostics.languageSegmentation.blocks.size - if (selectedBlock == null) 0 else 1}")
             diagnostics.languageSegmentation.blocks.forEachIndexed { index, block ->
                 appendLine(
-                    "Bloc ${index + 1} (${block.id}, ${block.segmentId}) ${if (block.id == diagnostics.languageSegmentation.selectedBlockId) "retenu" else "non retenu"} : marqueur=${block.detectedMarker ?: "aucun"}, " +
+                    "Bloc ${index + 1} (${block.id}, ${block.segmentId}) ${if (block.segmentId == selectedBlock?.segmentId) "retenu" else "non retenu"} : marqueur=${block.detectedMarker ?: "aucun"}, " +
                         "langue originale=${block.headingLanguage?.displayName ?: block.language.displayName}, " +
                         "langue normalisée=${block.language.displayName}, score=${block.selectionScore}, " +
                         "frontière=${block.startIndex}…${block.endIndex}, longueur utile=${block.usefulLength}, " +
@@ -45,12 +47,13 @@ object DiagnosticReport {
                 )
                 val criteria = block.selectionSignals.structuredList().ifBlank { "aucun" }
                 appendLine("  Critères : $criteria")
-                if (block.id != diagnostics.languageSegmentation.selectedBlockId) {
+                if (block.segmentId != selectedBlock?.segmentId) {
                     val rejectionReason = when {
+                        selectedBlock == null -> "aucun segment retenu individuellement dans le texte soumis"
                         block.selectionSignals.any { it.contains("faux marqueur", true) } -> "faux marqueur"
                         block.manifestlyTruncated -> "bloc tronqué"
                         block.selectionSignals.any { it.contains("fragment court", true) } -> "bloc trop court"
-                        selectedBlock != null && block.selectionScore < selectedBlock.selectionScore -> "qualité inférieure"
+                        block.selectionScore < selectedBlock.selectionScore -> "qualité inférieure"
                         else -> "préférence linguistique entre blocs de qualité comparable"
                     }
                     appendLine("  Raison du rejet : $rejectionReason")
@@ -72,7 +75,7 @@ object DiagnosticReport {
                 "Fallback texte complet : " +
                     if (diagnostics.languageSegmentation.usedFallback) "oui" else "non"
             )
-            appendLine("Raison de sélection : ${diagnostics.languageSegmentation.selectionReason}")
+            appendLine("Raison de sélection automatique avant contrôle de structure : ${diagnostics.languageSegmentation.selectionReason}")
             appendLine(
                 "Blocs sans titre rejetés : " +
                     diagnostics.languageSegmentation.rejectedUntitledLanguages
@@ -257,7 +260,7 @@ object DiagnosticReport {
             }
             val decision = diagnostics.decision
             appendLine("Éléments responsables du verdict : ${decision.responsibleIngredientIds.structuredList().ifBlank { "aucun identifiant connu" }}")
-            appendLine("Raison de décision : ${decision.reason.displayName}")
+            appendLine("Raison de décision : ${if (ambiguousNotEvaluated) "analyse non évaluée (structure ambiguë)" else decision.reason.displayName}")
             appendLine("Un ingrédient inconnu empêche un verdict VEGAN : ${if (decision.unknownPreventsVegan) "oui" else "non"}")
             appendLine("Traces prises en compte dans le verdict : ${if (decision.tracesExcludedFromVerdict) "non" else "oui"}")
             val explanation = diagnostics.verdictExplanation

@@ -63,7 +63,8 @@ internal data class OcrDiagnostics(
     val languageSegmentCount: Int = 0,
     val selectableBlockCount: Int = 0,
     val selectedBlockCount: Int = 0,
-    val rejectedBlockCount: Int = 0
+    val rejectedBlockCount: Int = 0,
+    val selectedSegmentId: String? = null
 )
 
 internal data class OcrTextOption(
@@ -87,5 +88,6 @@ internal data class OcrProcessingResult(
     val selectedOptionBlockId: String? = null,
     val languageBlocks: List<LanguageBlock> = emptyList(),
     val multilingualAlignment: MultilingualAlignmentEvaluation? = null,
-    val alignmentUnavailable: Boolean = false
+    val alignmentUnavailable: Boolean = false,
+    val selectedOptionSegmentId: String? = null
 )

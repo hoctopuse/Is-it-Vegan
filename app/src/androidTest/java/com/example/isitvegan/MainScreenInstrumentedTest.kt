@@ -6,10 +6,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.SemanticsProperties
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.test.ExperimentalTestApi
+import androidx.compose.ui.test.SemanticsMatcher
+import androidx.compose.ui.test.assert
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.assertCountEquals
+import androidx.compose.ui.test.assertTextContains
 import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.isEnabled
 import androidx.compose.ui.test.junit4.v2.createAndroidComposeRule
@@ -31,6 +36,27 @@ import org.junit.Assert.assertEquals
 
 @OptIn(ExperimentalTestApi::class)
 class MainScreenInstrumentedTest {
+    @Test fun freshOcrSessionCannotEraseTypedTextThroughFullTextChoice() {
+        assertTypedTextSurvivesFullTextChoice(false)
+    }
+
+    @Test fun manualOcrSessionCannotEraseTypedTextThroughFullTextChoice() {
+        assertTypedTextSurvivesFullTextChoice(true)
+    }
+
+    private fun assertTypedTextSurvivesFullTextChoice(manual: Boolean) {
+        composeRule.onNodeWithText("OCR").performClick()
+        if (manual) composeRule.onNodeWithTag("ocr-manual-entry").performScrollTo().performClick()
+        val text = "INGREDIENTS: eau, sucre"
+        composeRule.onNodeWithTag("ocr-editor").performScrollTo().performTextInput(text)
+        val label = localizedContext(InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR)
+            .getString(R.string.full_ocr_text)
+        if (composeRule.onAllNodes(hasText(label)).fetchSemanticsNodes().isNotEmpty()) {
+            composeRule.onNodeWithText(label).performScrollTo().performClick()
+        }
+        composeRule.onNodeWithTag("ocr-editor").assertTextContains(text)
+        composeRule.onAllNodes(hasText(label)).assertCountEquals(0)
+    }
     private val wakeDeviceRule = object : TestWatcher() {
         override fun starting(description: Description) {
             val instrumentation = InstrumentationRegistry.getInstrumentation()
@@ -51,29 +77,213 @@ class MainScreenInstrumentedTest {
     @get:Rule
     val rules: TestRule = RuleChain.outerRule(wakeDeviceRule).around(composeRule)
 
+    @Test fun extractedZeroOptionsCanReturnToFullText() {
+        val full = "[FR] eau, sucre\n[NL] water, suiker"
+        extractInjectedText(full, 0)
+        assertReturnToFullText(full)
+    }
+
+    @Test fun zeroOptionsFullTextCanBeRestoredAfterEditingAndAnalysis() {
+        assertZeroOptionRestoration("[FR] eau, sucre\n[NL] water, suiker", selectFullTextFirst = true)
+    }
+
+    @Test fun fallbackFullTextCanBeRestoredAfterEditingAndAnalysis() {
+        assertZeroOptionRestoration("eau, sucre", selectFullTextFirst = false)
+    }
+
+    private fun assertZeroOptionRestoration(full: String, selectFullTextFirst: Boolean) {
+        val submitted = java.util.Collections.synchronizedList(mutableListOf<String>())
+        extractInjectedText(full, 0, submitted)
+        if (selectFullTextFirst) assertReturnToFullText(full)
+        val edited = "INGREDIENTS: lait"
+        composeRule.onNodeWithTag("ocr-editor").performScrollTo().performTextClearance()
+        composeRule.onNodeWithTag("ocr-editor").performTextInput(edited)
+        val resources = localizedContext(InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR)
+        composeRule.onNodeWithText(resources.getString(R.string.full_ocr_text)).performScrollTo().assertIsDisplayed()
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("VÉGÉTARIEN", substring = true), 30_000)
+        assertEquals(listOf(edited), submitted.toList())
+        assertReturnToFullText(full)
+        composeRule.onAllNodes(hasText("VÉGÉTARIEN", substring = true)).assertCountEquals(0)
+        composeRule.onAllNodes(hasText(resources.getString(R.string.multilingual_stale_result))).assertCountEquals(0)
+    }
+
+    @Test fun extractedOneOptionCanReturnToFullText() {
+        val full = "FR Ingrédients: eau, sucre, sel, tomate, farine.\n[NL] water, suiker"
+        extractInjectedText(full, 1)
+        composeRule.onNodeWithText("FR").assertIsSelected()
+        assertReturnToFullText(full)
+    }
+
+    @Test fun extractedRepeatedOccurrencesAnalyzeCurrentChoiceAndInvalidateOldVerdict() {
+        val full = "FR Ingrédients: eau, sucre, sel, tomate, farine.\nFR Ingrédients: lait, sucre, sel, tomate, farine."
+        val submitted = java.util.Collections.synchronizedList(mutableListOf<String>())
+        extractInjectedText(full, 2, submitted)
+        composeRule.onNodeWithText("FR · 1").performScrollTo().performClick().assertIsSelected()
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("VEGAN", substring = true), 30_000)
+        composeRule.onNodeWithText("FR · 2").performScrollTo().performClick()
+        composeRule.onNodeWithText("FR · 2").assertIsSelected()
+        composeRule.onAllNodes(hasText("VEGAN", substring = true)).assertCountEquals(0)
+        composeRule.onNodeWithTag("ocr-editor").assertTextContains("Ingrédients : lait, sucre, sel, tomate, farine.")
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("VÉGÉTARIEN", substring = true), 30_000)
+        assertEquals(listOf("Ingrédients : eau, sucre, sel, tomate, farine.",
+            "Ingrédients : lait, sucre, sel, tomate, farine."), submitted.toList())
+        assertReturnToFullText(full)
+        composeRule.onAllNodes(hasText("VÉGÉTARIEN", substring = true)).assertCountEquals(0)
+        composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+        composeRule.waitUntil(30_000) { submitted.size == 3 }
+        composeRule.waitUntilAtLeastOneExists(hasText("Sélectionnez", substring = true), 30_000)
+        assertEquals(full, submitted.last())
+    }
+
+    @Test fun extractedIdenticalOccurrencesKeepDistinctSelectedChips() {
+        val full = "FR Ingrédients: eau, sucre\nFR Ingrédients: eau, sucre"
+        extractInjectedText(full, 2)
+        composeRule.onNodeWithText("FR · 1").assertIsSelected()
+        composeRule.onNodeWithText("FR · 2").performScrollTo().performClick()
+        composeRule.onNodeWithText("FR · 2").assertIsSelected()
+        composeRule.onNodeWithTag("ocr-editor").assertTextContains("Ingrédients : eau, sucre")
+        assertReturnToFullText(full)
+    }
+
+    private fun extractInjectedText(full: String, optionCount: Int, submitted: MutableList<String> = mutableListOf()) {
+        composeRule.waitUntil(30_000) { VeganAnalyzer.isDatabaseLoaded() }
+        val segmentation = LabelLanguageSegmenter.segment(full, UiLanguage.FR)
+        val selection = OcrTextSelection.from(segmentation, full)
+        assertEquals(optionCount, selection.options.size)
+        val processing = OcrProcessingResult(full, selection.editableText,
+            selection.updateDiagnostics(OcrDiagnostics(0, 1, 2, emptyList(), emptyList(),
+                languageSegmentCount = segmentation.blocks.size)), fullText = full,
+            textOptions = selection.options, selectedOptionLanguage = selection.selectedLanguage,
+            selectedOptionBlockId = selection.selectedBlockId, selectedOptionSegmentId = selection.selectedSegmentId,
+            languageBlocks = segmentation.blocks)
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                OcrFirstScreenContent(true,
+                    pickPhoto = { it(android.net.Uri.parse("content://test/b2")) },
+                    decodePreview = { android.graphics.Bitmap.createBitmap(2, 2, android.graphics.Bitmap.Config.ARGB_8888) },
+                    processOcr = { _, _, success, _, _ -> success(processing) },
+                    analyzeText = { text, mode, language, block ->
+                        submitted.add(text)
+                        VeganAnalyzer.analyzeWithDiagnostics(text, mode, language, block)
+                    })
+            }
+        }
+        composeRule.onNodeWithText("OCR").performClick()
+        val resources = localizedContext(InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR)
+        composeRule.onNodeWithText(resources.getString(R.string.choose_photo)).performScrollTo().performClick()
+        composeRule.waitUntilAtLeastOneExists(hasText("EXTRAIRE LE TEXTE").and(isEnabled()), 30_000)
+        composeRule.onNodeWithText("EXTRAIRE LE TEXTE").performScrollTo().performClick()
+        composeRule.onNodeWithTag("ocr-editor").assertTextContains(selection.editableText)
+    }
+
+    private fun assertReturnToFullText(full: String) {
+        val label = localizedContext(InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR)
+            .getString(R.string.full_ocr_text)
+        composeRule.onNodeWithText(label).performScrollTo().performClick()
+        composeRule.onNodeWithTag("ocr-editor").assert(
+            SemanticsMatcher.expectValue(SemanticsProperties.EditableText, AnnotatedString(full))
+        )
+    }
+
     @Test fun damagedHeadingDoesNotOfferAProbableBlock() {
         val text = "INGREDIENTE.\nSuiker, tarwebloem, fructosestroop.\nZUTATEN: Zucker, Milch\nINGREDIENTS: sugar, milk"
         val options = OcrTextSelection.from(LabelLanguageSegmenter.segment(text), text).options
-        var selected: LabelLanguage? = null
+        var selected: String? = null
         val resources = localizedContext(
             InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR
         ).resources
         composeRule.runOnUiThread {
             composeRule.activity.setContent {
                 OcrTextBlockChoices(
-                    options, selected, false,
+                    options, options.single { it.language == LabelLanguage.GERMAN }.segmentId, false,
                     choiceLabel = resources.getString(R.string.ocr_block_choice),
                     probableLabel = resources.getString(R.string.ocr_probable),
                     probableHint = resources.getString(R.string.ocr_probable_hint),
                     fullTextLabel = resources.getString(R.string.full_ocr_text),
-                    onSelectLanguage = { selected = it }, onSelectFullText = {}
+                    onSelectOption = { selected = it }, onSelectFullText = {}
                 )
             }
         }
         composeRule.onAllNodes(hasText("NL · probable")).assertCountEquals(0)
+        val german = options.single { it.language == LabelLanguage.GERMAN }
         composeRule.onNodeWithText("DE").assertIsDisplayed().performClick()
         composeRule.onNodeWithText(resources.getString(R.string.full_ocr_text)).assertIsDisplayed()
-        assertEquals(LabelLanguage.GERMAN, selected)
+        assertEquals(german.segmentId, selected)
+    }
+
+    @Test fun oneOcrOptionKeepsLanguageAndFullTextChoicesVisible() {
+        val text = "INGREDIENTS: water, sugar, salt, tomato, flour"
+        val options = OcrTextSelection.from(LabelLanguageSegmenter.segment(text), text).options
+        assertEquals(1, options.size)
+        var selectedFullText = false
+        val resources = localizedContext(
+            InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR
+        ).resources
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                OcrTextBlockChoices(
+                    options, options.single().segmentId, false,
+                    choiceLabel = resources.getString(R.string.ocr_block_choice),
+                    probableLabel = resources.getString(R.string.ocr_probable),
+                    probableHint = resources.getString(R.string.ocr_probable_hint),
+                    fullTextLabel = resources.getString(R.string.full_ocr_text),
+                    onSelectOption = {}, onSelectFullText = { selectedFullText = true }
+                )
+            }
+        }
+        composeRule.onNodeWithText("EN").assertIsDisplayed().assertIsSelected()
+        composeRule.onNodeWithText(resources.getString(R.string.full_ocr_text)).assertIsDisplayed().performClick()
+        assertEquals(true, selectedFullText)
+    }
+
+    @Test fun noSelectableOcrOptionsStillAllowsChoosingTheFullText() {
+        var selectedFullText = false
+        val resources = localizedContext(
+            InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR
+        ).resources
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                OcrTextBlockChoices(
+                    emptyList(), null, false,
+                    choiceLabel = resources.getString(R.string.ocr_block_choice),
+                    probableLabel = resources.getString(R.string.ocr_probable),
+                    probableHint = resources.getString(R.string.ocr_probable_hint),
+                    fullTextLabel = resources.getString(R.string.full_ocr_text),
+                    onSelectOption = {}, onSelectFullText = { selectedFullText = true }
+                )
+            }
+        }
+        composeRule.onNodeWithText(resources.getString(R.string.full_ocr_text)).assertIsDisplayed().performClick()
+        assertEquals(true, selectedFullText)
+    }
+
+    @Test fun repeatedSameLanguageOcrOptionsAreIndividuallyVisible() {
+        val text = "FR Ingrédients: eau\nFR Ingrédients: eau, sucre, sel, tomate, farine de blé."
+        val options = OcrTextSelection.from(LabelLanguageSegmenter.segment(text, UiLanguage.FR), text).options
+        assertEquals(2, options.size)
+        var selected: String? = null
+        val resources = localizedContext(
+            InstrumentationRegistry.getInstrumentation().targetContext, UiLanguage.FR
+        ).resources
+        composeRule.runOnUiThread {
+            composeRule.activity.setContent {
+                OcrTextBlockChoices(
+                    options, options.first().segmentId, false,
+                    choiceLabel = resources.getString(R.string.ocr_block_choice),
+                    probableLabel = resources.getString(R.string.ocr_probable),
+                    probableHint = resources.getString(R.string.ocr_probable_hint),
+                    fullTextLabel = resources.getString(R.string.full_ocr_text),
+                    onSelectOption = { selected = it }, onSelectFullText = {}
+                )
+            }
+        }
+        composeRule.onNodeWithText("FR · 1").assertIsDisplayed().assertIsSelected().performClick()
+        composeRule.onNodeWithText("FR · 2").assertIsDisplayed().performClick()
+        assertEquals(options.last().segmentId, selected)
+        composeRule.onNodeWithText(resources.getString(R.string.full_ocr_text)).assertIsDisplayed()
     }
 
     @Test fun multilingualCorrectionReachesTheCallerOnlyAfterExplicitAccept() {

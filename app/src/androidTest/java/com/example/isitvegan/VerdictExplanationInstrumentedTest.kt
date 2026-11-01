@@ -10,6 +10,25 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 class VerdictExplanationInstrumentedTest {
+    @Test fun ambiguousListAndMissingListHaveDistinctLocalizedNotEvaluatedMessages() {
+        val context = InstrumentationRegistry.getInstrumentation().targetContext
+        val ambiguous = service.analyzeWithDiagnostics("Ingrédients: eau (arôme", InputMode.OCR_LABEL)
+        val absent = service.analyzeWithDiagnostics("Texte sans composition", InputMode.OCR_LABEL)
+        assertTrue(ambiguous.labelSections.hasIngredientHeading)
+        assertTrue(ambiguous.ambiguousOcrText)
+        for (language in UiLanguage.entries) {
+            val resources = localizedContext(context, language).resources
+            val refused = VerdictExplanationFormatter.render(resources, ambiguous.input, ambiguous)
+            assertTrue(language.name, refused.contains(resources.getString(R.string.analysis_not_evaluated_ambiguous)))
+            assertFalse(language.name, refused.contains(resources.getString(R.string.analysis_not_evaluated)))
+            assertFalse(language.name, refused.contains(resources.getString(R.string.no_ingredient_list)))
+            assertTrue(language.name, refused.contains(resources.getString(R.string.no_vegan_conclusion)))
+            val missing = VerdictExplanationFormatter.render(resources, absent.input, absent)
+            assertTrue(language.name, missing.contains(resources.getString(R.string.no_ingredient_list)))
+            assertFalse(language.name, missing.contains(resources.getString(R.string.analysis_not_evaluated_ambiguous)))
+        }
+    }
+
     private val service = IngredientAnalysisService(
         IngredientKnowledge(
             listOf(

@@ -86,6 +86,7 @@
     <string name="ocr_ambiguous_text">Le texte contient plusieurs listes ou un passage dont la limite est incertaine. Sélectionnez et vérifiez une seule liste avant de l’analyser.</string>
     <string name="no_vegan_conclusion">Aucune conclusion vegan n’est produite.</string>
     <string name="analysis_not_evaluated">Analyse non évaluée : aucune liste d’ingrédients exploitable.</string>
+    <string name="analysis_not_evaluated_ambiguous">Analyse non évaluée : la structure du texte doit être vérifiée.</string>
     <string name="verdict_non_vegan">❌ NON VEGAN</string>
     <string name="verdict_inconclusive">⚠️ INCONCLUS</string>
     <string name="verdict_vegetarian">🥕 VÉGÉTARIEN</string>

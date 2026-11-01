@@ -121,20 +121,18 @@ internal class OcrProcessor(context: Context) {
                                 selectionReason = segmentation.selectionReason,
                                 selectedBlockId = textSelection.selectedBlockId,
                                 languageSegmentCount = segmentation.blocks.size,
-                                selectableBlockCount = segmentation.blocks.size,
-                                selectedBlockCount = if (segmentation.selectedBlockId == null) 0 else 1,
-                                rejectedBlockCount = segmentation.blocks.count { it.id != segmentation.selectedBlockId },
                                 detectedBlockDetails = segmentation.blocks.map { block ->
                                     buildString {
                                         append("${block.id} [${block.segmentId}]: ${block.detectedMarker ?: "sans marqueur"} → ${block.language.displayName}; score=${block.selectionScore}")
                                         block.languageCorrectionReason?.let { append(" ($it)") }
                                     }
                                 }
-                            ),
+                            ).let(textSelection::updateDiagnostics),
                             fullText = fullEditable,
                             textOptions = textSelection.options,
                             selectedOptionLanguage = textSelection.selectedLanguage,
                             selectedOptionBlockId = textSelection.selectedBlockId,
+                            selectedOptionSegmentId = textSelection.selectedSegmentId,
                             languageBlocks = segmentation.blocks,
                             multilingualAlignment = alignment,
                             alignmentUnavailable = alignmentUnavailable

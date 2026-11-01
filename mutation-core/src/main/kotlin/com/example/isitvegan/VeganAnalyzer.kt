@@ -282,7 +282,9 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
             detectedSegmentation.copy(
                 selectedText = text,
                 ignoredLanguages = emptyList(),
-                selectedBlockId = ocrSections?.first?.selectedBlockId
+                selectedBlockId = ocrSections?.first?.selectedBlockId,
+                selectedSegmentId = detectedSegmentation.blocks.singleOrNull()?.segmentId
+                    .takeIf { ocrSections?.second == false && !detectedSegmentation.usedFallback }
             )
         } else detectedSegmentation.withSelectedBlockId(selectedBlockId)
         val sections = ocrSections?.first ?: if (headings.size == 1 && LabelSectionExtractor.isSimplePresencePrefix(prefix)) {
@@ -557,7 +559,8 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
             selectedLanguage = source.language,
             detectedMarker = source.detectedMarker,
             ignoredLanguages = blocks.map { it.language }.filter { it != source.language }.distinct(),
-            selectedBlockId = source.id
+            selectedBlockId = source.id,
+            selectedSegmentId = source.segmentId
         )
     }
 

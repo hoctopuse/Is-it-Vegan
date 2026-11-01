@@ -10,6 +10,7 @@ internal data class OcrSession(
     val textOptions: List<OcrTextOption> = emptyList(),
     val selectedOptionLanguage: LabelLanguage? = null,
     val selectedOptionBlockId: String? = null,
+    val selectedOptionSegmentId: String? = null,
     val fullTextSelected: Boolean = false,
     val languageBlocks: List<LanguageBlock> = emptyList(),
     val multilingualAlignment: MultilingualAlignmentEvaluation? = null,
@@ -35,6 +36,7 @@ internal data class OcrSession(
         textOptions = result.textOptions,
         selectedOptionLanguage = result.selectedOptionLanguage,
         selectedOptionBlockId = result.selectedOptionBlockId,
+        selectedOptionSegmentId = result.selectedOptionSegmentId,
         fullTextSelected = result.selectedOptionLanguage == null,
         languageBlocks = result.languageBlocks,
         multilingualAlignment = result.multilingualAlignment,
@@ -98,33 +100,44 @@ internal data class OcrSession(
     fun hasStaleResult(): Boolean = analyses.isNotEmpty() &&
         (resultStale || analyses.last().submittedText != editableText)
 
+    fun hasFullTextChoice(): Boolean = rawOcrText != null && fullOcrText.isNotBlank()
+
     fun selectLanguage(language: LabelLanguage): OcrSession {
-        val option = textOptions.firstOrNull { it.language == language } ?: return this
+        val option = textOptions.singleOrNull { it.language == language } ?: return this
+        return selectOption(option.segmentId)
+    }
+
+    fun selectOption(segmentId: String): OcrSession {
+        val option = textOptions.singleOrNull { it.segmentId == segmentId } ?: return this
         return copy(
             editableText = option.text,
             analyses = emptyList(),
             resultStale = false,
-            selectedOptionLanguage = language,
+            selectedOptionLanguage = option.language,
             selectedOptionBlockId = option.blockId,
+            selectedOptionSegmentId = option.segmentId,
             ocrDiagnostics = ocrDiagnostics?.copy(
-                selectedLanguage = language.displayName,
+                selectedLanguage = option.language.displayName,
                 selectedBlockId = option.blockId,
+                selectedSegmentId = option.segmentId,
                 selectedBlockCount = 1,
-                rejectedBlockCount = (ocrDiagnostics.selectableBlockCount - 1).coerceAtLeast(0)
+                rejectedBlockCount = (ocrDiagnostics.languageSegmentCount - 1).coerceAtLeast(0)
             ),
             fullTextSelected = false
         )
     }
 
-    fun selectFullText(): OcrSession = copy(
+    fun selectFullText(): OcrSession = if (!hasFullTextChoice()) this else copy(
         editableText = fullOcrText,
         analyses = emptyList(),
         resultStale = false,
         selectedOptionLanguage = null,
         selectedOptionBlockId = null,
+        selectedOptionSegmentId = null,
         ocrDiagnostics = ocrDiagnostics?.copy(
             selectedLanguage = null,
             selectedBlockId = null,
+            selectedSegmentId = null,
             selectedBlockCount = 0,
             rejectedBlockCount = 0
         ),
@@ -167,9 +180,10 @@ internal object OcrExportReport {
             appendLine("Zones détectées : ${diagnostic.detectedZones.ifEmpty { listOf("UNKNOWN") }.joinToString()}")
             diagnostic.detectedBlockDetails.forEach { appendLine("Bloc : $it") }
             appendLine("Langue sélectionnée : ${diagnostic.selectedLanguage ?: "UNKNOWN"}")
-            appendLine("Identifiant du bloc sélectionné : ${diagnostic.selectedBlockId ?: "texte complet"}")
+            appendLine("Identifiant du bloc sélectionné : ${diagnostic.selectedBlockId ?: if (session.fullTextSelected) "texte complet" else "non établi"}")
+            appendLine("Identifiant du segment sélectionné (segmentation OCR initiale) : ${diagnostic.selectedSegmentId ?: "aucun"}")
             appendLine("Ordre de préférence : ${diagnostic.languagePreference.ifEmpty { listOf("FR", "EN", "NL") }.joinToString(" → ")}")
-            diagnostic.selectionReason?.takeIf { it.isNotBlank() }?.let { appendLine("Raison du choix : $it") }
+            diagnostic.selectionReason?.takeIf { it.isNotBlank() }?.let { appendLine("Raison du choix automatique initial : $it") }
             appendLine("Avertissements : ${diagnostic.warnings.ifEmpty { listOf("aucun") }.joinToString(" ; ")}")
             appendLine()
         }
@@ -185,7 +199,7 @@ internal object OcrExportReport {
         } else {
             session.analyses.forEachIndexed { index, analysis ->
                 appendLine("ANALYSE ${index + 1} — texte exact soumis")
-                appendLine("Identifiant du bloc analysé : ${analysis.selectedBlockId ?: "texte complet"}")
+                appendLine("Identifiant du bloc analysé : ${analysis.selectedBlockId ?: "non établi pour le texte soumis"}")
                 appendLine(analysis.submittedText.ifBlank { "(vide)" })
                 appendLine("Résultat affiché")
                 appendLine(analysis.displayResult)
