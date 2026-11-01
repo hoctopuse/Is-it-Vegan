@@ -2,6 +2,13 @@
 
 ## En cours — revue OCR multilingue
 
+- La composition et les présences reprennent après une trace entre parenthèses ou crochets, y compris avec imbrication et tiret de séparation. La liste manuelle sans titre applique les mêmes règles aux traces imbriquées et conserve son traitement des mentions autonomes. Les reprises par espaces seuls, juxtaposition, signe non reconnu ou délimiteurs déséquilibrés restent à vérifier : elles conservent le texte et empêchent une confirmation injustifiée.
+- Les frontières de produit plausibles sont signalées. Une présence simple avant le titre est rattachée selon le texte soumis, sans preuve de l’identité du produit.
+
+- Une présence simple juste avant le titre est prise en compte ; les préambules de présence ambigus et les structures de traces non équilibrées empêchent une confirmation. Les mentions dans les traces gardent leur contexte.
+
+- Les déclarations explicites successives sont analysées lorsqu’elles alternent avec des traces ; les traces restent séparées, y compris sans point avant une déclaration.
+
 - Les messages d’extraction et de recadrage invalidés disparaissent sans masquer la progression d’une nouvelle opération. Sélectionner deux fois la même photo recharge son aperçu et laisse les commandes utilisables.
 - L’édition d’un texte manuel masque le verdict précédent ; en OCR, le résultat reste périmé jusqu’à réanalyse même si le texte initial est rétabli. Les retours tardifs d’analyse, d’OCR et de recadrage invalidés par un changement de session ou de contexte ne sont plus publiés.
 - Les fragments non reconnus d’une correspondance partielle et les inconnus de présence déclarée restent visibles dans l’explication, même en l’absence de liste exploitable ; les verdicts et la séparation des traces sont conservés.

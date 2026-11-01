@@ -16,7 +16,9 @@ data class LabelSections(
     val ingredientSection: IngredientSection? = null,
     val traceSections: List<TraceSection> = listOfNotNull(traceSection),
     /** Present only when a composition is accepted without an explicit label heading. */
-    val implicitIngredientList: ImplicitIngredientList? = null
+    val implicitIngredientList: ImplicitIngredientList? = null,
+    val ambiguousProductBoundary: Boolean = false,
+    val ambiguousTraceContinuation: Boolean = false
 )
 
 data class ImplicitIngredientList(
@@ -94,6 +96,13 @@ object LabelSectionExtractor {
 
     fun extract(language: LabelLanguage, text: String): LabelSections {
         val markers = findMarkers(text)
+        val ambiguousTraceContinuation = markers.any { marker ->
+            if (marker.kind != SectionKind.TRACES) false else {
+                val group = enclosingTraceGroup(text, marker)
+                if (group == null) depthAt(text, marker.range.first) > 0
+                else traceContinuation(text, group, markers).ambiguous
+            }
+        }
         val ingredient = markers.firstOrNull { it.kind == SectionKind.INGREDIENTS }
         val contains = markers.firstOrNull { it.kind == SectionKind.CONTAINS }
         val ingredientSectionText = ingredient?.let { marker ->
@@ -102,28 +111,39 @@ object LabelSectionExtractor {
                     it.kind == SectionKind.INGREDIENTS || it.kind == SectionKind.CONTAINS
             }
         }
-        val ingredientsText = when {
+        val untrimmedIngredientsText = when {
             ingredient != null -> ingredientSectionText
             contains != null -> null
-            else -> text.substring(
-                0,
-                markers.firstOrNull {
-                    it.kind == SectionKind.TRACES || it.kind == SectionKind.IGNORED
-                }?.range?.first ?: text.length
-            )
-        }?.trimStart()?.takeIf { it.isNotBlank() }
-        val declaredContains = contains?.let {
+            else -> contentUntil(text, SectionMarker(SectionKind.INGREDIENTS, -1..-1, 0), markers) {
+                it.kind == SectionKind.TRACES || it.kind == SectionKind.IGNORED
+            }
+        }
+        val ingredientsText = untrimmedIngredientsText?.trimStart()?.takeIf { it.isNotBlank() }
+        val scopeStart = contains?.range?.first?.let { first ->
+            if (ingredient != null && first < ingredient.range.first && isSimplePresencePrefix(text.substring(0, ingredient.range.first))) first
+            else ingredient?.range?.first ?: first
+        } ?: ingredient?.range?.first ?: 0
+        val scopeEnd = markers.firstOrNull {
+            it.range.first > (ingredient?.range?.first ?: scopeStart) &&
+                (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
+        }?.range?.first ?: text.length
+        val possibleProductBoundary = Regex("(?m)[.!?][ \\t]*\\r?\\n[ \\t]*[^\\r\\n:,.!?]+\\r?\\n[ \\t]*(?=(?:contient|contains|bevat|enth\\u00e4lt)\\s*:)", RegexOption.IGNORE_CASE)
+            .find(text, scopeStart)?.range?.first?.takeIf { it < scopeEnd }
+        val declaredContains = markers.filter {
+            it.kind == SectionKind.CONTAINS && it.range.first in scopeStart until (possibleProductBoundary ?: scopeEnd)
+        }.mapNotNull {
             contentUntil(text, it, markers) { next ->
                 next.kind == SectionKind.TRACES || next.kind == SectionKind.IGNORED ||
-                    next.kind == SectionKind.INGREDIENTS
-            }.trim()
+                    next.kind == SectionKind.INGREDIENTS || next.kind == SectionKind.CONTAINS
+            }.trim().trimEnd('.', ';')
                 .replace(Regex("(?i)^(?:du|des|de\\s+la|de\\s+l['’])\\s+"), "")
                 .takeIf(String::isNotBlank)
-        }
+        }.joinToString(", ").takeIf(String::isNotBlank)
         val traceSections = markers.filter { it.kind == SectionKind.TRACES }.map { marker ->
             val nextSection = markers.firstOrNull {
                     it.range.first > marker.range.first &&
-                        (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS)
+                        (it.kind == SectionKind.IGNORED || it.kind == SectionKind.INGREDIENTS ||
+                            it.kind == SectionKind.CONTAINS)
                 }?.range?.first ?: text.length
             val end = traceEnd(text, marker.contentStart, nextSection)
             val raw = text.substring(marker.range.first, end).trim()
@@ -178,15 +198,45 @@ object LabelSectionExtractor {
                 it.copy(normalizedText = uniqueTraceSections.joinToString("\n") { section -> section.normalizedText })
             },
             ingredientSection = ingredient?.let { marker ->
-                val raw = ingredientSectionText.orEmpty()
+                val end = marker.contentStart + ingredientSectionText.orEmpty().length
+                val raw = text.substring(marker.contentStart, end)
                 IngredientSection(marker.contentStart, marker.contentStart + raw.length, raw)
             } ?: implicitIngredients?.let {
-                val raw = ingredientsText.orEmpty()
-                IngredientSection(0, raw.length, raw)
+                val end = untrimmedIngredientsText.orEmpty().length
+                val start = end - ingredientsText.orEmpty().length
+                IngredientSection(start, end, text.substring(start, end))
             },
             traceSections = uniqueTraceSections,
-            implicitIngredientList = implicitIngredients
+            implicitIngredientList = implicitIngredients,
+            ambiguousProductBoundary = possibleProductBoundary != null,
+            ambiguousTraceContinuation = ambiguousTraceContinuation
         )
+    }
+
+    internal fun isSimplePresencePrefix(prefix: String): Boolean = Regex(
+        "(?i)^\\s*(?:contient|contains|bevat|enth\\u00e4lt)\\s*:\\s*[\\p{L}\\d, -]+[.]\\s*$"
+    ).matches(prefix)
+
+    internal data class ScopedManualInput(val text: String, val embeddedTraces: List<String>)
+
+    /** Preserve the existing manual preprocessor's treatment of standalone notices. Only
+     * embedded groups use the same scope and separator rules as titled compositions. */
+    internal fun prepareManualInput(sections: LabelSections): ScopedManualInput {
+        val text = sections.rawText
+        val markers = findMarkers(text)
+        val chars = text.toCharArray()
+        val warnings = mutableListOf<String>()
+        var coveredUntil = 0
+        for (marker in markers.filter { it.kind == SectionKind.TRACES }) {
+            val group = enclosingTraceGroup(text, marker) ?: continue
+            if (group.first < coveredUntil) continue
+            val continuation = traceContinuation(text, group, markers)
+            val mask = maskedTraceGroup(group, continuation)
+            mask.copyInto(chars, group.first)
+            warnings += sections.traceSections.filter { it.start in group }.map { it.rawText }
+            coveredUntil = continuation.resumeAt
+        }
+        return ScopedManualInput(chars.concatToString(), warnings.distinct())
     }
 
     /**
@@ -367,9 +417,78 @@ object LabelSectionExtractor {
         markers: List<SectionMarker>,
         stop: (SectionMarker) -> Boolean
     ): String {
-        val end = markers.firstOrNull { it.range.first > marker.range.first && stop(it) }
-            ?.range?.first ?: text.length
-        return trimTrailingProductTitle(text.substring(marker.contentStart, end))
+        val output = StringBuilder()
+        var cursor = marker.contentStart
+        while (true) {
+            val next = markers.firstOrNull { it.range.first >= cursor && it.range.first > marker.range.first && stop(it) }
+            val end = next?.range?.first ?: text.length
+            if (next?.kind == SectionKind.TRACES) {
+                val group = enclosingTraceGroup(text, next)?.takeIf { it.first >= cursor }
+                if (group != null) {
+                    val continuation = traceContinuation(text, group, markers)
+                    output.append(text, cursor, group.first)
+                    // Keep the original offsets while removing only the scoped trace. A known
+                    // separator becomes a parser delimiter; raw source text stays in rawText.
+                    output.append(maskedTraceGroup(group, continuation).concatToString())
+                    cursor = continuation.resumeAt
+                    continue
+                } else if (depthAt(text, next.range.first) > 0) {
+                    // An unclosed or unsupported embedded notice has no safe endpoint.
+                    // Retain its remainder for review; the ambiguity guard prevents parsing.
+                    output.append(text, cursor, text.length)
+                    return output.toString()
+                }
+            }
+            output.append(text, cursor, end)
+            return trimTrailingProductTitle(output.toString())
+        }
+    }
+
+    private data class TraceContinuation(val resumeAt: Int, val separated: Boolean = false, val ambiguous: Boolean = false)
+
+    private fun maskedTraceGroup(group: IntRange, continuation: TraceContinuation): CharArray =
+        CharArray(continuation.resumeAt - group.first) { ' ' }.also {
+            if (continuation.separated) it[it.lastIndex] = ','
+        }
+
+    /** A group belongs to the trace only when its opening is immediately before the marker.
+     * Pure outer wrappers are included, but a group containing preceding ingredients is not. */
+    private fun enclosingTraceGroup(text: String, marker: SectionMarker): IntRange? {
+        var opening = text.lastNonWhitespaceBefore(marker.range.first) ?: return null
+        if (text[opening] !in "([") return null
+        while (true) {
+            val previous = text.lastNonWhitespaceBefore(opening) ?: break
+            if (text[previous] !in "([") break
+            opening = previous
+        }
+        val stack = ArrayDeque<Char>()
+        for (i in opening until text.length) when (val char = text[i]) {
+            '(', '[' -> stack.addLast(char)
+            ')', ']' -> {
+                val expected = if (char == ')') '(' else '['
+                if (stack.removeLastOrNull() != expected) return null
+                if (stack.isEmpty()) return opening..i
+            }
+        }
+        return null
+    }
+
+    private fun String.lastNonWhitespaceBefore(end: Int): Int? =
+        (end - 1 downTo 0).firstOrNull { !this[it].isWhitespace() }
+
+    private fun traceContinuation(text: String, group: IntRange, markers: List<SectionMarker>): TraceContinuation {
+        val start = group.last + 1
+        val following = (start until text.length).firstOrNull { !text[it].isWhitespace() }
+            ?: return TraceContinuation(start)
+        if (markers.any { it.range.first == following } || text[following] in ")]") {
+            return TraceContinuation(start)
+        }
+        val char = text[following]
+        if (char in ",;.-\u2013\u2014") return TraceContinuation(following + 1, separated = true)
+        if (text.substring(start, following).any { it == '\n' || it == '\r' }) {
+            return TraceContinuation(following, separated = true)
+        }
+        return TraceContinuation(start, ambiguous = true)
     }
 
     /** A completed ingredient sentence followed by a fresh label line is commonly the product title. */
@@ -386,7 +505,7 @@ object LabelSectionExtractor {
         for (index in contentStart until maximumEnd) {
             when (text[index]) {
                 '(', '[' -> depth++
-                ')', ']' -> depth = (depth - 1).coerceAtLeast(0)
+                ')', ']' -> if (depth == 0) return index else depth--
                 '.', '!', '?' -> if (depth == 0) return index + 1
             }
         }

@@ -271,7 +271,13 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
         val ocrSections = if (inputMode == InputMode.OCR_LABEL) {
             selectOcrSections(text, detectedSegmentation, selectedBlockId)
         } else null
-        val ambiguousOcrText = ocrSections?.second == true
+        val headings = LabelLexicon.findIngredientHeadings(text).sortedBy { it.range.first }
+        val prefix = headings.firstOrNull()?.let { text.substring(0, it.range.first) }.orEmpty()
+        val hasPresencePrefix = LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, prefix).declaredContainsText != null
+        val ambiguousPresencePrefix = hasPresencePrefix && !LabelSectionExtractor.isSimplePresencePrefix(prefix)
+        val ambiguousNestedTrace = !hasBalancedOcrDelimiters(text) &&
+            LabelSectionExtractor.extract(LabelLanguage.UNKNOWN, text).traceSections.isNotEmpty()
+        val ambiguousStructure = ocrSections?.second == true || ambiguousPresencePrefix || ambiguousNestedTrace
         val languageSegmentation = if (inputMode == InputMode.OCR_LABEL) {
             detectedSegmentation.copy(
                 selectedText = text,
@@ -279,15 +285,19 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
                 selectedBlockId = ocrSections?.first?.selectedBlockId
             )
         } else detectedSegmentation.withSelectedBlockId(selectedBlockId)
-        val sections = ocrSections?.first ?: selectSections(languageSegmentation, inputMode, preferredLanguage)
+        val sections = ocrSections?.first ?: if (headings.size == 1 && LabelSectionExtractor.isSimplePresencePrefix(prefix)) {
+            LabelSectionExtractor.extract(languageSegmentation.selectedLanguage, text)
+        } else selectSections(languageSegmentation, inputMode, preferredLanguage)
+        val ambiguousOcrText = ambiguousStructure || sections.ambiguousProductBoundary || sections.ambiguousTraceContinuation
         val explicitList = sections.hasIngredientHeading && !sections.ingredientsText.isNullOrBlank()
         val manualList = inputMode == InputMode.MANUAL_INGREDIENT_LIST &&
             !sections.ingredientsText.isNullOrBlank()
         val canParseIngredientText = !ambiguousOcrText && (explicitList || manualList)
         val requestedManualFallback = manualList && !sections.hasIngredientHeading
+        val manualInput = if (requestedManualFallback) LabelSectionExtractor.prepareManualInput(sections) else null
         val ingredientInput = when {
             !canParseIngredientText -> ""
-            requestedManualFallback -> sections.rawText
+            requestedManualFallback -> manualInput?.text.orEmpty()
             else -> sections.ingredientsText
         }
         val preprocessed = LabelPreprocessor.preprocess(ingredientInput)
@@ -303,7 +313,7 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
             availability == AnalysisAvailability.INGREDIENT_LIST_ANALYZED
         val availabilityReason = if (availability == AnalysisAvailability.NO_INGREDIENT_LIST) {
             if (ambiguousOcrText) {
-                "Plusieurs sections ou un préambule empêchent une analyse OCR fiable. Choisissez et vérifiez une seule liste."
+                "Une frontière ou une structure ambiguë empêche une analyse fiable. Vérifiez le texte et choisissez une seule liste."
             } else if (inputMode == InputMode.MANUAL_INGREDIENT_LIST) {
                 "Aucune liste manuelle exploitable n’a été fournie."
             } else {
@@ -479,7 +489,7 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
                 stoppedAtNonVegetarian = false,
                 crossContactWarnings = (
                     preprocessed.crossContactWarnings + presencePreprocessed.crossContactWarnings +
-                        if (usedManualFallback) emptyList() else listOfNotNull(sections.tracesText)
+                        if (usedManualFallback) manualInput?.embeddedTraces.orEmpty() else listOfNotNull(sections.tracesText)
                     ).distinct(),
                 excludedNotes = (preprocessed.excludedNotes + presencePreprocessed.excludedNotes).distinct(),
                 originNonVeganIngredientIds = originNonVegan.toList()
@@ -496,7 +506,7 @@ class IngredientAnalysisService(private val knowledge: IngredientKnowledge) {
     ): Pair<LabelSections, Boolean> {
         val headings = LabelLexicon.findIngredientHeadings(text).sortedBy { it.range.first }
         val prefix = headings.firstOrNull()?.let { text.substring(0, it.range.first).trim() }.orEmpty()
-        val safePrefix = prefix.isEmpty() || prefix.matches(
+        val safePrefix = prefix.isEmpty() || LabelSectionExtractor.isSimplePresencePrefix(prefix) || prefix.matches(
             Regex("(?i)^(?:\\[?(?:FR|EN|NL|DE|IT|ES|PL)\\]?\\s*[:\\-]?)$")
         )
         val parts = segmentation.blocks.map { LabelSectionExtractor.extract(it) }

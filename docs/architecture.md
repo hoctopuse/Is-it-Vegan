@@ -72,5 +72,18 @@ Le message de progression est associé à l’opération qui l’a affiché : in
 - ML Kit produit la reconnaissance et ses rectangles ; le dépôt ne réimplémente pas un moteur OCR.
 - Le parseur construit une structure sans consulter la base d’ingrédients.
 - Le matcher classe les feuilles à partir de la base ; il ne corrige pas la syntaxe.
-- Les traces et notes restent hors du moteur de verdict.
+- Les déclarations de présence successives dans la section de composition soumise sont analysées, y compris après une mention de traces. Les marqueurs de présence et de traces reconnus se délimitent, y compris sans point lorsque leur portée est identifiable ; les traces et notes restent hors du moteur de verdict. Une nouvelle section de composition ou une section ignorée borne la collecte et ne fusionne pas les traductions.
 - L’interface ne transforme jamais une image directement en verdict : elle obtient d’abord un texte éditable.
+
+Une présence simple avant le titre est rattachée selon la structure du texte soumis ; cette structure ne prouve pas l’identité du produit. Une ligne pouvant annoncer un autre produit avant une déclaration est signalée comme ambiguë ; cette heuristique ne reconnaît pas toutes les frontières possibles. Un simple retour à la ligne entre deux déclarations ne suffit pas à établir un changement de produit.
+
+La reprise après une trace imbriquée suit le même contrat dans la composition, les présences déclarées et la liste manuelle sans titre. La trace doit commencer immédiatement après l’ouverture du groupe (hors espaces), et les délimiteurs doivent correspondre. Les groupes `(...)`, `[...]`, leurs enveloppes mixtes et l’imbrication dans le contenu de la trace sont testés. Seul le groupe rattaché à la trace est masqué dans le texte transmis au parseur ; le texte brut et les positions restent conservés. Pour une composition implicite sans titre aussi, `IngredientSection.rawText` est exactement la sous-chaîne source entre `start` inclus et `end` exclu, même lorsque le texte d’analyse est masqué ou que des espaces initiaux sont retirés.
+
+| Structure après le groupe de trace | Traitement vérifié |
+|---|---|
+| Virgule, point-virgule, point, tiret (`-`, `–`, `—`) ou retour à la ligne avant la suite | Reprise analysée ; la frontière est convertie en séparateur de parsing sans modifier le texte brut. |
+| Fin de section ou marqueur de présence reconnu | Trace séparée, sans absorber une autre déclaration. |
+| Espaces seuls, juxtaposition ou signe non reconnu avant un ingrédient | Texte conservé et ambiguïté signalée ; aucune confirmation vegan sur le seul début de liste. |
+| Délimiteurs déséquilibrés ou groupe où la trace ne commence pas juste après l’ouverture | Portée non établie ; analyse suspendue et texte conservé pour vérification. |
+
+La matrice JVM utilise les assets réels avec lait, E471, un inconnu et sucre, en début, milieu et fin de composition ou de présence. Elle contrôle extraction, traces, inconnus et deux évaluations dans les trois modes ; les listes sans titre sont testées en mode manuel. Les tests d’interface B1 vérifient le rendu des présences alternées et des reprises avec crochets ou tiret. Ces preuves ne couvrent pas l’acquisition d’une photo réelle ni toute forme possible de prose.

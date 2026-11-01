@@ -238,6 +238,41 @@ class MainScreenInstrumentedTest {
         composeRule.onNodeWithText("✅ VEGAN", substring = true).assertIsDisplayed()
     }
 
+    @Test fun interleavedDeclaredPresenceAndTracesReachTheRenderedResult() {
+        val editor = composeRule.onNodeWithText("Texte de l’étiquette")
+        for ((term, verdict) in listOf("lait" to "VÉGÉTARIEN", "gelatine" to "NON VEGAN", "mystere" to "INCONCLUS")) {
+            editor.performScrollTo().performTextClearance()
+            editor.performTextInput("Ingredients: eau. Contient: soja. Peut contenir: noix Contient: $term.")
+            composeRule.waitUntilAtLeastOneExists(hasText("ANALYSER").and(isEnabled()), 30_000)
+            composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+            composeRule.waitUntilAtLeastOneExists(hasText(verdict, substring = true), 30_000)
+            composeRule.onNodeWithText(verdict, substring = true).performScrollTo().assertIsDisplayed()
+            val explanation = if (term == "mystere") "Ingrédients non identifiés" else "Causes connues incompatibles"
+            composeRule.onNode(hasText(explanation, substring = true).and(hasText(term, substring = true, ignoreCase = true)))
+                .performScrollTo().assertIsDisplayed()
+            composeRule.onNode(hasText(verdict, substring = true).and(hasText("Peut contenir: noix", substring = true)))
+                .performScrollTo().assertIsDisplayed()
+            composeRule.onAllNodes(hasText(verdict, substring = true).and(hasText("Peut contenir: noix Contient:", substring = true))).assertCountEquals(0)
+        }
+    }
+
+    @Test fun embeddedTraceResumptionKeepsMilkInRenderedVerdict() {
+        val editor = composeRule.onNodeWithText("Texte de l’étiquette")
+        for (text in listOf(
+            "Ingredients: eau [Peut contenir: noix], lait.",
+            "Ingredients: eau (Peut contenir: noix) - lait."
+        )) {
+            editor.performScrollTo().performTextClearance()
+            editor.performTextInput(text)
+            composeRule.waitUntilAtLeastOneExists(hasText("ANALYSER").and(isEnabled()), 30_000)
+            composeRule.onNodeWithText("ANALYSER").performScrollTo().performClick()
+            composeRule.waitUntilAtLeastOneExists(hasText("VÉGÉTARIEN", substring = true), 30_000)
+            val result = hasText("VÉGÉTARIEN", substring = true).and(hasText("Peut contenir: noix", substring = true))
+            composeRule.onNode(result.and(hasText("lait", substring = true))).performScrollTo().assertIsDisplayed()
+            composeRule.onAllNodes(result.and(hasText("Peut contenir: noix], lait", substring = true))).assertCountEquals(0)
+        }
+    }
+
     @Test fun fullLabelModeDoesNotAnalyzeAProductNameAsIngredients() {
         composeRule.onNodeWithText("Étiquette").assertIsSelected()
         composeRule.onNodeWithText("Texte de l’étiquette").performTextInput("Pommes")
