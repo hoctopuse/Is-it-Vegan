@@ -15,6 +15,14 @@
 - La revue évite les associations multiples fondées uniquement sur la position et permet de consulter les termes sans concordance établie, reconnus ou non, avec leur langue. Une traduction partielle ne prouve pas une absence.
 - La proposition NL pour `INGREDIENTE.` reste désactivée : ses frontières demandent encore des preuves suffisantes. Aucune correction lexicale n’est produite à partir des seules ancres.
 
+## 0.6.13.13 — reprise après les traces (versionCode 65)
+
+- Une composition reprend après une mention de traces reconnue entre parenthèses ou crochets lorsque sa frontière est identifiable ; les ingrédients qui suivent restent analysés. Les présences explicites répétées continuent d’être analysées dans la section soumise.
+- Les traces restent affichées séparément et exclues du verdict. Lait et ingrédients reconnus incertains gardent leur classification ; les ingrédients inconnus restent visibles et empêchent une confirmation vegan.
+- Les frontières de trace sans séparateur interprétable, les délimiteurs déséquilibrés et certaines frontières possibles entre produits restent signalés comme ambigus. Une présence simple avant le titre est rattachée d’après la structure du texte, sans prouver l’identité du produit.
+- Le brut des listes implicites sans titre correspond aux positions dans le texte source, y compris lorsque la vue d’analyse masque une trace.
+- Vérification : tests JVM ciblés et matrice B1 réussis, APK debug compilé. Les tests d’interface B1 portent sur du texte saisi ; aucune photo réelle ni le parcours photo complet n’ont été validés pour cette version.
+
 ## 0.6.13.12 — sécurisation des résultats et sessions (versionCode 64)
 
 - Après modification d’un texte manuel ou OCR, le verdict précédent est masqué ou signalé comme périmé jusqu’à une nouvelle analyse. Restaurer le texte initial ne réactive pas un résultat ancien.
